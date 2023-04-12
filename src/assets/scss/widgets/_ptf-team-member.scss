@@ -1,0 +1,104 @@
+/* WIDGET: TEAM MEMBER
+-------------------------------------------- */
+
+.ptf-team-member {
+  --ptf-avatar-border-color: var(--ptf-color-3);
+  --ptf-avatar-border-color-hover: var(--ptf-accent-1);
+  --ptf-avatar-background: transparent;
+}
+
+.ptf-team-member {
+  width: 100%;
+
+  .ptf-team-member__avatar {
+    position: relative;
+
+    background-color: var(--ptf-avatar-background);
+
+    .shadow-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      width: 100%;
+      height: 100%;
+
+      box-shadow: inset 0 0 0 1px var(--ptf-avatar-border-color);
+
+      transition: box-shadow var(--ptf-transition-duration)
+        var(--ptf-transition-easing);
+      pointer-events: none;
+    }
+
+    img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      transition: all var(--ptf-transition-duration)
+        var(--ptf-transition-easing);
+
+      object-fit: contain;
+      object-position: top;
+      object-fit: cover;
+    }
+  }
+
+  .ptf-team-member__avatar + .ptf-team-member__content {
+    padding-top: px2rem(24px);
+  }
+
+  .ptf-team-member__name {
+    font-size: px2rem(20px);
+
+    a:hover {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+
+  .ptf-team-member__function {
+    color: var(--ptf-color-2);
+    font-size: px2rem(14px);
+  }
+
+  &:hover {
+    .ptf-team-member__avatar .shadow-effect {
+      box-shadow: inset 0 0 0 2px var(--ptf-avatar-border-color-hover);
+    }
+  }
+}
+
+.ptf-team-member--has-effect {
+  .ptf-team-member__avatar img {
+    filter: grayscale(100%);
+  }
+
+  &:hover {
+    .ptf-team-member__avatar img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.ptf-team-member-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  &--4-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  grid-gap: px2rem(60px);
+  @include mq("large") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: px2rem(30px);
+  }
+  @include mq("medium") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq("small") {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: px2rem(30px);
+  }
+}

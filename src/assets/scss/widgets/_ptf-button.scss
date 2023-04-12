@@ -1,0 +1,105 @@
+/* WIDGET: BUTTON
+-------------------------------------------- */
+
+.ptf-btn {
+	z-index: 1;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: px2rem(23px) px2rem(45px);
+
+	white-space: nowrap;
+	text-decoration: none;
+	font-size: px2rem(18px);
+	line-height: 1;
+	font-weight: 700;
+
+	border: none;
+	outline: 0;
+	box-shadow: none;
+
+	transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+	overflow: hidden;
+	cursor: pointer;
+
+	&:disabled,
+	&.disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&--block {
+		width: 100%;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		transform: translate(0, -2px);
+	}
+
+}
+
+/* BUTTON PRIMARY
+-------------------------------------------- */
+
+.ptf-btn.ptf-btn--primary {
+	color: var(--ptf-color-white);
+
+	background-color: var(--ptf-accent-1);
+
+	&:hover {
+		color: var(--ptf-color-white);
+
+		background-color: var(--ptf-accent-2);
+	}
+
+	&.ptf-btn--inversed {
+		color: var(--ptf-color-white);
+
+		background-color: var(--ptf-accent-2);
+
+		&:hover {
+			color: var(--ptf-color-white);
+
+			background-color: var(--ptf-color-black);
+		}
+
+	}
+
+}
+
+/* BUTTON SECONDARY
+-------------------------------------------- */
+
+.ptf-btn.ptf-btn--secondary {
+	color: var(--ptf-color-white);
+
+	background-color: var(--ptf-color-black);
+
+	&:hover {
+		color: var(--ptf-color-white);
+
+		background-color: var(--ptf-accent-1);
+	}
+
+	&.ptf-btn--inversed {
+		color: var(--ptf-color-white);
+
+		background-color: var(--ptf-accent-1);
+
+		&:hover {
+			color: var(--ptf-color-white);
+
+			background-color: var(--ptf-color-black);
+		}
+
+	}
+
+}

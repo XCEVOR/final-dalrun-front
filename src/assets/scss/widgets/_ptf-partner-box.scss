@@ -1,0 +1,62 @@
+/* WIDGET: PARTNER BOX
+-------------------------------------------- */
+
+.ptf-partner-box {
+	--ptf-hover-background: var(--ptf-color-7);
+	--ptf-image-height: 85px;
+}
+
+.ptf-partner-box {
+	padding: px2rem(50px) px2rem(15px) px2rem(40px);
+
+	text-align: center;
+
+	background-color: var(--ptf-color-7);
+
+	transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+	&__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: px2rem(85px);
+
+		transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+		filter: grayscale(100%);
+
+		img {
+			width: auto;
+			height: var(--ptf-image-height);
+		}
+
+	}
+
+	&__title {
+		margin-top: px2rem(35px);
+
+		text-transform: uppercase;
+		color: var(--ptf-color-3);
+		font-size: px2rem(16px);
+		font-weight: 700;
+
+		transition: color var(--ptf-transition-duration) var(--ptf-transition-easing);
+	}
+
+	&:hover {
+		background-color: var(--ptf-hover-background);
+
+		.ptf-partner-box__image {
+			animation: ptf_bounce calc(var(--ptf-transition-duration) * 3) var(--ptf-transition-easing) forwards;
+
+			filter: none;
+		}
+
+		.ptf-partner-box__title {
+			color: var(--ptf-color-black);
+		}
+
+	}
+
+}

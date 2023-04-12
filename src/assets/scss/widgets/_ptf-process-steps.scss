@@ -1,0 +1,53 @@
+/* WIDGET: PROCESS STEPS
+-------------------------------------------- */
+
+.ptf-process-steps {
+	margin: 0;
+	padding: 0;
+
+	list-style-type: none;
+
+	--ptf-border-width: 1px;
+	--ptf-border-color: var(--ptf-color-6);
+}
+
+.ptf-process-item {
+	counter-increment: process;
+
+	padding-bottom: px2rem(55px);
+	padding-left: px2rem(100px);
+
+	&::before {
+		content: counter(process);
+
+		position: absolute;
+		left: 0;
+
+		color: var(--ptf-color-1);
+		font-size: px2rem(80px);
+		line-height: .75;
+		font-weight: 300;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-size: px2rem(20px);
+	}
+
+	&__text {
+		display: block;
+
+		margin-top: px2rem(15px);
+
+		font-size: px2rem(18px);
+	}
+
+}
+
+.ptf-process-item + .ptf-process-item {
+	padding-top: px2rem(60px);
+
+	border-top-width: var(--ptf-border-width);
+	border-top-style: solid;
+	border-top-color: var(--ptf-border-color);
+}
