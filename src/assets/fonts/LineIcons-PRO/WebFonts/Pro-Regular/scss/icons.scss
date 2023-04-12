@@ -1,0 +1,5288 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$lnir-500px: unicode(ea02);
+$lnir-adobe: unicode(ea03);
+$lnir-airbnb: unicode(ea04);
+$lnir-amazon-original: unicode(ea05);
+$lnir-amazon-pay: unicode(ea06);
+$lnir-amazon: unicode(ea07);
+$lnir-angellist: unicode(ea08);
+$lnir-android-original: unicode(ea09);
+$lnir-android: unicode(ea0a);
+$lnir-amex: unicode(ea0b);
+$lnir-angular: unicode(ea0c);
+$lnir-atlassian: unicode(ea0d);
+$lnir-apple-pay: unicode(ea0e);
+$lnir-apple: unicode(ea0f);
+$lnir-app-store: unicode(ea10);
+$lnir-aws: unicode(ea11);
+$lnir-behance-original: unicode(ea12);
+$lnir-behance: unicode(ea13);
+$lnir-bitbucket: unicode(ea14);
+$lnir-chrome: unicode(ea15);
+$lnir-bitcoin: unicode(ea16);
+$lnir-codepen: unicode(ea17);
+$lnir-bootstrap: unicode(ea18);
+$lnir-css3: unicode(ea19);
+$lnir-blogger: unicode(ea1a);
+$lnir-dev: unicode(ea1b);
+$lnir-diners-club: unicode(ea1c);
+$lnir-discord: unicode(ea1d);
+$lnir-discover: unicode(ea1e);
+$lnir-docker: unicode(ea1f);
+$lnir-dribbble: unicode(ea20);
+$lnir-dropbox: unicode(ea21);
+$lnir-drupal-original: unicode(ea22);
+$lnir-drupal: unicode(ea23);
+$lnir-edge: unicode(ea24);
+$lnir-envato: unicode(ea25);
+$lnir-facebook-filled: unicode(ea26);
+$lnir-cpanel: unicode(ea27);
+$lnir-creative-commons: unicode(ea28);
+$lnir-facebook-messenger: unicode(ea29);
+$lnir-facebook-original: unicode(ea2a);
+$lnir-facebook-oval: unicode(ea2b);
+$lnir-facebook: unicode(ea2c);
+$lnir-figma: unicode(ea2d);
+$lnir-firefox-original: unicode(ea2e);
+$lnir-firefox: unicode(ea2f);
+$lnir-flickr: unicode(ea30);
+$lnir-git: unicode(ea31);
+$lnir-github-original: unicode(ea32);
+$lnir-github: unicode(ea33);
+$lnir-goodreads: unicode(ea34);
+$lnir-google-drive: unicode(ea35);
+$lnir-google-pay: unicode(ea36);
+$lnir-google-wallet: unicode(ea37);
+$lnir-google: unicode(ea38);
+$lnir-hacker-news: unicode(ea39);
+$lnir-html5: unicode(ea3a);
+$lnir-instagram-filled: unicode(ea3b);
+$lnir-instagram-original: unicode(ea3c);
+$lnir-instagram: unicode(ea3d);
+$lnir-javascript: unicode(ea3e);
+$lnir-jcb: unicode(ea3f);
+$lnir-joomla: unicode(ea40);
+$lnir-laravel: unicode(ea41);
+$lnir-lineicons-alt: unicode(ea42);
+$lnir-dropbox-original: unicode(ea43);
+$lnir-linkedin-original: unicode(ea44);
+$lnir-mailchimp: unicode(ea45);
+$lnir-mastercard: unicode(ea46);
+$lnir-medium: unicode(ea47);
+$lnir-megento: unicode(ea48);
+$lnir-microsoft: unicode(ea49);
+$lnir-nodejs-alt: unicode(ea4a);
+$lnir-nodejs: unicode(ea4b);
+$lnir-npm: unicode(ea4c);
+$lnir-opera: unicode(ea4d);
+$lnir-patreon: unicode(ea4e);
+$lnir-paypal-original: unicode(ea4f);
+$lnir-paypal: unicode(ea50);
+$lnir-php: unicode(ea51);
+$lnir-line: unicode(ea52);
+$lnir-lineicons: unicode(ea53);
+$lnir-linkedin: unicode(ea54);
+$lnir-pinterest: unicode(ea55);
+$lnir-play-store: unicode(ea56);
+$lnir-producthunt: unicode(ea57);
+$lnir-python: unicode(ea58);
+$lnir-quora: unicode(ea59);
+$lnir-react: unicode(ea5a);
+$lnir-reddit: unicode(ea5b);
+$lnir-shopify: unicode(ea5c);
+$lnir-sketch: unicode(ea5d);
+$lnir-skype: unicode(ea5e);
+$lnir-slack: unicode(ea5f);
+$lnir-slideshare: unicode(ea60);
+$lnir-snapchat: unicode(ea61);
+$lnir-souncloud-original: unicode(ea62);
+$lnir-soundcloud: unicode(ea63);
+$lnir-spotify-original: unicode(ea64);
+$lnir-spotify: unicode(ea65);
+$lnir-stackoverflow: unicode(ea66);
+$lnir-swift: unicode(ea67);
+$lnir-telegram-original: unicode(ea68);
+$lnir-telegram: unicode(ea69);
+$lnir-trello: unicode(ea6a);
+$lnir-stripe: unicode(ea6b);
+$lnir-tumblr: unicode(ea6c);
+$lnir-stumbleupon: unicode(ea6d);
+$lnir-twitter-original: unicode(ea6e);
+$lnir-twitter: unicode(ea6f);
+$lnir-ubuntu: unicode(ea70);
+$lnir-vimeo: unicode(ea71);
+$lnir-twitch: unicode(ea72);
+$lnir-steam: unicode(ea73);
+$lnir-twitter-filled: unicode(ea74);
+$lnir-visa: unicode(ea75);
+$lnir-vk: unicode(ea76);
+$lnir-wechat: unicode(ea77);
+$lnir-whatsapp: unicode(ea78);
+$lnir-windows: unicode(ea79);
+$lnir-wordpress-filled: unicode(ea7a);
+$lnir-wordpress: unicode(ea7b);
+$lnir-yahoo: unicode(ea7c);
+$lnir-ycombinator: unicode(ea7d);
+$lnir-youtube: unicode(ea7e);
+$lnir-anchor: unicode(ea7f);
+$lnir-bi-cycle: unicode(ea80);
+$lnir-boarding-pass-alt: unicode(ea81);
+$lnir-boarding-pass: unicode(ea82);
+$lnir-java: unicode(ea83);
+$lnir-jsfiddle: unicode(ea84);
+$lnir-bridge: unicode(ea85);
+$lnir-bullhorn: unicode(ea86);
+$lnir-bus: unicode(ea87);
+$lnir-car-alt: unicode(ea88);
+$lnir-car: unicode(ea89);
+$lnir-caravan: unicode(ea8a);
+$lnir-chat-add: unicode(ea8b);
+$lnir-chat-minus: unicode(ea8c);
+$lnir-comments-alt: unicode(ea8d);
+$lnir-comments-reply: unicode(ea8e);
+$lnir-comments: unicode(ea8f);
+$lnir-envelope-alt: unicode(ea90);
+$lnir-helicopter: unicode(ea91);
+$lnir-inbox: unicode(ea92);
+$lnir-megaphone: unicode(ea93);
+$lnir-message-attachement: unicode(ea94);
+$lnir-message-block: unicode(ea95);
+$lnir-message-check: unicode(ea96);
+$lnir-message-cross: unicode(ea97);
+$lnir-message-desktop: unicode(ea98);
+$lnir-message-edit: unicode(ea99);
+$lnir-message-forward: unicode(ea9a);
+$lnir-message-incoming: unicode(ea9b);
+$lnir-message-laptop: unicode(ea9c);
+$lnir-message-lock: unicode(ea9d);
+$lnir-message-love: unicode(ea9e);
+$lnir-message-minus: unicode(ea9f);
+$lnir-message-outgoing: unicode(eaa0);
+$lnir-message-plus: unicode(eaa1);
+$lnir-message-reply: unicode(eaa2);
+$lnir-message-search: unicode(eaa3);
+$lnir-message-share: unicode(eaa4);
+$lnir-mobile-chat: unicode(eaa5);
+$lnir-page: unicode(eaa6);
+$lnir-phone-block: unicode(eaa7);
+$lnir-phone-caling: unicode(eaa8);
+$lnir-phone-conference: unicode(eaa9);
+$lnir-phone-cut: unicode(eaaa);
+$lnir-phone-forward: unicode(eaab);
+$lnir-phone-incoming: unicode(eaac);
+$lnir-phone-misscall: unicode(eaad);
+$lnir-phone-outgoing: unicode(eaae);
+$lnir-phone-pause: unicode(eaaf);
+$lnir-phone-redial: unicode(eab0);
+$lnir-phone-ring: unicode(eab1);
+$lnir-phone-set: unicode(eab2);
+$lnir-phone: unicode(eab3);
+$lnir-plane-alt: unicode(eab4);
+$lnir-plane: unicode(eab5);
+$lnir-popup: unicode(eab6);
+$lnir-postcard-alt: unicode(eab7);
+$lnir-postcard: unicode(eab8);
+$lnir-reply: unicode(eab9);
+$lnir-road: unicode(eaba);
+$lnir-scooter: unicode(eabb);
+$lnir-ship: unicode(eabc);
+$lnir-support: unicode(eabd);
+$lnir-target-mail: unicode(eabe);
+$lnir-taxi: unicode(eabf);
+$lnir-train-alt: unicode(eac0);
+$lnir-train: unicode(eac1);
+$lnir-boundary: unicode(eac2);
+$lnir-bricks-alt: unicode(eac3);
+$lnir-bricks: unicode(eac4);
+$lnir-bulldozer: unicode(eac5);
+$lnir-cone: unicode(eac6);
+$lnir-construction-hammer: unicode(eac7);
+$lnir-construction-rular: unicode(eac8);
+$lnir-construction: unicode(eac9);
+$lnir-door-alt: unicode(eaca);
+$lnir-drill: unicode(eacb);
+$lnir-fence: unicode(eacc);
+$lnir-hammer-alt: unicode(eacd);
+$lnir-envelope: unicode(eace);
+$lnir-joomla-original: unicode(eacf);
+$lnir-bubble: unicode(ead0);
+$lnir-door: unicode(ead1);
+$lnir-helmet: unicode(ead2);
+$lnir-hook: unicode(ead3);
+$lnir-house-alt-1: unicode(ead4);
+$lnir-house-alt: unicode(ead5);
+$lnir-house-heart: unicode(ead6);
+$lnir-house-plan: unicode(ead7);
+$lnir-house: unicode(ead8);
+$lnir-measuring-tape: unicode(ead9);
+$lnir-paint-bucket: unicode(eada);
+$lnir-paint-roller-alt-1: unicode(eadb);
+$lnir-paint-roller-alt: unicode(eadc);
+$lnir-paint-roller: unicode(eadd);
+$lnir-pipe: unicode(eade);
+$lnir-ruler-alt: unicode(eadf);
+$lnir-ruler-pencil: unicode(eae0);
+$lnir-ruler: unicode(eae1);
+$lnir-saw-alt: unicode(eae2);
+$lnir-saw: unicode(eae3);
+$lnir-screw: unicode(eae4);
+$lnir-screwdriver: unicode(eae5);
+$lnir-shovel: unicode(eae6);
+$lnir-toolbox: unicode(eae7);
+$lnir-triangle-ruler-1: unicode(eae8);
+$lnir-triangle-ruler: unicode(eae9);
+$lnir-trowel-alt: unicode(eaea);
+$lnir-trowel: unicode(eaeb);
+$lnir-wheelbarrow: unicode(eaec);
+$lnir-wrench: unicode(eaed);
+$lnir-brush-alt: unicode(eaee);
+$lnir-brush: unicode(eaef);
+$lnir-color-palette: unicode(eaf0);
+$lnir-crop-alt: unicode(eaf1);
+$lnir-crop: unicode(eaf2);
+$lnir-grid-alt: unicode(eaf3);
+$lnir-grid: unicode(eaf4);
+$lnir-highlight-alt: unicode(eaf5);
+$lnir-highlight: unicode(eaf6);
+$lnir-image-crop: unicode(eaf7);
+$lnir-layers-alt-1: unicode(eaf8);
+$lnir-layers-alt: unicode(eaf9);
+$lnir-layers: unicode(eafa);
+$lnir-layout-alt-1: unicode(eafb);
+$lnir-layout-alt-2: unicode(eafc);
+$lnir-layout-alt: unicode(eafd);
+$lnir-layout: unicode(eafe);
+$lnir-magic-wand: unicode(eaff);
+$lnir-margin: unicode(eb00);
+$lnir-move: unicode(eb01);
+$lnir-pallet: unicode(eb02);
+$lnir-rotate: unicode(eb03);
+$lnir-scaling: unicode(eb04);
+$lnir-select: unicode(eb05);
+$lnir-size: unicode(eb06);
+$lnir-slice: unicode(eb07);
+$lnir-transform: unicode(eb08);
+$lnir-ux: unicode(eb09);
+$lnir-vector-alt: unicode(eb0a);
+$lnir-vector-pen: unicode(eb0b);
+$lnir-vector: unicode(eb0c);
+$lnir-angle-double-down: unicode(eb0d);
+$lnir-angle-double-left: unicode(eb0e);
+$lnir-angle-double-right: unicode(eb0f);
+$lnir-angle-double-up: unicode(eb10);
+$lnir-arrow-double-down: unicode(eb11);
+$lnir-arrow-double-left: unicode(eb12);
+$lnir-arrow-double-right: unicode(eb13);
+$lnir-arrow-double-top: unicode(eb14);
+$lnir-arrow-down-circle: unicode(eb15);
+$lnir-arrow-down: unicode(eb16);
+$lnir-arrow-expand-alt: unicode(eb17);
+$lnir-arrow-expand: unicode(eb18);
+$lnir-arrow-left-circle: unicode(eb19);
+$lnir-arrow-left: unicode(eb1a);
+$lnir-arrow-minimize-alt: unicode(eb1b);
+$lnir-arrow-minimize: unicode(eb1c);
+$lnir-arrow-right-circle: unicode(eb1d);
+$lnir-arrow-right: unicode(eb1e);
+$lnir-arrow-top-left: unicode(eb1f);
+$lnir-arrow-top-right: unicode(eb20);
+$lnir-arrow-up-circle: unicode(eb21);
+$lnir-arrow-up: unicode(eb22);
+$lnir-arrows-horizontal: unicode(eb23);
+$lnir-arrows-vertical: unicode(eb24);
+$lnir-axis: unicode(eb25);
+$lnir-chevron-down-circle: unicode(eb26);
+$lnir-chevron-down: unicode(eb27);
+$lnir-chevron-left-circle: unicode(eb28);
+$lnir-chevron-left: unicode(eb29);
+$lnir-chevron-right-circle: unicode(eb2a);
+$lnir-chevron-right: unicode(eb2b);
+$lnir-chevron-up-circle: unicode(eb2c);
+$lnir-chevron-up: unicode(eb2d);
+$lnir-direction-alt: unicode(eb2e);
+$lnir-direction-ltr: unicode(eb2f);
+$lnir-direction-rtl: unicode(eb30);
+$lnir-direction: unicode(eb31);
+$lnir-down-arrow-box: unicode(eb32);
+$lnir-down-left-arrow-box: unicode(eb33);
+$lnir-down-right-arrow-box: unicode(eb34);
+$lnir-enter: unicode(eb35);
+$lnir-exit-down: unicode(eb36);
+$lnir-exit-up: unicode(eb37);
+$lnir-exit: unicode(eb38);
+$lnir-left-arrow-box: unicode(eb39);
+$lnir-pointer-down: unicode(eb3a);
+$lnir-pointer-left: unicode(eb3b);
+$lnir-pointer-right: unicode(eb3c);
+$lnir-pointer-up: unicode(eb3d);
+$lnir-right-arrow-box: unicode(eb3e);
+$lnir-shift-left: unicode(eb3f);
+$lnir-shift-right: unicode(eb40);
+$lnir-top-left-arrow-box: unicode(eb41);
+$lnir-top-arrow-box: unicode(eb42);
+$lnir-top-right-arrow-box: unicode(eb43);
+$lnir-capital-letter: unicode(eb44);
+$lnir-font: unicode(eb45);
+$lnir-height: unicode(eb46);
+$lnir-indent-decrease: unicode(eb47);
+$lnir-indent-increase: unicode(eb48);
+$lnir-italic: unicode(eb49);
+$lnir-line-dashed: unicode(eb4a);
+$lnir-line-dotted: unicode(eb4b);
+$lnir-line-double: unicode(eb4c);
+$lnir-line-spacing: unicode(eb4d);
+$lnir-page-break: unicode(eb4e);
+$lnir-pagination: unicode(eb4f);
+$lnir-pilcrow: unicode(eb50);
+$lnir-redo: unicode(eb51);
+$lnir-reflect: unicode(eb52);
+$lnir-sort-alpha-asc: unicode(eb53);
+$lnir-sort-amount-asc: unicode(eb54);
+$lnir-sort-amount-dsc: unicode(eb55);
+$lnir-spellcheck: unicode(eb56);
+$lnir-text-align-justify: unicode(eb57);
+$lnir-text-align-left: unicode(eb58);
+$lnir-hammer: unicode(eb59);
+$lnir-helmet-alt: unicode(eb5a);
+$lnir-text-align-right: unicode(eb5b);
+$lnir-text-align-center: unicode(eb5c);
+$lnir-text-format-remove: unicode(eb5d);
+$lnir-text: unicode(eb5e);
+$lnir-underline: unicode(eb5f);
+$lnir-undo: unicode(eb60);
+$lnir-vertical-line: unicode(eb61);
+$lnir-atom: unicode(eb62);
+$lnir-backpack-alt: unicode(eb63);
+$lnir-backpack: unicode(eb64);
+$lnir-blackboard: unicode(eb65);
+$lnir-book-alt: unicode(eb66);
+$lnir-book: unicode(eb67);
+$lnir-books-alt: unicode(eb68);
+$lnir-books: unicode(eb69);
+$lnir-brakckets: unicode(eb6a);
+$lnir-certificate-alt-1: unicode(eb6b);
+$lnir-certificate-alt: unicode(eb6c);
+$lnir-certificate: unicode(eb6d);
+$lnir-classroom: unicode(eb6e);
+$lnir-clipboard: unicode(eb6f);
+$lnir-compass: unicode(eb70);
+$lnir-cubes: unicode(eb71);
+$lnir-eraser: unicode(eb72);
+$lnir-flask-alt-1: unicode(eb73);
+$lnir-flask-alt-2: unicode(eb74);
+$lnir-flask-alt: unicode(eb75);
+$lnir-flask: unicode(eb76);
+$lnir-graduate-alt: unicode(eb77);
+$lnir-graduate: unicode(eb78);
+$lnir-graduation: unicode(eb79);
+$lnir-letterblocks: unicode(eb7a);
+$lnir-library: unicode(eb7b);
+$lnir-medal-alt: unicode(eb7c);
+$lnir-medal: unicode(eb7d);
+$lnir-molecule-alt: unicode(eb7e);
+$lnir-molecule: unicode(eb7f);
+$lnir-pencil-alt: unicode(eb80);
+$lnir-pencil: unicode(eb81);
+$lnir-quill: unicode(eb82);
+$lnir-school-bench-alt: unicode(eb83);
+$lnir-school-bench: unicode(eb84);
+$lnir-sketchbook: unicode(eb85);
+$lnir-whiteboard-alt-1: unicode(eb86);
+$lnir-whiteboard-alt-2: unicode(eb87);
+$lnir-whiteboard-alt: unicode(eb88);
+$lnir-whiteboard: unicode(eb89);
+$lnir-world-2: unicode(eb8a);
+$lnir-world-alt: unicode(eb8b);
+$lnir-world: unicode(eb8c);
+$lnir-write: unicode(eb8d);
+$lnir-apple-alt: unicode(eb8e);
+$lnir-banana: unicode(eb8f);
+$lnir-bowl-alt: unicode(eb90);
+$lnir-bowl-alt-1: unicode(eb91);
+$lnir-bowl: unicode(eb92);
+$lnir-brocolli: unicode(eb93);
+$lnir-burger-alt-1: unicode(eb94);
+$lnir-burger-alt: unicode(eb95);
+$lnir-burger: unicode(eb96);
+$lnir-chef-hat-alt-1: unicode(eb97);
+$lnir-chef-hat-alt-2: unicode(eb98);
+$lnir-chef-hat-alt: unicode(eb99);
+$lnir-chef-hat: unicode(eb9a);
+$lnir-chicken: unicode(eb9b);
+$lnir-cocktail-alt-1: unicode(eb9c);
+$lnir-cocktail-alt: unicode(eb9d);
+$lnir-cocktail: unicode(eb9e);
+$lnir-coffee-cup-alt: unicode(eb9f);
+$lnir-coffee-cup: unicode(eba0);
+$lnir-cupcake-alt: unicode(eba1);
+$lnir-cupcake: unicode(eba2);
+$lnir-cutlery-alt-1: unicode(eba3);
+$lnir-cutlery-alt: unicode(eba4);
+$lnir-cutlery: unicode(eba5);
+$lnir-dinner-table: unicode(eba6);
+$lnir-dinner: unicode(eba7);
+$lnir-drumstick: unicode(eba8);
+$lnir-fresh-juice: unicode(eba9);
+$lnir-ice-cream-alt: unicode(ebaa);
+$lnir-ice-cream: unicode(ebab);
+$lnir-juice: unicode(ebac);
+$lnir-lolypop: unicode(ebad);
+$lnir-meat: unicode(ebae);
+$lnir-pizza-alt: unicode(ebaf);
+$lnir-pizza: unicode(ebb0);
+$lnir-plate: unicode(ebb1);
+$lnir-popcorn: unicode(ebb2);
+$lnir-restaurant: unicode(ebb3);
+$lnir-service: unicode(ebb4);
+$lnir-silverware: unicode(ebb5);
+$lnir-spatula: unicode(ebb6);
+$lnir-ambulance-alt-1: unicode(ebb7);
+$lnir-ambulance-alt: unicode(ebb8);
+$lnir-ambulance: unicode(ebb9);
+$lnir-basketball: unicode(ebba);
+$lnir-bone: unicode(ebbb);
+$lnir-brain-alt: unicode(ebbc);
+$lnir-brain-check-alt: unicode(ebbd);
+$lnir-brain-check: unicode(ebbe);
+$lnir-brain: unicode(ebbf);
+$lnir-broken-bone: unicode(ebc0);
+$lnir-capsule-alt-1: unicode(ebc1);
+$lnir-capsule-alt: unicode(ebc2);
+$lnir-capsule: unicode(ebc3);
+$lnir-capsules: unicode(ebc4);
+$lnir-cardiology: unicode(ebc5);
+$lnir-diagnosis-alt: unicode(ebc6);
+$lnir-diagnosis: unicode(ebc7);
+$lnir-dna: unicode(ebc8);
+$lnir-dropper-alt-1: unicode(ebc9);
+$lnir-dropper-alt-2: unicode(ebca);
+$lnir-dropper-alt: unicode(ebcb);
+$lnir-dropper: unicode(ebcc);
+$lnir-dumbbell: unicode(ebcd);
+$lnir-eye-test: unicode(ebce);
+$lnir-female: unicode(ebcf);
+$lnir-first-aid: unicode(ebd0);
+$lnir-gluten-free: unicode(ebd1);
+$lnir-heart-check: unicode(ebd2);
+$lnir-heart-monitor: unicode(ebd3);
+$lnir-heartrate-monitor: unicode(ebd4);
+$lnir-hospital-alt-1: unicode(ebd5);
+$lnir-hospital-alt-2: unicode(ebd6);
+$lnir-hospital-alt-3: unicode(ebd7);
+$lnir-hospital-alt-4: unicode(ebd8);
+$lnir-hospital-alt: unicode(ebd9);
+$lnir-hospital-bed-alt-1: unicode(ebda);
+$lnir-hospital-bed-alt-2: unicode(ebdb);
+$lnir-hospital-bed-alt: unicode(ebdc);
+$lnir-hospital-bed: unicode(ebdd);
+$lnir-hospital-location: unicode(ebde);
+$lnir-hospital-sign: unicode(ebdf);
+$lnir-hospital: unicode(ebe0);
+$lnir-kettlebell: unicode(ebe1);
+$lnir-lungs: unicode(ebe2);
+$lnir-male: unicode(ebe3);
+$lnir-medical-briefcase-alt: unicode(ebe4);
+$lnir-medical-briefcase: unicode(ebe5);
+$lnir-medical-protection: unicode(ebe6);
+$lnir-medical-sign: unicode(ebe7);
+$lnir-medicine-alt: unicode(ebe8);
+$lnir-medicine-bottle: unicode(ebe9);
+$lnir-medicine: unicode(ebea);
+$lnir-microscope: unicode(ebeb);
+$lnir-pulse: unicode(ebec);
+$lnir-report-laptop: unicode(ebed);
+$lnir-saline-alt-1: unicode(ebee);
+$lnir-saline: unicode(ebef);
+$lnir-skipping-rope: unicode(ebf0);
+$lnir-slim: unicode(ebf1);
+$lnir-sthethoscope: unicode(ebf2);
+$lnir-saline-alt: unicode(ebf3);
+$lnir-syringe: unicode(ebf4);
+$lnir-test-tube-alt: unicode(ebf5);
+$lnir-test-tube: unicode(ebf6);
+$lnir-thermometer-alt: unicode(ebf7);
+$lnir-thermometer: unicode(ebf8);
+$lnir-tooth: unicode(ebf9);
+$lnir-walker: unicode(ebfa);
+$lnir-weight-machine: unicode(ebfb);
+$lnir-weight: unicode(ebfc);
+$lnir-wheelchair: unicode(ebfd);
+$lnir-yoga-mat: unicode(ebfe);
+$lnir-achievement: unicode(ebff);
+$lnir-analytics-alt-1: unicode(ec00);
+$lnir-agenda: unicode(ec01);
+$lnir-apartment-alt: unicode(ec02);
+$lnir-apartment: unicode(ec03);
+$lnir-briefcase-alt: unicode(ec04);
+$lnir-briefcase: unicode(ec05);
+$lnir-cart-alt: unicode(ec06);
+$lnir-cart-down: unicode(ec07);
+$lnir-cart-empty: unicode(ec08);
+$lnir-cart-full: unicode(ec09);
+$lnir-cart: unicode(ec0a);
+$lnir-consulting: unicode(ec0b);
+$lnir-customer: unicode(ec0c);
+$lnir-delivery: unicode(ec0d);
+$lnir-desk: unicode(ec0e);
+$lnir-global: unicode(ec0f);
+$lnir-grow: unicode(ec10);
+$lnir-handshake: unicode(ec11);
+$lnir-hierchy-alt: unicode(ec12);
+$lnir-hierchy: unicode(ec13);
+$lnir-invest-monitor: unicode(ec14);
+$lnir-investment: unicode(ec15);
+$lnir-license: unicode(ec16);
+$lnir-notepad: unicode(ec17);
+$lnir-offer: unicode(ec18);
+$lnir-office-plan: unicode(ec19);
+$lnir-pie-chart-alt: unicode(ec1a);
+$lnir-paperclip: unicode(ec1b);
+$lnir-pie-chart-dollar: unicode(ec1c);
+$lnir-pie-chart: unicode(ec1d);
+$lnir-pie-report: unicode(ec1e);
+$lnir-pin-alt: unicode(ec1f);
+$lnir-pin: unicode(ec20);
+$lnir-quotation: unicode(ec21);
+$lnir-revenue: unicode(ec22);
+$lnir-sales-report: unicode(ec23);
+$lnir-stamp: unicode(ec24);
+$lnir-stats-down: unicode(ec25);
+$lnir-stats-up: unicode(ec26);
+$lnir-swatches: unicode(ec27);
+$lnir-table: unicode(ec28);
+$lnir-tablet-alt: unicode(ec29);
+$lnir-tag: unicode(ec2a);
+$lnir-target-achievement: unicode(ec2b);
+$lnir-target-alt-1: unicode(ec2c);
+$lnir-target-alt: unicode(ec2d);
+$lnir-target-remove: unicode(ec2e);
+$lnir-target-revenue: unicode(ec2f);
+$lnir-target: unicode(ec30);
+$lnir-tie: unicode(ec31);
+$lnir-analytics: unicode(ec32);
+$lnir-bar-chart: unicode(ec33);
+$lnir-bar-check: unicode(ec34);
+$lnir-billboard-alt: unicode(ec35);
+$lnir-billboard: unicode(ec36);
+$lnir-graph-alt-1: unicode(ec37);
+$lnir-graph-alt-2: unicode(ec38);
+$lnir-graph-alt-3: unicode(ec39);
+$lnir-graph-alt-4: unicode(ec3a);
+$lnir-graph-alt: unicode(ec3b);
+$lnir-graph-decrease: unicode(ec3c);
+$lnir-graph-increase: unicode(ec3d);
+$lnir-graph: unicode(ec3e);
+$lnir-keyword-research: unicode(ec3f);
+$lnir-network-alt: unicode(ec40);
+$lnir-network: unicode(ec41);
+$lnir-pyramid-decrease: unicode(ec42);
+$lnir-pyramid-increase: unicode(ec43);
+$lnir-pyramid: unicode(ec44);
+$lnir-rook: unicode(ec45);
+$lnir-seo: unicode(ec46);
+$lnir-strategy: unicode(ec47);
+$lnir-target-audience-alt: unicode(ec48);
+$lnir-target-customer: unicode(ec49);
+$lnir-website-rank: unicode(ec4a);
+$lnir-barrier: unicode(ec4b);
+$lnir-bolt-alt: unicode(ec4c);
+$lnir-bolt: unicode(ec4d);
+$lnir-checkbox: unicode(ec4e);
+$lnir-checkmark-circle: unicode(ec4f);
+$lnir-checkmark: unicode(ec50);
+$lnir-circle-minus: unicode(ec51);
+$lnir-circle-plus: unicode(ec52);
+$lnir-close: unicode(ec53);
+$lnir-cross-circle: unicode(ec54);
+$lnir-electricity: unicode(ec55);
+$lnir-eye-alt: unicode(ec56);
+$lnir-eye: unicode(ec57);
+$lnir-find: unicode(ec58);
+$lnir-flag-alt: unicode(ec59);
+$lnir-flag: unicode(ec5a);
+$lnir-funnel-alt-1: unicode(ec5b);
+$lnir-funnel-alt: unicode(ec5c);
+$lnir-funnel: unicode(ec5d);
+$lnir-hand: unicode(ec5e);
+$lnir-heart-filled: unicode(ec5f);
+$lnir-heart-plus: unicode(ec60);
+$lnir-heart: unicode(ec61);
+$lnir-help: unicode(ec62);
+$lnir-hotel-sign: unicode(ec63);
+$lnir-idea-alt: unicode(ec64);
+$lnir-identity: unicode(ec65);
+$lnir-infinite: unicode(ec66);
+$lnir-information: unicode(ec67);
+$lnir-invention: unicode(ec68);
+$lnir-key-alt-1: unicode(ec69);
+$lnir-key-alt-2: unicode(ec6a);
+$lnir-key-alt-3: unicode(ec6b);
+$lnir-key-alt: unicode(ec6c);
+$lnir-key: unicode(ec6d);
+$lnir-life-ring: unicode(ec6e);
+$lnir-list-alt-1: unicode(ec6f);
+$lnir-list-alt: unicode(ec70);
+$lnir-list: unicode(ec71);
+$lnir-lock-alt-1: unicode(ec72);
+$lnir-lock-alt-2: unicode(ec73);
+$lnir-lock-alt: unicode(ec74);
+$lnir-lock: unicode(ec75);
+$lnir-minus: unicode(ec76);
+$lnir-more-alt-1: unicode(ec77);
+$lnir-more-alt: unicode(ec78);
+$lnir-more: unicode(ec79);
+$lnir-music-note: unicode(ec7a);
+$lnir-music: unicode(ec7b);
+$lnir-notification: unicode(ec7c);
+$lnir-passport-alt: unicode(ec7d);
+$lnir-passport: unicode(ec7e);
+$lnir-playlist-alt: unicode(ec7f);
+$lnir-playlist: unicode(ec80);
+$lnir-plus: unicode(ec81);
+$lnir-pointer: unicode(ec82);
+$lnir-power-switch: unicode(ec83);
+$lnir-protection: unicode(ec84);
+$lnir-question-circle: unicode(ec85);
+$lnir-radio-button: unicode(ec86);
+$lnir-record: unicode(ec87);
+$lnir-round-box-check: unicode(ec88);
+$lnir-round-box-cross: unicode(ec89);
+$lnir-round-box-minus: unicode(ec8a);
+$lnir-round-box-plus: unicode(ec8b);
+$lnir-shield: unicode(ec8c);
+$lnir-sort: unicode(ec8d);
+$lnir-switch: unicode(ec8e);
+$lnir-teabag: unicode(ec8f);
+$lnir-thumbs-down-alt: unicode(ec90);
+$lnir-thumbs-down: unicode(ec91);
+$lnir-thumbs-up-alt: unicode(ec92);
+$lnir-thumbs-up: unicode(ec93);
+$lnir-thunderbolt: unicode(ec94);
+$lnir-ticket-alt-1: unicode(ec95);
+$lnir-ticket-alt-2: unicode(ec96);
+$lnir-ticket-alt-3: unicode(ec97);
+$lnir-ticket-alt: unicode(ec98);
+$lnir-ticket: unicode(ec99);
+$lnir-unlock: unicode(ec9a);
+$lnir-warning: unicode(ec9b);
+$lnir-backward-alt: unicode(ec9c);
+$lnir-backward: unicode(ec9d);
+$lnir-expand-alt-1: unicode(ec9e);
+$lnir-fast-forward: unicode(ec9f);
+$lnir-film: unicode(eca0);
+$lnir-forward: unicode(eca1);
+$lnir-frame-expand: unicode(eca2);
+$lnir-full-screen: unicode(eca3);
+$lnir-gallery: unicode(eca4);
+$lnir-next: unicode(eca5);
+$lnir-pause: unicode(eca6);
+$lnir-play: unicode(eca7);
+$lnir-previous: unicode(eca8);
+$lnir-repeat-one: unicode(eca9);
+$lnir-shuffle: unicode(ecaa);
+$lnir-slideshow: unicode(ecab);
+$lnir-stop: unicode(ecac);
+$lnir-video-alt-1: unicode(ecad);
+$lnir-video-alt: unicode(ecae);
+$lnir-video-camera-alt-1: unicode(ecaf);
+$lnir-video-camera-alt-2: unicode(ecb0);
+$lnir-video-camera-alt: unicode(ecb1);
+$lnir-video-cut: unicode(ecb2);
+$lnir-video: unicode(ecb3);
+$lnir-volume-high: unicode(ecb4);
+$lnir-volume-low: unicode(ecb5);
+$lnir-volume-medium: unicode(ecb6);
+$lnir-volume-mute: unicode(ecb7);
+$lnir-volume: unicode(ecb8);
+$lnir-bank: unicode(ecb9);
+$lnir-calculator-alt: unicode(ecba);
+$lnir-calculator: unicode(ecbb);
+$lnir-coin: unicode(ecbc);
+$lnir-coins: unicode(ecbd);
+$lnir-credit-card: unicode(ecbe);
+$lnir-credit-cards: unicode(ecbf);
+$lnir-diamond-alt: unicode(ecc0);
+$lnir-diamond: unicode(ecc1);
+$lnir-dollar-card: unicode(ecc2);
+$lnir-dollar-down: unicode(ecc3);
+$lnir-dollar-up: unicode(ecc4);
+$lnir-dollar: unicode(ecc5);
+$lnir-euro-card: unicode(ecc6);
+$lnir-euro-coin: unicode(ecc7);
+$lnir-euro-down: unicode(ecc8);
+$lnir-euro-up: unicode(ecc9);
+$lnir-euro: unicode(ecca);
+$lnir-gold-bar: unicode(eccb);
+$lnir-mobile-coin-taka: unicode(eccc);
+$lnir-mobile-coin: unicode(eccd);
+$lnir-money-bag: unicode(ecce);
+$lnir-money-location: unicode(eccf);
+$lnir-money-protection: unicode(ecd0);
+$lnir-pound-card: unicode(ecd1);
+$lnir-pound-coin: unicode(ecd2);
+$lnir-pound-down: unicode(ecd3);
+$lnir-pound-up: unicode(ecd4);
+$lnir-pound: unicode(ecd5);
+$lnir-rupee-card: unicode(ecd6);
+$lnir-rupee-coin: unicode(ecd7);
+$lnir-text-format: unicode(ecd8);
+$lnir-rupee-down: unicode(ecd9);
+$lnir-bold: unicode(ecda);
+$lnir-taka-card: unicode(ecdb);
+$lnir-taka-coin: unicode(ecdc);
+$lnir-strikethrough: unicode(ecdd);
+$lnir-taka-down: unicode(ecde);
+$lnir-rupee: unicode(ecdf);
+$lnir-taka-up: unicode(ece0);
+$lnir-taka: unicode(ece1);
+$lnir-rupee-up: unicode(ece2);
+$lnir-wallet-alt-1: unicode(ece3);
+$lnir-wallet: unicode(ece4);
+$lnir-yen-card: unicode(ece5);
+$lnir-yen-coin: unicode(ece6);
+$lnir-yen-up: unicode(ece7);
+$lnir-bug-alt: unicode(ece8);
+$lnir-yen-down: unicode(ece9);
+$lnir-yen: unicode(ecea);
+$lnir-cactus-alt: unicode(eceb);
+$lnir-flower: unicode(ecec);
+$lnir-bug: unicode(eced);
+$lnir-cactus: unicode(ecee);
+$lnir-island: unicode(ecef);
+$lnir-leaf-alt: unicode(ecf0);
+$lnir-leaf: unicode(ecf1);
+$lnir-leaves: unicode(ecf2);
+$lnir-mashroom: unicode(ecf3);
+$lnir-mountain: unicode(ecf4);
+$lnir-mushroom-alt: unicode(ecf5);
+$lnir-mushrooms: unicode(ecf6);
+$lnir-plant-pot: unicode(ecf7);
+$lnir-plant: unicode(ecf8);
+$lnir-sprout-alt: unicode(ecf9);
+$lnir-sprout: unicode(ecfa);
+$lnir-tree-alt-1: unicode(ecfb);
+$lnir-tree-alt: unicode(ecfc);
+$lnir-tree: unicode(ecfd);
+$lnir-trees-alt-1: unicode(ecfe);
+$lnir-trees-alt: unicode(ecff);
+$lnir-trees: unicode(ed00);
+$lnir-baloon-alt-1: unicode(ed01);
+$lnir-baloon-alt: unicode(ed02);
+$lnir-baloon: unicode(ed03);
+$lnir-birthday-hat: unicode(ed04);
+$lnir-cake: unicode(ed05);
+$lnir-leaf-alt-1: unicode(ed06);
+$lnir-candy-cane: unicode(ed07);
+$lnir-tornado: unicode(ed08);
+$lnir-candy: unicode(ed09);
+$lnir-confetti: unicode(ed0a);
+$lnir-firecracker: unicode(ed0b);
+$lnir-fireworks: unicode(ed0c);
+$lnir-flags: unicode(ed0d);
+$lnir-mask: unicode(ed0e);
+$lnir-spray: unicode(ed0f);
+$lnir-wand: unicode(ed10);
+$lnir-cotton-bud: unicode(ed11);
+$lnir-crown-alt-1: unicode(ed12);
+$lnir-crown-alt: unicode(ed13);
+$lnir-crown-alt-2: unicode(ed14);
+$lnir-crown: unicode(ed15);
+$lnir-cup-alt: unicode(ed16);
+$lnir-flower-alt: unicode(ed17);
+$lnir-gift-alt-1: unicode(ed18);
+$lnir-gift-alt: unicode(ed19);
+$lnir-gift-bag: unicode(ed1a);
+$lnir-gift: unicode(ed1b);
+$lnir-glasses: unicode(ed1c);
+$lnir-home: unicode(ed1d);
+$lnir-ladies-tshirt: unicode(ed1e);
+$lnir-sunglass: unicode(ed1f);
+$lnir-thought: unicode(ed20);
+$lnir-tshirt-alt-1: unicode(ed21);
+$lnir-tshirt-alt: unicode(ed22);
+$lnir-tshirt: unicode(ed23);
+$lnir-beach-chair: unicode(ed24);
+$lnir-beach: unicode(ed25);
+$lnir-beachball: unicode(ed26);
+$lnir-cable-car: unicode(ed27);
+$lnir-flight-search: unicode(ed28);
+$lnir-hot-air-baloon: unicode(ed29);
+$lnir-pyramids: unicode(ed2a);
+$lnir-suitcase-alt: unicode(ed2b);
+$lnir-suitcase: unicode(ed2c);
+$lnir-surf-board: unicode(ed2d);
+$lnir-tent-alt: unicode(ed2e);
+$lnir-tent: unicode(ed2f);
+$lnir-travel: unicode(ed30);
+$lnir-air-flow: unicode(ed31);
+$lnir-air: unicode(ed32);
+$lnir-cloud-alt-1: unicode(ed33);
+$lnir-cloud-alt-2: unicode(ed34);
+$lnir-cloud-alt: unicode(ed35);
+$lnir-cloud-moon: unicode(ed36);
+$lnir-cloud-sun: unicode(ed37);
+$lnir-cloud: unicode(ed38);
+$lnir-cloudy-sun: unicode(ed39);
+$lnir-drop-alt: unicode(ed3a);
+$lnir-drop: unicode(ed3b);
+$lnir-farenheit: unicode(ed3c);
+$lnir-moon-star: unicode(ed3d);
+$lnir-moon: unicode(ed3e);
+$lnir-night-thunder: unicode(ed3f);
+$lnir-night-wind: unicode(ed40);
+$lnir-night: unicode(ed41);
+$lnir-rain: unicode(ed42);
+$lnir-snowfall: unicode(ed43);
+$lnir-sun-rain: unicode(ed44);
+$lnir-sun: unicode(ed45);
+$lnir-thunder-alt: unicode(ed46);
+$lnir-thunder: unicode(ed47);
+$lnir-umbrella-alt: unicode(ed48);
+$lnir-umbrella-rain-alt: unicode(ed49);
+$lnir-umbrella-rain: unicode(ed4a);
+$lnir-umbrella: unicode(ed4b);
+$lnir-water-drops: unicode(ed4c);
+$lnir-wind-cloud: unicode(ed4d);
+$lnir-wind-sun: unicode(ed4e);
+$lnir-hourglass: unicode(ed4f);
+$lnir-spiner-solid: unicode(ed50);
+$lnir-spinner-1: unicode(ed51);
+$lnir-spinner-10: unicode(ed52);
+$lnir-cup: unicode(ed53);
+$lnir-spinner-11: unicode(ed54);
+$lnir-spinner-5: unicode(ed55);
+$lnir-spinner-6: unicode(ed56);
+$lnir-spinner-2: unicode(ed57);
+$lnir-spinner-3: unicode(ed58);
+$lnir-spinner-7: unicode(ed59);
+$lnir-spinner-8: unicode(ed5a);
+$lnir-spinner-9: unicode(ed5b);
+$lnir-spinner-arrow: unicode(ed5c);
+$lnir-spinner: unicode(ed5d);
+$lnir-3d: unicode(ed5e);
+$lnir-add-files: unicode(ed5f);
+$lnir-ai: unicode(ed60);
+$lnir-alarm-2: unicode(ed61);
+$lnir-alarm-3: unicode(ed62);
+$lnir-alarm-4: unicode(ed63);
+$lnir-alarm-clock-alt: unicode(ed64);
+$lnir-alarm-clock: unicode(ed65);
+$lnir-alarm: unicode(ed66);
+$lnir-candle-alt: unicode(ed67);
+$lnir-spinner-4: unicode(ed68);
+$lnir-archive: unicode(ed69);
+$lnir-backspace: unicode(ed6a);
+$lnir-battery: unicode(ed6b);
+$lnir-block-user: unicode(ed6c);
+$lnir-bluetooth: unicode(ed6d);
+$lnir-bookmark-alt: unicode(ed6e);
+$lnir-bookmark: unicode(ed6f);
+$lnir-brightness: unicode(ed70);
+$lnir-bulb-alt: unicode(ed71);
+$lnir-bulb: unicode(ed72);
+$lnir-calendar: unicode(ed73);
+$lnir-calender-alt-1: unicode(ed74);
+$lnir-calender-alt-2: unicode(ed75);
+$lnir-calender-alt-3: unicode(ed76);
+$lnir-calender-alt-4: unicode(ed77);
+$lnir-calender-alt: unicode(ed78);
+$lnir-camera-alt-1: unicode(ed79);
+$lnir-camera-alt: unicode(ed7a);
+$lnir-camera: unicode(ed7b);
+$lnir-change: unicode(ed7c);
+$lnir-charging: unicode(ed7d);
+$lnir-cloud-check-alt: unicode(ed7e);
+$lnir-cloud-check: unicode(ed7f);
+$lnir-cloud-computing-alt: unicode(ed80);
+$lnir-cloud-computing: unicode(ed81);
+$lnir-cloud-download-alt: unicode(ed82);
+$lnir-cloud-download: unicode(ed83);
+$lnir-cloud-network-2: unicode(ed84);
+$lnir-cloud-network: unicode(ed85);
+$lnir-cloud-search-alt-1: unicode(ed86);
+$lnir-cloud-search-alt: unicode(ed87);
+$lnir-cloud-search: unicode(ed88);
+$lnir-cloud-sync-alt: unicode(ed89);
+$lnir-cloud-sync: unicode(ed8a);
+$lnir-cloud-upload-alt: unicode(ed8b);
+$lnir-cloud-upload: unicode(ed8c);
+$lnir-code-alt: unicode(ed8d);
+$lnir-code: unicode(ed8e);
+$lnir-cog: unicode(ed8f);
+$lnir-cogs: unicode(ed90);
+$lnir-control-panel: unicode(ed91);
+$lnir-copy: unicode(ed92);
+$lnir-cut: unicode(ed93);
+$lnir-dashboard: unicode(ed94);
+$lnir-database: unicode(ed95);
+$lnir-display-alt: unicode(ed96);
+$lnir-display: unicode(ed97);
+$lnir-domain: unicode(ed98);
+$lnir-download: unicode(ed99);
+$lnir-empty-battery: unicode(ed9a);
+$lnir-empty-file: unicode(ed9b);
+$lnir-file-download: unicode(ed9c);
+$lnir-file-lock: unicode(ed9d);
+$lnir-file-name: unicode(ed9e);
+$lnir-file-protection: unicode(ed9f);
+$lnir-file-upload: unicode(eda0);
+$lnir-files-alt: unicode(eda1);
+$lnir-files: unicode(eda2);
+$lnir-folder-alt-1: unicode(eda3);
+$lnir-folder-alt: unicode(eda4);
+$lnir-game: unicode(eda5);
+$lnir-folder: unicode(eda6);
+$lnir-half-battery: unicode(eda7);
+$lnir-headphone: unicode(eda8);
+$lnir-image: unicode(eda9);
+$lnir-keyboard: unicode(edaa);
+$lnir-laptop-alt-keyboard: unicode(edab);
+$lnir-laptop-alt-switch: unicode(edac);
+$lnir-laptop-alt: unicode(edad);
+$lnir-laptop-phone: unicode(edae);
+$lnir-laptop: unicode(edaf);
+$lnir-link-alt-1: unicode(edb0);
+$lnir-link-alt: unicode(edb1);
+$lnir-link: unicode(edb2);
+$lnir-low-battery: unicode(edb3);
+$lnir-magnet: unicode(edb4);
+$lnir-magnifier: unicode(edb5);
+$lnir-map-marker: unicode(edb6);
+$lnir-map: unicode(edb7);
+$lnir-menu-alt-1: unicode(edb8);
+$lnir-menu-alt-2: unicode(edb9);
+$lnir-menu-alt-3: unicode(edba);
+$lnir-menu-alt-4: unicode(edbb);
+$lnir-menu-alt-5: unicode(edbc);
+$lnir-menu-alt: unicode(edbd);
+$lnir-menu-circle: unicode(edbe);
+$lnir-menu: unicode(edbf);
+$lnir-mic: unicode(edc0);
+$lnir-microphone-alt-1: unicode(edc1);
+$lnir-microphone-alt: unicode(edc2);
+$lnir-microphone: unicode(edc3);
+$lnir-mobile-alt-1: unicode(edc4);
+$lnir-mobile-alt-2: unicode(edc5);
+$lnir-harddrive: unicode(edc6);
+$lnir-mobile-alt-button: unicode(edc7);
+$lnir-mobile: unicode(edc8);
+$lnir-headphone-alt: unicode(edc9);
+$lnir-full-battery: unicode(edca);
+$lnir-mouse: unicode(edcb);
+$lnir-no-charge-battery: unicode(edcc);
+$lnir-package: unicode(edcd);
+$lnir-plug: unicode(edce);
+$lnir-presentation: unicode(edcf);
+$lnir-printer: unicode(edd0);
+$lnir-ps: unicode(edd1);
+$lnir-recycle-alt: unicode(edd2);
+$lnir-recycle: unicode(edd3);
+$lnir-reload-alt-box: unicode(edd4);
+$lnir-reload-alt: unicode(edd5);
+$lnir-reload: unicode(edd6);
+$lnir-remove-file: unicode(edd7);
+$lnir-rocket: unicode(edd8);
+$lnir-rss-feed: unicode(edd9);
+$lnir-save-alt: unicode(edda);
+$lnir-save: unicode(eddb);
+$lnir-scan: unicode(eddc);
+$lnir-scroll-down: unicode(eddd);
+$lnir-search-alt: unicode(edde);
+$lnir-search: unicode(eddf);
+$lnir-share-alt: unicode(ede0);
+$lnir-share: unicode(ede1);
+$lnir-shopping-basket: unicode(ede2);
+$lnir-shortcode: unicode(ede3);
+$lnir-signal: unicode(ede4);
+$lnir-star-empty: unicode(ede5);
+$lnir-star-filled: unicode(ede6);
+$lnir-star-half: unicode(ede7);
+$lnir-star: unicode(ede8);
+$lnir-tab: unicode(ede9);
+$lnir-tap: unicode(edea);
+$lnir-thumbnail: unicode(edeb);
+$lnir-timer: unicode(edec);
+$lnir-trash-can-alt-1: unicode(eded);
+$lnir-trash-can-alt: unicode(edee);
+$lnir-trash-can: unicode(edef);
+$lnir-trash: unicode(edf0);
+$lnir-unlink: unicode(edf1);
+$lnir-upload: unicode(edf2);
+$lnir-user-alt-1: unicode(edf3);
+$lnir-user-alt-2: unicode(edf4);
+$lnir-user-alt: unicode(edf5);
+$lnir-user: unicode(edf6);
+$lnir-users-2: unicode(edf7);
+$lnir-users: unicode(edf8);
+$lnir-website-alt: unicode(edf9);
+$lnir-website: unicode(edfa);
+$lnir-zip: unicode(edfb);
+$lnir-ban: unicode(edfc);
+$lnir-candle: unicode(edfd);
+$lnir-appointment: unicode(edfe);
+$lnir-zoom-in: unicode(edff);
+$lnir-cool-1: unicode(ee00);
+$lnir-cool-3: unicode(ee01);
+$lnir-cool-kiss: unicode(ee02);
+$lnir-cry: unicode(ee03);
+$lnir-cute: unicode(ee04);
+$lnir-dead: unicode(ee05);
+$lnir-bored: unicode(ee06);
+$lnir-emoji-friendly: unicode(ee07);
+$lnir-emoji-happy: unicode(ee08);
+$lnir-emoji-sad: unicode(ee09);
+$lnir-emoji-cool: unicode(ee0a);
+$lnir-emoji-speechless: unicode(ee0b);
+$lnir-emoji-suspect: unicode(ee0c);
+$lnir-emoji-tounge: unicode(ee0d);
+$lnir-emoji-smile: unicode(ee0e);
+$lnir-happy-2: unicode(ee0f);
+$lnir-happy-smile: unicode(ee10);
+$lnir-kiss-2: unicode(ee11);
+$lnir-kiss: unicode(ee12);
+$lnir-angry: unicode(ee13);
+$lnir-loved-surprise: unicode(ee14);
+$lnir-zoom-out: unicode(ee15);
+$lnir-piss: unicode(ee16);
+$lnir-sick-1: unicode(ee17);
+$lnir-sick: unicode(ee18);
+$lnir-mute: unicode(ee19);
+$lnir-super-cool: unicode(ee1a);
+$lnir-love: unicode(ee1b);
+$lnir-wink: unicode(ee1c);
+$lnir-wow: unicode(ee1d);
+$lnir-yawn: unicode(ee1e);
+$lnir-super-happy: unicode(ee1f);
+$lnir-happy-1: unicode(ee20);
+$lnir-sleep: unicode(ee21);
+
+.lnir-500px::before {
+  content: $lnir-500px;
+}
+
+.lnir-adobe::before {
+  content: $lnir-adobe;
+}
+
+.lnir-airbnb::before {
+  content: $lnir-airbnb;
+}
+
+.lnir-amazon-original::before {
+  content: $lnir-amazon-original;
+}
+
+.lnir-amazon-pay::before {
+  content: $lnir-amazon-pay;
+}
+
+.lnir-amazon::before {
+  content: $lnir-amazon;
+}
+
+.lnir-angellist::before {
+  content: $lnir-angellist;
+}
+
+.lnir-android-original::before {
+  content: $lnir-android-original;
+}
+
+.lnir-android::before {
+  content: $lnir-android;
+}
+
+.lnir-amex::before {
+  content: $lnir-amex;
+}
+
+.lnir-angular::before {
+  content: $lnir-angular;
+}
+
+.lnir-atlassian::before {
+  content: $lnir-atlassian;
+}
+
+.lnir-apple-pay::before {
+  content: $lnir-apple-pay;
+}
+
+.lnir-apple::before {
+  content: $lnir-apple;
+}
+
+.lnir-app-store::before {
+  content: $lnir-app-store;
+}
+
+.lnir-aws::before {
+  content: $lnir-aws;
+}
+
+.lnir-behance-original::before {
+  content: $lnir-behance-original;
+}
+
+.lnir-behance::before {
+  content: $lnir-behance;
+}
+
+.lnir-bitbucket::before {
+  content: $lnir-bitbucket;
+}
+
+.lnir-chrome::before {
+  content: $lnir-chrome;
+}
+
+.lnir-bitcoin::before {
+  content: $lnir-bitcoin;
+}
+
+.lnir-codepen::before {
+  content: $lnir-codepen;
+}
+
+.lnir-bootstrap::before {
+  content: $lnir-bootstrap;
+}
+
+.lnir-css3::before {
+  content: $lnir-css3;
+}
+
+.lnir-blogger::before {
+  content: $lnir-blogger;
+}
+
+.lnir-dev::before {
+  content: $lnir-dev;
+}
+
+.lnir-diners-club::before {
+  content: $lnir-diners-club;
+}
+
+.lnir-discord::before {
+  content: $lnir-discord;
+}
+
+.lnir-discover::before {
+  content: $lnir-discover;
+}
+
+.lnir-docker::before {
+  content: $lnir-docker;
+}
+
+.lnir-dribbble::before {
+  content: $lnir-dribbble;
+}
+
+.lnir-dropbox::before {
+  content: $lnir-dropbox;
+}
+
+.lnir-drupal-original::before {
+  content: $lnir-drupal-original;
+}
+
+.lnir-drupal::before {
+  content: $lnir-drupal;
+}
+
+.lnir-edge::before {
+  content: $lnir-edge;
+}
+
+.lnir-envato::before {
+  content: $lnir-envato;
+}
+
+.lnir-facebook-filled::before {
+  content: $lnir-facebook-filled;
+}
+
+.lnir-cpanel::before {
+  content: $lnir-cpanel;
+}
+
+.lnir-creative-commons::before {
+  content: $lnir-creative-commons;
+}
+
+.lnir-facebook-messenger::before {
+  content: $lnir-facebook-messenger;
+}
+
+.lnir-facebook-original::before {
+  content: $lnir-facebook-original;
+}
+
+.lnir-facebook-oval::before {
+  content: $lnir-facebook-oval;
+}
+
+.lnir-facebook::before {
+  content: $lnir-facebook;
+}
+
+.lnir-figma::before {
+  content: $lnir-figma;
+}
+
+.lnir-firefox-original::before {
+  content: $lnir-firefox-original;
+}
+
+.lnir-firefox::before {
+  content: $lnir-firefox;
+}
+
+.lnir-flickr::before {
+  content: $lnir-flickr;
+}
+
+.lnir-git::before {
+  content: $lnir-git;
+}
+
+.lnir-github-original::before {
+  content: $lnir-github-original;
+}
+
+.lnir-github::before {
+  content: $lnir-github;
+}
+
+.lnir-goodreads::before {
+  content: $lnir-goodreads;
+}
+
+.lnir-google-drive::before {
+  content: $lnir-google-drive;
+}
+
+.lnir-google-pay::before {
+  content: $lnir-google-pay;
+}
+
+.lnir-google-wallet::before {
+  content: $lnir-google-wallet;
+}
+
+.lnir-google::before {
+  content: $lnir-google;
+}
+
+.lnir-hacker-news::before {
+  content: $lnir-hacker-news;
+}
+
+.lnir-html5::before {
+  content: $lnir-html5;
+}
+
+.lnir-instagram-filled::before {
+  content: $lnir-instagram-filled;
+}
+
+.lnir-instagram-original::before {
+  content: $lnir-instagram-original;
+}
+
+.lnir-instagram::before {
+  content: $lnir-instagram;
+}
+
+.lnir-javascript::before {
+  content: $lnir-javascript;
+}
+
+.lnir-jcb::before {
+  content: $lnir-jcb;
+}
+
+.lnir-joomla::before {
+  content: $lnir-joomla;
+}
+
+.lnir-laravel::before {
+  content: $lnir-laravel;
+}
+
+.lnir-lineicons-alt::before {
+  content: $lnir-lineicons-alt;
+}
+
+.lnir-dropbox-original::before {
+  content: $lnir-dropbox-original;
+}
+
+.lnir-linkedin-original::before {
+  content: $lnir-linkedin-original;
+}
+
+.lnir-mailchimp::before {
+  content: $lnir-mailchimp;
+}
+
+.lnir-mastercard::before {
+  content: $lnir-mastercard;
+}
+
+.lnir-medium::before {
+  content: $lnir-medium;
+}
+
+.lnir-megento::before {
+  content: $lnir-megento;
+}
+
+.lnir-microsoft::before {
+  content: $lnir-microsoft;
+}
+
+.lnir-nodejs-alt::before {
+  content: $lnir-nodejs-alt;
+}
+
+.lnir-nodejs::before {
+  content: $lnir-nodejs;
+}
+
+.lnir-npm::before {
+  content: $lnir-npm;
+}
+
+.lnir-opera::before {
+  content: $lnir-opera;
+}
+
+.lnir-patreon::before {
+  content: $lnir-patreon;
+}
+
+.lnir-paypal-original::before {
+  content: $lnir-paypal-original;
+}
+
+.lnir-paypal::before {
+  content: $lnir-paypal;
+}
+
+.lnir-php::before {
+  content: $lnir-php;
+}
+
+.lnir-line::before {
+  content: $lnir-line;
+}
+
+.lnir-lineicons::before {
+  content: $lnir-lineicons;
+}
+
+.lnir-linkedin::before {
+  content: $lnir-linkedin;
+}
+
+.lnir-pinterest::before {
+  content: $lnir-pinterest;
+}
+
+.lnir-play-store::before {
+  content: $lnir-play-store;
+}
+
+.lnir-producthunt::before {
+  content: $lnir-producthunt;
+}
+
+.lnir-python::before {
+  content: $lnir-python;
+}
+
+.lnir-quora::before {
+  content: $lnir-quora;
+}
+
+.lnir-react::before {
+  content: $lnir-react;
+}
+
+.lnir-reddit::before {
+  content: $lnir-reddit;
+}
+
+.lnir-shopify::before {
+  content: $lnir-shopify;
+}
+
+.lnir-sketch::before {
+  content: $lnir-sketch;
+}
+
+.lnir-skype::before {
+  content: $lnir-skype;
+}
+
+.lnir-slack::before {
+  content: $lnir-slack;
+}
+
+.lnir-slideshare::before {
+  content: $lnir-slideshare;
+}
+
+.lnir-snapchat::before {
+  content: $lnir-snapchat;
+}
+
+.lnir-souncloud-original::before {
+  content: $lnir-souncloud-original;
+}
+
+.lnir-soundcloud::before {
+  content: $lnir-soundcloud;
+}
+
+.lnir-spotify-original::before {
+  content: $lnir-spotify-original;
+}
+
+.lnir-spotify::before {
+  content: $lnir-spotify;
+}
+
+.lnir-stackoverflow::before {
+  content: $lnir-stackoverflow;
+}
+
+.lnir-swift::before {
+  content: $lnir-swift;
+}
+
+.lnir-telegram-original::before {
+  content: $lnir-telegram-original;
+}
+
+.lnir-telegram::before {
+  content: $lnir-telegram;
+}
+
+.lnir-trello::before {
+  content: $lnir-trello;
+}
+
+.lnir-stripe::before {
+  content: $lnir-stripe;
+}
+
+.lnir-tumblr::before {
+  content: $lnir-tumblr;
+}
+
+.lnir-stumbleupon::before {
+  content: $lnir-stumbleupon;
+}
+
+.lnir-twitter-original::before {
+  content: $lnir-twitter-original;
+}
+
+.lnir-twitter::before {
+  content: $lnir-twitter;
+}
+
+.lnir-ubuntu::before {
+  content: $lnir-ubuntu;
+}
+
+.lnir-vimeo::before {
+  content: $lnir-vimeo;
+}
+
+.lnir-twitch::before {
+  content: $lnir-twitch;
+}
+
+.lnir-steam::before {
+  content: $lnir-steam;
+}
+
+.lnir-twitter-filled::before {
+  content: $lnir-twitter-filled;
+}
+
+.lnir-visa::before {
+  content: $lnir-visa;
+}
+
+.lnir-vk::before {
+  content: $lnir-vk;
+}
+
+.lnir-wechat::before {
+  content: $lnir-wechat;
+}
+
+.lnir-whatsapp::before {
+  content: $lnir-whatsapp;
+}
+
+.lnir-windows::before {
+  content: $lnir-windows;
+}
+
+.lnir-wordpress-filled::before {
+  content: $lnir-wordpress-filled;
+}
+
+.lnir-wordpress::before {
+  content: $lnir-wordpress;
+}
+
+.lnir-yahoo::before {
+  content: $lnir-yahoo;
+}
+
+.lnir-ycombinator::before {
+  content: $lnir-ycombinator;
+}
+
+.lnir-youtube::before {
+  content: $lnir-youtube;
+}
+
+.lnir-anchor::before {
+  content: $lnir-anchor;
+}
+
+.lnir-bi-cycle::before {
+  content: $lnir-bi-cycle;
+}
+
+.lnir-boarding-pass-alt::before {
+  content: $lnir-boarding-pass-alt;
+}
+
+.lnir-boarding-pass::before {
+  content: $lnir-boarding-pass;
+}
+
+.lnir-java::before {
+  content: $lnir-java;
+}
+
+.lnir-jsfiddle::before {
+  content: $lnir-jsfiddle;
+}
+
+.lnir-bridge::before {
+  content: $lnir-bridge;
+}
+
+.lnir-bullhorn::before {
+  content: $lnir-bullhorn;
+}
+
+.lnir-bus::before {
+  content: $lnir-bus;
+}
+
+.lnir-car-alt::before {
+  content: $lnir-car-alt;
+}
+
+.lnir-car::before {
+  content: $lnir-car;
+}
+
+.lnir-caravan::before {
+  content: $lnir-caravan;
+}
+
+.lnir-chat-add::before {
+  content: $lnir-chat-add;
+}
+
+.lnir-chat-minus::before {
+  content: $lnir-chat-minus;
+}
+
+.lnir-comments-alt::before {
+  content: $lnir-comments-alt;
+}
+
+.lnir-comments-reply::before {
+  content: $lnir-comments-reply;
+}
+
+.lnir-comments::before {
+  content: $lnir-comments;
+}
+
+.lnir-envelope-alt::before {
+  content: $lnir-envelope-alt;
+}
+
+.lnir-helicopter::before {
+  content: $lnir-helicopter;
+}
+
+.lnir-inbox::before {
+  content: $lnir-inbox;
+}
+
+.lnir-megaphone::before {
+  content: $lnir-megaphone;
+}
+
+.lnir-message-attachement::before {
+  content: $lnir-message-attachement;
+}
+
+.lnir-message-block::before {
+  content: $lnir-message-block;
+}
+
+.lnir-message-check::before {
+  content: $lnir-message-check;
+}
+
+.lnir-message-cross::before {
+  content: $lnir-message-cross;
+}
+
+.lnir-message-desktop::before {
+  content: $lnir-message-desktop;
+}
+
+.lnir-message-edit::before {
+  content: $lnir-message-edit;
+}
+
+.lnir-message-forward::before {
+  content: $lnir-message-forward;
+}
+
+.lnir-message-incoming::before {
+  content: $lnir-message-incoming;
+}
+
+.lnir-message-laptop::before {
+  content: $lnir-message-laptop;
+}
+
+.lnir-message-lock::before {
+  content: $lnir-message-lock;
+}
+
+.lnir-message-love::before {
+  content: $lnir-message-love;
+}
+
+.lnir-message-minus::before {
+  content: $lnir-message-minus;
+}
+
+.lnir-message-outgoing::before {
+  content: $lnir-message-outgoing;
+}
+
+.lnir-message-plus::before {
+  content: $lnir-message-plus;
+}
+
+.lnir-message-reply::before {
+  content: $lnir-message-reply;
+}
+
+.lnir-message-search::before {
+  content: $lnir-message-search;
+}
+
+.lnir-message-share::before {
+  content: $lnir-message-share;
+}
+
+.lnir-mobile-chat::before {
+  content: $lnir-mobile-chat;
+}
+
+.lnir-page::before {
+  content: $lnir-page;
+}
+
+.lnir-phone-block::before {
+  content: $lnir-phone-block;
+}
+
+.lnir-phone-caling::before {
+  content: $lnir-phone-caling;
+}
+
+.lnir-phone-conference::before {
+  content: $lnir-phone-conference;
+}
+
+.lnir-phone-cut::before {
+  content: $lnir-phone-cut;
+}
+
+.lnir-phone-forward::before {
+  content: $lnir-phone-forward;
+}
+
+.lnir-phone-incoming::before {
+  content: $lnir-phone-incoming;
+}
+
+.lnir-phone-misscall::before {
+  content: $lnir-phone-misscall;
+}
+
+.lnir-phone-outgoing::before {
+  content: $lnir-phone-outgoing;
+}
+
+.lnir-phone-pause::before {
+  content: $lnir-phone-pause;
+}
+
+.lnir-phone-redial::before {
+  content: $lnir-phone-redial;
+}
+
+.lnir-phone-ring::before {
+  content: $lnir-phone-ring;
+}
+
+.lnir-phone-set::before {
+  content: $lnir-phone-set;
+}
+
+.lnir-phone::before {
+  content: $lnir-phone;
+}
+
+.lnir-plane-alt::before {
+  content: $lnir-plane-alt;
+}
+
+.lnir-plane::before {
+  content: $lnir-plane;
+}
+
+.lnir-popup::before {
+  content: $lnir-popup;
+}
+
+.lnir-postcard-alt::before {
+  content: $lnir-postcard-alt;
+}
+
+.lnir-postcard::before {
+  content: $lnir-postcard;
+}
+
+.lnir-reply::before {
+  content: $lnir-reply;
+}
+
+.lnir-road::before {
+  content: $lnir-road;
+}
+
+.lnir-scooter::before {
+  content: $lnir-scooter;
+}
+
+.lnir-ship::before {
+  content: $lnir-ship;
+}
+
+.lnir-support::before {
+  content: $lnir-support;
+}
+
+.lnir-target-mail::before {
+  content: $lnir-target-mail;
+}
+
+.lnir-taxi::before {
+  content: $lnir-taxi;
+}
+
+.lnir-train-alt::before {
+  content: $lnir-train-alt;
+}
+
+.lnir-train::before {
+  content: $lnir-train;
+}
+
+.lnir-boundary::before {
+  content: $lnir-boundary;
+}
+
+.lnir-bricks-alt::before {
+  content: $lnir-bricks-alt;
+}
+
+.lnir-bricks::before {
+  content: $lnir-bricks;
+}
+
+.lnir-bulldozer::before {
+  content: $lnir-bulldozer;
+}
+
+.lnir-cone::before {
+  content: $lnir-cone;
+}
+
+.lnir-construction-hammer::before {
+  content: $lnir-construction-hammer;
+}
+
+.lnir-construction-rular::before {
+  content: $lnir-construction-rular;
+}
+
+.lnir-construction::before {
+  content: $lnir-construction;
+}
+
+.lnir-door-alt::before {
+  content: $lnir-door-alt;
+}
+
+.lnir-drill::before {
+  content: $lnir-drill;
+}
+
+.lnir-fence::before {
+  content: $lnir-fence;
+}
+
+.lnir-hammer-alt::before {
+  content: $lnir-hammer-alt;
+}
+
+.lnir-envelope::before {
+  content: $lnir-envelope;
+}
+
+.lnir-joomla-original::before {
+  content: $lnir-joomla-original;
+}
+
+.lnir-bubble::before {
+  content: $lnir-bubble;
+}
+
+.lnir-door::before {
+  content: $lnir-door;
+}
+
+.lnir-helmet::before {
+  content: $lnir-helmet;
+}
+
+.lnir-hook::before {
+  content: $lnir-hook;
+}
+
+.lnir-house-alt-1::before {
+  content: $lnir-house-alt-1;
+}
+
+.lnir-house-alt::before {
+  content: $lnir-house-alt;
+}
+
+.lnir-house-heart::before {
+  content: $lnir-house-heart;
+}
+
+.lnir-house-plan::before {
+  content: $lnir-house-plan;
+}
+
+.lnir-house::before {
+  content: $lnir-house;
+}
+
+.lnir-measuring-tape::before {
+  content: $lnir-measuring-tape;
+}
+
+.lnir-paint-bucket::before {
+  content: $lnir-paint-bucket;
+}
+
+.lnir-paint-roller-alt-1::before {
+  content: $lnir-paint-roller-alt-1;
+}
+
+.lnir-paint-roller-alt::before {
+  content: $lnir-paint-roller-alt;
+}
+
+.lnir-paint-roller::before {
+  content: $lnir-paint-roller;
+}
+
+.lnir-pipe::before {
+  content: $lnir-pipe;
+}
+
+.lnir-ruler-alt::before {
+  content: $lnir-ruler-alt;
+}
+
+.lnir-ruler-pencil::before {
+  content: $lnir-ruler-pencil;
+}
+
+.lnir-ruler::before {
+  content: $lnir-ruler;
+}
+
+.lnir-saw-alt::before {
+  content: $lnir-saw-alt;
+}
+
+.lnir-saw::before {
+  content: $lnir-saw;
+}
+
+.lnir-screw::before {
+  content: $lnir-screw;
+}
+
+.lnir-screwdriver::before {
+  content: $lnir-screwdriver;
+}
+
+.lnir-shovel::before {
+  content: $lnir-shovel;
+}
+
+.lnir-toolbox::before {
+  content: $lnir-toolbox;
+}
+
+.lnir-triangle-ruler-1::before {
+  content: $lnir-triangle-ruler-1;
+}
+
+.lnir-triangle-ruler::before {
+  content: $lnir-triangle-ruler;
+}
+
+.lnir-trowel-alt::before {
+  content: $lnir-trowel-alt;
+}
+
+.lnir-trowel::before {
+  content: $lnir-trowel;
+}
+
+.lnir-wheelbarrow::before {
+  content: $lnir-wheelbarrow;
+}
+
+.lnir-wrench::before {
+  content: $lnir-wrench;
+}
+
+.lnir-brush-alt::before {
+  content: $lnir-brush-alt;
+}
+
+.lnir-brush::before {
+  content: $lnir-brush;
+}
+
+.lnir-color-palette::before {
+  content: $lnir-color-palette;
+}
+
+.lnir-crop-alt::before {
+  content: $lnir-crop-alt;
+}
+
+.lnir-crop::before {
+  content: $lnir-crop;
+}
+
+.lnir-grid-alt::before {
+  content: $lnir-grid-alt;
+}
+
+.lnir-grid::before {
+  content: $lnir-grid;
+}
+
+.lnir-highlight-alt::before {
+  content: $lnir-highlight-alt;
+}
+
+.lnir-highlight::before {
+  content: $lnir-highlight;
+}
+
+.lnir-image-crop::before {
+  content: $lnir-image-crop;
+}
+
+.lnir-layers-alt-1::before {
+  content: $lnir-layers-alt-1;
+}
+
+.lnir-layers-alt::before {
+  content: $lnir-layers-alt;
+}
+
+.lnir-layers::before {
+  content: $lnir-layers;
+}
+
+.lnir-layout-alt-1::before {
+  content: $lnir-layout-alt-1;
+}
+
+.lnir-layout-alt-2::before {
+  content: $lnir-layout-alt-2;
+}
+
+.lnir-layout-alt::before {
+  content: $lnir-layout-alt;
+}
+
+.lnir-layout::before {
+  content: $lnir-layout;
+}
+
+.lnir-magic-wand::before {
+  content: $lnir-magic-wand;
+}
+
+.lnir-margin::before {
+  content: $lnir-margin;
+}
+
+.lnir-move::before {
+  content: $lnir-move;
+}
+
+.lnir-pallet::before {
+  content: $lnir-pallet;
+}
+
+.lnir-rotate::before {
+  content: $lnir-rotate;
+}
+
+.lnir-scaling::before {
+  content: $lnir-scaling;
+}
+
+.lnir-select::before {
+  content: $lnir-select;
+}
+
+.lnir-size::before {
+  content: $lnir-size;
+}
+
+.lnir-slice::before {
+  content: $lnir-slice;
+}
+
+.lnir-transform::before {
+  content: $lnir-transform;
+}
+
+.lnir-ux::before {
+  content: $lnir-ux;
+}
+
+.lnir-vector-alt::before {
+  content: $lnir-vector-alt;
+}
+
+.lnir-vector-pen::before {
+  content: $lnir-vector-pen;
+}
+
+.lnir-vector::before {
+  content: $lnir-vector;
+}
+
+.lnir-angle-double-down::before {
+  content: $lnir-angle-double-down;
+}
+
+.lnir-angle-double-left::before {
+  content: $lnir-angle-double-left;
+}
+
+.lnir-angle-double-right::before {
+  content: $lnir-angle-double-right;
+}
+
+.lnir-angle-double-up::before {
+  content: $lnir-angle-double-up;
+}
+
+.lnir-arrow-double-down::before {
+  content: $lnir-arrow-double-down;
+}
+
+.lnir-arrow-double-left::before {
+  content: $lnir-arrow-double-left;
+}
+
+.lnir-arrow-double-right::before {
+  content: $lnir-arrow-double-right;
+}
+
+.lnir-arrow-double-top::before {
+  content: $lnir-arrow-double-top;
+}
+
+.lnir-arrow-down-circle::before {
+  content: $lnir-arrow-down-circle;
+}
+
+.lnir-arrow-down::before {
+  content: $lnir-arrow-down;
+}
+
+.lnir-arrow-expand-alt::before {
+  content: $lnir-arrow-expand-alt;
+}
+
+.lnir-arrow-expand::before {
+  content: $lnir-arrow-expand;
+}
+
+.lnir-arrow-left-circle::before {
+  content: $lnir-arrow-left-circle;
+}
+
+.lnir-arrow-left::before {
+  content: $lnir-arrow-left;
+}
+
+.lnir-arrow-minimize-alt::before {
+  content: $lnir-arrow-minimize-alt;
+}
+
+.lnir-arrow-minimize::before {
+  content: $lnir-arrow-minimize;
+}
+
+.lnir-arrow-right-circle::before {
+  content: $lnir-arrow-right-circle;
+}
+
+.lnir-arrow-right::before {
+  content: $lnir-arrow-right;
+}
+
+.lnir-arrow-top-left::before {
+  content: $lnir-arrow-top-left;
+}
+
+.lnir-arrow-top-right::before {
+  content: $lnir-arrow-top-right;
+}
+
+.lnir-arrow-up-circle::before {
+  content: $lnir-arrow-up-circle;
+}
+
+.lnir-arrow-up::before {
+  content: $lnir-arrow-up;
+}
+
+.lnir-arrows-horizontal::before {
+  content: $lnir-arrows-horizontal;
+}
+
+.lnir-arrows-vertical::before {
+  content: $lnir-arrows-vertical;
+}
+
+.lnir-axis::before {
+  content: $lnir-axis;
+}
+
+.lnir-chevron-down-circle::before {
+  content: $lnir-chevron-down-circle;
+}
+
+.lnir-chevron-down::before {
+  content: $lnir-chevron-down;
+}
+
+.lnir-chevron-left-circle::before {
+  content: $lnir-chevron-left-circle;
+}
+
+.lnir-chevron-left::before {
+  content: $lnir-chevron-left;
+}
+
+.lnir-chevron-right-circle::before {
+  content: $lnir-chevron-right-circle;
+}
+
+.lnir-chevron-right::before {
+  content: $lnir-chevron-right;
+}
+
+.lnir-chevron-up-circle::before {
+  content: $lnir-chevron-up-circle;
+}
+
+.lnir-chevron-up::before {
+  content: $lnir-chevron-up;
+}
+
+.lnir-direction-alt::before {
+  content: $lnir-direction-alt;
+}
+
+.lnir-direction-ltr::before {
+  content: $lnir-direction-ltr;
+}
+
+.lnir-direction-rtl::before {
+  content: $lnir-direction-rtl;
+}
+
+.lnir-direction::before {
+  content: $lnir-direction;
+}
+
+.lnir-down-arrow-box::before {
+  content: $lnir-down-arrow-box;
+}
+
+.lnir-down-left-arrow-box::before {
+  content: $lnir-down-left-arrow-box;
+}
+
+.lnir-down-right-arrow-box::before {
+  content: $lnir-down-right-arrow-box;
+}
+
+.lnir-enter::before {
+  content: $lnir-enter;
+}
+
+.lnir-exit-down::before {
+  content: $lnir-exit-down;
+}
+
+.lnir-exit-up::before {
+  content: $lnir-exit-up;
+}
+
+.lnir-exit::before {
+  content: $lnir-exit;
+}
+
+.lnir-left-arrow-box::before {
+  content: $lnir-left-arrow-box;
+}
+
+.lnir-pointer-down::before {
+  content: $lnir-pointer-down;
+}
+
+.lnir-pointer-left::before {
+  content: $lnir-pointer-left;
+}
+
+.lnir-pointer-right::before {
+  content: $lnir-pointer-right;
+}
+
+.lnir-pointer-up::before {
+  content: $lnir-pointer-up;
+}
+
+.lnir-right-arrow-box::before {
+  content: $lnir-right-arrow-box;
+}
+
+.lnir-shift-left::before {
+  content: $lnir-shift-left;
+}
+
+.lnir-shift-right::before {
+  content: $lnir-shift-right;
+}
+
+.lnir-top-left-arrow-box::before {
+  content: $lnir-top-left-arrow-box;
+}
+
+.lnir-top-arrow-box::before {
+  content: $lnir-top-arrow-box;
+}
+
+.lnir-top-right-arrow-box::before {
+  content: $lnir-top-right-arrow-box;
+}
+
+.lnir-capital-letter::before {
+  content: $lnir-capital-letter;
+}
+
+.lnir-font::before {
+  content: $lnir-font;
+}
+
+.lnir-height::before {
+  content: $lnir-height;
+}
+
+.lnir-indent-decrease::before {
+  content: $lnir-indent-decrease;
+}
+
+.lnir-indent-increase::before {
+  content: $lnir-indent-increase;
+}
+
+.lnir-italic::before {
+  content: $lnir-italic;
+}
+
+.lnir-line-dashed::before {
+  content: $lnir-line-dashed;
+}
+
+.lnir-line-dotted::before {
+  content: $lnir-line-dotted;
+}
+
+.lnir-line-double::before {
+  content: $lnir-line-double;
+}
+
+.lnir-line-spacing::before {
+  content: $lnir-line-spacing;
+}
+
+.lnir-page-break::before {
+  content: $lnir-page-break;
+}
+
+.lnir-pagination::before {
+  content: $lnir-pagination;
+}
+
+.lnir-pilcrow::before {
+  content: $lnir-pilcrow;
+}
+
+.lnir-redo::before {
+  content: $lnir-redo;
+}
+
+.lnir-reflect::before {
+  content: $lnir-reflect;
+}
+
+.lnir-sort-alpha-asc::before {
+  content: $lnir-sort-alpha-asc;
+}
+
+.lnir-sort-amount-asc::before {
+  content: $lnir-sort-amount-asc;
+}
+
+.lnir-sort-amount-dsc::before {
+  content: $lnir-sort-amount-dsc;
+}
+
+.lnir-spellcheck::before {
+  content: $lnir-spellcheck;
+}
+
+.lnir-text-align-justify::before {
+  content: $lnir-text-align-justify;
+}
+
+.lnir-text-align-left::before {
+  content: $lnir-text-align-left;
+}
+
+.lnir-hammer::before {
+  content: $lnir-hammer;
+}
+
+.lnir-helmet-alt::before {
+  content: $lnir-helmet-alt;
+}
+
+.lnir-text-align-right::before {
+  content: $lnir-text-align-right;
+}
+
+.lnir-text-align-center::before {
+  content: $lnir-text-align-center;
+}
+
+.lnir-text-format-remove::before {
+  content: $lnir-text-format-remove;
+}
+
+.lnir-text::before {
+  content: $lnir-text;
+}
+
+.lnir-underline::before {
+  content: $lnir-underline;
+}
+
+.lnir-undo::before {
+  content: $lnir-undo;
+}
+
+.lnir-vertical-line::before {
+  content: $lnir-vertical-line;
+}
+
+.lnir-atom::before {
+  content: $lnir-atom;
+}
+
+.lnir-backpack-alt::before {
+  content: $lnir-backpack-alt;
+}
+
+.lnir-backpack::before {
+  content: $lnir-backpack;
+}
+
+.lnir-blackboard::before {
+  content: $lnir-blackboard;
+}
+
+.lnir-book-alt::before {
+  content: $lnir-book-alt;
+}
+
+.lnir-book::before {
+  content: $lnir-book;
+}
+
+.lnir-books-alt::before {
+  content: $lnir-books-alt;
+}
+
+.lnir-books::before {
+  content: $lnir-books;
+}
+
+.lnir-brakckets::before {
+  content: $lnir-brakckets;
+}
+
+.lnir-certificate-alt-1::before {
+  content: $lnir-certificate-alt-1;
+}
+
+.lnir-certificate-alt::before {
+  content: $lnir-certificate-alt;
+}
+
+.lnir-certificate::before {
+  content: $lnir-certificate;
+}
+
+.lnir-classroom::before {
+  content: $lnir-classroom;
+}
+
+.lnir-clipboard::before {
+  content: $lnir-clipboard;
+}
+
+.lnir-compass::before {
+  content: $lnir-compass;
+}
+
+.lnir-cubes::before {
+  content: $lnir-cubes;
+}
+
+.lnir-eraser::before {
+  content: $lnir-eraser;
+}
+
+.lnir-flask-alt-1::before {
+  content: $lnir-flask-alt-1;
+}
+
+.lnir-flask-alt-2::before {
+  content: $lnir-flask-alt-2;
+}
+
+.lnir-flask-alt::before {
+  content: $lnir-flask-alt;
+}
+
+.lnir-flask::before {
+  content: $lnir-flask;
+}
+
+.lnir-graduate-alt::before {
+  content: $lnir-graduate-alt;
+}
+
+.lnir-graduate::before {
+  content: $lnir-graduate;
+}
+
+.lnir-graduation::before {
+  content: $lnir-graduation;
+}
+
+.lnir-letterblocks::before {
+  content: $lnir-letterblocks;
+}
+
+.lnir-library::before {
+  content: $lnir-library;
+}
+
+.lnir-medal-alt::before {
+  content: $lnir-medal-alt;
+}
+
+.lnir-medal::before {
+  content: $lnir-medal;
+}
+
+.lnir-molecule-alt::before {
+  content: $lnir-molecule-alt;
+}
+
+.lnir-molecule::before {
+  content: $lnir-molecule;
+}
+
+.lnir-pencil-alt::before {
+  content: $lnir-pencil-alt;
+}
+
+.lnir-pencil::before {
+  content: $lnir-pencil;
+}
+
+.lnir-quill::before {
+  content: $lnir-quill;
+}
+
+.lnir-school-bench-alt::before {
+  content: $lnir-school-bench-alt;
+}
+
+.lnir-school-bench::before {
+  content: $lnir-school-bench;
+}
+
+.lnir-sketchbook::before {
+  content: $lnir-sketchbook;
+}
+
+.lnir-whiteboard-alt-1::before {
+  content: $lnir-whiteboard-alt-1;
+}
+
+.lnir-whiteboard-alt-2::before {
+  content: $lnir-whiteboard-alt-2;
+}
+
+.lnir-whiteboard-alt::before {
+  content: $lnir-whiteboard-alt;
+}
+
+.lnir-whiteboard::before {
+  content: $lnir-whiteboard;
+}
+
+.lnir-world-2::before {
+  content: $lnir-world-2;
+}
+
+.lnir-world-alt::before {
+  content: $lnir-world-alt;
+}
+
+.lnir-world::before {
+  content: $lnir-world;
+}
+
+.lnir-write::before {
+  content: $lnir-write;
+}
+
+.lnir-apple-alt::before {
+  content: $lnir-apple-alt;
+}
+
+.lnir-banana::before {
+  content: $lnir-banana;
+}
+
+.lnir-bowl-alt::before {
+  content: $lnir-bowl-alt;
+}
+
+.lnir-bowl-alt-1::before {
+  content: $lnir-bowl-alt-1;
+}
+
+.lnir-bowl::before {
+  content: $lnir-bowl;
+}
+
+.lnir-brocolli::before {
+  content: $lnir-brocolli;
+}
+
+.lnir-burger-alt-1::before {
+  content: $lnir-burger-alt-1;
+}
+
+.lnir-burger-alt::before {
+  content: $lnir-burger-alt;
+}
+
+.lnir-burger::before {
+  content: $lnir-burger;
+}
+
+.lnir-chef-hat-alt-1::before {
+  content: $lnir-chef-hat-alt-1;
+}
+
+.lnir-chef-hat-alt-2::before {
+  content: $lnir-chef-hat-alt-2;
+}
+
+.lnir-chef-hat-alt::before {
+  content: $lnir-chef-hat-alt;
+}
+
+.lnir-chef-hat::before {
+  content: $lnir-chef-hat;
+}
+
+.lnir-chicken::before {
+  content: $lnir-chicken;
+}
+
+.lnir-cocktail-alt-1::before {
+  content: $lnir-cocktail-alt-1;
+}
+
+.lnir-cocktail-alt::before {
+  content: $lnir-cocktail-alt;
+}
+
+.lnir-cocktail::before {
+  content: $lnir-cocktail;
+}
+
+.lnir-coffee-cup-alt::before {
+  content: $lnir-coffee-cup-alt;
+}
+
+.lnir-coffee-cup::before {
+  content: $lnir-coffee-cup;
+}
+
+.lnir-cupcake-alt::before {
+  content: $lnir-cupcake-alt;
+}
+
+.lnir-cupcake::before {
+  content: $lnir-cupcake;
+}
+
+.lnir-cutlery-alt-1::before {
+  content: $lnir-cutlery-alt-1;
+}
+
+.lnir-cutlery-alt::before {
+  content: $lnir-cutlery-alt;
+}
+
+.lnir-cutlery::before {
+  content: $lnir-cutlery;
+}
+
+.lnir-dinner-table::before {
+  content: $lnir-dinner-table;
+}
+
+.lnir-dinner::before {
+  content: $lnir-dinner;
+}
+
+.lnir-drumstick::before {
+  content: $lnir-drumstick;
+}
+
+.lnir-fresh-juice::before {
+  content: $lnir-fresh-juice;
+}
+
+.lnir-ice-cream-alt::before {
+  content: $lnir-ice-cream-alt;
+}
+
+.lnir-ice-cream::before {
+  content: $lnir-ice-cream;
+}
+
+.lnir-juice::before {
+  content: $lnir-juice;
+}
+
+.lnir-lolypop::before {
+  content: $lnir-lolypop;
+}
+
+.lnir-meat::before {
+  content: $lnir-meat;
+}
+
+.lnir-pizza-alt::before {
+  content: $lnir-pizza-alt;
+}
+
+.lnir-pizza::before {
+  content: $lnir-pizza;
+}
+
+.lnir-plate::before {
+  content: $lnir-plate;
+}
+
+.lnir-popcorn::before {
+  content: $lnir-popcorn;
+}
+
+.lnir-restaurant::before {
+  content: $lnir-restaurant;
+}
+
+.lnir-service::before {
+  content: $lnir-service;
+}
+
+.lnir-silverware::before {
+  content: $lnir-silverware;
+}
+
+.lnir-spatula::before {
+  content: $lnir-spatula;
+}
+
+.lnir-ambulance-alt-1::before {
+  content: $lnir-ambulance-alt-1;
+}
+
+.lnir-ambulance-alt::before {
+  content: $lnir-ambulance-alt;
+}
+
+.lnir-ambulance::before {
+  content: $lnir-ambulance;
+}
+
+.lnir-basketball::before {
+  content: $lnir-basketball;
+}
+
+.lnir-bone::before {
+  content: $lnir-bone;
+}
+
+.lnir-brain-alt::before {
+  content: $lnir-brain-alt;
+}
+
+.lnir-brain-check-alt::before {
+  content: $lnir-brain-check-alt;
+}
+
+.lnir-brain-check::before {
+  content: $lnir-brain-check;
+}
+
+.lnir-brain::before {
+  content: $lnir-brain;
+}
+
+.lnir-broken-bone::before {
+  content: $lnir-broken-bone;
+}
+
+.lnir-capsule-alt-1::before {
+  content: $lnir-capsule-alt-1;
+}
+
+.lnir-capsule-alt::before {
+  content: $lnir-capsule-alt;
+}
+
+.lnir-capsule::before {
+  content: $lnir-capsule;
+}
+
+.lnir-capsules::before {
+  content: $lnir-capsules;
+}
+
+.lnir-cardiology::before {
+  content: $lnir-cardiology;
+}
+
+.lnir-diagnosis-alt::before {
+  content: $lnir-diagnosis-alt;
+}
+
+.lnir-diagnosis::before {
+  content: $lnir-diagnosis;
+}
+
+.lnir-dna::before {
+  content: $lnir-dna;
+}
+
+.lnir-dropper-alt-1::before {
+  content: $lnir-dropper-alt-1;
+}
+
+.lnir-dropper-alt-2::before {
+  content: $lnir-dropper-alt-2;
+}
+
+.lnir-dropper-alt::before {
+  content: $lnir-dropper-alt;
+}
+
+.lnir-dropper::before {
+  content: $lnir-dropper;
+}
+
+.lnir-dumbbell::before {
+  content: $lnir-dumbbell;
+}
+
+.lnir-eye-test::before {
+  content: $lnir-eye-test;
+}
+
+.lnir-female::before {
+  content: $lnir-female;
+}
+
+.lnir-first-aid::before {
+  content: $lnir-first-aid;
+}
+
+.lnir-gluten-free::before {
+  content: $lnir-gluten-free;
+}
+
+.lnir-heart-check::before {
+  content: $lnir-heart-check;
+}
+
+.lnir-heart-monitor::before {
+  content: $lnir-heart-monitor;
+}
+
+.lnir-heartrate-monitor::before {
+  content: $lnir-heartrate-monitor;
+}
+
+.lnir-hospital-alt-1::before {
+  content: $lnir-hospital-alt-1;
+}
+
+.lnir-hospital-alt-2::before {
+  content: $lnir-hospital-alt-2;
+}
+
+.lnir-hospital-alt-3::before {
+  content: $lnir-hospital-alt-3;
+}
+
+.lnir-hospital-alt-4::before {
+  content: $lnir-hospital-alt-4;
+}
+
+.lnir-hospital-alt::before {
+  content: $lnir-hospital-alt;
+}
+
+.lnir-hospital-bed-alt-1::before {
+  content: $lnir-hospital-bed-alt-1;
+}
+
+.lnir-hospital-bed-alt-2::before {
+  content: $lnir-hospital-bed-alt-2;
+}
+
+.lnir-hospital-bed-alt::before {
+  content: $lnir-hospital-bed-alt;
+}
+
+.lnir-hospital-bed::before {
+  content: $lnir-hospital-bed;
+}
+
+.lnir-hospital-location::before {
+  content: $lnir-hospital-location;
+}
+
+.lnir-hospital-sign::before {
+  content: $lnir-hospital-sign;
+}
+
+.lnir-hospital::before {
+  content: $lnir-hospital;
+}
+
+.lnir-kettlebell::before {
+  content: $lnir-kettlebell;
+}
+
+.lnir-lungs::before {
+  content: $lnir-lungs;
+}
+
+.lnir-male::before {
+  content: $lnir-male;
+}
+
+.lnir-medical-briefcase-alt::before {
+  content: $lnir-medical-briefcase-alt;
+}
+
+.lnir-medical-briefcase::before {
+  content: $lnir-medical-briefcase;
+}
+
+.lnir-medical-protection::before {
+  content: $lnir-medical-protection;
+}
+
+.lnir-medical-sign::before {
+  content: $lnir-medical-sign;
+}
+
+.lnir-medicine-alt::before {
+  content: $lnir-medicine-alt;
+}
+
+.lnir-medicine-bottle::before {
+  content: $lnir-medicine-bottle;
+}
+
+.lnir-medicine::before {
+  content: $lnir-medicine;
+}
+
+.lnir-microscope::before {
+  content: $lnir-microscope;
+}
+
+.lnir-pulse::before {
+  content: $lnir-pulse;
+}
+
+.lnir-report-laptop::before {
+  content: $lnir-report-laptop;
+}
+
+.lnir-saline-alt-1::before {
+  content: $lnir-saline-alt-1;
+}
+
+.lnir-saline::before {
+  content: $lnir-saline;
+}
+
+.lnir-skipping-rope::before {
+  content: $lnir-skipping-rope;
+}
+
+.lnir-slim::before {
+  content: $lnir-slim;
+}
+
+.lnir-sthethoscope::before {
+  content: $lnir-sthethoscope;
+}
+
+.lnir-saline-alt::before {
+  content: $lnir-saline-alt;
+}
+
+.lnir-syringe::before {
+  content: $lnir-syringe;
+}
+
+.lnir-test-tube-alt::before {
+  content: $lnir-test-tube-alt;
+}
+
+.lnir-test-tube::before {
+  content: $lnir-test-tube;
+}
+
+.lnir-thermometer-alt::before {
+  content: $lnir-thermometer-alt;
+}
+
+.lnir-thermometer::before {
+  content: $lnir-thermometer;
+}
+
+.lnir-tooth::before {
+  content: $lnir-tooth;
+}
+
+.lnir-walker::before {
+  content: $lnir-walker;
+}
+
+.lnir-weight-machine::before {
+  content: $lnir-weight-machine;
+}
+
+.lnir-weight::before {
+  content: $lnir-weight;
+}
+
+.lnir-wheelchair::before {
+  content: $lnir-wheelchair;
+}
+
+.lnir-yoga-mat::before {
+  content: $lnir-yoga-mat;
+}
+
+.lnir-achievement::before {
+  content: $lnir-achievement;
+}
+
+.lnir-analytics-alt-1::before {
+  content: $lnir-analytics-alt-1;
+}
+
+.lnir-agenda::before {
+  content: $lnir-agenda;
+}
+
+.lnir-apartment-alt::before {
+  content: $lnir-apartment-alt;
+}
+
+.lnir-apartment::before {
+  content: $lnir-apartment;
+}
+
+.lnir-briefcase-alt::before {
+  content: $lnir-briefcase-alt;
+}
+
+.lnir-briefcase::before {
+  content: $lnir-briefcase;
+}
+
+.lnir-cart-alt::before {
+  content: $lnir-cart-alt;
+}
+
+.lnir-cart-down::before {
+  content: $lnir-cart-down;
+}
+
+.lnir-cart-empty::before {
+  content: $lnir-cart-empty;
+}
+
+.lnir-cart-full::before {
+  content: $lnir-cart-full;
+}
+
+.lnir-cart::before {
+  content: $lnir-cart;
+}
+
+.lnir-consulting::before {
+  content: $lnir-consulting;
+}
+
+.lnir-customer::before {
+  content: $lnir-customer;
+}
+
+.lnir-delivery::before {
+  content: $lnir-delivery;
+}
+
+.lnir-desk::before {
+  content: $lnir-desk;
+}
+
+.lnir-global::before {
+  content: $lnir-global;
+}
+
+.lnir-grow::before {
+  content: $lnir-grow;
+}
+
+.lnir-handshake::before {
+  content: $lnir-handshake;
+}
+
+.lnir-hierchy-alt::before {
+  content: $lnir-hierchy-alt;
+}
+
+.lnir-hierchy::before {
+  content: $lnir-hierchy;
+}
+
+.lnir-invest-monitor::before {
+  content: $lnir-invest-monitor;
+}
+
+.lnir-investment::before {
+  content: $lnir-investment;
+}
+
+.lnir-license::before {
+  content: $lnir-license;
+}
+
+.lnir-notepad::before {
+  content: $lnir-notepad;
+}
+
+.lnir-offer::before {
+  content: $lnir-offer;
+}
+
+.lnir-office-plan::before {
+  content: $lnir-office-plan;
+}
+
+.lnir-pie-chart-alt::before {
+  content: $lnir-pie-chart-alt;
+}
+
+.lnir-paperclip::before {
+  content: $lnir-paperclip;
+}
+
+.lnir-pie-chart-dollar::before {
+  content: $lnir-pie-chart-dollar;
+}
+
+.lnir-pie-chart::before {
+  content: $lnir-pie-chart;
+}
+
+.lnir-pie-report::before {
+  content: $lnir-pie-report;
+}
+
+.lnir-pin-alt::before {
+  content: $lnir-pin-alt;
+}
+
+.lnir-pin::before {
+  content: $lnir-pin;
+}
+
+.lnir-quotation::before {
+  content: $lnir-quotation;
+}
+
+.lnir-revenue::before {
+  content: $lnir-revenue;
+}
+
+.lnir-sales-report::before {
+  content: $lnir-sales-report;
+}
+
+.lnir-stamp::before {
+  content: $lnir-stamp;
+}
+
+.lnir-stats-down::before {
+  content: $lnir-stats-down;
+}
+
+.lnir-stats-up::before {
+  content: $lnir-stats-up;
+}
+
+.lnir-swatches::before {
+  content: $lnir-swatches;
+}
+
+.lnir-table::before {
+  content: $lnir-table;
+}
+
+.lnir-tablet-alt::before {
+  content: $lnir-tablet-alt;
+}
+
+.lnir-tag::before {
+  content: $lnir-tag;
+}
+
+.lnir-target-achievement::before {
+  content: $lnir-target-achievement;
+}
+
+.lnir-target-alt-1::before {
+  content: $lnir-target-alt-1;
+}
+
+.lnir-target-alt::before {
+  content: $lnir-target-alt;
+}
+
+.lnir-target-remove::before {
+  content: $lnir-target-remove;
+}
+
+.lnir-target-revenue::before {
+  content: $lnir-target-revenue;
+}
+
+.lnir-target::before {
+  content: $lnir-target;
+}
+
+.lnir-tie::before {
+  content: $lnir-tie;
+}
+
+.lnir-analytics::before {
+  content: $lnir-analytics;
+}
+
+.lnir-bar-chart::before {
+  content: $lnir-bar-chart;
+}
+
+.lnir-bar-check::before {
+  content: $lnir-bar-check;
+}
+
+.lnir-billboard-alt::before {
+  content: $lnir-billboard-alt;
+}
+
+.lnir-billboard::before {
+  content: $lnir-billboard;
+}
+
+.lnir-graph-alt-1::before {
+  content: $lnir-graph-alt-1;
+}
+
+.lnir-graph-alt-2::before {
+  content: $lnir-graph-alt-2;
+}
+
+.lnir-graph-alt-3::before {
+  content: $lnir-graph-alt-3;
+}
+
+.lnir-graph-alt-4::before {
+  content: $lnir-graph-alt-4;
+}
+
+.lnir-graph-alt::before {
+  content: $lnir-graph-alt;
+}
+
+.lnir-graph-decrease::before {
+  content: $lnir-graph-decrease;
+}
+
+.lnir-graph-increase::before {
+  content: $lnir-graph-increase;
+}
+
+.lnir-graph::before {
+  content: $lnir-graph;
+}
+
+.lnir-keyword-research::before {
+  content: $lnir-keyword-research;
+}
+
+.lnir-network-alt::before {
+  content: $lnir-network-alt;
+}
+
+.lnir-network::before {
+  content: $lnir-network;
+}
+
+.lnir-pyramid-decrease::before {
+  content: $lnir-pyramid-decrease;
+}
+
+.lnir-pyramid-increase::before {
+  content: $lnir-pyramid-increase;
+}
+
+.lnir-pyramid::before {
+  content: $lnir-pyramid;
+}
+
+.lnir-rook::before {
+  content: $lnir-rook;
+}
+
+.lnir-seo::before {
+  content: $lnir-seo;
+}
+
+.lnir-strategy::before {
+  content: $lnir-strategy;
+}
+
+.lnir-target-audience-alt::before {
+  content: $lnir-target-audience-alt;
+}
+
+.lnir-target-customer::before {
+  content: $lnir-target-customer;
+}
+
+.lnir-website-rank::before {
+  content: $lnir-website-rank;
+}
+
+.lnir-barrier::before {
+  content: $lnir-barrier;
+}
+
+.lnir-bolt-alt::before {
+  content: $lnir-bolt-alt;
+}
+
+.lnir-bolt::before {
+  content: $lnir-bolt;
+}
+
+.lnir-checkbox::before {
+  content: $lnir-checkbox;
+}
+
+.lnir-checkmark-circle::before {
+  content: $lnir-checkmark-circle;
+}
+
+.lnir-checkmark::before {
+  content: $lnir-checkmark;
+}
+
+.lnir-circle-minus::before {
+  content: $lnir-circle-minus;
+}
+
+.lnir-circle-plus::before {
+  content: $lnir-circle-plus;
+}
+
+.lnir-close::before {
+  content: $lnir-close;
+}
+
+.lnir-cross-circle::before {
+  content: $lnir-cross-circle;
+}
+
+.lnir-electricity::before {
+  content: $lnir-electricity;
+}
+
+.lnir-eye-alt::before {
+  content: $lnir-eye-alt;
+}
+
+.lnir-eye::before {
+  content: $lnir-eye;
+}
+
+.lnir-find::before {
+  content: $lnir-find;
+}
+
+.lnir-flag-alt::before {
+  content: $lnir-flag-alt;
+}
+
+.lnir-flag::before {
+  content: $lnir-flag;
+}
+
+.lnir-funnel-alt-1::before {
+  content: $lnir-funnel-alt-1;
+}
+
+.lnir-funnel-alt::before {
+  content: $lnir-funnel-alt;
+}
+
+.lnir-funnel::before {
+  content: $lnir-funnel;
+}
+
+.lnir-hand::before {
+  content: $lnir-hand;
+}
+
+.lnir-heart-filled::before {
+  content: $lnir-heart-filled;
+}
+
+.lnir-heart-plus::before {
+  content: $lnir-heart-plus;
+}
+
+.lnir-heart::before {
+  content: $lnir-heart;
+}
+
+.lnir-help::before {
+  content: $lnir-help;
+}
+
+.lnir-hotel-sign::before {
+  content: $lnir-hotel-sign;
+}
+
+.lnir-idea-alt::before {
+  content: $lnir-idea-alt;
+}
+
+.lnir-identity::before {
+  content: $lnir-identity;
+}
+
+.lnir-infinite::before {
+  content: $lnir-infinite;
+}
+
+.lnir-information::before {
+  content: $lnir-information;
+}
+
+.lnir-invention::before {
+  content: $lnir-invention;
+}
+
+.lnir-key-alt-1::before {
+  content: $lnir-key-alt-1;
+}
+
+.lnir-key-alt-2::before {
+  content: $lnir-key-alt-2;
+}
+
+.lnir-key-alt-3::before {
+  content: $lnir-key-alt-3;
+}
+
+.lnir-key-alt::before {
+  content: $lnir-key-alt;
+}
+
+.lnir-key::before {
+  content: $lnir-key;
+}
+
+.lnir-life-ring::before {
+  content: $lnir-life-ring;
+}
+
+.lnir-list-alt-1::before {
+  content: $lnir-list-alt-1;
+}
+
+.lnir-list-alt::before {
+  content: $lnir-list-alt;
+}
+
+.lnir-list::before {
+  content: $lnir-list;
+}
+
+.lnir-lock-alt-1::before {
+  content: $lnir-lock-alt-1;
+}
+
+.lnir-lock-alt-2::before {
+  content: $lnir-lock-alt-2;
+}
+
+.lnir-lock-alt::before {
+  content: $lnir-lock-alt;
+}
+
+.lnir-lock::before {
+  content: $lnir-lock;
+}
+
+.lnir-minus::before {
+  content: $lnir-minus;
+}
+
+.lnir-more-alt-1::before {
+  content: $lnir-more-alt-1;
+}
+
+.lnir-more-alt::before {
+  content: $lnir-more-alt;
+}
+
+.lnir-more::before {
+  content: $lnir-more;
+}
+
+.lnir-music-note::before {
+  content: $lnir-music-note;
+}
+
+.lnir-music::before {
+  content: $lnir-music;
+}
+
+.lnir-notification::before {
+  content: $lnir-notification;
+}
+
+.lnir-passport-alt::before {
+  content: $lnir-passport-alt;
+}
+
+.lnir-passport::before {
+  content: $lnir-passport;
+}
+
+.lnir-playlist-alt::before {
+  content: $lnir-playlist-alt;
+}
+
+.lnir-playlist::before {
+  content: $lnir-playlist;
+}
+
+.lnir-plus::before {
+  content: $lnir-plus;
+}
+
+.lnir-pointer::before {
+  content: $lnir-pointer;
+}
+
+.lnir-power-switch::before {
+  content: $lnir-power-switch;
+}
+
+.lnir-protection::before {
+  content: $lnir-protection;
+}
+
+.lnir-question-circle::before {
+  content: $lnir-question-circle;
+}
+
+.lnir-radio-button::before {
+  content: $lnir-radio-button;
+}
+
+.lnir-record::before {
+  content: $lnir-record;
+}
+
+.lnir-round-box-check::before {
+  content: $lnir-round-box-check;
+}
+
+.lnir-round-box-cross::before {
+  content: $lnir-round-box-cross;
+}
+
+.lnir-round-box-minus::before {
+  content: $lnir-round-box-minus;
+}
+
+.lnir-round-box-plus::before {
+  content: $lnir-round-box-plus;
+}
+
+.lnir-shield::before {
+  content: $lnir-shield;
+}
+
+.lnir-sort::before {
+  content: $lnir-sort;
+}
+
+.lnir-switch::before {
+  content: $lnir-switch;
+}
+
+.lnir-teabag::before {
+  content: $lnir-teabag;
+}
+
+.lnir-thumbs-down-alt::before {
+  content: $lnir-thumbs-down-alt;
+}
+
+.lnir-thumbs-down::before {
+  content: $lnir-thumbs-down;
+}
+
+.lnir-thumbs-up-alt::before {
+  content: $lnir-thumbs-up-alt;
+}
+
+.lnir-thumbs-up::before {
+  content: $lnir-thumbs-up;
+}
+
+.lnir-thunderbolt::before {
+  content: $lnir-thunderbolt;
+}
+
+.lnir-ticket-alt-1::before {
+  content: $lnir-ticket-alt-1;
+}
+
+.lnir-ticket-alt-2::before {
+  content: $lnir-ticket-alt-2;
+}
+
+.lnir-ticket-alt-3::before {
+  content: $lnir-ticket-alt-3;
+}
+
+.lnir-ticket-alt::before {
+  content: $lnir-ticket-alt;
+}
+
+.lnir-ticket::before {
+  content: $lnir-ticket;
+}
+
+.lnir-unlock::before {
+  content: $lnir-unlock;
+}
+
+.lnir-warning::before {
+  content: $lnir-warning;
+}
+
+.lnir-backward-alt::before {
+  content: $lnir-backward-alt;
+}
+
+.lnir-backward::before {
+  content: $lnir-backward;
+}
+
+.lnir-expand-alt-1::before {
+  content: $lnir-expand-alt-1;
+}
+
+.lnir-fast-forward::before {
+  content: $lnir-fast-forward;
+}
+
+.lnir-film::before {
+  content: $lnir-film;
+}
+
+.lnir-forward::before {
+  content: $lnir-forward;
+}
+
+.lnir-frame-expand::before {
+  content: $lnir-frame-expand;
+}
+
+.lnir-full-screen::before {
+  content: $lnir-full-screen;
+}
+
+.lnir-gallery::before {
+  content: $lnir-gallery;
+}
+
+.lnir-next::before {
+  content: $lnir-next;
+}
+
+.lnir-pause::before {
+  content: $lnir-pause;
+}
+
+.lnir-play::before {
+  content: $lnir-play;
+}
+
+.lnir-previous::before {
+  content: $lnir-previous;
+}
+
+.lnir-repeat-one::before {
+  content: $lnir-repeat-one;
+}
+
+.lnir-shuffle::before {
+  content: $lnir-shuffle;
+}
+
+.lnir-slideshow::before {
+  content: $lnir-slideshow;
+}
+
+.lnir-stop::before {
+  content: $lnir-stop;
+}
+
+.lnir-video-alt-1::before {
+  content: $lnir-video-alt-1;
+}
+
+.lnir-video-alt::before {
+  content: $lnir-video-alt;
+}
+
+.lnir-video-camera-alt-1::before {
+  content: $lnir-video-camera-alt-1;
+}
+
+.lnir-video-camera-alt-2::before {
+  content: $lnir-video-camera-alt-2;
+}
+
+.lnir-video-camera-alt::before {
+  content: $lnir-video-camera-alt;
+}
+
+.lnir-video-cut::before {
+  content: $lnir-video-cut;
+}
+
+.lnir-video::before {
+  content: $lnir-video;
+}
+
+.lnir-volume-high::before {
+  content: $lnir-volume-high;
+}
+
+.lnir-volume-low::before {
+  content: $lnir-volume-low;
+}
+
+.lnir-volume-medium::before {
+  content: $lnir-volume-medium;
+}
+
+.lnir-volume-mute::before {
+  content: $lnir-volume-mute;
+}
+
+.lnir-volume::before {
+  content: $lnir-volume;
+}
+
+.lnir-bank::before {
+  content: $lnir-bank;
+}
+
+.lnir-calculator-alt::before {
+  content: $lnir-calculator-alt;
+}
+
+.lnir-calculator::before {
+  content: $lnir-calculator;
+}
+
+.lnir-coin::before {
+  content: $lnir-coin;
+}
+
+.lnir-coins::before {
+  content: $lnir-coins;
+}
+
+.lnir-credit-card::before {
+  content: $lnir-credit-card;
+}
+
+.lnir-credit-cards::before {
+  content: $lnir-credit-cards;
+}
+
+.lnir-diamond-alt::before {
+  content: $lnir-diamond-alt;
+}
+
+.lnir-diamond::before {
+  content: $lnir-diamond;
+}
+
+.lnir-dollar-card::before {
+  content: $lnir-dollar-card;
+}
+
+.lnir-dollar-down::before {
+  content: $lnir-dollar-down;
+}
+
+.lnir-dollar-up::before {
+  content: $lnir-dollar-up;
+}
+
+.lnir-dollar::before {
+  content: $lnir-dollar;
+}
+
+.lnir-euro-card::before {
+  content: $lnir-euro-card;
+}
+
+.lnir-euro-coin::before {
+  content: $lnir-euro-coin;
+}
+
+.lnir-euro-down::before {
+  content: $lnir-euro-down;
+}
+
+.lnir-euro-up::before {
+  content: $lnir-euro-up;
+}
+
+.lnir-euro::before {
+  content: $lnir-euro;
+}
+
+.lnir-gold-bar::before {
+  content: $lnir-gold-bar;
+}
+
+.lnir-mobile-coin-taka::before {
+  content: $lnir-mobile-coin-taka;
+}
+
+.lnir-mobile-coin::before {
+  content: $lnir-mobile-coin;
+}
+
+.lnir-money-bag::before {
+  content: $lnir-money-bag;
+}
+
+.lnir-money-location::before {
+  content: $lnir-money-location;
+}
+
+.lnir-money-protection::before {
+  content: $lnir-money-protection;
+}
+
+.lnir-pound-card::before {
+  content: $lnir-pound-card;
+}
+
+.lnir-pound-coin::before {
+  content: $lnir-pound-coin;
+}
+
+.lnir-pound-down::before {
+  content: $lnir-pound-down;
+}
+
+.lnir-pound-up::before {
+  content: $lnir-pound-up;
+}
+
+.lnir-pound::before {
+  content: $lnir-pound;
+}
+
+.lnir-rupee-card::before {
+  content: $lnir-rupee-card;
+}
+
+.lnir-rupee-coin::before {
+  content: $lnir-rupee-coin;
+}
+
+.lnir-text-format::before {
+  content: $lnir-text-format;
+}
+
+.lnir-rupee-down::before {
+  content: $lnir-rupee-down;
+}
+
+.lnir-bold::before {
+  content: $lnir-bold;
+}
+
+.lnir-taka-card::before {
+  content: $lnir-taka-card;
+}
+
+.lnir-taka-coin::before {
+  content: $lnir-taka-coin;
+}
+
+.lnir-strikethrough::before {
+  content: $lnir-strikethrough;
+}
+
+.lnir-taka-down::before {
+  content: $lnir-taka-down;
+}
+
+.lnir-rupee::before {
+  content: $lnir-rupee;
+}
+
+.lnir-taka-up::before {
+  content: $lnir-taka-up;
+}
+
+.lnir-taka::before {
+  content: $lnir-taka;
+}
+
+.lnir-rupee-up::before {
+  content: $lnir-rupee-up;
+}
+
+.lnir-wallet-alt-1::before {
+  content: $lnir-wallet-alt-1;
+}
+
+.lnir-wallet::before {
+  content: $lnir-wallet;
+}
+
+.lnir-yen-card::before {
+  content: $lnir-yen-card;
+}
+
+.lnir-yen-coin::before {
+  content: $lnir-yen-coin;
+}
+
+.lnir-yen-up::before {
+  content: $lnir-yen-up;
+}
+
+.lnir-bug-alt::before {
+  content: $lnir-bug-alt;
+}
+
+.lnir-yen-down::before {
+  content: $lnir-yen-down;
+}
+
+.lnir-yen::before {
+  content: $lnir-yen;
+}
+
+.lnir-cactus-alt::before {
+  content: $lnir-cactus-alt;
+}
+
+.lnir-flower::before {
+  content: $lnir-flower;
+}
+
+.lnir-bug::before {
+  content: $lnir-bug;
+}
+
+.lnir-cactus::before {
+  content: $lnir-cactus;
+}
+
+.lnir-island::before {
+  content: $lnir-island;
+}
+
+.lnir-leaf-alt::before {
+  content: $lnir-leaf-alt;
+}
+
+.lnir-leaf::before {
+  content: $lnir-leaf;
+}
+
+.lnir-leaves::before {
+  content: $lnir-leaves;
+}
+
+.lnir-mashroom::before {
+  content: $lnir-mashroom;
+}
+
+.lnir-mountain::before {
+  content: $lnir-mountain;
+}
+
+.lnir-mushroom-alt::before {
+  content: $lnir-mushroom-alt;
+}
+
+.lnir-mushrooms::before {
+  content: $lnir-mushrooms;
+}
+
+.lnir-plant-pot::before {
+  content: $lnir-plant-pot;
+}
+
+.lnir-plant::before {
+  content: $lnir-plant;
+}
+
+.lnir-sprout-alt::before {
+  content: $lnir-sprout-alt;
+}
+
+.lnir-sprout::before {
+  content: $lnir-sprout;
+}
+
+.lnir-tree-alt-1::before {
+  content: $lnir-tree-alt-1;
+}
+
+.lnir-tree-alt::before {
+  content: $lnir-tree-alt;
+}
+
+.lnir-tree::before {
+  content: $lnir-tree;
+}
+
+.lnir-trees-alt-1::before {
+  content: $lnir-trees-alt-1;
+}
+
+.lnir-trees-alt::before {
+  content: $lnir-trees-alt;
+}
+
+.lnir-trees::before {
+  content: $lnir-trees;
+}
+
+.lnir-baloon-alt-1::before {
+  content: $lnir-baloon-alt-1;
+}
+
+.lnir-baloon-alt::before {
+  content: $lnir-baloon-alt;
+}
+
+.lnir-baloon::before {
+  content: $lnir-baloon;
+}
+
+.lnir-birthday-hat::before {
+  content: $lnir-birthday-hat;
+}
+
+.lnir-cake::before {
+  content: $lnir-cake;
+}
+
+.lnir-leaf-alt-1::before {
+  content: $lnir-leaf-alt-1;
+}
+
+.lnir-candy-cane::before {
+  content: $lnir-candy-cane;
+}
+
+.lnir-tornado::before {
+  content: $lnir-tornado;
+}
+
+.lnir-candy::before {
+  content: $lnir-candy;
+}
+
+.lnir-confetti::before {
+  content: $lnir-confetti;
+}
+
+.lnir-firecracker::before {
+  content: $lnir-firecracker;
+}
+
+.lnir-fireworks::before {
+  content: $lnir-fireworks;
+}
+
+.lnir-flags::before {
+  content: $lnir-flags;
+}
+
+.lnir-mask::before {
+  content: $lnir-mask;
+}
+
+.lnir-spray::before {
+  content: $lnir-spray;
+}
+
+.lnir-wand::before {
+  content: $lnir-wand;
+}
+
+.lnir-cotton-bud::before {
+  content: $lnir-cotton-bud;
+}
+
+.lnir-crown-alt-1::before {
+  content: $lnir-crown-alt-1;
+}
+
+.lnir-crown-alt::before {
+  content: $lnir-crown-alt;
+}
+
+.lnir-crown-alt-2::before {
+  content: $lnir-crown-alt-2;
+}
+
+.lnir-crown::before {
+  content: $lnir-crown;
+}
+
+.lnir-cup-alt::before {
+  content: $lnir-cup-alt;
+}
+
+.lnir-flower-alt::before {
+  content: $lnir-flower-alt;
+}
+
+.lnir-gift-alt-1::before {
+  content: $lnir-gift-alt-1;
+}
+
+.lnir-gift-alt::before {
+  content: $lnir-gift-alt;
+}
+
+.lnir-gift-bag::before {
+  content: $lnir-gift-bag;
+}
+
+.lnir-gift::before {
+  content: $lnir-gift;
+}
+
+.lnir-glasses::before {
+  content: $lnir-glasses;
+}
+
+.lnir-home::before {
+  content: $lnir-home;
+}
+
+.lnir-ladies-tshirt::before {
+  content: $lnir-ladies-tshirt;
+}
+
+.lnir-sunglass::before {
+  content: $lnir-sunglass;
+}
+
+.lnir-thought::before {
+  content: $lnir-thought;
+}
+
+.lnir-tshirt-alt-1::before {
+  content: $lnir-tshirt-alt-1;
+}
+
+.lnir-tshirt-alt::before {
+  content: $lnir-tshirt-alt;
+}
+
+.lnir-tshirt::before {
+  content: $lnir-tshirt;
+}
+
+.lnir-beach-chair::before {
+  content: $lnir-beach-chair;
+}
+
+.lnir-beach::before {
+  content: $lnir-beach;
+}
+
+.lnir-beachball::before {
+  content: $lnir-beachball;
+}
+
+.lnir-cable-car::before {
+  content: $lnir-cable-car;
+}
+
+.lnir-flight-search::before {
+  content: $lnir-flight-search;
+}
+
+.lnir-hot-air-baloon::before {
+  content: $lnir-hot-air-baloon;
+}
+
+.lnir-pyramids::before {
+  content: $lnir-pyramids;
+}
+
+.lnir-suitcase-alt::before {
+  content: $lnir-suitcase-alt;
+}
+
+.lnir-suitcase::before {
+  content: $lnir-suitcase;
+}
+
+.lnir-surf-board::before {
+  content: $lnir-surf-board;
+}
+
+.lnir-tent-alt::before {
+  content: $lnir-tent-alt;
+}
+
+.lnir-tent::before {
+  content: $lnir-tent;
+}
+
+.lnir-travel::before {
+  content: $lnir-travel;
+}
+
+.lnir-air-flow::before {
+  content: $lnir-air-flow;
+}
+
+.lnir-air::before {
+  content: $lnir-air;
+}
+
+.lnir-cloud-alt-1::before {
+  content: $lnir-cloud-alt-1;
+}
+
+.lnir-cloud-alt-2::before {
+  content: $lnir-cloud-alt-2;
+}
+
+.lnir-cloud-alt::before {
+  content: $lnir-cloud-alt;
+}
+
+.lnir-cloud-moon::before {
+  content: $lnir-cloud-moon;
+}
+
+.lnir-cloud-sun::before {
+  content: $lnir-cloud-sun;
+}
+
+.lnir-cloud::before {
+  content: $lnir-cloud;
+}
+
+.lnir-cloudy-sun::before {
+  content: $lnir-cloudy-sun;
+}
+
+.lnir-drop-alt::before {
+  content: $lnir-drop-alt;
+}
+
+.lnir-drop::before {
+  content: $lnir-drop;
+}
+
+.lnir-farenheit::before {
+  content: $lnir-farenheit;
+}
+
+.lnir-moon-star::before {
+  content: $lnir-moon-star;
+}
+
+.lnir-moon::before {
+  content: $lnir-moon;
+}
+
+.lnir-night-thunder::before {
+  content: $lnir-night-thunder;
+}
+
+.lnir-night-wind::before {
+  content: $lnir-night-wind;
+}
+
+.lnir-night::before {
+  content: $lnir-night;
+}
+
+.lnir-rain::before {
+  content: $lnir-rain;
+}
+
+.lnir-snowfall::before {
+  content: $lnir-snowfall;
+}
+
+.lnir-sun-rain::before {
+  content: $lnir-sun-rain;
+}
+
+.lnir-sun::before {
+  content: $lnir-sun;
+}
+
+.lnir-thunder-alt::before {
+  content: $lnir-thunder-alt;
+}
+
+.lnir-thunder::before {
+  content: $lnir-thunder;
+}
+
+.lnir-umbrella-alt::before {
+  content: $lnir-umbrella-alt;
+}
+
+.lnir-umbrella-rain-alt::before {
+  content: $lnir-umbrella-rain-alt;
+}
+
+.lnir-umbrella-rain::before {
+  content: $lnir-umbrella-rain;
+}
+
+.lnir-umbrella::before {
+  content: $lnir-umbrella;
+}
+
+.lnir-water-drops::before {
+  content: $lnir-water-drops;
+}
+
+.lnir-wind-cloud::before {
+  content: $lnir-wind-cloud;
+}
+
+.lnir-wind-sun::before {
+  content: $lnir-wind-sun;
+}
+
+.lnir-hourglass::before {
+  content: $lnir-hourglass;
+}
+
+.lnir-spiner-solid::before {
+  content: $lnir-spiner-solid;
+}
+
+.lnir-spinner-1::before {
+  content: $lnir-spinner-1;
+}
+
+.lnir-spinner-10::before {
+  content: $lnir-spinner-10;
+}
+
+.lnir-cup::before {
+  content: $lnir-cup;
+}
+
+.lnir-spinner-11::before {
+  content: $lnir-spinner-11;
+}
+
+.lnir-spinner-5::before {
+  content: $lnir-spinner-5;
+}
+
+.lnir-spinner-6::before {
+  content: $lnir-spinner-6;
+}
+
+.lnir-spinner-2::before {
+  content: $lnir-spinner-2;
+}
+
+.lnir-spinner-3::before {
+  content: $lnir-spinner-3;
+}
+
+.lnir-spinner-7::before {
+  content: $lnir-spinner-7;
+}
+
+.lnir-spinner-8::before {
+  content: $lnir-spinner-8;
+}
+
+.lnir-spinner-9::before {
+  content: $lnir-spinner-9;
+}
+
+.lnir-spinner-arrow::before {
+  content: $lnir-spinner-arrow;
+}
+
+.lnir-spinner::before {
+  content: $lnir-spinner;
+}
+
+.lnir-3d::before {
+  content: $lnir-3d;
+}
+
+.lnir-add-files::before {
+  content: $lnir-add-files;
+}
+
+.lnir-ai::before {
+  content: $lnir-ai;
+}
+
+.lnir-alarm-2::before {
+  content: $lnir-alarm-2;
+}
+
+.lnir-alarm-3::before {
+  content: $lnir-alarm-3;
+}
+
+.lnir-alarm-4::before {
+  content: $lnir-alarm-4;
+}
+
+.lnir-alarm-clock-alt::before {
+  content: $lnir-alarm-clock-alt;
+}
+
+.lnir-alarm-clock::before {
+  content: $lnir-alarm-clock;
+}
+
+.lnir-alarm::before {
+  content: $lnir-alarm;
+}
+
+.lnir-candle-alt::before {
+  content: $lnir-candle-alt;
+}
+
+.lnir-spinner-4::before {
+  content: $lnir-spinner-4;
+}
+
+.lnir-archive::before {
+  content: $lnir-archive;
+}
+
+.lnir-backspace::before {
+  content: $lnir-backspace;
+}
+
+.lnir-battery::before {
+  content: $lnir-battery;
+}
+
+.lnir-block-user::before {
+  content: $lnir-block-user;
+}
+
+.lnir-bluetooth::before {
+  content: $lnir-bluetooth;
+}
+
+.lnir-bookmark-alt::before {
+  content: $lnir-bookmark-alt;
+}
+
+.lnir-bookmark::before {
+  content: $lnir-bookmark;
+}
+
+.lnir-brightness::before {
+  content: $lnir-brightness;
+}
+
+.lnir-bulb-alt::before {
+  content: $lnir-bulb-alt;
+}
+
+.lnir-bulb::before {
+  content: $lnir-bulb;
+}
+
+.lnir-calendar::before {
+  content: $lnir-calendar;
+}
+
+.lnir-calender-alt-1::before {
+  content: $lnir-calender-alt-1;
+}
+
+.lnir-calender-alt-2::before {
+  content: $lnir-calender-alt-2;
+}
+
+.lnir-calender-alt-3::before {
+  content: $lnir-calender-alt-3;
+}
+
+.lnir-calender-alt-4::before {
+  content: $lnir-calender-alt-4;
+}
+
+.lnir-calender-alt::before {
+  content: $lnir-calender-alt;
+}
+
+.lnir-camera-alt-1::before {
+  content: $lnir-camera-alt-1;
+}
+
+.lnir-camera-alt::before {
+  content: $lnir-camera-alt;
+}
+
+.lnir-camera::before {
+  content: $lnir-camera;
+}
+
+.lnir-change::before {
+  content: $lnir-change;
+}
+
+.lnir-charging::before {
+  content: $lnir-charging;
+}
+
+.lnir-cloud-check-alt::before {
+  content: $lnir-cloud-check-alt;
+}
+
+.lnir-cloud-check::before {
+  content: $lnir-cloud-check;
+}
+
+.lnir-cloud-computing-alt::before {
+  content: $lnir-cloud-computing-alt;
+}
+
+.lnir-cloud-computing::before {
+  content: $lnir-cloud-computing;
+}
+
+.lnir-cloud-download-alt::before {
+  content: $lnir-cloud-download-alt;
+}
+
+.lnir-cloud-download::before {
+  content: $lnir-cloud-download;
+}
+
+.lnir-cloud-network-2::before {
+  content: $lnir-cloud-network-2;
+}
+
+.lnir-cloud-network::before {
+  content: $lnir-cloud-network;
+}
+
+.lnir-cloud-search-alt-1::before {
+  content: $lnir-cloud-search-alt-1;
+}
+
+.lnir-cloud-search-alt::before {
+  content: $lnir-cloud-search-alt;
+}
+
+.lnir-cloud-search::before {
+  content: $lnir-cloud-search;
+}
+
+.lnir-cloud-sync-alt::before {
+  content: $lnir-cloud-sync-alt;
+}
+
+.lnir-cloud-sync::before {
+  content: $lnir-cloud-sync;
+}
+
+.lnir-cloud-upload-alt::before {
+  content: $lnir-cloud-upload-alt;
+}
+
+.lnir-cloud-upload::before {
+  content: $lnir-cloud-upload;
+}
+
+.lnir-code-alt::before {
+  content: $lnir-code-alt;
+}
+
+.lnir-code::before {
+  content: $lnir-code;
+}
+
+.lnir-cog::before {
+  content: $lnir-cog;
+}
+
+.lnir-cogs::before {
+  content: $lnir-cogs;
+}
+
+.lnir-control-panel::before {
+  content: $lnir-control-panel;
+}
+
+.lnir-copy::before {
+  content: $lnir-copy;
+}
+
+.lnir-cut::before {
+  content: $lnir-cut;
+}
+
+.lnir-dashboard::before {
+  content: $lnir-dashboard;
+}
+
+.lnir-database::before {
+  content: $lnir-database;
+}
+
+.lnir-display-alt::before {
+  content: $lnir-display-alt;
+}
+
+.lnir-display::before {
+  content: $lnir-display;
+}
+
+.lnir-domain::before {
+  content: $lnir-domain;
+}
+
+.lnir-download::before {
+  content: $lnir-download;
+}
+
+.lnir-empty-battery::before {
+  content: $lnir-empty-battery;
+}
+
+.lnir-empty-file::before {
+  content: $lnir-empty-file;
+}
+
+.lnir-file-download::before {
+  content: $lnir-file-download;
+}
+
+.lnir-file-lock::before {
+  content: $lnir-file-lock;
+}
+
+.lnir-file-name::before {
+  content: $lnir-file-name;
+}
+
+.lnir-file-protection::before {
+  content: $lnir-file-protection;
+}
+
+.lnir-file-upload::before {
+  content: $lnir-file-upload;
+}
+
+.lnir-files-alt::before {
+  content: $lnir-files-alt;
+}
+
+.lnir-files::before {
+  content: $lnir-files;
+}
+
+.lnir-folder-alt-1::before {
+  content: $lnir-folder-alt-1;
+}
+
+.lnir-folder-alt::before {
+  content: $lnir-folder-alt;
+}
+
+.lnir-game::before {
+  content: $lnir-game;
+}
+
+.lnir-folder::before {
+  content: $lnir-folder;
+}
+
+.lnir-half-battery::before {
+  content: $lnir-half-battery;
+}
+
+.lnir-headphone::before {
+  content: $lnir-headphone;
+}
+
+.lnir-image::before {
+  content: $lnir-image;
+}
+
+.lnir-keyboard::before {
+  content: $lnir-keyboard;
+}
+
+.lnir-laptop-alt-keyboard::before {
+  content: $lnir-laptop-alt-keyboard;
+}
+
+.lnir-laptop-alt-switch::before {
+  content: $lnir-laptop-alt-switch;
+}
+
+.lnir-laptop-alt::before {
+  content: $lnir-laptop-alt;
+}
+
+.lnir-laptop-phone::before {
+  content: $lnir-laptop-phone;
+}
+
+.lnir-laptop::before {
+  content: $lnir-laptop;
+}
+
+.lnir-link-alt-1::before {
+  content: $lnir-link-alt-1;
+}
+
+.lnir-link-alt::before {
+  content: $lnir-link-alt;
+}
+
+.lnir-link::before {
+  content: $lnir-link;
+}
+
+.lnir-low-battery::before {
+  content: $lnir-low-battery;
+}
+
+.lnir-magnet::before {
+  content: $lnir-magnet;
+}
+
+.lnir-magnifier::before {
+  content: $lnir-magnifier;
+}
+
+.lnir-map-marker::before {
+  content: $lnir-map-marker;
+}
+
+.lnir-map::before {
+  content: $lnir-map;
+}
+
+.lnir-menu-alt-1::before {
+  content: $lnir-menu-alt-1;
+}
+
+.lnir-menu-alt-2::before {
+  content: $lnir-menu-alt-2;
+}
+
+.lnir-menu-alt-3::before {
+  content: $lnir-menu-alt-3;
+}
+
+.lnir-menu-alt-4::before {
+  content: $lnir-menu-alt-4;
+}
+
+.lnir-menu-alt-5::before {
+  content: $lnir-menu-alt-5;
+}
+
+.lnir-menu-alt::before {
+  content: $lnir-menu-alt;
+}
+
+.lnir-menu-circle::before {
+  content: $lnir-menu-circle;
+}
+
+.lnir-menu::before {
+  content: $lnir-menu;
+}
+
+.lnir-mic::before {
+  content: $lnir-mic;
+}
+
+.lnir-microphone-alt-1::before {
+  content: $lnir-microphone-alt-1;
+}
+
+.lnir-microphone-alt::before {
+  content: $lnir-microphone-alt;
+}
+
+.lnir-microphone::before {
+  content: $lnir-microphone;
+}
+
+.lnir-mobile-alt-1::before {
+  content: $lnir-mobile-alt-1;
+}
+
+.lnir-mobile-alt-2::before {
+  content: $lnir-mobile-alt-2;
+}
+
+.lnir-harddrive::before {
+  content: $lnir-harddrive;
+}
+
+.lnir-mobile-alt-button::before {
+  content: $lnir-mobile-alt-button;
+}
+
+.lnir-mobile::before {
+  content: $lnir-mobile;
+}
+
+.lnir-headphone-alt::before {
+  content: $lnir-headphone-alt;
+}
+
+.lnir-full-battery::before {
+  content: $lnir-full-battery;
+}
+
+.lnir-mouse::before {
+  content: $lnir-mouse;
+}
+
+.lnir-no-charge-battery::before {
+  content: $lnir-no-charge-battery;
+}
+
+.lnir-package::before {
+  content: $lnir-package;
+}
+
+.lnir-plug::before {
+  content: $lnir-plug;
+}
+
+.lnir-presentation::before {
+  content: $lnir-presentation;
+}
+
+.lnir-printer::before {
+  content: $lnir-printer;
+}
+
+.lnir-ps::before {
+  content: $lnir-ps;
+}
+
+.lnir-recycle-alt::before {
+  content: $lnir-recycle-alt;
+}
+
+.lnir-recycle::before {
+  content: $lnir-recycle;
+}
+
+.lnir-reload-alt-box::before {
+  content: $lnir-reload-alt-box;
+}
+
+.lnir-reload-alt::before {
+  content: $lnir-reload-alt;
+}
+
+.lnir-reload::before {
+  content: $lnir-reload;
+}
+
+.lnir-remove-file::before {
+  content: $lnir-remove-file;
+}
+
+.lnir-rocket::before {
+  content: $lnir-rocket;
+}
+
+.lnir-rss-feed::before {
+  content: $lnir-rss-feed;
+}
+
+.lnir-save-alt::before {
+  content: $lnir-save-alt;
+}
+
+.lnir-save::before {
+  content: $lnir-save;
+}
+
+.lnir-scan::before {
+  content: $lnir-scan;
+}
+
+.lnir-scroll-down::before {
+  content: $lnir-scroll-down;
+}
+
+.lnir-search-alt::before {
+  content: $lnir-search-alt;
+}
+
+.lnir-search::before {
+  content: $lnir-search;
+}
+
+.lnir-share-alt::before {
+  content: $lnir-share-alt;
+}
+
+.lnir-share::before {
+  content: $lnir-share;
+}
+
+.lnir-shopping-basket::before {
+  content: $lnir-shopping-basket;
+}
+
+.lnir-shortcode::before {
+  content: $lnir-shortcode;
+}
+
+.lnir-signal::before {
+  content: $lnir-signal;
+}
+
+.lnir-star-empty::before {
+  content: $lnir-star-empty;
+}
+
+.lnir-star-filled::before {
+  content: $lnir-star-filled;
+}
+
+.lnir-star-half::before {
+  content: $lnir-star-half;
+}
+
+.lnir-star::before {
+  content: $lnir-star;
+}
+
+.lnir-tab::before {
+  content: $lnir-tab;
+}
+
+.lnir-tap::before {
+  content: $lnir-tap;
+}
+
+.lnir-thumbnail::before {
+  content: $lnir-thumbnail;
+}
+
+.lnir-timer::before {
+  content: $lnir-timer;
+}
+
+.lnir-trash-can-alt-1::before {
+  content: $lnir-trash-can-alt-1;
+}
+
+.lnir-trash-can-alt::before {
+  content: $lnir-trash-can-alt;
+}
+
+.lnir-trash-can::before {
+  content: $lnir-trash-can;
+}
+
+.lnir-trash::before {
+  content: $lnir-trash;
+}
+
+.lnir-unlink::before {
+  content: $lnir-unlink;
+}
+
+.lnir-upload::before {
+  content: $lnir-upload;
+}
+
+.lnir-user-alt-1::before {
+  content: $lnir-user-alt-1;
+}
+
+.lnir-user-alt-2::before {
+  content: $lnir-user-alt-2;
+}
+
+.lnir-user-alt::before {
+  content: $lnir-user-alt;
+}
+
+.lnir-user::before {
+  content: $lnir-user;
+}
+
+.lnir-users-2::before {
+  content: $lnir-users-2;
+}
+
+.lnir-users::before {
+  content: $lnir-users;
+}
+
+.lnir-website-alt::before {
+  content: $lnir-website-alt;
+}
+
+.lnir-website::before {
+  content: $lnir-website;
+}
+
+.lnir-zip::before {
+  content: $lnir-zip;
+}
+
+.lnir-ban::before {
+  content: $lnir-ban;
+}
+
+.lnir-candle::before {
+  content: $lnir-candle;
+}
+
+.lnir-appointment::before {
+  content: $lnir-appointment;
+}
+
+.lnir-zoom-in::before {
+  content: $lnir-zoom-in;
+}
+
+.lnir-cool-1::before {
+  content: $lnir-cool-1;
+}
+
+.lnir-cool-3::before {
+  content: $lnir-cool-3;
+}
+
+.lnir-cool-kiss::before {
+  content: $lnir-cool-kiss;
+}
+
+.lnir-cry::before {
+  content: $lnir-cry;
+}
+
+.lnir-cute::before {
+  content: $lnir-cute;
+}
+
+.lnir-dead::before {
+  content: $lnir-dead;
+}
+
+.lnir-bored::before {
+  content: $lnir-bored;
+}
+
+.lnir-emoji-friendly::before {
+  content: $lnir-emoji-friendly;
+}
+
+.lnir-emoji-happy::before {
+  content: $lnir-emoji-happy;
+}
+
+.lnir-emoji-sad::before {
+  content: $lnir-emoji-sad;
+}
+
+.lnir-emoji-cool::before {
+  content: $lnir-emoji-cool;
+}
+
+.lnir-emoji-speechless::before {
+  content: $lnir-emoji-speechless;
+}
+
+.lnir-emoji-suspect::before {
+  content: $lnir-emoji-suspect;
+}
+
+.lnir-emoji-tounge::before {
+  content: $lnir-emoji-tounge;
+}
+
+.lnir-emoji-smile::before {
+  content: $lnir-emoji-smile;
+}
+
+.lnir-happy-2::before {
+  content: $lnir-happy-2;
+}
+
+.lnir-happy-smile::before {
+  content: $lnir-happy-smile;
+}
+
+.lnir-kiss-2::before {
+  content: $lnir-kiss-2;
+}
+
+.lnir-kiss::before {
+  content: $lnir-kiss;
+}
+
+.lnir-angry::before {
+  content: $lnir-angry;
+}
+
+.lnir-loved-surprise::before {
+  content: $lnir-loved-surprise;
+}
+
+.lnir-zoom-out::before {
+  content: $lnir-zoom-out;
+}
+
+.lnir-piss::before {
+  content: $lnir-piss;
+}
+
+.lnir-sick-1::before {
+  content: $lnir-sick-1;
+}
+
+.lnir-sick::before {
+  content: $lnir-sick;
+}
+
+.lnir-mute::before {
+  content: $lnir-mute;
+}
+
+.lnir-super-cool::before {
+  content: $lnir-super-cool;
+}
+
+.lnir-love::before {
+  content: $lnir-love;
+}
+
+.lnir-wink::before {
+  content: $lnir-wink;
+}
+
+.lnir-wow::before {
+  content: $lnir-wow;
+}
+
+.lnir-yawn::before {
+  content: $lnir-yawn;
+}
+
+.lnir-super-happy::before {
+  content: $lnir-super-happy;
+}
+
+.lnir-happy-1::before {
+  content: $lnir-happy-1;
+}
+
+.lnir-sleep::before {
+  content: $lnir-sleep;
+}
+

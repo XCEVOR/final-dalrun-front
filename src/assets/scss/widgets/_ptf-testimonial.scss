@@ -1,0 +1,126 @@
+/* WIDGET: TESTIMONIAL
+-------------------------------------------- */
+
+.ptf-testimonial {
+  --ptf-text-align: center;
+  --ptf-info-color: var(--ptf-color-3);
+  --ptf-info-span-color: var(--ptf-color-2);
+  --ptf-content-color: var(--ptf-color-black);
+  --ptf-author-color: var(--ptf-color-black);
+}
+
+.ptf-testimonial {
+  text-align: var(--ptf-text-align);
+
+  &__content {
+    color: var(--ptf-content-color);
+    font-family: var(--ptf-secondary-font);
+    font-size: px2rem(48px);
+    line-height: 1.375;
+
+    @include mq("large") {
+      font-size: px2rem(36px);
+    }
+
+    a {
+      color: #09f;
+    }
+  }
+
+  &__meta {
+    margin-top: px2rem(65px);
+  }
+
+  &__author {
+    color: var(--ptf-author-color);
+    font-size: px2rem(24px);
+  }
+
+  &__info {
+    margin-top: px2rem(10px);
+
+    color: var(--ptf-info-color);
+    font-size: px2rem(14px);
+
+    span {
+      color: var(--ptf-info-span-color);
+    }
+
+    a {
+      color: #09f;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-testimonial--style-2 {
+  .ptf-testimonial__content {
+    font-family: var(--ptf-primary-font);
+    line-height: 1.33;
+    font-weight: 700;
+  }
+
+  .ptf-testimonial__meta {
+    margin-top: px2rem(75px);
+  }
+
+  .ptf-testimonial__info {
+    margin-top: px2rem(5px);
+  }
+}
+
+/* SECTION: STYLE 3
+-------------------------------------------- */
+
+.ptf-testimonial--style-3 {
+  .ptf-testimonial__content {
+    font-family: var(--ptf-primary-font);
+    line-height: 1.5;
+    font-weight: normal;
+  }
+
+  .ptf-testimonial__meta {
+    margin-top: px2rem(65px);
+  }
+
+  .ptf-testimonial__author {
+    font-size: px2rem(24px);
+    font-weight: normal;
+  }
+}
+
+/* SECTION: STYLE 4
+-------------------------------------------- */
+
+.ptf-testimonial--style-4 {
+  .ptf-testimonial__content {
+    font-family: var(--ptf-primary-font);
+    font-size: px2rem(36px);
+    line-height: 1.55;
+  }
+
+  .ptf-testimonial__meta {
+    margin-top: px2rem(75px);
+  }
+
+  .ptf-testimonial__info {
+    margin-top: px2rem(5px);
+  }
+}
+.space-80 {
+  padding: 0 80px;
+  @media (max-width: 767px) {
+    padding: 0;
+  }
+}
+.testimonial-pagination--style-bottom {
+  .slick-dots {
+    bottom: -60px;
+  }
+}

@@ -1,0 +1,123 @@
+/* WIDGET: COUNTER UP
+-------------------------------------------- */
+
+.ptf-counter-up {
+	--ptf-value-font-family: var(--ptf-primary-font);
+	--ptf-value-font-weight: 700;
+	--ptf-value-color: var(--ptf-color-black);
+	--ptf-title-color: var(--ptf-color-2);
+}
+
+.ptf-counter-up {
+	display: inline-flex;
+
+	.ptf-counter-up__value {
+		font-family: var(--ptf-value-font-family);
+		line-height: 1;
+		font-weight: var(--ptf-value-font-weight);
+
+		&::before {
+			content: attr(data-prefix);
+
+			position: relative;
+			top: -.15em;
+
+			margin-right: px2rem(5px);
+
+			font-size: .5em;
+
+			vertical-align: middle;
+		}
+
+		&::after {
+			content: attr(data-suffix);
+		}
+
+	}
+
+	.ptf-counter-up__title {
+		text-transform: uppercase;
+		color: var(--ptf-title-color);
+		font-weight: normal;
+	}
+
+	&--style-1 {
+		flex-direction: column;
+
+		.ptf-counter-up__title {
+			margin-top: px2rem(10px);
+		}
+
+		@media (min-width: 1920px) {
+			display: inline-flex;
+			align-items: center;
+			flex-direction: row;
+
+			.ptf-counter-up__title {
+				flex-basis: 100%;
+
+				margin-top: 0;
+				margin-left: px2rem(30px);
+			}
+
+		}
+
+	}
+
+	&--style-1 {
+
+		.ptf-counter-up__value {
+			color: var(--ptf-value-color);
+			font-size: px2rem(60px);
+		}
+
+		.ptf-counter-up__title {
+			font-size: px2rem(16px);
+			line-height: 1.6;
+		}
+
+	}
+
+	&--style-2 {
+		align-items: center;
+		flex-direction: row;
+
+		.ptf-counter-up__value {
+			color: var(--ptf-value-color);
+			font-size: px2rem(36px);
+		}
+
+		.ptf-counter-up__title {
+			flex-basis: 100%;
+
+			margin-top: 0;
+			margin-left: px2rem(30px);
+
+			text-align: left;
+			font-size: px2rem(14px);
+			line-height: 1.42;
+		}
+
+	}
+
+	&--style-3 {
+		padding-top: px2rem(35px);
+
+		border-top: 2px solid var(--ptf-color-black);
+
+		.ptf-counter-up__title {
+			font-size: px2rem(16px);
+			line-height: 1.875;
+			font-weight: 700;
+		}
+
+		.ptf-counter-up__value {
+			margin-top: px2rem(50px);
+
+			color: var(--ptf-value-color);
+			font-size: px2rem(80px);
+		}
+
+	}
+
+}

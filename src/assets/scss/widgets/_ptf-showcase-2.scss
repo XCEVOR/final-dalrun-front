@@ -1,0 +1,139 @@
+/* WIDGET: SHOWCASE 2
+-------------------------------------------- */
+
+.ptf-showcase-2 {
+	position: relative;
+
+	.sticky-column {
+		top: 0;
+	}
+
+	.ptf-showcase-info-wrapper {
+		min-height: 100vh;
+		padding: px2rem(45px);
+
+		background-color: var(--ptf-color-white);
+
+		@media (min-width: 1920px) {
+			padding: px2rem(70px) px2rem(70px) px2rem(90px);
+		}
+
+	}
+
+	.ptf-showcase-info {
+
+		.swiper-slide {
+			height: auto;
+		}
+
+		&__item {
+			display: flex;
+			flex-direction: column;
+
+			height: 100%;
+		}
+
+		&__image {
+			position: relative;
+
+			padding-top: 100%;
+
+			img {
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				width: 100%;
+				height: 100%;
+
+				object-fit: cover;
+			}
+
+		}
+
+		&__meta {
+			display: grid;
+
+			margin-top: px2rem(60px);
+			margin-bottom: px2rem(80px);
+
+			grid-gap: px2rem(25px);
+			grid-template-columns: repeat(2, 1fr);
+			@include mq('medium') {
+				grid-template-columns: 1fr;
+			}
+
+		}
+
+		&__title {
+			margin-bottom: px2rem(15px);
+
+			text-transform: uppercase;
+			color: var(--ptf-color-3);
+			font-size: px2rem(12px);
+		}
+
+		&__text {
+			color: var(--ptf-color-black);
+			font-size: px2rem(24px);
+		}
+
+		&__content {
+			margin-top: auto;
+
+			font-size: px2rem(18px);
+		}
+
+	}
+
+	.ptf-showcase-list {
+		margin: 0;
+		padding: px2rem(120px) 10%;
+
+		list-style-type: none;
+
+		@include mq('medium') {
+			padding: px2rem(60px) 10%;
+		}
+
+		.ptf-showcase-list__item {
+			opacity: .25;
+
+			transition: opacity var(--ptf-transition-easing) var(--ptf-transition-duration);
+
+			&:hover,
+			&.is-active {
+				opacity: 1;
+			}
+
+		}
+
+		.ptf-showcase-list__item + .ptf-showcase-list__item {
+			margin-top: px2rem(80px);
+		}
+
+		.ptf-showcase-list__title {
+			font-size: px2rem(52px);
+
+			@include mq('medium') {
+				font-size: px2rem(46px);
+			}
+
+			a:hover {
+				color: inherit;
+			}
+
+			@media (min-width: 1920px) {
+				font-size: px2rem(72px);
+			}
+		}
+
+		.ptf-showcase-list__date {
+			margin-top: px2rem(10px);
+
+			font-size: px2rem(18px);
+		}
+
+	}
+
+}

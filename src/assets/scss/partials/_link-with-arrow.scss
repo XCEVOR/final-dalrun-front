@@ -1,0 +1,28 @@
+/* PARTIAL: LINK WITH ARROW
+-------------------------------------------- */
+
+.ptf-link-with-arrow {
+	display: inline-flex;
+	align-items: center;
+
+	line-height: 1;
+
+	--ptf-icon-indent: #{px2rem(10px)};
+
+	svg,
+	i {
+		margin-left: var(--ptf-icon-indent);
+
+		transition: transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+	}
+
+	&:hover {
+
+		svg,
+		i {
+			transform: translateX(2px);
+		}
+
+	}
+
+}

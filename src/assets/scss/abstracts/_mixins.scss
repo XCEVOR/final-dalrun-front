@@ -1,0 +1,77 @@
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+	#{$color}: unquote('hsl(#{$hue}, #{$saturation}, #{$lightness})');
+}
+
+@mixin defineColorHSLA($color, $hue, $saturation, $lightness, $alpha) {
+	#{$color}: unquote('hsla(#{$hue}, #{$saturation}, #{$lightness}, #{$alpha})');
+}
+
+@mixin clearfix {
+
+	&::after {
+		content: '';
+
+		display: table;
+
+		clear: both;
+	}
+
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+
+	position: $pos;
+
+	display: $display;
+}
+
+@mixin input-placeholder {
+	&.placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	&::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin mq($width, $type: max) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+
+		@if $type==max {
+			$width: $width - 1px;
+		}
+
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+
+	@else {
+		@error 'There is no breakpoints.';
+	}
+}
+
+@mixin selection {
+	::-moz-selection {
+		@content;
+	}
+
+	::selection {
+		@content;
+	}
+}

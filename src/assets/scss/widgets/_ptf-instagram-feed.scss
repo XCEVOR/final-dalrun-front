@@ -1,0 +1,83 @@
+/* WIDGET: Instagram Feed
+-------------------------------------------- */
+
+.ptf-instagram-feed {
+	display: grid;
+
+	margin: 0;
+	padding: 0;
+
+	list-style-type: none;
+
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: px2rem(10px);
+
+	a {
+		position: relative;
+
+		display: flex;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			background-color: var(--ptf-color-14);
+			opacity: 0;
+
+			transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+		}
+
+		&::after {
+			content: '\ed9f';
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			color: var(--ptf-color-white);
+			font-family: var(--ptf-linear-icons-light);
+			font-size: px2rem(48px);
+
+			opacity: 0;
+
+			transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+			transform: scale(.8);
+
+			@include mq('large') {
+				font-size: px2rem(32px);
+			}
+			@include mq('medium') {
+				font-size: px2rem(24px);
+			}
+
+		}
+
+		&:hover {
+
+			&::before {
+				opacity: 1;
+			}
+
+			&::after {
+				opacity: 1;
+
+				transition-delay: 150ms;
+				transform: scale(1);
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,64 @@
+/* PARTIAL: CIRCLE LINK
+-------------------------------------------- */
+
+.ptf-circle-link {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: px2rem(230px);
+	height: px2rem(230px);
+	padding-top: px2rem(10px);
+	padding-left: px2rem(65px);
+
+	text-align: left;
+	text-transform: uppercase;
+	color: var(--ptf-color-black);
+	font-size: px2rem(24px);
+	line-height: 1.25;
+
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 1px var(--ptf-color-14);
+
+	svg {
+		align-self: flex-start;
+
+		height: px2rem(32px);
+		margin-top: px2rem(20px);
+	}
+
+	&:hover {
+		color: var(--ptf-accent-1);
+
+		box-shadow: inset 0 0 0 1px var(--ptf-accent-1);
+
+		transform: translateY(-2px)
+	}
+
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-circle-link--style-2 {
+	width: auto;
+	height: auto;
+	padding: 0;
+
+	text-transform: none;
+	font-family: var(--ptf-secondary-font);
+	font-size: px2rem(60px);
+	line-height: 1;
+
+	box-shadow: none;
+
+	svg {
+		height: px2rem(45px) !important;
+		margin-top: px2rem(35px) !important;
+	}
+
+	&:hover {
+		box-shadow: none;
+	}
+
+}
