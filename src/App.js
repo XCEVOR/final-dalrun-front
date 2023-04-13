@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
 // import { jarallax } from "jarallax";
 import AnimatedCursor from "react-animated-cursor";
-
+ 
 const App = () => {
   useEffect(() => {
     AOS.init({
