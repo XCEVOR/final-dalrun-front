@@ -1,0 +1,65 @@
+/* PORTFOLIO: PAGINATION
+-------------------------------------------- */
+
+/* SECTION: PAGINATION
+-------------------------------------------- */
+
+.ptf-page-navigation {
+	display: inline-flex;
+
+	margin: 0;
+	margin-top: px2rem(-10px);
+	margin-left: calc(-1 * #{px2rem(30px)});
+	padding: 0;
+
+	list-style-type: none;
+
+	li {
+		margin-top: px2rem(10px);
+		margin-left: px2rem(30px);
+		padding: 6px 2px;
+
+		color: var(--ptf-color-black);
+		font-size: px2rem(18px);
+		font-weight: 700;
+	}
+
+	li.next {
+		padding-left: px2rem(10px);
+	}
+
+	li.is-active {
+		color: var(--ptf-accent-1);
+
+		box-shadow: inset 0 -2px var(--ptf-accent-1);
+	}
+
+}
+
+/* SECTION: LOAD MORE
+-------------------------------------------- */
+
+.ptf-load-more {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	width: px2rem(130px);
+	height: px2rem(130px);
+
+	text-transform: uppercase;
+	color: var(--ptf-color-black);
+	font-size: px2rem(16px);
+
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 1px var(--ptf-color-1);
+
+	&:hover {
+		color: var(--ptf-accent-1);
+
+		box-shadow: inset 0 0 0 1px var(--ptf-accent-1);
+
+		transform: translateY(-2px)
+	}
+
+}

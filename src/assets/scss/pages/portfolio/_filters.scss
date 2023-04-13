@@ -1,0 +1,103 @@
+/* PORTFOLIO: FILTERS
+-------------------------------------------- */
+
+.ptf-filters {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  margin-top: px2rem(-10px);
+  margin-left: calc(-1 * #{px2rem(40px)});
+  padding: 0;
+  list-style-type: none;
+
+  .filter-item {
+    display: inline-flex;
+    margin-top: px2rem(10px);
+    margin-left: px2rem(40px);
+    transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+    cursor: pointer;
+
+    .filter-counter {
+      margin-left: px2rem(3px);
+      font-size: px2rem(12px);
+    }
+  }
+}
+
+/* SECTION: STYLE 1
+-------------------------------------------- */
+
+.ptf-filters--style-1 {
+  color: var(--ptf-color-black);
+  font-size: px2rem(18px);
+
+  .filter-item:hover,
+  .react-tabs__tab--selected {
+    color: var(--ptf-accent-1);
+  }
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-filters--style-2 {
+  text-transform: uppercase;
+  color: var(--ptf-color-black);
+  font-size: px2rem(16px);
+  font-weight: 600;
+
+  .filter-item:hover,
+  .react-tabs__tab--selected {
+    color: var(--ptf-accent-1);
+  }
+}
+
+/* SECTION: STYLE 3
+-------------------------------------------- */
+
+.ptf-filters--style-3 {
+  margin-left: calc(-1 * #{px2rem(14px)});
+
+  color: var(--ptf-color-3);
+  font-size: px2rem(18px);
+
+  .filter-item {
+    margin-left: px2rem(14px);
+    position: relative;
+    &:not(:last-child) {
+      &::after {
+        padding-left: 0.875rem;
+        content: "/";
+      }
+    }
+  }
+
+  .filter-item:hover,
+  .filter-item.react-tabs__tab--selected {
+    color: var(--ptf-color-black);
+  }
+}
+
+/* SECTION: STYLE 4
+-------------------------------------------- */
+
+.ptf-filters--style-4 {
+  margin-left: calc(-1 * #{px2rem(40px)});
+
+  text-transform: uppercase;
+  color: var(--ptf-color-3);
+  font-size: px2rem(16px);
+
+  .filter-item {
+    margin-left: px2rem(40px);
+  }
+
+  .filter-item:hover,
+  .filter-item-active {
+    color: var(--ptf-color-black);
+  }
+  .react-tabs__tab--selected,
+  .filter-item:hover {
+    color: var(--ptf-accent-1);
+  }
+}

@@ -1,0 +1,155 @@
+/* --------------------------------
+
+LineIconsPro Light Web Font
+Learn more: lineicons.com
+
+-------------------------------- */
+@import "variables.less";
+@import "mixins.less";
+
+@font-face {
+  font-family: 'LineIconsPro Light';
+  src: url('@{lnil-font-path}/LineIconsPro Light.eot');
+  src: url('@{lnil-font-path}/LineIconsPro Light.eot') format('embedded-opentype'),
+    url('@{lnil-font-path}/LineIconsPro Light.woff2') format('woff2'),
+    url('@{lnil-font-path}/LineIconsPro Light.woff') format('woff'),
+    url('@{lnil-font-path}/LineIconsPro Light.ttf') format('truetype'),
+    url('@{lnil-font-path}/LineIconsPro Light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*------------------------
+	base class definition
+-------------------------*/
+
+.lnil {
+  display: inline-block;
+  font: normal normal normal 1em/1 'LineIconsPro Light';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------
+  change icon size
+-------------------------*/
+
+/* relative units */
+.lnil-sm {
+  font-size: 0.8em;
+}
+.lnil-lg {
+  font-size: 1.2em;
+}
+/* absolute units */
+.lnil-16 {
+  font-size: 16px;
+}
+.lnil-32 {
+  font-size: 32px;
+}
+
+/*----------------------------------
+  add a square/circle background
+-----------------------------------*/
+
+.lnil-bg-square,
+.lnil-bg-circle {
+  padding: 0.35em;
+  background-color: @lnil-background-color;
+}
+
+.lnil-bg-circle {
+  border-radius: 50%;
+}
+
+/*------------------------------------
+  use icons as list item markers
+-------------------------------------*/
+
+.lnil-ul {
+  padding-left: 0;
+  list-style-type: none;
+
+  > li {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+  }
+
+  > li > .lnil {
+    margin-right: @lnil-li-margin-right;
+    line-height: inherit;
+  }
+}
+
+/*------------------------
+  spinning icons
+-------------------------*/
+
+.lnil-is-spinning {
+  -webkit-animation: lnil-spin 2s infinite linear;
+  -moz-animation: lnil-spin 2s infinite linear;
+  animation: lnil-spin 2s infinite linear;
+}
+
+@-webkit-keyframes lnil-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes lnil-spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes lnil-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------
+  rotated/flipped icons
+-------------------------*/
+
+.lnil-rotate-90  {
+	.lnil-rotate(90deg, 1);
+}
+
+.lnil-rotate-180 {
+	.lnil-rotate(180deg, 2);
+}
+
+.lnil-rotate-270 {
+	.lnil-rotate(270deg, 3);
+}
+
+.lnil-flip-y {
+	.lnil-flip(-1, 1, 0);
+}
+.lnil-flip-x {
+	.lnil-flip(1, -1, 2);
+}
+
+@import "icons";

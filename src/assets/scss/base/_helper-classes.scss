@@ -1,0 +1,246 @@
+/* COLORS
+-------------------------------------------- */
+
+.has-white-color {
+  color: var(--ptf-color-white);
+}
+
+.has-black-color {
+  color: var(--ptf-color-black);
+}
+
+.has-accent-1 {
+  color: var(--ptf-accent-1) !important;
+}
+
+.has-accent-1-background {
+  background-color: var(--ptf-accent-1);
+}
+
+.has-accent-2 {
+  color: var(--ptf-accent-2);
+}
+
+.has-accent-3 {
+  color: var(--ptf-accent-3);
+}
+
+.has-accent-4 {
+  color: var(--ptf-accent-4);
+}
+@keyframes fade-in-up {
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@for $i from 1 through 14 {
+  .has-#{$i}-color {
+    color: var(--ptf-color-#{$i});
+  }
+
+  .has-#{$i}-background-color {
+    background-color: var(--ptf-color-#{$i});
+  }
+}
+
+/* FONT FAMILY
+-------------------------------------------- */
+
+.has-primary-font {
+  font-family: var(--ptf-primary-font) !important;
+}
+
+.has-secondary-font {
+  font-family: var(--ptf-secondary-font) !important;
+}
+
+/* FONT WEIGTH
+-------------------------------------------- */
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-extrabold {
+  font-weight: 800;
+}
+
+/* FONT SIZE
+-------------------------------------------- */
+
+.fz-230 {
+  font-size: px2rem(230px);
+  letter-spacing: -0.05em;
+}
+
+.fz-130 {
+  font-size: px2rem(130px);
+  letter-spacing: -0.035em;
+
+  &--lg {
+    @include mq("large") {
+      font-size: px2rem(130px);
+      letter-spacing: -0.035em;
+    }
+  }
+}
+
+.fz-120 {
+  font-size: px2rem(120px);
+  letter-spacing: -0.05em;
+}
+
+.fz-100 {
+  font-size: px2rem(100px);
+}
+
+.fz-90 {
+  font-size: px2rem(90px);
+
+  &--lg {
+    @include mq("large") {
+      font-size: px2rem(90px);
+    }
+  }
+
+  &--md {
+    @include mq("medium") {
+      font-size: px2rem(90px);
+    }
+  }
+}
+
+.fz-80 {
+  font-size: px2rem(80px);
+}
+
+.fz-75 {
+  font-size: px2rem(75px);
+}
+
+.fz-70 {
+  font-size: px2rem(70px);
+}
+
+.fz-60 {
+  font-size: px2rem(60px);
+
+  &--md {
+    @include mq("medium") {
+      font-size: px2rem(60px);
+    }
+  }
+}
+
+.fz-48 {
+  font-size: px2rem(48px);
+}
+
+.fz-40 {
+  font-size: px2rem(40px);
+
+  &--md {
+    @include mq("medium") {
+      font-size: px2rem(40px);
+    }
+  }
+
+  &--sm {
+    @include mq("small") {
+      font-size: px2rem(40px);
+    }
+  }
+}
+
+.fz-36 {
+  font-size: px2rem(36px);
+
+  &--sm {
+    @include mq("small") {
+      font-size: px2rem(36px);
+    }
+  }
+}
+
+.fz-30 {
+  font-size: px2rem(30px);
+}
+
+.fz-24 {
+  font-size: px2rem(24px);
+}
+
+.fz-20 {
+  font-size: px2rem(20px);
+}
+
+.fz-18 {
+  font-size: px2rem(18px);
+}
+
+.fz-16 {
+  font-size: px2rem(16px);
+}
+
+.fz-14 {
+  font-size: px2rem(14px);
+}
+
+.fz-12 {
+  font-size: px2rem(12px);
+}
+
+/* LINE HEIGHT
+-------------------------------------------- */
+
+.lh-1p75 {
+  line-height: 1.75;
+}
+
+.lh-1p625 {
+  line-height: 1.625;
+}
+
+.lh-1p66 {
+  line-height: 1.66;
+}
+
+.lh-1p6 {
+  line-height: 1.6;
+}
+
+.lh-1p5 {
+  line-height: 1.5;
+}
+
+.lh-1p3 {
+  line-height: 1.3;
+}
+
+.lh-1p1 {
+  line-height: 1.1;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.lh-0p8 {
+  line-height: 0.8;
+}
+
+.lh-0p9 {
+  line-height: 0.9;
+}
+
+/* OTHERS
+-------------------------------------------- */
+
+.spin {
+  animation: ptf_spin 10s linear infinite;
+}

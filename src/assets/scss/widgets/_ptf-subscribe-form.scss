@@ -1,0 +1,75 @@
+/* WIDGET: SUBSCRIBE FORM
+-------------------------------------------- */
+
+.ptf-subscribe-form {
+	display: block;
+
+	.ptf-form-group {
+		margin: 0;
+	}
+
+	input[type=email] {
+		padding: px2rem(10px) 0 px2rem(10px) px2rem(42px);
+	}
+
+	i {
+		position: absolute;
+		top: -.2em;
+		bottom: 0;
+		left: 0;
+
+		display: flex;
+		align-items: center;
+
+		color: var(--ptf-color-black);
+		font-size: px2rem(22px);
+	}
+
+	button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+		display: flex;
+		align-items: center;
+
+		padding: 0;
+
+		text-transform: uppercase;
+		color: var(--ptf-color-black);
+		font-size: px2rem(16px);
+		font-weight: 700;
+
+		border: none;
+		background: none;
+
+		transition: color var(--ptf-transition-duration) var(--ptf-transition-easing);
+		cursor: pointer;
+
+		&:hover {
+			color: var(--ptf-accent-1);
+		}
+
+	}
+
+}
+
+/* SECTION: LARGE
+-------------------------------------------- */
+
+.ptf-subscribe-form--large {
+
+	input[type=email] {
+		padding: px2rem(25px) 0 px2rem(25px) px2rem(62px);
+
+		font-size: px2rem(18px);
+	}
+
+	i {
+		top: -.1em;
+
+		font-size: px2rem(30px);
+	}
+
+}

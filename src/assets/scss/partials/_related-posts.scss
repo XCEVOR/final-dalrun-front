@@ -1,0 +1,14 @@
+/* PARTIAL: RELATED POSTS
+-------------------------------------------- */
+
+.ptf-related-posts {
+	margin-top: px2rem(60px);
+	padding: px2rem(90px) 0 0;
+
+	border-top: 1px solid var(--ptf-color-14);
+
+	&__title {
+		margin-bottom: px2rem(50px);
+	}
+
+}

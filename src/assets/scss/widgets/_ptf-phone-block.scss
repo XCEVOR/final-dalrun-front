@@ -1,0 +1,45 @@
+/* WIDGET: PHONE BLOCK
+-------------------------------------------- */
+
+.ptf-phone-block {
+	display: flex;
+	align-items: center;
+
+	color: var(--ptf-color-black);
+
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		flex-shrink: 0;
+		justify-content: center;
+
+		width: px2rem(45px);
+		height: px2rem(45px);
+		margin-right: px2rem(20px);
+
+		color: var(--ptf-color-white);
+		font-size: px2rem(18px);
+
+		border-radius: 50%;
+		background-color: var(--ptf-accent-1);
+	}
+
+	&__caption {
+		flex-shrink: 0;
+
+		margin-right: px2rem(45px);
+
+		text-transform: uppercase;
+		font-size: px2rem(14px);
+		line-height: 1.4;
+		font-weight: 700;
+	}
+
+	&__phone {
+		flex-basis: 100%;
+
+		font-size: px2rem(36px);
+		font-weight: 700;
+	}
+
+}

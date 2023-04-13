@@ -1,0 +1,49 @@
+/* PARTIAL: CUSTOM CURSOR
+-------------------------------------------- */
+
+.ptf-custom-cursor {
+	position: absolute;
+	z-index: z('custom-cursor');
+
+	color: var(--ptf-color-black);
+
+	pointer-events: none;
+
+	&.white {
+		color: var(--ptf-color-white);
+	}
+
+	span {
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		display: flex;
+		visibility: hidden;
+		align-items: center;
+		justify-content: center;
+
+		width: px2rem(130px);
+		height: px2rem(130px);
+
+		text-align: center;
+		text-transform: uppercase;
+		color: currentColor;
+		font-size: px2rem(12px);
+		font-weight: 700;
+
+		border: 1px solid currentColor;
+		border-radius: 50%;
+		opacity: 0;
+
+		transition: transform calc(var(--ptf-transition-duration) / 2);
+		transform: translate3d(calc(var(--ptf-custom-cursor__x) - #{px2rem(65px)}), calc(var(--ptf-custom-cursor__y) - #{px2rem(65px)}), 0);
+	}
+
+	&.is-visible span {
+		visibility: visible;
+
+		animation: ptf_blink_in var(--ptf-transition-duration) var(--ptf-transition-easing) forwards;
+	}
+
+}

@@ -1,0 +1,103 @@
+/* Master Stylesheet
+ * Version: 1.0.0
+ *
+ * Coded by ib-themes
+ *
+ * 01. Helpers
+ * 02. Base
+ * 03. Layout
+ * 04. Pages
+ * 05. Partials
+ * 06. Vendors
+ * 07. Widgets
+ */
+
+// bootstrap
+@import "bootstrap/dist/css/bootstrap.css";
+
+// react modal
+@import "node_modules/react-modal-video/scss/modal-video.scss";
+
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Amiri&amp;display=swap");
+@import url("../fonts/CerebriSans/style.css");
+
+// icons
+@import url("../fonts/LineIcons-PRO/WebFonts/Pro-Light/font-css/LinIconsPro-Light.css");
+@import url("../fonts/LineIcons-PRO/WebFonts/Pro-Regular/font-css/LineIcons.css");
+@import url("../fonts/Socicons/socicon.css");
+
+/* 01. Helpers */
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "abstracts/keyframes";
+@import "abstracts/snippets";
+
+/* 02. Base */
+@import "base/helper-classes";
+@import "base/custom-css";
+@import "base/typography";
+@import "base/slick";
+
+/* 03. Layout */
+@import "layout/comments";
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/sidebar";
+@import "layout/preview";
+
+/* 04. Pages */
+@import "pages/404";
+@import "pages/blog";
+@import "pages/portfolio";
+@import "pages/single-post";
+
+/* 05. Partials */
+@import "partials/about-author";
+@import "partials/circle-link";
+@import "partials/custom-cursor";
+@import "partials/filled-link";
+@import "partials/link-with-arrow";
+@import "partials/mask-image";
+@import "partials/post-navigation";
+@import "partials/related-posts";
+@import "partials/site-overlay";
+@import "partials/site-preloader";
+@import "partials/social-icons";
+@import "partials/sticky-column";
+@import "partials/submit-button";
+@import "partials/tooltip-image";
+
+/* 06. Widgets */
+@import "widgets/ptf-advantage-box";
+@import "widgets/ptf-approach-box";
+@import "widgets/ptf-button";
+@import "widgets/ptf-clients-list";
+@import "widgets/ptf-countdown";
+@import "widgets/ptf-counter-up";
+@import "widgets/ptf-divider";
+@import "widgets/ptf-faq";
+@import "widgets/ptf-gallery";
+@import "widgets/ptf-instagram-feed";
+@import "widgets/ptf-news-slider";
+@import "widgets/ptf-partner-box";
+@import "widgets/ptf-phone-block";
+@import "widgets/ptf-pricing-table";
+@import "widgets/ptf-process-steps";
+@import "widgets/ptf-rewards-list";
+@import "widgets/ptf-service-box";
+@import "widgets/ptf-services-list";
+@import "widgets/ptf-showcase-1";
+@import "widgets/ptf-showcase-2";
+@import "widgets/ptf-showcase-3";
+@import "widgets/ptf-simple-image";
+@import "widgets/ptf-skill-box";
+@import "widgets/ptf-spacer";
+@import "widgets/ptf-subscribe-form";
+@import "widgets/ptf-team-member";
+@import "widgets/ptf-testimonial";
+@import "widgets/ptf-timeline";
+@import "widgets/ptf-twitter-review";
+@import "widgets/ptf-video-button";

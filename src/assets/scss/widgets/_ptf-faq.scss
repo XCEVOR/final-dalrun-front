@@ -1,0 +1,66 @@
+/* WIDGET: FAQ
+-------------------------------------------- */
+
+.ptf-faq {
+  display: grid;
+
+  padding-bottom: px2rem(100px);
+
+  border-bottom: 1px solid var(--ptf-color-14);
+
+  grid-template-columns: px2rem(345px) 1fr;
+  @include mq("large") {
+    grid-template-columns: 1fr;
+    grid-gap: px2rem(20px);
+  }
+
+  &__category {
+    h3 {
+      line-height: 1.33;
+    }
+  }
+
+  &__question {
+    h6 {
+      @include mq("large", min) {
+        max-width: px2rem(360px);
+      }
+    }
+  }
+
+  &__item {
+    display: grid;
+
+    padding-top: px2rem(10px);
+
+    grid-template-columns: repeat(2, 1fr);
+    @include mq("large") {
+      grid-template-columns: 1fr;
+      grid-gap: px2rem(16px);
+    }
+  }
+
+  .ptf-faq__item + .ptf-faq__item {
+    margin-top: px2rem(50px);
+
+    @include mq("large") {
+      margin-top: px2rem(30px);
+    }
+  }
+}
+
+.ptf-widget-faq .ptf-accordion dd {
+  animation: fade-in-up 0.3s;
+}
+.accordion .accordion__button dt {
+  transition: 0.4s ease-in-out;
+  &:hover {
+    color: var(--ptf-accent-1);
+  }
+}
+.accordion .accordion__button[aria-expanded="true"] dt {
+  color: var(--ptf-accent-1);
+  &:after {
+    transform: rotate(-180deg);
+  }
+}

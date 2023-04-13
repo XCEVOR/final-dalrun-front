@@ -1,0 +1,119 @@
+/* WIDGET: TWITTER REVIEW
+-------------------------------------------- */
+
+.ptf-twitter-review {
+	padding-top: px2rem(60px);
+
+	border-top: 2px solid var(--ptf-color-black);
+
+	&__header {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+	}
+
+	&__avatar {
+		flex-shrink: 0;
+
+		margin-right: px2rem(20px);
+
+		img {
+			border-radius: 50%;
+		}
+
+	}
+
+	&__meta {
+		flex-basis: 100%;
+
+		a:hover {
+			color: map-get($social-colors, 'twitter');
+		}
+
+	}
+
+	&__icon {
+		position: absolute;
+		top: px2rem(10px);
+		right: px2rem(15px);
+
+		color: map-get($social-colors, 'twitter');
+		font-size: px2rem(36px);
+		line-height: 1;
+	}
+
+	&__author {
+		font-size: px2rem(20px);
+		font-weight: 600;
+	}
+
+	&__info{
+		color: var(--ptf-color-3);
+		font-size: px2rem(15px);
+	}
+
+	&__content {
+		margin-top: px2rem(45px);
+		padding-right: px2rem(30px);
+
+		color: var(--ptf-color-black);
+		font-size: px2rem(26px);
+		line-height: 1.5;
+
+		a {
+			color: map-get($social-colors, 'twitter');
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+		}
+
+	}
+
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-twitter-review--style-2 {
+	@include mq('large', min) {
+		padding-right: 15%;
+		padding-left: 15%;
+	}
+
+	.ptf-twitter-review__author {
+		font-weight: 700;
+	}
+
+	.ptf-twitter-review__content {
+		font-size: px2rem(28px);
+	}
+
+}
+
+/* SECTION: STYLE 3
+-------------------------------------------- */
+
+.ptf-twitter-review--style-3 {
+	padding: px2rem(45px);
+
+	border: 1px solid var(--ptf-color-14);
+
+	@include mq('large', min) {
+		padding-top: px2rem(90px);
+		padding-right: 15%;
+		padding-bottom: px2rem(100px);
+		padding-left: 15%;
+	}
+
+	.ptf-twitter-review__author {
+		font-weight: 700;
+	}
+
+	.ptf-twitter-review__content {
+		font-size: px2rem(26px);
+	}
+
+}

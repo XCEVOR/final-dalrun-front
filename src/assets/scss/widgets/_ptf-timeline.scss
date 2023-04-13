@@ -1,0 +1,32 @@
+/* WIDGET: TIMELINE
+-------------------------------------------- */
+
+.ptf-timeline {
+	display: block;
+
+	&__year {
+		margin-bottom: px2rem(55px);
+
+		text-transform: uppercase;
+		color: var(--ptf-color-3);
+		font-size: px2rem(14px);
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+
+		list-style-type: none;
+
+		li + li {
+			margin-top: px2rem(35px);
+		}
+
+	}
+
+	&__title {
+		font-family: var(--ptf-secondary-font);
+		font-weight: normal;
+	}
+
+}

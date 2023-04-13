@@ -1,0 +1,15 @@
+/* PARTIAL: STICKY COLUMN
+-------------------------------------------- */
+
+.sticky-column {
+	position: sticky !important; // important for Elementor override
+	top: px2rem(60px);
+
+	transition: top var(--ptf-transition-duration) var(--ptf-transition-easing);
+}
+
+.sticky-parent {
+	display: block !important;
+
+	height: 100%;
+}

@@ -1,0 +1,116 @@
+%ptf_navbar_logo {
+  line-height: 1;
+
+  &:hover {
+    color: currentColor;
+  }
+
+  img {
+    display: block;
+    max-width: none;
+
+    .ptf-header--style-5 & {
+      display: none;
+    }
+  }
+
+  img.white {
+    display: none;
+
+    .ptf-header--style-5 & {
+      display: block;
+    }
+  }
+}
+
+%ptf_large_navigation {
+  .sf-menu {
+    overflow: hidden;
+
+    li {
+      display: block;
+      float: none;
+    }
+
+    a {
+      display: inline-block;
+    }
+
+    > li {
+      padding: px2rem(10px) 0;
+
+      & > a {
+        padding: px2rem(8px) 0;
+
+        color: var(--ptf-color-black);
+        font-size: px2rem(30px);
+        line-height: 1.1;
+        font-weight: 700;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    > li.current-menu-item > a,
+    > li.active > a,
+    > li:hover > a,
+    > li.sfHover > a {
+      color: var(--ptf-accent-1);
+    }
+
+    ul.sub-menu {
+      position: static;
+
+      margin-top: px2rem(10px);
+      padding-left: px2rem(10px);
+
+      ul.sub-menu {
+        margin-top: 0;
+      }
+
+      a {
+        padding: 2px 0;
+
+        color: var(--ptf-color-3);
+        font-size: px2rem(15px);
+        line-height: 1.8;
+        font-weight: normal;
+      }
+
+      li.current-menu-item > a,
+      li:hover > a,
+      li.active > a,
+      li.sfHover > a {
+        color: var(--ptf-color-black);
+      }
+    }
+  }
+}
+
+%ptf_tag {
+  margin-bottom: px2rem(5px);
+  padding: px2rem(4px) px2rem(9px);
+
+  text-transform: lowercase;
+  color: var(--ptf-color-3);
+  font-size: px2rem(14px);
+
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--ptf-color-6);
+
+  &:not(:last-child) {
+    margin-right: px2rem(5px);
+  }
+
+  &:hover {
+    color: var(--ptf-color-white);
+    background-color: var(--ptf-accent-1);
+    box-shadow: inset 0 0 0 1px var(--ptf-accent-1);
+  }
+}

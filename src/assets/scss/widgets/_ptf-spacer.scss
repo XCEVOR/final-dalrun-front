@@ -1,0 +1,24 @@
+/* WIDGET: SPACER
+-------------------------------------------- */
+
+.ptf-spacer {
+	display: block;
+
+	height: var(--ptf-xxl);
+
+	clear: both;
+
+	@include mq('xlarge') {
+		height: var(--ptf-xl, var(--ptf-xxl));
+	}
+	@include mq('large') {
+		height: var(--ptf-lg, var(--ptf-xl, var(--ptf-xxl)));
+	}
+	@include mq('medium') {
+		height: var(--ptf-md, var(--ptf-lg, var(--ptf-xl, var(--ptf-xxl))));
+	}
+	@include mq('small') {
+		height: var(--ptf-sm, var(--ptf-md, var(--ptf-lg, var(--ptf-xl, var(--ptf-xxl)))));
+	}
+
+}

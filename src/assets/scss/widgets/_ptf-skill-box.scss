@@ -1,0 +1,63 @@
+/* WIDGET: SKILL BOX
+-------------------------------------------- */
+
+.ptf-skill-box {
+	--ptf-image-height: 85px;
+}
+
+.ptf-skill-box {
+	position: relative;
+
+	background-color: var(--ptf-color-white);
+	box-shadow: inset 0 0 0 1px var(--ptf-color-1);
+
+	transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+	&::before {
+		content: '';
+
+		display: block;
+
+		padding-top: 100%;
+	}
+
+	&__content {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	&__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: px2rem(85px);
+
+		img {
+			width: auto;
+			height: var(--ptf-image-height);
+		}
+
+	}
+
+	&__title {
+		margin-top: px2rem(25px);
+
+		font-size: px2rem(18px);
+		font-weight: normal;
+	}
+
+	&:hover {
+		box-shadow: inset 0 0 0 2px var(--ptf-accent-1);
+	}
+
+}

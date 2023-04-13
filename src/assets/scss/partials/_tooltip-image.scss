@@ -1,0 +1,35 @@
+/* PARTIAL: TOOLTIP IMAGE
+-------------------------------------------- */
+
+.ptf-hover-reveal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: z('tooltip-image');
+
+	width: px2rem(460px);
+	height: px2rem(300px);
+
+	opacity: 0;
+
+	pointer-events: none;
+
+	&__inner,
+	&__img {
+		position: relative;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	&__inner {
+		overflow: hidden;
+	}
+
+	&__img {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+}
