@@ -42,9 +42,9 @@ import { Routes, Route } from "react-router-dom";
 import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 
 // admin
-import Admin from "../views/dalrun-asj/admin";
+import Admin from "../views/dalrun-asj/Admin";
 import AdminDashboard from "../views/dalrun-asj/inner/AdminDashboard";
-import AdminMember from "../views/dalrun-asj/inner/AdminMember";
+import AdminMember from "../views/dalrun-asj/inner/admin-members/AdminMember";
 import AdminCrew from "../views/dalrun-asj/inner/admin-members/AdminCrew";
 import AdminProductinquiry from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminProductinquiry";
 import AdminQna from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
