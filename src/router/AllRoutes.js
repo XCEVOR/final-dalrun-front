@@ -49,19 +49,19 @@ import Qna from '../views/inner-pages/dalrun-kjw/Qna';
 // 안선정
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 // admin
-import Admin from "../views/dalrun-asj/Admin";
-import AdminDashboard from "../views/dalrun-asj/inner/AdminDashboard";
-import AdminMember from "../views/dalrun-asj/inner/admin-members/AdminMember";
-import AdminCrew from "../views/dalrun-asj/inner/admin-members/AdminCrew";
-import AdminProductinquiry from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminProductinquiry";
-import AdminQna from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
-import AdminShoereview from "../views/dalrun-asj/inner/admin-bbs/AdminShoereview";
-import AdminDiary from "../views/dalrun-asj/inner/admin-bbs/AdminDiary";
-import AdminCompetition from "../views/dalrun-asj/inner/admin-bbs/AdminCompetition";
-import AdminProduct from "../views/dalrun-asj/inner/admin-store/AdminProduct";
-import AdminOrder from "../views/dalrun-asj/inner/admin-store/AdminOrder";
-import AdminStock from "../views/dalrun-asj/inner/admin-store/AdminStock";
-import AdminChart from "../views/dalrun-asj/inner/AdminChart";
+import Admin from "../views/inner-pages/dalrun-asj/Admin";
+import AdminDashboard from "../views/inner-pages/dalrun-asj/inner/AdminDashboard";
+import AdminMember from "../views/inner-pages/dalrun-asj/inner/admin-members/AdminMember";
+import AdminCrew from "../views/inner-pages/dalrun-asj/inner/admin-members/AdminCrew";
+import AdminProductinquiry from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminProductinquiry";
+import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
+import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
+import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
+import AdminCompetition from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminCompetition";
+import AdminProduct from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminProduct";
+import AdminOrder from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminOrder";
+import AdminStock from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminStock";
+import AdminChart from "../views/inner-pages/dalrun-asj/inner/AdminChart";
 
 // 장호찬
 import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
@@ -74,6 +74,7 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+
 
 const AllRoutes = () => {
   return (
@@ -132,7 +133,7 @@ const AllRoutes = () => {
         <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
         <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
         <Route path="/admin/bbs/diary" element={<AdminDiary />} />
-        <Route path="/admin/bbs/compet=ition" element={<AdminCompetition />} />
+        <Route path="/admin/bbs/competition" element={<AdminCompetition />} />
         <Route path="/admin/store/product" element={<AdminProduct />} />
         <Route path="/admin/store/order" element={<AdminOrder />} />
         <Route path="/admin/store/stock" element={<AdminStock />} />
