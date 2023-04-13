@@ -1,0 +1,139 @@
+/* WIDGET: SERVICES LIST
+-------------------------------------------- */
+
+.ptf-services-list {
+  --ptf-font-family: var(--ptf-secondary-font);
+  --ptf-font-weight: normal;
+}
+
+.ptf-services-list {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+
+  li {
+    font-family: var(--ptf-font-family);
+    font-weight: var(--ptf-font-weight);
+  }
+}
+
+/* SECTION: STYLE 1
+-------------------------------------------- */
+
+.ptf-services-list--style-1 {
+  li {
+    display: inline-flex;
+
+    color: var(--ptf-color-3);
+    font-size: px2rem(60px);
+    line-height: 1.3;
+
+    @include mq("xlarge", min) {
+      font-size: px2rem(80px);
+    }
+
+    a {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    span {
+      font-size: px2rem(16px);
+
+      @include mq("xlarge", min) {
+        font-size: px2rem(30px);
+      }
+    }
+
+    &.sep {
+      margin: 0 px2rem(12px) 0 px2rem(15px);
+
+      font-family: var(--ptf-primary-font);
+      font-weight: 300;
+
+      opacity: 0.5;
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+    position: relative;
+
+    &:not(:last-of-type) {
+      &::after {
+        content: "/";
+        margin: 0 15px 0 5px;
+      }
+    }
+  }
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-services-list--style-2 {
+  li {
+    display: flex;
+
+    color: var(--ptf-color-black);
+    font-size: px2rem(30px);
+    line-height: 1.6;
+  }
+}
+
+/* SECTION: STYLE 3
+-------------------------------------------- */
+
+.ptf-services-list--style-3 {
+  columns: 3;
+
+  li {
+    display: flex;
+
+    color: var(--ptf-color-black);
+    font-size: px2rem(16px);
+    line-height: 2;
+    font-weight: 600;
+
+    a:hover {
+      color: var(--ptf-color-3);
+    }
+  }
+}
+
+/* SECTION: STYLE 4
+-------------------------------------------- */
+
+.ptf-services-list--style-4 {
+  li {
+    display: flex;
+
+    color: var(--ptf-color-3);
+    font-size: px2rem(48px);
+    line-height: 1.5;
+
+    a:hover {
+      color: var(--ptf-color-white);
+    }
+  }
+}
+
+/* SECTION: STYLE 5
+-------------------------------------------- */
+
+.ptf-services-list--style-5 {
+  li {
+    display: flex;
+
+    color: var(--ptf-color-black);
+    font-size: px2rem(20px);
+    line-height: 2;
+
+    a:hover {
+      color: var(--ptf-accent-1);
+
+      transform: translateX(#{px2rem(16px)});
+    }
+  }
+}

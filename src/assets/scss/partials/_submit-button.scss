@@ -1,0 +1,53 @@
+/* PARTIAL: SUBMIT BUTTON
+-------------------------------------------- */
+
+.ptf-submit-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0;
+
+	color: var(--ptf-color-black);
+	font-size: px2rem(60px);
+	font-weight: 700;
+
+	border: none;
+	background: none;
+
+	transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+	cursor: pointer;
+
+	svg {
+		width: 1em;
+		height: 1em;
+		margin-top: .12em;
+		margin-left: px2rem(40px);
+
+		transition: transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+	}
+
+	&:hover {
+		color: var(--ptf-accent-1);
+
+		svg {
+			transform: translateX(2px);
+		}
+
+	}
+
+
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-submit-button--style-2 {
+	text-transform: uppercase;
+	font-size: px2rem(24px);
+
+	svg {
+		margin-left: px2rem(20px);
+	}
+
+}

@@ -1,0 +1,37 @@
+/* PARTIAL: SITE PRELOADER
+-------------------------------------------- */
+
+.animsition,
+.animsition-overlay {
+	position: static;
+}
+
+.animsition-bounce {
+	position: fixed;
+	top: calc(50% - 25px);
+	left: calc(50% - 25px);
+	z-index: z('site-preloader');
+
+	width: px2rem(50px);
+	height: px2rem(50px);
+}
+
+.double-bounce-one,
+.double-bounce-two {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	border-radius: 50%;
+	background-color: var(--ptf-accent-1);
+	opacity: .6;
+
+	animation: ptf_bounce_preloader 2s infinite ease-in-out;
+}
+
+.double-bounce-two {
+	animation-delay: -1s;
+}

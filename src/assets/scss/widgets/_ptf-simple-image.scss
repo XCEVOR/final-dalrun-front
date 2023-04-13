@@ -1,0 +1,46 @@
+/* WIDGET: SIMPLE IMAGE
+-------------------------------------------- */
+
+.ptf-simple-image {
+	position: relative;
+
+	overflow: hidden;
+
+	img {
+		transition: transform  calc(var(--ptf-transition-duration) * 3) var(--ptf-transition-easing);
+
+		backface-visibility: hidden;
+		will-change: transform;
+	}
+
+	&:hover {
+
+		img {
+			transform: scale(1.05);
+		}
+
+	}
+
+}
+
+.ptf-simple-image-caption {
+	margin-top: px2rem(40px);
+
+	text-align: center;
+	color: var(--ptf-color-3);
+	font-size: px2rem(14px);
+
+	@include mq('medium') {
+		margin-top: px2rem(20px);
+	}
+
+	a {
+		color: var(--ptf-color-black);
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+}

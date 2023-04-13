@@ -1,0 +1,17 @@
+/* WIDGET: DIVIDER
+-------------------------------------------- */
+
+.ptf-divider {
+	--ptf-height: 2px;
+	--ptf-color: var(--ptf-color-black);
+}
+
+.ptf-divider {
+	display: block;
+
+	height: var(--ptf-height);
+
+	background-color: var(--ptf-color);
+
+	clear: both;
+}

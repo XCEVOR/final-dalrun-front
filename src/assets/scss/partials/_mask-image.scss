@@ -1,0 +1,37 @@
+/* PARTIAL: MASK IMAGE
+-------------------------------------------- */
+
+.ptf-mask-image {
+  position: relative;
+
+  img:not(:last-of-type) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: var(--ptf-mask-image);
+    mask-image: var(--ptf-mask-image);
+    mask-repeat: round;
+  }
+  img.lay {
+    -webkit-mask-image: url(../../img/about-me-main-image-mask.png);
+    mask-image: url(../../img/about-me-main-image-mask.png);
+  }
+  img.lay2 {
+    -webkit-mask-image: url(../../img/about-us-main-image-mask.png);
+    mask-image: url(../../img/about-us-main-image-mask.png);
+  }
+  img.lay3 {
+    -webkit-mask-image: url(../../img/home-dark-main-image-mask.png);
+    mask-image: url(../../img/home-dark-main-image-mask.png);
+  }
+}

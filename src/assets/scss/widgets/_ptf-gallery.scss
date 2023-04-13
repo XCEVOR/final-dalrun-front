@@ -1,0 +1,19 @@
+/* WIDGET: GALLERY
+-------------------------------------------- */
+
+.ptf-gallery {
+	display: grid;
+
+	overflow: unset !important;
+
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: px2rem(30px);
+	@include mq('small') {
+		grid-template-columns: 1fr;
+	}
+
+	&__item {
+		overflow: unset !important;
+	}
+
+}

@@ -1,0 +1,70 @@
+/* WIDGET: SERVICE BOX
+-------------------------------------------- */
+
+.ptf-service-box {
+	position: relative;
+
+	display: grid;
+
+	padding: px2rem(50px);
+
+	border-top: 2px solid var(--ptf-color-black);
+
+	transition: background-color var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+	grid-template-columns: px2rem(120px) px2rem(300px) 1fr px2rem(140px);
+	@include mq('xlarge') {
+		grid-template-columns: px2rem(120px) 1fr 1fr;
+	}
+	@include mq('large') {
+		grid-template-columns: 1fr;
+		grid-gap: px2rem(16px);
+	}
+
+	&__link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	&__icon {
+		color: var(--ptf-accent-1);
+		font-size: px2rem(60px);
+		line-height: 1.1;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-size: px2rem(24px);
+		line-height: 1.5;
+	}
+
+	&__arrow {
+		text-align: right;
+		color: var(--ptf-color-black);
+		font-size: px2rem(36px);
+
+		transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+		@include mq('xlarge') {
+			display: none;
+		}
+
+	}
+
+	&:hover {
+		background-color: var(--ptf-color-7);
+
+		.ptf-service-box__arrow {
+			color: var(--ptf-accent-1);
+
+			transform: translateX(2px);
+		}
+
+	}
+
+}
