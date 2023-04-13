@@ -5,6 +5,7 @@ import BlogDemo from "../components/preview/BlogDemo";
 import MainDemo from "../components/preview/MainDemo";
 import PortfolioDemo from "../components/preview/PortfolioDemo";
 import OthersPages from "../components/preview/OthersPages";
+import DalrunDemo from "../components/preview/DalrunDemo";
 
 const Preview = () => {
   return (
@@ -24,6 +25,72 @@ const Preview = () => {
               })`,
             }}
           >
+            <section>
+              <div className="container-xxl">
+                {/* <!--Divider--> */}
+                <div
+                  className="ptf-divider"
+                  style={{
+                    "--ptf-height": "1px",
+                    "--ptf-color": "var(--ptf-color-14)",
+                  }}
+                ></div>
+              </div>
+            </section>
+
+            <section id="dalrun">
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+
+              <div className="container-xxl">
+                <div className="row">
+                  <div className="col-xl-8">
+                    {/* <!--Animated Block--> */}
+                    <div
+                      className="ptf-animated-block"
+                      data-aos="fade"
+                      data-aos-delay="0"
+                    >
+                      <h2 className="h1">
+                        달런 달런
+                      </h2>
+                    </div>
+                    {/* <!--Spacer--> */}
+                    <div
+                      className="ptf-spacer"
+                      style={{ "--ptf-xxl": "1.875rem" }}
+                    ></div>
+                    {/* <!--Animated Block--> */}
+                    <div
+                      className="ptf-animated-block"
+                      data-aos="fade"
+                      data-aos-delay="100"
+                    >
+                      <p className="fz-18 has-3-color">
+                        No-clutter demos with only necessasry design elements
+                        for maximum attention to your work.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* <!--Spacer--> */}
+                <div
+                  className="ptf-spacer"
+                  style={{ "--ptf-xxl": "5.625rem", "--ptf-md": "2.8125rem" }}
+                ></div>
+                <DalrunDemo />
+              </div>
+
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+            </section>
+
             <section>
               <div className="container-xxl">
                 {/* <!--Divider--> */}
