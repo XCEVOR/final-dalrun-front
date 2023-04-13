@@ -103,19 +103,19 @@ const AllRoutes = () => {
         <Route path="*" element={<NotFound />} />
 
         {/* Admin */}
-        <Route path="/admin" element={Admin} />
-        <Route path="/admin/dashboard" element={AdminDashboard} />
-        <Route path="/admin/members/member" element={AdminMember} />
-        <Route path="/admin/members/crew" element={AdminCrew} />
-        <Route path="/admin/bbs/question/productinquiry" element={AdminProductinquiry} />
-        <Route path="/admin/bbs/question/qna" element={AdminQna} />
-        <Route path="/admin/bbs/shoereview" element={AdminShoereview} />
-        <Route path="/admin/bbs/diary" element={AdminDiary} />
-        <Route path="/admin/bbs/compet=ition" element={AdminCompetition} />
-        <Route path="/admin/store/product" element={AdminProduct} />
-        <Route path="/admin/store/order" element={AdminOrder} />
-        <Route path="/admin/store/stock" element={AdminStock} />
-        <Route path="/admin/chart" element={AdminChart} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/members/member" element={<AdminMember />} />
+        <Route path="/admin/members/crew" element={<AdminCrew />} />
+        <Route path="/admin/bbs/question/productinquiry" element={<AdminProductinquiry />} />
+        <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
+        <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
+        <Route path="/admin/bbs/diary" element={<AdminDiary />} />
+        <Route path="/admin/bbs/compet=ition" element={<AdminCompetition />} />
+        <Route path="/admin/store/product" element={<AdminProduct />} />
+        <Route path="/admin/store/order" element={<AdminOrder />} />
+        <Route path="/admin/store/stock" element={<AdminStock />} />
+        <Route path="/admin/chart" element={<AdminChart />} />
       </Routes>
     </>
   );
