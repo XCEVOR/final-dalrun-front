@@ -41,6 +41,27 @@ import NotFound from "../views/NotFound";
 import { Routes, Route } from "react-router-dom";
 import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 
+// 김종완
+import KjwWorkspace from "../views/inner-pages/dalrun-kjw/KjwWorkspace";
+import Course from '../views/inner-pages/dalrun-kjw/Course';
+import Qna from '../views/inner-pages/dalrun-kjw/Qna';
+
+// 안선정
+import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
+
+// 장호찬
+import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
+
+// 문준영
+import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
+
+// 오성혁
+import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
+
+// 박예린
+import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+
+
 const AllRoutes = () => {
   return (
     <>
@@ -86,6 +107,27 @@ const AllRoutes = () => {
         <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="*" element={<NotFound />} />
+
+        {/* 안선정 */}
+        <Route path='/asj-work' element={<AsjWorkspace/>} />
+        
+        {/* 장호찬 */}
+        <Route path='/jhc-work' element={<JhcWorkspace/>} />
+
+        {/* 김종완 */}
+        <Route path='/kjw-work' element={<KjwWorkspace/>} />
+        <Route path="/course" element={<Course />} />
+        <Route path="/qna" element={<Qna />} />
+
+        {/* 문준영 */}
+        <Route path='/mjy-work' element={<MjyWorkspace/>} />
+
+        {/* 오성혁 */}
+        <Route path='/osh-work' element={<OshWorkspace/>} />
+
+        {/* 박예린 */}
+        <Route path='/pyr-work' element={<PyrWorkspace/>} />
+
       </Routes>
     </>
   );
