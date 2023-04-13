@@ -16,11 +16,6 @@ const App = () => {
     });
   }, []);
   return (
-<<<<<<< HEAD
-    <div>
-        {/* 그럼 이렇게 */}
-    </div>
-=======
     <>
       <Helmet>
         <title>final-dalrun-front - Portfolio & Agency React Template</title>
@@ -48,8 +43,8 @@ const App = () => {
       <AllRoutes />
       {/* End All Routes */}
     </>
->>>>>>> d29f84e923068dc87bb1fe021813614a3ba6ac09
   );
 };
 
 export default App;
+
