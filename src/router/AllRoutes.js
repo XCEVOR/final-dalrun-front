@@ -125,7 +125,7 @@ const AllRoutes = () => {
         {/* 안선정 */}
         <Route path='/asj-work' element={<AsjWorkspace/>} />
         {/* Admin */}
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/dashboard" element={<Admin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/members/member" element={<AdminMember />} />
         <Route path="/admin/members/crew" element={<AdminCrew />} />

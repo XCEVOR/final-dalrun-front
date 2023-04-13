@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../components/header/HeaderDefault";
-import PortfolioListing from "../../../components/portfolio/PortfolioListing";
 import Footer from "../../../components/footer/Footer";
 import CopyRight from "../../../components/footer/copyright/CopyRight";
 import AdminMenu from "../../../components/dalrun-asj/AdminMenu";
-
+import AdminDashboard from "./inner/AdminDashboard";
+import { useLocation } from "react-router";
+import AdminMember from "./inner/admin-members/AdminMember";
+import AdminProductinquiry from "./inner/admin-bbs/admin-question/AdminProductinquiry";
+import AdminProduct from "./inner/admin-store/AdminProduct";
+import AdminChart from "./inner/AdminChart";
 
 const Admin = () => {
-  const [click1, setClick1] = useState(false);
-  const handleClick1 = () => setClick1(!click1);
+  const location = useLocation();
+  const menu = location.state.menu;
+  
+  const clickedMenu = (m) => {
+    console.log(m);
+    if(m == "dashboard") {
+      return <AdminDashboard />;
+    } else if(m == "members") {
+      return <AdminMember />
+    } else if(m == "bbs") {
+      return <AdminProductinquiry />
+    } else if(m == "store") {
+      return <AdminProduct />
+    } else if(m == "chart") {
+      return <AdminChart />
+    }
+  }
 
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
@@ -21,8 +40,10 @@ const Admin = () => {
         <HeaderDefault />
         {/* End  HeaderHomeDefault */}
 
-        <div className="main">
+      {/* End Page SEO Content */}
+        <div className="main container-xxl" style={{display:"flex"}}>
           <AdminMenu />
+          {clickedMenu(menu)}
         </div>
       </div>
       {/* End .main */}
