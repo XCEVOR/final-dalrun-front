@@ -41,6 +41,21 @@ import NotFound from "../views/NotFound";
 import { Routes, Route } from "react-router-dom";
 import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 
+// admin
+import Admin from "../views/dalrun-asj/admin";
+import AdminDashboard from "../views/dalrun-asj/inner/AdminDashboard";
+import AdminMember from "../views/dalrun-asj/inner/AdminMember";
+import AdminCrew from "../views/dalrun-asj/inner/admin-members/AdminCrew";
+import AdminProductinquiry from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminProductinquiry";
+import AdminQna from "../views/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
+import AdminShoereview from "../views/dalrun-asj/inner/admin-bbs/AdminShoereview";
+import AdminDiary from "../views/dalrun-asj/inner/admin-bbs/AdminDiary";
+import AdminCompetition from "../views/dalrun-asj/inner/admin-bbs/AdminCompetition";
+import AdminProduct from "../views/dalrun-asj/inner/admin-store/AdminProduct";
+import AdminOrder from "../views/dalrun-asj/inner/admin-store/AdminOrder";
+import AdminStock from "../views/dalrun-asj/inner/admin-store/AdminStock";
+import AdminChart from "../views/dalrun-asj/inner/AdminChart";
+
 const AllRoutes = () => {
   return (
     <>
@@ -86,6 +101,21 @@ const AllRoutes = () => {
         <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="*" element={<NotFound />} />
+
+        {/* Admin */}
+        <Route path="/admin" element={Admin} />
+        <Route path="/admin/dashboard" element={AdminDashboard} />
+        <Route path="/admin/members/member" element={AdminMember} />
+        <Route path="/admin/members/crew" element={AdminCrew} />
+        <Route path="/admin/bbs/question/productinquiry" element={AdminProductinquiry} />
+        <Route path="/admin/bbs/question/qna" element={AdminQna} />
+        <Route path="/admin/bbs/shoereview" element={AdminShoereview} />
+        <Route path="/admin/bbs/diary" element={AdminDiary} />
+        <Route path="/admin/bbs/compet=ition" element={AdminCompetition} />
+        <Route path="/admin/store/product" element={AdminProduct} />
+        <Route path="/admin/store/order" element={AdminOrder} />
+        <Route path="/admin/store/stock" element={AdminStock} />
+        <Route path="/admin/chart" element={AdminChart} />
       </Routes>
     </>
   );
