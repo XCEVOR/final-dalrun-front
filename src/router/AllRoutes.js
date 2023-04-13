@@ -54,12 +54,15 @@ import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
+import MainPage from"../views/mjy-view/mainPage";
+import MainDotMap from "../views/mjy-view/mainDotmap";
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+
 
 
 const AllRoutes = () => {
@@ -121,6 +124,9 @@ const AllRoutes = () => {
 
         {/* 문준영 */}
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
+        <Route path='/mainPage' element={<MainPage/>} />
+        <Route path='/dotmap' element={<MainDotMap/>} />
+
 
         {/* 오성혁 */}
         <Route path='/osh-work' element={<OshWorkspace/>} />
