@@ -47,6 +47,17 @@ const AllRoutes = () => {
       <ScrollTopBehaviour />
       <Routes>
         <Route path="/" element={<Preview />} />
+
+
+        {/*  DalrunPages */}
+        <Route path="/dalrun-sj" element={<HomeDefault />} />
+        <Route path="/dalrun-jw" element={<HomeDefault />} />
+        <Route path="/dalrun-jy" element={<HomeDefault />} />
+        <Route path="/dalrun-yr" element={<HomeDefault />} />
+        <Route path="/dalrun-sh" element={<HomeDefault />} />
+        <Route path="/dalrun-hc" element={<HomeDefault />} />
+
+
         {/*  Homepage Demo */}
         <Route path="/home-default" element={<HomeDefault />} />
         <Route path="/home-studio" element={<HomeStudio />} />

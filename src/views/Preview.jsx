@@ -6,6 +6,9 @@ import MainDemo from "../components/preview/MainDemo";
 import PortfolioDemo from "../components/preview/PortfolioDemo";
 import OthersPages from "../components/preview/OthersPages";
 
+// 달런달런 페이지 임시 바로가기
+import DalrunPages from "../components/preview/DalrunPages";
+
 const Preview = () => {
   return (
     <div className="ptf-site-wrapper animsition">
@@ -43,6 +46,23 @@ const Preview = () => {
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
               ></div>
+
+
+
+              {/* 달런달런 페이지 임시 바로가기 */}
+              <div>
+                <h2 className="h1">
+                  달런달런 Pages
+                </h2>
+                <DalrunPages />
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+
+
 
               <div className="container-xxl">
                 <div className="row">
