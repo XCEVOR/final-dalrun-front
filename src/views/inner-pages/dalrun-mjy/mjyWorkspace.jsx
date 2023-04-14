@@ -11,7 +11,7 @@ const demoContent = [
   },
   {
     demoImg: "home-default",
-    routerPath: "/dotmapPage",
+    routerPath: "/dotmap",
     title: "도트맵 페이지",
     delayAnimationTime: "0",
   },
