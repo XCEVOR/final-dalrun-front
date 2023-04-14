@@ -45,6 +45,7 @@ import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 import KjwWorkspace from "../views/inner-pages/dalrun-kjw/KjwWorkspace";
 import Course from '../views/inner-pages/dalrun-kjw/Course';
 import Qna from '../views/inner-pages/dalrun-kjw/Qna';
+import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 
 // 안선정
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
@@ -74,6 +75,8 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+
+
 
 const AllRoutes = () => {
   return (
@@ -145,6 +148,7 @@ const AllRoutes = () => {
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
         <Route path="/course" element={<Course />} />
         <Route path="/qna" element={<Qna />} />
+        <Route path="/diary" element={<Diary />} />
 
         {/* 문준영 */}
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
