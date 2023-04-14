@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import BlogSidebarPost from "../../../../components/blog/blog-sidebar/BlogSidebarPost";
-import BlogFive from "../../../../components/dalrun-hc/review/BlogFive";
-import BlogFour from "../../../../components/dalrun-hc/review/BlogFour";
+import BlogFive from "../../../../components/dalrun-hc/competition/BlogFive";
+import BlogFour from "../../../../components/dalrun-hc/competition/BlogFour";
 import Pagination from "../../../../components/blog/Pagination";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
 import Footer from "../../../../components/footer/Footer";
@@ -12,7 +12,7 @@ const BlogSidebar = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
       <Helmet>
-        <title>Moonex - Bog Sidebar</title>
+        <title>COMPETITION MAIN</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -39,7 +39,7 @@ const BlogSidebar = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">Our Journal</h1>
+                      <h1 className="large-heading">COMPETITION MAIN</h1>
                     </div>
                   </div>
                 </div>

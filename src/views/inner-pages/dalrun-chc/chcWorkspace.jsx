@@ -15,10 +15,15 @@ const demoContent = [
     title: "리뷰 메인",
     delayAnimationTime: "200",
   },
-
+  {
+    demoImg: "home-default",
+    routerPath: "/competition-main",
+    title: "대회 메인",
+    delayAnimationTime: "400",
+  },
 ];
 
-const jhcWorkspace = () => {
+const chcWorkspace = () => {
   return (
     <div className="ptf-site-wrapper animsition">
       <Helmet>
@@ -218,4 +223,4 @@ const jhcWorkspace = () => {
   );
 };
 
-export default jhcWorkspace;
+export default chcWorkspace;
