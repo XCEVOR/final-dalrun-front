@@ -45,6 +45,7 @@ import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 import KjwWorkspace from "../views/inner-pages/dalrun-kjw/KjwWorkspace";
 import Course from '../views/inner-pages/dalrun-kjw/Course';
 import Qna from '../views/inner-pages/dalrun-kjw/Qna';
+import RunRecord from '../views/inner-pages/dalrun-kjw/RunRecord';
 
 // 안선정
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
@@ -130,6 +131,7 @@ const AllRoutes = () => {
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
         <Route path="/course" element={<Course />} />
         <Route path="/qna" element={<Qna />} />
+        <Route path="/record" element={<RunRecord />} />
 
         {/* 문준영 */}
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
