@@ -17,8 +17,26 @@ const demoContent = [
   },
   {
     demoImg: "home-default",
-    routerPath: "/admin/members/member",
+    routerPath: "/admin/members",
     title: "회원 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/bbs",
+    title: "게시물 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/store",
+    title: "쇼핑몰 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/chart",
+    title: "차트",
     delayAnimationTime: "0",
   },
 

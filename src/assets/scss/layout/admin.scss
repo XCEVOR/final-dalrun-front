@@ -9,6 +9,19 @@
     font-weight: bold;
 }
 
+.outline {
+    border: 1px solid var(--ptf-color-black);
+    width: 100%;
+}
+
+.search {
+    height: 100px;
+}
+
+.info {
+    height: 500px;
+}
+
 // 대시보드
 .dashboard {
     
@@ -34,16 +47,8 @@
 
 // 회원관리
 .member {
-    .outline {
-        border: 1px solid var(--ptf-color-black);
-        width: 100%;
-    }
+}
 
-    .search {
-        height: 100px;
-    }
-
-    .info {
-        height: 500px;
-    }
+// 게시물 관리
+.bbs {
 }
