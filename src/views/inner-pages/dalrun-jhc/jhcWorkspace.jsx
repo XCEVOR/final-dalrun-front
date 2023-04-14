@@ -5,8 +5,8 @@ import { Helmet } from "react-helmet";
 const demoContent = [
   {
     demoImg: "home-default",
-    routerPath: "/course",
-    title: "코스 다이어리",
+    routerPath: "/store-main",
+    title: "스토어 메인",
     delayAnimationTime: "0",
   },
   {
@@ -22,7 +22,7 @@ const jhcWorkspace = () => {
   return (
     <div className="ptf-site-wrapper animsition">
       <Helmet>
-        <title>Moonex - Preview</title>
+        <title>HC - Workspace</title>
       </Helmet>
       
       <div className="ptf-site-wrapper__inner">
