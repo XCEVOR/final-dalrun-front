@@ -13,21 +13,27 @@ import AdminChart from "./inner/AdminChart";
 
 const Admin = () => {
   const location = useLocation();
-  const menu = location.state.menu;
+  const menu = location;
   
-  const clickedMenu = (m) => {
-    console.log(m);
-    if(m == "dashboard") {
+  const clickedMenu = (menu) => {
+    if(menu.state == null) {
       return <AdminDashboard />;
-    } else if(m == "members") {
-      return <AdminMember />
-    } else if(m == "bbs") {
-      return <AdminProductinquiry />
-    } else if(m == "store") {
-      return <AdminProduct />
-    } else if(m == "chart") {
-      return <AdminChart />
+    } else {
+      let m = menu.state.menu;
+      console.log(m);
+      if(m === "dashboard") {
+        return <AdminDashboard />;
+      } else if(m === "members") {
+        return <AdminMember />
+      } else if(m === "bbs") {
+        return <AdminProductinquiry />
+      } else if(m === "store") {
+        return <AdminProduct />
+      } else if(m === "chart") {
+        return <AdminChart />
+      } 
     }
+
   }
 
   return (
