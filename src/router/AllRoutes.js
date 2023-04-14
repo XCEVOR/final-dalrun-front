@@ -50,7 +50,6 @@ import Qna from '../views/inner-pages/dalrun-kjw/Qna';
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 // admin
 import Admin from "../views/inner-pages/dalrun-asj/Admin";
-import AdminCrew from "../views/inner-pages/dalrun-asj/inner/admin-members/AdminCrew";
 import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
 import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
 import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
@@ -69,6 +68,7 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+import AdminMembers from "../views/inner-pages/dalrun-asj/AdminMembers";
 
 
 const AllRoutes = () => {
@@ -121,7 +121,6 @@ const AllRoutes = () => {
         <Route path='/asj-work' element={<AsjWorkspace/>} />
         {/* Admin */}
         <Route path="/admin/*" element={<Admin />} />
-        <Route path="/admin/members/crew" element={<AdminCrew />} />
         <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
         <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
         <Route path="/admin/bbs/diary" element={<AdminDiary />} />

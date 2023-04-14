@@ -10,6 +10,7 @@ import AdminMember from "./inner/admin-members/AdminMember";
 import AdminProductinquiry from "./inner/admin-bbs/admin-question/AdminProductinquiry";
 import AdminProduct from "./inner/admin-store/AdminProduct";
 import AdminChart from "./inner/AdminChart";
+import AdminMembers from "./AdminMembers";
 
 const Admin = () => {
   const location = useLocation();
@@ -18,8 +19,8 @@ const Admin = () => {
   const clickedMenu = (m) => {
       if(m === "dashboard") {
         return <AdminDashboard />;
-      } else if(m === "member") {
-        return <AdminMember />;
+      } else if(m === "members") {
+        return <AdminMembers />;
       } else if(m === "productinquiry") {
         return <AdminProductinquiry />;
       } else if(m === "product") {
