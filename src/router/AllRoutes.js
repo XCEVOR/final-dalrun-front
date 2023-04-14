@@ -49,6 +49,14 @@ import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 
 // 안선정
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
+// admin
+import Admin from "../views/inner-pages/dalrun-asj/Admin";
+import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
+import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
+import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
+import AdminCompetition from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminCompetition";
+import AdminOrder from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminOrder";
+import AdminStock from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminStock";
 
 // 장호찬
 import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
@@ -118,6 +126,14 @@ const AllRoutes = () => {
 
         {/* 안선정 */}
         <Route path='/asj-work' element={<AsjWorkspace/>} />
+        {/* Admin */}
+        <Route path="/admin/*" element={<Admin />} />
+        <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
+        <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
+        <Route path="/admin/bbs/diary" element={<AdminDiary />} />
+        <Route path="/admin/bbs/competition" element={<AdminCompetition />} />
+        <Route path="/admin/store/order" element={<AdminOrder />} />
+        <Route path="/admin/store/stock" element={<AdminStock />} />
         
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
@@ -142,7 +158,6 @@ const AllRoutes = () => {
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
-
       </Routes>
     </>
   );
