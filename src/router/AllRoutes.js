@@ -45,12 +45,27 @@ import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 import KjwWorkspace from "../views/inner-pages/dalrun-kjw/KjwWorkspace";
 import Course from '../views/inner-pages/dalrun-kjw/Course';
 import Qna from '../views/inner-pages/dalrun-kjw/Qna';
+import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 
 // 안선정
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
+// admin
+import Admin from "../views/inner-pages/dalrun-asj/Admin";
+import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
+import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
+import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
+import AdminCompetition from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminCompetition";
+import AdminOrder from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminOrder";
+import AdminStock from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminStock";
 
 // 장호찬
-import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
+import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
+import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
+import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
+import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
+import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
+import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
+import CompetitionDetails from "../views/inner-pages/dalrun-chc/competition/CompetitionDetails";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
@@ -113,14 +128,29 @@ const AllRoutes = () => {
 
         {/* 안선정 */}
         <Route path='/asj-work' element={<AsjWorkspace/>} />
+        {/* Admin */}
+        <Route path="/admin/*" element={<Admin />} />
+        <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
+        <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
+        <Route path="/admin/bbs/diary" element={<AdminDiary />} />
+        <Route path="/admin/bbs/competition" element={<AdminCompetition />} />
+        <Route path="/admin/store/order" element={<AdminOrder />} />
+        <Route path="/admin/store/stock" element={<AdminStock />} />
         
         {/* 장호찬 */}
-        <Route path='/jhc-work' element={<JhcWorkspace/>} />
+        <Route path='/chc-work' element={<ChcWorkspace/>} />
+        <Route path='/store-main' element={<StoreMain />} />
+        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/review-main' element={<ReviewMain />} />
+        <Route path='/review-details' element={<ReviewDetails />} />
+        <Route path='/competition-main' element={<CompetitionMain />} />
+        <Route path='/competition-details' element={<CompetitionDetails />} />
 
         {/* 김종완 */}
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
         <Route path="/course" element={<Course />} />
         <Route path="/qna" element={<Qna />} />
+        <Route path="/diary" element={<Diary />} />
 
         {/* 문준영 */}
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
@@ -133,7 +163,6 @@ const AllRoutes = () => {
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
-
       </Routes>
     </>
   );
