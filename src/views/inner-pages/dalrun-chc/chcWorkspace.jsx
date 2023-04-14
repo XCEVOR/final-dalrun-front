@@ -5,24 +5,29 @@ import { Helmet } from "react-helmet";
 const demoContent = [
   {
     demoImg: "home-default",
-    routerPath: "/course",
-    title: "코스 다이어리",
+    routerPath: "/store-main",
+    title: "스토어 메인",
     delayAnimationTime: "0",
   },
   {
     demoImg: "home-default",
-    routerPath: "/qna",
-    title: "QnA 페이지",
-    delayAnimationTime: "0",
+    routerPath: "/review-main",
+    title: "리뷰 메인",
+    delayAnimationTime: "200",
   },
-
+  {
+    demoImg: "home-default",
+    routerPath: "/competition-main",
+    title: "대회 메인",
+    delayAnimationTime: "400",
+  },
 ];
 
-const jhcWorkspace = () => {
+const chcWorkspace = () => {
   return (
     <div className="ptf-site-wrapper animsition">
       <Helmet>
-        <title>Moonex - Preview</title>
+        <title>HC - Workspace</title>
       </Helmet>
       
       <div className="ptf-site-wrapper__inner">
@@ -151,6 +156,11 @@ const jhcWorkspace = () => {
         </main>
       </div>
 
+
+
+
+
+
       {/* <!--Footer--> */}
       <footer
         className="ptf-footer ptf-footer--landing"
@@ -213,4 +223,4 @@ const jhcWorkspace = () => {
   );
 };
 
-export default jhcWorkspace;
+export default chcWorkspace;

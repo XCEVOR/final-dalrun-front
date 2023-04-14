@@ -11,7 +11,7 @@ const Preview = () => {
   return (
     <div className="ptf-site-wrapper animsition">
       <Helmet>
-        <title>Moonex - Preview test</title>
+        <title>Moonex - Preview</title>
       </Helmet>
       <div className="ptf-site-wrapper__inner">
         {/* <!--Header--> */}

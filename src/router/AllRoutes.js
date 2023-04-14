@@ -50,7 +50,13 @@ import Qna from '../views/inner-pages/dalrun-kjw/Qna';
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 
 // 장호찬
-import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
+import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
+import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
+import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
+import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
+import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
+import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
+import CompetitionDetails from "../views/inner-pages/dalrun-chc/competition/CompetitionDetails";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
@@ -112,7 +118,13 @@ const AllRoutes = () => {
         <Route path='/asj-work' element={<AsjWorkspace/>} />
         
         {/* 장호찬 */}
-        <Route path='/jhc-work' element={<JhcWorkspace/>} />
+        <Route path='/chc-work' element={<ChcWorkspace/>} />
+        <Route path='/store-main' element={<StoreMain />} />
+        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/review-main' element={<ReviewMain />} />
+        <Route path='/review-details' element={<ReviewDetails />} />
+        <Route path='/competition-main' element={<CompetitionMain />} />
+        <Route path='/competition-details' element={<CompetitionDetails />} />
 
         {/* 김종완 */}
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
