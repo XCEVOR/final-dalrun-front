@@ -54,22 +54,6 @@ const AdminMenu = () => {
           <Route path="/admin/chart" element={<AdminChart />} />
         </Routes>
       </div>
-        
-      {/* <div className="ptf-admin-sidebar">
-        <div>
-            <ul className="admin-sidebar-menu_wrapper">
-              {menuContent.map((item, i) => (
-                <li key={i}>
-                    <Link state={{menu:item.menu}}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
-            <div className="admin-sidebar-menu_btns">
-              <Link to={"#main"}>돌아가기</Link>
-              <button className="logout">로그아웃</button>
-            </div>
-        </div>
-      </div> */}
     </>
   );
 };

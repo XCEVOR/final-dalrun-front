@@ -36,17 +36,13 @@ const Admin = () => {
       </Helmet>
       <div className="ptf-site-wrapper__inner">
         <HeaderDefault />
-        {/* End  HeaderHomeDefault */}
 
         <div className="main container-xxl" style={{display:"flex"}}>
           <AdminMenu />
-          {/* <AdminDashboard /> */}
           {clickedMenu(menu)}
         </div>
       </div>
-      {/* End .main */}
 
-      {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
           <div className="ptf-footer__top">
