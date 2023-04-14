@@ -1,0 +1,151 @@
+/* LAYOUT: COMMENTS
+-------------------------------------------- */
+
+.ptf-page-comments {
+	margin-top: px2rem(90px);
+	padding: px2rem(90px) 0 0;
+
+	border-top: 1px solid var(--ptf-color-14);
+}
+
+.ptf-page-comments__title {
+	margin-bottom: px2rem(50px);
+}
+
+.ptf-page-comments__list + .ptf-page-comments__form {
+	margin-top: px2rem(80px);
+}
+
+p.form-submit {
+	margin-top: px2rem(50px);
+}
+
+// comments list
+.ptf-comments,
+.ptf-comments ul.children {
+	margin: 0;
+	padding: 0;
+
+	list-style-type: none;
+
+	li.ptf-comment-item {
+		padding: px2rem(50px) 0;
+
+		border-top: 1px solid var(--ptf-color-14);
+
+		&:first-child {
+			padding-top: 0;
+
+			border-top: none;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+	}
+
+}
+
+.ptf-comments ul.children {
+	margin-top: px2rem(50px);
+	padding-left: px2rem(90px);
+
+	@include mq('medium') {
+		padding-left: 0;
+	}
+
+	li.ptf-comment-item:last-child {
+		padding-bottom: 0;
+	}
+
+}
+
+// comment item
+.ptf-comment-item__inner {
+	display: flex;
+
+	.ptf-comment-avatar {
+		display: block;
+		flex-shrink: 0;
+
+		@include mq('medium') {
+			display: none;
+		}
+
+		img {
+			display: block;
+		}
+
+		.children & {
+			width: px2rem(45px);
+		}
+
+	}
+
+	.ptf-comment-avatar + .ptf-comment-content {
+		padding-left: px2rem(20px);
+
+		@include mq('medium') {
+			padding-left: 0;
+		}
+	}
+
+	.ptf-comment-content {
+		width: 100%;
+
+		.ptf-comment-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			margin-bottom: px2rem(10px);
+
+			@include mq('medium') {
+				display: block;
+			}
+
+			h5.ptf-comment-name {
+				font-size: px2rem(20px);
+			}
+
+			.ptf-comment-metas {
+				text-transform: uppercase;
+				color: var(--ptf-color-black);
+				font-size: px2rem(14px);
+
+				@include mq('medium') {
+					margin-top: px2rem(5px);
+				}
+
+			}
+
+		}
+
+		.ptf-comment-text {
+			padding-right: px2rem(30px);
+		}
+
+		.ptf-comment-reply {
+			display: inline-flex;
+
+			margin-top: px2rem(25px);
+			padding: px2rem(3px) px2rem(12px);
+
+			text-transform: uppercase;
+			color: var(--ptf-color-black);
+			font-size: px2rem(12px);
+
+			box-shadow: inset 0 0 0 1px var(--ptf-color-1);
+
+			&:hover {
+				color: var(--ptf-accent-1);
+
+				box-shadow: inset 0 0 0 1px var(--ptf-accent-1);
+			}
+
+		}
+
+	}
+
+}

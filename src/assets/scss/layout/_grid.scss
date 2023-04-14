@@ -1,0 +1,17 @@
+/* LAYOUT: GRID
+-------------------------------------------- */
+
+@media (min-width: 1580px) {
+  .container-xxl {
+    max-width: 1550px;
+  }
+}
+
+.ptf-main {
+  overflow: hidden;
+}
+
+.ptf-site-wrapper__inner {
+  position: relative;
+  background-color: var(--ptf-color-white);
+}

@@ -1,0 +1,55 @@
+/* PARTIAL: POST NAVIGATION
+-------------------------------------------- */
+
+.ptf-post-navigation {
+	color: var(--ptf-color-black);
+
+	span {
+		display: block;
+
+		margin-bottom: px2rem(15px);
+
+		text-transform: uppercase;
+		color: var(--ptf-color-3);
+	}
+
+}
+
+/* SECTION: STYLE 1
+-------------------------------------------- */
+
+.ptf-post-navigation--style-1 {
+	margin-top: px2rem(120px);
+	padding-top: px2rem(140px);
+
+	border-top: 1px solid var(--ptf-color-14);
+
+	@include mq('medium') {
+		margin-top: px2rem(60px);
+		padding-top: px2rem(70px);
+	}
+
+	span {
+		font-size: px2rem(20px);
+		font-weight: 700;
+	}
+
+}
+
+/* SECTION: STYLE 2
+-------------------------------------------- */
+
+.ptf-post-navigation--style-2 {
+	padding-top: px2rem(180px);
+	padding-bottom: px2rem(160px);
+
+	@include mq('medium') {
+		padding-top: px2rem(90px);
+		padding-bottom: px2rem(80px);
+	}
+
+	span {
+		font-size: px2rem(18px);
+	}
+
+}

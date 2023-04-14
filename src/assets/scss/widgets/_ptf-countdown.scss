@@ -1,0 +1,76 @@
+/* WIDGET: COUNTODWN
+-------------------------------------------- */
+
+.ptf-countdown {
+	display: grid;
+
+	grid-template-columns: repeat(7, 1fr);
+	grid-gap: px2rem(10px);
+
+	&__item {
+
+		.digits {
+			display: block;
+
+			white-space: nowrap;
+			color: var(--ptf-color-black);
+			font-size: px2rem(80px);
+			line-height: 1.2;
+
+			@include mq('xlarge') {
+				font-size: px2rem(64px);
+			}
+			@include mq('medium') {
+				font-size: px2rem(46px);
+			}
+
+		}
+
+		.label {
+			color: var(--ptf-color-black);
+			font-size: px2rem(18px);
+			line-height: 1.2;
+		}
+
+		.sep {
+			text-align: center;
+			color: var(--ptf-color-black);
+			font-size: px2rem(30px);
+			line-height: px2rem(80px);
+			font-weight: 700;
+
+			@include mq('xlarge') {
+				font-size: px2rem(24px);
+				line-height: px2rem(64px);
+			}
+			@include mq('medium') {
+				font-size: px2rem(20px);
+				line-height: px2rem(46px);
+			}
+
+		}
+
+		// &:not(:last-of-type) {
+		// 	position: relative;
+
+		// 	&::before {
+		// 		content: ':';
+
+		// 		position: absolute;
+		// 		top: .5em;
+		// 		right: px2rem(35px);
+
+		// 		color: var(--ptf-color-black);
+		// 		font-size: .5em;
+
+		// 		@include mq('xlarge') {
+		// 			top: .33em;
+		// 		}
+
+		// 	}
+
+		// }
+
+	}
+
+}

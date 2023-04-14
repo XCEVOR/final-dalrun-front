@@ -1,0 +1,70 @@
+/* WIDGET: ADVANTAGE BOX
+-------------------------------------------- */
+
+.ptf-advantage-box {
+	--ptf-image-height: 102px;
+}
+
+.ptf-advantage-box {
+	text-align: center;
+
+	&__content {
+		padding: px2rem(55px) px2rem(15px) px2rem(45px);
+
+		border-radius: px2rem(150px);
+		background-color: var(--ptf-color-8);
+	}
+
+	&__image {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+
+		height: px2rem(102px);
+
+		transition: all var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+		filter: grayscale(100%);
+
+		img {
+			width: auto;
+			height: var(--ptf-image-height);
+		}
+
+	}
+
+	&__value {
+		display: inline-flex;
+
+		margin-top: px2rem(35px);
+
+		color: var(--ptf-color-black);
+		font-family: var(--ptf-secondary-font);
+		font-size: px2rem(48px);
+		line-height: 1;
+
+		&::after {
+			content: '%';
+		}
+
+	}
+
+	&__title {
+		margin-top: px2rem(25px);
+
+		color: var(--ptf-color-black);
+		font-size: px2rem(18px);
+		font-weight: normal;
+	}
+
+	&:hover {
+
+		.ptf-advantage-box__image {
+			animation: ptf_bounce calc(var(--ptf-transition-duration) * 3) var(--ptf-transition-easing) forwards;
+
+			filter: none;
+		}
+
+	}
+
+}

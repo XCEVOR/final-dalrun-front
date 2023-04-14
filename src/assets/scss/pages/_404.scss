@@ -1,0 +1,33 @@
+/* PAGE: 404
+-------------------------------------------- */
+
+.ptf-page--404 {
+
+	p {
+		max-width: px2rem(350px);
+
+		font-size: px2rem(24px);
+		line-height: 1.5;
+	}
+
+	a {
+		display: inline-flex;
+
+		text-transform: uppercase;
+		color: var(--ptf-color-black);
+		font-size: px2rem(30px);
+		font-weight: 700;
+
+		&:hover {
+			color: var(--ptf-accent-1);
+
+			transform: translate(0, -2px);
+		}
+
+	}
+
+	img {
+		width: px2rem(623px);
+	}
+
+}

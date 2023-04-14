@@ -1,0 +1,4763 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$lnil-air-flow: unicode(ea02);
+$lnil-air: unicode(ea03);
+$lnil-cloud-moon: unicode(ea04);
+$lnil-cloud-sun: unicode(ea05);
+$lnil-cloud-alt: unicode(ea06);
+$lnil-cloudy-sun: unicode(ea07);
+$lnil-cloud-alt-2: unicode(ea08);
+$lnil-drop: unicode(ea09);
+$lnil-farenheit: unicode(ea0a);
+$lnil-moon-star: unicode(ea0b);
+$lnil-cloud: unicode(ea0c);
+$lnil-night-thunder: unicode(ea0d);
+$lnil-drop-alt: unicode(ea0e);
+$lnil-night: unicode(ea0f);
+$lnil-rain: unicode(ea10);
+$lnil-snowfall: unicode(ea11);
+$lnil-sun-rain: unicode(ea12);
+$lnil-sun: unicode(ea13);
+$lnil-thunder-alt: unicode(ea14);
+$lnil-thunder: unicode(ea15);
+$lnil-umbrella-alt: unicode(ea16);
+$lnil-umbrella-rain-alt: unicode(ea17);
+$lnil-umbrella-rain: unicode(ea18);
+$lnil-umbrella: unicode(ea19);
+$lnil-water-drops: unicode(ea1a);
+$lnil-wind-cloud: unicode(ea1b);
+$lnil-wind-sun: unicode(ea1c);
+$lnil-cloud-alt-1: unicode(ea1d);
+$lnil-night-wind: unicode(ea1e);
+$lnil-moon: unicode(ea1f);
+$lnil-beach-chair: unicode(ea20);
+$lnil-beach: unicode(ea21);
+$lnil-hot-air-baloon: unicode(ea22);
+$lnil-cable-car: unicode(ea23);
+$lnil-suitcase-alt: unicode(ea24);
+$lnil-suitcase: unicode(ea25);
+$lnil-surf-board: unicode(ea26);
+$lnil-tent-alt: unicode(ea27);
+$lnil-tent: unicode(ea28);
+$lnil-travel: unicode(ea29);
+$lnil-pyramids: unicode(ea2a);
+$lnil-flight-search: unicode(ea2b);
+$lnil-beachball: unicode(ea2c);
+$lnil-3d: unicode(ea2d);
+$lnil-Mobile: unicode(ea2e);
+$lnil-alarm-2: unicode(ea2f);
+$lnil-alarm-3: unicode(ea30);
+$lnil-alarm-4: unicode(ea31);
+$lnil-alarm-clock-alt: unicode(ea32);
+$lnil-add-files: unicode(ea33);
+$lnil-ai: unicode(ea34);
+$lnil-alarm-clock: unicode(ea35);
+$lnil-archive: unicode(ea36);
+$lnil-backspace: unicode(ea37);
+$lnil-ban: unicode(ea38);
+$lnil-battery: unicode(ea39);
+$lnil-block-user: unicode(ea3a);
+$lnil-bluetooth: unicode(ea3b);
+$lnil-bookmark-alt: unicode(ea3c);
+$lnil-bookmark: unicode(ea3d);
+$lnil-brightness: unicode(ea3e);
+$lnil-bulb-alt: unicode(ea3f);
+$lnil-bulb: unicode(ea40);
+$lnil-calendar: unicode(ea41);
+$lnil-calender-alt-1: unicode(ea42);
+$lnil-calender-alt-2: unicode(ea43);
+$lnil-calender-alt-3: unicode(ea44);
+$lnil-calender-alt-4: unicode(ea45);
+$lnil-calender-alt: unicode(ea46);
+$lnil-camera-alt-1: unicode(ea47);
+$lnil-camera-alt: unicode(ea48);
+$lnil-camera: unicode(ea49);
+$lnil-change: unicode(ea4a);
+$lnil-charging: unicode(ea4b);
+$lnil-cloud-check-alt: unicode(ea4c);
+$lnil-cloud-check: unicode(ea4d);
+$lnil-cloud-computing-alt: unicode(ea4e);
+$lnil-cloud-computing: unicode(ea4f);
+$lnil-Website: unicode(ea50);
+$lnil-alarm: unicode(ea51);
+$lnil-cloud-network-alt: unicode(ea52);
+$lnil-cloud-network: unicode(ea53);
+$lnil-cloud-search-1: unicode(ea54);
+$lnil-cloud-search-2: unicode(ea55);
+$lnil-cloud-search: unicode(ea56);
+$lnil-cloud-sync-alt: unicode(ea57);
+$lnil-cloud-sync: unicode(ea58);
+$lnil-cloud-download-alt: unicode(ea59);
+$lnil-cloud-download: unicode(ea5a);
+$lnil-appointment: unicode(ea5b);
+$lnil-cloud-upload-alt: unicode(ea5c);
+$lnil-cloud-upload: unicode(ea5d);
+$lnil-code-alt: unicode(ea5e);
+$lnil-code: unicode(ea5f);
+$lnil-cog: unicode(ea60);
+$lnil-cogs: unicode(ea61);
+$lnil-control-panel: unicode(ea62);
+$lnil-copy: unicode(ea63);
+$lnil-cut: unicode(ea64);
+$lnil-dashboard: unicode(ea65);
+$lnil-database: unicode(ea66);
+$lnil-display-alt: unicode(ea67);
+$lnil-display: unicode(ea68);
+$lnil-domain: unicode(ea69);
+$lnil-download: unicode(ea6a);
+$lnil-empty-battery: unicode(ea6b);
+$lnil-empty-file: unicode(ea6c);
+$lnil-file-download: unicode(ea6d);
+$lnil-file-lock: unicode(ea6e);
+$lnil-file-name: unicode(ea6f);
+$lnil-file-protection: unicode(ea70);
+$lnil-file-upload: unicode(ea71);
+$lnil-files-alt: unicode(ea72);
+$lnil-files: unicode(ea73);
+$lnil-folder-alt-1: unicode(ea74);
+$lnil-folder-alt: unicode(ea75);
+$lnil-folder: unicode(ea76);
+$lnil-full-battery: unicode(ea77);
+$lnil-game: unicode(ea78);
+$lnil-half-battery: unicode(ea79);
+$lnil-harddrive: unicode(ea7a);
+$lnil-headphone-alt: unicode(ea7b);
+$lnil-headphone: unicode(ea7c);
+$lnil-laptop-alt-switch: unicode(ea7d);
+$lnil-laptop-alt: unicode(ea7e);
+$lnil-laptop-phone: unicode(ea7f);
+$lnil-laptop: unicode(ea80);
+$lnil-link-alt-1: unicode(ea81);
+$lnil-link-alt: unicode(ea82);
+$lnil-link: unicode(ea83);
+$lnil-low-battery: unicode(ea84);
+$lnil-magnet: unicode(ea85);
+$lnil-magnifier: unicode(ea86);
+$lnil-map-marker: unicode(ea87);
+$lnil-map: unicode(ea88);
+$lnil-menu-alt-1: unicode(ea89);
+$lnil-menu-alt-2: unicode(ea8a);
+$lnil-menu-alt-3: unicode(ea8b);
+$lnil-menu-alt-4: unicode(ea8c);
+$lnil-menu-alt-5: unicode(ea8d);
+$lnil-menu-alt: unicode(ea8e);
+$lnil-menu-circle: unicode(ea8f);
+$lnil-menu: unicode(ea90);
+$lnil-mic: unicode(ea91);
+$lnil-microphone-alt-1: unicode(ea92);
+$lnil-microphone-alt: unicode(ea93);
+$lnil-microphone: unicode(ea94);
+$lnil-mobile-alt-1: unicode(ea95);
+$lnil-mobile-alt-2: unicode(ea96);
+$lnil-mobile-alt-button: unicode(ea97);
+$lnil-mouse: unicode(ea98);
+$lnil-no-charge-battery: unicode(ea99);
+$lnil-package: unicode(ea9a);
+$lnil-plug: unicode(ea9b);
+$lnil-presentation: unicode(ea9c);
+$lnil-printer: unicode(ea9d);
+$lnil-ps: unicode(ea9e);
+$lnil-recycle-alt: unicode(ea9f);
+$lnil-image: unicode(eaa0);
+$lnil-reload-alt-box: unicode(eaa1);
+$lnil-reload-alt: unicode(eaa2);
+$lnil-reload: unicode(eaa3);
+$lnil-recycle: unicode(eaa4);
+$lnil-rocket: unicode(eaa5);
+$lnil-rss-feed: unicode(eaa6);
+$lnil-save-alt: unicode(eaa7);
+$lnil-save: unicode(eaa8);
+$lnil-scan: unicode(eaa9);
+$lnil-scroll-down: unicode(eaaa);
+$lnil-search-alt: unicode(eaab);
+$lnil-search: unicode(eaac);
+$lnil-share-alt: unicode(eaad);
+$lnil-share: unicode(eaae);
+$lnil-shopping-basket: unicode(eaaf);
+$lnil-shortcode: unicode(eab0);
+$lnil-signal: unicode(eab1);
+$lnil-laptop-alt-keyboard: unicode(eab2);
+$lnil-star-fill: unicode(eab3);
+$lnil-star-half: unicode(eab4);
+$lnil-star: unicode(eab5);
+$lnil-tab: unicode(eab6);
+$lnil-tap: unicode(eab7);
+$lnil-thumbnail: unicode(eab8);
+$lnil-timer: unicode(eab9);
+$lnil-trash-can-alt-1: unicode(eaba);
+$lnil-trash-can-alt: unicode(eabb);
+$lnil-trash-can: unicode(eabc);
+$lnil-trash: unicode(eabd);
+$lnil-unlink: unicode(eabe);
+$lnil-upload: unicode(eabf);
+$lnil-user-alt-1: unicode(eac0);
+$lnil-user-alt-2: unicode(eac1);
+$lnil-user-alt: unicode(eac2);
+$lnil-user: unicode(eac3);
+$lnil-users-alt: unicode(eac4);
+$lnil-users: unicode(eac5);
+$lnil-website-alt: unicode(eac6);
+$lnil-zip: unicode(eac7);
+$lnil-zoom-in: unicode(eac8);
+$lnil-zoom-out: unicode(eac9);
+$lnil-star-empty: unicode(eaca);
+$lnil-remove-file: unicode(eacb);
+$lnil-keyboard: unicode(eacc);
+$lnil-hourglass: unicode(eacd);
+$lnil-spinner-1: unicode(eace);
+$lnil-spinner-10: unicode(eacf);
+$lnil-spinner-11: unicode(ead0);
+$lnil-spinner-2: unicode(ead1);
+$lnil-spinner-3: unicode(ead2);
+$lnil-spinner-4: unicode(ead3);
+$lnil-spinner-5: unicode(ead4);
+$lnil-spinner-9: unicode(ead5);
+$lnil-spinner-7: unicode(ead6);
+$lnil-spinner-8: unicode(ead7);
+$lnil-spinner-6: unicode(ead8);
+$lnil-angry: unicode(ead9);
+$lnil-bored: unicode(eada);
+$lnil-cry: unicode(eadb);
+$lnil-cute: unicode(eadc);
+$lnil-dead: unicode(eadd);
+$lnil-emoji-cool: unicode(eade);
+$lnil-emoji-friendly: unicode(eadf);
+$lnil-emoji-happy: unicode(eae0);
+$lnil-emoji-sad: unicode(eae1);
+$lnil-emoji-smile: unicode(eae2);
+$lnil-emoji-speechless: unicode(eae3);
+$lnil-emoji-suspect: unicode(eae4);
+$lnil-emoji-tounge: unicode(eae5);
+$lnil-happy-1: unicode(eae6);
+$lnil-happy-2: unicode(eae7);
+$lnil-happy-smile: unicode(eae8);
+$lnil-kiss-2: unicode(eae9);
+$lnil-kiss: unicode(eaea);
+$lnil-love: unicode(eaeb);
+$lnil-loved-surprise: unicode(eaec);
+$lnil-mute: unicode(eaed);
+$lnil-piss: unicode(eaee);
+$lnil-sick-1: unicode(eaef);
+$lnil-sick: unicode(eaf0);
+$lnil-sleep: unicode(eaf1);
+$lnil-super-cool: unicode(eaf2);
+$lnil-super-happy: unicode(eaf3);
+$lnil-wink: unicode(eaf4);
+$lnil-wow: unicode(eaf5);
+$lnil-yawn: unicode(eaf6);
+$lnil-cool-1: unicode(eaf7);
+$lnil-cool-3: unicode(eaf8);
+$lnil-cool-kiss: unicode(eaf9);
+$lnil-cotton-bud: unicode(eafa);
+$lnil-crown: unicode(eafb);
+$lnil-cup-alt: unicode(eafc);
+$lnil-crown-alt: unicode(eafd);
+$lnil-gift-alt-1: unicode(eafe);
+$lnil-crown-alt-2: unicode(eaff);
+$lnil-cup: unicode(eb00);
+$lnil-gift-bag: unicode(eb01);
+$lnil-gift: unicode(eb02);
+$lnil-gift-alt: unicode(eb03);
+$lnil-ladies-tshirt: unicode(eb04);
+$lnil-crown-alt-1: unicode(eb05);
+$lnil-sunglass: unicode(eb06);
+$lnil-thought: unicode(eb07);
+$lnil-tshirt-alt-1: unicode(eb08);
+$lnil-tshirt-alt: unicode(eb09);
+$lnil-home: unicode(eb0a);
+$lnil-glasses: unicode(eb0b);
+$lnil-tshirt: unicode(eb0c);
+$lnil-baloon-alt-1: unicode(eb0d);
+$lnil-baloon-alt: unicode(eb0e);
+$lnil-baloon: unicode(eb0f);
+$lnil-candle-alt: unicode(eb10);
+$lnil-candy-cane: unicode(eb11);
+$lnil-candy: unicode(eb12);
+$lnil-confetti: unicode(eb13);
+$lnil-firecracker: unicode(eb14);
+$lnil-fireworks: unicode(eb15);
+$lnil-flags: unicode(eb16);
+$lnil-mask: unicode(eb17);
+$lnil-spray: unicode(eb18);
+$lnil-wand: unicode(eb19);
+$lnil-birthday-hat: unicode(eb1a);
+$lnil-candle: unicode(eb1b);
+$lnil-cake: unicode(eb1c);
+$lnil-bug-alt: unicode(eb1d);
+$lnil-bug: unicode(eb1e);
+$lnil-flower: unicode(eb1f);
+$lnil-island: unicode(eb20);
+$lnil-leaf-alt-1: unicode(eb21);
+$lnil-leaf-alt: unicode(eb22);
+$lnil-leaf: unicode(eb23);
+$lnil-leaves: unicode(eb24);
+$lnil-mashroom: unicode(eb25);
+$lnil-mountain: unicode(eb26);
+$lnil-mushroom-alt: unicode(eb27);
+$lnil-mushrooms: unicode(eb28);
+$lnil-plant-pot: unicode(eb29);
+$lnil-plant: unicode(eb2a);
+$lnil-sprout-alt: unicode(eb2b);
+$lnil-sprout: unicode(eb2c);
+$lnil-tornado: unicode(eb2d);
+$lnil-tree-alt-1: unicode(eb2e);
+$lnil-tree-alt: unicode(eb2f);
+$lnil-tree: unicode(eb30);
+$lnil-trees-alt-1: unicode(eb31);
+$lnil-trees-alt: unicode(eb32);
+$lnil-trees: unicode(eb33);
+$lnil-flower-alt: unicode(eb34);
+$lnil-cactus-alt: unicode(eb35);
+$lnil-cactus: unicode(eb36);
+$lnil-bank: unicode(eb37);
+$lnil-calculator-alt: unicode(eb38);
+$lnil-calculator: unicode(eb39);
+$lnil-coin: unicode(eb3a);
+$lnil-diamond-alt: unicode(eb3b);
+$lnil-diamond: unicode(eb3c);
+$lnil-dollar-card: unicode(eb3d);
+$lnil-credit-cards: unicode(eb3e);
+$lnil-dollar-down: unicode(eb3f);
+$lnil-dollar-up: unicode(eb40);
+$lnil-euro-card: unicode(eb41);
+$lnil-dollar: unicode(eb42);
+$lnil-euro-coin: unicode(eb43);
+$lnil-euro-down: unicode(eb44);
+$lnil-euro-up: unicode(eb45);
+$lnil-euro: unicode(eb46);
+$lnil-gold-bar: unicode(eb47);
+$lnil-mobile-coin-taka: unicode(eb48);
+$lnil-mobile-coin: unicode(eb49);
+$lnil-money-bag: unicode(eb4a);
+$lnil-money-location: unicode(eb4b);
+$lnil-money-protection: unicode(eb4c);
+$lnil-pound-card: unicode(eb4d);
+$lnil-pound-coin: unicode(eb4e);
+$lnil-pound-down: unicode(eb4f);
+$lnil-pound-up: unicode(eb50);
+$lnil-pound: unicode(eb51);
+$lnil-rupee-card: unicode(eb52);
+$lnil-rupee-coin: unicode(eb53);
+$lnil-rupee-down: unicode(eb54);
+$lnil-rupee-up: unicode(eb55);
+$lnil-rupee: unicode(eb56);
+$lnil-taka-card: unicode(eb57);
+$lnil-taka-coin: unicode(eb58);
+$lnil-taka-down: unicode(eb59);
+$lnil-taka-up: unicode(eb5a);
+$lnil-taka: unicode(eb5b);
+$lnil-wallet-alt-1: unicode(eb5c);
+$lnil-wallet: unicode(eb5d);
+$lnil-yen-card: unicode(eb5e);
+$lnil-yen-coin: unicode(eb5f);
+$lnil-yen-down: unicode(eb60);
+$lnil-yen-up: unicode(eb61);
+$lnil-yen: unicode(eb62);
+$lnil-coins: unicode(eb63);
+$lnil-credit-card: unicode(eb64);
+$lnil-backward-alt: unicode(eb65);
+$lnil-backward: unicode(eb66);
+$lnil-forward: unicode(eb67);
+$lnil-frame-expand: unicode(eb68);
+$lnil-film: unicode(eb69);
+$lnil-gallery: unicode(eb6a);
+$lnil-next: unicode(eb6b);
+$lnil-pause: unicode(eb6c);
+$lnil-play: unicode(eb6d);
+$lnil-previous: unicode(eb6e);
+$lnil-repeat-one: unicode(eb6f);
+$lnil-shuffle: unicode(eb70);
+$lnil-slideshow: unicode(eb71);
+$lnil-stop: unicode(eb72);
+$lnil-video-alt-1: unicode(eb73);
+$lnil-video-alt: unicode(eb74);
+$lnil-video-camera-alt-1: unicode(eb75);
+$lnil-video-camera-alt-2: unicode(eb76);
+$lnil-video-camera-alt: unicode(eb77);
+$lnil-video-cut: unicode(eb78);
+$lnil-video: unicode(eb79);
+$lnil-volume-high: unicode(eb7a);
+$lnil-volume-low: unicode(eb7b);
+$lnil-volume-medium: unicode(eb7c);
+$lnil-volume-mute: unicode(eb7d);
+$lnil-volume: unicode(eb7e);
+$lnil-full-screen: unicode(eb7f);
+$lnil-expand-alt-1: unicode(eb80);
+$lnil-fast-forward: unicode(eb81);
+$lnil-analytics: unicode(eb82);
+$lnil-bar-chart: unicode(eb83);
+$lnil-graph-alt-1: unicode(eb84);
+$lnil-graph-alt-2: unicode(eb85);
+$lnil-graph-alt-3: unicode(eb86);
+$lnil-graph-alt-4: unicode(eb87);
+$lnil-graph-alt: unicode(eb88);
+$lnil-graph-decrease: unicode(eb89);
+$lnil-graph-increase: unicode(eb8a);
+$lnil-invest-monitor: unicode(eb8b);
+$lnil-keyword-research: unicode(eb8c);
+$lnil-network-alt: unicode(eb8d);
+$lnil-network: unicode(eb8e);
+$lnil-pyramid-decrease: unicode(eb8f);
+$lnil-pyramid-increase: unicode(eb90);
+$lnil-pyramid: unicode(eb91);
+$lnil-rook: unicode(eb92);
+$lnil-seo: unicode(eb93);
+$lnil-strategy: unicode(eb94);
+$lnil-target-audience-alt: unicode(eb95);
+$lnil-target-customer: unicode(eb96);
+$lnil-website-rank: unicode(eb97);
+$lnil-bar-check: unicode(eb98);
+$lnil-billboard-alt: unicode(eb99);
+$lnil-billboard: unicode(eb9a);
+$lnil-barrier: unicode(eb9b);
+$lnil-bolt-alt: unicode(eb9c);
+$lnil-checkmark: unicode(eb9d);
+$lnil-check-box: unicode(eb9e);
+$lnil-circle-plus: unicode(eb9f);
+$lnil-circle-minus: unicode(eba0);
+$lnil-cross-circle: unicode(eba1);
+$lnil-electricity: unicode(eba2);
+$lnil-eye-alt: unicode(eba3);
+$lnil-eye: unicode(eba4);
+$lnil-find: unicode(eba5);
+$lnil-flag-alt: unicode(eba6);
+$lnil-flag: unicode(eba7);
+$lnil-funnel-alt-1: unicode(eba8);
+$lnil-funnel-alt: unicode(eba9);
+$lnil-funnel: unicode(ebaa);
+$lnil-hand: unicode(ebab);
+$lnil-heart-filled: unicode(ebac);
+$lnil-heart-plus: unicode(ebad);
+$lnil-heart: unicode(ebae);
+$lnil-help: unicode(ebaf);
+$lnil-hotel-sign: unicode(ebb0);
+$lnil-idea-alt: unicode(ebb1);
+$lnil-identity: unicode(ebb2);
+$lnil-infinite: unicode(ebb3);
+$lnil-information: unicode(ebb4);
+$lnil-invention: unicode(ebb5);
+$lnil-key-alt-1: unicode(ebb6);
+$lnil-key-alt-2: unicode(ebb7);
+$lnil-key-alt-3: unicode(ebb8);
+$lnil-key-alt: unicode(ebb9);
+$lnil-key: unicode(ebba);
+$lnil-life-ring: unicode(ebbb);
+$lnil-list-alt-1: unicode(ebbc);
+$lnil-list-alt: unicode(ebbd);
+$lnil-list: unicode(ebbe);
+$lnil-lock-alt-1: unicode(ebbf);
+$lnil-lock-alt-2: unicode(ebc0);
+$lnil-lock-alt: unicode(ebc1);
+$lnil-lock: unicode(ebc2);
+$lnil-minus: unicode(ebc3);
+$lnil-more-alt-1: unicode(ebc4);
+$lnil-more-alt: unicode(ebc5);
+$lnil-more: unicode(ebc6);
+$lnil-music-note: unicode(ebc7);
+$lnil-music: unicode(ebc8);
+$lnil-notification: unicode(ebc9);
+$lnil-passport-alt: unicode(ebca);
+$lnil-passport: unicode(ebcb);
+$lnil-playlist-alt: unicode(ebcc);
+$lnil-playlist: unicode(ebcd);
+$lnil-plus: unicode(ebce);
+$lnil-pointer: unicode(ebcf);
+$lnil-power-switch: unicode(ebd0);
+$lnil-protection: unicode(ebd1);
+$lnil-question-circle: unicode(ebd2);
+$lnil-radio-button: unicode(ebd3);
+$lnil-record: unicode(ebd4);
+$lnil-round-box-check: unicode(ebd5);
+$lnil-round-box-cross: unicode(ebd6);
+$lnil-round-box-minus: unicode(ebd7);
+$lnil-round-box-plus: unicode(ebd8);
+$lnil-shield: unicode(ebd9);
+$lnil-sort: unicode(ebda);
+$lnil-switch: unicode(ebdb);
+$lnil-teabag: unicode(ebdc);
+$lnil-thumbs-down-alt: unicode(ebdd);
+$lnil-thumbs-down: unicode(ebde);
+$lnil-thumbs-up-alt: unicode(ebdf);
+$lnil-thumbs-up: unicode(ebe0);
+$lnil-thunderbolt: unicode(ebe1);
+$lnil-ticket-alt-1: unicode(ebe2);
+$lnil-ticket-alt-2: unicode(ebe3);
+$lnil-ticket-alt-3: unicode(ebe4);
+$lnil-ticket-alt: unicode(ebe5);
+$lnil-ticket: unicode(ebe6);
+$lnil-unlock: unicode(ebe7);
+$lnil-warning: unicode(ebe8);
+$lnil-checkmark-circle: unicode(ebe9);
+$lnil-close: unicode(ebea);
+$lnil-bolt: unicode(ebeb);
+$lnil-ambulance-alt-1: unicode(ebec);
+$lnil-ambulance-alt: unicode(ebed);
+$lnil-brain-alt: unicode(ebee);
+$lnil-basketball: unicode(ebef);
+$lnil-bone: unicode(ebf0);
+$lnil-ambulance: unicode(ebf1);
+$lnil-broken-bone: unicode(ebf2);
+$lnil-brain-check: unicode(ebf3);
+$lnil-brain: unicode(ebf4);
+$lnil-capsule: unicode(ebf5);
+$lnil-capsules: unicode(ebf6);
+$lnil-cardiology: unicode(ebf7);
+$lnil-diagnosis-alt: unicode(ebf8);
+$lnil-diagnosis: unicode(ebf9);
+$lnil-dna: unicode(ebfa);
+$lnil-dropper-alt-1: unicode(ebfb);
+$lnil-dropper-alt-2: unicode(ebfc);
+$lnil-dropper-alt: unicode(ebfd);
+$lnil-dropper: unicode(ebfe);
+$lnil-dumbbell: unicode(ebff);
+$lnil-eye-test: unicode(ec00);
+$lnil-female: unicode(ec01);
+$lnil-first-aid: unicode(ec02);
+$lnil-gluten-free: unicode(ec03);
+$lnil-heart-check: unicode(ec04);
+$lnil-heart-monitor: unicode(ec05);
+$lnil-heartrate-monitor: unicode(ec06);
+$lnil-hospital-alt-1: unicode(ec07);
+$lnil-hospital-alt-2: unicode(ec08);
+$lnil-hospital-alt-3: unicode(ec09);
+$lnil-hospital-alt-4: unicode(ec0a);
+$lnil-hospital-alt: unicode(ec0b);
+$lnil-hospital-bed-alt-1: unicode(ec0c);
+$lnil-hospital-bed-alt-2: unicode(ec0d);
+$lnil-hospital-bed-alt: unicode(ec0e);
+$lnil-hospital-bed: unicode(ec0f);
+$lnil-hospital-location: unicode(ec10);
+$lnil-hospital-sign: unicode(ec11);
+$lnil-hospital: unicode(ec12);
+$lnil-kettlebell: unicode(ec13);
+$lnil-lungs: unicode(ec14);
+$lnil-male: unicode(ec15);
+$lnil-medical-briefcase-alt: unicode(ec16);
+$lnil-medical-briefcase: unicode(ec17);
+$lnil-medical-protection: unicode(ec18);
+$lnil-medical-sign: unicode(ec19);
+$lnil-medicine-alt: unicode(ec1a);
+$lnil-medicine-bottle: unicode(ec1b);
+$lnil-medicine: unicode(ec1c);
+$lnil-microscope: unicode(ec1d);
+$lnil-pulse: unicode(ec1e);
+$lnil-report-laptop: unicode(ec1f);
+$lnil-saline-alt-1: unicode(ec20);
+$lnil-saline-alt: unicode(ec21);
+$lnil-saline: unicode(ec22);
+$lnil-skipping-rope: unicode(ec23);
+$lnil-slim: unicode(ec24);
+$lnil-sthethoscope: unicode(ec25);
+$lnil-syringe: unicode(ec26);
+$lnil-test-tube-alt: unicode(ec27);
+$lnil-test-tube: unicode(ec28);
+$lnil-thermometer-alt: unicode(ec29);
+$lnil-thermometer: unicode(ec2a);
+$lnil-tooth: unicode(ec2b);
+$lnil-walker: unicode(ec2c);
+$lnil-weight-machine: unicode(ec2d);
+$lnil-weight: unicode(ec2e);
+$lnil-wheelchair: unicode(ec2f);
+$lnil-yoga-mat: unicode(ec30);
+$lnil-capsule-alt-1: unicode(ec31);
+$lnil-capsule-alt: unicode(ec32);
+$lnil-brain-check-alt: unicode(ec33);
+$lnil-apple-alt: unicode(ec34);
+$lnil-banana: unicode(ec35);
+$lnil-brocolli: unicode(ec36);
+$lnil-burger-alt-1: unicode(ec37);
+$lnil-burger-alt: unicode(ec38);
+$lnil-burger: unicode(ec39);
+$lnil-chef-hat-alt-1: unicode(ec3a);
+$lnil-chef-hat-alt-2: unicode(ec3b);
+$lnil-chef-hat-alt: unicode(ec3c);
+$lnil-chef-hat: unicode(ec3d);
+$lnil-chicken: unicode(ec3e);
+$lnil-cocktail-alt-1: unicode(ec3f);
+$lnil-cocktail-alt: unicode(ec40);
+$lnil-cocktail: unicode(ec41);
+$lnil-coffee-cup-alt: unicode(ec42);
+$lnil-coffee-cup: unicode(ec43);
+$lnil-cupcake-alt: unicode(ec44);
+$lnil-cupcake: unicode(ec45);
+$lnil-cutlery-alt-1: unicode(ec46);
+$lnil-cutlery-alt: unicode(ec47);
+$lnil-cutlery: unicode(ec48);
+$lnil-dinner-table: unicode(ec49);
+$lnil-dinner: unicode(ec4a);
+$lnil-drumstick: unicode(ec4b);
+$lnil-fresh-juice: unicode(ec4c);
+$lnil-ice-cream-alt: unicode(ec4d);
+$lnil-ice-cream: unicode(ec4e);
+$lnil-juice: unicode(ec4f);
+$lnil-lolypop: unicode(ec50);
+$lnil-meat: unicode(ec51);
+$lnil-pizza-alt: unicode(ec52);
+$lnil-pizza: unicode(ec53);
+$lnil-plate: unicode(ec54);
+$lnil-popcorn: unicode(ec55);
+$lnil-restaurant: unicode(ec56);
+$lnil-service: unicode(ec57);
+$lnil-silverware: unicode(ec58);
+$lnil-spatula: unicode(ec59);
+$lnil-bowl-alt: unicode(ec5a);
+$lnil-bowl: unicode(ec5b);
+$lnil-bowl-alt-1: unicode(ec5c);
+$lnil-atom: unicode(ec5d);
+$lnil-backpack-alt: unicode(ec5e);
+$lnil-book: unicode(ec5f);
+$lnil-blackboard: unicode(ec60);
+$lnil-books: unicode(ec61);
+$lnil-brakckets: unicode(ec62);
+$lnil-certificate-alt-1: unicode(ec63);
+$lnil-certificate-alt: unicode(ec64);
+$lnil-certificate: unicode(ec65);
+$lnil-classroom: unicode(ec66);
+$lnil-clipboard: unicode(ec67);
+$lnil-compass: unicode(ec68);
+$lnil-cubes: unicode(ec69);
+$lnil-eraser: unicode(ec6a);
+$lnil-flask-alt-1: unicode(ec6b);
+$lnil-flask-alt-2: unicode(ec6c);
+$lnil-flask-alt: unicode(ec6d);
+$lnil-flask: unicode(ec6e);
+$lnil-graduate-alt: unicode(ec6f);
+$lnil-graduate: unicode(ec70);
+$lnil-graduation: unicode(ec71);
+$lnil-letterblocks: unicode(ec72);
+$lnil-library: unicode(ec73);
+$lnil-medal-alt: unicode(ec74);
+$lnil-medal: unicode(ec75);
+$lnil-molecule-alt: unicode(ec76);
+$lnil-molecule: unicode(ec77);
+$lnil-pencil-alt: unicode(ec78);
+$lnil-pencil: unicode(ec79);
+$lnil-quill: unicode(ec7a);
+$lnil-school-bench-alt: unicode(ec7b);
+$lnil-school-bench: unicode(ec7c);
+$lnil-sketchbook: unicode(ec7d);
+$lnil-whiteboard-alt-1: unicode(ec7e);
+$lnil-whiteboard-alt-2: unicode(ec7f);
+$lnil-whiteboard-alt: unicode(ec80);
+$lnil-whiteboard: unicode(ec81);
+$lnil-world-2: unicode(ec82);
+$lnil-world-alt: unicode(ec83);
+$lnil-world: unicode(ec84);
+$lnil-book-alt: unicode(ec85);
+$lnil-write: unicode(ec86);
+$lnil-backpack: unicode(ec87);
+$lnil-books-alt: unicode(ec88);
+$lnil-Italic: unicode(ec89);
+$lnil-bold: unicode(ec8a);
+$lnil-indent-decrease: unicode(ec8b);
+$lnil-font: unicode(ec8c);
+$lnil-line-dashed: unicode(ec8d);
+$lnil-line-dotted: unicode(ec8e);
+$lnil-line-double: unicode(ec8f);
+$lnil-line-spacing: unicode(ec90);
+$lnil-page-break: unicode(ec91);
+$lnil-pagination: unicode(ec92);
+$lnil-pilcrow: unicode(ec93);
+$lnil-redo: unicode(ec94);
+$lnil-reflect: unicode(ec95);
+$lnil-sort-alpha-asc: unicode(ec96);
+$lnil-sort-amount-asc: unicode(ec97);
+$lnil-sort-amount-dsc: unicode(ec98);
+$lnil-spellcheck: unicode(ec99);
+$lnil-strikethrough: unicode(ec9a);
+$lnil-text-align-center: unicode(ec9b);
+$lnil-text-align-justify: unicode(ec9c);
+$lnil-text-align-left: unicode(ec9d);
+$lnil-text-align-right: unicode(ec9e);
+$lnil-text-format-remove: unicode(ec9f);
+$lnil-text-format: unicode(eca0);
+$lnil-text: unicode(eca1);
+$lnil-underline: unicode(eca2);
+$lnil-undo: unicode(eca3);
+$lnil-vertical-line: unicode(eca4);
+$lnil-height: unicode(eca5);
+$lnil-capital-letter: unicode(eca6);
+$lnil-indent-increase: unicode(eca7);
+$lnil-angle-double-down: unicode(eca8);
+$lnil-angle-double-left: unicode(eca9);
+$lnil-angle-double-right: unicode(ecaa);
+$lnil-angle-double-up: unicode(ecab);
+$lnil-arrow-double-down: unicode(ecac);
+$lnil-arrow-double-right: unicode(ecad);
+$lnil-arrow-double-top: unicode(ecae);
+$lnil-arrow-down-circle: unicode(ecaf);
+$lnil-arrow-expand-alt: unicode(ecb0);
+$lnil-arrow-left-circle: unicode(ecb1);
+$lnil-arrow-left: unicode(ecb2);
+$lnil-arrow-minimize-alt: unicode(ecb3);
+$lnil-arrow-minimize: unicode(ecb4);
+$lnil-arrow-right-circle: unicode(ecb5);
+$lnil-arrow-right: unicode(ecb6);
+$lnil-arrow-top-left: unicode(ecb7);
+$lnil-arrow-top-right: unicode(ecb8);
+$lnil-arrow-up-circle: unicode(ecb9);
+$lnil-arrow-expand: unicode(ecba);
+$lnil-arrow-double-left: unicode(ecbb);
+$lnil-arrows-vertical: unicode(ecbc);
+$lnil-axis: unicode(ecbd);
+$lnil-arrow-up: unicode(ecbe);
+$lnil-chevron-down: unicode(ecbf);
+$lnil-chevron-left-circle: unicode(ecc0);
+$lnil-chevron-left: unicode(ecc1);
+$lnil-chevron-down-circle: unicode(ecc2);
+$lnil-chevron-right: unicode(ecc3);
+$lnil-chevron-up-circle: unicode(ecc4);
+$lnil-chevron-right-circle: unicode(ecc5);
+$lnil-arrow-down: unicode(ecc6);
+$lnil-chevron-up: unicode(ecc7);
+$lnil-direction-alt: unicode(ecc8);
+$lnil-direction: unicode(ecc9);
+$lnil-down-arrow-box: unicode(ecca);
+$lnil-down-left-arrow-box: unicode(eccb);
+$lnil-down-right-arrow-box: unicode(eccc);
+$lnil-enter: unicode(eccd);
+$lnil-exit-down: unicode(ecce);
+$lnil-exit-up: unicode(eccf);
+$lnil-arrows-horizontal: unicode(ecd0);
+$lnil-direction-ltr: unicode(ecd1);
+$lnil-direction-rtl: unicode(ecd2);
+$lnil-exit: unicode(ecd3);
+$lnil-left-arrow-box: unicode(ecd4);
+$lnil-pointer-top: unicode(ecd5);
+$lnil-right-arrow-box: unicode(ecd6);
+$lnil-shift-left: unicode(ecd7);
+$lnil-shift-right: unicode(ecd8);
+$lnil-top-arrow-box: unicode(ecd9);
+$lnil-top-left-arrow-box: unicode(ecda);
+$lnil-top-right-arrow-box: unicode(ecdb);
+$lnil-pointer-down: unicode(ecdc);
+$lnil-pointer-left: unicode(ecdd);
+$lnil-pointer-right: unicode(ecde);
+$lnil-brush-alt: unicode(ecdf);
+$lnil-brush: unicode(ece0);
+$lnil-grid-alt: unicode(ece1);
+$lnil-grid: unicode(ece2);
+$lnil-highlight-alt: unicode(ece3);
+$lnil-highlight: unicode(ece4);
+$lnil-image-crop: unicode(ece5);
+$lnil-layers-alt-: unicode(ece6);
+$lnil-layers-alt-1: unicode(ece7);
+$lnil-layers: unicode(ece8);
+$lnil-layout-alt-1: unicode(ece9);
+$lnil-layout-alt-2: unicode(ecea);
+$lnil-layout-alt: unicode(eceb);
+$lnil-layout: unicode(ecec);
+$lnil-magic-wand: unicode(eced);
+$lnil-margin: unicode(ecee);
+$lnil-move: unicode(ecef);
+$lnil-pallet: unicode(ecf0);
+$lnil-rotate: unicode(ecf1);
+$lnil-scaling: unicode(ecf2);
+$lnil-select: unicode(ecf3);
+$lnil-size: unicode(ecf4);
+$lnil-slice: unicode(ecf5);
+$lnil-transform: unicode(ecf6);
+$lnil-ux: unicode(ecf7);
+$lnil-vector-alt: unicode(ecf8);
+$lnil-vector-pen: unicode(ecf9);
+$lnil-vector: unicode(ecfa);
+$lnil-crop: unicode(ecfb);
+$lnil-color-palette: unicode(ecfc);
+$lnil-crop-alt: unicode(ecfd);
+$lnil-boundary: unicode(ecfe);
+$lnil-bricks-alt: unicode(ecff);
+$lnil-construction-hammer: unicode(ed00);
+$lnil-construction-rular: unicode(ed01);
+$lnil-construction: unicode(ed02);
+$lnil-door-alt: unicode(ed03);
+$lnil-door: unicode(ed04);
+$lnil-drill: unicode(ed05);
+$lnil-fence: unicode(ed06);
+$lnil-hammer-alt: unicode(ed07);
+$lnil-hammer: unicode(ed08);
+$lnil-helmet-alt: unicode(ed09);
+$lnil-helmet: unicode(ed0a);
+$lnil-hook: unicode(ed0b);
+$lnil-house-alt-1: unicode(ed0c);
+$lnil-house-alt: unicode(ed0d);
+$lnil-house-heart: unicode(ed0e);
+$lnil-house-plan: unicode(ed0f);
+$lnil-house: unicode(ed10);
+$lnil-measuring-tape: unicode(ed11);
+$lnil-paint-bucket: unicode(ed12);
+$lnil-paint-roller-alt-1: unicode(ed13);
+$lnil-paint-roller-alt: unicode(ed14);
+$lnil-paint-roller: unicode(ed15);
+$lnil-pipe: unicode(ed16);
+$lnil-ruler-alt: unicode(ed17);
+$lnil-ruler-pencil: unicode(ed18);
+$lnil-ruler: unicode(ed19);
+$lnil-saw-alt: unicode(ed1a);
+$lnil-saw: unicode(ed1b);
+$lnil-screw: unicode(ed1c);
+$lnil-screwdriver: unicode(ed1d);
+$lnil-shovel: unicode(ed1e);
+$lnil-toolbox: unicode(ed1f);
+$lnil-triangle-ruler-1: unicode(ed20);
+$lnil-triangle-ruler: unicode(ed21);
+$lnil-trowel-alt: unicode(ed22);
+$lnil-trowel: unicode(ed23);
+$lnil-wheelbarrow: unicode(ed24);
+$lnil-wrench: unicode(ed25);
+$lnil-cone: unicode(ed26);
+$lnil-bricks: unicode(ed27);
+$lnil-bulldozer: unicode(ed28);
+$lnil-anchor: unicode(ed29);
+$lnil-bi-cycle: unicode(ed2a);
+$lnil-bubble: unicode(ed2b);
+$lnil-boarding-pass: unicode(ed2c);
+$lnil-bridge: unicode(ed2d);
+$lnil-car-alt: unicode(ed2e);
+$lnil-car: unicode(ed2f);
+$lnil-caravan: unicode(ed30);
+$lnil-chat-add: unicode(ed31);
+$lnil-chat-minus: unicode(ed32);
+$lnil-comments-alt: unicode(ed33);
+$lnil-comments-reply: unicode(ed34);
+$lnil-comments: unicode(ed35);
+$lnil-envelope-alt: unicode(ed36);
+$lnil-envelope: unicode(ed37);
+$lnil-helicopter: unicode(ed38);
+$lnil-inbox: unicode(ed39);
+$lnil-megaphone: unicode(ed3a);
+$lnil-message-attachement: unicode(ed3b);
+$lnil-message-block: unicode(ed3c);
+$lnil-message-check: unicode(ed3d);
+$lnil-message-cross: unicode(ed3e);
+$lnil-message-desktop: unicode(ed3f);
+$lnil-message-edit: unicode(ed40);
+$lnil-message-forward: unicode(ed41);
+$lnil-message-incoming: unicode(ed42);
+$lnil-message-laptop: unicode(ed43);
+$lnil-message-lock: unicode(ed44);
+$lnil-message-love: unicode(ed45);
+$lnil-message-minus: unicode(ed46);
+$lnil-message-outgoing: unicode(ed47);
+$lnil-message-plus: unicode(ed48);
+$lnil-message-reply: unicode(ed49);
+$lnil-message-search: unicode(ed4a);
+$lnil-message-share: unicode(ed4b);
+$lnil-mobile-chat: unicode(ed4c);
+$lnil-page: unicode(ed4d);
+$lnil-phone-block: unicode(ed4e);
+$lnil-phone-caling: unicode(ed4f);
+$lnil-phone-conference: unicode(ed50);
+$lnil-phone-cut: unicode(ed51);
+$lnil-phone-forward: unicode(ed52);
+$lnil-phone-incoming: unicode(ed53);
+$lnil-phone-misscall: unicode(ed54);
+$lnil-phone-outgoing: unicode(ed55);
+$lnil-phone-pause: unicode(ed56);
+$lnil-phone-redial: unicode(ed57);
+$lnil-phone-ring: unicode(ed58);
+$lnil-phone-set: unicode(ed59);
+$lnil-phone: unicode(ed5a);
+$lnil-plane-alt: unicode(ed5b);
+$lnil-plane: unicode(ed5c);
+$lnil-popup: unicode(ed5d);
+$lnil-postcard-alt: unicode(ed5e);
+$lnil-postcard: unicode(ed5f);
+$lnil-reply: unicode(ed60);
+$lnil-road: unicode(ed61);
+$lnil-scooter: unicode(ed62);
+$lnil-ship: unicode(ed63);
+$lnil-support: unicode(ed64);
+$lnil-target-mail: unicode(ed65);
+$lnil-taxi: unicode(ed66);
+$lnil-train-alt: unicode(ed67);
+$lnil-train: unicode(ed68);
+$lnil-bullhorn: unicode(ed69);
+$lnil-bus: unicode(ed6a);
+$lnil-boarding-pass-alt: unicode(ed6b);
+$lnil-achievement: unicode(ed6c);
+$lnil-agenda: unicode(ed6d);
+$lnil-briefcase-alt: unicode(ed6e);
+$lnil-apartment-alt: unicode(ed6f);
+$lnil-apartment: unicode(ed70);
+$lnil-analytics-alt-1: unicode(ed71);
+$lnil-briefcase: unicode(ed72);
+$lnil-cart-alt: unicode(ed73);
+$lnil-cart-down: unicode(ed74);
+$lnil-cart-empty: unicode(ed75);
+$lnil-cart-full: unicode(ed76);
+$lnil-delivery: unicode(ed77);
+$lnil-desk: unicode(ed78);
+$lnil-customer: unicode(ed79);
+$lnil-graph: unicode(ed7a);
+$lnil-grow: unicode(ed7b);
+$lnil-hierchy-alt: unicode(ed7c);
+$lnil-global: unicode(ed7d);
+$lnil-hierchy: unicode(ed7e);
+$lnil-investment: unicode(ed7f);
+$lnil-notepad: unicode(ed80);
+$lnil-consulting: unicode(ed81);
+$lnil-office-plan: unicode(ed82);
+$lnil-paperclip: unicode(ed83);
+$lnil-cart: unicode(ed84);
+$lnil-offer: unicode(ed85);
+$lnil-pie-chart-alt: unicode(ed86);
+$lnil-pie-chart-dollar: unicode(ed87);
+$lnil-pie-chart: unicode(ed88);
+$lnil-pie-report: unicode(ed89);
+$lnil-handshake: unicode(ed8a);
+$lnil-pin-alt: unicode(ed8b);
+$lnil-pin: unicode(ed8c);
+$lnil-quotation: unicode(ed8d);
+$lnil-revenue: unicode(ed8e);
+$lnil-stamp: unicode(ed8f);
+$lnil-tablet-alt: unicode(ed90);
+$lnil-tag: unicode(ed91);
+$lnil-target-achievement: unicode(ed92);
+$lnil-table: unicode(ed93);
+$lnil-target-alt: unicode(ed94);
+$lnil-target-alt-1: unicode(ed95);
+$lnil-swatches: unicode(ed96);
+$lnil-stats-down: unicode(ed97);
+$lnil-stats-up: unicode(ed98);
+$lnil-target-revenue: unicode(ed99);
+$lnil-tie: unicode(ed9a);
+$lnil-target: unicode(ed9b);
+$lnil-licencse: unicode(ed9c);
+$lnil-target-remove: unicode(ed9d);
+$lnil-sales-report: unicode(ed9e);
+$lnil-Instagram: unicode(ed9f);
+$lnil-amazon: unicode(eda0);
+$lnil-amex: unicode(eda1);
+$lnil-bitbucket: unicode(eda2);
+$lnil-bitcoin: unicode(eda3);
+$lnil-chrome: unicode(eda4);
+$lnil-css3: unicode(eda5);
+$lnil-dribbble: unicode(eda6);
+$lnil-dropbox: unicode(eda7);
+$lnil-drupal: unicode(eda8);
+$lnil-facebook: unicode(eda9);
+$lnil-firefox: unicode(edaa);
+$lnil-github: unicode(edab);
+$lnil-html5: unicode(edac);
+$lnil-mastercard: unicode(edad);
+$lnil-paypal: unicode(edae);
+$lnil-play-store: unicode(edaf);
+$lnil-slack: unicode(edb0);
+$lnil-quora: unicode(edb1);
+$lnil-soundcloud: unicode(edb2);
+$lnil-spotify: unicode(edb3);
+$lnil-twitter: unicode(edb4);
+$lnil-visa: unicode(edb5);
+$lnil-android: unicode(edb6);
+$lnil-apple: unicode(edb7);
+$lnil-behance: unicode(edb8);
+
+.lnil-air-flow::before {
+  content: $lnil-air-flow;
+}
+
+.lnil-air::before {
+  content: $lnil-air;
+}
+
+.lnil-cloud-moon::before {
+  content: $lnil-cloud-moon;
+}
+
+.lnil-cloud-sun::before {
+  content: $lnil-cloud-sun;
+}
+
+.lnil-cloud-alt::before {
+  content: $lnil-cloud-alt;
+}
+
+.lnil-cloudy-sun::before {
+  content: $lnil-cloudy-sun;
+}
+
+.lnil-cloud-alt-2::before {
+  content: $lnil-cloud-alt-2;
+}
+
+.lnil-drop::before {
+  content: $lnil-drop;
+}
+
+.lnil-farenheit::before {
+  content: $lnil-farenheit;
+}
+
+.lnil-moon-star::before {
+  content: $lnil-moon-star;
+}
+
+.lnil-cloud::before {
+  content: $lnil-cloud;
+}
+
+.lnil-night-thunder::before {
+  content: $lnil-night-thunder;
+}
+
+.lnil-drop-alt::before {
+  content: $lnil-drop-alt;
+}
+
+.lnil-night::before {
+  content: $lnil-night;
+}
+
+.lnil-rain::before {
+  content: $lnil-rain;
+}
+
+.lnil-snowfall::before {
+  content: $lnil-snowfall;
+}
+
+.lnil-sun-rain::before {
+  content: $lnil-sun-rain;
+}
+
+.lnil-sun::before {
+  content: $lnil-sun;
+}
+
+.lnil-thunder-alt::before {
+  content: $lnil-thunder-alt;
+}
+
+.lnil-thunder::before {
+  content: $lnil-thunder;
+}
+
+.lnil-umbrella-alt::before {
+  content: $lnil-umbrella-alt;
+}
+
+.lnil-umbrella-rain-alt::before {
+  content: $lnil-umbrella-rain-alt;
+}
+
+.lnil-umbrella-rain::before {
+  content: $lnil-umbrella-rain;
+}
+
+.lnil-umbrella::before {
+  content: $lnil-umbrella;
+}
+
+.lnil-water-drops::before {
+  content: $lnil-water-drops;
+}
+
+.lnil-wind-cloud::before {
+  content: $lnil-wind-cloud;
+}
+
+.lnil-wind-sun::before {
+  content: $lnil-wind-sun;
+}
+
+.lnil-cloud-alt-1::before {
+  content: $lnil-cloud-alt-1;
+}
+
+.lnil-night-wind::before {
+  content: $lnil-night-wind;
+}
+
+.lnil-moon::before {
+  content: $lnil-moon;
+}
+
+.lnil-beach-chair::before {
+  content: $lnil-beach-chair;
+}
+
+.lnil-beach::before {
+  content: $lnil-beach;
+}
+
+.lnil-hot-air-baloon::before {
+  content: $lnil-hot-air-baloon;
+}
+
+.lnil-cable-car::before {
+  content: $lnil-cable-car;
+}
+
+.lnil-suitcase-alt::before {
+  content: $lnil-suitcase-alt;
+}
+
+.lnil-suitcase::before {
+  content: $lnil-suitcase;
+}
+
+.lnil-surf-board::before {
+  content: $lnil-surf-board;
+}
+
+.lnil-tent-alt::before {
+  content: $lnil-tent-alt;
+}
+
+.lnil-tent::before {
+  content: $lnil-tent;
+}
+
+.lnil-travel::before {
+  content: $lnil-travel;
+}
+
+.lnil-pyramids::before {
+  content: $lnil-pyramids;
+}
+
+.lnil-flight-search::before {
+  content: $lnil-flight-search;
+}
+
+.lnil-beachball::before {
+  content: $lnil-beachball;
+}
+
+.lnil-3d::before {
+  content: $lnil-3d;
+}
+
+.lnil-Mobile::before {
+  content: $lnil-Mobile;
+}
+
+.lnil-alarm-2::before {
+  content: $lnil-alarm-2;
+}
+
+.lnil-alarm-3::before {
+  content: $lnil-alarm-3;
+}
+
+.lnil-alarm-4::before {
+  content: $lnil-alarm-4;
+}
+
+.lnil-alarm-clock-alt::before {
+  content: $lnil-alarm-clock-alt;
+}
+
+.lnil-add-files::before {
+  content: $lnil-add-files;
+}
+
+.lnil-ai::before {
+  content: $lnil-ai;
+}
+
+.lnil-alarm-clock::before {
+  content: $lnil-alarm-clock;
+}
+
+.lnil-archive::before {
+  content: $lnil-archive;
+}
+
+.lnil-backspace::before {
+  content: $lnil-backspace;
+}
+
+.lnil-ban::before {
+  content: $lnil-ban;
+}
+
+.lnil-battery::before {
+  content: $lnil-battery;
+}
+
+.lnil-block-user::before {
+  content: $lnil-block-user;
+}
+
+.lnil-bluetooth::before {
+  content: $lnil-bluetooth;
+}
+
+.lnil-bookmark-alt::before {
+  content: $lnil-bookmark-alt;
+}
+
+.lnil-bookmark::before {
+  content: $lnil-bookmark;
+}
+
+.lnil-brightness::before {
+  content: $lnil-brightness;
+}
+
+.lnil-bulb-alt::before {
+  content: $lnil-bulb-alt;
+}
+
+.lnil-bulb::before {
+  content: $lnil-bulb;
+}
+
+.lnil-calendar::before {
+  content: $lnil-calendar;
+}
+
+.lnil-calender-alt-1::before {
+  content: $lnil-calender-alt-1;
+}
+
+.lnil-calender-alt-2::before {
+  content: $lnil-calender-alt-2;
+}
+
+.lnil-calender-alt-3::before {
+  content: $lnil-calender-alt-3;
+}
+
+.lnil-calender-alt-4::before {
+  content: $lnil-calender-alt-4;
+}
+
+.lnil-calender-alt::before {
+  content: $lnil-calender-alt;
+}
+
+.lnil-camera-alt-1::before {
+  content: $lnil-camera-alt-1;
+}
+
+.lnil-camera-alt::before {
+  content: $lnil-camera-alt;
+}
+
+.lnil-camera::before {
+  content: $lnil-camera;
+}
+
+.lnil-change::before {
+  content: $lnil-change;
+}
+
+.lnil-charging::before {
+  content: $lnil-charging;
+}
+
+.lnil-cloud-check-alt::before {
+  content: $lnil-cloud-check-alt;
+}
+
+.lnil-cloud-check::before {
+  content: $lnil-cloud-check;
+}
+
+.lnil-cloud-computing-alt::before {
+  content: $lnil-cloud-computing-alt;
+}
+
+.lnil-cloud-computing::before {
+  content: $lnil-cloud-computing;
+}
+
+.lnil-Website::before {
+  content: $lnil-Website;
+}
+
+.lnil-alarm::before {
+  content: $lnil-alarm;
+}
+
+.lnil-cloud-network-alt::before {
+  content: $lnil-cloud-network-alt;
+}
+
+.lnil-cloud-network::before {
+  content: $lnil-cloud-network;
+}
+
+.lnil-cloud-search-1::before {
+  content: $lnil-cloud-search-1;
+}
+
+.lnil-cloud-search-2::before {
+  content: $lnil-cloud-search-2;
+}
+
+.lnil-cloud-search::before {
+  content: $lnil-cloud-search;
+}
+
+.lnil-cloud-sync-alt::before {
+  content: $lnil-cloud-sync-alt;
+}
+
+.lnil-cloud-sync::before {
+  content: $lnil-cloud-sync;
+}
+
+.lnil-cloud-download-alt::before {
+  content: $lnil-cloud-download-alt;
+}
+
+.lnil-cloud-download::before {
+  content: $lnil-cloud-download;
+}
+
+.lnil-appointment::before {
+  content: $lnil-appointment;
+}
+
+.lnil-cloud-upload-alt::before {
+  content: $lnil-cloud-upload-alt;
+}
+
+.lnil-cloud-upload::before {
+  content: $lnil-cloud-upload;
+}
+
+.lnil-code-alt::before {
+  content: $lnil-code-alt;
+}
+
+.lnil-code::before {
+  content: $lnil-code;
+}
+
+.lnil-cog::before {
+  content: $lnil-cog;
+}
+
+.lnil-cogs::before {
+  content: $lnil-cogs;
+}
+
+.lnil-control-panel::before {
+  content: $lnil-control-panel;
+}
+
+.lnil-copy::before {
+  content: $lnil-copy;
+}
+
+.lnil-cut::before {
+  content: $lnil-cut;
+}
+
+.lnil-dashboard::before {
+  content: $lnil-dashboard;
+}
+
+.lnil-database::before {
+  content: $lnil-database;
+}
+
+.lnil-display-alt::before {
+  content: $lnil-display-alt;
+}
+
+.lnil-display::before {
+  content: $lnil-display;
+}
+
+.lnil-domain::before {
+  content: $lnil-domain;
+}
+
+.lnil-download::before {
+  content: $lnil-download;
+}
+
+.lnil-empty-battery::before {
+  content: $lnil-empty-battery;
+}
+
+.lnil-empty-file::before {
+  content: $lnil-empty-file;
+}
+
+.lnil-file-download::before {
+  content: $lnil-file-download;
+}
+
+.lnil-file-lock::before {
+  content: $lnil-file-lock;
+}
+
+.lnil-file-name::before {
+  content: $lnil-file-name;
+}
+
+.lnil-file-protection::before {
+  content: $lnil-file-protection;
+}
+
+.lnil-file-upload::before {
+  content: $lnil-file-upload;
+}
+
+.lnil-files-alt::before {
+  content: $lnil-files-alt;
+}
+
+.lnil-files::before {
+  content: $lnil-files;
+}
+
+.lnil-folder-alt-1::before {
+  content: $lnil-folder-alt-1;
+}
+
+.lnil-folder-alt::before {
+  content: $lnil-folder-alt;
+}
+
+.lnil-folder::before {
+  content: $lnil-folder;
+}
+
+.lnil-full-battery::before {
+  content: $lnil-full-battery;
+}
+
+.lnil-game::before {
+  content: $lnil-game;
+}
+
+.lnil-half-battery::before {
+  content: $lnil-half-battery;
+}
+
+.lnil-harddrive::before {
+  content: $lnil-harddrive;
+}
+
+.lnil-headphone-alt::before {
+  content: $lnil-headphone-alt;
+}
+
+.lnil-headphone::before {
+  content: $lnil-headphone;
+}
+
+.lnil-laptop-alt-switch::before {
+  content: $lnil-laptop-alt-switch;
+}
+
+.lnil-laptop-alt::before {
+  content: $lnil-laptop-alt;
+}
+
+.lnil-laptop-phone::before {
+  content: $lnil-laptop-phone;
+}
+
+.lnil-laptop::before {
+  content: $lnil-laptop;
+}
+
+.lnil-link-alt-1::before {
+  content: $lnil-link-alt-1;
+}
+
+.lnil-link-alt::before {
+  content: $lnil-link-alt;
+}
+
+.lnil-link::before {
+  content: $lnil-link;
+}
+
+.lnil-low-battery::before {
+  content: $lnil-low-battery;
+}
+
+.lnil-magnet::before {
+  content: $lnil-magnet;
+}
+
+.lnil-magnifier::before {
+  content: $lnil-magnifier;
+}
+
+.lnil-map-marker::before {
+  content: $lnil-map-marker;
+}
+
+.lnil-map::before {
+  content: $lnil-map;
+}
+
+.lnil-menu-alt-1::before {
+  content: $lnil-menu-alt-1;
+}
+
+.lnil-menu-alt-2::before {
+  content: $lnil-menu-alt-2;
+}
+
+.lnil-menu-alt-3::before {
+  content: $lnil-menu-alt-3;
+}
+
+.lnil-menu-alt-4::before {
+  content: $lnil-menu-alt-4;
+}
+
+.lnil-menu-alt-5::before {
+  content: $lnil-menu-alt-5;
+}
+
+.lnil-menu-alt::before {
+  content: $lnil-menu-alt;
+}
+
+.lnil-menu-circle::before {
+  content: $lnil-menu-circle;
+}
+
+.lnil-menu::before {
+  content: $lnil-menu;
+}
+
+.lnil-mic::before {
+  content: $lnil-mic;
+}
+
+.lnil-microphone-alt-1::before {
+  content: $lnil-microphone-alt-1;
+}
+
+.lnil-microphone-alt::before {
+  content: $lnil-microphone-alt;
+}
+
+.lnil-microphone::before {
+  content: $lnil-microphone;
+}
+
+.lnil-mobile-alt-1::before {
+  content: $lnil-mobile-alt-1;
+}
+
+.lnil-mobile-alt-2::before {
+  content: $lnil-mobile-alt-2;
+}
+
+.lnil-mobile-alt-button::before {
+  content: $lnil-mobile-alt-button;
+}
+
+.lnil-mouse::before {
+  content: $lnil-mouse;
+}
+
+.lnil-no-charge-battery::before {
+  content: $lnil-no-charge-battery;
+}
+
+.lnil-package::before {
+  content: $lnil-package;
+}
+
+.lnil-plug::before {
+  content: $lnil-plug;
+}
+
+.lnil-presentation::before {
+  content: $lnil-presentation;
+}
+
+.lnil-printer::before {
+  content: $lnil-printer;
+}
+
+.lnil-ps::before {
+  content: $lnil-ps;
+}
+
+.lnil-recycle-alt::before {
+  content: $lnil-recycle-alt;
+}
+
+.lnil-image::before {
+  content: $lnil-image;
+}
+
+.lnil-reload-alt-box::before {
+  content: $lnil-reload-alt-box;
+}
+
+.lnil-reload-alt::before {
+  content: $lnil-reload-alt;
+}
+
+.lnil-reload::before {
+  content: $lnil-reload;
+}
+
+.lnil-recycle::before {
+  content: $lnil-recycle;
+}
+
+.lnil-rocket::before {
+  content: $lnil-rocket;
+}
+
+.lnil-rss-feed::before {
+  content: $lnil-rss-feed;
+}
+
+.lnil-save-alt::before {
+  content: $lnil-save-alt;
+}
+
+.lnil-save::before {
+  content: $lnil-save;
+}
+
+.lnil-scan::before {
+  content: $lnil-scan;
+}
+
+.lnil-scroll-down::before {
+  content: $lnil-scroll-down;
+}
+
+.lnil-search-alt::before {
+  content: $lnil-search-alt;
+}
+
+.lnil-search::before {
+  content: $lnil-search;
+}
+
+.lnil-share-alt::before {
+  content: $lnil-share-alt;
+}
+
+.lnil-share::before {
+  content: $lnil-share;
+}
+
+.lnil-shopping-basket::before {
+  content: $lnil-shopping-basket;
+}
+
+.lnil-shortcode::before {
+  content: $lnil-shortcode;
+}
+
+.lnil-signal::before {
+  content: $lnil-signal;
+}
+
+.lnil-laptop-alt-keyboard::before {
+  content: $lnil-laptop-alt-keyboard;
+}
+
+.lnil-star-fill::before {
+  content: $lnil-star-fill;
+}
+
+.lnil-star-half::before {
+  content: $lnil-star-half;
+}
+
+.lnil-star::before {
+  content: $lnil-star;
+}
+
+.lnil-tab::before {
+  content: $lnil-tab;
+}
+
+.lnil-tap::before {
+  content: $lnil-tap;
+}
+
+.lnil-thumbnail::before {
+  content: $lnil-thumbnail;
+}
+
+.lnil-timer::before {
+  content: $lnil-timer;
+}
+
+.lnil-trash-can-alt-1::before {
+  content: $lnil-trash-can-alt-1;
+}
+
+.lnil-trash-can-alt::before {
+  content: $lnil-trash-can-alt;
+}
+
+.lnil-trash-can::before {
+  content: $lnil-trash-can;
+}
+
+.lnil-trash::before {
+  content: $lnil-trash;
+}
+
+.lnil-unlink::before {
+  content: $lnil-unlink;
+}
+
+.lnil-upload::before {
+  content: $lnil-upload;
+}
+
+.lnil-user-alt-1::before {
+  content: $lnil-user-alt-1;
+}
+
+.lnil-user-alt-2::before {
+  content: $lnil-user-alt-2;
+}
+
+.lnil-user-alt::before {
+  content: $lnil-user-alt;
+}
+
+.lnil-user::before {
+  content: $lnil-user;
+}
+
+.lnil-users-alt::before {
+  content: $lnil-users-alt;
+}
+
+.lnil-users::before {
+  content: $lnil-users;
+}
+
+.lnil-website-alt::before {
+  content: $lnil-website-alt;
+}
+
+.lnil-zip::before {
+  content: $lnil-zip;
+}
+
+.lnil-zoom-in::before {
+  content: $lnil-zoom-in;
+}
+
+.lnil-zoom-out::before {
+  content: $lnil-zoom-out;
+}
+
+.lnil-star-empty::before {
+  content: $lnil-star-empty;
+}
+
+.lnil-remove-file::before {
+  content: $lnil-remove-file;
+}
+
+.lnil-keyboard::before {
+  content: $lnil-keyboard;
+}
+
+.lnil-hourglass::before {
+  content: $lnil-hourglass;
+}
+
+.lnil-spinner-1::before {
+  content: $lnil-spinner-1;
+}
+
+.lnil-spinner-10::before {
+  content: $lnil-spinner-10;
+}
+
+.lnil-spinner-11::before {
+  content: $lnil-spinner-11;
+}
+
+.lnil-spinner-2::before {
+  content: $lnil-spinner-2;
+}
+
+.lnil-spinner-3::before {
+  content: $lnil-spinner-3;
+}
+
+.lnil-spinner-4::before {
+  content: $lnil-spinner-4;
+}
+
+.lnil-spinner-5::before {
+  content: $lnil-spinner-5;
+}
+
+.lnil-spinner-9::before {
+  content: $lnil-spinner-9;
+}
+
+.lnil-spinner-7::before {
+  content: $lnil-spinner-7;
+}
+
+.lnil-spinner-8::before {
+  content: $lnil-spinner-8;
+}
+
+.lnil-spinner-6::before {
+  content: $lnil-spinner-6;
+}
+
+.lnil-angry::before {
+  content: $lnil-angry;
+}
+
+.lnil-bored::before {
+  content: $lnil-bored;
+}
+
+.lnil-cry::before {
+  content: $lnil-cry;
+}
+
+.lnil-cute::before {
+  content: $lnil-cute;
+}
+
+.lnil-dead::before {
+  content: $lnil-dead;
+}
+
+.lnil-emoji-cool::before {
+  content: $lnil-emoji-cool;
+}
+
+.lnil-emoji-friendly::before {
+  content: $lnil-emoji-friendly;
+}
+
+.lnil-emoji-happy::before {
+  content: $lnil-emoji-happy;
+}
+
+.lnil-emoji-sad::before {
+  content: $lnil-emoji-sad;
+}
+
+.lnil-emoji-smile::before {
+  content: $lnil-emoji-smile;
+}
+
+.lnil-emoji-speechless::before {
+  content: $lnil-emoji-speechless;
+}
+
+.lnil-emoji-suspect::before {
+  content: $lnil-emoji-suspect;
+}
+
+.lnil-emoji-tounge::before {
+  content: $lnil-emoji-tounge;
+}
+
+.lnil-happy-1::before {
+  content: $lnil-happy-1;
+}
+
+.lnil-happy-2::before {
+  content: $lnil-happy-2;
+}
+
+.lnil-happy-smile::before {
+  content: $lnil-happy-smile;
+}
+
+.lnil-kiss-2::before {
+  content: $lnil-kiss-2;
+}
+
+.lnil-kiss::before {
+  content: $lnil-kiss;
+}
+
+.lnil-love::before {
+  content: $lnil-love;
+}
+
+.lnil-loved-surprise::before {
+  content: $lnil-loved-surprise;
+}
+
+.lnil-mute::before {
+  content: $lnil-mute;
+}
+
+.lnil-piss::before {
+  content: $lnil-piss;
+}
+
+.lnil-sick-1::before {
+  content: $lnil-sick-1;
+}
+
+.lnil-sick::before {
+  content: $lnil-sick;
+}
+
+.lnil-sleep::before {
+  content: $lnil-sleep;
+}
+
+.lnil-super-cool::before {
+  content: $lnil-super-cool;
+}
+
+.lnil-super-happy::before {
+  content: $lnil-super-happy;
+}
+
+.lnil-wink::before {
+  content: $lnil-wink;
+}
+
+.lnil-wow::before {
+  content: $lnil-wow;
+}
+
+.lnil-yawn::before {
+  content: $lnil-yawn;
+}
+
+.lnil-cool-1::before {
+  content: $lnil-cool-1;
+}
+
+.lnil-cool-3::before {
+  content: $lnil-cool-3;
+}
+
+.lnil-cool-kiss::before {
+  content: $lnil-cool-kiss;
+}
+
+.lnil-cotton-bud::before {
+  content: $lnil-cotton-bud;
+}
+
+.lnil-crown::before {
+  content: $lnil-crown;
+}
+
+.lnil-cup-alt::before {
+  content: $lnil-cup-alt;
+}
+
+.lnil-crown-alt::before {
+  content: $lnil-crown-alt;
+}
+
+.lnil-gift-alt-1::before {
+  content: $lnil-gift-alt-1;
+}
+
+.lnil-crown-alt-2::before {
+  content: $lnil-crown-alt-2;
+}
+
+.lnil-cup::before {
+  content: $lnil-cup;
+}
+
+.lnil-gift-bag::before {
+  content: $lnil-gift-bag;
+}
+
+.lnil-gift::before {
+  content: $lnil-gift;
+}
+
+.lnil-gift-alt::before {
+  content: $lnil-gift-alt;
+}
+
+.lnil-ladies-tshirt::before {
+  content: $lnil-ladies-tshirt;
+}
+
+.lnil-crown-alt-1::before {
+  content: $lnil-crown-alt-1;
+}
+
+.lnil-sunglass::before {
+  content: $lnil-sunglass;
+}
+
+.lnil-thought::before {
+  content: $lnil-thought;
+}
+
+.lnil-tshirt-alt-1::before {
+  content: $lnil-tshirt-alt-1;
+}
+
+.lnil-tshirt-alt::before {
+  content: $lnil-tshirt-alt;
+}
+
+.lnil-home::before {
+  content: $lnil-home;
+}
+
+.lnil-glasses::before {
+  content: $lnil-glasses;
+}
+
+.lnil-tshirt::before {
+  content: $lnil-tshirt;
+}
+
+.lnil-baloon-alt-1::before {
+  content: $lnil-baloon-alt-1;
+}
+
+.lnil-baloon-alt::before {
+  content: $lnil-baloon-alt;
+}
+
+.lnil-baloon::before {
+  content: $lnil-baloon;
+}
+
+.lnil-candle-alt::before {
+  content: $lnil-candle-alt;
+}
+
+.lnil-candy-cane::before {
+  content: $lnil-candy-cane;
+}
+
+.lnil-candy::before {
+  content: $lnil-candy;
+}
+
+.lnil-confetti::before {
+  content: $lnil-confetti;
+}
+
+.lnil-firecracker::before {
+  content: $lnil-firecracker;
+}
+
+.lnil-fireworks::before {
+  content: $lnil-fireworks;
+}
+
+.lnil-flags::before {
+  content: $lnil-flags;
+}
+
+.lnil-mask::before {
+  content: $lnil-mask;
+}
+
+.lnil-spray::before {
+  content: $lnil-spray;
+}
+
+.lnil-wand::before {
+  content: $lnil-wand;
+}
+
+.lnil-birthday-hat::before {
+  content: $lnil-birthday-hat;
+}
+
+.lnil-candle::before {
+  content: $lnil-candle;
+}
+
+.lnil-cake::before {
+  content: $lnil-cake;
+}
+
+.lnil-bug-alt::before {
+  content: $lnil-bug-alt;
+}
+
+.lnil-bug::before {
+  content: $lnil-bug;
+}
+
+.lnil-flower::before {
+  content: $lnil-flower;
+}
+
+.lnil-island::before {
+  content: $lnil-island;
+}
+
+.lnil-leaf-alt-1::before {
+  content: $lnil-leaf-alt-1;
+}
+
+.lnil-leaf-alt::before {
+  content: $lnil-leaf-alt;
+}
+
+.lnil-leaf::before {
+  content: $lnil-leaf;
+}
+
+.lnil-leaves::before {
+  content: $lnil-leaves;
+}
+
+.lnil-mashroom::before {
+  content: $lnil-mashroom;
+}
+
+.lnil-mountain::before {
+  content: $lnil-mountain;
+}
+
+.lnil-mushroom-alt::before {
+  content: $lnil-mushroom-alt;
+}
+
+.lnil-mushrooms::before {
+  content: $lnil-mushrooms;
+}
+
+.lnil-plant-pot::before {
+  content: $lnil-plant-pot;
+}
+
+.lnil-plant::before {
+  content: $lnil-plant;
+}
+
+.lnil-sprout-alt::before {
+  content: $lnil-sprout-alt;
+}
+
+.lnil-sprout::before {
+  content: $lnil-sprout;
+}
+
+.lnil-tornado::before {
+  content: $lnil-tornado;
+}
+
+.lnil-tree-alt-1::before {
+  content: $lnil-tree-alt-1;
+}
+
+.lnil-tree-alt::before {
+  content: $lnil-tree-alt;
+}
+
+.lnil-tree::before {
+  content: $lnil-tree;
+}
+
+.lnil-trees-alt-1::before {
+  content: $lnil-trees-alt-1;
+}
+
+.lnil-trees-alt::before {
+  content: $lnil-trees-alt;
+}
+
+.lnil-trees::before {
+  content: $lnil-trees;
+}
+
+.lnil-flower-alt::before {
+  content: $lnil-flower-alt;
+}
+
+.lnil-cactus-alt::before {
+  content: $lnil-cactus-alt;
+}
+
+.lnil-cactus::before {
+  content: $lnil-cactus;
+}
+
+.lnil-bank::before {
+  content: $lnil-bank;
+}
+
+.lnil-calculator-alt::before {
+  content: $lnil-calculator-alt;
+}
+
+.lnil-calculator::before {
+  content: $lnil-calculator;
+}
+
+.lnil-coin::before {
+  content: $lnil-coin;
+}
+
+.lnil-diamond-alt::before {
+  content: $lnil-diamond-alt;
+}
+
+.lnil-diamond::before {
+  content: $lnil-diamond;
+}
+
+.lnil-dollar-card::before {
+  content: $lnil-dollar-card;
+}
+
+.lnil-credit-cards::before {
+  content: $lnil-credit-cards;
+}
+
+.lnil-dollar-down::before {
+  content: $lnil-dollar-down;
+}
+
+.lnil-dollar-up::before {
+  content: $lnil-dollar-up;
+}
+
+.lnil-euro-card::before {
+  content: $lnil-euro-card;
+}
+
+.lnil-dollar::before {
+  content: $lnil-dollar;
+}
+
+.lnil-euro-coin::before {
+  content: $lnil-euro-coin;
+}
+
+.lnil-euro-down::before {
+  content: $lnil-euro-down;
+}
+
+.lnil-euro-up::before {
+  content: $lnil-euro-up;
+}
+
+.lnil-euro::before {
+  content: $lnil-euro;
+}
+
+.lnil-gold-bar::before {
+  content: $lnil-gold-bar;
+}
+
+.lnil-mobile-coin-taka::before {
+  content: $lnil-mobile-coin-taka;
+}
+
+.lnil-mobile-coin::before {
+  content: $lnil-mobile-coin;
+}
+
+.lnil-money-bag::before {
+  content: $lnil-money-bag;
+}
+
+.lnil-money-location::before {
+  content: $lnil-money-location;
+}
+
+.lnil-money-protection::before {
+  content: $lnil-money-protection;
+}
+
+.lnil-pound-card::before {
+  content: $lnil-pound-card;
+}
+
+.lnil-pound-coin::before {
+  content: $lnil-pound-coin;
+}
+
+.lnil-pound-down::before {
+  content: $lnil-pound-down;
+}
+
+.lnil-pound-up::before {
+  content: $lnil-pound-up;
+}
+
+.lnil-pound::before {
+  content: $lnil-pound;
+}
+
+.lnil-rupee-card::before {
+  content: $lnil-rupee-card;
+}
+
+.lnil-rupee-coin::before {
+  content: $lnil-rupee-coin;
+}
+
+.lnil-rupee-down::before {
+  content: $lnil-rupee-down;
+}
+
+.lnil-rupee-up::before {
+  content: $lnil-rupee-up;
+}
+
+.lnil-rupee::before {
+  content: $lnil-rupee;
+}
+
+.lnil-taka-card::before {
+  content: $lnil-taka-card;
+}
+
+.lnil-taka-coin::before {
+  content: $lnil-taka-coin;
+}
+
+.lnil-taka-down::before {
+  content: $lnil-taka-down;
+}
+
+.lnil-taka-up::before {
+  content: $lnil-taka-up;
+}
+
+.lnil-taka::before {
+  content: $lnil-taka;
+}
+
+.lnil-wallet-alt-1::before {
+  content: $lnil-wallet-alt-1;
+}
+
+.lnil-wallet::before {
+  content: $lnil-wallet;
+}
+
+.lnil-yen-card::before {
+  content: $lnil-yen-card;
+}
+
+.lnil-yen-coin::before {
+  content: $lnil-yen-coin;
+}
+
+.lnil-yen-down::before {
+  content: $lnil-yen-down;
+}
+
+.lnil-yen-up::before {
+  content: $lnil-yen-up;
+}
+
+.lnil-yen::before {
+  content: $lnil-yen;
+}
+
+.lnil-coins::before {
+  content: $lnil-coins;
+}
+
+.lnil-credit-card::before {
+  content: $lnil-credit-card;
+}
+
+.lnil-backward-alt::before {
+  content: $lnil-backward-alt;
+}
+
+.lnil-backward::before {
+  content: $lnil-backward;
+}
+
+.lnil-forward::before {
+  content: $lnil-forward;
+}
+
+.lnil-frame-expand::before {
+  content: $lnil-frame-expand;
+}
+
+.lnil-film::before {
+  content: $lnil-film;
+}
+
+.lnil-gallery::before {
+  content: $lnil-gallery;
+}
+
+.lnil-next::before {
+  content: $lnil-next;
+}
+
+.lnil-pause::before {
+  content: $lnil-pause;
+}
+
+.lnil-play::before {
+  content: $lnil-play;
+}
+
+.lnil-previous::before {
+  content: $lnil-previous;
+}
+
+.lnil-repeat-one::before {
+  content: $lnil-repeat-one;
+}
+
+.lnil-shuffle::before {
+  content: $lnil-shuffle;
+}
+
+.lnil-slideshow::before {
+  content: $lnil-slideshow;
+}
+
+.lnil-stop::before {
+  content: $lnil-stop;
+}
+
+.lnil-video-alt-1::before {
+  content: $lnil-video-alt-1;
+}
+
+.lnil-video-alt::before {
+  content: $lnil-video-alt;
+}
+
+.lnil-video-camera-alt-1::before {
+  content: $lnil-video-camera-alt-1;
+}
+
+.lnil-video-camera-alt-2::before {
+  content: $lnil-video-camera-alt-2;
+}
+
+.lnil-video-camera-alt::before {
+  content: $lnil-video-camera-alt;
+}
+
+.lnil-video-cut::before {
+  content: $lnil-video-cut;
+}
+
+.lnil-video::before {
+  content: $lnil-video;
+}
+
+.lnil-volume-high::before {
+  content: $lnil-volume-high;
+}
+
+.lnil-volume-low::before {
+  content: $lnil-volume-low;
+}
+
+.lnil-volume-medium::before {
+  content: $lnil-volume-medium;
+}
+
+.lnil-volume-mute::before {
+  content: $lnil-volume-mute;
+}
+
+.lnil-volume::before {
+  content: $lnil-volume;
+}
+
+.lnil-full-screen::before {
+  content: $lnil-full-screen;
+}
+
+.lnil-expand-alt-1::before {
+  content: $lnil-expand-alt-1;
+}
+
+.lnil-fast-forward::before {
+  content: $lnil-fast-forward;
+}
+
+.lnil-analytics::before {
+  content: $lnil-analytics;
+}
+
+.lnil-bar-chart::before {
+  content: $lnil-bar-chart;
+}
+
+.lnil-graph-alt-1::before {
+  content: $lnil-graph-alt-1;
+}
+
+.lnil-graph-alt-2::before {
+  content: $lnil-graph-alt-2;
+}
+
+.lnil-graph-alt-3::before {
+  content: $lnil-graph-alt-3;
+}
+
+.lnil-graph-alt-4::before {
+  content: $lnil-graph-alt-4;
+}
+
+.lnil-graph-alt::before {
+  content: $lnil-graph-alt;
+}
+
+.lnil-graph-decrease::before {
+  content: $lnil-graph-decrease;
+}
+
+.lnil-graph-increase::before {
+  content: $lnil-graph-increase;
+}
+
+.lnil-invest-monitor::before {
+  content: $lnil-invest-monitor;
+}
+
+.lnil-keyword-research::before {
+  content: $lnil-keyword-research;
+}
+
+.lnil-network-alt::before {
+  content: $lnil-network-alt;
+}
+
+.lnil-network::before {
+  content: $lnil-network;
+}
+
+.lnil-pyramid-decrease::before {
+  content: $lnil-pyramid-decrease;
+}
+
+.lnil-pyramid-increase::before {
+  content: $lnil-pyramid-increase;
+}
+
+.lnil-pyramid::before {
+  content: $lnil-pyramid;
+}
+
+.lnil-rook::before {
+  content: $lnil-rook;
+}
+
+.lnil-seo::before {
+  content: $lnil-seo;
+}
+
+.lnil-strategy::before {
+  content: $lnil-strategy;
+}
+
+.lnil-target-audience-alt::before {
+  content: $lnil-target-audience-alt;
+}
+
+.lnil-target-customer::before {
+  content: $lnil-target-customer;
+}
+
+.lnil-website-rank::before {
+  content: $lnil-website-rank;
+}
+
+.lnil-bar-check::before {
+  content: $lnil-bar-check;
+}
+
+.lnil-billboard-alt::before {
+  content: $lnil-billboard-alt;
+}
+
+.lnil-billboard::before {
+  content: $lnil-billboard;
+}
+
+.lnil-barrier::before {
+  content: $lnil-barrier;
+}
+
+.lnil-bolt-alt::before {
+  content: $lnil-bolt-alt;
+}
+
+.lnil-checkmark::before {
+  content: $lnil-checkmark;
+}
+
+.lnil-check-box::before {
+  content: $lnil-check-box;
+}
+
+.lnil-circle-plus::before {
+  content: $lnil-circle-plus;
+}
+
+.lnil-circle-minus::before {
+  content: $lnil-circle-minus;
+}
+
+.lnil-cross-circle::before {
+  content: $lnil-cross-circle;
+}
+
+.lnil-electricity::before {
+  content: $lnil-electricity;
+}
+
+.lnil-eye-alt::before {
+  content: $lnil-eye-alt;
+}
+
+.lnil-eye::before {
+  content: $lnil-eye;
+}
+
+.lnil-find::before {
+  content: $lnil-find;
+}
+
+.lnil-flag-alt::before {
+  content: $lnil-flag-alt;
+}
+
+.lnil-flag::before {
+  content: $lnil-flag;
+}
+
+.lnil-funnel-alt-1::before {
+  content: $lnil-funnel-alt-1;
+}
+
+.lnil-funnel-alt::before {
+  content: $lnil-funnel-alt;
+}
+
+.lnil-funnel::before {
+  content: $lnil-funnel;
+}
+
+.lnil-hand::before {
+  content: $lnil-hand;
+}
+
+.lnil-heart-filled::before {
+  content: $lnil-heart-filled;
+}
+
+.lnil-heart-plus::before {
+  content: $lnil-heart-plus;
+}
+
+.lnil-heart::before {
+  content: $lnil-heart;
+}
+
+.lnil-help::before {
+  content: $lnil-help;
+}
+
+.lnil-hotel-sign::before {
+  content: $lnil-hotel-sign;
+}
+
+.lnil-idea-alt::before {
+  content: $lnil-idea-alt;
+}
+
+.lnil-identity::before {
+  content: $lnil-identity;
+}
+
+.lnil-infinite::before {
+  content: $lnil-infinite;
+}
+
+.lnil-information::before {
+  content: $lnil-information;
+}
+
+.lnil-invention::before {
+  content: $lnil-invention;
+}
+
+.lnil-key-alt-1::before {
+  content: $lnil-key-alt-1;
+}
+
+.lnil-key-alt-2::before {
+  content: $lnil-key-alt-2;
+}
+
+.lnil-key-alt-3::before {
+  content: $lnil-key-alt-3;
+}
+
+.lnil-key-alt::before {
+  content: $lnil-key-alt;
+}
+
+.lnil-key::before {
+  content: $lnil-key;
+}
+
+.lnil-life-ring::before {
+  content: $lnil-life-ring;
+}
+
+.lnil-list-alt-1::before {
+  content: $lnil-list-alt-1;
+}
+
+.lnil-list-alt::before {
+  content: $lnil-list-alt;
+}
+
+.lnil-list::before {
+  content: $lnil-list;
+}
+
+.lnil-lock-alt-1::before {
+  content: $lnil-lock-alt-1;
+}
+
+.lnil-lock-alt-2::before {
+  content: $lnil-lock-alt-2;
+}
+
+.lnil-lock-alt::before {
+  content: $lnil-lock-alt;
+}
+
+.lnil-lock::before {
+  content: $lnil-lock;
+}
+
+.lnil-minus::before {
+  content: $lnil-minus;
+}
+
+.lnil-more-alt-1::before {
+  content: $lnil-more-alt-1;
+}
+
+.lnil-more-alt::before {
+  content: $lnil-more-alt;
+}
+
+.lnil-more::before {
+  content: $lnil-more;
+}
+
+.lnil-music-note::before {
+  content: $lnil-music-note;
+}
+
+.lnil-music::before {
+  content: $lnil-music;
+}
+
+.lnil-notification::before {
+  content: $lnil-notification;
+}
+
+.lnil-passport-alt::before {
+  content: $lnil-passport-alt;
+}
+
+.lnil-passport::before {
+  content: $lnil-passport;
+}
+
+.lnil-playlist-alt::before {
+  content: $lnil-playlist-alt;
+}
+
+.lnil-playlist::before {
+  content: $lnil-playlist;
+}
+
+.lnil-plus::before {
+  content: $lnil-plus;
+}
+
+.lnil-pointer::before {
+  content: $lnil-pointer;
+}
+
+.lnil-power-switch::before {
+  content: $lnil-power-switch;
+}
+
+.lnil-protection::before {
+  content: $lnil-protection;
+}
+
+.lnil-question-circle::before {
+  content: $lnil-question-circle;
+}
+
+.lnil-radio-button::before {
+  content: $lnil-radio-button;
+}
+
+.lnil-record::before {
+  content: $lnil-record;
+}
+
+.lnil-round-box-check::before {
+  content: $lnil-round-box-check;
+}
+
+.lnil-round-box-cross::before {
+  content: $lnil-round-box-cross;
+}
+
+.lnil-round-box-minus::before {
+  content: $lnil-round-box-minus;
+}
+
+.lnil-round-box-plus::before {
+  content: $lnil-round-box-plus;
+}
+
+.lnil-shield::before {
+  content: $lnil-shield;
+}
+
+.lnil-sort::before {
+  content: $lnil-sort;
+}
+
+.lnil-switch::before {
+  content: $lnil-switch;
+}
+
+.lnil-teabag::before {
+  content: $lnil-teabag;
+}
+
+.lnil-thumbs-down-alt::before {
+  content: $lnil-thumbs-down-alt;
+}
+
+.lnil-thumbs-down::before {
+  content: $lnil-thumbs-down;
+}
+
+.lnil-thumbs-up-alt::before {
+  content: $lnil-thumbs-up-alt;
+}
+
+.lnil-thumbs-up::before {
+  content: $lnil-thumbs-up;
+}
+
+.lnil-thunderbolt::before {
+  content: $lnil-thunderbolt;
+}
+
+.lnil-ticket-alt-1::before {
+  content: $lnil-ticket-alt-1;
+}
+
+.lnil-ticket-alt-2::before {
+  content: $lnil-ticket-alt-2;
+}
+
+.lnil-ticket-alt-3::before {
+  content: $lnil-ticket-alt-3;
+}
+
+.lnil-ticket-alt::before {
+  content: $lnil-ticket-alt;
+}
+
+.lnil-ticket::before {
+  content: $lnil-ticket;
+}
+
+.lnil-unlock::before {
+  content: $lnil-unlock;
+}
+
+.lnil-warning::before {
+  content: $lnil-warning;
+}
+
+.lnil-checkmark-circle::before {
+  content: $lnil-checkmark-circle;
+}
+
+.lnil-close::before {
+  content: $lnil-close;
+}
+
+.lnil-bolt::before {
+  content: $lnil-bolt;
+}
+
+.lnil-ambulance-alt-1::before {
+  content: $lnil-ambulance-alt-1;
+}
+
+.lnil-ambulance-alt::before {
+  content: $lnil-ambulance-alt;
+}
+
+.lnil-brain-alt::before {
+  content: $lnil-brain-alt;
+}
+
+.lnil-basketball::before {
+  content: $lnil-basketball;
+}
+
+.lnil-bone::before {
+  content: $lnil-bone;
+}
+
+.lnil-ambulance::before {
+  content: $lnil-ambulance;
+}
+
+.lnil-broken-bone::before {
+  content: $lnil-broken-bone;
+}
+
+.lnil-brain-check::before {
+  content: $lnil-brain-check;
+}
+
+.lnil-brain::before {
+  content: $lnil-brain;
+}
+
+.lnil-capsule::before {
+  content: $lnil-capsule;
+}
+
+.lnil-capsules::before {
+  content: $lnil-capsules;
+}
+
+.lnil-cardiology::before {
+  content: $lnil-cardiology;
+}
+
+.lnil-diagnosis-alt::before {
+  content: $lnil-diagnosis-alt;
+}
+
+.lnil-diagnosis::before {
+  content: $lnil-diagnosis;
+}
+
+.lnil-dna::before {
+  content: $lnil-dna;
+}
+
+.lnil-dropper-alt-1::before {
+  content: $lnil-dropper-alt-1;
+}
+
+.lnil-dropper-alt-2::before {
+  content: $lnil-dropper-alt-2;
+}
+
+.lnil-dropper-alt::before {
+  content: $lnil-dropper-alt;
+}
+
+.lnil-dropper::before {
+  content: $lnil-dropper;
+}
+
+.lnil-dumbbell::before {
+  content: $lnil-dumbbell;
+}
+
+.lnil-eye-test::before {
+  content: $lnil-eye-test;
+}
+
+.lnil-female::before {
+  content: $lnil-female;
+}
+
+.lnil-first-aid::before {
+  content: $lnil-first-aid;
+}
+
+.lnil-gluten-free::before {
+  content: $lnil-gluten-free;
+}
+
+.lnil-heart-check::before {
+  content: $lnil-heart-check;
+}
+
+.lnil-heart-monitor::before {
+  content: $lnil-heart-monitor;
+}
+
+.lnil-heartrate-monitor::before {
+  content: $lnil-heartrate-monitor;
+}
+
+.lnil-hospital-alt-1::before {
+  content: $lnil-hospital-alt-1;
+}
+
+.lnil-hospital-alt-2::before {
+  content: $lnil-hospital-alt-2;
+}
+
+.lnil-hospital-alt-3::before {
+  content: $lnil-hospital-alt-3;
+}
+
+.lnil-hospital-alt-4::before {
+  content: $lnil-hospital-alt-4;
+}
+
+.lnil-hospital-alt::before {
+  content: $lnil-hospital-alt;
+}
+
+.lnil-hospital-bed-alt-1::before {
+  content: $lnil-hospital-bed-alt-1;
+}
+
+.lnil-hospital-bed-alt-2::before {
+  content: $lnil-hospital-bed-alt-2;
+}
+
+.lnil-hospital-bed-alt::before {
+  content: $lnil-hospital-bed-alt;
+}
+
+.lnil-hospital-bed::before {
+  content: $lnil-hospital-bed;
+}
+
+.lnil-hospital-location::before {
+  content: $lnil-hospital-location;
+}
+
+.lnil-hospital-sign::before {
+  content: $lnil-hospital-sign;
+}
+
+.lnil-hospital::before {
+  content: $lnil-hospital;
+}
+
+.lnil-kettlebell::before {
+  content: $lnil-kettlebell;
+}
+
+.lnil-lungs::before {
+  content: $lnil-lungs;
+}
+
+.lnil-male::before {
+  content: $lnil-male;
+}
+
+.lnil-medical-briefcase-alt::before {
+  content: $lnil-medical-briefcase-alt;
+}
+
+.lnil-medical-briefcase::before {
+  content: $lnil-medical-briefcase;
+}
+
+.lnil-medical-protection::before {
+  content: $lnil-medical-protection;
+}
+
+.lnil-medical-sign::before {
+  content: $lnil-medical-sign;
+}
+
+.lnil-medicine-alt::before {
+  content: $lnil-medicine-alt;
+}
+
+.lnil-medicine-bottle::before {
+  content: $lnil-medicine-bottle;
+}
+
+.lnil-medicine::before {
+  content: $lnil-medicine;
+}
+
+.lnil-microscope::before {
+  content: $lnil-microscope;
+}
+
+.lnil-pulse::before {
+  content: $lnil-pulse;
+}
+
+.lnil-report-laptop::before {
+  content: $lnil-report-laptop;
+}
+
+.lnil-saline-alt-1::before {
+  content: $lnil-saline-alt-1;
+}
+
+.lnil-saline-alt::before {
+  content: $lnil-saline-alt;
+}
+
+.lnil-saline::before {
+  content: $lnil-saline;
+}
+
+.lnil-skipping-rope::before {
+  content: $lnil-skipping-rope;
+}
+
+.lnil-slim::before {
+  content: $lnil-slim;
+}
+
+.lnil-sthethoscope::before {
+  content: $lnil-sthethoscope;
+}
+
+.lnil-syringe::before {
+  content: $lnil-syringe;
+}
+
+.lnil-test-tube-alt::before {
+  content: $lnil-test-tube-alt;
+}
+
+.lnil-test-tube::before {
+  content: $lnil-test-tube;
+}
+
+.lnil-thermometer-alt::before {
+  content: $lnil-thermometer-alt;
+}
+
+.lnil-thermometer::before {
+  content: $lnil-thermometer;
+}
+
+.lnil-tooth::before {
+  content: $lnil-tooth;
+}
+
+.lnil-walker::before {
+  content: $lnil-walker;
+}
+
+.lnil-weight-machine::before {
+  content: $lnil-weight-machine;
+}
+
+.lnil-weight::before {
+  content: $lnil-weight;
+}
+
+.lnil-wheelchair::before {
+  content: $lnil-wheelchair;
+}
+
+.lnil-yoga-mat::before {
+  content: $lnil-yoga-mat;
+}
+
+.lnil-capsule-alt-1::before {
+  content: $lnil-capsule-alt-1;
+}
+
+.lnil-capsule-alt::before {
+  content: $lnil-capsule-alt;
+}
+
+.lnil-brain-check-alt::before {
+  content: $lnil-brain-check-alt;
+}
+
+.lnil-apple-alt::before {
+  content: $lnil-apple-alt;
+}
+
+.lnil-banana::before {
+  content: $lnil-banana;
+}
+
+.lnil-brocolli::before {
+  content: $lnil-brocolli;
+}
+
+.lnil-burger-alt-1::before {
+  content: $lnil-burger-alt-1;
+}
+
+.lnil-burger-alt::before {
+  content: $lnil-burger-alt;
+}
+
+.lnil-burger::before {
+  content: $lnil-burger;
+}
+
+.lnil-chef-hat-alt-1::before {
+  content: $lnil-chef-hat-alt-1;
+}
+
+.lnil-chef-hat-alt-2::before {
+  content: $lnil-chef-hat-alt-2;
+}
+
+.lnil-chef-hat-alt::before {
+  content: $lnil-chef-hat-alt;
+}
+
+.lnil-chef-hat::before {
+  content: $lnil-chef-hat;
+}
+
+.lnil-chicken::before {
+  content: $lnil-chicken;
+}
+
+.lnil-cocktail-alt-1::before {
+  content: $lnil-cocktail-alt-1;
+}
+
+.lnil-cocktail-alt::before {
+  content: $lnil-cocktail-alt;
+}
+
+.lnil-cocktail::before {
+  content: $lnil-cocktail;
+}
+
+.lnil-coffee-cup-alt::before {
+  content: $lnil-coffee-cup-alt;
+}
+
+.lnil-coffee-cup::before {
+  content: $lnil-coffee-cup;
+}
+
+.lnil-cupcake-alt::before {
+  content: $lnil-cupcake-alt;
+}
+
+.lnil-cupcake::before {
+  content: $lnil-cupcake;
+}
+
+.lnil-cutlery-alt-1::before {
+  content: $lnil-cutlery-alt-1;
+}
+
+.lnil-cutlery-alt::before {
+  content: $lnil-cutlery-alt;
+}
+
+.lnil-cutlery::before {
+  content: $lnil-cutlery;
+}
+
+.lnil-dinner-table::before {
+  content: $lnil-dinner-table;
+}
+
+.lnil-dinner::before {
+  content: $lnil-dinner;
+}
+
+.lnil-drumstick::before {
+  content: $lnil-drumstick;
+}
+
+.lnil-fresh-juice::before {
+  content: $lnil-fresh-juice;
+}
+
+.lnil-ice-cream-alt::before {
+  content: $lnil-ice-cream-alt;
+}
+
+.lnil-ice-cream::before {
+  content: $lnil-ice-cream;
+}
+
+.lnil-juice::before {
+  content: $lnil-juice;
+}
+
+.lnil-lolypop::before {
+  content: $lnil-lolypop;
+}
+
+.lnil-meat::before {
+  content: $lnil-meat;
+}
+
+.lnil-pizza-alt::before {
+  content: $lnil-pizza-alt;
+}
+
+.lnil-pizza::before {
+  content: $lnil-pizza;
+}
+
+.lnil-plate::before {
+  content: $lnil-plate;
+}
+
+.lnil-popcorn::before {
+  content: $lnil-popcorn;
+}
+
+.lnil-restaurant::before {
+  content: $lnil-restaurant;
+}
+
+.lnil-service::before {
+  content: $lnil-service;
+}
+
+.lnil-silverware::before {
+  content: $lnil-silverware;
+}
+
+.lnil-spatula::before {
+  content: $lnil-spatula;
+}
+
+.lnil-bowl-alt::before {
+  content: $lnil-bowl-alt;
+}
+
+.lnil-bowl::before {
+  content: $lnil-bowl;
+}
+
+.lnil-bowl-alt-1::before {
+  content: $lnil-bowl-alt-1;
+}
+
+.lnil-atom::before {
+  content: $lnil-atom;
+}
+
+.lnil-backpack-alt::before {
+  content: $lnil-backpack-alt;
+}
+
+.lnil-book::before {
+  content: $lnil-book;
+}
+
+.lnil-blackboard::before {
+  content: $lnil-blackboard;
+}
+
+.lnil-books::before {
+  content: $lnil-books;
+}
+
+.lnil-brakckets::before {
+  content: $lnil-brakckets;
+}
+
+.lnil-certificate-alt-1::before {
+  content: $lnil-certificate-alt-1;
+}
+
+.lnil-certificate-alt::before {
+  content: $lnil-certificate-alt;
+}
+
+.lnil-certificate::before {
+  content: $lnil-certificate;
+}
+
+.lnil-classroom::before {
+  content: $lnil-classroom;
+}
+
+.lnil-clipboard::before {
+  content: $lnil-clipboard;
+}
+
+.lnil-compass::before {
+  content: $lnil-compass;
+}
+
+.lnil-cubes::before {
+  content: $lnil-cubes;
+}
+
+.lnil-eraser::before {
+  content: $lnil-eraser;
+}
+
+.lnil-flask-alt-1::before {
+  content: $lnil-flask-alt-1;
+}
+
+.lnil-flask-alt-2::before {
+  content: $lnil-flask-alt-2;
+}
+
+.lnil-flask-alt::before {
+  content: $lnil-flask-alt;
+}
+
+.lnil-flask::before {
+  content: $lnil-flask;
+}
+
+.lnil-graduate-alt::before {
+  content: $lnil-graduate-alt;
+}
+
+.lnil-graduate::before {
+  content: $lnil-graduate;
+}
+
+.lnil-graduation::before {
+  content: $lnil-graduation;
+}
+
+.lnil-letterblocks::before {
+  content: $lnil-letterblocks;
+}
+
+.lnil-library::before {
+  content: $lnil-library;
+}
+
+.lnil-medal-alt::before {
+  content: $lnil-medal-alt;
+}
+
+.lnil-medal::before {
+  content: $lnil-medal;
+}
+
+.lnil-molecule-alt::before {
+  content: $lnil-molecule-alt;
+}
+
+.lnil-molecule::before {
+  content: $lnil-molecule;
+}
+
+.lnil-pencil-alt::before {
+  content: $lnil-pencil-alt;
+}
+
+.lnil-pencil::before {
+  content: $lnil-pencil;
+}
+
+.lnil-quill::before {
+  content: $lnil-quill;
+}
+
+.lnil-school-bench-alt::before {
+  content: $lnil-school-bench-alt;
+}
+
+.lnil-school-bench::before {
+  content: $lnil-school-bench;
+}
+
+.lnil-sketchbook::before {
+  content: $lnil-sketchbook;
+}
+
+.lnil-whiteboard-alt-1::before {
+  content: $lnil-whiteboard-alt-1;
+}
+
+.lnil-whiteboard-alt-2::before {
+  content: $lnil-whiteboard-alt-2;
+}
+
+.lnil-whiteboard-alt::before {
+  content: $lnil-whiteboard-alt;
+}
+
+.lnil-whiteboard::before {
+  content: $lnil-whiteboard;
+}
+
+.lnil-world-2::before {
+  content: $lnil-world-2;
+}
+
+.lnil-world-alt::before {
+  content: $lnil-world-alt;
+}
+
+.lnil-world::before {
+  content: $lnil-world;
+}
+
+.lnil-book-alt::before {
+  content: $lnil-book-alt;
+}
+
+.lnil-write::before {
+  content: $lnil-write;
+}
+
+.lnil-backpack::before {
+  content: $lnil-backpack;
+}
+
+.lnil-books-alt::before {
+  content: $lnil-books-alt;
+}
+
+.lnil-Italic::before {
+  content: $lnil-Italic;
+}
+
+.lnil-bold::before {
+  content: $lnil-bold;
+}
+
+.lnil-indent-decrease::before {
+  content: $lnil-indent-decrease;
+}
+
+.lnil-font::before {
+  content: $lnil-font;
+}
+
+.lnil-line-dashed::before {
+  content: $lnil-line-dashed;
+}
+
+.lnil-line-dotted::before {
+  content: $lnil-line-dotted;
+}
+
+.lnil-line-double::before {
+  content: $lnil-line-double;
+}
+
+.lnil-line-spacing::before {
+  content: $lnil-line-spacing;
+}
+
+.lnil-page-break::before {
+  content: $lnil-page-break;
+}
+
+.lnil-pagination::before {
+  content: $lnil-pagination;
+}
+
+.lnil-pilcrow::before {
+  content: $lnil-pilcrow;
+}
+
+.lnil-redo::before {
+  content: $lnil-redo;
+}
+
+.lnil-reflect::before {
+  content: $lnil-reflect;
+}
+
+.lnil-sort-alpha-asc::before {
+  content: $lnil-sort-alpha-asc;
+}
+
+.lnil-sort-amount-asc::before {
+  content: $lnil-sort-amount-asc;
+}
+
+.lnil-sort-amount-dsc::before {
+  content: $lnil-sort-amount-dsc;
+}
+
+.lnil-spellcheck::before {
+  content: $lnil-spellcheck;
+}
+
+.lnil-strikethrough::before {
+  content: $lnil-strikethrough;
+}
+
+.lnil-text-align-center::before {
+  content: $lnil-text-align-center;
+}
+
+.lnil-text-align-justify::before {
+  content: $lnil-text-align-justify;
+}
+
+.lnil-text-align-left::before {
+  content: $lnil-text-align-left;
+}
+
+.lnil-text-align-right::before {
+  content: $lnil-text-align-right;
+}
+
+.lnil-text-format-remove::before {
+  content: $lnil-text-format-remove;
+}
+
+.lnil-text-format::before {
+  content: $lnil-text-format;
+}
+
+.lnil-text::before {
+  content: $lnil-text;
+}
+
+.lnil-underline::before {
+  content: $lnil-underline;
+}
+
+.lnil-undo::before {
+  content: $lnil-undo;
+}
+
+.lnil-vertical-line::before {
+  content: $lnil-vertical-line;
+}
+
+.lnil-height::before {
+  content: $lnil-height;
+}
+
+.lnil-capital-letter::before {
+  content: $lnil-capital-letter;
+}
+
+.lnil-indent-increase::before {
+  content: $lnil-indent-increase;
+}
+
+.lnil-angle-double-down::before {
+  content: $lnil-angle-double-down;
+}
+
+.lnil-angle-double-left::before {
+  content: $lnil-angle-double-left;
+}
+
+.lnil-angle-double-right::before {
+  content: $lnil-angle-double-right;
+}
+
+.lnil-angle-double-up::before {
+  content: $lnil-angle-double-up;
+}
+
+.lnil-arrow-double-down::before {
+  content: $lnil-arrow-double-down;
+}
+
+.lnil-arrow-double-right::before {
+  content: $lnil-arrow-double-right;
+}
+
+.lnil-arrow-double-top::before {
+  content: $lnil-arrow-double-top;
+}
+
+.lnil-arrow-down-circle::before {
+  content: $lnil-arrow-down-circle;
+}
+
+.lnil-arrow-expand-alt::before {
+  content: $lnil-arrow-expand-alt;
+}
+
+.lnil-arrow-left-circle::before {
+  content: $lnil-arrow-left-circle;
+}
+
+.lnil-arrow-left::before {
+  content: $lnil-arrow-left;
+}
+
+.lnil-arrow-minimize-alt::before {
+  content: $lnil-arrow-minimize-alt;
+}
+
+.lnil-arrow-minimize::before {
+  content: $lnil-arrow-minimize;
+}
+
+.lnil-arrow-right-circle::before {
+  content: $lnil-arrow-right-circle;
+}
+
+.lnil-arrow-right::before {
+  content: $lnil-arrow-right;
+}
+
+.lnil-arrow-top-left::before {
+  content: $lnil-arrow-top-left;
+}
+
+.lnil-arrow-top-right::before {
+  content: $lnil-arrow-top-right;
+}
+
+.lnil-arrow-up-circle::before {
+  content: $lnil-arrow-up-circle;
+}
+
+.lnil-arrow-expand::before {
+  content: $lnil-arrow-expand;
+}
+
+.lnil-arrow-double-left::before {
+  content: $lnil-arrow-double-left;
+}
+
+.lnil-arrows-vertical::before {
+  content: $lnil-arrows-vertical;
+}
+
+.lnil-axis::before {
+  content: $lnil-axis;
+}
+
+.lnil-arrow-up::before {
+  content: $lnil-arrow-up;
+}
+
+.lnil-chevron-down::before {
+  content: $lnil-chevron-down;
+}
+
+.lnil-chevron-left-circle::before {
+  content: $lnil-chevron-left-circle;
+}
+
+.lnil-chevron-left::before {
+  content: $lnil-chevron-left;
+}
+
+.lnil-chevron-down-circle::before {
+  content: $lnil-chevron-down-circle;
+}
+
+.lnil-chevron-right::before {
+  content: $lnil-chevron-right;
+}
+
+.lnil-chevron-up-circle::before {
+  content: $lnil-chevron-up-circle;
+}
+
+.lnil-chevron-right-circle::before {
+  content: $lnil-chevron-right-circle;
+}
+
+.lnil-arrow-down::before {
+  content: $lnil-arrow-down;
+}
+
+.lnil-chevron-up::before {
+  content: $lnil-chevron-up;
+}
+
+.lnil-direction-alt::before {
+  content: $lnil-direction-alt;
+}
+
+.lnil-direction::before {
+  content: $lnil-direction;
+}
+
+.lnil-down-arrow-box::before {
+  content: $lnil-down-arrow-box;
+}
+
+.lnil-down-left-arrow-box::before {
+  content: $lnil-down-left-arrow-box;
+}
+
+.lnil-down-right-arrow-box::before {
+  content: $lnil-down-right-arrow-box;
+}
+
+.lnil-enter::before {
+  content: $lnil-enter;
+}
+
+.lnil-exit-down::before {
+  content: $lnil-exit-down;
+}
+
+.lnil-exit-up::before {
+  content: $lnil-exit-up;
+}
+
+.lnil-arrows-horizontal::before {
+  content: $lnil-arrows-horizontal;
+}
+
+.lnil-direction-ltr::before {
+  content: $lnil-direction-ltr;
+}
+
+.lnil-direction-rtl::before {
+  content: $lnil-direction-rtl;
+}
+
+.lnil-exit::before {
+  content: $lnil-exit;
+}
+
+.lnil-left-arrow-box::before {
+  content: $lnil-left-arrow-box;
+}
+
+.lnil-pointer-top::before {
+  content: $lnil-pointer-top;
+}
+
+.lnil-right-arrow-box::before {
+  content: $lnil-right-arrow-box;
+}
+
+.lnil-shift-left::before {
+  content: $lnil-shift-left;
+}
+
+.lnil-shift-right::before {
+  content: $lnil-shift-right;
+}
+
+.lnil-top-arrow-box::before {
+  content: $lnil-top-arrow-box;
+}
+
+.lnil-top-left-arrow-box::before {
+  content: $lnil-top-left-arrow-box;
+}
+
+.lnil-top-right-arrow-box::before {
+  content: $lnil-top-right-arrow-box;
+}
+
+.lnil-pointer-down::before {
+  content: $lnil-pointer-down;
+}
+
+.lnil-pointer-left::before {
+  content: $lnil-pointer-left;
+}
+
+.lnil-pointer-right::before {
+  content: $lnil-pointer-right;
+}
+
+.lnil-brush-alt::before {
+  content: $lnil-brush-alt;
+}
+
+.lnil-brush::before {
+  content: $lnil-brush;
+}
+
+.lnil-grid-alt::before {
+  content: $lnil-grid-alt;
+}
+
+.lnil-grid::before {
+  content: $lnil-grid;
+}
+
+.lnil-highlight-alt::before {
+  content: $lnil-highlight-alt;
+}
+
+.lnil-highlight::before {
+  content: $lnil-highlight;
+}
+
+.lnil-image-crop::before {
+  content: $lnil-image-crop;
+}
+
+.lnil-layers-alt-::before {
+  content: $lnil-layers-alt-;
+}
+
+.lnil-layers-alt-1::before {
+  content: $lnil-layers-alt-1;
+}
+
+.lnil-layers::before {
+  content: $lnil-layers;
+}
+
+.lnil-layout-alt-1::before {
+  content: $lnil-layout-alt-1;
+}
+
+.lnil-layout-alt-2::before {
+  content: $lnil-layout-alt-2;
+}
+
+.lnil-layout-alt::before {
+  content: $lnil-layout-alt;
+}
+
+.lnil-layout::before {
+  content: $lnil-layout;
+}
+
+.lnil-magic-wand::before {
+  content: $lnil-magic-wand;
+}
+
+.lnil-margin::before {
+  content: $lnil-margin;
+}
+
+.lnil-move::before {
+  content: $lnil-move;
+}
+
+.lnil-pallet::before {
+  content: $lnil-pallet;
+}
+
+.lnil-rotate::before {
+  content: $lnil-rotate;
+}
+
+.lnil-scaling::before {
+  content: $lnil-scaling;
+}
+
+.lnil-select::before {
+  content: $lnil-select;
+}
+
+.lnil-size::before {
+  content: $lnil-size;
+}
+
+.lnil-slice::before {
+  content: $lnil-slice;
+}
+
+.lnil-transform::before {
+  content: $lnil-transform;
+}
+
+.lnil-ux::before {
+  content: $lnil-ux;
+}
+
+.lnil-vector-alt::before {
+  content: $lnil-vector-alt;
+}
+
+.lnil-vector-pen::before {
+  content: $lnil-vector-pen;
+}
+
+.lnil-vector::before {
+  content: $lnil-vector;
+}
+
+.lnil-crop::before {
+  content: $lnil-crop;
+}
+
+.lnil-color-palette::before {
+  content: $lnil-color-palette;
+}
+
+.lnil-crop-alt::before {
+  content: $lnil-crop-alt;
+}
+
+.lnil-boundary::before {
+  content: $lnil-boundary;
+}
+
+.lnil-bricks-alt::before {
+  content: $lnil-bricks-alt;
+}
+
+.lnil-construction-hammer::before {
+  content: $lnil-construction-hammer;
+}
+
+.lnil-construction-rular::before {
+  content: $lnil-construction-rular;
+}
+
+.lnil-construction::before {
+  content: $lnil-construction;
+}
+
+.lnil-door-alt::before {
+  content: $lnil-door-alt;
+}
+
+.lnil-door::before {
+  content: $lnil-door;
+}
+
+.lnil-drill::before {
+  content: $lnil-drill;
+}
+
+.lnil-fence::before {
+  content: $lnil-fence;
+}
+
+.lnil-hammer-alt::before {
+  content: $lnil-hammer-alt;
+}
+
+.lnil-hammer::before {
+  content: $lnil-hammer;
+}
+
+.lnil-helmet-alt::before {
+  content: $lnil-helmet-alt;
+}
+
+.lnil-helmet::before {
+  content: $lnil-helmet;
+}
+
+.lnil-hook::before {
+  content: $lnil-hook;
+}
+
+.lnil-house-alt-1::before {
+  content: $lnil-house-alt-1;
+}
+
+.lnil-house-alt::before {
+  content: $lnil-house-alt;
+}
+
+.lnil-house-heart::before {
+  content: $lnil-house-heart;
+}
+
+.lnil-house-plan::before {
+  content: $lnil-house-plan;
+}
+
+.lnil-house::before {
+  content: $lnil-house;
+}
+
+.lnil-measuring-tape::before {
+  content: $lnil-measuring-tape;
+}
+
+.lnil-paint-bucket::before {
+  content: $lnil-paint-bucket;
+}
+
+.lnil-paint-roller-alt-1::before {
+  content: $lnil-paint-roller-alt-1;
+}
+
+.lnil-paint-roller-alt::before {
+  content: $lnil-paint-roller-alt;
+}
+
+.lnil-paint-roller::before {
+  content: $lnil-paint-roller;
+}
+
+.lnil-pipe::before {
+  content: $lnil-pipe;
+}
+
+.lnil-ruler-alt::before {
+  content: $lnil-ruler-alt;
+}
+
+.lnil-ruler-pencil::before {
+  content: $lnil-ruler-pencil;
+}
+
+.lnil-ruler::before {
+  content: $lnil-ruler;
+}
+
+.lnil-saw-alt::before {
+  content: $lnil-saw-alt;
+}
+
+.lnil-saw::before {
+  content: $lnil-saw;
+}
+
+.lnil-screw::before {
+  content: $lnil-screw;
+}
+
+.lnil-screwdriver::before {
+  content: $lnil-screwdriver;
+}
+
+.lnil-shovel::before {
+  content: $lnil-shovel;
+}
+
+.lnil-toolbox::before {
+  content: $lnil-toolbox;
+}
+
+.lnil-triangle-ruler-1::before {
+  content: $lnil-triangle-ruler-1;
+}
+
+.lnil-triangle-ruler::before {
+  content: $lnil-triangle-ruler;
+}
+
+.lnil-trowel-alt::before {
+  content: $lnil-trowel-alt;
+}
+
+.lnil-trowel::before {
+  content: $lnil-trowel;
+}
+
+.lnil-wheelbarrow::before {
+  content: $lnil-wheelbarrow;
+}
+
+.lnil-wrench::before {
+  content: $lnil-wrench;
+}
+
+.lnil-cone::before {
+  content: $lnil-cone;
+}
+
+.lnil-bricks::before {
+  content: $lnil-bricks;
+}
+
+.lnil-bulldozer::before {
+  content: $lnil-bulldozer;
+}
+
+.lnil-anchor::before {
+  content: $lnil-anchor;
+}
+
+.lnil-bi-cycle::before {
+  content: $lnil-bi-cycle;
+}
+
+.lnil-bubble::before {
+  content: $lnil-bubble;
+}
+
+.lnil-boarding-pass::before {
+  content: $lnil-boarding-pass;
+}
+
+.lnil-bridge::before {
+  content: $lnil-bridge;
+}
+
+.lnil-car-alt::before {
+  content: $lnil-car-alt;
+}
+
+.lnil-car::before {
+  content: $lnil-car;
+}
+
+.lnil-caravan::before {
+  content: $lnil-caravan;
+}
+
+.lnil-chat-add::before {
+  content: $lnil-chat-add;
+}
+
+.lnil-chat-minus::before {
+  content: $lnil-chat-minus;
+}
+
+.lnil-comments-alt::before {
+  content: $lnil-comments-alt;
+}
+
+.lnil-comments-reply::before {
+  content: $lnil-comments-reply;
+}
+
+.lnil-comments::before {
+  content: $lnil-comments;
+}
+
+.lnil-envelope-alt::before {
+  content: $lnil-envelope-alt;
+}
+
+.lnil-envelope::before {
+  content: $lnil-envelope;
+}
+
+.lnil-helicopter::before {
+  content: $lnil-helicopter;
+}
+
+.lnil-inbox::before {
+  content: $lnil-inbox;
+}
+
+.lnil-megaphone::before {
+  content: $lnil-megaphone;
+}
+
+.lnil-message-attachement::before {
+  content: $lnil-message-attachement;
+}
+
+.lnil-message-block::before {
+  content: $lnil-message-block;
+}
+
+.lnil-message-check::before {
+  content: $lnil-message-check;
+}
+
+.lnil-message-cross::before {
+  content: $lnil-message-cross;
+}
+
+.lnil-message-desktop::before {
+  content: $lnil-message-desktop;
+}
+
+.lnil-message-edit::before {
+  content: $lnil-message-edit;
+}
+
+.lnil-message-forward::before {
+  content: $lnil-message-forward;
+}
+
+.lnil-message-incoming::before {
+  content: $lnil-message-incoming;
+}
+
+.lnil-message-laptop::before {
+  content: $lnil-message-laptop;
+}
+
+.lnil-message-lock::before {
+  content: $lnil-message-lock;
+}
+
+.lnil-message-love::before {
+  content: $lnil-message-love;
+}
+
+.lnil-message-minus::before {
+  content: $lnil-message-minus;
+}
+
+.lnil-message-outgoing::before {
+  content: $lnil-message-outgoing;
+}
+
+.lnil-message-plus::before {
+  content: $lnil-message-plus;
+}
+
+.lnil-message-reply::before {
+  content: $lnil-message-reply;
+}
+
+.lnil-message-search::before {
+  content: $lnil-message-search;
+}
+
+.lnil-message-share::before {
+  content: $lnil-message-share;
+}
+
+.lnil-mobile-chat::before {
+  content: $lnil-mobile-chat;
+}
+
+.lnil-page::before {
+  content: $lnil-page;
+}
+
+.lnil-phone-block::before {
+  content: $lnil-phone-block;
+}
+
+.lnil-phone-caling::before {
+  content: $lnil-phone-caling;
+}
+
+.lnil-phone-conference::before {
+  content: $lnil-phone-conference;
+}
+
+.lnil-phone-cut::before {
+  content: $lnil-phone-cut;
+}
+
+.lnil-phone-forward::before {
+  content: $lnil-phone-forward;
+}
+
+.lnil-phone-incoming::before {
+  content: $lnil-phone-incoming;
+}
+
+.lnil-phone-misscall::before {
+  content: $lnil-phone-misscall;
+}
+
+.lnil-phone-outgoing::before {
+  content: $lnil-phone-outgoing;
+}
+
+.lnil-phone-pause::before {
+  content: $lnil-phone-pause;
+}
+
+.lnil-phone-redial::before {
+  content: $lnil-phone-redial;
+}
+
+.lnil-phone-ring::before {
+  content: $lnil-phone-ring;
+}
+
+.lnil-phone-set::before {
+  content: $lnil-phone-set;
+}
+
+.lnil-phone::before {
+  content: $lnil-phone;
+}
+
+.lnil-plane-alt::before {
+  content: $lnil-plane-alt;
+}
+
+.lnil-plane::before {
+  content: $lnil-plane;
+}
+
+.lnil-popup::before {
+  content: $lnil-popup;
+}
+
+.lnil-postcard-alt::before {
+  content: $lnil-postcard-alt;
+}
+
+.lnil-postcard::before {
+  content: $lnil-postcard;
+}
+
+.lnil-reply::before {
+  content: $lnil-reply;
+}
+
+.lnil-road::before {
+  content: $lnil-road;
+}
+
+.lnil-scooter::before {
+  content: $lnil-scooter;
+}
+
+.lnil-ship::before {
+  content: $lnil-ship;
+}
+
+.lnil-support::before {
+  content: $lnil-support;
+}
+
+.lnil-target-mail::before {
+  content: $lnil-target-mail;
+}
+
+.lnil-taxi::before {
+  content: $lnil-taxi;
+}
+
+.lnil-train-alt::before {
+  content: $lnil-train-alt;
+}
+
+.lnil-train::before {
+  content: $lnil-train;
+}
+
+.lnil-bullhorn::before {
+  content: $lnil-bullhorn;
+}
+
+.lnil-bus::before {
+  content: $lnil-bus;
+}
+
+.lnil-boarding-pass-alt::before {
+  content: $lnil-boarding-pass-alt;
+}
+
+.lnil-achievement::before {
+  content: $lnil-achievement;
+}
+
+.lnil-agenda::before {
+  content: $lnil-agenda;
+}
+
+.lnil-briefcase-alt::before {
+  content: $lnil-briefcase-alt;
+}
+
+.lnil-apartment-alt::before {
+  content: $lnil-apartment-alt;
+}
+
+.lnil-apartment::before {
+  content: $lnil-apartment;
+}
+
+.lnil-analytics-alt-1::before {
+  content: $lnil-analytics-alt-1;
+}
+
+.lnil-briefcase::before {
+  content: $lnil-briefcase;
+}
+
+.lnil-cart-alt::before {
+  content: $lnil-cart-alt;
+}
+
+.lnil-cart-down::before {
+  content: $lnil-cart-down;
+}
+
+.lnil-cart-empty::before {
+  content: $lnil-cart-empty;
+}
+
+.lnil-cart-full::before {
+  content: $lnil-cart-full;
+}
+
+.lnil-delivery::before {
+  content: $lnil-delivery;
+}
+
+.lnil-desk::before {
+  content: $lnil-desk;
+}
+
+.lnil-customer::before {
+  content: $lnil-customer;
+}
+
+.lnil-graph::before {
+  content: $lnil-graph;
+}
+
+.lnil-grow::before {
+  content: $lnil-grow;
+}
+
+.lnil-hierchy-alt::before {
+  content: $lnil-hierchy-alt;
+}
+
+.lnil-global::before {
+  content: $lnil-global;
+}
+
+.lnil-hierchy::before {
+  content: $lnil-hierchy;
+}
+
+.lnil-investment::before {
+  content: $lnil-investment;
+}
+
+.lnil-notepad::before {
+  content: $lnil-notepad;
+}
+
+.lnil-consulting::before {
+  content: $lnil-consulting;
+}
+
+.lnil-office-plan::before {
+  content: $lnil-office-plan;
+}
+
+.lnil-paperclip::before {
+  content: $lnil-paperclip;
+}
+
+.lnil-cart::before {
+  content: $lnil-cart;
+}
+
+.lnil-offer::before {
+  content: $lnil-offer;
+}
+
+.lnil-pie-chart-alt::before {
+  content: $lnil-pie-chart-alt;
+}
+
+.lnil-pie-chart-dollar::before {
+  content: $lnil-pie-chart-dollar;
+}
+
+.lnil-pie-chart::before {
+  content: $lnil-pie-chart;
+}
+
+.lnil-pie-report::before {
+  content: $lnil-pie-report;
+}
+
+.lnil-handshake::before {
+  content: $lnil-handshake;
+}
+
+.lnil-pin-alt::before {
+  content: $lnil-pin-alt;
+}
+
+.lnil-pin::before {
+  content: $lnil-pin;
+}
+
+.lnil-quotation::before {
+  content: $lnil-quotation;
+}
+
+.lnil-revenue::before {
+  content: $lnil-revenue;
+}
+
+.lnil-stamp::before {
+  content: $lnil-stamp;
+}
+
+.lnil-tablet-alt::before {
+  content: $lnil-tablet-alt;
+}
+
+.lnil-tag::before {
+  content: $lnil-tag;
+}
+
+.lnil-target-achievement::before {
+  content: $lnil-target-achievement;
+}
+
+.lnil-table::before {
+  content: $lnil-table;
+}
+
+.lnil-target-alt::before {
+  content: $lnil-target-alt;
+}
+
+.lnil-target-alt-1::before {
+  content: $lnil-target-alt-1;
+}
+
+.lnil-swatches::before {
+  content: $lnil-swatches;
+}
+
+.lnil-stats-down::before {
+  content: $lnil-stats-down;
+}
+
+.lnil-stats-up::before {
+  content: $lnil-stats-up;
+}
+
+.lnil-target-revenue::before {
+  content: $lnil-target-revenue;
+}
+
+.lnil-tie::before {
+  content: $lnil-tie;
+}
+
+.lnil-target::before {
+  content: $lnil-target;
+}
+
+.lnil-licencse::before {
+  content: $lnil-licencse;
+}
+
+.lnil-target-remove::before {
+  content: $lnil-target-remove;
+}
+
+.lnil-sales-report::before {
+  content: $lnil-sales-report;
+}
+
+.lnil-Instagram::before {
+  content: $lnil-Instagram;
+}
+
+.lnil-amazon::before {
+  content: $lnil-amazon;
+}
+
+.lnil-amex::before {
+  content: $lnil-amex;
+}
+
+.lnil-bitbucket::before {
+  content: $lnil-bitbucket;
+}
+
+.lnil-bitcoin::before {
+  content: $lnil-bitcoin;
+}
+
+.lnil-chrome::before {
+  content: $lnil-chrome;
+}
+
+.lnil-css3::before {
+  content: $lnil-css3;
+}
+
+.lnil-dribbble::before {
+  content: $lnil-dribbble;
+}
+
+.lnil-dropbox::before {
+  content: $lnil-dropbox;
+}
+
+.lnil-drupal::before {
+  content: $lnil-drupal;
+}
+
+.lnil-facebook::before {
+  content: $lnil-facebook;
+}
+
+.lnil-firefox::before {
+  content: $lnil-firefox;
+}
+
+.lnil-github::before {
+  content: $lnil-github;
+}
+
+.lnil-html5::before {
+  content: $lnil-html5;
+}
+
+.lnil-mastercard::before {
+  content: $lnil-mastercard;
+}
+
+.lnil-paypal::before {
+  content: $lnil-paypal;
+}
+
+.lnil-play-store::before {
+  content: $lnil-play-store;
+}
+
+.lnil-slack::before {
+  content: $lnil-slack;
+}
+
+.lnil-quora::before {
+  content: $lnil-quora;
+}
+
+.lnil-soundcloud::before {
+  content: $lnil-soundcloud;
+}
+
+.lnil-spotify::before {
+  content: $lnil-spotify;
+}
+
+.lnil-twitter::before {
+  content: $lnil-twitter;
+}
+
+.lnil-visa::before {
+  content: $lnil-visa;
+}
+
+.lnil-android::before {
+  content: $lnil-android;
+}
+
+.lnil-apple::before {
+  content: $lnil-apple;
+}
+
+.lnil-behance::before {
+  content: $lnil-behance;
+}
+

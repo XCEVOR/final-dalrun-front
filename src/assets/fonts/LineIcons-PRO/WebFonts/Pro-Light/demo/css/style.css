@@ -1,0 +1,3952 @@
+/*--------------------------------
+
+LineIconsPro Light Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+  font-family: 'LineIconsPro Light';
+  src: url('../../fonts/LineIconsPro Light.eot');
+  src: url('../../fonts/LineIconsPro Light.eot') format('embedded-opentype'), url('../../fonts/LineIconsPro Light.woff2') format('woff2'), url('../../fonts/LineIconsPro Light.woff') format('woff'), url('../../fonts/LineIconsPro Light.ttf') format('truetype'), url('../../fonts/LineIconsPro Light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: #333333;
+  background: white;
+}
+
+a {
+  color: #608CEE;
+  text-decoration: none;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+header {
+  text-align: center;
+  padding: 80px 0 48px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+}
+
+header p {
+  font-size: 1.4rem;
+  margin-top: 1em;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ul li {
+  border-radius: .25em;
+  transition: background 0.2s;
+  user-select: none;
+  overflow: hidden;
+  text-align: center;
+  padding: 1em;
+}
+
+ul li:hover {
+  background: #f8f8f8;
+}
+
+ul p, ul em, ul input {
+  display: block;
+  font-size: 1.1rem;
+  color: rgba(0,0,0,0.6);
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  max-width: 11rem;
+}
+
+ul p {
+  padding: 10px 0;
+}
+
+ul p::selection, ul em::selection {
+  background: #608CEE;
+  color: #fff;
+}
+
+ul p::-moz-selection, ul em::-moz-selection {
+  background: #608CEE;
+  color: #fff;
+}
+
+ul em {
+  margin-bottom: 8px;
+}
+
+ul em::before {
+  content: '[';
+}
+ul em::after {
+  content: ']';
+}
+
+ul input {
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* --------------------------------
+
+icons
+
+-------------------------------- */
+.lnil {
+  display: inline-block;
+  font: normal normal normal 32px/1 'LineIconsPro Light';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------
+  font icons
+-------------------------*/
+
+.lnil-air-flow::before {
+    content: "\ea02";
+}
+
+.lnil-air::before {
+    content: "\ea03";
+}
+
+.lnil-cloud-moon::before {
+    content: "\ea04";
+}
+
+.lnil-cloud-sun::before {
+    content: "\ea05";
+}
+
+.lnil-cloud-alt::before {
+    content: "\ea06";
+}
+
+.lnil-cloudy-sun::before {
+    content: "\ea07";
+}
+
+.lnil-cloud-alt-2::before {
+    content: "\ea08";
+}
+
+.lnil-drop::before {
+    content: "\ea09";
+}
+
+.lnil-farenheit::before {
+    content: "\ea0a";
+}
+
+.lnil-moon-star::before {
+    content: "\ea0b";
+}
+
+.lnil-cloud::before {
+    content: "\ea0c";
+}
+
+.lnil-night-thunder::before {
+    content: "\ea0d";
+}
+
+.lnil-drop-alt::before {
+    content: "\ea0e";
+}
+
+.lnil-night::before {
+    content: "\ea0f";
+}
+
+.lnil-rain::before {
+    content: "\ea10";
+}
+
+.lnil-snowfall::before {
+    content: "\ea11";
+}
+
+.lnil-sun-rain::before {
+    content: "\ea12";
+}
+
+.lnil-sun::before {
+    content: "\ea13";
+}
+
+.lnil-thunder-alt::before {
+    content: "\ea14";
+}
+
+.lnil-thunder::before {
+    content: "\ea15";
+}
+
+.lnil-umbrella-alt::before {
+    content: "\ea16";
+}
+
+.lnil-umbrella-rain-alt::before {
+    content: "\ea17";
+}
+
+.lnil-umbrella-rain::before {
+    content: "\ea18";
+}
+
+.lnil-umbrella::before {
+    content: "\ea19";
+}
+
+.lnil-water-drops::before {
+    content: "\ea1a";
+}
+
+.lnil-wind-cloud::before {
+    content: "\ea1b";
+}
+
+.lnil-wind-sun::before {
+    content: "\ea1c";
+}
+
+.lnil-cloud-alt-1::before {
+    content: "\ea1d";
+}
+
+.lnil-night-wind::before {
+    content: "\ea1e";
+}
+
+.lnil-moon::before {
+    content: "\ea1f";
+}
+
+.lnil-beach-chair::before {
+    content: "\ea20";
+}
+
+.lnil-beach::before {
+    content: "\ea21";
+}
+
+.lnil-hot-air-baloon::before {
+    content: "\ea22";
+}
+
+.lnil-cable-car::before {
+    content: "\ea23";
+}
+
+.lnil-suitcase-alt::before {
+    content: "\ea24";
+}
+
+.lnil-suitcase::before {
+    content: "\ea25";
+}
+
+.lnil-surf-board::before {
+    content: "\ea26";
+}
+
+.lnil-tent-alt::before {
+    content: "\ea27";
+}
+
+.lnil-tent::before {
+    content: "\ea28";
+}
+
+.lnil-travel::before {
+    content: "\ea29";
+}
+
+.lnil-pyramids::before {
+    content: "\ea2a";
+}
+
+.lnil-flight-search::before {
+    content: "\ea2b";
+}
+
+.lnil-beachball::before {
+    content: "\ea2c";
+}
+
+.lnil-3d::before {
+    content: "\ea2d";
+}
+
+.lnil-Mobile::before {
+    content: "\ea2e";
+}
+
+.lnil-alarm-2::before {
+    content: "\ea2f";
+}
+
+.lnil-alarm-3::before {
+    content: "\ea30";
+}
+
+.lnil-alarm-4::before {
+    content: "\ea31";
+}
+
+.lnil-alarm-clock-alt::before {
+    content: "\ea32";
+}
+
+.lnil-add-files::before {
+    content: "\ea33";
+}
+
+.lnil-ai::before {
+    content: "\ea34";
+}
+
+.lnil-alarm-clock::before {
+    content: "\ea35";
+}
+
+.lnil-archive::before {
+    content: "\ea36";
+}
+
+.lnil-backspace::before {
+    content: "\ea37";
+}
+
+.lnil-ban::before {
+    content: "\ea38";
+}
+
+.lnil-battery::before {
+    content: "\ea39";
+}
+
+.lnil-block-user::before {
+    content: "\ea3a";
+}
+
+.lnil-bluetooth::before {
+    content: "\ea3b";
+}
+
+.lnil-bookmark-alt::before {
+    content: "\ea3c";
+}
+
+.lnil-bookmark::before {
+    content: "\ea3d";
+}
+
+.lnil-brightness::before {
+    content: "\ea3e";
+}
+
+.lnil-bulb-alt::before {
+    content: "\ea3f";
+}
+
+.lnil-bulb::before {
+    content: "\ea40";
+}
+
+.lnil-calendar::before {
+    content: "\ea41";
+}
+
+.lnil-calender-alt-1::before {
+    content: "\ea42";
+}
+
+.lnil-calender-alt-2::before {
+    content: "\ea43";
+}
+
+.lnil-calender-alt-3::before {
+    content: "\ea44";
+}
+
+.lnil-calender-alt-4::before {
+    content: "\ea45";
+}
+
+.lnil-calender-alt::before {
+    content: "\ea46";
+}
+
+.lnil-camera-alt-1::before {
+    content: "\ea47";
+}
+
+.lnil-camera-alt::before {
+    content: "\ea48";
+}
+
+.lnil-camera::before {
+    content: "\ea49";
+}
+
+.lnil-change::before {
+    content: "\ea4a";
+}
+
+.lnil-charging::before {
+    content: "\ea4b";
+}
+
+.lnil-cloud-check-alt::before {
+    content: "\ea4c";
+}
+
+.lnil-cloud-check::before {
+    content: "\ea4d";
+}
+
+.lnil-cloud-computing-alt::before {
+    content: "\ea4e";
+}
+
+.lnil-cloud-computing::before {
+    content: "\ea4f";
+}
+
+.lnil-Website::before {
+    content: "\ea50";
+}
+
+.lnil-alarm::before {
+    content: "\ea51";
+}
+
+.lnil-cloud-network-alt::before {
+    content: "\ea52";
+}
+
+.lnil-cloud-network::before {
+    content: "\ea53";
+}
+
+.lnil-cloud-search-1::before {
+    content: "\ea54";
+}
+
+.lnil-cloud-search-2::before {
+    content: "\ea55";
+}
+
+.lnil-cloud-search::before {
+    content: "\ea56";
+}
+
+.lnil-cloud-sync-alt::before {
+    content: "\ea57";
+}
+
+.lnil-cloud-sync::before {
+    content: "\ea58";
+}
+
+.lnil-cloud-download-alt::before {
+    content: "\ea59";
+}
+
+.lnil-cloud-download::before {
+    content: "\ea5a";
+}
+
+.lnil-appointment::before {
+    content: "\ea5b";
+}
+
+.lnil-cloud-upload-alt::before {
+    content: "\ea5c";
+}
+
+.lnil-cloud-upload::before {
+    content: "\ea5d";
+}
+
+.lnil-code-alt::before {
+    content: "\ea5e";
+}
+
+.lnil-code::before {
+    content: "\ea5f";
+}
+
+.lnil-cog::before {
+    content: "\ea60";
+}
+
+.lnil-cogs::before {
+    content: "\ea61";
+}
+
+.lnil-control-panel::before {
+    content: "\ea62";
+}
+
+.lnil-copy::before {
+    content: "\ea63";
+}
+
+.lnil-cut::before {
+    content: "\ea64";
+}
+
+.lnil-dashboard::before {
+    content: "\ea65";
+}
+
+.lnil-database::before {
+    content: "\ea66";
+}
+
+.lnil-display-alt::before {
+    content: "\ea67";
+}
+
+.lnil-display::before {
+    content: "\ea68";
+}
+
+.lnil-domain::before {
+    content: "\ea69";
+}
+
+.lnil-download::before {
+    content: "\ea6a";
+}
+
+.lnil-empty-battery::before {
+    content: "\ea6b";
+}
+
+.lnil-empty-file::before {
+    content: "\ea6c";
+}
+
+.lnil-file-download::before {
+    content: "\ea6d";
+}
+
+.lnil-file-lock::before {
+    content: "\ea6e";
+}
+
+.lnil-file-name::before {
+    content: "\ea6f";
+}
+
+.lnil-file-protection::before {
+    content: "\ea70";
+}
+
+.lnil-file-upload::before {
+    content: "\ea71";
+}
+
+.lnil-files-alt::before {
+    content: "\ea72";
+}
+
+.lnil-files::before {
+    content: "\ea73";
+}
+
+.lnil-folder-alt-1::before {
+    content: "\ea74";
+}
+
+.lnil-folder-alt::before {
+    content: "\ea75";
+}
+
+.lnil-folder::before {
+    content: "\ea76";
+}
+
+.lnil-full-battery::before {
+    content: "\ea77";
+}
+
+.lnil-game::before {
+    content: "\ea78";
+}
+
+.lnil-half-battery::before {
+    content: "\ea79";
+}
+
+.lnil-harddrive::before {
+    content: "\ea7a";
+}
+
+.lnil-headphone-alt::before {
+    content: "\ea7b";
+}
+
+.lnil-headphone::before {
+    content: "\ea7c";
+}
+
+.lnil-laptop-alt-switch::before {
+    content: "\ea7d";
+}
+
+.lnil-laptop-alt::before {
+    content: "\ea7e";
+}
+
+.lnil-laptop-phone::before {
+    content: "\ea7f";
+}
+
+.lnil-laptop::before {
+    content: "\ea80";
+}
+
+.lnil-link-alt-1::before {
+    content: "\ea81";
+}
+
+.lnil-link-alt::before {
+    content: "\ea82";
+}
+
+.lnil-link::before {
+    content: "\ea83";
+}
+
+.lnil-low-battery::before {
+    content: "\ea84";
+}
+
+.lnil-magnet::before {
+    content: "\ea85";
+}
+
+.lnil-magnifier::before {
+    content: "\ea86";
+}
+
+.lnil-map-marker::before {
+    content: "\ea87";
+}
+
+.lnil-map::before {
+    content: "\ea88";
+}
+
+.lnil-menu-alt-1::before {
+    content: "\ea89";
+}
+
+.lnil-menu-alt-2::before {
+    content: "\ea8a";
+}
+
+.lnil-menu-alt-3::before {
+    content: "\ea8b";
+}
+
+.lnil-menu-alt-4::before {
+    content: "\ea8c";
+}
+
+.lnil-menu-alt-5::before {
+    content: "\ea8d";
+}
+
+.lnil-menu-alt::before {
+    content: "\ea8e";
+}
+
+.lnil-menu-circle::before {
+    content: "\ea8f";
+}
+
+.lnil-menu::before {
+    content: "\ea90";
+}
+
+.lnil-mic::before {
+    content: "\ea91";
+}
+
+.lnil-microphone-alt-1::before {
+    content: "\ea92";
+}
+
+.lnil-microphone-alt::before {
+    content: "\ea93";
+}
+
+.lnil-microphone::before {
+    content: "\ea94";
+}
+
+.lnil-mobile-alt-1::before {
+    content: "\ea95";
+}
+
+.lnil-mobile-alt-2::before {
+    content: "\ea96";
+}
+
+.lnil-mobile-alt-button::before {
+    content: "\ea97";
+}
+
+.lnil-mouse::before {
+    content: "\ea98";
+}
+
+.lnil-no-charge-battery::before {
+    content: "\ea99";
+}
+
+.lnil-package::before {
+    content: "\ea9a";
+}
+
+.lnil-plug::before {
+    content: "\ea9b";
+}
+
+.lnil-presentation::before {
+    content: "\ea9c";
+}
+
+.lnil-printer::before {
+    content: "\ea9d";
+}
+
+.lnil-ps::before {
+    content: "\ea9e";
+}
+
+.lnil-recycle-alt::before {
+    content: "\ea9f";
+}
+
+.lnil-image::before {
+    content: "\eaa0";
+}
+
+.lnil-reload-alt-box::before {
+    content: "\eaa1";
+}
+
+.lnil-reload-alt::before {
+    content: "\eaa2";
+}
+
+.lnil-reload::before {
+    content: "\eaa3";
+}
+
+.lnil-recycle::before {
+    content: "\eaa4";
+}
+
+.lnil-rocket::before {
+    content: "\eaa5";
+}
+
+.lnil-rss-feed::before {
+    content: "\eaa6";
+}
+
+.lnil-save-alt::before {
+    content: "\eaa7";
+}
+
+.lnil-save::before {
+    content: "\eaa8";
+}
+
+.lnil-scan::before {
+    content: "\eaa9";
+}
+
+.lnil-scroll-down::before {
+    content: "\eaaa";
+}
+
+.lnil-search-alt::before {
+    content: "\eaab";
+}
+
+.lnil-search::before {
+    content: "\eaac";
+}
+
+.lnil-share-alt::before {
+    content: "\eaad";
+}
+
+.lnil-share::before {
+    content: "\eaae";
+}
+
+.lnil-shopping-basket::before {
+    content: "\eaaf";
+}
+
+.lnil-shortcode::before {
+    content: "\eab0";
+}
+
+.lnil-signal::before {
+    content: "\eab1";
+}
+
+.lnil-laptop-alt-keyboard::before {
+    content: "\eab2";
+}
+
+.lnil-star-fill::before {
+    content: "\eab3";
+}
+
+.lnil-star-half::before {
+    content: "\eab4";
+}
+
+.lnil-star::before {
+    content: "\eab5";
+}
+
+.lnil-tab::before {
+    content: "\eab6";
+}
+
+.lnil-tap::before {
+    content: "\eab7";
+}
+
+.lnil-thumbnail::before {
+    content: "\eab8";
+}
+
+.lnil-timer::before {
+    content: "\eab9";
+}
+
+.lnil-trash-can-alt-1::before {
+    content: "\eaba";
+}
+
+.lnil-trash-can-alt::before {
+    content: "\eabb";
+}
+
+.lnil-trash-can::before {
+    content: "\eabc";
+}
+
+.lnil-trash::before {
+    content: "\eabd";
+}
+
+.lnil-unlink::before {
+    content: "\eabe";
+}
+
+.lnil-upload::before {
+    content: "\eabf";
+}
+
+.lnil-user-alt-1::before {
+    content: "\eac0";
+}
+
+.lnil-user-alt-2::before {
+    content: "\eac1";
+}
+
+.lnil-user-alt::before {
+    content: "\eac2";
+}
+
+.lnil-user::before {
+    content: "\eac3";
+}
+
+.lnil-users-alt::before {
+    content: "\eac4";
+}
+
+.lnil-users::before {
+    content: "\eac5";
+}
+
+.lnil-website-alt::before {
+    content: "\eac6";
+}
+
+.lnil-zip::before {
+    content: "\eac7";
+}
+
+.lnil-zoom-in::before {
+    content: "\eac8";
+}
+
+.lnil-zoom-out::before {
+    content: "\eac9";
+}
+
+.lnil-star-empty::before {
+    content: "\eaca";
+}
+
+.lnil-remove-file::before {
+    content: "\eacb";
+}
+
+.lnil-keyboard::before {
+    content: "\eacc";
+}
+
+.lnil-hourglass::before {
+    content: "\eacd";
+}
+
+.lnil-spinner-1::before {
+    content: "\eace";
+}
+
+.lnil-spinner-10::before {
+    content: "\eacf";
+}
+
+.lnil-spinner-11::before {
+    content: "\ead0";
+}
+
+.lnil-spinner-2::before {
+    content: "\ead1";
+}
+
+.lnil-spinner-3::before {
+    content: "\ead2";
+}
+
+.lnil-spinner-4::before {
+    content: "\ead3";
+}
+
+.lnil-spinner-5::before {
+    content: "\ead4";
+}
+
+.lnil-spinner-9::before {
+    content: "\ead5";
+}
+
+.lnil-spinner-7::before {
+    content: "\ead6";
+}
+
+.lnil-spinner-8::before {
+    content: "\ead7";
+}
+
+.lnil-spinner-6::before {
+    content: "\ead8";
+}
+
+.lnil-angry::before {
+    content: "\ead9";
+}
+
+.lnil-bored::before {
+    content: "\eada";
+}
+
+.lnil-cry::before {
+    content: "\eadb";
+}
+
+.lnil-cute::before {
+    content: "\eadc";
+}
+
+.lnil-dead::before {
+    content: "\eadd";
+}
+
+.lnil-emoji-cool::before {
+    content: "\eade";
+}
+
+.lnil-emoji-friendly::before {
+    content: "\eadf";
+}
+
+.lnil-emoji-happy::before {
+    content: "\eae0";
+}
+
+.lnil-emoji-sad::before {
+    content: "\eae1";
+}
+
+.lnil-emoji-smile::before {
+    content: "\eae2";
+}
+
+.lnil-emoji-speechless::before {
+    content: "\eae3";
+}
+
+.lnil-emoji-suspect::before {
+    content: "\eae4";
+}
+
+.lnil-emoji-tounge::before {
+    content: "\eae5";
+}
+
+.lnil-happy-1::before {
+    content: "\eae6";
+}
+
+.lnil-happy-2::before {
+    content: "\eae7";
+}
+
+.lnil-happy-smile::before {
+    content: "\eae8";
+}
+
+.lnil-kiss-2::before {
+    content: "\eae9";
+}
+
+.lnil-kiss::before {
+    content: "\eaea";
+}
+
+.lnil-love::before {
+    content: "\eaeb";
+}
+
+.lnil-loved-surprise::before {
+    content: "\eaec";
+}
+
+.lnil-mute::before {
+    content: "\eaed";
+}
+
+.lnil-piss::before {
+    content: "\eaee";
+}
+
+.lnil-sick-1::before {
+    content: "\eaef";
+}
+
+.lnil-sick::before {
+    content: "\eaf0";
+}
+
+.lnil-sleep::before {
+    content: "\eaf1";
+}
+
+.lnil-super-cool::before {
+    content: "\eaf2";
+}
+
+.lnil-super-happy::before {
+    content: "\eaf3";
+}
+
+.lnil-wink::before {
+    content: "\eaf4";
+}
+
+.lnil-wow::before {
+    content: "\eaf5";
+}
+
+.lnil-yawn::before {
+    content: "\eaf6";
+}
+
+.lnil-cool-1::before {
+    content: "\eaf7";
+}
+
+.lnil-cool-3::before {
+    content: "\eaf8";
+}
+
+.lnil-cool-kiss::before {
+    content: "\eaf9";
+}
+
+.lnil-cotton-bud::before {
+    content: "\eafa";
+}
+
+.lnil-crown::before {
+    content: "\eafb";
+}
+
+.lnil-cup-alt::before {
+    content: "\eafc";
+}
+
+.lnil-crown-alt::before {
+    content: "\eafd";
+}
+
+.lnil-gift-alt-1::before {
+    content: "\eafe";
+}
+
+.lnil-crown-alt-2::before {
+    content: "\eaff";
+}
+
+.lnil-cup::before {
+    content: "\eb00";
+}
+
+.lnil-gift-bag::before {
+    content: "\eb01";
+}
+
+.lnil-gift::before {
+    content: "\eb02";
+}
+
+.lnil-gift-alt::before {
+    content: "\eb03";
+}
+
+.lnil-ladies-tshirt::before {
+    content: "\eb04";
+}
+
+.lnil-crown-alt-1::before {
+    content: "\eb05";
+}
+
+.lnil-sunglass::before {
+    content: "\eb06";
+}
+
+.lnil-thought::before {
+    content: "\eb07";
+}
+
+.lnil-tshirt-alt-1::before {
+    content: "\eb08";
+}
+
+.lnil-tshirt-alt::before {
+    content: "\eb09";
+}
+
+.lnil-home::before {
+    content: "\eb0a";
+}
+
+.lnil-glasses::before {
+    content: "\eb0b";
+}
+
+.lnil-tshirt::before {
+    content: "\eb0c";
+}
+
+.lnil-baloon-alt-1::before {
+    content: "\eb0d";
+}
+
+.lnil-baloon-alt::before {
+    content: "\eb0e";
+}
+
+.lnil-baloon::before {
+    content: "\eb0f";
+}
+
+.lnil-candle-alt::before {
+    content: "\eb10";
+}
+
+.lnil-candy-cane::before {
+    content: "\eb11";
+}
+
+.lnil-candy::before {
+    content: "\eb12";
+}
+
+.lnil-confetti::before {
+    content: "\eb13";
+}
+
+.lnil-firecracker::before {
+    content: "\eb14";
+}
+
+.lnil-fireworks::before {
+    content: "\eb15";
+}
+
+.lnil-flags::before {
+    content: "\eb16";
+}
+
+.lnil-mask::before {
+    content: "\eb17";
+}
+
+.lnil-spray::before {
+    content: "\eb18";
+}
+
+.lnil-wand::before {
+    content: "\eb19";
+}
+
+.lnil-birthday-hat::before {
+    content: "\eb1a";
+}
+
+.lnil-candle::before {
+    content: "\eb1b";
+}
+
+.lnil-cake::before {
+    content: "\eb1c";
+}
+
+.lnil-bug-alt::before {
+    content: "\eb1d";
+}
+
+.lnil-bug::before {
+    content: "\eb1e";
+}
+
+.lnil-flower::before {
+    content: "\eb1f";
+}
+
+.lnil-island::before {
+    content: "\eb20";
+}
+
+.lnil-leaf-alt-1::before {
+    content: "\eb21";
+}
+
+.lnil-leaf-alt::before {
+    content: "\eb22";
+}
+
+.lnil-leaf::before {
+    content: "\eb23";
+}
+
+.lnil-leaves::before {
+    content: "\eb24";
+}
+
+.lnil-mashroom::before {
+    content: "\eb25";
+}
+
+.lnil-mountain::before {
+    content: "\eb26";
+}
+
+.lnil-mushroom-alt::before {
+    content: "\eb27";
+}
+
+.lnil-mushrooms::before {
+    content: "\eb28";
+}
+
+.lnil-plant-pot::before {
+    content: "\eb29";
+}
+
+.lnil-plant::before {
+    content: "\eb2a";
+}
+
+.lnil-sprout-alt::before {
+    content: "\eb2b";
+}
+
+.lnil-sprout::before {
+    content: "\eb2c";
+}
+
+.lnil-tornado::before {
+    content: "\eb2d";
+}
+
+.lnil-tree-alt-1::before {
+    content: "\eb2e";
+}
+
+.lnil-tree-alt::before {
+    content: "\eb2f";
+}
+
+.lnil-tree::before {
+    content: "\eb30";
+}
+
+.lnil-trees-alt-1::before {
+    content: "\eb31";
+}
+
+.lnil-trees-alt::before {
+    content: "\eb32";
+}
+
+.lnil-trees::before {
+    content: "\eb33";
+}
+
+.lnil-flower-alt::before {
+    content: "\eb34";
+}
+
+.lnil-cactus-alt::before {
+    content: "\eb35";
+}
+
+.lnil-cactus::before {
+    content: "\eb36";
+}
+
+.lnil-bank::before {
+    content: "\eb37";
+}
+
+.lnil-calculator-alt::before {
+    content: "\eb38";
+}
+
+.lnil-calculator::before {
+    content: "\eb39";
+}
+
+.lnil-coin::before {
+    content: "\eb3a";
+}
+
+.lnil-diamond-alt::before {
+    content: "\eb3b";
+}
+
+.lnil-diamond::before {
+    content: "\eb3c";
+}
+
+.lnil-dollar-card::before {
+    content: "\eb3d";
+}
+
+.lnil-credit-cards::before {
+    content: "\eb3e";
+}
+
+.lnil-dollar-down::before {
+    content: "\eb3f";
+}
+
+.lnil-dollar-up::before {
+    content: "\eb40";
+}
+
+.lnil-euro-card::before {
+    content: "\eb41";
+}
+
+.lnil-dollar::before {
+    content: "\eb42";
+}
+
+.lnil-euro-coin::before {
+    content: "\eb43";
+}
+
+.lnil-euro-down::before {
+    content: "\eb44";
+}
+
+.lnil-euro-up::before {
+    content: "\eb45";
+}
+
+.lnil-euro::before {
+    content: "\eb46";
+}
+
+.lnil-gold-bar::before {
+    content: "\eb47";
+}
+
+.lnil-mobile-coin-taka::before {
+    content: "\eb48";
+}
+
+.lnil-mobile-coin::before {
+    content: "\eb49";
+}
+
+.lnil-money-bag::before {
+    content: "\eb4a";
+}
+
+.lnil-money-location::before {
+    content: "\eb4b";
+}
+
+.lnil-money-protection::before {
+    content: "\eb4c";
+}
+
+.lnil-pound-card::before {
+    content: "\eb4d";
+}
+
+.lnil-pound-coin::before {
+    content: "\eb4e";
+}
+
+.lnil-pound-down::before {
+    content: "\eb4f";
+}
+
+.lnil-pound-up::before {
+    content: "\eb50";
+}
+
+.lnil-pound::before {
+    content: "\eb51";
+}
+
+.lnil-rupee-card::before {
+    content: "\eb52";
+}
+
+.lnil-rupee-coin::before {
+    content: "\eb53";
+}
+
+.lnil-rupee-down::before {
+    content: "\eb54";
+}
+
+.lnil-rupee-up::before {
+    content: "\eb55";
+}
+
+.lnil-rupee::before {
+    content: "\eb56";
+}
+
+.lnil-taka-card::before {
+    content: "\eb57";
+}
+
+.lnil-taka-coin::before {
+    content: "\eb58";
+}
+
+.lnil-taka-down::before {
+    content: "\eb59";
+}
+
+.lnil-taka-up::before {
+    content: "\eb5a";
+}
+
+.lnil-taka::before {
+    content: "\eb5b";
+}
+
+.lnil-wallet-alt-1::before {
+    content: "\eb5c";
+}
+
+.lnil-wallet::before {
+    content: "\eb5d";
+}
+
+.lnil-yen-card::before {
+    content: "\eb5e";
+}
+
+.lnil-yen-coin::before {
+    content: "\eb5f";
+}
+
+.lnil-yen-down::before {
+    content: "\eb60";
+}
+
+.lnil-yen-up::before {
+    content: "\eb61";
+}
+
+.lnil-yen::before {
+    content: "\eb62";
+}
+
+.lnil-coins::before {
+    content: "\eb63";
+}
+
+.lnil-credit-card::before {
+    content: "\eb64";
+}
+
+.lnil-backward-alt::before {
+    content: "\eb65";
+}
+
+.lnil-backward::before {
+    content: "\eb66";
+}
+
+.lnil-forward::before {
+    content: "\eb67";
+}
+
+.lnil-frame-expand::before {
+    content: "\eb68";
+}
+
+.lnil-film::before {
+    content: "\eb69";
+}
+
+.lnil-gallery::before {
+    content: "\eb6a";
+}
+
+.lnil-next::before {
+    content: "\eb6b";
+}
+
+.lnil-pause::before {
+    content: "\eb6c";
+}
+
+.lnil-play::before {
+    content: "\eb6d";
+}
+
+.lnil-previous::before {
+    content: "\eb6e";
+}
+
+.lnil-repeat-one::before {
+    content: "\eb6f";
+}
+
+.lnil-shuffle::before {
+    content: "\eb70";
+}
+
+.lnil-slideshow::before {
+    content: "\eb71";
+}
+
+.lnil-stop::before {
+    content: "\eb72";
+}
+
+.lnil-video-alt-1::before {
+    content: "\eb73";
+}
+
+.lnil-video-alt::before {
+    content: "\eb74";
+}
+
+.lnil-video-camera-alt-1::before {
+    content: "\eb75";
+}
+
+.lnil-video-camera-alt-2::before {
+    content: "\eb76";
+}
+
+.lnil-video-camera-alt::before {
+    content: "\eb77";
+}
+
+.lnil-video-cut::before {
+    content: "\eb78";
+}
+
+.lnil-video::before {
+    content: "\eb79";
+}
+
+.lnil-volume-high::before {
+    content: "\eb7a";
+}
+
+.lnil-volume-low::before {
+    content: "\eb7b";
+}
+
+.lnil-volume-medium::before {
+    content: "\eb7c";
+}
+
+.lnil-volume-mute::before {
+    content: "\eb7d";
+}
+
+.lnil-volume::before {
+    content: "\eb7e";
+}
+
+.lnil-full-screen::before {
+    content: "\eb7f";
+}
+
+.lnil-expand-alt-1::before {
+    content: "\eb80";
+}
+
+.lnil-fast-forward::before {
+    content: "\eb81";
+}
+
+.lnil-analytics::before {
+    content: "\eb82";
+}
+
+.lnil-bar-chart::before {
+    content: "\eb83";
+}
+
+.lnil-graph-alt-1::before {
+    content: "\eb84";
+}
+
+.lnil-graph-alt-2::before {
+    content: "\eb85";
+}
+
+.lnil-graph-alt-3::before {
+    content: "\eb86";
+}
+
+.lnil-graph-alt-4::before {
+    content: "\eb87";
+}
+
+.lnil-graph-alt::before {
+    content: "\eb88";
+}
+
+.lnil-graph-decrease::before {
+    content: "\eb89";
+}
+
+.lnil-graph-increase::before {
+    content: "\eb8a";
+}
+
+.lnil-invest-monitor::before {
+    content: "\eb8b";
+}
+
+.lnil-keyword-research::before {
+    content: "\eb8c";
+}
+
+.lnil-network-alt::before {
+    content: "\eb8d";
+}
+
+.lnil-network::before {
+    content: "\eb8e";
+}
+
+.lnil-pyramid-decrease::before {
+    content: "\eb8f";
+}
+
+.lnil-pyramid-increase::before {
+    content: "\eb90";
+}
+
+.lnil-pyramid::before {
+    content: "\eb91";
+}
+
+.lnil-rook::before {
+    content: "\eb92";
+}
+
+.lnil-seo::before {
+    content: "\eb93";
+}
+
+.lnil-strategy::before {
+    content: "\eb94";
+}
+
+.lnil-target-audience-alt::before {
+    content: "\eb95";
+}
+
+.lnil-target-customer::before {
+    content: "\eb96";
+}
+
+.lnil-website-rank::before {
+    content: "\eb97";
+}
+
+.lnil-bar-check::before {
+    content: "\eb98";
+}
+
+.lnil-billboard-alt::before {
+    content: "\eb99";
+}
+
+.lnil-billboard::before {
+    content: "\eb9a";
+}
+
+.lnil-barrier::before {
+    content: "\eb9b";
+}
+
+.lnil-bolt-alt::before {
+    content: "\eb9c";
+}
+
+.lnil-checkmark::before {
+    content: "\eb9d";
+}
+
+.lnil-check-box::before {
+    content: "\eb9e";
+}
+
+.lnil-circle-plus::before {
+    content: "\eb9f";
+}
+
+.lnil-circle-minus::before {
+    content: "\eba0";
+}
+
+.lnil-cross-circle::before {
+    content: "\eba1";
+}
+
+.lnil-electricity::before {
+    content: "\eba2";
+}
+
+.lnil-eye-alt::before {
+    content: "\eba3";
+}
+
+.lnil-eye::before {
+    content: "\eba4";
+}
+
+.lnil-find::before {
+    content: "\eba5";
+}
+
+.lnil-flag-alt::before {
+    content: "\eba6";
+}
+
+.lnil-flag::before {
+    content: "\eba7";
+}
+
+.lnil-funnel-alt-1::before {
+    content: "\eba8";
+}
+
+.lnil-funnel-alt::before {
+    content: "\eba9";
+}
+
+.lnil-funnel::before {
+    content: "\ebaa";
+}
+
+.lnil-hand::before {
+    content: "\ebab";
+}
+
+.lnil-heart-filled::before {
+    content: "\ebac";
+}
+
+.lnil-heart-plus::before {
+    content: "\ebad";
+}
+
+.lnil-heart::before {
+    content: "\ebae";
+}
+
+.lnil-help::before {
+    content: "\ebaf";
+}
+
+.lnil-hotel-sign::before {
+    content: "\ebb0";
+}
+
+.lnil-idea-alt::before {
+    content: "\ebb1";
+}
+
+.lnil-identity::before {
+    content: "\ebb2";
+}
+
+.lnil-infinite::before {
+    content: "\ebb3";
+}
+
+.lnil-information::before {
+    content: "\ebb4";
+}
+
+.lnil-invention::before {
+    content: "\ebb5";
+}
+
+.lnil-key-alt-1::before {
+    content: "\ebb6";
+}
+
+.lnil-key-alt-2::before {
+    content: "\ebb7";
+}
+
+.lnil-key-alt-3::before {
+    content: "\ebb8";
+}
+
+.lnil-key-alt::before {
+    content: "\ebb9";
+}
+
+.lnil-key::before {
+    content: "\ebba";
+}
+
+.lnil-life-ring::before {
+    content: "\ebbb";
+}
+
+.lnil-list-alt-1::before {
+    content: "\ebbc";
+}
+
+.lnil-list-alt::before {
+    content: "\ebbd";
+}
+
+.lnil-list::before {
+    content: "\ebbe";
+}
+
+.lnil-lock-alt-1::before {
+    content: "\ebbf";
+}
+
+.lnil-lock-alt-2::before {
+    content: "\ebc0";
+}
+
+.lnil-lock-alt::before {
+    content: "\ebc1";
+}
+
+.lnil-lock::before {
+    content: "\ebc2";
+}
+
+.lnil-minus::before {
+    content: "\ebc3";
+}
+
+.lnil-more-alt-1::before {
+    content: "\ebc4";
+}
+
+.lnil-more-alt::before {
+    content: "\ebc5";
+}
+
+.lnil-more::before {
+    content: "\ebc6";
+}
+
+.lnil-music-note::before {
+    content: "\ebc7";
+}
+
+.lnil-music::before {
+    content: "\ebc8";
+}
+
+.lnil-notification::before {
+    content: "\ebc9";
+}
+
+.lnil-passport-alt::before {
+    content: "\ebca";
+}
+
+.lnil-passport::before {
+    content: "\ebcb";
+}
+
+.lnil-playlist-alt::before {
+    content: "\ebcc";
+}
+
+.lnil-playlist::before {
+    content: "\ebcd";
+}
+
+.lnil-plus::before {
+    content: "\ebce";
+}
+
+.lnil-pointer::before {
+    content: "\ebcf";
+}
+
+.lnil-power-switch::before {
+    content: "\ebd0";
+}
+
+.lnil-protection::before {
+    content: "\ebd1";
+}
+
+.lnil-question-circle::before {
+    content: "\ebd2";
+}
+
+.lnil-radio-button::before {
+    content: "\ebd3";
+}
+
+.lnil-record::before {
+    content: "\ebd4";
+}
+
+.lnil-round-box-check::before {
+    content: "\ebd5";
+}
+
+.lnil-round-box-cross::before {
+    content: "\ebd6";
+}
+
+.lnil-round-box-minus::before {
+    content: "\ebd7";
+}
+
+.lnil-round-box-plus::before {
+    content: "\ebd8";
+}
+
+.lnil-shield::before {
+    content: "\ebd9";
+}
+
+.lnil-sort::before {
+    content: "\ebda";
+}
+
+.lnil-switch::before {
+    content: "\ebdb";
+}
+
+.lnil-teabag::before {
+    content: "\ebdc";
+}
+
+.lnil-thumbs-down-alt::before {
+    content: "\ebdd";
+}
+
+.lnil-thumbs-down::before {
+    content: "\ebde";
+}
+
+.lnil-thumbs-up-alt::before {
+    content: "\ebdf";
+}
+
+.lnil-thumbs-up::before {
+    content: "\ebe0";
+}
+
+.lnil-thunderbolt::before {
+    content: "\ebe1";
+}
+
+.lnil-ticket-alt-1::before {
+    content: "\ebe2";
+}
+
+.lnil-ticket-alt-2::before {
+    content: "\ebe3";
+}
+
+.lnil-ticket-alt-3::before {
+    content: "\ebe4";
+}
+
+.lnil-ticket-alt::before {
+    content: "\ebe5";
+}
+
+.lnil-ticket::before {
+    content: "\ebe6";
+}
+
+.lnil-unlock::before {
+    content: "\ebe7";
+}
+
+.lnil-warning::before {
+    content: "\ebe8";
+}
+
+.lnil-checkmark-circle::before {
+    content: "\ebe9";
+}
+
+.lnil-close::before {
+    content: "\ebea";
+}
+
+.lnil-bolt::before {
+    content: "\ebeb";
+}
+
+.lnil-ambulance-alt-1::before {
+    content: "\ebec";
+}
+
+.lnil-ambulance-alt::before {
+    content: "\ebed";
+}
+
+.lnil-brain-alt::before {
+    content: "\ebee";
+}
+
+.lnil-basketball::before {
+    content: "\ebef";
+}
+
+.lnil-bone::before {
+    content: "\ebf0";
+}
+
+.lnil-ambulance::before {
+    content: "\ebf1";
+}
+
+.lnil-broken-bone::before {
+    content: "\ebf2";
+}
+
+.lnil-brain-check::before {
+    content: "\ebf3";
+}
+
+.lnil-brain::before {
+    content: "\ebf4";
+}
+
+.lnil-capsule::before {
+    content: "\ebf5";
+}
+
+.lnil-capsules::before {
+    content: "\ebf6";
+}
+
+.lnil-cardiology::before {
+    content: "\ebf7";
+}
+
+.lnil-diagnosis-alt::before {
+    content: "\ebf8";
+}
+
+.lnil-diagnosis::before {
+    content: "\ebf9";
+}
+
+.lnil-dna::before {
+    content: "\ebfa";
+}
+
+.lnil-dropper-alt-1::before {
+    content: "\ebfb";
+}
+
+.lnil-dropper-alt-2::before {
+    content: "\ebfc";
+}
+
+.lnil-dropper-alt::before {
+    content: "\ebfd";
+}
+
+.lnil-dropper::before {
+    content: "\ebfe";
+}
+
+.lnil-dumbbell::before {
+    content: "\ebff";
+}
+
+.lnil-eye-test::before {
+    content: "\ec00";
+}
+
+.lnil-female::before {
+    content: "\ec01";
+}
+
+.lnil-first-aid::before {
+    content: "\ec02";
+}
+
+.lnil-gluten-free::before {
+    content: "\ec03";
+}
+
+.lnil-heart-check::before {
+    content: "\ec04";
+}
+
+.lnil-heart-monitor::before {
+    content: "\ec05";
+}
+
+.lnil-heartrate-monitor::before {
+    content: "\ec06";
+}
+
+.lnil-hospital-alt-1::before {
+    content: "\ec07";
+}
+
+.lnil-hospital-alt-2::before {
+    content: "\ec08";
+}
+
+.lnil-hospital-alt-3::before {
+    content: "\ec09";
+}
+
+.lnil-hospital-alt-4::before {
+    content: "\ec0a";
+}
+
+.lnil-hospital-alt::before {
+    content: "\ec0b";
+}
+
+.lnil-hospital-bed-alt-1::before {
+    content: "\ec0c";
+}
+
+.lnil-hospital-bed-alt-2::before {
+    content: "\ec0d";
+}
+
+.lnil-hospital-bed-alt::before {
+    content: "\ec0e";
+}
+
+.lnil-hospital-bed::before {
+    content: "\ec0f";
+}
+
+.lnil-hospital-location::before {
+    content: "\ec10";
+}
+
+.lnil-hospital-sign::before {
+    content: "\ec11";
+}
+
+.lnil-hospital::before {
+    content: "\ec12";
+}
+
+.lnil-kettlebell::before {
+    content: "\ec13";
+}
+
+.lnil-lungs::before {
+    content: "\ec14";
+}
+
+.lnil-male::before {
+    content: "\ec15";
+}
+
+.lnil-medical-briefcase-alt::before {
+    content: "\ec16";
+}
+
+.lnil-medical-briefcase::before {
+    content: "\ec17";
+}
+
+.lnil-medical-protection::before {
+    content: "\ec18";
+}
+
+.lnil-medical-sign::before {
+    content: "\ec19";
+}
+
+.lnil-medicine-alt::before {
+    content: "\ec1a";
+}
+
+.lnil-medicine-bottle::before {
+    content: "\ec1b";
+}
+
+.lnil-medicine::before {
+    content: "\ec1c";
+}
+
+.lnil-microscope::before {
+    content: "\ec1d";
+}
+
+.lnil-pulse::before {
+    content: "\ec1e";
+}
+
+.lnil-report-laptop::before {
+    content: "\ec1f";
+}
+
+.lnil-saline-alt-1::before {
+    content: "\ec20";
+}
+
+.lnil-saline-alt::before {
+    content: "\ec21";
+}
+
+.lnil-saline::before {
+    content: "\ec22";
+}
+
+.lnil-skipping-rope::before {
+    content: "\ec23";
+}
+
+.lnil-slim::before {
+    content: "\ec24";
+}
+
+.lnil-sthethoscope::before {
+    content: "\ec25";
+}
+
+.lnil-syringe::before {
+    content: "\ec26";
+}
+
+.lnil-test-tube-alt::before {
+    content: "\ec27";
+}
+
+.lnil-test-tube::before {
+    content: "\ec28";
+}
+
+.lnil-thermometer-alt::before {
+    content: "\ec29";
+}
+
+.lnil-thermometer::before {
+    content: "\ec2a";
+}
+
+.lnil-tooth::before {
+    content: "\ec2b";
+}
+
+.lnil-walker::before {
+    content: "\ec2c";
+}
+
+.lnil-weight-machine::before {
+    content: "\ec2d";
+}
+
+.lnil-weight::before {
+    content: "\ec2e";
+}
+
+.lnil-wheelchair::before {
+    content: "\ec2f";
+}
+
+.lnil-yoga-mat::before {
+    content: "\ec30";
+}
+
+.lnil-capsule-alt-1::before {
+    content: "\ec31";
+}
+
+.lnil-capsule-alt::before {
+    content: "\ec32";
+}
+
+.lnil-brain-check-alt::before {
+    content: "\ec33";
+}
+
+.lnil-apple-alt::before {
+    content: "\ec34";
+}
+
+.lnil-banana::before {
+    content: "\ec35";
+}
+
+.lnil-brocolli::before {
+    content: "\ec36";
+}
+
+.lnil-burger-alt-1::before {
+    content: "\ec37";
+}
+
+.lnil-burger-alt::before {
+    content: "\ec38";
+}
+
+.lnil-burger::before {
+    content: "\ec39";
+}
+
+.lnil-chef-hat-alt-1::before {
+    content: "\ec3a";
+}
+
+.lnil-chef-hat-alt-2::before {
+    content: "\ec3b";
+}
+
+.lnil-chef-hat-alt::before {
+    content: "\ec3c";
+}
+
+.lnil-chef-hat::before {
+    content: "\ec3d";
+}
+
+.lnil-chicken::before {
+    content: "\ec3e";
+}
+
+.lnil-cocktail-alt-1::before {
+    content: "\ec3f";
+}
+
+.lnil-cocktail-alt::before {
+    content: "\ec40";
+}
+
+.lnil-cocktail::before {
+    content: "\ec41";
+}
+
+.lnil-coffee-cup-alt::before {
+    content: "\ec42";
+}
+
+.lnil-coffee-cup::before {
+    content: "\ec43";
+}
+
+.lnil-cupcake-alt::before {
+    content: "\ec44";
+}
+
+.lnil-cupcake::before {
+    content: "\ec45";
+}
+
+.lnil-cutlery-alt-1::before {
+    content: "\ec46";
+}
+
+.lnil-cutlery-alt::before {
+    content: "\ec47";
+}
+
+.lnil-cutlery::before {
+    content: "\ec48";
+}
+
+.lnil-dinner-table::before {
+    content: "\ec49";
+}
+
+.lnil-dinner::before {
+    content: "\ec4a";
+}
+
+.lnil-drumstick::before {
+    content: "\ec4b";
+}
+
+.lnil-fresh-juice::before {
+    content: "\ec4c";
+}
+
+.lnil-ice-cream-alt::before {
+    content: "\ec4d";
+}
+
+.lnil-ice-cream::before {
+    content: "\ec4e";
+}
+
+.lnil-juice::before {
+    content: "\ec4f";
+}
+
+.lnil-lolypop::before {
+    content: "\ec50";
+}
+
+.lnil-meat::before {
+    content: "\ec51";
+}
+
+.lnil-pizza-alt::before {
+    content: "\ec52";
+}
+
+.lnil-pizza::before {
+    content: "\ec53";
+}
+
+.lnil-plate::before {
+    content: "\ec54";
+}
+
+.lnil-popcorn::before {
+    content: "\ec55";
+}
+
+.lnil-restaurant::before {
+    content: "\ec56";
+}
+
+.lnil-service::before {
+    content: "\ec57";
+}
+
+.lnil-silverware::before {
+    content: "\ec58";
+}
+
+.lnil-spatula::before {
+    content: "\ec59";
+}
+
+.lnil-bowl-alt::before {
+    content: "\ec5a";
+}
+
+.lnil-bowl::before {
+    content: "\ec5b";
+}
+
+.lnil-bowl-alt-1::before {
+    content: "\ec5c";
+}
+
+.lnil-atom::before {
+    content: "\ec5d";
+}
+
+.lnil-backpack-alt::before {
+    content: "\ec5e";
+}
+
+.lnil-book::before {
+    content: "\ec5f";
+}
+
+.lnil-blackboard::before {
+    content: "\ec60";
+}
+
+.lnil-books::before {
+    content: "\ec61";
+}
+
+.lnil-brakckets::before {
+    content: "\ec62";
+}
+
+.lnil-certificate-alt-1::before {
+    content: "\ec63";
+}
+
+.lnil-certificate-alt::before {
+    content: "\ec64";
+}
+
+.lnil-certificate::before {
+    content: "\ec65";
+}
+
+.lnil-classroom::before {
+    content: "\ec66";
+}
+
+.lnil-clipboard::before {
+    content: "\ec67";
+}
+
+.lnil-compass::before {
+    content: "\ec68";
+}
+
+.lnil-cubes::before {
+    content: "\ec69";
+}
+
+.lnil-eraser::before {
+    content: "\ec6a";
+}
+
+.lnil-flask-alt-1::before {
+    content: "\ec6b";
+}
+
+.lnil-flask-alt-2::before {
+    content: "\ec6c";
+}
+
+.lnil-flask-alt::before {
+    content: "\ec6d";
+}
+
+.lnil-flask::before {
+    content: "\ec6e";
+}
+
+.lnil-graduate-alt::before {
+    content: "\ec6f";
+}
+
+.lnil-graduate::before {
+    content: "\ec70";
+}
+
+.lnil-graduation::before {
+    content: "\ec71";
+}
+
+.lnil-letterblocks::before {
+    content: "\ec72";
+}
+
+.lnil-library::before {
+    content: "\ec73";
+}
+
+.lnil-medal-alt::before {
+    content: "\ec74";
+}
+
+.lnil-medal::before {
+    content: "\ec75";
+}
+
+.lnil-molecule-alt::before {
+    content: "\ec76";
+}
+
+.lnil-molecule::before {
+    content: "\ec77";
+}
+
+.lnil-pencil-alt::before {
+    content: "\ec78";
+}
+
+.lnil-pencil::before {
+    content: "\ec79";
+}
+
+.lnil-quill::before {
+    content: "\ec7a";
+}
+
+.lnil-school-bench-alt::before {
+    content: "\ec7b";
+}
+
+.lnil-school-bench::before {
+    content: "\ec7c";
+}
+
+.lnil-sketchbook::before {
+    content: "\ec7d";
+}
+
+.lnil-whiteboard-alt-1::before {
+    content: "\ec7e";
+}
+
+.lnil-whiteboard-alt-2::before {
+    content: "\ec7f";
+}
+
+.lnil-whiteboard-alt::before {
+    content: "\ec80";
+}
+
+.lnil-whiteboard::before {
+    content: "\ec81";
+}
+
+.lnil-world-2::before {
+    content: "\ec82";
+}
+
+.lnil-world-alt::before {
+    content: "\ec83";
+}
+
+.lnil-world::before {
+    content: "\ec84";
+}
+
+.lnil-book-alt::before {
+    content: "\ec85";
+}
+
+.lnil-write::before {
+    content: "\ec86";
+}
+
+.lnil-backpack::before {
+    content: "\ec87";
+}
+
+.lnil-books-alt::before {
+    content: "\ec88";
+}
+
+.lnil-Italic::before {
+    content: "\ec89";
+}
+
+.lnil-bold::before {
+    content: "\ec8a";
+}
+
+.lnil-indent-decrease::before {
+    content: "\ec8b";
+}
+
+.lnil-font::before {
+    content: "\ec8c";
+}
+
+.lnil-line-dashed::before {
+    content: "\ec8d";
+}
+
+.lnil-line-dotted::before {
+    content: "\ec8e";
+}
+
+.lnil-line-double::before {
+    content: "\ec8f";
+}
+
+.lnil-line-spacing::before {
+    content: "\ec90";
+}
+
+.lnil-page-break::before {
+    content: "\ec91";
+}
+
+.lnil-pagination::before {
+    content: "\ec92";
+}
+
+.lnil-pilcrow::before {
+    content: "\ec93";
+}
+
+.lnil-redo::before {
+    content: "\ec94";
+}
+
+.lnil-reflect::before {
+    content: "\ec95";
+}
+
+.lnil-sort-alpha-asc::before {
+    content: "\ec96";
+}
+
+.lnil-sort-amount-asc::before {
+    content: "\ec97";
+}
+
+.lnil-sort-amount-dsc::before {
+    content: "\ec98";
+}
+
+.lnil-spellcheck::before {
+    content: "\ec99";
+}
+
+.lnil-strikethrough::before {
+    content: "\ec9a";
+}
+
+.lnil-text-align-center::before {
+    content: "\ec9b";
+}
+
+.lnil-text-align-justify::before {
+    content: "\ec9c";
+}
+
+.lnil-text-align-left::before {
+    content: "\ec9d";
+}
+
+.lnil-text-align-right::before {
+    content: "\ec9e";
+}
+
+.lnil-text-format-remove::before {
+    content: "\ec9f";
+}
+
+.lnil-text-format::before {
+    content: "\eca0";
+}
+
+.lnil-text::before {
+    content: "\eca1";
+}
+
+.lnil-underline::before {
+    content: "\eca2";
+}
+
+.lnil-undo::before {
+    content: "\eca3";
+}
+
+.lnil-vertical-line::before {
+    content: "\eca4";
+}
+
+.lnil-height::before {
+    content: "\eca5";
+}
+
+.lnil-capital-letter::before {
+    content: "\eca6";
+}
+
+.lnil-indent-increase::before {
+    content: "\eca7";
+}
+
+.lnil-angle-double-down::before {
+    content: "\eca8";
+}
+
+.lnil-angle-double-left::before {
+    content: "\eca9";
+}
+
+.lnil-angle-double-right::before {
+    content: "\ecaa";
+}
+
+.lnil-angle-double-up::before {
+    content: "\ecab";
+}
+
+.lnil-arrow-double-down::before {
+    content: "\ecac";
+}
+
+.lnil-arrow-double-right::before {
+    content: "\ecad";
+}
+
+.lnil-arrow-double-top::before {
+    content: "\ecae";
+}
+
+.lnil-arrow-down-circle::before {
+    content: "\ecaf";
+}
+
+.lnil-arrow-expand-alt::before {
+    content: "\ecb0";
+}
+
+.lnil-arrow-left-circle::before {
+    content: "\ecb1";
+}
+
+.lnil-arrow-left::before {
+    content: "\ecb2";
+}
+
+.lnil-arrow-minimize-alt::before {
+    content: "\ecb3";
+}
+
+.lnil-arrow-minimize::before {
+    content: "\ecb4";
+}
+
+.lnil-arrow-right-circle::before {
+    content: "\ecb5";
+}
+
+.lnil-arrow-right::before {
+    content: "\ecb6";
+}
+
+.lnil-arrow-top-left::before {
+    content: "\ecb7";
+}
+
+.lnil-arrow-top-right::before {
+    content: "\ecb8";
+}
+
+.lnil-arrow-up-circle::before {
+    content: "\ecb9";
+}
+
+.lnil-arrow-expand::before {
+    content: "\ecba";
+}
+
+.lnil-arrow-double-left::before {
+    content: "\ecbb";
+}
+
+.lnil-arrows-vertical::before {
+    content: "\ecbc";
+}
+
+.lnil-axis::before {
+    content: "\ecbd";
+}
+
+.lnil-arrow-up::before {
+    content: "\ecbe";
+}
+
+.lnil-chevron-down::before {
+    content: "\ecbf";
+}
+
+.lnil-chevron-left-circle::before {
+    content: "\ecc0";
+}
+
+.lnil-chevron-left::before {
+    content: "\ecc1";
+}
+
+.lnil-chevron-down-circle::before {
+    content: "\ecc2";
+}
+
+.lnil-chevron-right::before {
+    content: "\ecc3";
+}
+
+.lnil-chevron-up-circle::before {
+    content: "\ecc4";
+}
+
+.lnil-chevron-right-circle::before {
+    content: "\ecc5";
+}
+
+.lnil-arrow-down::before {
+    content: "\ecc6";
+}
+
+.lnil-chevron-up::before {
+    content: "\ecc7";
+}
+
+.lnil-direction-alt::before {
+    content: "\ecc8";
+}
+
+.lnil-direction::before {
+    content: "\ecc9";
+}
+
+.lnil-down-arrow-box::before {
+    content: "\ecca";
+}
+
+.lnil-down-left-arrow-box::before {
+    content: "\eccb";
+}
+
+.lnil-down-right-arrow-box::before {
+    content: "\eccc";
+}
+
+.lnil-enter::before {
+    content: "\eccd";
+}
+
+.lnil-exit-down::before {
+    content: "\ecce";
+}
+
+.lnil-exit-up::before {
+    content: "\eccf";
+}
+
+.lnil-arrows-horizontal::before {
+    content: "\ecd0";
+}
+
+.lnil-direction-ltr::before {
+    content: "\ecd1";
+}
+
+.lnil-direction-rtl::before {
+    content: "\ecd2";
+}
+
+.lnil-exit::before {
+    content: "\ecd3";
+}
+
+.lnil-left-arrow-box::before {
+    content: "\ecd4";
+}
+
+.lnil-pointer-top::before {
+    content: "\ecd5";
+}
+
+.lnil-right-arrow-box::before {
+    content: "\ecd6";
+}
+
+.lnil-shift-left::before {
+    content: "\ecd7";
+}
+
+.lnil-shift-right::before {
+    content: "\ecd8";
+}
+
+.lnil-top-arrow-box::before {
+    content: "\ecd9";
+}
+
+.lnil-top-left-arrow-box::before {
+    content: "\ecda";
+}
+
+.lnil-top-right-arrow-box::before {
+    content: "\ecdb";
+}
+
+.lnil-pointer-down::before {
+    content: "\ecdc";
+}
+
+.lnil-pointer-left::before {
+    content: "\ecdd";
+}
+
+.lnil-pointer-right::before {
+    content: "\ecde";
+}
+
+.lnil-brush-alt::before {
+    content: "\ecdf";
+}
+
+.lnil-brush::before {
+    content: "\ece0";
+}
+
+.lnil-grid-alt::before {
+    content: "\ece1";
+}
+
+.lnil-grid::before {
+    content: "\ece2";
+}
+
+.lnil-highlight-alt::before {
+    content: "\ece3";
+}
+
+.lnil-highlight::before {
+    content: "\ece4";
+}
+
+.lnil-image-crop::before {
+    content: "\ece5";
+}
+
+.lnil-layers-alt-::before {
+    content: "\ece6";
+}
+
+.lnil-layers-alt-1::before {
+    content: "\ece7";
+}
+
+.lnil-layers::before {
+    content: "\ece8";
+}
+
+.lnil-layout-alt-1::before {
+    content: "\ece9";
+}
+
+.lnil-layout-alt-2::before {
+    content: "\ecea";
+}
+
+.lnil-layout-alt::before {
+    content: "\eceb";
+}
+
+.lnil-layout::before {
+    content: "\ecec";
+}
+
+.lnil-magic-wand::before {
+    content: "\eced";
+}
+
+.lnil-margin::before {
+    content: "\ecee";
+}
+
+.lnil-move::before {
+    content: "\ecef";
+}
+
+.lnil-pallet::before {
+    content: "\ecf0";
+}
+
+.lnil-rotate::before {
+    content: "\ecf1";
+}
+
+.lnil-scaling::before {
+    content: "\ecf2";
+}
+
+.lnil-select::before {
+    content: "\ecf3";
+}
+
+.lnil-size::before {
+    content: "\ecf4";
+}
+
+.lnil-slice::before {
+    content: "\ecf5";
+}
+
+.lnil-transform::before {
+    content: "\ecf6";
+}
+
+.lnil-ux::before {
+    content: "\ecf7";
+}
+
+.lnil-vector-alt::before {
+    content: "\ecf8";
+}
+
+.lnil-vector-pen::before {
+    content: "\ecf9";
+}
+
+.lnil-vector::before {
+    content: "\ecfa";
+}
+
+.lnil-crop::before {
+    content: "\ecfb";
+}
+
+.lnil-color-palette::before {
+    content: "\ecfc";
+}
+
+.lnil-crop-alt::before {
+    content: "\ecfd";
+}
+
+.lnil-boundary::before {
+    content: "\ecfe";
+}
+
+.lnil-bricks-alt::before {
+    content: "\ecff";
+}
+
+.lnil-construction-hammer::before {
+    content: "\ed00";
+}
+
+.lnil-construction-rular::before {
+    content: "\ed01";
+}
+
+.lnil-construction::before {
+    content: "\ed02";
+}
+
+.lnil-door-alt::before {
+    content: "\ed03";
+}
+
+.lnil-door::before {
+    content: "\ed04";
+}
+
+.lnil-drill::before {
+    content: "\ed05";
+}
+
+.lnil-fence::before {
+    content: "\ed06";
+}
+
+.lnil-hammer-alt::before {
+    content: "\ed07";
+}
+
+.lnil-hammer::before {
+    content: "\ed08";
+}
+
+.lnil-helmet-alt::before {
+    content: "\ed09";
+}
+
+.lnil-helmet::before {
+    content: "\ed0a";
+}
+
+.lnil-hook::before {
+    content: "\ed0b";
+}
+
+.lnil-house-alt-1::before {
+    content: "\ed0c";
+}
+
+.lnil-house-alt::before {
+    content: "\ed0d";
+}
+
+.lnil-house-heart::before {
+    content: "\ed0e";
+}
+
+.lnil-house-plan::before {
+    content: "\ed0f";
+}
+
+.lnil-house::before {
+    content: "\ed10";
+}
+
+.lnil-measuring-tape::before {
+    content: "\ed11";
+}
+
+.lnil-paint-bucket::before {
+    content: "\ed12";
+}
+
+.lnil-paint-roller-alt-1::before {
+    content: "\ed13";
+}
+
+.lnil-paint-roller-alt::before {
+    content: "\ed14";
+}
+
+.lnil-paint-roller::before {
+    content: "\ed15";
+}
+
+.lnil-pipe::before {
+    content: "\ed16";
+}
+
+.lnil-ruler-alt::before {
+    content: "\ed17";
+}
+
+.lnil-ruler-pencil::before {
+    content: "\ed18";
+}
+
+.lnil-ruler::before {
+    content: "\ed19";
+}
+
+.lnil-saw-alt::before {
+    content: "\ed1a";
+}
+
+.lnil-saw::before {
+    content: "\ed1b";
+}
+
+.lnil-screw::before {
+    content: "\ed1c";
+}
+
+.lnil-screwdriver::before {
+    content: "\ed1d";
+}
+
+.lnil-shovel::before {
+    content: "\ed1e";
+}
+
+.lnil-toolbox::before {
+    content: "\ed1f";
+}
+
+.lnil-triangle-ruler-1::before {
+    content: "\ed20";
+}
+
+.lnil-triangle-ruler::before {
+    content: "\ed21";
+}
+
+.lnil-trowel-alt::before {
+    content: "\ed22";
+}
+
+.lnil-trowel::before {
+    content: "\ed23";
+}
+
+.lnil-wheelbarrow::before {
+    content: "\ed24";
+}
+
+.lnil-wrench::before {
+    content: "\ed25";
+}
+
+.lnil-cone::before {
+    content: "\ed26";
+}
+
+.lnil-bricks::before {
+    content: "\ed27";
+}
+
+.lnil-bulldozer::before {
+    content: "\ed28";
+}
+
+.lnil-anchor::before {
+    content: "\ed29";
+}
+
+.lnil-bi-cycle::before {
+    content: "\ed2a";
+}
+
+.lnil-bubble::before {
+    content: "\ed2b";
+}
+
+.lnil-boarding-pass::before {
+    content: "\ed2c";
+}
+
+.lnil-bridge::before {
+    content: "\ed2d";
+}
+
+.lnil-car-alt::before {
+    content: "\ed2e";
+}
+
+.lnil-car::before {
+    content: "\ed2f";
+}
+
+.lnil-caravan::before {
+    content: "\ed30";
+}
+
+.lnil-chat-add::before {
+    content: "\ed31";
+}
+
+.lnil-chat-minus::before {
+    content: "\ed32";
+}
+
+.lnil-comments-alt::before {
+    content: "\ed33";
+}
+
+.lnil-comments-reply::before {
+    content: "\ed34";
+}
+
+.lnil-comments::before {
+    content: "\ed35";
+}
+
+.lnil-envelope-alt::before {
+    content: "\ed36";
+}
+
+.lnil-envelope::before {
+    content: "\ed37";
+}
+
+.lnil-helicopter::before {
+    content: "\ed38";
+}
+
+.lnil-inbox::before {
+    content: "\ed39";
+}
+
+.lnil-megaphone::before {
+    content: "\ed3a";
+}
+
+.lnil-message-attachement::before {
+    content: "\ed3b";
+}
+
+.lnil-message-block::before {
+    content: "\ed3c";
+}
+
+.lnil-message-check::before {
+    content: "\ed3d";
+}
+
+.lnil-message-cross::before {
+    content: "\ed3e";
+}
+
+.lnil-message-desktop::before {
+    content: "\ed3f";
+}
+
+.lnil-message-edit::before {
+    content: "\ed40";
+}
+
+.lnil-message-forward::before {
+    content: "\ed41";
+}
+
+.lnil-message-incoming::before {
+    content: "\ed42";
+}
+
+.lnil-message-laptop::before {
+    content: "\ed43";
+}
+
+.lnil-message-lock::before {
+    content: "\ed44";
+}
+
+.lnil-message-love::before {
+    content: "\ed45";
+}
+
+.lnil-message-minus::before {
+    content: "\ed46";
+}
+
+.lnil-message-outgoing::before {
+    content: "\ed47";
+}
+
+.lnil-message-plus::before {
+    content: "\ed48";
+}
+
+.lnil-message-reply::before {
+    content: "\ed49";
+}
+
+.lnil-message-search::before {
+    content: "\ed4a";
+}
+
+.lnil-message-share::before {
+    content: "\ed4b";
+}
+
+.lnil-mobile-chat::before {
+    content: "\ed4c";
+}
+
+.lnil-page::before {
+    content: "\ed4d";
+}
+
+.lnil-phone-block::before {
+    content: "\ed4e";
+}
+
+.lnil-phone-caling::before {
+    content: "\ed4f";
+}
+
+.lnil-phone-conference::before {
+    content: "\ed50";
+}
+
+.lnil-phone-cut::before {
+    content: "\ed51";
+}
+
+.lnil-phone-forward::before {
+    content: "\ed52";
+}
+
+.lnil-phone-incoming::before {
+    content: "\ed53";
+}
+
+.lnil-phone-misscall::before {
+    content: "\ed54";
+}
+
+.lnil-phone-outgoing::before {
+    content: "\ed55";
+}
+
+.lnil-phone-pause::before {
+    content: "\ed56";
+}
+
+.lnil-phone-redial::before {
+    content: "\ed57";
+}
+
+.lnil-phone-ring::before {
+    content: "\ed58";
+}
+
+.lnil-phone-set::before {
+    content: "\ed59";
+}
+
+.lnil-phone::before {
+    content: "\ed5a";
+}
+
+.lnil-plane-alt::before {
+    content: "\ed5b";
+}
+
+.lnil-plane::before {
+    content: "\ed5c";
+}
+
+.lnil-popup::before {
+    content: "\ed5d";
+}
+
+.lnil-postcard-alt::before {
+    content: "\ed5e";
+}
+
+.lnil-postcard::before {
+    content: "\ed5f";
+}
+
+.lnil-reply::before {
+    content: "\ed60";
+}
+
+.lnil-road::before {
+    content: "\ed61";
+}
+
+.lnil-scooter::before {
+    content: "\ed62";
+}
+
+.lnil-ship::before {
+    content: "\ed63";
+}
+
+.lnil-support::before {
+    content: "\ed64";
+}
+
+.lnil-target-mail::before {
+    content: "\ed65";
+}
+
+.lnil-taxi::before {
+    content: "\ed66";
+}
+
+.lnil-train-alt::before {
+    content: "\ed67";
+}
+
+.lnil-train::before {
+    content: "\ed68";
+}
+
+.lnil-bullhorn::before {
+    content: "\ed69";
+}
+
+.lnil-bus::before {
+    content: "\ed6a";
+}
+
+.lnil-boarding-pass-alt::before {
+    content: "\ed6b";
+}
+
+.lnil-achievement::before {
+    content: "\ed6c";
+}
+
+.lnil-agenda::before {
+    content: "\ed6d";
+}
+
+.lnil-briefcase-alt::before {
+    content: "\ed6e";
+}
+
+.lnil-apartment-alt::before {
+    content: "\ed6f";
+}
+
+.lnil-apartment::before {
+    content: "\ed70";
+}
+
+.lnil-analytics-alt-1::before {
+    content: "\ed71";
+}
+
+.lnil-briefcase::before {
+    content: "\ed72";
+}
+
+.lnil-cart-alt::before {
+    content: "\ed73";
+}
+
+.lnil-cart-down::before {
+    content: "\ed74";
+}
+
+.lnil-cart-empty::before {
+    content: "\ed75";
+}
+
+.lnil-cart-full::before {
+    content: "\ed76";
+}
+
+.lnil-delivery::before {
+    content: "\ed77";
+}
+
+.lnil-desk::before {
+    content: "\ed78";
+}
+
+.lnil-customer::before {
+    content: "\ed79";
+}
+
+.lnil-graph::before {
+    content: "\ed7a";
+}
+
+.lnil-grow::before {
+    content: "\ed7b";
+}
+
+.lnil-hierchy-alt::before {
+    content: "\ed7c";
+}
+
+.lnil-global::before {
+    content: "\ed7d";
+}
+
+.lnil-hierchy::before {
+    content: "\ed7e";
+}
+
+.lnil-investment::before {
+    content: "\ed7f";
+}
+
+.lnil-notepad::before {
+    content: "\ed80";
+}
+
+.lnil-consulting::before {
+    content: "\ed81";
+}
+
+.lnil-office-plan::before {
+    content: "\ed82";
+}
+
+.lnil-paperclip::before {
+    content: "\ed83";
+}
+
+.lnil-cart::before {
+    content: "\ed84";
+}
+
+.lnil-offer::before {
+    content: "\ed85";
+}
+
+.lnil-pie-chart-alt::before {
+    content: "\ed86";
+}
+
+.lnil-pie-chart-dollar::before {
+    content: "\ed87";
+}
+
+.lnil-pie-chart::before {
+    content: "\ed88";
+}
+
+.lnil-pie-report::before {
+    content: "\ed89";
+}
+
+.lnil-handshake::before {
+    content: "\ed8a";
+}
+
+.lnil-pin-alt::before {
+    content: "\ed8b";
+}
+
+.lnil-pin::before {
+    content: "\ed8c";
+}
+
+.lnil-quotation::before {
+    content: "\ed8d";
+}
+
+.lnil-revenue::before {
+    content: "\ed8e";
+}
+
+.lnil-stamp::before {
+    content: "\ed8f";
+}
+
+.lnil-tablet-alt::before {
+    content: "\ed90";
+}
+
+.lnil-tag::before {
+    content: "\ed91";
+}
+
+.lnil-target-achievement::before {
+    content: "\ed92";
+}
+
+.lnil-table::before {
+    content: "\ed93";
+}
+
+.lnil-target-alt::before {
+    content: "\ed94";
+}
+
+.lnil-target-alt-1::before {
+    content: "\ed95";
+}
+
+.lnil-swatches::before {
+    content: "\ed96";
+}
+
+.lnil-stats-down::before {
+    content: "\ed97";
+}
+
+.lnil-stats-up::before {
+    content: "\ed98";
+}
+
+.lnil-target-revenue::before {
+    content: "\ed99";
+}
+
+.lnil-tie::before {
+    content: "\ed9a";
+}
+
+.lnil-target::before {
+    content: "\ed9b";
+}
+
+.lnil-licencse::before {
+    content: "\ed9c";
+}
+
+.lnil-target-remove::before {
+    content: "\ed9d";
+}
+
+.lnil-sales-report::before {
+    content: "\ed9e";
+}
+
+.lnil-Instagram::before {
+    content: "\ed9f";
+}
+
+.lnil-amazon::before {
+    content: "\eda0";
+}
+
+.lnil-amex::before {
+    content: "\eda1";
+}
+
+.lnil-bitbucket::before {
+    content: "\eda2";
+}
+
+.lnil-bitcoin::before {
+    content: "\eda3";
+}
+
+.lnil-chrome::before {
+    content: "\eda4";
+}
+
+.lnil-css3::before {
+    content: "\eda5";
+}
+
+.lnil-dribbble::before {
+    content: "\eda6";
+}
+
+.lnil-dropbox::before {
+    content: "\eda7";
+}
+
+.lnil-drupal::before {
+    content: "\eda8";
+}
+
+.lnil-facebook::before {
+    content: "\eda9";
+}
+
+.lnil-firefox::before {
+    content: "\edaa";
+}
+
+.lnil-github::before {
+    content: "\edab";
+}
+
+.lnil-html5::before {
+    content: "\edac";
+}
+
+.lnil-mastercard::before {
+    content: "\edad";
+}
+
+.lnil-paypal::before {
+    content: "\edae";
+}
+
+.lnil-play-store::before {
+    content: "\edaf";
+}
+
+.lnil-slack::before {
+    content: "\edb0";
+}
+
+.lnil-quora::before {
+    content: "\edb1";
+}
+
+.lnil-soundcloud::before {
+    content: "\edb2";
+}
+
+.lnil-spotify::before {
+    content: "\edb3";
+}
+
+.lnil-twitter::before {
+    content: "\edb4";
+}
+
+.lnil-visa::before {
+    content: "\edb5";
+}
+
+.lnil-android::before {
+    content: "\edb6";
+}
+
+.lnil-apple::before {
+    content: "\edb7";
+}
+
+.lnil-behance::before {
+    content: "\edb8";
+}
+
