@@ -28,7 +28,7 @@ const demoContent = [
   },
   {
     demoImg: "home-minimal",
-    routerPath: "/jhc-work",
+    routerPath: "/chc-work",
     title: "호찬",
     delayAnimationTime: "0",
   },
