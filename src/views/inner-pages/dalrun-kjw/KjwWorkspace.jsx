@@ -17,7 +17,7 @@ const demoContent = [
   },
   {
     demoImg: "home-default",
-    routerPath: "/record",
+    routerPath: "/diary",
     title: "코스 다이어리",
     delayAnimationTime: "0",
   },
