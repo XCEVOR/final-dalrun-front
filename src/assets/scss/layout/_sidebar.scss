@@ -371,7 +371,7 @@
   ul {
     width: 300px;
     list-style-type: none;
-    padding: 3rem 0 3rem 0;
+    padding: 3rem 0 9rem 0;
     text-align: center;
 
     li {
@@ -381,5 +381,11 @@
       font-weight: bold;
       color: var(--ptf-color-black);
       }
+  }
+
+  .admin-sidebar-menu_btns {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 60px;
   }
 }

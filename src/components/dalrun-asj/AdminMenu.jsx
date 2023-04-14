@@ -33,7 +33,6 @@ const AdminMenu = () => {
     <>
       <div className="ptf-admin-sidebar">
         <div>
-          {/* <SidebarContent> */}
             <ul className="admin-sidebar-menu_wrapper">
               {menuContent.map((item, i) => (
                 <li key={i}>
@@ -41,10 +40,12 @@ const AdminMenu = () => {
                 </li>
               ))}
             </ul>
-          {/* </SidebarContent> */}
+            <div className="admin-sidebar-menu_btns">
+              <Link to={"#main"}>돌아가기</Link>
+              <button className="logout">로그아웃</button>
+            </div>
         </div>
       </div>
-      {/* End .ptf-offcanvas-menu__navigation */}
     </>
   );
 };
