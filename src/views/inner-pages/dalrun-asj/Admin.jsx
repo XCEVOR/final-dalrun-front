@@ -11,6 +11,7 @@ import AdminProductinquiry from "./inner/admin-bbs/admin-question/AdminProductin
 import AdminProduct from "./inner/admin-store/AdminProduct";
 import AdminChart from "./inner/AdminChart";
 import AdminMembers from "./AdminMembers";
+import AdminBbs from "./AdminBbs";
 
 const Admin = () => {
   const location = useLocation();
@@ -21,8 +22,8 @@ const Admin = () => {
         return <AdminDashboard />;
       } else if(m === "members") {
         return <AdminMembers />;
-      } else if(m === "productinquiry") {
-        return <AdminProductinquiry />;
+      } else if(m === "bbs") {
+        return <AdminBbs />;
       } else if(m === "product") {
         return <AdminProduct />;
       } else if(m === "chart") {

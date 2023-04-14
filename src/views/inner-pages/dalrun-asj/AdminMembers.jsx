@@ -12,14 +12,10 @@ function AdminMembers() {
 
     return (
         <div className="members container">
-        <h4 className="title">회원관리</h4>
-        <button onClick={()=>setClicked('member')}>개인회원</button>
-        <button onClick={()=>setClicked('crew')}>크루</button>
-        {clickedBtn(clicked)}
-        <Routes>
-            <Route path="/admin/members/member" element={<AdminMember />} />
-            <Route path="/admin/members/crew" element={<AdminCrew />} />
-        </Routes>
+            <h4 className="title">회원관리</h4>
+            <button onClick={()=>setClicked('member')}>개인회원</button>
+            <button onClick={()=>setClicked('crew')}>크루</button>
+            {clickedBtn(clicked)}
         </div>
     );
 }

@@ -68,8 +68,6 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
-import AdminMembers from "../views/inner-pages/dalrun-asj/AdminMembers";
-
 
 const AllRoutes = () => {
   return (
