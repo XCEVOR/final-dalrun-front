@@ -6,13 +6,19 @@ const demoContent = [
   {
     demoImg: "home-default",
     routerPath: "/course",
-    title: "코스 다이어리",
+    title: "코스 추천 페이지",
     delayAnimationTime: "0",
   },
   {
     demoImg: "home-default",
     routerPath: "/qna",
     title: "QnA 페이지",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/diary",
+    title: "코스 다이어리",
     delayAnimationTime: "0",
   },
 
