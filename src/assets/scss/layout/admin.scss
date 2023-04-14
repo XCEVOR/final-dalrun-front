@@ -9,8 +9,9 @@
     font-weight: bold;
 }
 
+// 대시보드
 .dashboard {
-
+    
     .outline {
         border: 1px solid var(--ptf-color-black);
         width: 100%;
@@ -28,5 +29,21 @@
 
     .summary {
         display: flex;
+    }
+}
+
+// 회원관리
+.member {
+    .outline {
+        border: 1px solid var(--ptf-color-black);
+        width: 100%;
+    }
+
+    .search {
+        height: 100px;
+    }
+
+    .member-info {
+        height: 500px;
     }
 }
