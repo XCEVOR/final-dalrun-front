@@ -11,9 +11,9 @@ const demoContent = [
   },
   {
     demoImg: "home-default",
-    routerPath: "/qna",
-    title: "QnA 페이지",
-    delayAnimationTime: "0",
+    routerPath: "/review-main",
+    title: "리뷰 메인",
+    delayAnimationTime: "200",
   },
 
 ];
@@ -150,6 +150,11 @@ const jhcWorkspace = () => {
           </article>
         </main>
       </div>
+
+
+
+
+
 
       {/* <!--Footer--> */}
       <footer

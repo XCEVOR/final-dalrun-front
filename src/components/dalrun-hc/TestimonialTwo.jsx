@@ -17,7 +17,7 @@ const testimonialContent = [
     categorie: "UI/UX",
     title: "Taskly Dashboard",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     avatar: "twitter-avatar-2",
@@ -33,7 +33,7 @@ const testimonialContent = [
     categorie: "Product",
     title: "Film & Art Festival",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     avatar: "comment-avatar-1",
@@ -49,7 +49,7 @@ const testimonialContent = [
     categorie: "Branding, Packaging",
     title: "Dark Wishky Wine",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     avatar: "twitter-avatar",
@@ -65,7 +65,7 @@ const testimonialContent = [
     categorie: "UI/UX",
     title: "Taskly Dashboard",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     avatar: "twitter-avatar-2",
@@ -81,7 +81,7 @@ const testimonialContent = [
     categorie: "Product",
     title: "Film & Art Festival",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     avatar: "comment-avatar-1",
@@ -97,7 +97,7 @@ const testimonialContent = [
     categorie: "Branding, Packaging",
     title: "Dark Wishky Wine",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
 ];
 

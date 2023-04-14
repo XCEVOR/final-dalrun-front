@@ -52,7 +52,9 @@ import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 // 장호찬
 import JhcWorkspace from "../views/inner-pages/dalrun-jhc/jhcWorkspace";
 import StoreMain from "../views/inner-pages/dalrun-jhc/store/StoreMain";
-import StoreDetail from "../views/inner-pages/dalrun-jhc/store/StoreDetail";
+import StoreDetails from "../views/inner-pages/dalrun-jhc/store/StoreDetails";
+import ReviewMain from "../views/inner-pages/dalrun-jhc/review/ReviewMain";
+import ReviewDetails from "../views/inner-pages/dalrun-jhc/review/ReviewDetails";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
@@ -116,7 +118,9 @@ const AllRoutes = () => {
         {/* 장호찬 */}
         <Route path='/jhc-work' element={<JhcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
-        <Route path='/store-detail' element={<StoreDetail />} />
+        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/review-main' element={<ReviewMain />} />
+        <Route path='/review-details' element={<ReviewDetails />} />
 
         {/* 김종완 */}
         <Route path='/kjw-work' element={<KjwWorkspace/>} />

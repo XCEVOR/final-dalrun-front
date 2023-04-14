@@ -8,7 +8,7 @@ const teamContent = [
     title: "Stephan Bowie",
     designation: "CEO Founder",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "100",
@@ -16,7 +16,7 @@ const teamContent = [
     title: "Robert Downey Jr",
     designation: "CO Founder",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "200",
@@ -24,7 +24,7 @@ const teamContent = [
     title: "Laura Lorwence",
     designation: "Project Management",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "300",
@@ -32,7 +32,7 @@ const teamContent = [
     title: "David De Berg",
     designation: "Lead of Technical",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "0",
@@ -40,7 +40,7 @@ const teamContent = [
     title: "Elena Stephan",
     designation: "SEO/Marketing",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "100",
@@ -48,7 +48,7 @@ const teamContent = [
     title: "Andy Robertson",
     designation: "Content Writer",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
   {
     delayAnimation: "200",
@@ -56,7 +56,7 @@ const teamContent = [
     title: "",
     designation: "",
 
-    routerPath: "/store-detail",
+    routerPath: "/store-details",
   },
 ];
 
