@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import AdminDashboard from "../../views/inner-pages/dalrun-asj/inner/AdminDashboard";
-import AdminProduct from "../../views/inner-pages/dalrun-asj/inner/admin-store/AdminProduct";
 import AdminChart from "../../views/inner-pages/dalrun-asj/inner/AdminChart";
 import AdminMembers from "../../views/inner-pages/dalrun-asj/AdminMembers";
 import AdminBbs from "../../views/inner-pages/dalrun-asj/AdminBbs";
+import AdminStore from "../../views/inner-pages/dalrun-asj/AdminStore";
 
 const menuContent = [
   {
@@ -21,7 +21,7 @@ const menuContent = [
   },
   {
     name: "쇼핑몰 관리",
-    routerRoute: "/admin/store/product"
+    routerRoute: "/admin/store"
   },
   {
     name: "차트",
@@ -50,7 +50,7 @@ const AdminMenu = () => {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/members/*" element={<AdminMembers />} />
           <Route path="/admin/bbs/*" element={<AdminBbs />} />
-          <Route path="/admin/store/product" element={<AdminProduct />} />
+          <Route path="/admin/store" element={<AdminStore />} />
           <Route path="/admin/chart" element={<AdminChart />} />
         </Routes>
       </div>
