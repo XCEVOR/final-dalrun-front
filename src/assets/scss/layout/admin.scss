@@ -9,8 +9,8 @@
         border:1px solid var(--bs-gray-700);
     }
 
-    button:not(:nth-child(2)) {
-        margin-left: 10px;
+    button:not(:nth-last-child(1)) {
+        margin-right: 10px;
     }
 
     button:hover,
