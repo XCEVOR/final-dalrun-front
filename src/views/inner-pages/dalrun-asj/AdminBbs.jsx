@@ -2,7 +2,6 @@ import { useState } from "react";
 import AdminShoereview from "./inner/admin-bbs/AdminShoereview";
 import AdminDiary from "./inner/admin-bbs/AdminDiary";
 import AdminCompetition from "./inner/admin-bbs/AdminCompetition";
-import { Route, Routes } from "react-router";
 import AdminQuestion from "./inner/admin-bbs/AdminQuestion";
 
 function AdminBbs() {
