@@ -4,7 +4,7 @@ import AdminProduct from "./inner/admin-store/AdminProduct";
 import AdminStock from "./inner/admin-store/AdminStock";
 
 function AdminStore() {
-    const [clicked, setClicked] = useState("member");
+    const [clicked, setClicked] = useState("product");
     const clickedBtn = (p) => {
         if(p === "product") return <AdminProduct />;
         else if(p === "order") return <AdminOrder />;
