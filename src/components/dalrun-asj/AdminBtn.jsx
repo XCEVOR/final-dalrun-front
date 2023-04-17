@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AdminBtn(props) {
   const [active, setActive] = useState('0');  
-  const [clicked, setClicked] = useState(props[0].cate);
 
   const propsArray = Object.values(props);
 
   const clickHandle = (e) => {
     setActive(e.target.value);
-    setClicked(e.target.name);
   }
 
   return (
@@ -16,22 +15,18 @@ function AdminBtn(props) {
         {
           propsArray.map((prop, i)=>{
             return (
+              <Link to={`${prop.cate}`}>
                 <button 
                   key={i}
                   value={i} 
-                  name={prop.cate}
                   className={i == active ? "active" : ""}
                   onClick={clickHandle}
                 >
                   {prop.name}
                 </button>
+              </Link>
             );
           })
-        }
-        {
-            propsArray.filter(prop => prop.cate === clicked ).map((p, i)=>{
-                return <div key={i}>{p.selected}</div>
-            })
         }
     </div>
   );

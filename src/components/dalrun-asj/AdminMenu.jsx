@@ -13,15 +13,15 @@ const menuContent = [
   },
   {
     name: "회원관리",
-    routerRoute: "/admin/members"
+    routerRoute: "/admin/members/member"
   },
   {
     name: "게시물 관리",
-    routerRoute: "/admin/bbs"
+    routerRoute: "/admin/bbs/question/productinquiry"
   },
   {
     name: "쇼핑몰 관리",
-    routerRoute: "/admin/store"
+    routerRoute: "/admin/store/product"
   },
   {
     name: "차트",
@@ -46,13 +46,6 @@ const AdminMenu = () => {
               <button className="logout">로그아웃</button>
             </div>
         </div>
-        <Routes>
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/members/*" element={<AdminMembers />} />
-          <Route path="/admin/bbs/*" element={<AdminBbs />} />
-          <Route path="/admin/store" element={<AdminStore />} />
-          <Route path="/admin/chart" element={<AdminChart />} />
-        </Routes>
       </div>
     </>
   );
