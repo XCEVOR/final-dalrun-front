@@ -6,7 +6,10 @@ function Diary(){
     <div className='row'>
       <div className='col-md-2'>
         <div className='d-flex flex-colum flex-shrink-0 gb-body-tertiary ' data-bs-theme="dark" style={{ width:"4.5rem"}}>
+          <a className='navbar-brand' href=''>Dalrun Dalrun</a>
           <ul className="nav nav-pills nav-flush felx-column mb-auto text-cneter">
+            <li className='nav-item'>내 기록</li>
+            <li className='nav-item'>다이어리 업로드</li>
             <li className='nav-item'></li>
           </ul>          
         </div>
