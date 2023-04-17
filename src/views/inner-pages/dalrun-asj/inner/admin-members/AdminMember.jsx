@@ -35,7 +35,7 @@ function AdminMember() {
             </div>
           </div>
           <button>
-            <Link to={`members?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
+            <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
           </button>
         </div>
         <div className="info outline">개인회원</div>

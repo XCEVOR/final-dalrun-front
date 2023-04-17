@@ -15,6 +15,7 @@ function AdminQuestion() {
                 <div className="search outline"></div>
                 <AdminBtn {...category} />
                 <Routes>
+                    <Route path=":cate" element={<AdminQuestion />} />
                     <Route path="productinquiry" element={<AdminProductinquiry />} />
                     <Route path="qna" element={<AdminQna />} />
                 </Routes>

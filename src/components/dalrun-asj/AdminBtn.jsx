@@ -15,9 +15,8 @@ function AdminBtn(props) {
         {
           propsArray.map((prop, i)=>{
             return (
-              <Link to={`${prop.cate}`}>
+              <Link key={i} to={`${prop.cate}`}>
                 <button 
-                  key={i}
                   value={i} 
                   className={i == active ? "active" : ""}
                   onClick={clickHandle}

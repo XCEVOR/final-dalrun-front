@@ -16,6 +16,7 @@ function AdminStore() {
             <h4 className="title">쇼핑몰 관리</h4>
             <AdminBtn {...category} />
             <Routes>
+                <Route path=":cate" element={<AdminStore />} />
                 <Route path="product" element={<AdminProduct />} />
                 <Route path="order" element={<AdminOrder />} />
                 <Route path="stock" element={<AdminStock />} />

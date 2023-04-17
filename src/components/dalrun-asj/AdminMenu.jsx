@@ -1,10 +1,5 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import AdminDashboard from "../../views/inner-pages/dalrun-asj/inner/AdminDashboard";
-import AdminChart from "../../views/inner-pages/dalrun-asj/inner/AdminChart";
-import AdminMembers from "../../views/inner-pages/dalrun-asj/AdminMembers";
-import AdminBbs from "../../views/inner-pages/dalrun-asj/AdminBbs";
-import AdminStore from "../../views/inner-pages/dalrun-asj/AdminStore";
+import { Link } from "react-router-dom";
 
 const menuContent = [
   {

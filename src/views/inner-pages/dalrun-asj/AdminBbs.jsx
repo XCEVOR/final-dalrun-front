@@ -18,6 +18,7 @@ function AdminBbs() {
             <h4 className="title">게시물 관리</h4>
             <AdminBtn {...category} />
             <Routes>
+                <Route path=":cate" element={<AdminBbs />} />
                 <Route path="question/*" element={<AdminQuestion />} />
                 <Route path="shoereview" element={<AdminShoereview />} />
                 <Route path="diary" element={<AdminDiary />} />

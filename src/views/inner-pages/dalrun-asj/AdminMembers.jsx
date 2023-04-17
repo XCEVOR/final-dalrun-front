@@ -14,6 +14,7 @@ function AdminMembers() {
             <h4 className="title">회원관리</h4>
             <AdminBtn {...category} />
             <Routes>
+                <Route path=":cate" element={<AdminMembers />} />
                 <Route path="member" element={<AdminMember />} />
                 <Route path="crew" element={<AdminCrew />} />
             </Routes>
