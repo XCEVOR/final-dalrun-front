@@ -10,7 +10,7 @@ const HeadermainPage = () => {
 
   const [click1, setClick1] = useState(false);
   const handleClick1 = () => setClick1(!click1);
- 
+
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
