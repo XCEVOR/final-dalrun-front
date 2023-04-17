@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
+import { Link } from "react-router-dom";
 
 function AdminMember() {
   const [choice, setChoice] = useState("");
@@ -32,9 +34,12 @@ function AdminMember() {
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <button>검색</button>
+          <button>
+            <Link to={`members?choice=${choice}&search=${search}&radioVal=${radioVal}`}>검색</Link>
+          </button>
         </div>
         <div className="info outline">개인회원</div>
+        <AdminSearch />
       </div>
     </div>
   );
