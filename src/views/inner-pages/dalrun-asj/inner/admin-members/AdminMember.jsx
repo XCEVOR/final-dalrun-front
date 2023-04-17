@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function AdminMember() {
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
-  const [radioVal, setRadioVal] = useState("");
+  const [grade, setGrade] = useState("");
 
-  const handleRadio = (e) => setRadioVal(e.target.value);
+  const handleRadio = (e) => setGrade(e.target.value);
 
   return (
     <div className="member">
@@ -17,10 +17,10 @@ function AdminMember() {
             <div className="search-content">
               <span className="search-title">회원 등급</span>
               <div>
-                <label><input type="radio" value="걸음마" onChange={handleRadio} checked={radioVal === "걸음마"}/>걸음마</label>
-                <label><input type="radio" value="런니니" onChange={handleRadio} checked={radioVal === "런니니"}/>런니니</label>
-                <label><input type="radio" value="러너" onChange={handleRadio} checked={radioVal === "러너"}/>러너</label>
-                <label><input type="radio" value="마라토너" onChange={handleRadio} checked={radioVal === "마라토너"}/>마라토너</label>
+                <label><input type="radio" value="걸음마" onChange={handleRadio} checked={grade === "걸음마"}/>걸음마</label>
+                <label><input type="radio" value="런니니" onChange={handleRadio} checked={grade === "런니니"}/>런니니</label>
+                <label><input type="radio" value="러너" onChange={handleRadio} checked={grade === "러너"}/>러너</label>
+                <label><input type="radio" value="마라토너" onChange={handleRadio} checked={grade === "마라토너"}/>마라토너</label>
               </div>
             </div>
             <div className="search-content">
@@ -35,7 +35,7 @@ function AdminMember() {
             </div>
           </div>
           <button>
-            <Link to={`members?choice=${choice}&search=${search}&radioVal=${radioVal}`}>검색</Link>
+            <Link to={`members?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
           </button>
         </div>
         <div className="info outline">개인회원</div>
