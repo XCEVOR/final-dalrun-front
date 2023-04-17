@@ -12,17 +12,17 @@ import ServiceOne from "../../components/service/ServiceOne";
 import Testimonial from "../../components/testimonial/Testimonial";
 
 
-import PortfoliomainPage from "../../components/mjy-components/PortfoliomainPage";
-import TeammainPage from "../../components/mjy-components/TeammainPage";
-import HeadermainPage from "../../components/mjy-components/HeadermainPage";
-import HeromainPage from "../../components/mjy-components/HeromainPage";
-import Dotmap from "../../components/mjy-components/dotmap";
-import DotMapInfo from "../../components/mjy-components/dotmapinfo";
+import PortfoliomainPage from "../../components/dalrun-jy/PortfoliomainPage";
+import TeammainPage from "../../components/dalrun-jy/TeammainPage";
+import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";
+import HeromainPage from "../../components/dalrun-jy/HeromainPage";
+import Dotmap from "../../components/dalrun-jy/dotmap";
+import DotMapInfo from "../../components/dalrun-jy/dotmapinfo";
 
 const MainDotMap = () => {
- 
+
   return (
-    <div className="ptf-site-wrapper animsition  ptf-is--home-default">
+    <div className="ptf-site-wrapper animsition  ptf-is-default">
       <Helmet>
         <title>메인 페이지</title>
       </Helmet>
@@ -35,16 +35,20 @@ const MainDotMap = () => {
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
             <section>
-              <Dotmap/>
+              <Dotmap />
             </section>
+            <div
+              className="ptf-spacer"
+              style={{ "--ptf-xxl": "2rem" }}
+            ></div>
 
             <section>
-            <div
+              <div
                 className="row"
                 style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
               >
-                  <DotMapInfo/>
-                  </div>
+                <DotMapInfo />
+              </div>
             </section>
           </div>
         </div>
@@ -53,7 +57,7 @@ const MainDotMap = () => {
         {/* <!--Footer--> */}
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
-           
+
             <div className="ptf-footer__bottom">
               <CopyRight />
             </div>

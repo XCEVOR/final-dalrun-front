@@ -1,43 +1,63 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const teamContent = [
   {
     delayAnimation: "0",
-    img: "team-1",
+    img: "shop",
     title: "스토어",
-    designation: "CEO Founder",
+    link: ''
+
   },
   {
     delayAnimation: "100",
-    img: "team-2",
+    img: "diary",
     title: "러닝 다이어리",
-    designation: "CO Founder",
+    link: ''
+
   },
   {
     delayAnimation: "200",
-    img: "team-3",
+    img: "review",
     title: "러닝화 리뷰",
-    designation: "Project Management",
+    link: ''
+
   },
   {
     delayAnimation: "300",
-    img: "team-4",
+    img: "competition",
     title: "대회 신청",
-    designation: "Lead of Technical",
+    link: ''
+
   },
   {
     delayAnimation: "0",
-    img: "team-5",
+    img: "course",
     title: "러닝 코스",
-    designation: "SEO/Marketing",
+    link: ''
+
   },
   {
     delayAnimation: "100",
-    img: "team-6",
+    img: "qna",
     title: "QnA",
-    designation: "Content Writer",
+    link: ''
+
   },
-  
+  {
+    delayAnimation: "100",
+    img: "crew",
+    title: "크루 모집",
+    link: ''
+
+  },
+  {
+    delayAnimation: "100",
+    img: "mypage",
+    title: "마이페이지",
+    link: ''
+
+  },
+
 ];
 
 const TeammainPage = () => {
@@ -54,20 +74,20 @@ const TeammainPage = () => {
           <div className="ptf-team-member ptf-team-member--has-effect">
             <div className="ptf-team-member__avatar">
               <div className="shadow-effect"></div>
-              <a href="#">
+              <Link to={`/${val.link}`}>
                 {" "}
                 <img
-                  src={`assets/img/root/team/${val.img}.png`}
+                  src={`assets/img/dalrun-jy/${val.img}.png`}
                   alt={val.title}
                   loading="lazy"
                 />
-              </a>
+              </Link>
             </div>
             <div className="ptf-team-member__content">
               <h6 className="ptf-team-member__name">
                 <a href="#">{val.title}</a>
               </h6>
-              <p className="ptf-team-member__function">{val.designation}</p>
+
             </div>
           </div>
         </div>
