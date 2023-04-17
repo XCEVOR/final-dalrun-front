@@ -15,10 +15,8 @@ function Diary(){
         </div>
       </div>
       <div className='col-md-1'>막대</div>
-      <div className='col-md-9'>
-        <div className='row'>< KakaoMap/></div>
-        <div className='row' style={{textAlign:"center"}}>기록 분석</div>
-      </div>
+      <div className='col-md-9'>< KakaoMap/></div>
+      <div className='col-md-9' style={{textAlign:"center"}}>기록 분석</div>
     </div>
     )
 }
