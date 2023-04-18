@@ -5,19 +5,19 @@ import CounterTwo from "../../../../components/counter/CounterTwo";
 import CopyRightTwo from "../../../../components/footer/copyright/CopyRightTwo";
 import FooterTwo from "../../../../components/footer/FooterTwo";
 import HeaderAgency from "../../../../components/header/HeaderAgency";
-import HeroAgency from "../../../../components/hero/HeroAgency";
+// import HeroAgency from "../../../../components/hero/HeroAgency";
 import ListOne from "../../../../components/list/ListOne";
 import ListTwo from "../../../../components/list/ListTwo";
 import PortfolioTwo from "../../../../components/portfolio/PortfolioTwo";
 import Pricing from "../../../../components/pricing/Pricing";
 // import Team from "../../../../components/team/Team";
 
+import BlogThree from "../../../../components/blog/BlogThree";
 
-import Team from "../../../../components/dalrun-hc/store/Team";
+import HeroAgency from "../../../../components/dalrun-hc/store/HeroAgency";
 import TestimonialTwo from "../../../../components/dalrun-hc/store/TestimonialTwo";
 import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThree";
-import BlogThree from "../../../../components/dalrun-hc/store/BlogThree";
-
+import Team from "../../../../components/dalrun-hc/store/Team";
 
 const HomeAgency = () => {
   return (
