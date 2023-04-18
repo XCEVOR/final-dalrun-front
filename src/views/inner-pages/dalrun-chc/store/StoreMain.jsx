@@ -11,10 +11,13 @@ import ListTwo from "../../../../components/list/ListTwo";
 import PortfolioTwo from "../../../../components/portfolio/PortfolioTwo";
 import Pricing from "../../../../components/pricing/Pricing";
 // import Team from "../../../../components/team/Team";
-import TestimonialTwo from "../../../../components/dalrun-hc/TestimonialTwo";
-import PortfolioThree from "../../../../components/dalrun-hc/PortfolioThree";
-import Team from "../../../../components/dalrun-hc/Team";
-import BlogThree from "../../../../components/blog/BlogThree";
+
+
+import Team from "../../../../components/dalrun-hc/store/Team";
+import TestimonialTwo from "../../../../components/dalrun-hc/store/TestimonialTwo";
+import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThree";
+import BlogThree from "../../../../components/dalrun-hc/store/BlogThree";
+
 
 const HomeAgency = () => {
   return (
