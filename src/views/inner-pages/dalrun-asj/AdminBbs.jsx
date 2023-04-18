@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 
 function AdminBbs() {
     const category = [
-        {cate:"question", name:"문의"}, 
+        {cate:"question/productinquiry", name:"문의"}, 
         {cate: "shoereview", name:"리뷰"}, 
         {cate:"diary", name:"다이어리"}, 
         {cate: "competition", name: "대회일정"}

@@ -16,9 +16,9 @@ function AdminSearch() {
     const [dataList, setDateList] = useState([]);
 
     const Search = () => {
-        if(choice === null || search === null) return;
-    
-        if(cate === "member") {
+        if(choice === null || search === null) {
+            return;
+        } else if(cate === "member") {
             setGrade(searchParams.get("grade"));
             setParams({...params, "grade":grade});
         } else if(cate === "competition") {
