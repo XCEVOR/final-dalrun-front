@@ -7,6 +7,8 @@ import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
 import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
+import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
+
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
 
@@ -91,9 +93,18 @@ const WorksShowcase = () => {
                         loading="lazy"
                       />
                     </a>
+                    
                   </div>
-                </div>
+                  <div
+                className="row"
+                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
+              >
+                <Pricing />
               </div>
+                </div>
+                
+              </div>
+              
             </section>
 
             <section>
@@ -102,6 +113,16 @@ const WorksShowcase = () => {
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "3.125rem" }}
               ></div>
+
+
+              <div
+                className="row"
+                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
+              >
+                <Pricing />
+              </div>
+
+
 
               <div className="container">
                 {/* <!--Animated Block--> */}
