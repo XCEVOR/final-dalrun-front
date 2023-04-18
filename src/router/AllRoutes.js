@@ -9,7 +9,7 @@ import HomeTrending from "../views/all-home-version/HomeTrending";
 import HomeFreelancer from "../views/all-home-version/HomeFreelancer";
 import HomeDark from "../views/all-home-version/HomeDark";
 import HomeModern from "../views/all-home-version/HomeModern";
-// Service
+// Serviceb
 import Service from "../views/inner-pages/service/Service";
 import ServiceDetails from "../views/inner-pages/service/ServiceDetails";
 

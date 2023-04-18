@@ -22,6 +22,7 @@ function KakaoMap(){
             height: "100vh",
           }}
           level={13} // 지도의 확대 레벨
+          maxLevel={13}
         >
           <ZoomControl position={kakao.maps.ControlPosition.RIGHT} />
           <MapTypeControl position={kakao.maps.ControlPosition.TOPRIGHT}/>
