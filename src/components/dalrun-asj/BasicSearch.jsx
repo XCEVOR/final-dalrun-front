@@ -16,8 +16,6 @@ function BasicSearch(props) {
               return <option key={i} value={prop.value}>{prop.name}</option>
             })
           }
-          {/* <option value="crewName">크루명</option>
-          <option value="memId">리더</option> */}
         </select>
         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
