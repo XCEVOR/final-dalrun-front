@@ -6,6 +6,7 @@ function AdminSearch() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [grade, setGrade] = useState("");
     const [date, setDate] = useState("");
+    const [saleState, setSaleState] = useState("");
     const [stockState, setStockState] = useState("");
     
     const { cate } = useParams();
@@ -24,9 +25,10 @@ function AdminSearch() {
         } else if(cate === "competition") {
             setDate(searchParams.get("date"));
             setParams({...params, "date":date});
-        } else if(cate === "stock") {
-            setStockState(searchParams.get("state"));
-            setParams({...params, "state":stockState});
+        } else if(cate === "product") {
+            setSaleState(searchParams.get("sale"));
+            setStockState(searchParams.get("stock"));
+            setParams({...params, "stock":stockState, "productSale":saleState});
         }
     }
 

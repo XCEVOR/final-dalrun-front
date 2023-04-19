@@ -7,8 +7,7 @@ import { Route, Routes } from "react-router-dom";
 function AdminStore() {
     const category = [
         {cate:"product", name:"상품관리"}, 
-        {cate: "order", name:"주문관리"}, 
-        {cate: "stock", name:"재고관리"}
+        {cate: "order", name:"주문관리"}
     ];
 
     return (
@@ -19,7 +18,6 @@ function AdminStore() {
                 <Route path=":cate" element={<AdminStore />} />
                 <Route path="product" element={<AdminProduct />} />
                 <Route path="order" element={<AdminOrder />} />
-                <Route path="stock" element={<AdminStock />} />
             </Routes>
         </div>
     );
