@@ -10,14 +10,16 @@ import ListOne from "../../../../components/list/ListOne";
 import ListTwo from "../../../../components/list/ListTwo";
 import PortfolioTwo from "../../../../components/portfolio/PortfolioTwo";
 import Pricing from "../../../../components/pricing/Pricing";
-// import Team from "../../../../components/team/Team";
+import Team from "../../../../components/team/Team";
 
 import BlogThree from "../../../../components/blog/BlogThree";
 
-import HeroAgency from "../../../../components/dalrun-hc/store/HeroAgency";
-import TestimonialTwo from "../../../../components/dalrun-hc/store/TestimonialTwo";
+import StoreMainCover from "../../../../components/dalrun-hc/store/StoreMainCover";
+import StoreTwoRectangles from "../../../../components/dalrun-hc/store/StoreTwoRectangles";
 import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThree";
-import Team from "../../../../components/dalrun-hc/store/Team";
+import StoreFourRectangles from "../../../../components/dalrun-hc/store/StoreFourRectangles";
+import StoreFourRectangles_temp from "../../../../components/dalrun-hc/store/StoreFourRectangles-temp";
+import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreThreeRectangles";
 
 const HomeAgency = () => {
   return (
@@ -38,7 +40,7 @@ const HomeAgency = () => {
           ============================================== */}
             <div className="ptf-showcase-3 swiper-container">
               <div className="swiper-wrapper">
-                <HeroAgency />
+                <StoreMainCover />
               </div>
             </div>
 
@@ -84,7 +86,7 @@ const HomeAgency = () => {
                   {/* <!--Content Slider--> */}
                   <div className="ptf-content-slider swiper-container ">
                     <div className="swiper-wrapper testimonial-100-spacer">
-                      <TestimonialTwo />
+                      <StoreTwoRectangles />
                     </div>
                   </div>
                 </div>
@@ -123,7 +125,7 @@ const HomeAgency = () => {
               </div>
               <div className="container">
                 <div className="ptf-team-member-grid ptf-team-member-grid--4-columns">
-                  <Team />
+                  <StoreFourRectangles />
                 </div>
               </div>
               {/* <!--Spacer--> */}
@@ -163,7 +165,7 @@ const HomeAgency = () => {
                       "--bs-gutter-y": "3rem",
                     }}
                   >
-                    <BlogThree />
+                    <StoreThreeRectangles />
                   </div>
                 </div>
                 {/* End .ptf-animated-block */}
@@ -638,7 +640,7 @@ const HomeAgency = () => {
                   {/* <!--Content Slider--> */}
                   <div className="ptf-content-slider swiper-container ">
                     <div className="swiper-wrapper testimonial-100-spacer">
-                      <TestimonialTwo />
+                      {/* <TestimonialTwo /> */}
                     </div>
                   </div>
                 </div>
