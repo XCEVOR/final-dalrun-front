@@ -4,7 +4,7 @@ import AdminCompetition from "./inner/admin-bbs/AdminCompetition";
 import AdminQuestion from "./inner/admin-bbs/AdminQuestion";
 import AdminBtn from "../../../components/dalrun-asj/AdminBtn";
 import { Route, Routes } from "react-router-dom";
-import AdminBbsContent from "./inner/admin-bbs/admin-contents/AdminBbsContent";
+import AdminBbsContent from "./inner/admin-contents/AdminBbsContent";
 
 function AdminBbs() {
     const category = [

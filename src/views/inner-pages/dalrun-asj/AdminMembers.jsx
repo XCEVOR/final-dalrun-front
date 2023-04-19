@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AdminBtn from "../../../components/dalrun-asj/AdminBtn";
 import AdminCrew from "./inner/admin-members/AdminCrew";
 import AdminMember from "./inner/admin-members/AdminMember";
-import AdminMembersContent from "./inner/admin-bbs/admin-contents/AdminMembersContent";
+import AdminMembersContent from "./inner/admin-contents/AdminMembersContent";
 
 function AdminMembers() {
     const category = [

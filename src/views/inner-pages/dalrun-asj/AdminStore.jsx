@@ -1,8 +1,8 @@
 import AdminBtn from "../../../components/dalrun-asj/AdminBtn";
 import { Route, Routes } from "react-router-dom";
-import AdnimStoreContent from "./inner/admin-bbs/admin-contents/AdminStoreContent";
 import AdminOrder from "./inner/admin-store/AdminOrder";
 import AdminProduct from "./inner/admin-store/AdminProduct";
+import AdnimStoreContent from "./inner/admin-contents/AdminStoreContent";
 
 function AdminStore() {
     const category = [
