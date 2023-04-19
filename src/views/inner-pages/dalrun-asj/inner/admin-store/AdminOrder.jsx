@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
 
 function AdminOrder() {
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
   const [orderState, setOrderState] = useState("");
   const [deliveryState, setDeliveryState] = useState("");
+  const [dataList, setDataList] = useState([]);
 
   const handleOrderRadio = (e) => setOrderState(e.target.value);
   const handleDeliveryRadio = (e) => setDeliveryState(e.target.value);
@@ -52,6 +54,7 @@ function AdminOrder() {
             <button>
               <Link to={`?choice=${choice}&search=${search}&order=${orderState}&delivery=${deliveryState}`}>검색</Link>
             </button>
+            <AdminSearch setData={setDataList} />
           </div>
           <div className="info outline">주문관리</div>
       </div>

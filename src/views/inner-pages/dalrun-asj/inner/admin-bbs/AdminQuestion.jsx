@@ -4,7 +4,8 @@ import AdminBtn from "../../../../../components/dalrun-asj/AdminBtn";
 import { Route, Routes, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BasicSearch from "../../../../../components/dalrun-asj/BasicSearch";
-import AdminQuestionContent from "./admin-contents/AdminQuestionContent";
+import AdminQuestionContent from "../admin-contents/AdminQuestionContent";
+import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
 
 function AdminQuestion() {
     const qCategory = [
@@ -13,6 +14,7 @@ function AdminQuestion() {
     ];
 
     const [optionVal, setOptionVal] = useState([]);
+    const [dataList, setDataList] = useState([]);
     const { sub } = useParams();
 
     const curr = () => {
@@ -34,16 +36,18 @@ function AdminQuestion() {
             setOptionVal(option);
         }
     }
-
+    
+    
     useEffect(()=>{
         curr();
     }, [sub]);
-
+    
     return (
         <div className="bbs">
             <div className="bbs-content">
                 <BasicSearch {...optionVal} />
                 <AdminBtn {...qCategory}/>
+                <AdminSearch setData={setDataList} />
                 <Routes>
                     <Route path=":sub/*" element={<AdminQuestionContent {...qCategory} />} />
                 </Routes>

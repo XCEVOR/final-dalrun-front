@@ -6,7 +6,7 @@ function AdminMember() {
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
   const [grade, setGrade] = useState("");
-
+  const [dataList, setDataList] = useState([]);
   const handleRadio = (e) => setGrade(e.target.value);
 
   return (
@@ -39,7 +39,7 @@ function AdminMember() {
           </button>
         </div>
         <div className="info outline">개인회원</div>
-        <AdminSearch />
+        <AdminSearch setData={setDataList}/>
       </div>
     </div>
   );

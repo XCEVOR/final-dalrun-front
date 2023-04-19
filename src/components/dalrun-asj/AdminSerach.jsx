@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
-function AdminSearch() {
+function AdminSearch(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [grade, setGrade] = useState("");
     const [date, setDate] = useState("");
@@ -14,7 +14,6 @@ function AdminSearch() {
     const search = searchParams.get("search");
 
     const [params, setParams] = useState({"choice" : choice, "search" : search});
-    const [dataList, setDateList] = useState([]);
 
     const Search = () => {
         if(choice === null || search === null) {
@@ -36,7 +35,7 @@ function AdminSearch() {
         axios.get(`http://localhost:3000/${cate}`, { params: params })
              .then((resp) => {
                 console.log(resp);
-                // 검색결과리스트 dataList에 저장 -> 관리자 게시판 컴포넌트에 전달
+                props.getData(resp);    // 검색결과리스트 dataList에 저장
              })
              .catch((err) => {
                 console.log(err);

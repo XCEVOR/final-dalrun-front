@@ -7,6 +7,7 @@ function AdminProduct() {
   const [search, setSearch] = useState("");
   const [saleState, setSaleState] = useState("");
   const [stockState, setStockState] = useState("");
+  const [dataList, setDataList] = useState([]);
 
   const handleSaleRadio = (e) => setSaleState(e.target.value);
   const handleStockRadio = (e) => setStockState(e.target.value);
@@ -48,6 +49,7 @@ function AdminProduct() {
           <button>
             <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
           </button>
+          <AdminSearch setData={setDataList} />
           </div>
           <div className="info outline">상품관리</div>
           <AdminSearch />
