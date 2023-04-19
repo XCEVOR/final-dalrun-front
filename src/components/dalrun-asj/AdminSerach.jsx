@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import AdminPagination from "./AdminPagination";
 
 function AdminSearch(props) {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -8,12 +9,14 @@ function AdminSearch(props) {
     const [date, setDate] = useState("");
     const [saleState, setSaleState] = useState("");
     const [stockState, setStockState] = useState("");
+    const [page, setPage] = useState(1);
+    const [totalCnt, setTotalCnt] = useState(0);        
     
     const { cate } = useParams();
     const choice = searchParams.get("choice");
     const search = searchParams.get("search");
 
-    const [params, setParams] = useState({"choice" : choice, "search" : search});
+    const [params, setParams] = useState({"choice" : choice, "search" : search, "pageNumber" : page});
 
     const Search = () => {
         if(choice === null || search === null) {
@@ -35,11 +38,17 @@ function AdminSearch(props) {
         axios.get(`http://localhost:3000/${cate}`, { params: params })
              .then((resp) => {
                 console.log(resp);
-                props.getData(resp);    // 검색결과리스트 dataList에 저장
+                props.getData(resp.data.list);    // 검색결과리스트 dataList에 저장
+                setTotalCnt(resp.data.cnt);
              })
              .catch((err) => {
                 console.log(err);
              });
+    }
+
+    const handlePagination = (page) => {
+        setPage(page);
+        // getDataList();
     }
 
     // url이 바뀔 때만 렌더링
@@ -48,7 +57,7 @@ function AdminSearch(props) {
         // getDataList();
     },[searchParams]);
 
-    return;
+    return <AdminPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination} />;
 }
 
 export default AdminSearch;
