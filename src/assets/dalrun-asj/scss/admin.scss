@@ -40,10 +40,15 @@
     .search-title {
         width: 100px;
         line-height: 30px;
+        font-weight: 700;
     }
 
     .search-content {
         display: flex;
+
+        div {
+            line-height: 30px;
+        }
 
         label {
             font-size: 1em;
