@@ -1,8 +1,10 @@
 ﻿import React from "react";
 import KakaoMap from '../../../components/dalrun-jw/KakaoMap';
-import DiarySidebar from '../../../components/dalrun-jw/DiarySidebar';
-import DiaryList from '../../../components/dalrun-jw/DiaryList';
+import NaverMap from '../../../components/dalrun-jw/NaverMapApi';
+import DiarySidebar from '../../../components/dalrun-jw/diary/DiarySidebar';
+import DiaryList from '../../../components/dalrun-jw/diary/DiaryList';
 import "bootstrap/dist/css/bootstrap.css";
+import NaverMapApi from '../../../components/dalrun-jw/NaverMapApi';
 
 function Diary(){
   return(
@@ -18,7 +20,7 @@ function Diary(){
         < DiaryList />
       </div>
       {/* 지도 부분 */}
-      <div className='col-md-9'>< KakaoMap/></div>
+      <div className='col-md-9'>< NaverMapApi/></div>
     </div>
     )
 }
