@@ -1,38 +1,41 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AdminBtn(props) {
   const [active, setActive] = useState('0');  
-  const [clicked, setClicked] = useState(props[0].cate);
 
   const propsArray = Object.values(props);
 
   const clickHandle = (e) => {
     setActive(e.target.value);
-    setClicked(e.target.name);
+  }
+
+  const Rendering = (prop) => {
+    const name = prop.name;
+    const link = prop.link;
+    const i = prop.i;
+
+    return (
+      <Link to={`${link}`}>
+        <button 
+          value={i} 
+          className={i == active ? "active" : ""}
+          onClick={clickHandle}
+        >
+          {name}
+        </button>
+      </Link>
+    );
   }
 
   return (
     <div>
-        {
-          propsArray.map((prop, i)=>{
-            return (
-                <button 
-                  key={i}
-                  value={i} 
-                  name={prop.cate}
-                  className={i == active ? "active" : ""}
-                  onClick={clickHandle}
-                >
-                  {prop.name}
-                </button>
-            );
-          })
-        }
-        {
-            propsArray.filter(prop => prop.cate === clicked ).map((p, i)=>{
-                return <div key={i}>{p.selected}</div>
-            })
-        }
+      {
+        propsArray.map((prop, i)=>{
+          if(prop.cate === "question") return <Rendering key={i} name={prop.name} link={`${prop.cate}/productinquiry`} i={i}/>
+          else return <Rendering key={i} name={prop.name} link={prop.cate} i={i}/>;
+        })
+      }
     </div>
   );
 }
