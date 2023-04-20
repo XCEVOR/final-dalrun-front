@@ -64,6 +64,12 @@ import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
+import MyInform from "../views/inner-pages/dalrun-osh/MyInform";
+import MyCrew from "../views/inner-pages/dalrun-osh/MyCrew";
+import MyRunning from "../views/inner-pages/dalrun-osh/MyRunning";
+import MyStore from "../views/inner-pages/dalrun-osh/MyStore";
+import MyWrite from "../views/inner-pages/dalrun-osh/MyWrite";
+import MyRating from "../views/inner-pages/dalrun-osh/MyRating";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
@@ -139,6 +145,12 @@ const AllRoutes = () => {
 
         {/* 오성혁 */}
         <Route path='/osh-work' element={<OshWorkspace/>} />
+        <Route path='/myinform' element={<MyInform/>} />
+        <Route path='/mycrew' element={<MyCrew/>} />
+        <Route path='/myrunning' element={<MyRunning/>} />
+        <Route path='/mystore' element={<MyStore/>} />
+        <Route path='/mywrite' element={<MyWrite/>} />
+        <Route path='/myrating' element={<MyRating/>} />
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
