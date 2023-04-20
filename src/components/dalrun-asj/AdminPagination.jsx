@@ -8,8 +8,8 @@ function AdminPagination({page, totalCnt, handlePagination}) {
                 itemsCountPerPage={10}
                 totalItemsCount={totalCnt}
                 pageRangeDisplayed={5}
-                prevPageText={"이전"}
-                nextPageText={"다음"}
+                prevPageText={"‹"}
+                nextPageText={"›"}
                 onChange={handlePagination}
             />
         </div>
