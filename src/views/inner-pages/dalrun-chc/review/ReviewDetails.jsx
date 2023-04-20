@@ -7,6 +7,10 @@ import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
 import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
+import BlogComment from "../../../../components/dalrun-hc/reviewdetails/BlogComment";
+import BlogCommentForm from "../../../../components/dalrun-hc/reviewdetails/BlogCommentForm";
+
+
 const WorksShowcase = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
@@ -288,6 +292,36 @@ const WorksShowcase = () => {
                 </div>
               </div>
             </section>
+
+
+
+            {/* <!--Post Wrapper--> */}
+            {/* <div className="ptf-single-post__wrapper"> */}
+            <div className="container-xxl">
+              <div className="row">
+                {/* <!--Comments--> */}
+                <div className="col-xl-8">
+                  <section className="ptf-page-comments">
+                    {/* <!--Comments list--> */}
+                    <div className="ptf-page-comments__list">
+                      <h2 className="ptf-page-comments__title">03 Comments:</h2>
+                      <BlogComment />
+                    </div>
+
+                    {/* <!--Comments form--> */}
+                    <div className="ptf-page-comments__form">
+                      <h2 className="ptf-page-comments__title">
+                        Leave a comment:
+                      </h2>
+                      <BlogCommentForm />
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            {/* </div> */}
+
+
 
             <section>
               {/* <!--Post Navigation--> */}
