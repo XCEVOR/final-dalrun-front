@@ -1,4 +1,4 @@
-import { Pagination } from "react-bootstrap";
+import Pagination from "react-js-pagination";
 
 function AdminPagination({page, totalCnt, handlePagination}) {
     return (
