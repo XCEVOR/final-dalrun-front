@@ -17,12 +17,8 @@ function LocationBtn() {
   }, []);
 
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
-      <button
+    <div className='myLocation-wrapper'>
+      <button className='myLocation-button'
         onClick={() => {
           if (myLocation) {
             naverMap.panTo({ lat: myLocation[0], lng: myLocation[1] });
@@ -31,8 +27,9 @@ function LocationBtn() {
             alert("현재 위치를 가져올 수 없습니다.");
           }
         }}
+
       >
-        현 위치
+        <span className='myLocation-span'></span>
       </button>
     </div>
   );
