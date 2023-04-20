@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <title>final-dalrun-front - Portfolio & Agency React Template</title>
+        <title>달런 달런</title>
         <meta name="description" content="Portfolio & Agency React Template" />
         <meta
           name="keywords"

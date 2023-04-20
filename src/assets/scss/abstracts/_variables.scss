@@ -4,7 +4,7 @@ $base_font_size: 16px;
 
 :root {
   // Accent colors
-  @include defineColorHSL("--ptf-accent-1", 8, 95%, 57%); // #fa472a
+  @include defineColorHSL("--ptf-accent-1", 157, 73%, 59%); // #49E3A8
   @include defineColorHSL("--ptf-accent-2", 8, 75%, 51%); // #df3d23
   @include defineColorHSL("--ptf-accent-3", 80, 100%, 30%); // #669900
   @include defineColorHSL("--ptf-accent-4", 204, 100%, 50%); // #0099ff

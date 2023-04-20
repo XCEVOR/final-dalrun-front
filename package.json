@@ -17,7 +17,11 @@
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",
     "react-animated-cursor": "^2.2.0",
+<<<<<<< HEAD
     "react-bootstrap": "^2.7.4",
+=======
+    "react-bootstrap": "^2.7.3",
+>>>>>>> 442196f02cdb7df21eee8f4e954f959a69705639
     "react-cookie": "^4.1.1",
     "react-countup": "^6.1.0",
     "react-dom": "^18.2.0",
