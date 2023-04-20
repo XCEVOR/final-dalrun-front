@@ -21,6 +21,12 @@ const demoContent = [
     title: "대회 메인",
     delayAnimationTime: "400",
   },
+  {
+    demoImg: "home-default",
+    routerPath: "/basic-editor",
+    title: "에디터",
+    delayAnimationTime: "600",
+  },
 ];
 
 const chcWorkspace = () => {

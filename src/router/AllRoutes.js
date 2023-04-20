@@ -68,6 +68,7 @@ import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
 import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
 import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
 import CompetitionDetails from "../views/inner-pages/dalrun-chc/competition/CompetitionDetails";
+import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
@@ -151,6 +152,7 @@ const AllRoutes = () => {
         <Route path='/review-details' element={<ReviewDetails />} />
         <Route path='/competition-main' element={<CompetitionMain />} />
         <Route path='/competition-details' element={<CompetitionDetails />} />
+        <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
