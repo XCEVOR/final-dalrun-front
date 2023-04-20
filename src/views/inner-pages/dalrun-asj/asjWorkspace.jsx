@@ -5,14 +5,38 @@ import { Helmet } from "react-helmet";
 const demoContent = [
   {
     demoImg: "home-default",
-    routerPath: "/course",
-    title: "코스 다이어리",
+    routerPath: "/admin",
+    title: "관리자 페이지",
     delayAnimationTime: "0",
   },
   {
     demoImg: "home-default",
-    routerPath: "/qna",
-    title: "QnA 페이지",
+    routerPath: "/admin/dashboard",
+    title: "대시보드",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/members",
+    title: "회원 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/bbs",
+    title: "게시물 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/store",
+    title: "쇼핑몰 관리",
+    delayAnimationTime: "0",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/admin/chart",
+    title: "차트",
     delayAnimationTime: "0",
   },
 
