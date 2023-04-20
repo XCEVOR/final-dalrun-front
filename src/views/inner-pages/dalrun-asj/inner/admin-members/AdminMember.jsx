@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
 import { Link } from "react-router-dom";
+import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
+import MemberUpdate from "../../../../../components/dalrun-asj/update/MemberUpdate";
 
 function AdminMember() {
   const [choice, setChoice] = useState("");
@@ -8,6 +10,11 @@ function AdminMember() {
   const [grade, setGrade] = useState("");
   const [dataList, setDataList] = useState([]);
   const handleRadio = (e) => setGrade(e.target.value);
+
+  const category = [
+    {cate:"update", name:"회원수정", selected:<MemberUpdate />}, 
+    {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?"}
+];
 
   return (
     <div className="member">
@@ -38,8 +45,12 @@ function AdminMember() {
             <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
           </button>
         </div>
-        <div className="info outline">개인회원</div>
-        <AdminSearch setData={setDataList}/>
+        <div className="info">
+          <ModalBtn {...category} />
+          <div className="info_con outline">
+            <AdminSearch setData={setDataList}/>
+          </div>
+        </div>
       </div>
     </div>
   );
