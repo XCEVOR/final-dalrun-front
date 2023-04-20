@@ -26,7 +26,7 @@ function LocationBtn() {
         onClick={() => {
           if (myLocation) {
             naverMap.panTo({ lat: myLocation[0], lng: myLocation[1] });
-            naverMap.setZoom(12);
+            naverMap.setZoom(14);
           } else {
             alert("현재 위치를 가져올 수 없습니다.");
           }
