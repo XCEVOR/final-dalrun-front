@@ -14,7 +14,7 @@ function AdminMember() {
   const category = [
     {cate:"update", name:"회원수정", selected:<MemberUpdate />}, 
     {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?"}
-];
+  ];
 
   return (
     <div className="member">

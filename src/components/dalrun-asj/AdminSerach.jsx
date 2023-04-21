@@ -4,57 +4,60 @@ import { useParams, useSearchParams } from "react-router-dom";
 import AdminPagination from "./AdminPagination";
 
 function AdminSearch(props) {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [grade, setGrade] = useState("");
-    const [date, setDate] = useState("");
-    const [saleState, setSaleState] = useState("");
-    const [stockState, setStockState] = useState("");
+    const [searchParams] = useSearchParams();
     const [page, setPage] = useState(1);
-    const [totalCnt, setTotalCnt] = useState(0);        
-    
+    const [totalCnt, setTotalCnt] = useState(0);  
+
     const { cate } = useParams();
-    const choice = searchParams.get("choice");
-    const search = searchParams.get("search");
+    const [params] = useState({"pageNumber" : page});
 
-    const [params, setParams] = useState({"choice" : choice, "search" : search, "pageNumber" : page});
+    const searching = () => {
+        const choice = searchParams.get("choice");
+        const search = searchParams.get("search");
 
-    const Search = () => {
+        params.choice = choice;
+        params.search = search;
+
         if(choice === null || search === null) {
             return;
         } else if(cate === "member") {
-            setGrade(searchParams.get("grade"));
-            setParams({...params, "grade":grade});
+            const grade = searchParams.get("grade");
+            params.grade = grade;
+            alert(JSON.stringify(params));
         } else if(cate === "competition") {
-            setDate(searchParams.get("date"));
-            setParams({...params, "date":date});
+            const date = searchParams.get("date");            
+            params.date = date;
         } else if(cate === "product") {
-            setSaleState(searchParams.get("sale"));
-            setStockState(searchParams.get("stock"));
-            setParams({...params, "stock":stockState, "productSale":saleState});
+            const saleState = searchParams.get("sale");            
+            const stockState = searchParams.get("stock");            
+            params.sale = saleState;
+            params.stock = stockState;
         }
+        alert(JSON.stringify(params));
     }
 
     const getDataList = () => {
-        axios.get(`http://localhost:3000/${cate}`, { params: params })
+        axios.get(`http://localhost:3000/${cate}list`, { params: params })
              .then((resp) => {
                 console.log(resp);
-                props.getData(resp.data.list);    // 검색결과리스트 dataList에 저장
-                setTotalCnt(resp.data.cnt);
+                // props.getData(resp.data.list);    // 검색결과리스트 dataList에 저장
+                // setTotalCnt(resp.data.cnt);
              })
              .catch((err) => {
                 console.log(err);
+                throw new Error(err);
              });
     }
 
     const handlePagination = (page) => {
         setPage(page);
-        // getDataList();
+        getDataList();
     }
 
     // url이 바뀔 때만 렌더링
     useEffect(() => {
-        Search();
-        // getDataList();
+        searching();
+        getDataList();
     },[searchParams]);
 
     return <AdminPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination} />;
