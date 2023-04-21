@@ -60,7 +60,13 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
-
+import Login from "../views/inner-pages/dalrun-pyr/Login";
+import Register from "../views/inner-pages/dalrun-pyr/Register";
+import KakaoAuthHandle from "../views/inner-pages/dalrun-pyr/Kakao";
+import PasswordResetForm from "../views/inner-pages/dalrun-pyr/PasswordResetForm";
+import RegisterComponent from "../views/inner-pages/dalrun-pyr/RegiMain";
+import LoginCheck from "../views/inner-pages/dalrun-pyr/Logout";
+import Home from "../views/inner-pages/dalrun-pyr/Home";
 
 const AllRoutes = () => {
   return (
@@ -127,6 +133,13 @@ const AllRoutes = () => {
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path="/oauth/kakao/callback" element={<KakaoAuthHandle/>} />
+        <Route path="/passwordreset" element={<PasswordResetForm/>} />
+        <Route path="/RegiMain" element={<RegisterComponent/>}/>
+        <Route path="/logout" element={<LoginCheck/>}/>
+        <Route path="/home" element={<Home/>}/>
 
       </Routes>
     </>
