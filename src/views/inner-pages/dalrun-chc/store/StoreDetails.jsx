@@ -21,16 +21,23 @@ const WorksShowcase = () => {
   console.log(params.productId);
 
   const [productDetails, setProductDetails] = useState();
+  const [loading, setLoading] = useState(false);
 
   const productDetailsData = async (productId) => {
     const response = await axios.post("http://localhost:3000/getProductData", null, { params: {"productId": productId} });
     console.log(response.data);
     setProductDetails(response.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
 
   useEffect(() => {
     productDetailsData(params.productId);
   }, [params.productId])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
