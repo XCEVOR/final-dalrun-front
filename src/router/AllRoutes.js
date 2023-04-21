@@ -133,7 +133,7 @@ const AllRoutes = () => {
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
-        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/store-details/:productId' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-checkout' element={<StoreCheckout />} />
         <Route path='/review-main' element={<ReviewMain />} />
