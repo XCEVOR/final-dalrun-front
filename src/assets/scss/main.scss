@@ -102,6 +102,12 @@
 @import "widgets/ptf-twitter-review";
 @import "widgets/ptf-video-button";
 
+
+// 선정 : admin
+@import "../dalrun-asj/scss/admin.scss";
+@import "../dalrun-asj/scss/modal.scss";
+@import "../dalrun-asj/scss/pagination.scss";
+
 // admin
 @import "layout/admin.scss";
 
@@ -112,3 +118,4 @@
 
 //종완
 @import "../dalrun-jw/scss/naverMap.scss";
+
