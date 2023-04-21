@@ -117,7 +117,7 @@ const Dotmap = () => {
           })
 
           ++j;
-        
+            
       }else {
           /* 도트 클릭시 모달창 생성 */
           rect_Collection[i].addEventListener('click', () => {
