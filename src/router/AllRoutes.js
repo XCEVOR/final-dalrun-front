@@ -9,7 +9,7 @@ import HomeTrending from "../views/all-home-version/HomeTrending";
 import HomeFreelancer from "../views/all-home-version/HomeFreelancer";
 import HomeDark from "../views/all-home-version/HomeDark";
 import HomeModern from "../views/all-home-version/HomeModern";
-// Service
+// Serviceb
 import Service from "../views/inner-pages/service/Service";
 import ServiceDetails from "../views/inner-pages/service/ServiceDetails";
 
@@ -51,21 +51,18 @@ import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 // admin
 import Admin from "../views/inner-pages/dalrun-asj/Admin";
-import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
-import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
-import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
-import AdminCompetition from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminCompetition";
-import AdminOrder from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminOrder";
-import AdminStock from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminStock";
 
 // 장호찬
 import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
 import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
+import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
+import StoreCheckout from "../views/inner-pages/dalrun-chc/store/StoreCheckout";
 import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
 import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
 import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
 import CompetitionDetails from "../views/inner-pages/dalrun-chc/competition/CompetitionDetails";
+import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
@@ -132,21 +129,18 @@ const AllRoutes = () => {
         <Route path='/asj-work' element={<AsjWorkspace/>} />
         {/* Admin */}
         <Route path="/admin/*" element={<Admin />} />
-        <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
-        <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
-        <Route path="/admin/bbs/diary" element={<AdminDiary />} />
-        <Route path="/admin/bbs/competition" element={<AdminCompetition />} />
-        <Route path="/admin/store/order" element={<AdminOrder />} />
-        <Route path="/admin/store/stock" element={<AdminStock />} />
         
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
-        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/store-details/:productId' exact element={<StoreDetails />} />
+        <Route path='/store-cart' element={<StoreCart />} />
+        <Route path='/store-checkout' element={<StoreCheckout />} />
         <Route path='/review-main' element={<ReviewMain />} />
         <Route path='/review-details' element={<ReviewDetails />} />
         <Route path='/competition-main' element={<CompetitionMain />} />
         <Route path='/competition-details' element={<CompetitionDetails />} />
+        <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
         <Route path='/kjw-work' element={<KjwWorkspace/>} />
