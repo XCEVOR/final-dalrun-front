@@ -14,8 +14,10 @@ function AdminCrew() {
     <div className="member">
       <div className="member-content">
         <BasicSearch {...optionVal} />
-        <AdminSearch setData={setDataList} />
-        <div className="info outline">크루</div>
+        <div className="info outline">
+          크루
+          <AdminSearch setData={setDataList} />
+        </div>
       </div>
     </div>
   );

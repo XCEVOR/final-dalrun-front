@@ -16,8 +16,10 @@ function AdminDiary() {
     <div className="bbs">
       <div className="bbs-content">
         <BasicSearch {...optionVal} />
-        <AdminSearch setData={setDataList} />
-        <div className="info outline">다이어리</div>
+        <div className="info outline">
+          다이어리
+          <AdminSearch setData={setDataList} />
+        </div>
       </div>
     </div>
   );

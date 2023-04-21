@@ -16,8 +16,10 @@ function AdminCompetition() {
     <div className="bbs">
       <div className="bbs-content">
         <BasicSearch {...optionVal} />
-        <AdminSearch setData={setDataList} />
-        <div className="info outline">대회일정</div>
+        <div className="info outline">
+          대회일정
+          <AdminSearch setData={setDataList} />
+        </div>
       </div>
     </div>
   );

@@ -15,8 +15,10 @@ function AdminShoereview() {
     <div className="bbs">
       <div className="bbs-content">
         <BasicSearch {...optionVal} />  
-        <AdminSearch setData={setDataList} />
-        <div className="info outline">리뷰</div>
+        <div className="info outline">
+          리뷰
+          <AdminSearch setData={setDataList} />
+        </div>
       </div>
     </div>
   );

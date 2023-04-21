@@ -54,9 +54,11 @@ function AdminOrder() {
             <button>
               <Link to={`?choice=${choice}&search=${search}&order=${orderState}&delivery=${deliveryState}`}>검색</Link>
             </button>
+          </div>
+          <div className="info outline">
+            주문관리
             <AdminSearch setData={setDataList} />
           </div>
-          <div className="info outline">주문관리</div>
       </div>
     </div>
   );

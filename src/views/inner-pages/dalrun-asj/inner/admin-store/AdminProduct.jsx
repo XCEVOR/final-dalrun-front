@@ -49,10 +49,11 @@ function AdminProduct() {
           <button>
             <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
           </button>
-          <AdminSearch setData={setDataList} />
           </div>
-          <div className="info outline">상품관리</div>
-          <AdminSearch />
+          <div className="info outline">
+            상품관리
+            <AdminSearch setData={setDataList} />          
+          </div>
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ function AdminQuestion() {
     ];
 
     const [optionVal, setOptionVal] = useState([]);
-    const [dataList, setDataList] = useState([]);
     const { sub } = useParams();
 
     const curr = () => {
@@ -47,7 +46,6 @@ function AdminQuestion() {
             <div className="bbs-content">
                 <BasicSearch {...optionVal} />
                 <AdminBtn {...qCategory}/>
-                <AdminSearch setData={setDataList} />
                 <Routes>
                     <Route path=":sub/*" element={<AdminQuestionContent {...qCategory} />} />
                 </Routes>
