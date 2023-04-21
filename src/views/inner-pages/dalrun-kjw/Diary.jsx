@@ -1,21 +1,26 @@
 ﻿import React from "react";
 import KakaoMap from '../../../components/dalrun-jw/KakaoMap';
+import NaverMapApi from '../../../components/dalrun-jw/NaverMapApi';
+import DiarySidebar from '../../../components/dalrun-jw/diary/DiarySidebar';
+import DiaryList from '../../../components/dalrun-jw/diary/DiaryList';
+
 
 function Diary(){
   return(
     <div className='row'>
-      <div className='col-md-2'>
-        <div className='d-flex flex-colum flex-shrink-0 gb-body-tertiary ' data-bs-theme="dark" style={{ width:"4.5rem"}}>
-          <ul className="nav nav-pills nav-flush felx-column mb-auto text-cneter">
-            <li className='nav-item'></li>
-          </ul>          
-        </div>
+
+      {/* 사이드 바 */}
+      <div id="sideNav" className='col-md-1 min-vh-100 bg-dark'>
+        < DiarySidebar/>
       </div>
-      <div className='col-md-1'>막대</div>
-      <div className='col-md-9'>
-        <div className='row'>< KakaoMap/></div>
-        <div className='row' style={{textAlign:"center"}}>기록 분석</div>
+
+      {/* 기록 리스트 */}
+      <div id="list" className='col-md-2'>
+        < DiaryList />
       </div>
+
+      {/* 지도 부분 */}
+      <div id="map" className='col-md-9'>< NaverMapApi/></div>
     </div>
     )
 }
