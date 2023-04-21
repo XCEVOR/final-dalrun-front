@@ -114,7 +114,7 @@ const Dotmap = () => {
             document.getElementById('dotTxHash').href = 'https://goerli.etherscan.io/tx/' + groundcolor;
 
           }
-          })
+          })  
 
           ++j;
             
