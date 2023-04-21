@@ -1,40 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-const crewrank = [
-  {
-    name: "1등 팀",
-    score: '156522',
-    color: '#6EE0FF'
+import axios from 'axios';
 
-  },
-  {
-    name: "2등 팀",
-    score: '123300',
-    color: '#6482FF'
-
-  },
-  {
-    name: "3등 팀",
-    score: '129805',
-    color: '#E6749D'
-
-  }
-
-];
-
-
-
-const mycrew = [
-  {
-    crewname: '달링달링',
-    crewpoint: "102003",
-    crewcolor: '#6EE5A3',
-    crewrank: '100',
-    mypoint: '3200'
-  }
-]
 const DotMapInfo = () => {
+  const [rankList, setrankList] = useState([]);
+  const [ranMykList, setMyrankList] = useState([]);
+
+  function getCrewRank() {
+    axios.get("http://localhost:3000/getCrewRank")
+      .then(function (resp) {
+        setrankList(resp.data);
+  
+      }).catch(function (err) {
+        alert(err);
+      })
+  };
+
+  function getMyCrewRank() {
+    axios.get("http://localhost:3000/getMyCrewRank",{params:{'crewName':'ACTIVECREW' }})
+      .then(function (resp) {
+        setMyrankList(resp.data);
+
+      }).catch(function (err) {
+        alert(err);
+      })
+  };
+
+  function sendDonation() {
+
+    const score= document.getElementById("pointselect").value;
+    console.log(score);
+    axios.get("http://localhost:3000/sendDonation",{params:{'id':'아이디','score':score,'crewname':'ACTIVECREW'}})
+      .then(function (resp) {
+        console.log(resp.data)
+        if(resp.data===true){
+          alert("전송완료");
+        }else{
+          alert("전송미완료");
+
+        }
+
+      }).catch(function (err) {
+        alert(err);
+      })
+  };
+  
+  
+  useEffect(() => {
+    getCrewRank();
+    getMyCrewRank();
+  }, []);
+
   return (
     <>
       {/* ranking */}
@@ -48,17 +65,17 @@ const DotMapInfo = () => {
             <h3>Ranking</h3>
           </div>
 
-          {crewrank.map((val, i) => (
+          {rankList.map((val, i) => (
             <div className="ptf-pricing-table__description" key={i}>
-              <h6 style={{ display: 'inline' }}>{i + 1}등 : {val.name} </h6>
-              <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${val.color}` }}></div>
+              <h6 style={{ display: 'inline' }}>{i + 1}등 : {val.crewname} </h6>
+              <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${val.crewcolor}` }}></div>
             </div>
 
 
           ))}
           <div className="ptf-pricing-table__description">
-            <h6 style={{ display: 'inline' }}>나의 크루 등수 : 100등 </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrew[0].crewcolor}` }}>
+            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{ranMykList.myrank} 등 </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${ranMykList.crewcolor}` }}>
             </div>
           </div>
 
@@ -78,19 +95,26 @@ const DotMapInfo = () => {
           </div>
 
           <div className="ptf-pricing-table__content">
-            <h6 style={{ display: 'inline' }}>나의 크루 : {mycrew[0].crewname} </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrew[0].crewcolor}` }}></div>
-            <h6>나의 포인트 : {mycrew[0].mypoint}</h6>
+            <h6 style={{ display: 'inline' }}>나의 크루 : {ranMykList.crewname} </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${ranMykList.crewcolor}` }}></div>
+            <h6>나의 포인트 : {'로그인 후 적용'}</h6>
           </div>
 
           <div className="ptf-pricing-table__description">
-            <h4>나의 크루 포인트: {mycrew[0].crewpoint} point</h4>
+            <h4>나의 크루 포인트: {ranMykList.crewscore} point</h4>
           </div>
 
 
           <div className="ptf-pricing-table__action">
             {/* <!--Button--> */}
-            <button> 기부하기 </button>
+            <select id="pointselect" style={{maxWidth:'120px'}} >
+            <option value="500">500 point</option>
+            <option value="1000">1000 point </option>
+            <option value="5000">5000 point</option>
+            <option value="10000">10000 point</option>
+          </select><br/>
+
+            <button onClick={sendDonation}> 기부하기 </button>
           </div>
         </div>
       </div>
