@@ -1,5 +1,6 @@
-﻿import { Container as MapDiv, NaverMap, Marker, useNavermaps, Overlay, useMap} from 'react-naver-maps';
-import React, { useState, useRef, useEffect } from 'react';
+﻿import { Container as MapDiv, NaverMap, Marker, useNavermaps, Overlay, useMap, Polyline} from 'react-naver-maps';
+import React, { useState, useEffect } from 'react';
+import MyPolyline from './diary/Polyline';
 
 function LocationBtn() {
   const naverMap = useMap();
@@ -65,6 +66,7 @@ function NaverMapApi(){
         }}
       >
         <LocationBtn/>
+        <MyPolyline/>
       </NaverMap>
     </MapDiv>
   )
