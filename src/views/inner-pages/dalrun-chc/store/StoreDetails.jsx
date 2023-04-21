@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
@@ -7,11 +9,40 @@ import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
 import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
+import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
+
+import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
+import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
+
+
+
 const WorksShowcase = () => {
+  let params = useParams();
+  console.log(params.productId);
+
+  const [productDetails, setProductDetails] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const productDetailsData = async (productId) => {
+    const response = await axios.post("http://localhost:3000/getProductData", null, { params: {"productId": productId} });
+    console.log(response.data);
+    setProductDetails(response.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    productDetailsData(params.productId);
+  }, [params.productId])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
-        <title>Moonex - Works Showcase</title>
+        <title>STORE DETAILS</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -36,9 +67,13 @@ const WorksShowcase = () => {
                       data-aos-delay="0"
                     >
                       <h1 className="large-heading">
-                        Lewis Studio <br />
-                        Website
+                        PRODUCT NAME: {productDetails.productName} <br />
                       </h1>
+                      <h2 className="large-heading">
+                        PRODUCT ID: {productDetails.productId} <br />
+                        PRODUCT CATEGORY: {productDetails.productCategory} <br />
+                        PRODUCT PRICE: {productDetails.productPrice} <br />
+                      </h2>
                       {/* <!--Spacer--> */}
                       <div
                         className="ptf-spacer"
@@ -46,6 +81,7 @@ const WorksShowcase = () => {
                       ></div>
                       <Social />
                     </div>
+
                     {/* <!--Spacer--> */}
                     <div
                       className="ptf-spacer"
@@ -86,9 +122,18 @@ const WorksShowcase = () => {
                         loading="lazy"
                       />
                     </a>
+                    
                   </div>
-                </div>
+                  <div
+                className="row"
+                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
+              >
+                <Pricing />
               </div>
+                </div>
+                
+              </div>
+              
             </section>
 
             <section>
@@ -97,6 +142,16 @@ const WorksShowcase = () => {
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "3.125rem" }}
               ></div>
+
+
+              <div
+                className="row"
+                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
+              >
+                <Pricing />
+              </div>
+
+
 
               <div className="container">
                 {/* <!--Animated Block--> */}
@@ -288,6 +343,38 @@ const WorksShowcase = () => {
                 </div>
               </div>
             </section>
+
+
+
+
+            {/* <!--Post Wrapper--> */}
+            {/* <div className="ptf-single-post__wrapper"> */}
+            <div className="container-xxl">
+              <div className="row">
+                {/* <!--Comments--> */}
+                <div className="col-xl-8">
+                  <section className="ptf-page-comments">
+                    {/* <!--Comments list--> */}
+                    <div className="ptf-page-comments__list">
+                      <h2 className="ptf-page-comments__title">03 Comments:</h2>
+                      <BlogComment />
+                    </div>
+
+                    {/* <!--Comments form--> */}
+                    <div className="ptf-page-comments__form">
+                      <h2 className="ptf-page-comments__title">
+                        Leave a comment:
+                      </h2>
+                      <BlogCommentForm />
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            {/* </div> */}
+
+
+
 
             <section>
               {/* <!--Post Navigation--> */}
