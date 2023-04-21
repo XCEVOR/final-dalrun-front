@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
@@ -13,7 +15,23 @@ import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComme
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
 
 
+
 const WorksShowcase = () => {
+  let params = useParams();
+  console.log(params.productId);
+
+  const [productDetails, setProductDetails] = useState();
+
+  const productDetailsData = async (productId) => {
+    const response = await axios.post("http://localhost:3000/getProductData", null, { params: {"productId": productId} });
+    console.log(response.data);
+    setProductDetails(response.data);
+  }
+
+  useEffect(() => {
+    productDetailsData(params.productId);
+  }, [params.productId])
+
   return (
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
@@ -42,9 +60,13 @@ const WorksShowcase = () => {
                       data-aos-delay="0"
                     >
                       <h1 className="large-heading">
-                        Lewis Studio <br />
-                        Website
+                        PRODUCT NAME: {productDetails.productName} <br />
                       </h1>
+                      <h2 className="large-heading">
+                        PRODUCT ID: {productDetails.productId} <br />
+                        PRODUCT CATEGORY: {productDetails.productCategory} <br />
+                        PRODUCT PRICE: {productDetails.productPrice} <br />
+                      </h2>
                       {/* <!--Spacer--> */}
                       <div
                         className="ptf-spacer"
