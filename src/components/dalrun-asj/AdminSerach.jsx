@@ -23,7 +23,6 @@ function AdminSearch(props) {
         } else if(cate === "member") {
             const grade = searchParams.get("grade");
             params.grade = grade;
-            alert(JSON.stringify(params));
         } else if(cate === "competition") {
             const date = searchParams.get("date");            
             params.date = date;
@@ -33,7 +32,6 @@ function AdminSearch(props) {
             params.sale = saleState;
             params.stock = stockState;
         }
-        alert(JSON.stringify(params));
     }
 
     const getDataList = () => {
