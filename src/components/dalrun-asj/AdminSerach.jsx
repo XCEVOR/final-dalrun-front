@@ -5,7 +5,7 @@ import AdminPagination from "./AdminPagination";
 
 function AdminSearch(props) {
     const [searchParams] = useSearchParams();
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [totalCnt, setTotalCnt] = useState(0);  
 
     const { cate } = useParams();
@@ -39,9 +39,9 @@ function AdminSearch(props) {
     const getDataList = () => {
         axios.get(`http://localhost:3000/${cate}list`, { params: params })
              .then((resp) => {
-                console.log(resp);
-                // props.getData(resp.data.list);    // 검색결과리스트 dataList에 저장
-                // setTotalCnt(resp.data.cnt);
+                console.log(resp.data);
+                props.setData(resp.data.list);    // 검색결과리스트 dataList에 저장
+                setTotalCnt(resp.data.cnt);
              })
              .catch((err) => {
                 console.log(err);
