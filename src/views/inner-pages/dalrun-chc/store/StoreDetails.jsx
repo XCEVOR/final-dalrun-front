@@ -13,6 +13,8 @@ import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
+import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
+import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
 
 
 
@@ -102,6 +104,26 @@ const WorksShowcase = () => {
                 style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
               ></div>
             </section>
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8"><h2>left</h2>
+                      <StoreDetailsPicture />
+                    </div>
+
+                    <div className="col-xl-4"><h2>right</h2>
+                      <StoreDetailsSelection />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
 
             <section>
               <div className="container-xxl">
