@@ -69,7 +69,7 @@ const Team = () => {
   const getProductList = () => {
     axios.get("http://localhost:3000/allProductListGetMapping", {})
     .then (function (resp) {
-      console.log(resp.data);
+      console.log("allProductListGetMapping resp: ", resp.data);
       setProductList(resp.data);
     })
     .catch (function (err) {
@@ -130,11 +130,12 @@ const Team = () => {
             <div className="ptf-team-member ptf-team-member--has-effect">
               <div className="ptf-team-member__avatar">
                 {/* <div className="shadow-effect"></div> */}
-                <Link to={`/store-details/${singleproduct.productId}`} rel="noopener noreferrer">
+                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
                 {/* <a href="#"> */}
                   {" "}
                   <img
-                    src={`assets/img/dalrun-hc/work-3.jpg`}
+                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                    src={`assets/img/dalrun-hc/store/storedetails/${singleproduct.productOrigFile}.png`}
                     alt={singleproduct.productName}
                     loading="lazy"
                   />

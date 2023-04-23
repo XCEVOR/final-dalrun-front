@@ -13,27 +13,30 @@ import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
+import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
+import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
 
 
 
 const WorksShowcase = () => {
-  let params = useParams();
-  console.log(params.productId);
+  let prodParams = useParams();
+  console.log("prodParams: ", prodParams);
+  console.log("prodParams.productCode: ", prodParams.productCode);
 
   const [productDetails, setProductDetails] = useState();
   const [loading, setLoading] = useState(false);
 
-  const productDetailsData = async (productId) => {
-    const response = await axios.post("http://localhost:3000/getProductData", null, { params: {"productId": productId} });
-    console.log(response.data);
-    setProductDetails(response.data);
+  const productDetailsData = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log("resp.data", resp.data);
+    setProductDetails(resp.data);
 
     setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
 
   useEffect(() => {
-    productDetailsData(params.productId);
-  }, [params.productId])
+    productDetailsData(prodParams.productCode);
+  }, [prodParams.productCode])
 
   if(loading === false){
     return <div>Loading...</div>
@@ -67,12 +70,12 @@ const WorksShowcase = () => {
                       data-aos-delay="0"
                     >
                       <h1 className="large-heading">
-                        PRODUCT NAME: {productDetails.productName} <br />
+                        상품 NAME: {productDetails[0].productName} <br />
                       </h1>
                       <h2 className="large-heading">
-                        PRODUCT ID: {productDetails.productId} <br />
-                        PRODUCT CATEGORY: {productDetails.productCategory} <br />
-                        PRODUCT PRICE: {productDetails.productPrice} <br />
+                        상품 ID: {productDetails[0].productCode} <br />
+                        상품 CATEGORY: {productDetails[0].productCategory} <br />
+                        상품 PRICE: {productDetails[0].productPrice} <br />
                       </h2>
                       {/* <!--Spacer--> */}
                       <div
@@ -101,6 +104,26 @@ const WorksShowcase = () => {
                 style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
               ></div>
             </section>
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8"><h2>left</h2>
+                      <StoreDetailsPicture />
+                    </div>
+
+                    <div className="col-xl-4"><h2>right</h2>
+                      <StoreDetailsSelection />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
 
             <section>
               <div className="container-xxl">
