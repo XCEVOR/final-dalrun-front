@@ -7,20 +7,24 @@ import DiaryList from '../../../components/dalrun-jw/diary/DiaryList';
 
 function Diary(){
   return(
-    <div className='row'>
+    <div className='_diary-flex-container'>
+      <div className='_diary-content'>
 
-      {/* 사이드 바 */}
-      <div id="sideNav" className='col-md-1 min-vh-100 bg-dark'>
-        < DiarySidebar/>
+        {/* 사이드 바 */}
+        <div id="sideNav" className='_diary-sideNav'>
+          < DiarySidebar/>
+        </div>
+
+        {/* 기록 리스트 */}
+        <div id="list" className='_diary-list'>
+          < DiaryList />
+        </div>
+
+        {/* 지도 부분 */}
+        <div id="map" className='_diary-map'>
+          <NaverMapApi/>
+        </div>
       </div>
-
-      {/* 기록 리스트 */}
-      <div id="list" className='col-md-2'>
-        < DiaryList />
-      </div>
-
-      {/* 지도 부분 */}
-      <div id="map" className='col-md-9'>< NaverMapApi/></div>
     </div>
     )
 }

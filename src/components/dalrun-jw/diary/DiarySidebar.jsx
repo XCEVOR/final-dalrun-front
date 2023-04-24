@@ -1,51 +1,73 @@
-﻿import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
+﻿import React, { useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+function MyDropdown() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
+
+  return (
+
+    <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
+      <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none' }}sv>
+        <img src='https://github.com/mdo.png' alt='mdo' width='24' height='24' className='rounded-circle' />
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">마이페이지</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">로그아웃</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
+  );
+}
 
 
 function DiarySidebar() {
   return (
 
-    <div className="container-fluid d-flex flex-column w-auto min-vh-100 bg-dark">
-      <Link to="/" className="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
-        <svg className="bi pe-none" width="40" height="32"><use xlinkHref="#bootstrap"/></svg>
-        <span className="visually-hidden">Icon-only</span>
+    <header className='diary-navbar-container'>
+
+      <Link to="/" title="Home" className='logo-Link'>
+        <img src="logo.svg" className='logo'/>
       </Link>
-      <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
-        <li className="nav-item">
-          <Link to="/" className="nav-link py-3 border-bottom rounded-0" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
-            <svg className="bi pe-none" width="24" height="24" role="img" aria-label="Home"><use xlinkHref="#home"/></svg>
-          </Link>
-        </li>
-      </ul>
-      <div className="dropdown border-top">
-        <Link to="#" className="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" className="rounded-circle"/>
-        </Link>
-        <ul className="dropdown-menu text-small shadow">
-          <li><Link className="dropdown-item" to="#">New project...</Link></li>
-          <li><Link className="dropdown-item" to="#">Settings</Link></li>
-          <li><Link className="dropdown-item" to="#">Profile</Link></li>
-          <li><hr className="dropdown-divider"/></li>
-          <li><Link className="dropdown-item" to="#">Sign out</Link></li>
+      <nav className='head-nav'>
+        <ul>
+          <li className='nav-item'>
+            <Link to="/" title='내 기록'>
+              <img src="assets/img/dalrun-jw/person-circle.svg"/>
+              <span>내 기록</span>
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to="/">
+              <img src="assets/img/dalrun-jw/file-earmark-arrow-up-fill.svg"/>
+              <span>업로드</span>
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to="/">
+              <img src="assets/img/dalrun-jw/question-circle-fill.svg"/>
+              <span>업로드</span>
+              <span style={{marginTop:'0', marginRight:'0.2rem'}}>방법</span>
+            </Link>
+          </li>
         </ul>
-      </div>
-    </div>
+        <div className='dropup-container'>
+          <MyDropdown/>
+        </div>
+          {/* <Link to="#"  className='d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+            <img src='https://github.com/mdo.png' alt='mdo' width='24' height='24' className='rounded-circle' />
+          </Link>
+          <ul className='dropdown-menu text-small shadow'>
+            <li><Link to='#' className='dropdown-item'>마이페이지</Link></li>
+            <li><Link to='#' className='dropdown-item'>로그아웃</Link></li>
+          </ul> */}
+      </nav>
+    </header>
 
-
-    // <div className='container-fluid'>
-    //   <div className='row'>
-    //     <div className='col-auto w-10px min-vh-100 bg-dark'>
-    //       <ul>
-    //         <li>
-    //           < Link className="nav-link px-2" to={''} title="home">
-    //             <i className='bi-house' /> <span className='ms-1 d-none d-sm-inline'>Home</span>
-    //           </Link>
-    //         </li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 export default DiarySidebar
