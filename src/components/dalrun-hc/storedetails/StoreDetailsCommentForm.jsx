@@ -37,6 +37,7 @@ function StoreDetailsCommentForm() {
     // }, []);
 
     return (
+        <div>
         <div className="post-comment-form">
             <h4>Leave a Reply </h4>
             <span>Your email address will not be published.</span>
@@ -71,6 +72,7 @@ function StoreDetailsCommentForm() {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     )
 }
