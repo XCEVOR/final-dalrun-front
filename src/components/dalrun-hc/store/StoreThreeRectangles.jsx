@@ -60,7 +60,7 @@ const blogContent = [
 
 const BlogThree = () => {
   return (
-    <div className="dalrun_hc">
+    <div>
       {blogContent.map((val, i) => (
         <div className="col-xl-4 col-lg-4" key={i}>
           <article className="ptf-post ptf-post--style-1">

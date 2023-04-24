@@ -120,7 +120,7 @@ const TestimonialTwo = () => {
     ],
   };
   return (
-    <div className="dalrun_hc">
+    <div>
       <Slider {...settings} className="arrow-none">
         {testimonialContent.map((val, i) => (
           <div className="swiper-slide" key={i}>

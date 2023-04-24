@@ -37,7 +37,7 @@ function StoreDetailsCommentForm() {
     // }, []);
 
     return (
-        <div className="dalrun_hc">
+        <div>
         <div className="post-comment-form">
             <h4>Leave a Reply </h4>
             <span>Your email address will not be published.</span>

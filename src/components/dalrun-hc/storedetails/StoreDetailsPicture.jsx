@@ -28,7 +28,7 @@ function StoreDetailsSelection() {
 
 
     return (
-      <div className="dalrun_hc">
+      <div>
         <div className="product_productOrigFile">
           <h1 className="product_productOrigFile">product_origfile_blob 서버: {productDetails[0].productOrigFile}</h1>
         </div>

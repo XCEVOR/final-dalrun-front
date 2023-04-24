@@ -18,7 +18,7 @@ const HeroAgency = () => {
     // adaptiveHeight: true,
   };
   return (
-    <div className="dalrun_hc">
+    <div>
       <Slider {...settings}>
         <div className="ptf-showcase-image image-1">
           <div className="ptf-showcase-slide">
