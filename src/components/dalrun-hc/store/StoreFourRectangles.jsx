@@ -82,7 +82,7 @@ const Team = () => {
   }, [])
 
   return (
-    <>
+    <div className="dalrun_hc">
         {/* 프론트 데이터 */}
         {teamContent.map((val, i) => (
           <div
@@ -152,7 +152,7 @@ const Team = () => {
           </div>
         ))}
 
-    </>
+    </div>
   );
 };
 

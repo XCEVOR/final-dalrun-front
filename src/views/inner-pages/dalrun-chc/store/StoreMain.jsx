@@ -23,6 +23,7 @@ import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreTh
 
 const HomeAgency = () => {
   return (
+    <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--home-agency">
       <Helmet>
         <title>Store - Main</title>
@@ -678,6 +679,7 @@ const HomeAgency = () => {
         {/* End .ptf-main */}
       </div>
       {/* End .ptf-site-wrapper__inner */}
+    </div>
     </div>
   );
 };

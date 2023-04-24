@@ -28,7 +28,7 @@ function StoreDetailsSelection() {
 
 
     return (
-      <div>
+      <div className="dalrun_hc">
         <div className="product_id">
           <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
         </div>

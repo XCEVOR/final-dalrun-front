@@ -9,7 +9,7 @@ import Address from "../../../../components/Address";
 
 const Contact = () => {
   return (
-    <div>
+    <div className="dalrun_hc">
       <Helmet>
         <title>Moonex - Contact</title>
       </Helmet>

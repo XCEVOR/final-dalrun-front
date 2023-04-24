@@ -43,6 +43,7 @@ function StoreDetailsCommentList() {
   
 
     return (
+        <div className="dalrun_hc">
         <div className="post-comments mb-95">
         <div className="post-comment-title mb-40">
             <h3>3 Comments</h3>
@@ -118,6 +119,7 @@ function StoreDetailsCommentList() {
             </ul>
         </div>
         ))}
+    </div>
     </div>
     )
 

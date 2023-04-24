@@ -12,7 +12,7 @@ import StoreCartList from "../../../../components/dalrun-hc/storecart/StoreCartL
 
 function StoreCart() {
   return (
-    <div>
+    <div className="dalrun_hc">
       <Helmet>
         <title>Moonex - Contact</title>
       </Helmet>

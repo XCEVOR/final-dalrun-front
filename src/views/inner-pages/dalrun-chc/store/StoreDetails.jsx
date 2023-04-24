@@ -45,6 +45,7 @@ const WorksShowcase = () => {
   }
 
   return (
+    <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>
@@ -452,6 +453,7 @@ const WorksShowcase = () => {
           </div>
         </div>
       </footer>
+    </div>
     </div>
     // End .ptf-is--blog-grid
   );
