@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
@@ -11,9 +13,35 @@ import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
+import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
+import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
+
 
 
 const WorksShowcase = () => {
+  let prodParams = useParams();
+  console.log("prodParams: ", prodParams);
+  console.log("prodParams.productCode: ", prodParams.productCode);
+
+  const [productDetails, setProductDetails] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const productDetailsData = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log("resp.data", resp.data);
+    setProductDetails(resp.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    productDetailsData(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
@@ -42,9 +70,13 @@ const WorksShowcase = () => {
                       data-aos-delay="0"
                     >
                       <h1 className="large-heading">
-                        Lewis Studio <br />
-                        Website
+                        상품 NAME: {productDetails[0].productName} <br />
                       </h1>
+                      <h2 className="large-heading">
+                        상품 ID: {productDetails[0].productCode} <br />
+                        상품 CATEGORY: {productDetails[0].productCategory} <br />
+                        상품 PRICE: {productDetails[0].productPrice} <br />
+                      </h2>
                       {/* <!--Spacer--> */}
                       <div
                         className="ptf-spacer"
@@ -72,6 +104,26 @@ const WorksShowcase = () => {
                 style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
               ></div>
             </section>
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8"><h2>left</h2>
+                      <StoreDetailsPicture />
+                    </div>
+
+                    <div className="col-xl-4"><h2>right</h2>
+                      <StoreDetailsSelection />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
 
             <section>
               <div className="container-xxl">

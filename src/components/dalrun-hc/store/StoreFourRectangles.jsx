@@ -67,9 +67,9 @@ const Team = () => {
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
-    axios.get("http://localhost:3000/productlist", {})
+    axios.get("http://localhost:3000/allProductListGetMapping", {})
     .then (function (resp) {
-      console.log(resp.data);
+      console.log("allProductListGetMapping resp: ", resp.data);
       setProductList(resp.data);
     })
     .catch (function (err) {
@@ -83,7 +83,7 @@ const Team = () => {
 
   return (
     <>
- 
+        {/* 프론트 데이터 */}
         {teamContent.map((val, i) => (
           <div
             className="ptf-animated-block"
@@ -116,7 +116,10 @@ const Team = () => {
           </div>
         ))}
 
-        {productList.map((val, i) => (
+
+
+        {/* 서버 데이터 */}
+        {productList.map((singleproduct, i) => (
           <div
             className="ptf-animated-block"
             data-aos="fade"
@@ -127,12 +130,13 @@ const Team = () => {
             <div className="ptf-team-member ptf-team-member--has-effect">
               <div className="ptf-team-member__avatar">
                 {/* <div className="shadow-effect"></div> */}
-                <Link to={val.ProductPrice} rel="noopener noreferrer">
+                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
                 {/* <a href="#"> */}
                   {" "}
                   <img
-                    src={`assets/img/dalrun-hc/work-3.jpg`}
-                    alt={val.productName}
+                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                    src={`assets/img/dalrun-hc/store/storedetails/${singleproduct.productOrigFile}.png`}
+                    alt={singleproduct.productName}
                     loading="lazy"
                   />
                 {/* </a> */}
@@ -140,9 +144,9 @@ const Team = () => {
               </div>
               <div className="ptf-team-member__content">
                 <h6 className="ptf-team-member__name">
-                  <a href="#">{val.productName}</a>
+                  <a href="#">{singleproduct.productName}</a>
                 </h6>
-                <p className="ptf-team-member__function">{val.productCategory}</p>
+                <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
               </div>
             </div>
           </div>
