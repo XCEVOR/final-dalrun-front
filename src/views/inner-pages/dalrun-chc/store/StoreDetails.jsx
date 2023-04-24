@@ -15,6 +15,8 @@ import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComme
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
 import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
 import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
+import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
+import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
 
 
 
@@ -125,6 +127,7 @@ const WorksShowcase = () => {
 
 
 
+
             <section>
               <div className="container-xxl">
                 {/* <!--Animated Block--> */}
@@ -147,34 +150,56 @@ const WorksShowcase = () => {
                     </a>
                     
                   </div>
-                  <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
-              </div>
+                      <StoreDetailsCommentList />
                 </div>
                 
               </div>
-              
-            </section>
-
-            <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "3.125rem" }}
+                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
               ></div>
+            </section>
 
 
-              <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentForm />
+                </div>
+                
               </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "32.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
 
 
+
+
+            <section>
 
               <div className="container">
                 {/* <!--Animated Block--> */}
