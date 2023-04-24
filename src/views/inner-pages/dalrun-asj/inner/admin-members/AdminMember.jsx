@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
 import MemberUpdate from "../../../../../components/dalrun-asj/update/MemberUpdate";
 import { Table } from "react-bootstrap";
+import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
 
 function AdminMember() {
   const [choice, setChoice] = useState("");
@@ -11,6 +12,7 @@ function AdminMember() {
   const [grade, setGrade] = useState("");
   const [dataList, setDataList] = useState([]);
   const handleRadio = (e) => setGrade(e.target.value);
+  const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
     {cate:"update", name:"회원수정", selected:<MemberUpdate />}, 
@@ -52,7 +54,13 @@ function AdminMember() {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th><input type="checkbox" /></th>
+                  <th>
+                    <input 
+                      type="checkbox" 
+                      onChange={(e) => handleAllCheck(e.target.checked)} 
+                      checked={checkedList.length === dataList.length ? true : false}
+                      />
+                  </th>
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
@@ -70,10 +78,16 @@ function AdminMember() {
                   dataList.map((mem, i) => {
                     return (
                     <tr key={i}>
-                      <th><input type="checkbox" /></th>
+                      <th>
+                        <input 
+                          type="checkbox" 
+                          onChange={(e) => handleSingleCheck(e.target.checked, mem.memId)} 
+                          checked={checkedList.includes(mem.memId) ? true : false}
+                          />
+                      </th>
                       <td>{i+1}</td>
-                      <td>{mem.name}</td>
-                      <td>{mem.id}</td>
+                      <td>{mem.memberName}</td>
+                      <td>{mem.memId}</td>
                       <td>{mem.password}</td>
                       <td>{mem.birth}</td>
                       <td>{mem.phone}</td>
