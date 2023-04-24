@@ -1,5 +1,5 @@
 import React from "react";
-import SideMenu from "../../../components/dalrun-sh/sideMenu";
+import SideMenu from "../../../../components/dalrun-sh/sideMenu";
 
 function Rating(){
   return(
