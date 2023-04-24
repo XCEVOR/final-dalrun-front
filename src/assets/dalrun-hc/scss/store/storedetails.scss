@@ -3,178 +3,252 @@
 
 
 div .product_id {
-    position: relative;
-    width: 501px;
-    height: 20px;
-    /* left: 1306px;
-    top: 1471px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-  
-    color: #aaa;
-  }
-  
-  div .product_code {
-    position: relative;
-    width: 501px;
-    height: 20px;
-    /* left: 1306px;
-    top: 1471px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-  
-    color: #aaa;
-  }
-  
-  div .product_category {
-    position: relative;
-    width: 501px;
-    height: 20px;
-    /* left: 1306px;
-    top: 1471px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-  
-    color: #666666;
-  }
-  
-  div .product_name {
-    /* Clearance $54.98 */
-  
-    position: relative;
-    width: 501px;
-    height: 60px;
-    /* left: 1306px;
-    top: 1498px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 29px;
-    /* identical to box height, or 143% */
-  
-    color: #000000;
-  }
+  position: relative;
+  width: 501px;
+  height: 20px;
+  /* left: 1306px;
+  top: 1471px; */
 
-  div .product_brand {
-    /* Clearance $54.98 */
-  
-    position: relative;
-    width: 501px;
-    height: 80px;
-    /* left: 1306px;
-    top: 1498px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 29px;
-    /* identical to box height, or 143% */
-  
-    color: #000000;
-  }
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 154% */
 
-  div .product_price {
-    /* Clearance $54.98 */
-  
-    position: relative;
-    width: 501px;
-    height: 60px;
-    /* left: 1306px;
-    top: 1498px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 28px;
-    line-height: 29px;
-    /* identical to box height, or 143% */
-  
-    color: #c31e45;
-  }
+  color: #aaa;
+}
 
-  button .product_color {
-    position: relative;
-    display: flex;
-    width: 501px;
-    height: 80px;
-    /* left: 1298px;
-  top: 908px; */
-  
-    background: #aaa;
-    border-radius: 0px;
-  }
+div .product_code {
+  position: relative;
+  width: 501px;
+  height: 20px;
+  /* left: 1306px;
+  top: 1471px; */
 
-  div button .product_size {
-    position: relative;
-    display: flex;
-    width: 100px;
-    height: 160px;
-    /* left: 1000px;
-    top: 1093px; */
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 154% */
+
+  color: #aaa;
+}
+
+div .product_category {
+  position: relative;
+  width: 501px;
+  height: 20px;
+  /* left: 1306px;
+  top: 1471px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 154% */
+
+  color: #666666;
+}
+
+div .product_name {
+  /* Clearance $54.98 */
+
+  position: relative;
+  width: 501px;
+  height: 60px;
+  /* left: 1306px;
+  top: 1498px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 29px;
+  /* identical to box height, or 143% */
+
+  color: #000000;
+}
+
+div .product_brand {
+  /* Clearance $54.98 */
+
+  position: relative;
+  width: 501px;
+  height: 80px;
+  /* left: 1306px;
+  top: 1498px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 29px;
+  /* identical to box height, or 143% */
+
+  color: #000000;
+}
+
+div .product_price {
+  /* Clearance $54.98 */
+
+  position: relative;
+  width: 501px;
+  height: 60px;
+  /* left: 1306px;
+  top: 1498px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 29px;
+  /* identical to box height, or 143% */
+
+  color: #c31e45;
+}
+
+button .product_color {
+  position: relative;
+  display: flex;
+  width: 501px;
+  height: 80px;
+  /* left: 1298px;
+top: 908px; */
+
+  background: #aaa;
+  border-radius: 0px;
+}
+
+div button .product_size {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 160px;
+  /* left: 1000px;
+  top: 1093px; */
+
+  background: #8e9090;
+  border-radius: 10px;
+}
+
+div .product_quantity {
+  display: flex;
+  width: 300px;
+}
+
+.product_cart {
+  position: relative;
+  width: 384px;
+  height: 48px;
+  /* left: 1306px;
+  top: 2147px; */
+
+  background: #222;
+  border-radius: 0px;
+}
+
+.product_checkout {
+  position: relative;
+  width: 384px;
+  height: 48px;
+  /* left: 1306px;
+  top: 2147px; */
+
+  background: #222;
+  border-radius: 0px;
+}
+
+div .product_description {
+  position: relative;
+  width: 501px;
+  height: 29px;
+  /* left: 1306px;
+  top: 1498px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 29px;
+  /* identical to box height, or 143% */
+
+  color: #c31e45;
+}
   
-    background: #8e9090;
-    border-radius: 10px;
+
+
+
+
+// comments
+.post-comment-form h4 {
+  font-size: 22px;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.post-comment-form > span {
+  display: inline-block;
+  margin-bottom: 45px;
+}
+.bd-contact-form-wrapper {
+  .bd-section-title {
+      transform: translateY(-10px);
   }
-  
-  div .product_quantity {
-    display: flex;
-    width: 300px;
+  .bd-contact-field {
+      input,textarea {
+          // background: var(--clr-bg-gray);
+          background: #f9f9f9;
+      }
   }
-  
-  .product_cart {
-    position: relative;
-    width: 384px;
-    height: 48px;
-    /* left: 1306px;
-    top: 2147px; */
-  
-    background: #222;
-    border-radius: 0px;
+}
+
+.bd-contact-field {
+  input,
+  textarea {
+      height: 60px;
+      width: 100%;
+      border-radius: 10px;
+      background: var(--clr-common-white);
+      border: none;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 0px 20px;
+      // outline: none;
+      outline-color: #222;
+      color: var(--clr-body-text);
+      &::-moz-placeholder {
+          font-size: 16px;
+          opacity: 1;
+          color: var(--clr-body-text);
+      }
+      &::placeholder {
+          font-size: 16px;
+          opacity: 1;
+          color: var(--clr-body-text);
+      }
   }
-  
-  .product_checkout {
-    position: relative;
-    width: 384px;
-    height: 48px;
-    /* left: 1306px;
-    top: 2147px; */
-  
-    background: #222;
-    border-radius: 0px;
+  textarea {
+      height: 120px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      resize: none;
+      // @media #{$xxs} {
+      //     height: 200px;
+      // }
   }
-  
-  div .product_description {
-    position: relative;
-    width: 501px;
-    height: 29px;
-    /* left: 1306px;
-    top: 1498px; */
-  
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 29px;
-    /* identical to box height, or 143% */
-  
-    color: #c31e45;
+  .theme-btn {
+      font-size: 16px;
   }
-  
+}
+
+div .col-md-6 {
+  padding-bottom: 26px;
+}
+
+div .col-12 {
+  padding-bottom: 26px;
+}
+
+

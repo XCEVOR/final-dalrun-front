@@ -15,6 +15,7 @@ import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComme
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
 import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
 import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
+import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
 
 
 
@@ -147,34 +148,21 @@ const WorksShowcase = () => {
                     </a>
                     
                   </div>
-                  <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
-              </div>
+                      <StoreDetailsCommentForm />
                 </div>
                 
               </div>
-              
-            </section>
-
-            <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "3.125rem" }}
+                style={{ "--ptf-xxl": "32.25rem", "--ptf-md": "1rem" }}
               ></div>
+            </section>
 
 
-              <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
-              </div>
 
 
+            <section>
 
               <div className="container">
                 {/* <!--Animated Block--> */}
