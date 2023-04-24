@@ -16,6 +16,7 @@ import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogC
 import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
 import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
 import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
+import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
 
 
 
@@ -122,6 +123,42 @@ const WorksShowcase = () => {
                   </div>
                 </div>
               </div>
+            </section>
+
+
+
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentList />
+                </div>
+                
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
+              ></div>
             </section>
 
 

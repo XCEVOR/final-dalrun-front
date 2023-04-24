@@ -182,6 +182,114 @@ div .product_description {
 
 
 
+
+
+
+
+//comment post
+.post-comment-title h3 {
+	font-size: 22px;
+    font-weight: 600;
+}
+.latest-comments ul {
+    list-style: none;
+}
+.latest-comments li:first-child .comments-box {
+	border-top: 0;
+	padding-top: 0;
+}
+.comments-avatar {
+	float: left;
+	margin-right: 20px;
+    img {
+        border-radius: 50%;
+    }
+}
+.comments-text {
+	overflow: hidden;
+	border-bottom: 1px solid var(--clr-bg-gray2);
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+    & p {
+        margin-bottom: 20px;
+    }
+}
+.comment-reply {
+	font-weight: 500;
+	font-size: 14px;
+	color: var(--clr-body-heading);
+    &:hover {
+        color: var(--clr-theme-1);
+    }
+}
+.avatar-name {
+    margin-bottom: 10px;
+	overflow: hidden;
+	position: relative;
+    & h5 {
+        font-size: 18px;
+	    margin-bottom: 5px;
+        font-weight: 600;
+    }
+    & span {
+        font-size: 14px;
+	    font-weight: 500;
+    }
+}
+.ablog-4 {
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+    box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+}
+.ablog__img img {
+	width: 100%;
+}
+.ablog__text4 {
+    padding: 32px 40px 40px 40px;
+    border-top: 0px;
+    // @media #{$xxs} {
+    //     padding: 32px 20px 30px 20px;
+    // }
+}
+.latest-comments li.children {  // 들여쓰기
+	margin-left: 105px;
+    // @media #{$xs} {
+    //     margin-left: 0px;
+    // }
+    // @media #{$sm} {
+    //     margin-left: 70px;
+    // }
+}
+.post-comment-form h4 {
+	font-size: 22px;
+	margin-bottom: 7px;
+    font-weight: 600;
+}
+.post-comment-form > span {
+	display: inline-block;
+	margin-bottom: 45px;
+}
+.bd-blog-details-title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.16;
+    // @media #{$xs} {
+    //     font-size: 34px;
+    // }
+    // @media #{$xxxs}{
+    //     font-size: 30px;
+    // }
+}
+.blog__details--wrapper.mr-50 {
+    // @media #{$lg,$md,$xs} {
+    //     margin-right: 0px;
+    // }
+}
+
+
+
 // comments
 .post-comment-form h4 {
   font-size: 22px;
