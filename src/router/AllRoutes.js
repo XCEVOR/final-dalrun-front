@@ -9,7 +9,7 @@ import HomeTrending from "../views/all-home-version/HomeTrending";
 import HomeFreelancer from "../views/all-home-version/HomeFreelancer";
 import HomeDark from "../views/all-home-version/HomeDark";
 import HomeModern from "../views/all-home-version/HomeModern";
-// Service
+// Serviceb
 import Service from "../views/inner-pages/service/Service";
 import ServiceDetails from "../views/inner-pages/service/ServiceDetails";
 
@@ -51,12 +51,6 @@ import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
 // admin
 import Admin from "../views/inner-pages/dalrun-asj/Admin";
-import AdminQna from "../views/inner-pages/dalrun-asj/inner/admin-bbs/admin-question/AdminQna";
-import AdminShoereview from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminShoereview";
-import AdminDiary from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminDiary";
-import AdminCompetition from "../views/inner-pages/dalrun-asj/inner/admin-bbs/AdminCompetition";
-import AdminOrder from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminOrder";
-import AdminStock from "../views/inner-pages/dalrun-asj/inner/admin-store/AdminStock";
 
 // 장호찬
 import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
@@ -135,17 +129,11 @@ const AllRoutes = () => {
         <Route path='/asj-work' element={<AsjWorkspace/>} />
         {/* Admin */}
         <Route path="/admin/*" element={<Admin />} />
-        <Route path="/admin/bbs/question/qna" element={<AdminQna />} />
-        <Route path="/admin/bbs/shoereview" element={<AdminShoereview />} />
-        <Route path="/admin/bbs/diary" element={<AdminDiary />} />
-        <Route path="/admin/bbs/competition" element={<AdminCompetition />} />
-        <Route path="/admin/store/order" element={<AdminOrder />} />
-        <Route path="/admin/store/stock" element={<AdminStock />} />
         
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
-        <Route path='/store-details' element={<StoreDetails />} />
+        <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-checkout' element={<StoreCheckout />} />
         <Route path='/review-main' element={<ReviewMain />} />
