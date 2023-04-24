@@ -6,6 +6,8 @@ function StoreDetailsCommentForm() {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [productId, setProductId] = useState('TestProductId');
+    const [memId, setMemId] = useState('TestMemId');
 
     const writeComment = () => {
         if(subject === undefined || subject.trim() === ''){
@@ -13,11 +15,11 @@ function StoreDetailsCommentForm() {
             return;
         }
 
-        axios.post("http://localhost:3000/writeComment", null, 
-                    { params:{ "inqWriter": name, "inqContent": message } })
+        axios.post("http://localhost:3000/writeProductInquiry", null, 
+                    { params:{ "inqWriter": name, "inqContent": message, "productId": productId, "memId": memId } })
              .then(res => {
                 console.log(res.data);
-                if(res.data === "YES"){
+                if(res.data === "SUCCESS"){
                     alert("성공적으로 등록되었습니다");
                     // history('/bbslist');    // bbslist로 이동
                 }else{
