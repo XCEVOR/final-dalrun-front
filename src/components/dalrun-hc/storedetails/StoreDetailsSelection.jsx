@@ -15,6 +15,7 @@ function StoreDetailsSelection() {
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
 
     let deduplicateColorList = [];
@@ -73,6 +74,15 @@ function StoreDetailsSelection() {
 
 
 
+    const selectProductOptionTest = async () => {
+      const resp = await axios.post("http://localhost:3000/getSelectedProductInfo", null, { params: {"productCode": prodParams.productCode, "productColor": selectedColor, "productSize": selectedSize} });
+      console.log(prodParams.productCode, selectedColor, selectedSize);
+      console.log("selectedItemInfo: ", resp.data);
+      setSelectedItemInfo(resp.data);
+    }
+
+
+
     return (
       <div>
         <div className="product_id">
@@ -120,9 +130,18 @@ function StoreDetailsSelection() {
           <p>{selectedQuantity}</p>
         </div>
 
+        <div>
+          <button onClick={selectProductOptionTest}>상품 ID 체크 테스트</button>
+          <p>
+            {selectedItemInfo[0].productId}//
+            {selectedItemInfo[0].productCode}//
+            {selectedItemInfo[0].productColor}//
+            {selectedItemInfo[0].productSize}//
+          </p>
+        </div>
+
         <div className="product_cart">
           <button>ADD TO CART</button>
-
         </div>
         <Link
           className="ptf-btn ptf-btn--primary ptf-btn--block"
