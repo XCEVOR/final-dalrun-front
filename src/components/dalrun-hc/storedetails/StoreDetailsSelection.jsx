@@ -48,15 +48,19 @@ function StoreDetailsSelection() {
           <h1 className="product_price">product_price 서버: {productDetails[0].productPrice}</h1>
         </div>
         <div className="product_color">
-          <button className="sbtn">red</button>
-          <button className="sbtn">blue</button>
-          <button className="sbtn">green</button>
+          <button className="sbtn">f-red</button>
+          <button className="sbtn">f-blue</button>
+          <button className="sbtn">f-green</button>
+          {productDetails.map((item, index) => (
+            <button className="product_color" key={index}>{item.productColor}</button>
+          ))}
         </div>
         <div className="product_size">
-          <button className="product_size">220</button>
-          <button>230</button>
-          <button>240</button>
-          <button>250</button>
+          <button className="product_size">f-210</button>
+          <button className="product_size">f-220</button>
+          {productDetails.map((item, index) => (
+            <button className="product_size" key={index}>{item.productSize}</button>
+          ))}
         </div>
         <div className="product_quantity">
           <button>+</button>
@@ -66,10 +70,26 @@ function StoreDetailsSelection() {
 
         <div className="product_cart">
           <button>ADD TO CART</button>
+
         </div>
+        <Link
+          className="ptf-btn ptf-btn--primary ptf-btn--block"
+          to="/store-cart"
+        >
+          장바구니
+        </Link>
+
         <div className="product_checkout">
           <button>CHECKOUT</button>
+
         </div>
+        <Link
+          className="ptf-btn ptf-btn--primary ptf-btn--block"
+          to="/store-checkout"
+        >
+          바로구매
+        </Link>
+        
         <div className="product_description">
           <h1 className="product_description">product_description 서버: {productDetails[0].productDescription}</h1>
         </div>

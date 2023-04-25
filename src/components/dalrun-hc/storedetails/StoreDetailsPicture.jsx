@@ -34,7 +34,7 @@ function StoreDetailsPicture() {
       </div>
 
       {productPictureList.map((pic, index) => (
-        <div>
+        <div key={index}>
           <p>{index}</p>
           <img
             src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
