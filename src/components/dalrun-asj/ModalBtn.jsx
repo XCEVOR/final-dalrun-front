@@ -5,7 +5,8 @@ function ModalBtn(props) {
     const [modalShow, setModalShow] = useState(false);
     const [selected, setSelected] = useState();
     const [ModalHeader, setModalHeader] = useState();
-
+    const [checkedList, setCheckedList] = useState([]);
+    
     return (
         <div>
             {
@@ -13,6 +14,7 @@ function ModalBtn(props) {
                     return (
                         <button key={i} onClick={() => {
                             setModalShow(true);
+                            setCheckedList(prop.list);
                             setSelected(prop.selected);
                             setModalHeader(prop.name);
                         }}>{prop.name}</button>
@@ -22,6 +24,7 @@ function ModalBtn(props) {
             <CustomModal 
                 show={modalShow}  
                 onHide={() => setModalShow(false)} 
+                checked={checkedList}
                 selected={selected}
                 header={ModalHeader}
             />
