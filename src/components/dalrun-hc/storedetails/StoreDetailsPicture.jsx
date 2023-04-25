@@ -3,45 +3,50 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function StoreDetailsSelection() {
-    let prodParams = useParams();
-    console.log(prodParams.productCode);
-  
-    const [productDetails, setProductDetails] = useState();
-    const [loading, setLoading] = useState(false);
-  
-    const productDetailsData = async (productCode) => {
-      const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
-      console.log("getProductData: ", resp.data);
-      setProductDetails(resp.data);
-  
-      setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
-    }
-  
-    useEffect(() => {
-      productDetailsData(prodParams.productCode);
-    }, [prodParams.productCode])
-  
-    if(loading === false){
-      return <div>Loading...</div>
-    }
+function StoreDetailsPicture() {
+  let prodParams = useParams();
+  console.log("StoreDetailsPicture() {: ", prodParams.productCode);
+
+  const [productPictureList, setProductPictureList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const productDetailsPictureList = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": productCode} });
+    console.log("productDetailsPictureList: ", resp.data);
+    setProductPictureList(resp.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    productDetailsPictureList(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
 
 
-    return (
-      <div>
-        <div className="product_productOrigFile">
-          <h1 className="product_productOrigFile">product_origfile_blob 서버: {productDetails[0].productOrigFile}</h1>
-        </div>
+  return (
+    <div>
+      <div className="product_productOrigFile">
+        <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
+      </div>
+
+      {productPictureList.map((pic, index) => (
         <div>
+          <p>{index}</p>
           <img
-            src={`/assets/img/dalrun-hc/store/storedetails/${productDetails[0].productOrigFile}.png`}
-            alt={productDetails[0].productOrigFile}
+            src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+            alt={pic}
             loading="lazy"
           />
         </div>
+      ))}
 
-      </div>
-    );
+
+    </div>
+  );
 }
 
-export default StoreDetailsSelection;
+export default StoreDetailsPicture;
