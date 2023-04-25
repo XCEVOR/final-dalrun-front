@@ -30,7 +30,8 @@ const App = () => {
       <AnimatedCursor
         innerSize={8}
         outerSize={44}
-        color="220, 53, 69"
+        // color="220, 53, 69"  
+        color="29, 185, 125"
         outerAlpha={0.3}
         innerScale={0.7}
         outerScale={1.2}
