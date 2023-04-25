@@ -75,6 +75,7 @@ function AdminMember() {
               </thead>
               <tbody>
                 {
+                   dataList.length !== 0 ?
                   dataList.map((mem, i) => {
                     return (
                     <tr key={i}>
@@ -98,6 +99,7 @@ function AdminMember() {
                     </tr>
                     );
                   })
+                  : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>
