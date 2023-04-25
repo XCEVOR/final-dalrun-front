@@ -39,7 +39,6 @@ function AdminSearch(props) {
         } else if(cate === "question") {
             searchUrl = `http://localhost:3000/admin_${sub}list`;
         }
-
     }
     
     const getDataList = () => {
