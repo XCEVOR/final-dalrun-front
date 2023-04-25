@@ -8,15 +8,43 @@ function StoreDetailsSelection() {
     console.log(prodParams.productCode);
   
     const [productDetails, setProductDetails] = useState();
+    const [itemColorList, setItemColorList] = useState();
+    const [itemSizeList, setItemSizeList] = useState([]);
     const [loading, setLoading] = useState(false);
-  
+
+
+
+    let deduplicateColorList = [];
+    let deduplicateSizeList = [];
+
     const productDetailsData = async (productCode) => {
       const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
       console.log("getProductData: ", resp.data);
       setProductDetails(resp.data);
-  
+
+
+      // 중복 컬러 옵션 이름 제거
+      resp.data.forEach(item => {
+        deduplicateColorList.push(item.productColor);
+      });
+      setItemColorList(Array.from(new Set(deduplicateColorList)));
+      console.log("  itemColorList: ", itemColorList);
+
+      // 중복 사이즈 옵션 이름 제거
+      resp.data.forEach(item => {
+        deduplicateSizeList.push(item.productSize);
+      });
+      setItemSizeList(Array.from(new Set(deduplicateSizeList)));
+      console.log(" itemSizeList: ", itemSizeList);
+
+      
       setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
     }
+
+
+
+
+
   
     useEffect(() => {
       productDetailsData(prodParams.productCode);
@@ -25,6 +53,7 @@ function StoreDetailsSelection() {
     if(loading === false){
       return <div>Loading...</div>
     }
+
 
 
     return (
@@ -48,18 +77,18 @@ function StoreDetailsSelection() {
           <h1 className="product_price">product_price 서버: {productDetails[0].productPrice}</h1>
         </div>
         <div className="product_color">
-          <button className="sbtn">f-red</button>
-          <button className="sbtn">f-blue</button>
-          <button className="sbtn">f-green</button>
-          {productDetails.map((item, index) => (
-            <button className="product_color" key={index}>{item.productColor}</button>
+          <button className="">f-red</button>
+          <button className="">f-blue</button>
+          <button className="">f-green</button>
+          {itemColorList.map((icolor, index) => (
+            <button className="product_color" key={index}>{icolor}</button>
           ))}
         </div>
         <div className="product_size">
           <button className="product_size">f-210</button>
           <button className="product_size">f-220</button>
-          {productDetails.map((item, index) => (
-            <button className="product_size" key={index}>{item.productSize}</button>
+          {itemSizeList.map((isize, index) => (
+            <button className="product_size" key={index}>{isize}</button>
           ))}
         </div>
         <div className="product_quantity">
@@ -89,7 +118,7 @@ function StoreDetailsSelection() {
         >
           바로구매
         </Link>
-        
+
         <div className="product_description">
           <h1 className="product_description">product_description 서버: {productDetails[0].productDescription}</h1>
         </div>
