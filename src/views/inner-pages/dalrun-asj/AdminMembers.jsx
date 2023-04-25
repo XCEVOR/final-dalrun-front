@@ -1,21 +1,22 @@
 import { Route, Routes } from "react-router-dom";
+import AdminBtn from "../../../components/dalrun-asj/AdminBtn";
 import AdminCrew from "./inner/admin-members/AdminCrew";
 import AdminMember from "./inner/admin-members/AdminMember";
-import { useState } from "react";
+import AdminMembersContent from "./inner/admin-contents/AdminMembersContent";
 
 function AdminMembers() {
-    const [clicked, setClicked] = useState("member");
-    const clickedBtn = (p) => {
-        if(p === "member") return <AdminMember />;
-        else if(p === "crew") return <AdminCrew />;
-    }
+    const category = [
+        {cate:"member", name:"개인회원", selected:<AdminMember />}, 
+        {cate: "crew", name:"크루", selected:<AdminCrew />}
+    ];
 
     return (
         <div className="members container">
             <h4 className="title">회원관리</h4>
-            <button onClick={()=>setClicked('member')}>개인회원</button>
-            <button onClick={()=>setClicked('crew')}>크루</button>
-            {clickedBtn(clicked)}
+            <AdminBtn {...category} />
+            <Routes>
+                <Route path=":cate" element={<AdminMembersContent {...category} />} />
+            </Routes>
         </div>
     );
 }

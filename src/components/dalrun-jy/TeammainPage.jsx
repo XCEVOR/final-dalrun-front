@@ -5,7 +5,7 @@ const teamContent = [
     delayAnimation: "0",
     img: "shop",
     title: "스토어",
-    link: ''
+    link: 'store-main'
 
   },
   {
@@ -19,28 +19,28 @@ const teamContent = [
     delayAnimation: "200",
     img: "review",
     title: "러닝화 리뷰",
-    link: ''
+    link: 'review-main'
 
   },
   {
     delayAnimation: "300",
     img: "competition",
     title: "대회 신청",
-    link: ''
+    link: 'competition-main'
 
   },
   {
     delayAnimation: "0",
     img: "course",
     title: "러닝 코스",
-    link: ''
+    link: 'course'
 
   },
   {
     delayAnimation: "100",
     img: "qna",
     title: "QnA",
-    link: ''
+    link: 'qna'
 
   },
   {
