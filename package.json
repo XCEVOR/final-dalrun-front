@@ -35,6 +35,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-svg-tooltip": "^0.0.11",
     "react-tabs": "^6.0.0",
     "react-tooltip": "^4.2.21",
     "react-transition-group": "^4.4.2",
