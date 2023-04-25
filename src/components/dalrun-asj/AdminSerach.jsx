@@ -35,7 +35,7 @@ function AdminSearch(props) {
     }
 
     const getDataList = () => {
-        axios.get(`http://localhost:3000/${cate}list`, { params: params })
+        axios.get(`http://localhost:3000/admin_${cate}list`, { params: params })
              .then((resp) => {
                 console.log(resp.data);
                 props.setData(resp.data.list);    // 검색결과리스트 dataList에 저장
