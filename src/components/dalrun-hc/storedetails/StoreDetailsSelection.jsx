@@ -8,10 +8,13 @@ function StoreDetailsSelection() {
     console.log(prodParams.productCode);
   
     const [productDetails, setProductDetails] = useState();
-    const [itemColorList, setItemColorList] = useState();
+    const [itemColorList, setItemColorList] = useState([]);
     const [itemSizeList, setItemSizeList] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedSize, setSelectedSize] = useState("");
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
 
 
     let deduplicateColorList = [];
@@ -54,6 +57,20 @@ function StoreDetailsSelection() {
       return <div>Loading...</div>
     }
 
+    const selectColorBtn = (e) => {
+      setSelectedColor(e.target.value);
+      console.log(selectedColor);
+    }
+    const selectSizeBtn = (e) => {
+      setSelectedSize(e.target.value);
+      console.log(selectedSize);
+    }
+    const selectQuantityMinusBtn = (e) => {
+      if (selectedQuantity <= 1) return;
+      setSelectedQuantity(selectedQuantity - 1);
+      console.log(selectedQuantity);
+    }
+
 
 
     return (
@@ -81,20 +98,26 @@ function StoreDetailsSelection() {
           <button className="">f-blue</button>
           <button className="">f-green</button>
           {itemColorList.map((icolor, index) => (
-            <button className="product_color" key={index}>{icolor}</button>
+            <button className="product_color" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
           ))}
         </div>
         <div className="product_size">
           <button className="product_size">f-210</button>
           <button className="product_size">f-220</button>
           {itemSizeList.map((isize, index) => (
-            <button className="product_size" key={index}>{isize}</button>
+            <button className="product_size" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
           ))}
         </div>
         <div className="product_quantity">
-          <button>+</button>
-          <p>7</p>
-          <button>-</button>
+          <button onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
+          <p>{selectedQuantity}</p>
+          <button onClick={selectQuantityMinusBtn}>-</button>
+        </div>
+
+        <div className="product_quantity">
+          <p>{selectedColor}//</p>
+          <p>{selectedSize}//</p>
+          <p>{selectedQuantity}</p>
         </div>
 
         <div className="product_cart">
