@@ -19,6 +19,12 @@ function AdminMember() {
     {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?"}
   ];
 
+  const reset = () => {
+    setGrade("");
+    setChoice("");
+    setSearch("");
+  }
+
   return (
     <div className="member">
       <div className="member-content">
@@ -44,9 +50,12 @@ function AdminMember() {
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <button>
-            <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
-          </button>
+          <div className="search-btn">
+            <button className="reset-btn" onClick={reset}>초기화</button>
+            <button>
+              <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
+            </button>
+          </div>
         </div>
         <div className="info">
           <ModalBtn {...category} />

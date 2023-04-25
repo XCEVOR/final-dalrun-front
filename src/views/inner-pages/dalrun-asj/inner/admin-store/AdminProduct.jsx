@@ -21,7 +21,15 @@ function AdminProduct() {
     {cate:"update", name:"상품수정", selected:"상품수정 페이지"}, 
     {cate:"delete", name:"상품삭제", selected:"이 상품을 삭제하겠습니까?"}
   ];
-  console.log(dataList.length !== 0);
+
+  console.log(typeof(saleState));
+  const reset = () => {
+    setSaleState("");
+    setStockState("");
+    setChoice("");
+    setSearch("");
+  }
+
   return (
     <div className="store">
       <div className="store-content">
@@ -56,9 +64,12 @@ function AdminProduct() {
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <button>
-            <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
-          </button>
+          <div className="search-btn">
+            <button className="reset-btn" onClick={reset}>초기화</button>
+            <button>
+              <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
+            </button>
+          </div>
           </div>
           <div className="info">
             <ModalBtn {...category} />
