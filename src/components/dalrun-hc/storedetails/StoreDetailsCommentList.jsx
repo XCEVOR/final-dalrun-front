@@ -99,7 +99,7 @@ function StoreDetailsCommentList() {
         </div>
 
         {inquiryList.map((inq, index) => (
-        <div className="latest-comments">
+        <div className="latest-comments" key={index}>
             <ul>
                 <li>
                     <div className="comments-box">
