@@ -17,6 +17,8 @@ function StoreDetailsSelection() {
     const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
+    const [sendOrderData, setSendOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderQuantity": selectedQuantity});
+
 
     let deduplicateColorList = [];
     let deduplicateSizeList = [];
@@ -79,6 +81,8 @@ function StoreDetailsSelection() {
       console.log(prodParams.productCode, selectedColor, selectedSize);
       console.log("selectedItemInfo: ", resp.data);
       setSelectedItemInfo(resp.data);
+      
+      setSendOrderData({ ...sendOrderData, orderProductId: selectedItemInfo[0].productId, orderQuantity: selectedQuantity});
     }
 
 
@@ -141,13 +145,16 @@ function StoreDetailsSelection() {
         </div>
 
         <div className="product_cart">
-          <button>ADD TO CART</button>
+          <Link to="/store-cart">
+            <button>ADD TO CART</button>
+          </Link>
         </div>
         <Link
           className="ptf-btn ptf-btn--primary ptf-btn--block"
           to="/store-cart"
         >
           장바구니
+            <p>//ID: {sendOrderData.orderProductId}//Qty: {sendOrderData.orderQuantity}</p>
         </Link>
 
         <div className="product_checkout">
