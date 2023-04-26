@@ -8,15 +8,47 @@ function StoreDetailsSelection() {
     console.log(prodParams.productCode);
   
     const [productDetails, setProductDetails] = useState();
+    const [itemColorList, setItemColorList] = useState([]);
+    const [itemSizeList, setItemSizeList] = useState([]);
     const [loading, setLoading] = useState(false);
-  
+
+    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedSize, setSelectedSize] = useState("");
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
+
+
+    let deduplicateColorList = [];
+    let deduplicateSizeList = [];
+
     const productDetailsData = async (productCode) => {
       const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
       console.log("getProductData: ", resp.data);
       setProductDetails(resp.data);
-  
+
+
+      // 중복 컬러 옵션 이름 제거
+      resp.data.forEach(item => {
+        deduplicateColorList.push(item.productColor);
+      });
+      setItemColorList(Array.from(new Set(deduplicateColorList)));
+      console.log("  itemColorList: ", itemColorList);
+
+      // 중복 사이즈 옵션 이름 제거
+      resp.data.forEach(item => {
+        deduplicateSizeList.push(item.productSize);
+      });
+      setItemSizeList(Array.from(new Set(deduplicateSizeList)));
+      console.log(" itemSizeList: ", itemSizeList);
+
+      
       setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
     }
+
+
+
+
+
   
     useEffect(() => {
       productDetailsData(prodParams.productCode);
@@ -25,6 +57,30 @@ function StoreDetailsSelection() {
     if(loading === false){
       return <div>Loading...</div>
     }
+
+    const selectColorBtn = (e) => {
+      setSelectedColor(e.target.value);
+      console.log(selectedColor);
+    }
+    const selectSizeBtn = (e) => {
+      setSelectedSize(e.target.value);
+      console.log(selectedSize);
+    }
+    const selectQuantityMinusBtn = (e) => {
+      if (selectedQuantity <= 1) return;
+      setSelectedQuantity(selectedQuantity - 1);
+      console.log(selectedQuantity);
+    }
+
+
+
+    const selectProductOptionTest = async () => {
+      const resp = await axios.post("http://localhost:3000/getSelectedProductInfo", null, { params: {"productCode": prodParams.productCode, "productColor": selectedColor, "productSize": selectedSize} });
+      console.log(prodParams.productCode, selectedColor, selectedSize);
+      console.log("selectedItemInfo: ", resp.data);
+      setSelectedItemInfo(resp.data);
+    }
+
 
 
     return (
@@ -48,28 +104,63 @@ function StoreDetailsSelection() {
           <h1 className="product_price">product_price 서버: {productDetails[0].productPrice}</h1>
         </div>
         <div className="product_color">
-          <button className="sbtn">red</button>
-          <button className="sbtn">blue</button>
-          <button className="sbtn">green</button>
+          <button className="">f-red</button>
+          <button className="">f-blue</button>
+          <button className="">f-green</button>
+          {itemColorList.map((icolor, index) => (
+            <button className="product_color" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
+          ))}
         </div>
         <div className="product_size">
-          <button className="product_size">220</button>
-          <button>230</button>
-          <button>240</button>
-          <button>250</button>
+          <button className="product_size">f-210</button>
+          <button className="product_size">f-220</button>
+          {itemSizeList.map((isize, index) => (
+            <button className="product_size" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
+          ))}
         </div>
         <div className="product_quantity">
-          <button>+</button>
-          <p>7</p>
-          <button>-</button>
+          <button onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
+          <p>{selectedQuantity}</p>
+          <button onClick={selectQuantityMinusBtn}>-</button>
+        </div>
+
+        <div className="product_quantity">
+          <p>{selectedColor}//</p>
+          <p>{selectedSize}//</p>
+          <p>{selectedQuantity}</p>
+        </div>
+
+        <div>
+          <button onClick={selectProductOptionTest}>상품 ID 체크 테스트</button>
+          <p>
+            {selectedItemInfo[0].productId}//
+            {selectedItemInfo[0].productCode}//
+            {selectedItemInfo[0].productColor}//
+            {selectedItemInfo[0].productSize}//
+          </p>
         </div>
 
         <div className="product_cart">
           <button>ADD TO CART</button>
         </div>
+        <Link
+          className="ptf-btn ptf-btn--primary ptf-btn--block"
+          to="/store-cart"
+        >
+          장바구니
+        </Link>
+
         <div className="product_checkout">
           <button>CHECKOUT</button>
+
         </div>
+        <Link
+          className="ptf-btn ptf-btn--primary ptf-btn--block"
+          to="/store-checkout"
+        >
+          바로구매
+        </Link>
+
         <div className="product_description">
           <h1 className="product_description">product_description 서버: {productDetails[0].productDescription}</h1>
         </div>
