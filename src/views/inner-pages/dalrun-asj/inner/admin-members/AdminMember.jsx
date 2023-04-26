@@ -15,7 +15,7 @@ function AdminMember() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"회원수정", selected:<MemberUpdate />, list:checkedList}, 
+    {cate:"update", name:"회원수정", list:checkedList}, 
     {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?", list:checkedList}
   ];
 
