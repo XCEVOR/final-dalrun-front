@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useRef, useState, useEffect  } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
-function MemberUpdate({data}) {
+function MemberUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
+    const [update, setUpdate] = useState("");
 
     const [id, setId] = useState("");
     const [pwd, setPwd] = useState("");
@@ -32,10 +33,44 @@ function MemberUpdate({data}) {
     useEffect(() => {
         setInput(data);
     }, [data]);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("memId", id);
+        formData.append("password", pwd);
+        formData.append("memberName", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("birth", birth);
+        formData.append("point", point);
+        formData.append("grade", grade);
+        formData.append("foot", footSize);
+
+        axios.post('http://localhost:3000/admin_updatemember', formData)
+            .then((resp) => {
+                console.log(resp.data);
+                setUpdate(resp.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const updateAf = () => {
+        if(update === "YES") {
+          // alert("수정완료");
+          console.log("수정완료");
+          onHide();
+          setSearchParam(searchParam.set('target',''));
+        }
+      }
+
     return (
         <div className="admin_update_container">
             <div className="admin_update">
-                <form action="#">
+                <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
                         <div className="profile_img">                        
                         {/* <Avatar 
@@ -53,7 +88,7 @@ function MemberUpdate({data}) {
                         </div>
                         <div>
                             <label htmlFor="id">아이디</label>
-                            <input type="text" value={id || ""} onChange={(e) => setId(e.target.value)} />
+                            <input type="text" value={id || ""} readOnly={true} />
                         </div>
                         <div>
                             <label htmlFor="pwd">비밀번호</label>
@@ -99,7 +134,7 @@ function MemberUpdate({data}) {
                                 <option value="extra-wide">아주 넓은편</option>
                             </select>
                         </div>
-                            {/* <input type="submit" value="회원가입" onClick={account}/> */}
+                        <input type="submit" value="수정" onClick={updateAf} />
                     </fieldset>
                 </form>
             </div>
