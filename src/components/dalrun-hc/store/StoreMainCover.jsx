@@ -18,7 +18,7 @@ const HeroAgency = () => {
     // adaptiveHeight: true,
   };
   return (
-    <>
+    <div>
       <Slider {...settings}>
         <div className="ptf-showcase-image image-1">
           <div className="ptf-showcase-slide">
@@ -162,7 +162,7 @@ const HeroAgency = () => {
         onClose={() => setOpen(false)}
       />
       {/* End Youtube Modal video */}
-    </>
+    </div>
   );
 };
 

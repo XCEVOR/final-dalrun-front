@@ -23,6 +23,7 @@ import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreTh
 
 const HomeAgency = () => {
   return (
+    <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--home-agency">
       <Helmet>
         <title>Store - Main</title>
@@ -117,17 +118,21 @@ const HomeAgency = () => {
                 >
                   <h2 className="h1 large-heading has-accent-1">일반 상품</h2>
                 </div>
+                
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"
                   style={{ "--ptf-xxl": "5.625rem", "--ptf-md": "2.8125rem" }}
                 ></div>
               </div>
-              <div className="container">
-                <div className="ptf-team-member-grid ptf-team-member-grid--4-columns">
-                  <StoreFourRectangles />
+              <div className="dalrun_hc">
+                <div className="container">
+                  <div>
+                    <StoreFourRectangles />
+                  </div>
                 </div>
               </div>
+
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
@@ -678,6 +683,7 @@ const HomeAgency = () => {
         {/* End .ptf-main */}
       </div>
       {/* End .ptf-site-wrapper__inner */}
+    </div>
     </div>
   );
 };
