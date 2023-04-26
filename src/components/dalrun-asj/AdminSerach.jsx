@@ -8,8 +8,10 @@ function AdminSearch(props) {
     const [page, setPage] = useState(0);
     const [totalCnt, setTotalCnt] = useState(0);  
 
-    const { cate } = useParams();
+    const { cate, sub } = useParams();
     const [params] = useState({"pageNumber" : page});
+
+    let searchUrl = `http://localhost:3000/admin_${cate}list`;
 
     const searching = () => {
         const choice = searchParams.get("choice");
@@ -17,10 +19,8 @@ function AdminSearch(props) {
 
         params.choice = choice;
         params.search = search;
-
-        if(choice === null || search === null) {
-            return;
-        } else if(cate === "member") {
+        
+        if(cate === "member") {
             const grade = searchParams.get("grade");
             params.grade = grade;
         } else if(cate === "competition") {
@@ -31,11 +31,18 @@ function AdminSearch(props) {
             const stockState = searchParams.get("stock");            
             params.sale = saleState;
             params.stock = stockState;
+        } else if(cate === "order") {
+            const orderState = searchParams.get("order");
+            const deliveryState = searchParams.get("delivery");
+            params.order = orderState;
+            params.delivery = deliveryState;
+        } else if(cate === "question") {
+            searchUrl = `http://localhost:3000/admin_${sub}list`;
         }
     }
-
+    
     const getDataList = () => {
-        axios.get(`http://localhost:3000/${cate}list`, { params: params })
+        axios.get(searchUrl, { params: params })
              .then((resp) => {
                 console.log(resp.data);
                 props.setData(resp.data.list);    // 검색결과리스트 dataList에 저장
