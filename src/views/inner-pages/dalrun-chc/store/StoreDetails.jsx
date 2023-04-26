@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
@@ -11,10 +13,39 @@ import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
+import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/StoreDetailsPicture";
+import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
+import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
+import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
+
 
 
 const WorksShowcase = () => {
+  let prodParams = useParams();
+  console.log("prodParams: ", prodParams);
+  console.log("prodParams.productCode: ", prodParams.productCode);
+
+  const [productDetails, setProductDetails] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const productDetailsData = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log("resp.data", resp.data);
+    setProductDetails(resp.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    productDetailsData(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
+
   return (
+    <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>
@@ -42,9 +73,13 @@ const WorksShowcase = () => {
                       data-aos-delay="0"
                     >
                       <h1 className="large-heading">
-                        Lewis Studio <br />
-                        Website
+                        상품 NAME: {productDetails[0].productName} <br />
                       </h1>
+                      <h2 className="large-heading">
+                        상품 ID: {productDetails[0].productCode} <br />
+                        상품 CATEGORY: {productDetails[0].productCategory} <br />
+                        상품 PRICE: {productDetails[0].productPrice} <br />
+                      </h2>
                       {/* <!--Spacer--> */}
                       <div
                         className="ptf-spacer"
@@ -73,6 +108,27 @@ const WorksShowcase = () => {
               ></div>
             </section>
 
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8"><h2>left</h2>
+                      <StoreDetailsPicture />
+                    </div>
+
+                    <div className="col-xl-4"><h2>right</h2>
+                      <StoreDetailsSelection />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
+
             <section>
               <div className="container-xxl">
                 {/* <!--Animated Block--> */}
@@ -95,34 +151,56 @@ const WorksShowcase = () => {
                     </a>
                     
                   </div>
-                  <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
-              </div>
+                      <StoreDetailsCommentList />
                 </div>
                 
               </div>
-              
-            </section>
-
-            <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "3.125rem" }}
+                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
               ></div>
+            </section>
 
 
-              <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
-              >
-                <Pricing />
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentForm />
+                </div>
+                
               </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "32.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
 
 
+
+
+            <section>
 
               <div className="container">
                 {/* <!--Animated Block--> */}
@@ -375,6 +453,7 @@ const WorksShowcase = () => {
           </div>
         </div>
       </footer>
+    </div>
     </div>
     // End .ptf-is--blog-grid
   );

@@ -1,64 +1,98 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
-const pricingContent = [
+const frontContent = [
   {
-    planName: "Nike Vaporfly 3",
+    planName: "front-end Nike Vaporfly 3",
     price: "49",
     priceDuration: "X",
     pirceDescriptions: "10% taxed will include after make price",
     pricingFeatures: ["Color", "Size"],
     badge: "",
     badgeClass: "",
-    delayAnimation: "0",
+
+    productId: "id010",
+    productCode: "SH-NV7",
+    productCategory: "shoe",
+    productBrand: "nike",
+    productName: "front-end Nike Vaporfly 11",
+    productPrice: "265000",
+    productColor: "blue",
+    productSize: "200",
+    productDescription: "qweertsfghgfdh",
   },
 
 ];
 
 const Pricing = () => {
+  let prodParams = useParams();
+  console.log(prodParams.productCode);
+
+  const [productDetails, setProductDetails] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const productDetailsData = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log("getProductData: ", resp.data);
+    setProductDetails(resp.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    productDetailsData(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
+
   return (
     <>
-      {pricingContent.map((val, i) => (
+      {frontContent.map((frontVal, i) => (
         <div className="col-xl-4 col-lg-6" key={i}>
           {/* <!--Animated Block--> */}
           <div
             // className="ptf-animated-block h-100"
             // data-aos="fade"
-            // data-aos-delay={val.delayAnimation}
+            // data-aos-delay={frontVal.delayAnimation}
           >
             {/* <!--Pricing Table--> */}
             <div className="ptf-pricing-table 
               // h-100"
             >
-              <div className={val.badgeClass}>{val.badge}</div>
+              <div className={frontVal.badgeClass}>{frontVal.badge}</div>
               <div className="ptf-pricing-table__header">
                 <h2 
                   // className="ptf-pricing-table__title"
-                >{val.planName}</h2>
+                >프론트: {frontVal.productName}</h2>
+                <h2>서버: {productDetails[0].productName}</h2>
               </div>
               <div className="ptf-pricing-table__price">
                 <span className="currency">$</span>
-                <span className="price">{val.price}</span>
-                <span className="period">/ {val.priceDuration}</span>
+                <span className="price">{frontVal.price}</span>
+                <span className="period">/ {frontVal.priceDuration}</span>
               </div>
               <div className="ptf-pricing-table__description">
-                {val.priceDuration}
+                {frontVal.priceDuration}
               </div>
               <div className="ptf-pricing-table__content">
                 <ul>
-                  {val.pricingFeatures.map((feature, i) => (
+                  {frontVal.pricingFeatures.map((feature, i) => (
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
               </div>
 
-              <div>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
+{/*               
+                {productDetails.map((p, i) => (
+                  <div>
+                    
+                    <button>{}</button>
+                  </div>
+                ))} */}
 
               <div className="ptf-pricing-table__action">
                 {/* <!--Button--> */}
