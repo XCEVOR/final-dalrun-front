@@ -110,9 +110,14 @@
 @import "../dalrun-asj/scss/pagination.scss";
 
 // 호찬
-@import "../dalrun-hc/scss/widgets/ptf-showcase-3";
+// @import "../dalrun-hc/scss/widgets/ptf-showcase-3";
+// @import "../dalrun-hc/scss/widgets/ptf-team-member";
+@import "../dalrun-hc/scss/store/storedetails.scss";
+@import "../dalrun-hc/scss/store/storecartlist.scss";
 
-//종완
-@import "../dalrun-jw/scss/naverMap.scss";
-
-
+// 종완
+// Diary
+@import "../dalrun-jw/scss/_naverMap";
+@import "../dalrun-jw/scss/diary-view";
+@import "../dalrun-jw/scss/diary-sideNav";
+@import "../dalrun-jw/scss/modal";

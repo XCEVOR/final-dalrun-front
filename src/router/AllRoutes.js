@@ -76,6 +76,14 @@ import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+import Login from "../views/inner-pages/dalrun-pyr/Login";
+import Register from "../views/inner-pages/dalrun-pyr/Register";
+import Home from "../views/inner-pages/dalrun-pyr/Home";
+import RegisterComponent from "../views/inner-pages/dalrun-pyr/RegiMain";
+import Logout from "../views/inner-pages/dalrun-pyr/Logout";
+import CrewBbsMain from "../views/inner-pages/dalrun-pyr/crew/CrewBbsMain";
+import PostCrewBbsWriteForm from "../components/dalrun-pyr/crewBbs/CrewBbsWrite";
+import CrewBbsDetail from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDetail";
 
 
 
@@ -133,7 +141,7 @@ const AllRoutes = () => {
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
-        <Route path='/store-details/:productId' exact element={<StoreDetails />} />
+        <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-checkout' element={<StoreCheckout />} />
         <Route path='/review-main' element={<ReviewMain />} />
@@ -159,6 +167,15 @@ const AllRoutes = () => {
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/regimain" element={<RegisterComponent/>}/>
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/crewBbsMain" element={<CrewBbsMain/>}/>
+        <Route path="/crewBbsWrite" element={<PostCrewBbsWriteForm/>}/>
+        <Route path="/crewBbsDetail" element={<CrewBbsDetail/>}/>
+
       </Routes>
     </>
   );

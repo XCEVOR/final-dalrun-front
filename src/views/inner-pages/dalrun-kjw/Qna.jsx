@@ -1,19 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import BlogSidebarPost from "../../../components/blog/blog-sidebar/BlogSidebarPost";
-import BlogFive from "../../../components/blog/BlogFive";
-import BlogFour from "../../../components/blog/BlogFour";
-import Pagination from "../../../components/blog/Pagination";
+import HeaderDefault from "../../../components/header/HeaderDefault";
 import CopyRight from "../../../components/footer/copyright/CopyRight";
 import Footer from "../../../components/footer/Footer";
-import HeaderDefault from "../../../components/header/HeaderDefault";
+import PortfolioListing from "../../../components/portfolio/PortfolioListing";
 
-const Qna = () => {
+const WorksListing = () => {
   return (
-    <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
+    <div className="ptf-site-wrapper animsition ptf-is--works-listing">
       <Helmet>
-        <title>Moonex - Bog Sidebar</title>
+        <title>Moonex - Works/Portfolio Listing</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -21,16 +17,14 @@ const Qna = () => {
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
-          <div className="ptf-page ptf-page--blog-sidebar">
-            {/*=============================================
-            Start Blog  Section 
-            ============================================== */}
+          <div className="ptf-page ptf-page--portfolio-listing">
             <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
               ></div>
+
               <div className="container-xxl">
                 <div className="row">
                   <div className="col-xl-10">
@@ -40,94 +34,46 @@ const Qna = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">Our Journal</h1>
+                      <h1 className="large-heading">Portfolio</h1>
                     </div>
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"
-                  style={{ "--ptf-xxl": "6.875rem" }}
+                  style={{ "--ptf-xxl": "4.375rem" }}
                 ></div>
               </div>
+              {/* End .container-xxl */}
+
+              {/*=============================================
+                Start Portfolio main 
+                ============================================== */}
               <div className="container-xxl">
+                <PortfolioListing />
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+              <div className="text-center">
+                {/* <!--Animated Block--> */}
                 <div
-                  className="row"
-                  style={{
-                    "--bs-gutter-x": "3.75rem",
-                    "--bs-gutter-y": "3.75rem",
-                  }}
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
                 >
-                  <BlogFour />
+                  <a className="ptf-load-more" href="#">
+                    More
+                  </a>
                 </div>
               </div>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
-              ></div>
-            </section>
-            {/* End .blog */}
 
-            <section>
-              <div className="container-xxl">
-                {/* <!--Divider--> */}
-                <div
-                  className="ptf-divider"
-                  style={{
-                    "--ptf-height": "1px",
-                    "--ptf-color": "var(--ptf-color-14)",
-                  }}
-                ></div>
-              </div>
-            </section>
-
-            {/*=============================================
-            Start Blog With Sidebar  Section 
-            ============================================== */}
-            <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
-              ></div>
-              <div className="container-xxl">
-                <div className="row">
-                  <div className="col-xl-8">
-                    {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="0"
-                    >
-                      <div className="ptf-isotope-grid">
-                        <BlogFive />
-                      </div>
-                      {/* End .ptf-isotope-grid */}
-                    </div>
-                    {/* <!--Spacer--> */}
-                    <div
-                      className="ptf-spacer"
-                      style={{
-                        "--ptf-xxl": "9.375rem",
-                        "--ptf-md": "4.6875rem",
-                      }}
-                    ></div>
-                    <Pagination />
-                  </div>
-                  {/* Blog grid  */}
-                  <div className="col-xl-4">
-                    <div className="ptf-sidebar ptf-sidebar--right">
-                      <BlogSidebarPost />
-                    </div>
-                  </div>
-                  {/* End sidebar */}
-                </div>
-              </div>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": " 5rem" }}
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
               ></div>
             </section>
           </div>
@@ -152,4 +98,4 @@ const Qna = () => {
   );
 };
 
-export default Qna;
+export default WorksListing;

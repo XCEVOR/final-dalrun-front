@@ -19,12 +19,13 @@
         background-color: var(--bs-gray-700);
         color: var(--ptf-color-white);
     }
+    
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
 }
 
-.title {
-    font-size: 20px;
-    font-weight: bold;
-}
 
 .outline {
     border: 1px solid var(--ptf-color-black);
@@ -92,10 +93,19 @@
     .only {
         margin: 0 !important;
     }
+
+    .search-btn {
+        display: flex;
+        flex-direction: column;
+
+        .reset-btn {
+            margin-bottom: 8px;
+        }
+    }
 }
 
 .info {
-    height: 500px;
+    height: 580px;
 
     .info_con {
         height: 100%;

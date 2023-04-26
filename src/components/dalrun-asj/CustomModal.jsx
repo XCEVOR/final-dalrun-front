@@ -1,7 +1,16 @@
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function CustomModal(props) {
+  const separator = ', ';
+
+  const del = () => {
+    axios.post(`http://localhost:3000/admin_${props.cate}`, )
+         .then()
+         .catch();
+  }
+
   return (
     <Modal
       {...props}
@@ -15,11 +24,12 @@ function CustomModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {props.selected}
+        <div>[ {props.checked.join(separator)} ]</div>
+        <p>{props.selected}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={props.onHide}>취소</Button>
-        <Button variant="primary" onClick={props.onHide}>저장</Button>
+        <Button variant="primary" onClick={props.onHide}>확인</Button>
       </Modal.Footer>
     </Modal>
   );
