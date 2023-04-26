@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, {useEffect} from "react";
 import KakaoMap from '../../../components/dalrun-jw/KakaoMap';
 import NaverMapApi from '../../../components/dalrun-jw/NaverMapApi';
 import DiarySidebar from '../../../components/dalrun-jw/diary/DiarySidebar';
@@ -25,6 +25,7 @@ function Diary(){
           <NaverMapApi/>
         </div>
       </div>
+     
     </div>
     )
 }

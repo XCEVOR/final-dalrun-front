@@ -1,6 +1,7 @@
 ﻿import { Container as MapDiv, NaverMap, Marker, useNavermaps, Overlay, useMap, Polyline} from 'react-naver-maps';
 import React, { useState, useEffect } from 'react';
 import MyPolyline from './diary/Polyline';
+import { useMemo } from 'react';
 
 function LocationBtn() {
   const naverMap = useMap();
@@ -39,14 +40,40 @@ function LocationBtn() {
 
 function NaverMapApi(){
   const navermaps = useNavermaps();
+
+  const mapOptions = useMemo(
+    () => ({
+      defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
+      defaultZoom: 7,
+      mapDataControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        position: navermaps.Position.RIGHT_TOP,
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+        position: navermaps.Position.RIGHT_CENTER,
+        style: navermaps.ZoomControlStyle.SMALL,
+      },
+    }),
+    []
+  );
   return(
     <MapDiv
     style={{
       position: 'relative',
       width: '100%',
-      height: '100vh'
+      height: '100vh',
     }}>
-      <NaverMap
+      {useMemo(()=> {
+        return(
+          <NaverMap {...mapOptions}>
+            <LocationBtn/>
+            <MyPolyline/>
+          </NaverMap>
+        );
+      }, [])}
+      {/* <NaverMap
         // 로드 시 위치
         defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)}
         // 로드 시 줌
@@ -67,8 +94,8 @@ function NaverMapApi(){
       >
         <LocationBtn/>
         <MyPolyline/>
-      </NaverMap>
+      </NaverMap> */}
     </MapDiv>
-  )
+  );
 }
 export default NaverMapApi;
