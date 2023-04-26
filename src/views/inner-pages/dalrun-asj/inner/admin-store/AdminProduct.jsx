@@ -17,9 +17,9 @@ function AdminProduct() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"insert", name:"상품등록", selected:"상품등록 페이지"},
-    {cate:"update", name:"상품수정", selected:"상품수정 페이지"}, 
-    {cate:"delete", name:"상품삭제", selected:"이 상품을 삭제하겠습니까?"}
+    {cate:"insert", name:"상품등록", selected:"상품등록 페이지", list:[]},
+    {cate:"update", name:"상품수정", selected:"상품수정 페이지", list:checkedList}, 
+    {cate:"delete", name:"상품삭제", selected:"이 상품을 삭제하겠습니까?", list:checkedList}
   ];
 
   console.log(typeof(saleState));

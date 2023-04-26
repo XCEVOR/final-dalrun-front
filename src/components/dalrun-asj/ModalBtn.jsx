@@ -13,7 +13,7 @@ function ModalBtn(props) {
                 Object.values(props).map((prop,i) => {
                     return (
                         <button key={i} onClick={() => {
-                            if(prop.list.length === 0) return alert("값 체크 후 다시 시도해주세요");
+                            if(prop.list.length === 0 && prop.cate !== "insert") return alert("값 체크 후 다시 시도해주세요");
                             setModalShow(true);
                             setCheckedList(prop.list);
                             setSelected(prop.selected);
