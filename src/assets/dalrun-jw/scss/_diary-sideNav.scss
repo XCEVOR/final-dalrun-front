@@ -1,0 +1,69 @@
+﻿$icon-color: #212529; // 아이콘 색상
+$icon-hover-color: #0d6efd; // 아이콘 호버 색상
+$link-color: #0d6efd; // 링크 색상
+$link-hover-color: #0a58ca; // 링크 호버 색상
+$bg-color: #343a40; // 배경 색상
+
+.diary-navbar-container{
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    width: 80px;
+    height: 100%;
+    background-color: $bg-color;
+    margin: 0;
+    padding: 0;
+
+    .logo {
+        width: 100px;
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .logo-Link {
+        display: inline;
+        padding: 0;
+    }
+
+    .nav-item{
+        display: block;
+        flex: none;
+        height: 6.5rem;
+        text-align: center;
+        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 1rem;
+        z-index: 1;
+
+        &:hover{
+            opacity: 0.7;
+            background-color: #deea74;
+        }
+    }
+    
+    span {
+        display: block;
+        margin-top: 0.7rem;
+        text-align: center;
+        font-weight: bold;
+        font-size: small;
+        color: white;
+        white-space: pre-wrap;
+    };
+
+    Link{
+        display: block;
+    }
+
+    .dropup-container {
+        position: absolute;
+        width: 80px;
+        bottom: 0;
+        padding-top: 1rem;
+        border-top: 1px solid #ffffff;
+    }
+
+}
