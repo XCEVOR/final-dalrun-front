@@ -41,6 +41,18 @@ function StoreCartList() {
     setLikeBtn(!likeBtn);
   };
 
+
+  const deleteItem = async (ev) => {
+    let val = ev.target.value;
+    console.log(val);
+
+    const resp = await axios.post("http://localhost:3000/deleteCartItem", null, { params: {"productId": val}});
+    console.log("  @ deleteItem = async (ev) => { ", resp.data);
+    window.location.reload();
+  }
+
+
+
   return (
     <div>
       <h1>CART</h1>
@@ -150,6 +162,9 @@ function StoreCartList() {
 
 
 
+
+
+
         {/* <!-- DB 데이터 --> */}
         {cartList.map((item, index) => (
           <div className="item" key={index}>
@@ -179,6 +194,9 @@ function StoreCartList() {
               <button className="minus-btn" type="button" name="button">
                 <img src="assets/img/dalrun-hc/store/storecart/minus.svg" alt="" />
               </button>
+            </div>
+            <div>
+              <button value={item.productId} onClick={deleteItem}>삭제: {item.productId}</button>
             </div>
 
             <div className="total-price">₩ { item.productPrice }</div>
