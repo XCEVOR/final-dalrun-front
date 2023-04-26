@@ -4,8 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import MemberUpdate from './update/MemberUpdate';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import jQuery from 'jquery';
-import qs from 'qs';
 
 function CustomModal(props) {
   const separator = ', ';
