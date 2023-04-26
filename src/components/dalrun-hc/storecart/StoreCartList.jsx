@@ -1,8 +1,11 @@
 import React, { setState, useState } from "react";
+import { useLocation } from "react-router-dom";
 // import "./styles.css";
 
 function StoreCartList() {
+  const location = useLocation();
   const [likeBtn, setLikeBtn] = useState(false);
+  console.log("console.log(location.state); ", location.state);
 
   const likeBtnClick = () => {
     setLikeBtn(!likeBtn);

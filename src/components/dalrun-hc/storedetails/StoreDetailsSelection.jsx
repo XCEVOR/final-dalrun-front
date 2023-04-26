@@ -17,7 +17,7 @@ function StoreDetailsSelection() {
     const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
-    const [sendOrderData, setSendOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderQuantity": selectedQuantity});
+    const [userOrderData, setUserOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderQuantity": selectedQuantity});
 
 
     let deduplicateColorList = [];
@@ -82,8 +82,18 @@ function StoreDetailsSelection() {
       console.log("selectedItemInfo: ", resp.data);
       setSelectedItemInfo(resp.data);
       
-      setSendOrderData({ ...sendOrderData, orderProductId: selectedItemInfo[0].productId, orderQuantity: selectedQuantity});
+      setUserOrderData({ ...userOrderData, orderProductId: selectedItemInfo[0].productId, orderQuantity: selectedQuantity});
+      console.log("  selectedItemInfo[0].productId: ", selectedItemInfo[0].productId)
     }
+
+
+
+    const addToCart = async () => {
+      console.log(" @ console.log(orderProductId): ", userOrderData)
+      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": userOrderData.orderQuantity, "productId": userOrderData.orderProductId, "memId": "user01test", "orderSeq": 33} });
+      console.log("  const addToCart = async () => { ", resp.data);
+    }
+
 
 
 
@@ -145,8 +155,11 @@ function StoreDetailsSelection() {
         </div>
 
         <div className="product_cart">
-          <Link to="/store-cart">
-            <button>ADD TO CART</button>
+            <button onClick={addToCart}>ADD TO CART</button>
+        </div>
+        <div className="product_cart">
+          <Link to="/store-cart" state={{ "orderProductId": userOrderData.orderProductId, "orderQuantity": userOrderData.orderQuantity }}>
+            <button onClick={addToCart}>ADD TO CART & GO</button>
           </Link>
         </div>
         <Link
@@ -154,7 +167,7 @@ function StoreDetailsSelection() {
           to="/store-cart"
         >
           장바구니
-            <p>//ID: {sendOrderData.orderProductId}//Qty: {sendOrderData.orderQuantity}</p>
+            <p>//ID: {userOrderData.orderProductId}//Qty: {userOrderData.orderQuantity}</p>
         </Link>
 
         <div className="product_checkout">
