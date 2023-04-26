@@ -80,6 +80,7 @@ function AdminMember() {
                   <th>등급</th>
                   <th>발사이즈</th>
                   <th>가입일</th>
+                  <th>수정일</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,7 +105,8 @@ function AdminMember() {
                       <td>{mem.point}</td>
                       <td>{mem.grade}</td>
                       <td>{mem.foot}</td>
-                      <td>{mem.regdate}</td>
+                      <td>{mem.regdate.split('T')[0]}</td>
+                      <td>{mem.memberupdate.split('T')[0]}</td>
                     </tr>
                     );
                   })

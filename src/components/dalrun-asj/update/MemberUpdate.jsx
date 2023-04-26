@@ -4,7 +4,6 @@ import { useSearchParams } from "react-router-dom";
 
 function MemberUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
-    const [update, setUpdate] = useState("");
 
     const [id, setId] = useState("");
     const [pwd, setPwd] = useState("");
@@ -12,7 +11,7 @@ function MemberUpdate({data, onHide}) {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [birth, setBirth] = useState("");
-    const [point, setPoint] = useState("");
+    const [point, setPoint] = useState(0);
     const [footSize, setFootSize] = useState("");
     const [grade, setGrade] = useState("");
     const [imgFile, setImgFile] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
@@ -28,6 +27,8 @@ function MemberUpdate({data, onHide}) {
         setPoint(data.point);
         setFootSize(data.foot);
         setGrade(data.grade);
+        console.log(typeof(data.point));
+        console.log(typeof(point));
     }
 
     useEffect(() => {
@@ -50,22 +51,19 @@ function MemberUpdate({data, onHide}) {
 
         axios.post('http://localhost:3000/admin_updatemember', formData)
             .then((resp) => {
-                console.log(resp.data);
-                setUpdate(resp.data);
+                // console.log(resp.data);
+                if(resp.data === "YES") {
+                    alert("수정완료");
+                    onHide();
+                    setSearchParam(searchParam.set('target',''));
+                } else {
+                    alert("수정실패");
+                }
             })
             .catch((err) => {
                 console.log(err);
             });
     }
-
-    const updateAf = () => {
-        if(update === "YES") {
-          // alert("수정완료");
-          console.log("수정완료");
-          onHide();
-          setSearchParam(searchParam.set('target',''));
-        }
-      }
 
     return (
         <div className="admin_update_container">
@@ -134,7 +132,7 @@ function MemberUpdate({data, onHide}) {
                                 <option value="extra-wide">아주 넓은편</option>
                             </select>
                         </div>
-                        <input type="submit" value="수정" onClick={updateAf} />
+                        <input type="submit" value="수정" />
                     </fieldset>
                 </form>
             </div>
