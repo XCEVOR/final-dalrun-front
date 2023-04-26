@@ -1,6 +1,5 @@
 import React, {useState, useRef} from "react";
-import SideMenu from "../../../components/dalrun-sh/sideMenu";
-import { useLocation } from "react-router";
+
 import { Helmet } from "react-helmet";
 
 import HeaderDefault from "../../../components/header/HeaderDefault";
@@ -16,26 +15,9 @@ import MyStore from "./mypage/MyStore";
 import MyWrite from "./mypage/MyWrite";
 import MyRating from "./mypage/MyRating";
 
-const Mypage = () => {
+import { Routes, Route } from "react-router-dom";
 
-    const location = useLocation();
-    const menu = location.pathname.split("/").reverse()[0];
-    
-    const clickedSideMenu = (m) => {
-        if(m === "myinform") {
-          return <MyInform />;
-        } else if(m === "mycrew") {
-          return <MyCrew />;
-        } else if(m === "myrunning") {
-          return <MyRunning />;
-        } else if(m === "mystore") {
-          return <MyStore />;
-        } else if(m === "mywrite") {
-          return <MyWrite />;
-        } else if(m === "myrating") {
-          return <MyRating />;
-        } 
-      }  
+const Mypage = () => {
 
     return (
         <div className="ptf-site-wrapper animsition ptf-is--works-listing">
@@ -43,10 +25,18 @@ const Mypage = () => {
             <title>MyPage</title>
           </Helmet>
           <div className="ptf-site-wrapper__inner">
-             <HeaderDefault />    
+             <HeaderDefault />  
+
             <div className="main container-xxl" style={{display:"flex"}}>
               <MypageMenu />
-              {clickedSideMenu(menu)}
+              <Routes>
+                <Route path="myinform" element={<MyInform />} />
+                <Route path="mycrew" element={<MyCrew />} />
+                <Route path="myrunning" element={<MyRunning />} />
+                <Route path="mystore" element={<MyStore />} />
+                <Route path="mywrite" element={<MyWrite />} />
+                <Route path="myrating" element={<MyRating />} />         
+              </Routes>
             </div>
           </div>
     

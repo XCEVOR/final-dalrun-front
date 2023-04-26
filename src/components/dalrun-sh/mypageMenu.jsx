@@ -1,11 +1,5 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import MyInform from "../../views/inner-pages/dalrun-osh/mypage/MyInform";
-import MyCrew from "../../views/inner-pages/dalrun-osh/mypage/MyCrew";
-import MyRunning from "../../views/inner-pages/dalrun-osh/mypage/MyRunning";
-import MyStore from "../../views/inner-pages/dalrun-osh/mypage/MyStore";
-import MyWrite from "../../views/inner-pages/dalrun-osh/mypage/MyWrite";
-import MyRating from "../../views/inner-pages/dalrun-osh/mypage/MyRating";
+import { Link } from "react-router-dom";
 
 const menuContent = [
   {
@@ -39,7 +33,7 @@ const MypageMenu = () => {
     <>
       <div className="ptf-mypage-sidebar">
         <div>
-            <ul className="mypage-sidebar-menu_wrapper">
+            <ul className="admin-sidebar-menu_wrapper">
               {menuContent.map((item, i) => (
                 <li key={i}>
                     <Link to={item.routerRoute}>{item.name}</Link>
@@ -51,14 +45,7 @@ const MypageMenu = () => {
               <button className="logout">로그아웃</button> */}
             </div>
         </div>
-        <Routes>
-          <Route path="/mypage/myinform" element={<MyInform />} />
-          <Route path="/mypage/mycrew" element={<MyCrew />} />
-          <Route path="/mypage/myrunning/*" element={<MyRunning />} />
-          <Route path="/mypage/mystore" element={<MyStore />} />
-          <Route path="/mypage/mywrite" element={<MyWrite />} />
-          <Route path="/mypage/myrating" element={<MyRating />} />         
-        </Routes>
+
       </div>
     </>
   );

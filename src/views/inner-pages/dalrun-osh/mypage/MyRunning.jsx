@@ -3,9 +3,9 @@ import SideMenu from "../../../../components/dalrun-sh/sideMenu";
 
 function Running(){
   return(
-    <div className='row'>
+    <div className="members container">
+      <h4 className="title">내 러닝</h4>
 
-        <h1>내 러닝</h1>
 
     </div>
     )

@@ -3,9 +3,9 @@ import SideMenu from "../../../../components/dalrun-sh/sideMenu";
 
 function Rating(){
   return(
-    <div className='row'>
+    <div className="members container">
+      <h4 className="title">내 등급</h4>
 
-        <h1>내 등급</h1>
 
     </div>
     )

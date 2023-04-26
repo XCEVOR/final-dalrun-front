@@ -73,13 +73,14 @@ import MainDotMap from "../views/mjy-view/mainDotmap";
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
-import MyInform from "../views/inner-pages/dalrun-osh/mypage/MyInform";
-import MyCrew from "../views/inner-pages/dalrun-osh/mypage/MyCrew";
-import MyRunning from "../views/inner-pages/dalrun-osh/mypage/MyRunning";
-import MyStore from "../views/inner-pages/dalrun-osh/mypage/MyStore";
-import MyWrite from "../views/inner-pages/dalrun-osh/mypage/MyWrite";
-import MyRating from "../views/inner-pages/dalrun-osh/mypage/MyRating";
 import MyPage from "../views/inner-pages/dalrun-osh/Mypage";
+
+// import MyInform from "../views/inner-pages/dalrun-osh/mypage/MyInform";
+// import MyCrew from "../views/inner-pages/dalrun-osh/mypage/MyCrew";
+// import MyRunning from "../views/inner-pages/dalrun-osh/mypage/MyRunning";
+// import MyStore from "../views/inner-pages/dalrun-osh/mypage/MyStore";
+// import MyWrite from "../views/inner-pages/dalrun-osh/mypage/MyWrite";
+// import MyRating from "../views/inner-pages/dalrun-osh/mypage/MyRating";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
@@ -163,13 +164,15 @@ const AllRoutes = () => {
 
         {/* 오성혁 */}
         <Route path='/osh-work' element={<OshWorkspace/>} />
+
+        <Route path='/mypage/*' element={<MyPage/>} />
+
         {/* <Route path='/mypage/myinform' element={<MyInform/>} />
         <Route path='/mypage/mycrew' element={<MyCrew/>} />
         <Route path='/mypage/myrunning' element={<MyRunning/>} />
         <Route path='/mypage/mystore' element={<MyStore/>} />
         <Route path='/mypage/mywrite' element={<MyWrite/>} />
         <Route path='/mypage/myrating' element={<MyRating/>} /> */}
-        <Route path='/mypage' element={<MyPage/>} />
 
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />

@@ -1,27 +1,42 @@
 import React, { Component } from "react";
-import SideMenu from "../../../../components/dalrun-sh/sideMenu";
+import PassChange from "./passchange/PassChange";
 
 function Inform() {
 
+  const category = [
+    {cate:"update", name:"비밀번호 변경", selected:<PassChange />}, 
+    {cate:"save", name:"저장", selected:"저장하시겠습니까?"},     
+    {cate:"delete", name:"회원탈퇴", selected:"탈퇴하시겠습니까?"}
+];
+
   return(
-    <div className="dashboard container">
-      <span className="title">회원정보</span>
-      <span />
-      <div className="dashboard-content">
-        <div className="todolist outline">
-          <span className="subtitle">오늘 할 일</span>
-        </div><br />
-        <div className="summary">
-          <div className="visiter outline">
-            <span className="subtitle">방문자 현황</span>
-          </div>
-          <div className="week outline">
-            <span className="subtitle">일자별 요약</span>
-          </div>
+    <div className="inform container">
+      <h4 className="title">회원정보</h4>
+      <br />
+      <div className="inform outline" />
+      <div>
+        <div className="search-content inpput">
+          <label>아이디</label> <input type="text" value=" id " />
         </div>
+        <div>
+          <label>이메일</label> <input type="text" value=" mulcam@naver.com " />
+        </div>
+        <div>
+          <label>전화번호</label> <input type="text" value=" 01023139112 " />
+        </div>
+        <div>
+         <label>닉네임</label> <input type="text" value=" 화이팅 " />
+        </div> 
+        <div>
+         <label>비밀번호</label> <button>변경</button>
+        </div>
+
+
+        <button>저장</button> <button>탈퇴</button>
       </div>
+
     </div>
- 
+
     );
 }
 

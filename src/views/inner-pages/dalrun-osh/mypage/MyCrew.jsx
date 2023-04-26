@@ -1,14 +1,12 @@
 import React from "react";
 import SideMenu from "../../../../components/dalrun-sh/sideMenu";
 
-function Crew(){
-  return(
-    <div className='row'>
+function MyCrew(){
+  <div className="members container">
+    <h4 className="title">내 크루</h4>
 
-        <h1>내 크루</h1>
 
-    </div>
-    )
+  </div>
 }
 
-export default Crew;
+export default MyCrew;

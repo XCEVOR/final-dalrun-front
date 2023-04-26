@@ -3,9 +3,9 @@ import SideMenu from "../../../../components/dalrun-sh/sideMenu";
 
 function Store(){
   return(
-    <div className='row'>
+    <div className="members container">
+      <h4 className="title">내 스토어</h4>
 
-        <h1>내 스토어</h1>
 
     </div>
     )
