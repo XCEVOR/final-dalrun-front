@@ -81,6 +81,7 @@ function AdminMember() {
                   <th>발사이즈</th>
                   <th>가입일</th>
                   <th>수정일</th>
+                  <th>탈퇴</th>
                 </tr>
               </thead>
               <tbody>
@@ -107,6 +108,7 @@ function AdminMember() {
                       <td>{mem.foot}</td>
                       <td>{mem.regdate.split('T')[0]}</td>
                       <td>{mem.memberupdate.split('T')[0]}</td>
+                      <td>{mem.del === 1 ? "탈퇴":""}</td>
                     </tr>
                     );
                   })
