@@ -151,6 +151,15 @@ function Register(){
             .then(function(res){
                 if(res.data === "YES"){
                     alert('정상적으로 가입되었습니다');
+
+                    // localStorage.setItem("id",id.current.value);
+                    // localStorage.setItem("pwd",pwd.current.value);
+                    // localStorage.setItem("name",name.current.value);
+                    // localStorage.setItem("email",email.current.value);
+                    // localStorage.setItem("phone",phone.current.value);
+                    // localStorage.setItem("birth",birth.current.value);
+                    // localStorage.setItem("footSize",footSize.current.value);
+
                     gotoLogin()
                     console.log('params:', { memId: id, password: pwd, memberName: name, email: email, phone: phone, birth: birth, foot: footSize, profile: imgFile });
                 }

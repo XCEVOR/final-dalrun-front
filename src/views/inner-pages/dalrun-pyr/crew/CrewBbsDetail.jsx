@@ -42,7 +42,7 @@ function CrewBbsDetail(){
         let str = localStorage.getItem('login');
         let login = JSON.parse(str);
 
-        if(login.id !== crewBbs.id){
+        if(login.memId !== crewBbs.memId){
             return ""
         }
         return (

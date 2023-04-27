@@ -8,7 +8,7 @@ function PostCrewBbsWriteForm() {
     const history = useNavigate();
 
     const [id,setId] = useState('');
-    const [category, setCategory] = useState('모집중');
+    const [type, setType] = useState('모집중');
     const [crewName, setCrewName] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -27,7 +27,7 @@ function PostCrewBbsWriteForm() {
     }, [history]);
 
     const idChange = (e) => setId(e.target.value);
-    const categoryChange = (e) => setCategory(e.target.value);
+    const typeChange = (e) => setType(e.target.value);
     const crewNameChange = (e) => setCrewName(e.target.value);
     const titleChage = (e) => setTitle(e.target.value);
     const contentChange = (e) => setContent(e.target.value);
@@ -40,7 +40,7 @@ function PostCrewBbsWriteForm() {
         }
 
         axios.post("http://localhost:3000/crewBbsWrite", null,
-                {params:{"memId":id, "crewName":crewName , "category":category, "title":title, "content":content}})
+                {params:{"memId":id, "crewName":crewName , "type":type, "title":title, "content":content}})
                 .then(res => {
                     console.log(res.data);
                     if(res.data === "YES"){
@@ -71,7 +71,7 @@ function PostCrewBbsWriteForm() {
             <tr>
                 <th className="align-middle">카테고리</th>
                 <td>
-                    <select value={category} onChange={categoryChange}>
+                    <select value={type} onChange={typeChange}>
                     <option value="모집중">모집중</option>
                     <option value="모집완료">모집완료</option>
                     </select>

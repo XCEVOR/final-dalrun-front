@@ -39,6 +39,7 @@ function Login(){
                 if(res.data !== null && res.data !== ""){
                     alert('환영합니다');
                     localStorage.setItem("login", JSON.stringify(res.data));
+                    localStorage.setItem("memId", id);
                     gotoHome();
                 }else{
                     alert('id나 password를 확인해 주십시오');

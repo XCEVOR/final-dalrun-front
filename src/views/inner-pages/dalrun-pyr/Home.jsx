@@ -13,16 +13,22 @@ export default function Home() {
     history("/login");
 }
 
+  // const handleLogout = () => {
+  //   axios.post('/logout')
+  //     .then(() => {
+  //       localStorage.removeItem('login');
+  //       gotoLogin();
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // };
+  // "login", JSON.stringify(res.data)
+
   const handleLogout = () => {
-    axios.post('/logout')
-      .then(() => {
-        localStorage.removeItem('login');
-        gotoLogin();
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+    localStorage.removeItem("login")
+    gotoLogin();
+  }
 
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
@@ -34,10 +40,12 @@ export default function Home() {
 
     <div className="ptf-site-wrapper__inner">
       <h1>Dalrun Dalrun 🏠</h1>
-      <h2>어서오세요!</h2>
+      <h2>{localStorage.getItem('id')}어서오세요!</h2>
       {/* <Link to="/login">로그인</Link> */} <br></br>
       <button 
      type="button" onClick={handleLogout}>로그아웃</button>
+     <h1>Dalrun Dalrun 🏠</h1>
+      <h2>{localStorage.getItem('id')}어서오세요!</h2>
     </div>
     </div>
   );
