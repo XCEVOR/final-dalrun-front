@@ -22,7 +22,6 @@ function AdminProduct() {
     {cate:"delete", name:"상품삭제", selected:"이 상품을 삭제하겠습니까?", list:checkedList}
   ];
 
-  console.log(typeof(saleState));
   const reset = () => {
     setSaleState("");
     setStockState("");
@@ -74,7 +73,7 @@ function AdminProduct() {
           <div className="info">
             <ModalBtn {...category} />
             <div className="info_con">
-              <Table striped bordered hover>
+              <Table striped bordered hover size="sm">
                 <thead>
                   <tr>
                     <th>
@@ -85,15 +84,18 @@ function AdminProduct() {
                       />
                     </th>
                     <th>상품번호</th>
+                    <th>상품코드</th>
                     <th>카테고리</th>
                     <th>브랜드</th>
                     <th>상품명</th>
+                    <th>색상</th>
+                    <th>사이즈</th>
                     <th>가격</th>
-                    <th>창고재고</th>
-                    <th>가재고</th>
-                    <th>재고수정</th>
-                    <th>판매</th>
-                    <th>품절</th>
+                    <th>재고</th>
+                    {/* <th>가재고</th> */}
+                    {/* <th>판매</th> */}
+                    {/* <th>품절</th> */}
+                    <th>등록일</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -109,16 +111,21 @@ function AdminProduct() {
                               checked={checkedList.includes(item.productId) ? true : false}
                               />
                           </th>
-                          <th>{item.productId}</th>
-                          <th>{item.productCategory}</th>
-                          <th>{item.productBrand}</th>
-                          <th>{item.productName}</th>
-                          <th>{item.productPrice}</th>
-                          <th>{item.productStock}</th>
-                          <th>가재고</th>
-                          <th><input type="number" /></th>
-                          <th><input type="checkbox" /></th>
-                          <th><input type="checkbox" /></th>  
+                          <td>
+                            <Link to={`/store-details/${item.productCode}`}>{item.productId}</Link>
+                          </td>
+                          <td>{item.productCode}</td>
+                          <td>{item.productCategory}</td>
+                          <td>{item.productBrand}</td>
+                          <td>{item.productName}</td>
+                          <td>{item.productColor}</td>
+                          <td>{item.productSize}</td>
+                          <td>{item.productPrice}</td>
+                          <td>{item.productStock}</td>
+                          {/* <td>가재고</td> */}
+                          {/* <td><input type="checkbox" /></td> */}
+                          {/* <td><input type="checkbox" /></td>   */}
+                          <td>{item.productRegiDate}</td>
                         </tr>
                       );
                     }) 

@@ -112,7 +112,7 @@ function AdminMember() {
                     </tr>
                     );
                   })
-                  : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                  : <tr style={{textAlign:"center"}}><td colSpan="13">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>

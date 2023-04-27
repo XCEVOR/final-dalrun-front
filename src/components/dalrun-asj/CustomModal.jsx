@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import MemberUpdate from './update/MemberUpdate';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ProductUpdate from './update/ProductUpdate';
 
 function CustomModal(props) {
   const separator = ', ';
@@ -16,7 +17,7 @@ function CustomModal(props) {
       axios.post(`http://localhost:3000/get${cate}`, null, { params:{ "target":props.checked[0] } })
           .then((resp) => {
               setData(resp.data);
-              console.log("getMember");
+              console.log("getTarget");
           })
           .catch((err) => {
               console.log(err);
@@ -29,11 +30,11 @@ function CustomModal(props) {
         .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
-            alert("탈퇴완료");
+            alert("삭제완료");
             props.onHide()
             setSearchParam(searchParam.set('target',''));
           } else {
-            alert("탈퇴실패")
+            alert("삭제실패")
           }
         })
         .catch((err) => {
@@ -44,6 +45,7 @@ function CustomModal(props) {
   const ModalBody = () => {
     if(props.category === "update") {
       if(cate === "member") return <MemberUpdate data={data} onHide={props.onHide} />;
+      else if(cate === "product") return <ProductUpdate data={data} onHide={props.onHide} />;
     } else if(props.category === "delete") {
       if(cate === "member") return "이 회원을 탈퇴시키겠습니까?";
     }
