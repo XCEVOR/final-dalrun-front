@@ -7,8 +7,9 @@ import Social from "../../../../components/social/Social";
 import ContactForm from "../../../../components/ContactForm";
 import Address from "../../../../components/Address";
 
-import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";
-import StorePaymentUser from "../../../../components/dalrun-hc/storepayment/StorePaymentUser";
+import StorePaymentUser from "../../../../components/dalrun-hc/storepayment/StorePaymentUser";  // StorePaymentUser 에서
+import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";  // StorePaymentList 으로 데이터 공유.
+
 
 const Contact = () => {
   return (
@@ -69,7 +70,10 @@ const Contact = () => {
             <div className="container-xxl">
               <div className="row">
                 <div className="col-lg-8">
-                  <StorePaymentUser />
+
+                  
+                  {/* // Component to Component */}
+                  <StorePaymentUser pushData={StorePaymentList.pullData} />
                 </div>
                 {/* End .col */}
 
@@ -88,6 +92,9 @@ const Contact = () => {
                       className="ptf-spacer"
                       style={{ "--ptf-xxl": "3.125rem" }}
                     ></div>
+
+
+                    {/* // Component to Component */}
                     <StorePaymentList />
                     {/* End ContactForm */}
                   </div>

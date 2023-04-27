@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-const Address = () => {
+const Address = (props) => {
   const [orderName, setOrderName] = useState('제프 베이조스');
   const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
   const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
@@ -41,6 +41,12 @@ const Address = () => {
 
   return (
     <>
+      {/* // Component to Component */}
+      <input
+        onChange={(event) => {
+          props.pushData(event.target.value);
+        }}
+      ></input>
       {/* <!--Animated Block--> */}
       <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
         {/* <!--Spacer--> */}
@@ -122,7 +128,6 @@ const Address = () => {
           </div>
         </div>
       </div>
-
       {/* <!--Animated Block--> */}
       <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
         <h5 className="fz-14 text-uppercase has-3-color fw-normal">Address</h5>
@@ -135,10 +140,8 @@ const Address = () => {
           United States
         </p>
       </div>
-
       {/* <!--Spacer--> */}
       <div className="ptf-spacer" style={{ "--ptf-xxl": "2.1875rem" }}></div>
-
       {/* <!--Animated Block--> */}
       <div className="ptf-animated-block" data-aos="fade" data-aos-delay="100">
         <h5 className="fz-14 text-uppercase has-3-color fw-normal">Email</h5>
@@ -152,10 +155,8 @@ const Address = () => {
           <a href="mailto:career@moonex.co">career@moonex.co</a>
         </p>
       </div>
-
       {/* <!--Spacer--> */}
       <div className="ptf-spacer" style={{ "--ptf-xxl": "2.1875rem" }}></div>
-
       {/* <!--Animated Block--> */}
       <div className="ptf-animated-block" data-aos="fade" data-aos-delay="200">
         <h5 className="fz-14 text-uppercase has-3-color fw-normal">Phone</h5>
@@ -165,7 +166,6 @@ const Address = () => {
           <a href="tel:+5632356565">+56 3235 65 65</a>
         </p>
       </div>
-
       {/* <!--Spacer--> */}
       <div
         className="ptf-spacer"

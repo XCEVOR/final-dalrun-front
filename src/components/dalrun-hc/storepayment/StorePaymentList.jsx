@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
-function StoreCartList() {
+function StoreCartList(props) {
   // const location = useLocation();
   const [userId, setUserId] = useState("user01test");
   const [cartList, setCartList] = useState([]);
@@ -16,6 +16,10 @@ function StoreCartList() {
 
   const [data, setData] = useState([]);  // 삭제 예정.
   const [sum, setSum] = useState(0);  // 삭제 예정.
+
+  // Component to Component
+  const [myData, setMyData] = React.useState("<blank>");
+  pullData = setMyData;
 
   const [likeBtn, setLikeBtn] = useState(false);
   // console.log("console.log(location.state); ", location.state);
@@ -332,6 +336,8 @@ function StoreCartList() {
                   defaultValue={totalPaymentAmount}
                   onChange={(e) => e.target.value}
                 />
+                {/* // Component to Component */}
+                <span>{myData}</span>
               </div>
             </div>
           </div>
@@ -340,5 +346,12 @@ function StoreCartList() {
     </div>
   );
 }
+
+
+// Component to Component
+var pullData;
+StoreCartList.pullData = (myData) => {
+  pullData(myData);
+};
 
 export default StoreCartList;
