@@ -8,6 +8,7 @@ import ContactForm from "../../../../components/ContactForm";
 import Address from "../../../../components/Address";
 
 import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";
+import StorePaymentUser from "../../../../components/dalrun-hc/storepayment/StorePaymentUser";
 
 const Contact = () => {
   return (
@@ -67,12 +68,12 @@ const Contact = () => {
           <section>
             <div className="container-xxl">
               <div className="row">
-                <div className="col-lg-4">
-                  <Address />
+                <div className="col-lg-8">
+                  <StorePaymentUser />
                 </div>
                 {/* End .col */}
 
-                <div className="col-lg-8">
+                <div className="col-lg-4">
                   {/* <!--Animated Block--> */}
                   <div
                     className="ptf-animated-block"

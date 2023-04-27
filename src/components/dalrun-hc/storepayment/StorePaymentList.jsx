@@ -97,7 +97,7 @@ function StoreCartList() {
   }
 
 
-  
+
 
 
 
@@ -241,7 +241,7 @@ function StoreCartList() {
           {/* <!-- DB 데이터 --> */}
           {cartList.map((item, index) => (
             <div className="item" key={index}>
-{/*               
+              {/*               
               <div className="buttons">
                 <span className="delete-btn"></span>
                 <span
@@ -264,7 +264,7 @@ function StoreCartList() {
                 <span>{item.productColor}</span>
               </div>
 
-{/* 
+              {/* 
               <div className="quantity">
                 <button className="plus-btn" type="button" name="button">
                   <img
@@ -300,10 +300,20 @@ function StoreCartList() {
             <div className="row">
               <div className="col-xl-8">
                 <h3>TOTAL PAYMENT AMOUNT</h3>
-                <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button>
-                <Link to="/store-payment"><button>{totalPaymentAmount}결제 페이지 이동</button></Link>
+                <button onClick={calcTotalPaymentAmount}>
+                  {totalPaymentAmount}결제금액확인test
+                </button>
+                <Link to="/store-payment">
+                  <button>{totalPaymentAmount}결제 실행 (주문 데이터)</button>
+                </Link>
+                <Link to="/store-payment">
+                  <button>{totalPaymentAmount}결제 실행</button>
+                </Link>
                 <h6 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h6>
-                <input defaultValue={totalPaymentAmount} onChange={(e) => (e.target.value)}/>
+                <input
+                  defaultValue={totalPaymentAmount}
+                  onChange={(e) => e.target.value}
+                />
               </div>
             </div>
           </div>
