@@ -176,7 +176,7 @@ function StoreDetailsSelection() {
         </div>
         <Link
           className="ptf-btn ptf-btn--primary ptf-btn--block"
-          to="/store-checkout"
+          to="/store-payment"
         >
           바로구매
         </Link>

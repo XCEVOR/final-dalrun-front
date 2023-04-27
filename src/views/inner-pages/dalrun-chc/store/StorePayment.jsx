@@ -7,6 +7,8 @@ import Social from "../../../../components/social/Social";
 import ContactForm from "../../../../components/ContactForm";
 import Address from "../../../../components/Address";
 
+import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";
+
 const Contact = () => {
   return (
     <div className="dalrun_hc">
@@ -37,8 +39,7 @@ const Contact = () => {
                     data-aos-delay="0"
                   >
                     <h1 className="large-heading">
-                      Let's get Contact an <br />
-                      estimate
+                      TOTAL PAYMENT
                     </h1>
                     {/* <!--Spacer--> */}
                     <div
@@ -86,7 +87,7 @@ const Contact = () => {
                       className="ptf-spacer"
                       style={{ "--ptf-xxl": "3.125rem" }}
                     ></div>
-                    <ContactForm />
+                    <StorePaymentList />
                     {/* End ContactForm */}
                   </div>
                 </div>
