@@ -117,10 +117,10 @@ function StoreCartList(props) {
       {
         params: {
           memId: userId,
-          orderName: userId,
-          orderAddress: userId,
-          orderPhone: userId,
-          orderRequirment: userId,
+          orderName: pulledOrderName,
+          orderAddress: pulledOrderAddress,
+          orderPhone: pulledOrderPhone,
+          orderRequirment: pulledOrderRequirment,
           orderTotalprice: totalPaymentAmount,
           orderQuantity: itemQuantity,
         },
