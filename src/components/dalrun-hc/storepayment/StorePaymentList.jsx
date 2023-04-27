@@ -98,7 +98,25 @@ function StoreCartList() {
 
 
 
+  const writeOrderData = async () => {
+    const resp = await axios.post(
+      "http://localhost:3000/writeOrderData",
+      null,
+      {
+        params: {
+          memId: userId,
+          orderName: userId,
+          orderAddress: userId,
+          orderPhone: userId,
+          orderRequirment: userId,
+          orderTotalprice: totalPaymentAmount,
+          orderQuantity: itemQuantity,
+        },
+      }
+    );
+    console.log("  sendOrderData: ", resp.data);
 
+  }
 
 
 
@@ -304,7 +322,7 @@ function StoreCartList() {
                   {totalPaymentAmount}결제금액확인test
                 </button>
                 <Link to="/store-payment">
-                  <button>{totalPaymentAmount}결제 실행 (주문 데이터)</button>
+                  <button onClick={writeOrderData}>{totalPaymentAmount}결제 실행 (주문 데이터)</button>
                 </Link>
                 <Link to="/store-payment">
                   <button>{totalPaymentAmount}결제 실행</button>
