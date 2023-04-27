@@ -20,7 +20,15 @@ function StoreCartList(props) {
   // Component to Component
   const [myData, setMyData] = React.useState("<blank>");
   pullData = setMyData;
-
+  const [pulledOrderName, setPulledOrderName] = useState("<blank>");
+  pullOrderNamePackage = setPulledOrderName;
+  const [pulledOrderAddress, setPulledOrderAddress] = useState("<blank>");
+  pullOrderAddressPackage = setPulledOrderAddress;
+  const [pulledOrderPhone, setPulledOrderPhone] = useState("<blank>");
+  pullOrderPhonePackage = setPulledOrderPhone;
+  const [pulledOrderRequirment, setPulledOrderRequirment] = useState("<blank>");
+  pullOrderRequirmentPackage = setPulledOrderRequirment;
+  
   const [likeBtn, setLikeBtn] = useState(false);
   // console.log("console.log(location.state); ", location.state);
 
@@ -126,6 +134,12 @@ function StoreCartList(props) {
 
   return (
     <div>
+      {/* // Component to Component */}
+      <span>{myData}</span>
+      <p>{pulledOrderName}</p>
+      <p>{pulledOrderAddress}</p>
+      <p>{pulledOrderPhone}</p>
+      <p>{pulledOrderRequirment}</p>
       <section>
         <h1>ORDER SUMMARY</h1>
         <h1>{sum}</h1>
@@ -326,7 +340,9 @@ function StoreCartList(props) {
                   {totalPaymentAmount}결제금액확인test
                 </button>
                 <Link to="/store-payment">
-                  <button onClick={writeOrderData}>{totalPaymentAmount}결제 실행 (주문 데이터)</button>
+                  <button onClick={writeOrderData}>
+                    {totalPaymentAmount}결제 실행 (주문 데이터)
+                  </button>
                 </Link>
                 <Link to="/store-payment">
                   <button>{totalPaymentAmount}결제 실행</button>
@@ -336,8 +352,6 @@ function StoreCartList(props) {
                   defaultValue={totalPaymentAmount}
                   onChange={(e) => e.target.value}
                 />
-                {/* // Component to Component */}
-                <span>{myData}</span>
               </div>
             </div>
           </div>
@@ -353,5 +367,22 @@ var pullData;
 StoreCartList.pullData = (myData) => {
   pullData(myData);
 };
+var pullOrderNamePackage;
+StoreCartList.pullOrderNamePackage = (pulledOrderName) => {
+  pullOrderNamePackage(pulledOrderName);
+};
+var pullOrderAddressPackage;
+StoreCartList.pullOrderAddressPackage = (pulledOrderAddress) => {
+  pullOrderAddressPackage(pulledOrderAddress);
+};
+var pullOrderPhonePackage;
+StoreCartList.pullOrderPhonePackage = (pulledOrderPhone) => {
+  pullOrderPhonePackage(pulledOrderPhone);
+};
+var pullOrderRequirmentPackage;
+StoreCartList.pullOrderRequirmentPackage = (pulledOrderRequirment) => {
+  pullOrderRequirmentPackage(pulledOrderRequirment);
+};
+
 
 export default StoreCartList;

@@ -40,9 +40,7 @@ const Contact = () => {
                     data-aos="fade"
                     data-aos-delay="0"
                   >
-                    <h1 className="large-heading">
-                      TOTAL PAYMENT
-                    </h1>
+                    <h1 className="large-heading">TOTAL PAYMENT</h1>
                     {/* <!--Spacer--> */}
                     <div
                       className="ptf-spacer"
@@ -70,10 +68,14 @@ const Contact = () => {
             <div className="container-xxl">
               <div className="row">
                 <div className="col-lg-8">
-
-                  
                   {/* // Component to Component */}
-                  <StorePaymentUser pushData={StorePaymentList.pullData} />
+                  <StorePaymentUser
+                    pushData={StorePaymentList.pullData}
+                    pushOrderNamePackage={StorePaymentList.pullOrderNamePackage}
+                    pushOrderAddressPackage={StorePaymentList.pullOrderAddressPackage}
+                    pushOrderPhonePackage={StorePaymentList.pullOrderPhonePackage}
+                    pushOrderRequirmentPackage={StorePaymentList.pullOrderRequirmentPackage}
+                  />
                 </div>
                 {/* End .col */}
 
@@ -92,7 +94,6 @@ const Contact = () => {
                       className="ptf-spacer"
                       style={{ "--ptf-xxl": "3.125rem" }}
                     ></div>
-
 
                     {/* // Component to Component */}
                     <StorePaymentList />

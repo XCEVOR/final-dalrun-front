@@ -38,6 +38,34 @@ const StorePaymentUser = (props) => {
       });
   }
 
+  const makeOrderNamePackage = (e) => {
+    setOrderName(e.target.value)
+    console.log(orderName)
+    props.pushOrderNamePackage(e.target.value)
+  }
+  const makeOrderAddressPackage = (e) => {
+    setOrderAddress(e.target.value)
+    console.log(orderAddress)
+    props.pushOrderAddressPackage(e.target.value)
+  }
+  const makeOrderPhonePackage = (e) => {
+    setOrderPhone(e.target.value)
+    console.log(orderPhone)
+    props.pushOrderPhonePackage(e.target.value)
+  }
+  const makeOrderRequirmentPackage = (e) => {
+    setOrderRequirment(e.target.value)
+    console.log(orderRequirment)
+    props.pushOrderRequirmentPackage(e.target.value)
+  }
+
+  const pushTest = () => {
+      props.pushOrderNamePackage(orderName)
+      props.pushOrderAddressPackage(orderAddress)
+      props.pushOrderPhonePackage(orderPhone)
+      props.pushOrderRequirmentPackage(orderRequirment)
+    
+  }
 
   return (
     <>
@@ -47,6 +75,7 @@ const StorePaymentUser = (props) => {
           props.pushData(event.target.value);
         }}
       ></input>
+      <button onClick={pushTest}>초기값 보내기</button>
       {/* <!--Animated Block--> */}
       <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
         {/* <!--Spacer--> */}
@@ -67,7 +96,7 @@ const StorePaymentUser = (props) => {
                       type="text"
                       placeholder="orderName"
                       value={orderName}
-                      onChange={(e) => setOrderName(e.target.value)}
+                      onChange={makeOrderNamePackage}
                     />
                   </div>
                 </div>
@@ -81,7 +110,7 @@ const StorePaymentUser = (props) => {
                       type="text"
                       placeholder="orderAddress"
                       value={orderAddress}
-                      onChange={(e) => setOrderAddress(e.target.value)}
+                      onChange={makeOrderAddressPackage}
                     />
                   </div>
                 </div>
@@ -95,7 +124,7 @@ const StorePaymentUser = (props) => {
                       type="text"
                       placeholder="orderPhone"
                       value={orderPhone}
-                      onChange={(e) => setOrderPhone(e.target.value)}
+                      onChange={makeOrderPhonePackage}
                     />
                   </div>
                 </div>
@@ -108,7 +137,7 @@ const StorePaymentUser = (props) => {
                     <textarea
                       placeholder="orderRequirment"
                       value={orderRequirment}
-                      onChange={(e) => setOrderRequirment(e.target.value)}
+                      onChange={makeOrderRequirmentPackage}
                     ></textarea>
                   </div>
                 </div>
