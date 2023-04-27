@@ -84,6 +84,7 @@ import Logout from "../views/inner-pages/dalrun-pyr/Logout";
 import CrewBbsMain from "../views/inner-pages/dalrun-pyr/crew/CrewBbsMain";
 import PostCrewBbsWriteForm from "../components/dalrun-pyr/crewBbs/CrewBbsWrite";
 import CrewBbsDetail from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDetail";
+import CrewBbsBlogDetails from "../views/inner-pages/dalrun-pyr/crew/CrewBbsBlogDetails";
 
 
 
@@ -175,6 +176,7 @@ const AllRoutes = () => {
         <Route path="/crewBbsMain" element={<CrewBbsMain/>}/>
         <Route path="/crewBbsWrite" element={<PostCrewBbsWriteForm/>}/>
         <Route path="/crewBbsDetail" element={<CrewBbsDetail/>}/>
+        <Route path="/crewBbsBlogDetail" element={<CrewBbsBlogDetails/>}/>
 
       </Routes>
     </>

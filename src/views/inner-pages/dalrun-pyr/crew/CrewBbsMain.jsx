@@ -2,12 +2,14 @@ import React from 'react';
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import Header from '../../../../components/dalrun-pyr/Header';
-import BlogThree from '../../../../components/blog/BlogThree';
+import CrewBlogThree from '../../../../components/dalrun-pyr/crewBbs/CrewBlogThree';
 import CopyRight from '../../../../components/footer/copyright/CopyRight';
 import Footer from '../../../../components/footer/Footer';
-import SearchBlog from '../../../../components/form/SearchBlog';
+import CrewSearchBlog from '../../../../components/dalrun-pyr/crewBbs/CrewSearchBlog';
 import NewsletterTwo from '../../../../components/newsletter/NewsletterTwo';
 import CrewBbsGridContent from '../../../../components/dalrun-pyr/crewBbs/CrewBbsGridSLider';
+import CrewBbsList from '../../../../components/dalrun-pyr/crewBbs/CrewBbsList';
+import CrewBbsClassification from '../../../../components/dalrun-pyr/crewBbs/CrewBbsClassification';
 
 const CrewBbsMain = () => {
   return (
@@ -50,10 +52,11 @@ const CrewBbsMain = () => {
                       data-aos-delay="100"
                     >
                       <div className="ptf-widget ptf-widget-search">
-                        <SearchBlog />
+                        <CrewSearchBlog />
                       </div>
                       <br></br>
                       <Link to="/crewBbsWrite">크루모집 글쓰기</Link>
+                   
                     </div>
                   </div>
                 </div>
@@ -139,7 +142,9 @@ const CrewBbsMain = () => {
                       "--bs-gutter-y": "3rem",
                     }}
                   >
-                    <BlogThree />
+                    {/* 게시글 list */}
+                    <CrewBlogThree />
+                    <CrewBbsList/>
                   </div>
                 </div>
                 {/* End .ptf-animated-block */}
