@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-const Address = (props) => {
+const StorePaymentUser = (props) => {
   const [orderName, setOrderName] = useState('제프 베이조스');
   const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
   const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
@@ -175,4 +175,4 @@ const Address = (props) => {
   );
 };
 
-export default Address;
+export default StorePaymentUser;
