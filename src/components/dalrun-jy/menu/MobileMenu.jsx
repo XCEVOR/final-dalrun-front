@@ -8,137 +8,121 @@ import {
   SubMenu,
   SidebarContent,
 } from "react-pro-sidebar";
-import Social from "../../social/Social";
+import Social from "../footer/Social";
 
 const menuContent = [
   {
-    name: "Home",
+    name: "메인 페이지",
     dropDownItems: [
       {
-        name: "Home Default",
-        routerPath: "/home-default",
+        name: "메인 페이지",
+        routerPath: "/mainpage",
       },
       {
-        name: "Home Studio",
-        routerPath: "/home-studio",
+        name: "도트맵 페이지",
+        routerPath: "/dotMap",
+      },
+    
+    ],
+  },
+  {
+    name: "러닝 다이어리",
+    dropDownItems: [
+      {
+        name: "러닝 다이어리",
+        routerPath: "/diary",
       },
       {
-        name: "Home Agency",
-        routerPath: "/home-agency",
+        name: "나의 기록",
+        routerPath: "/diary",
       },
       {
-        name: "Home Minimal",
-        routerPath: "/home-minimal",
+        name: "업로드 등록방법",
+        routerPath: "/diary",
+      },
+      
+      
+    ],
+  },
+  {
+    name: "스토어",
+    dropDownItems: [
+      {
+        name: "스토어",
+        routerPath: "/store-main",
       },
       {
-        name: "Home Dark",
-        routerPath: "/home-dark",
-      },
-      {
-        name: "Home Freelancer",
-        routerPath: "/home-freelancer",
-      },
-      {
-        name: "Home Trending",
-        routerPath: "/home-trending",
-      },
-      {
-        name: "Home Modern",
-        routerPath: "/home-modern",
+        name: "장바구니",
+        routerPath: "/store-main",
       },
     ],
   },
   {
-    name: "Portfolio",
+    name: "러닝 코스 추천",
     dropDownItems: [
       {
-        name: "Works Grid",
-        routerPath: "/works-grid",
+        name: "러닝 코스",
+        routerPath: "/coming-soon",
       },
+    
       {
-        name: "Works Masonry",
-        routerPath: "/works-masonry",
-      },
-      {
-        name: "Works Listing",
-        routerPath: "/works-listing",
-      },
-      {
-        name: "Works Carousel",
-        routerPath: "/works-carousel",
-      },
-      {
-        name: "Works Showcase",
-        routerPath: "/works-showcase",
+        name: "coming-soon",
+        routerPath: "/coming-soon",
       },
     ],
   },
   {
-    name: "Blog",
+    name: "대회 신청",
     dropDownItems: [
       {
-        name: "Blog Grid",
-        routerPath: "/blog-grid",
+        name: "대회 일정",
+        routerPath: "/competition-main",
       },
-      {
-        name: "Blog Masonry",
-        routerPath: "/blog-masonry",
-      },
-      {
-        name: "Blog Sidebar",
-        routerPath: "/blog-sidebar",
-      },
-      {
-        name: "Blog Details",
-        routerPath: "/blog-details",
-      },
-      {
-        name: "Blog Details Sidebar",
-        routerPath: "/blog-details-sidebar",
-      },
-    ],
-  },
-  {
-    name: "Pages",
-    dropDownItems: [
-      {
-        name: "About Us",
-        routerPath: "/about-us",
-      },
-      {
-        name: "About Me",
-        routerPath: "/about-me",
-      },
-      {
-        name: "Services",
-        routerPath: "/service",
-      },
-      {
-        name: "Service Details",
-        routerPath: "/service-details",
-      },
-      {
-        name: "Pricing",
-        routerPath: "/pricing",
-      },
-      {
-        name: "Team",
-        routerPath: "/team",
-      },
-      {
-        name: "FAQ",
-        routerPath: "/faq",
-      },
-      {
-        name: "Contact",
-        routerPath: "/contact",
-      },
-      {
-        name: "Page 404",
-        routerPath: "/404",
-      },
+    
       {
         name: "Coming Soon",
+        routerPath: "/coming-soon",
+      },
+    ],
+  },
+  {
+    name: "러닝화 리뷰",
+    dropDownItems: [
+      {
+        name: "러닝화 리뷰",
+        routerPath: "/coming-soon",
+      },
+    
+      {
+        name: "리뷰 작성",
+        routerPath: "/coming-soon",
+      },
+    ],
+  },
+  {
+    name: "QnA",
+    dropDownItems: [
+      {
+        name: "QnA 게시판",
+        routerPath: "/coming-soon",
+      },
+    
+      {
+        name: "coming-soon",
+        routerPath: "/coming-soon",
+      },
+    ],
+  },
+  {
+    name: "마이페이지",
+    dropDownItems: [
+      {
+        name: "마이페이지",
+        routerPath: "/coming-soon",
+      },
+    
+      {
+        name: "coming-soon",
         routerPath: "/coming-soon",
       },
     ],
