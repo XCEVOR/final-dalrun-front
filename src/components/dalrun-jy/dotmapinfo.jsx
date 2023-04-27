@@ -5,43 +5,41 @@ import axios from 'axios';
 
 const DotMapInfo = () => {
   const [rankList, setrankList] = useState([]);
-  const [ranMykList, setMyrankList] = useState([]);
+  const [mycrewinfo, setMycrewinfo] = useState([]);
 
   // 로그인 정보
-  const [login,setLogin]=useState(true);
-  const [my,setMy]=useState(0);
+  const [login,setLogin]=useState([]);
+  const [loginTF,setLoginTF]=useState(false);
 
   function getCrewRank() {
     axios.get("http://localhost:3000/getCrewRank")
       .then(function (resp) {
         setrankList(resp.data);
   
-      }).catch(function (err) {
+      }).catch(function (err) {   
         alert(err);
       })
   };
-
-  function getMyCrewRank() {
-    axios.get("http://localhost:3000/getMyCrewRank",{params:{'crewName':'MYCREW' }})
+  // 나의 크루 정보 가져오기
+  function getMyCrewinfo(crewSeq) { 
+    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
-        setMyrankList(resp.data);
+        setMycrewinfo(resp.data);
 
       }).catch(function (err) {
         
       })
   };
-
   function sendDonation() {
-
     const score= document.getElementById("pointselect").value;
-    if(my>=score){
-    axios.get("http://localhost:3000/sendDonation",{params:{'id':'아이디','score':score,'crewname':'MYCREW'}})
+    if(login.point>=score){
+    axios.get("http://localhost:3000/sendDonation",{params:{'id':login.memId,'score':score,'crewseq':login.crewSeq}})
       .then(function (resp) {
         console.log(resp.data)
         if(resp.data===true){
           alert("전송완료");
           getCrewRank();
-          getMyCrewRank();
+          getMyCrewinfo();
         
         }else{
           alert("전송미완료");
@@ -56,7 +54,7 @@ const DotMapInfo = () => {
   function donationAlet(){
     
     const score= document.getElementById("pointselect").value;
-    if(my>=score){
+    if(login.point>=score){
       document.getElementById('sendBtn').removeAttribute('disabled');
       document.getElementById('donationalert').style.display='none';
     }else{
@@ -64,31 +62,40 @@ const DotMapInfo = () => {
       document.getElementById('donationalert').style.display='block';
     }
   }
- 
+
   
   
   useEffect(() => {
-    getCrewRank();
-    getMyCrewRank();
-    setMy(1000);
-   
-  }, []);
 
+    //localStorage.removeItem('login');
+  
+    getCrewRank();
+    
+    const logindata=JSON.parse(localStorage.getItem('login'));
+    if(logindata){
+      console.log(logindata.memId,"님이 접속하였습니다..")
+      setLogin(logindata);
+      getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
+      setLoginTF(true);
+    }
+    
+  }, []);
+  
   useEffect(()=>{
-    if(login&& rankList.length>0){
-      console.log(ranMykList);
-      if(ranMykList.crewname==null){
-        document.getElementById("infologoutform").style.display='none';
-        document.getElementById("infocrewform").style.display='block';
-      } else{
+
+    if(loginTF){
+      if(mycrewinfo.length!==0){
       document.getElementById("infologoutform").style.display='none';
       document.getElementById("infocrewform").style.display='none';
       document.getElementById("infologinform").style.display='block';
       document.getElementById("infologinform2").style.display='block';
+      } else{
+      document.getElementById("infologoutform").style.display='none';
+      document.getElementById("infocrewform").style.display='block';
       }}
-  },[rankList,ranMykList,my])
+  },[login,rankList,mycrewinfo])
 
-
+ 
   return (
     <>
       {/* ranking */}
@@ -104,15 +111,17 @@ const DotMapInfo = () => {
 
           {rankList.map((val, i) => (
             <div className="ptf-pricing-table__description" key={i}>
-              <h6 style={{ display: 'inline' }}>{i + 1}등 : {val.crewname} </h6>
+              <h6 style={{ display: 'inline' }}>{i + 1}등 : {val.crewName} </h6>
               <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${val.crewcolor}` }}></div>
+              <h6 style={{ display: 'inline'}}>  ({val.crewScore}점)  </h6>
+              
             </div>
 
 
           ))}
           <div style={{display:'none'}}  id="infologinform" className="ptf-pricing-table__description">
-            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{ranMykList.myrank} 등 </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${ranMykList.crewcolor}` }}>
+            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{mycrewinfo.myrank} 등 </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrewinfo.crewcolor}` }}>
             </div>
           </div>
 
@@ -149,19 +158,20 @@ const DotMapInfo = () => {
    
           <div id="infologinform2" style={{display:'none'}} >
           <div className="ptf-pricing-table__content">
-            <h6 style={{ display: 'inline' }}>나의 크루 : {ranMykList.crewname} </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${ranMykList.crewcolor}` }}></div>
-            <h6>나의 포인트 : {my}</h6>
+            <h6 style={{ display: 'inline' }}>나의 크루 : {mycrewinfo.crewName} </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrewinfo.crewcolor}` }}></div>
+            <h6>나의 포인트 : { login.point}</h6>
           </div>
 
           <div className="ptf-pricing-table__description">
-            <h4>나의 크루 포인트: {ranMykList.crewscore} point</h4>
+            <h4>나의 크루 포인트: {mycrewinfo.crewScore} point</h4>
           </div>
 
 
           <div  className="ptf-pricing-table__action">
             {/* <!--Button--> */}
-            <select id="pointselect" style={{maxWidth:'120px'}} onChange={donationAlet}>
+            <select id="pointselect" style={{maxWidth:'200px'}} onChange={donationAlet}>
+            <option value="none">point를 선택하세요</option>
             <option value="500">500 point</option>
             <option value="1000">1000 point </option>
             <option value="5000">5000 point</option>
