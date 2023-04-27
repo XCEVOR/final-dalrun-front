@@ -5,13 +5,13 @@ import Award from "../../components/award/Award";
 import Blog from "../../components/blog/Blog";
 import Brand from "../../components/brand/Brand";
 import Counter from "../../components/counter/Counter";
-import CopyRight from "../../components/footer/copyright/CopyRight";
 import Footer from "../../components/footer/Footer";
 import Approach from "../../components/service/Approach";
 import ServiceOne from "../../components/service/ServiceOne";
 import Testimonial from "../../components/testimonial/Testimonial";
 
 
+import CopyRight from "../../components/dalrun-jy/footer/CopyRight";
 import PortfoliomainPage from "../../components/dalrun-jy/PortfoliomainPage";
 import TeammainPage from "../../components/dalrun-jy/TeammainPage";
 import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";

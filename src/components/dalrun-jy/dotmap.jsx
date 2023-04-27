@@ -8,18 +8,17 @@ import ReactTooltip from "react-tooltip";
 
 const Dotmap = () => {
 
-  //도트맵 리스트
+   //도트맵 리스트
   const [dotList, setDotList] = useState([]);
 
   // 로그인 정보
-  const [login,setLogin]=useState(true);
-
-
-  // 나의 랭크 리스트
-  const [ranMykList, setMyrankList] = useState([]);
+  const [login, setLogin] = useState([]);
+  const [loginTF,setLoginTF]=useState(false);
+  // 나의 크루 정보
+  const [mycrewinfo, setMycrewinfo] = useState([]);
 
   // 도트맵 hover 애니메이션
-  const [dothover, setDothover] =  useState(0);
+  const [dothover, setDothover] = useState(0);
 
 
   // 도트맵 전체 정보 가져오기 
@@ -33,16 +32,17 @@ const Dotmap = () => {
       })
   };
 
-  // 나의 랭크 정보 가져오기
-  function getMyCrewRank() {
-    axios.get("http://localhost:3000/getMyCrewRank", { params: { 'crewName': 'MYCREW' } })
+  // 나의 크루 정보 가져오기
+  function getMyCrewinfo(crewSeq) { 
+
+    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
-        setMyrankList(resp.data);
-       
+        setMycrewinfo(resp.data);
+
       }).catch(function (err) {
-        alert(err);
+        
       })
-  }
+  };
 
 
   // 도트맵 구매 버튼을 눌렀을 때 
@@ -50,11 +50,8 @@ const Dotmap = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-
     let formData = new FormData();
-    //formData.append("Id", document.frm.crewId.value);
     formData.append("crewName", document.getElementById('mycrewname').textContent);
-    // formData.append("groundColor", document.frm.dotColor.value);
     formData.append("message", document.frm.description.value);
     formData.append("price", document.frm.dotprice.value);
     formData.append("image", document.frm.uploadFile.files[0]);
@@ -88,37 +85,42 @@ const Dotmap = () => {
 
   // 도트맵 메세지 변경
   const accountMessage = (e) => {
+    if (loginTF && mycrewinfo.length!==0) {
+      let groundpoint = document.getElementById('price').textContent;
+      let mycrewpoint = mycrewinfo.crewScore;
+      let diff = mycrewpoint - parseInt(groundpoint);
 
-    let groundpoint=document.getElementById('price').textContent;
-    let mycrewpoint= ranMykList.crewscore;
-    let diff = parseInt(mycrewpoint, 10) - parseInt(groundpoint, 10);
+      if (mycrewpoint >= groundpoint) {
+        document.getElementById('buyaccept').style.display = 'block';
+        document.getElementById('tokendiff').style.display = 'none';
+        document.getElementById('countmytoken').textContent = diff;
+      } else if (mycrewpoint < groundpoint) {
+        document.getElementById('buyaccept').style.display = 'none';
+        document.getElementById('tokendiff').style.display = 'block';
 
-    if (login && mycrewpoint >= groundpoint) {
-      document.getElementById('buyaccept').style.display = 'block';
-      document.getElementById('tokendiff').style.display = 'none';
-      document.getElementById('countmytoken').textContent = diff;
-    } else if (login && mycrewpoint < groundpoint) {
-      document.getElementById('buyaccept').style.display = 'none';
-      document.getElementById('tokendiff').style.display = 'block';
-
-      document.getElementById('tokendiff').textContent = "💡 잔액 부족 " + Math.abs(diff) + " 원이 부족합니다..";
+        document.getElementById('tokendiff').textContent = "❌ 잔액 부족 " + Math.abs(diff) + " 원이 부족합니다..";
 
 
+      }
     }
   }
 
-
-
-
-
+  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
   useEffect(() => {
     getearthPage();
-    getMyCrewRank();
+
+    const logindata=JSON.parse(localStorage.getItem('login'));
+    if(logindata){
+      console.log(logindata.memId,"님이 접속하였습니다..")
+      setLogin(logindata);
+      getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
+      setLoginTF(true);
+    }
+  
   }, []);
 
   useEffect(() => {
 
-    const login = true;
     //getearthPage();
     const rect_Collection = document.querySelectorAll('rect');
     /* 도트 */
@@ -149,24 +151,21 @@ const Dotmap = () => {
         rect_Collection[i].setAttribute('level', '1');
       }
 
-
+      /* dotList가 갱신되었을 때 이벤트 추가 */
       if (dotList.length !== 0 && dotList.length > j + 1 && i === dotList[j].location) {
 
         let { location, crewName, id, regdate, message, groundcolor, dotNewFile, sale } = dotList[j];
 
         rect_Collection[i].style.fill = groundcolor;
+        /* 도트 클릭시 모달창 생성 */
         // 도트 값이 있을 때
         rect_Collection[i].addEventListener('click', () => {
-
+          
           document.getElementById('modalHeader').style.display = 'none';
           document.getElementById('ModalBuyHeader').style.display = 'block';
 
-        
- 
-
           if (document.getElementById('ModalBuyHeader')) {
-
-            document.getElementById('dotPicture').src = "http://localhost:3000/dalrun-jy/uploadtemp/"+dotNewFile;
+            document.getElementById('dotPicture').src = "http://localhost:3000/dalrun-jy/uploadtemp/" + dotNewFile;
             document.getElementById('myprofile').src = "assets/img/dalrun-jy/mainreview.jpg";
             document.getElementById('buyer').textContent = id;
             document.getElementById('dotDescription').textContent = message;
@@ -175,18 +174,15 @@ const Dotmap = () => {
           }
         });
         rect_Collection[i].addEventListener('mousehover', () => {
-          
+
 
         });
-
-
         ++j;
 
       } else {
         /* 도트 클릭시 모달창 생성 */
         // 도트 값이 없을 때 
         rect_Collection[i].addEventListener('click', () => {
-
 
           document.getElementById('ModalBuyHeader').style.display = 'none';
           document.getElementById('modalHeader').style.display = 'block';
@@ -197,38 +193,27 @@ const Dotmap = () => {
 
             document.getElementById('level').value = rect_Collection[i].getAttribute('level');
             document.getElementById('dotprice').value = rect_Collection[i].getAttribute('price');
+           
             accountMessage();
 
           }
         });
 
-      }
-      // }
+      } }
 
-      /* 구매가능 지역 툴팁 표시 */
-      // tippy("#dot"+i.toString(), {
-      //     content: rect_Collection[i].getAttribute('price') + '토큰에 구매할수 있는 지역입니다.',
-      //     theme: 'notPurchase',
-      //     arrow: false,
-      // });
+    if (loginTF) {
 
-    }
-
-    if (login) {
       document.getElementById('loginform').style.display = 'block';
       document.getElementById('logoutform').style.display = 'none';
-
-      document.getElementById('mytoken').textContent = ranMykList.crewscore;
-
-      document.getElementById('mycrewname').textContent = ranMykList.crewname;
      
+      if(mycrewinfo.length!==0){
+        document.getElementById('crewoutform').style.display = 'none';
+        document.getElementById('crewinform').style.display = 'block';
+       
+  
+      }
     }
-  }, [dotList,ranMykList]);
-
-
-
-
-
+  }, [login,dotList, mycrewinfo]);
 
 
   return (
@@ -239,7 +224,8 @@ const Dotmap = () => {
         {/* 땅구매 Modal  */}
         {/* 도트맵에 값이 없을 때 */}
         {/* {showModal && (  */}
-        <div id="modalHeader" className="modal-dialog modal-dialog-scrollable" style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '5%', left: '25%', display: "none" }}>
+        <div id="modalHeader" className="modal-dialog modal-dialog-scrollable"
+          style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '5%', left: '25%', display: "none" }}>
           <div className="modal-content" style={{ margin: '20px' }}>
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">도트맵에 자신의 흔적을 남겨보세요! <iconify-icon icon="emojione-v1:shooting-star" width="30" height="30"></iconify-icon></h5>
@@ -247,38 +233,50 @@ const Dotmap = () => {
             </div>
             <div className="modal-body">
               <input type="hidden" id="level" />
-              <p style={{ fontWeight: '700', fontSize: '25px' }}> 지역마다 가격이 다릅니다. </p>
-              <p>💡보유하신 토큰을 확인해주세요</p>
-              <div> 현재 위치는
-                <p id="location" style={{ padding: '8px', display: 'inline' }}> </p>
-                 입니다.
-              </div>
+              {/* <!-- 도트 기본 정보 --> */}
+              <div id="basicform" style={{ textAlign: 'center' }}>
+                <p style={{ fontWeight: '700', fontSize: '25px' }}> 지역마다 가격이 다릅니다. </p>
+                <p>💡보유하신 토큰을 확인해주세요</p>
+                <div> 현재 위치는
+                  <p id="location" style={{ padding: '8px', display: 'inline' }}> </p>
+                  입니다.
+                </div>
 
-              <div>현재 위치 가격은
-                <p id="price" style={{ padding: '8px', display: 'inline' }}></p>
-                입니다.
+                <div>현재 위치 가격은
+                  <p id="price" style={{ padding: '8px', display: 'inline' }}></p>
+                  입니다.
+                </div>
               </div>
-              <div id="logoutform">
+              {/* <!-- 로그아웃 시 표시 --> */}
+              <div id="logoutform" style={{ textAlign: 'center' }}>
                 <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>로그인이 필요합니다.</a></span>
               </div>
-              <div id="loginform" /*style={{display:'none'}}*/>
+              {/* <!-- 로그인 시 표시 --> */}
+              <div id="loginform" style={{ display: 'none' }}>
 
-                <div style={{marginTop:'10px'}}>
-                  <h4 id="mycrewname"></h4>
-                  <span >나의 크루 포인트는  
-                    <p id="mytoken" style={{ display: 'inline' }}></p>입니다.
-                    <p id="tokendiff" style={{ display: 'inline-block' }}></p>
-
-                  </span>
+                {/* <!-- 크루 미가입 시 표시 --> */}
+                <div id="crewoutform" style={{ textAlign: 'center' }}>
+                  <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입이 필요합니다.</a></span>
                 </div>
-                <div id="buyaccept" style={{ display: 'none' }}>
-                  <div>
-                    구매 후 나의 크루 포인트는
-                    <p  id="countmytoken" style={{ padding: '8px', display: 'inline-block' }}>
-                    
-                    </p>입니다.
+
+                {/* <!-- 크루 가입 시 표시 --> */}
+                <div id='crewinform' style={{ margin: '20px', display: 'none' }}>
+                  <div style={{ backgroundColor: `${mycrewinfo.crewcolor}`, textAlign: 'center' }}>
+                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{mycrewinfo.crewName}</h4>
                   </div>
-                  {/* <!-- 도트 구매 정보 --> */}
+                </div>
+
+                <p id="tokendiff" style={{ display: 'inline-block',color:'red' }}></p>
+                <div id="buyaccept" style={{ display: 'none' }}>
+                  <p style={{ color: 'blue' }}>⭕ 구매가 가능합니다.</p>
+                  
+                  <div>
+                    구매 후 나의 크루포인트는 &nbsp;
+                      <p id="countmytoken" style={{ display: 'inline-block' }}>
+
+                    </p> 원 입니다.
+                  </div>
+                  {/* <!-- 도트 구매 form  --> */}
                   <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                     <input type="hidden" id="dotId" />
                     <input type="hidden" name="crewId" id="crewId" />
@@ -298,7 +296,8 @@ const Dotmap = () => {
                     </div>
 
                     <div className="modal-footer" style={{ marginRight: '30px' }}>
-                      <button id="buyLandButton" type="submit" className="btn btn-primary">구매</button>
+                      <button id="buyLandButton" type="submit" className="btn btn-primary"
+                        style={{ marginRight: '10px' }}>구매</button>
                       <button type="button" className="btn btn-secondary" onClick={exixBuyHeader}>취소</button>
                     </div>
                   </form>
@@ -310,10 +309,10 @@ const Dotmap = () => {
 
 
         {/* 도트맵에 값이 있을 때 */}
-        {/* {showModalBuy && ( */}
+
         <div id="ModalBuyHeader" className="modal-dialog modal-center" style={{ position: 'absolute', zIndex: '1', top: '5%', left: '25%', display: "none" }}>
           <div className="modal-content">
-            {/* BEGIN: card */}
+
             <div className="card" data-effect="zoom" onClick={(e) => { document.getElementById('ModalBuyHeader').style.display = 'none'; }}>
               <figure className="card__image">
                 <img id="dotPicture" alt="Short description" />
@@ -334,12 +333,8 @@ const Dotmap = () => {
                 <a href="#" id="dotTxHash" className="card__tx">트랜잭션 정보보기</a>
               </div>
             </div>
-            {/* END: card */}
-          </div>
-        </div>
 
-        <div>
-       
+          </div>
         </div>
 
       </div>
