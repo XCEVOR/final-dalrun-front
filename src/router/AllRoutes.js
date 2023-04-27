@@ -57,7 +57,7 @@ import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
 import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
 import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
-import StoreCheckout from "../views/inner-pages/dalrun-chc/store/StoreCheckout";
+import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
 import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
 import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
 import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
@@ -143,7 +143,7 @@ const AllRoutes = () => {
         <Route path='/store-main' element={<StoreMain />} />
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
-        <Route path='/store-checkout' element={<StoreCheckout />} />
+        <Route path='/store-payment' element={<StorePayment />} />
         <Route path='/review-main' element={<ReviewMain />} />
         <Route path='/review-details' element={<ReviewDetails />} />
         <Route path='/competition-main' element={<CompetitionMain />} />
