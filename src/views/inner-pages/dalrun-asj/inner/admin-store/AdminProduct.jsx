@@ -92,9 +92,6 @@ function AdminProduct() {
                     <th>사이즈</th>
                     <th>가격</th>
                     <th>재고</th>
-                    {/* <th>가재고</th> */}
-                    {/* <th>판매</th> */}
-                    {/* <th>품절</th> */}
                     <th>등록일</th>
                   </tr>
                 </thead>
@@ -122,9 +119,6 @@ function AdminProduct() {
                           <td>{item.productSize}</td>
                           <td>{item.productPrice}</td>
                           <td>{item.productStock}</td>
-                          {/* <td>가재고</td> */}
-                          {/* <td><input type="checkbox" /></td> */}
-                          {/* <td><input type="checkbox" /></td>   */}
                           <td>{item.productRegiDate}</td>
                         </tr>
                       );
