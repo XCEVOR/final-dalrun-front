@@ -9,7 +9,7 @@ function AdminSearch(props) {
     const [totalCnt, setTotalCnt] = useState(0);  
 
     const { cate, sub } = useParams();
-    const [params] = useState({"pageNumber" : page});
+    const [params] = useState({});
 
     let searchUrl = `http://localhost:3000/admin_${cate}list`;
 
@@ -42,6 +42,8 @@ function AdminSearch(props) {
     }
     
     const getDataList = () => {
+        params.pageNumber = page;
+        
         axios.get(searchUrl, { params: params })
              .then((resp) => {
                 console.log(resp.data);
@@ -55,6 +57,7 @@ function AdminSearch(props) {
     }
 
     const handlePagination = (page) => {
+        console.log(page);
         setPage(page);
         getDataList();
     }
