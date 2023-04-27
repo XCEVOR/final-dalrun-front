@@ -5,11 +5,11 @@ import AdminPagination from "./AdminPagination";
 
 function AdminSearch(props) {
     const [searchParams] = useSearchParams();
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
     const [totalCnt, setTotalCnt] = useState(0);  
 
     const { cate, sub } = useParams();
-    const [params] = useState({"pageNumber" : page});
+    const [params] = useState({});
 
     let searchUrl = `http://localhost:3000/admin_${cate}list`;
 
@@ -41,7 +41,9 @@ function AdminSearch(props) {
         }
     }
     
-    const getDataList = () => {
+    const getDataList = (page) => {
+        params.pageNumber = page;
+        
         axios.get(searchUrl, { params: params })
              .then((resp) => {
                 console.log(resp.data);
@@ -55,8 +57,9 @@ function AdminSearch(props) {
     }
 
     const handlePagination = (page) => {
+        console.log(page);
         setPage(page);
-        getDataList();
+        getDataList(page-1);
     }
 
     // url이 바뀔 때만 렌더링

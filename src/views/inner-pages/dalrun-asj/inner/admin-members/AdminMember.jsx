@@ -15,7 +15,7 @@ function AdminMember() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"회원수정", selected:<MemberUpdate />, list:checkedList}, 
+    {cate:"update", name:"회원수정", list:checkedList}, 
     {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?", list:checkedList}
   ];
 
@@ -80,6 +80,8 @@ function AdminMember() {
                   <th>등급</th>
                   <th>발사이즈</th>
                   <th>가입일</th>
+                  <th>수정일</th>
+                  <th>탈퇴</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,11 +106,13 @@ function AdminMember() {
                       <td>{mem.point}</td>
                       <td>{mem.grade}</td>
                       <td>{mem.foot}</td>
-                      <td>{mem.regdate}</td>
+                      <td>{mem.regdate.split('T')[0]}</td>
+                      <td>{mem.memberupdate.split('T')[0]}</td>
+                      <td>{mem.del === 1 ? "탈퇴":""}</td>
                     </tr>
                     );
                   })
-                  : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                  : <tr style={{textAlign:"center"}}><td colSpan="13">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>

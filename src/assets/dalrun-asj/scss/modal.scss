@@ -17,3 +17,30 @@
 .modal-dialog {
     // width: 0;
 }
+
+// update
+.admin_update_container {
+    width: 766px;
+
+    .admin_update {
+        margin: 0 auto;
+        width: 80%;
+
+        .profile_img {
+            margin: 0 auto;
+            width: 35%;
+            padding-bottom: 50px;
+
+            label {
+                font-size: 0.9rem;
+                color: #0095f6;
+            }
+        }
+
+        label {
+            font-size: 1.07rem;
+            font-weight: 700;
+            color: var(--bs-teal);
+        }
+    }
+}
