@@ -1,25 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const heroContent = {
-  title: "이 주의 러너",
-  subTitle1: "abcd",
+
+const heroContent = [{
+  subTitle1: "폭주기관차",
   detailsDescription: `완주하고 나서 달림 러닝동아리 인스타에서 달림의 일짱이라는 표현을 붙여주었다 ㅎㅎ
   하프마라톤 거리 완주하면서 정말...너무나도 힘들었다.
   그렇지만 완주하고 나니, 내 한계를 뛰어넘어 성장했다는 느낌과 더불어 다른 분들께서도 축하해주시는 모습을 보니 완주하길 잘했다는 생각이 든다!
   다음 목표는 21.0975km 1시간 45분, 또는 30Km 장거리 달리기이다.
   앞으로도 열심히 달려봐야겠다~`,
-};
+  img: 'thisweek1'
+},
+  {
+  subTitle1: "러닝사랑",
+  detailsDescription: `수많은 갈등 끝에 러닝하였습니다.
+  장거리 러닝을 1주일에 1회씩 하면서 매번 스스로에게 핑계를 대봅니다.
+  미세먼지 때문에, 몸 컨디션 때문에, 수면 부족 때문에.. 오늘은 그냥 패스하자… 라는 악마의 속삭임이 계속됩니다.
+  그러나 다시 마음을 붙잡고 집에서 지하철을 타고 도림천역으로 향합니다. 그리고 신정교 밑에서 뛰고 있는 제 자신을 발견합니다.
+  오늘 러닝은 약간 힘들었지만 17km 완주 후에 해냈다는 사실만으로 제 자신을 칭찬합니다.
+  매일 꾸준히 러닝하시는 회원들 보면.. 대단하는 말 밖에 안나올 정도로 존경스럽네요.`,
+  img: 'thisweek2'
 
+},
+{
+  subTitle1: "Awan",
+  detailsDescription: `언제가 될지 모르는 대회참가를 위해 지속적으로 준비를 해야겠다. 
+  나름 월 목표를 조금씩 늘려나가며, 건강과 성취감을 모두 챙길 수 있는 그런 런닝생활을 이어 가야할 것이다. 
+  이제 지천명을 바라보는 나의 인생에 달리기(跑步)가 함께 하길 바라며…`,
+  img: 'thisweek3'
+
+}
+];
 const HeromainPage = () => {
+
+  const [index,setIndex]=useState(0);
+  function alertSet(){
+    if(index>=2){
+      setIndex(0);
+    }else{
+      setIndex(index+1);
+    }
+    
+  }
+  useEffect(()=>{
+    let timer = setTimeout(alertSet, 4000);
+  });
+
   return (
-    <div className="row">
-      <div className="col-xl-12">
+    
+    <div className="row" style={{margin:'15px'}}>
+      <div className="col-12 col-lg-5">
         {/* <!--Animated Block--> */}
         <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-          <h1 className="fz-25 fz-130--lg fz-90--md">{heroContent.title}</h1>
+          <h3 className="fz-25 fz-130--lg fz-90--md text-center">이 주의 러너</h3>
         </div>
         {/* <!--Spacer--> */}
-
+        <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "4.375rem", "--ptf-md": "1.1875rem" }}
+              ></div>
         {/* <!--Animated Block--> */}
         <div
           className="ptf-animated-block"
@@ -28,14 +66,14 @@ const HeromainPage = () => {
         >
           <p
             className="
-                fz-40
+                fz-30
                 fw-bold
-                lh-1p3
+                lh-1p2
                 text-uppercase
                 has-white-color
               "
           >
-            {heroContent.subTitle1} 님 <br />
+            {heroContent[index].subTitle1} 님 <br />
 
           </p>
         </div>
@@ -44,20 +82,14 @@ const HeromainPage = () => {
         {/* <!--Animated Block--> */}
 
 
-        <div className="container-xxl">
+        <div>
           <div className="row align-items-center">
-
-            <div className="col-xl-4 offset-xl-1 order-xl-2 text-xl-end text-lg-center position-relative">
-              <div className="ptf-custom--1560">
-                <div className="ptf-mask-image">
-                  <img src='assets/img/dalrun-jy/mainreview.jpg' style={{ paddingBottom: '10px', height: '300px', width: '500px' }} />
-                </div>
-              </div>
-            </div>
-
-
-            <div className="col-xl-5">
-              <div style={{ maxWidth: "545px" }}>
+          <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "1.375rem", "--ptf-md": "1.1875rem" }}
+              ></div>
+            <div>
+              <div >
                 {/* <!--Animated Block--> */}
                 <div
                   className="ptf-animated-block"
@@ -65,9 +97,9 @@ const HeromainPage = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Divider--> */}
-                  <div className="ptf-divider"></div>
+                  <div ></div>
                   <p className="fz-15 has-black-color">
-                    {heroContent.detailsDescription}
+                    {heroContent[index].detailsDescription}
                   </p>
                 </div>
               </div>
@@ -78,6 +110,16 @@ const HeromainPage = () => {
 
         </div>
       </div>
+      
+      <div className="col-12  col-lg-7">
+        <div>
+          <div className="ptf-mask-image">
+            <img src={`assets/img/dalrun-jy/${heroContent[index].img}.jpg`}
+            style={{ paddingBottom: '10px' ,height:'400px',width:'100%', objectFit:'cover'}} />
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

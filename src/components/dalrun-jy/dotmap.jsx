@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/mjy-assets/css/earth.css";
-import { Modal, Button, Tooltip } from 'react-bootstrap';
+
 import axios from 'axios';
-import Dot from "./dot"; 
+import Dot from "./dot";
+import ReactTooltip from "react-tooltip";
 
 const Dotmap = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [showModalBuy, setShowModalBuy] = useState(false);
 
-
+   //도트맵 리스트
   const [dotList, setDotList] = useState([]);
 
+  // 로그인 정보
+  const [login, setLogin] = useState([]);
+  const [loginTF,setLoginTF]=useState(false);
+  // 나의 크루 정보
+  const [mycrewinfo, setMycrewinfo] = useState([]);
+
+  // 도트맵 hover 애니메이션
+  const [dothover, setDothover] = useState(0);
+
+
+  // 도트맵 전체 정보 가져오기 
   function getearthPage() {
     axios.get("http://localhost:3000/earthPage")
       .then(function (resp) {
@@ -21,43 +31,96 @@ const Dotmap = () => {
         alert(err);
       })
   };
- 
+
+  // 나의 크루 정보 가져오기
+  function getMyCrewinfo(crewSeq) { 
+
+    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
+      .then(function (resp) {
+        setMycrewinfo(resp.data);
+
+      }).catch(function (err) {
+        
+      })
+  };
 
 
+  // 도트맵 구매 버튼을 눌렀을 때 
+  //(formdata 전송 [크루이름, 위치, 가격, 이미지, 메세지])
   const onSubmit = (e) => {
     e.preventDefault();
-    
 
     let formData = new FormData();
-    formData.append("crewId", document.frm.crewId.value);
-    formData.append("crewName", "crewname");
-    
-    formData.append("dotColor", document.frm.dotColor.value);
-    formData.append("description", document.frm.description.value);
+    formData.append("crewName", document.getElementById('mycrewname').textContent);
+    formData.append("message", document.frm.description.value);
     formData.append("price", document.frm.dotprice.value);
-    formData.append("uploadFile", document.frm.uploadFile.files[0]);
-    
-    // 보내자!
-    // axios.post("http://localhost:3000/cfr_fileUpload", formData)
-    // .then(res=>{
-    //    console.log(res.data);
-    //    console.log('file upload에 성공했습니다'); 
-       
-    //    alert('결과:' + res.data.faces[0].celebrity.value);
-    // })
-    // .catch(function(error){
-    //   console.log('file upload에 실패했습니다');
-    // });
+    formData.append("image", document.frm.uploadFile.files[0]);
+    formData.append("location", document.getElementById("location").textContent);
+
+    if (document.frm.description.value && document.frm.uploadFile.files[0]) {
+
+      axios.post("http://localhost:3000/buydotMap", formData)
+        .then(res => {
+          alert('file upload에 성공했습니다');
+          document.frm.reset();
+          document.getElementById('ModalBuyHeader').style.display = 'none';
+          document.getElementById('modalHeader').style.display = 'none';
+          getearthPage();
+        })
+        .catch(function (error) {
+          alert('file upload에 실패했습니다');
+        });
+    } else {
+      document.getElementById('submitalert').style.display = 'block';
+    }
+
   }
 
+  // 도트맵 메세지를 닫았을 때
+  const exixBuyHeader = (e) => {
+    document.frm.reset();
+    document.getElementById('modalHeader').style.display = 'none';
+    document.getElementById('submitalert').style.display = 'none';
+  }
+
+  // 도트맵 메세지 변경
+  const accountMessage = (e) => {
+    if (loginTF && mycrewinfo.length!==0) {
+      let groundpoint = document.getElementById('price').textContent;
+      let mycrewpoint = mycrewinfo.crewScore;
+      let diff = mycrewpoint - parseInt(groundpoint);
+
+      if (mycrewpoint >= groundpoint) {
+        document.getElementById('buyaccept').style.display = 'block';
+        document.getElementById('tokendiff').style.display = 'none';
+        document.getElementById('countmytoken').textContent = diff;
+      } else if (mycrewpoint < groundpoint) {
+        document.getElementById('buyaccept').style.display = 'none';
+        document.getElementById('tokendiff').style.display = 'block';
+
+        document.getElementById('tokendiff').textContent = "❌ 잔액 부족 " + Math.abs(diff) + " 원이 부족합니다..";
+
+
+      }
+    }
+  }
+
+  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
   useEffect(() => {
     getearthPage();
+
+    const logindata=JSON.parse(localStorage.getItem('login'));
+    if(logindata){
+      console.log(logindata.memId,"님이 접속하였습니다..")
+      setLogin(logindata);
+      getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
+      setLoginTF(true);
+    }
+  
   }, []);
 
   useEffect(() => {
 
-    const dotId = "id";
- 
     //getearthPage();
     const rect_Collection = document.querySelectorAll('rect');
     /* 도트 */
@@ -88,161 +151,191 @@ const Dotmap = () => {
         rect_Collection[i].setAttribute('level', '1');
       }
 
+      /* dotList가 갱신되었을 때 이벤트 추가 */
+      if (dotList.length !== 0 && dotList.length > j + 1 && i === dotList[j].location) {
 
-        if (dotList.length !== 0 && dotList.length > j + 1 &&i === dotList[j].location) {
-          let { location, id, crewName, regdate, message, groundcolor, image, sale } = dotList[j];
-          //console.log(crewName, id, regdate, message, groundcolor, image, sale);
-       
+        let { location, crewName, id, regdate, message, groundcolor, dotNewFile, sale } = dotList[j];
 
-          rect_Collection[i].style.fill = groundcolor;
-  
-          rect_Collection[i].addEventListener('click', () => {
-            setShowModal(false);
-            setShowModalBuy(true);
-            document.getElementById('modalHeader').style.display='none';
-            document.getElementById('ModalBuyHeader').style.display='block';
-            
-
-
-            if (document.getElementById('ModalBuyHeader')) {
+        rect_Collection[i].style.fill = groundcolor;
+        /* 도트 클릭시 모달창 생성 */
+        // 도트 값이 있을 때
+        rect_Collection[i].addEventListener('click', () => {
           
-            document.getElementById('dotPicture').src = "assets/img/dalrun-jy/dotpic.jpg";
+          document.getElementById('modalHeader').style.display = 'none';
+          document.getElementById('ModalBuyHeader').style.display = 'block';
+
+          if (document.getElementById('ModalBuyHeader')) {
+            document.getElementById('dotPicture').src = "http://localhost:3000/dalrun-jy/uploadtemp/" + dotNewFile;
             document.getElementById('myprofile').src = "assets/img/dalrun-jy/mainreview.jpg";
             document.getElementById('buyer').textContent = id;
             document.getElementById('dotDescription').textContent = message;
             document.getElementById('createDate').textContent = regdate;
-            document.getElementById('dotTxHash').href = 'https://goerli.etherscan.io/tx/' + groundcolor;
 
           }
-          })  
+        });
+        rect_Collection[i].addEventListener('mousehover', () => {
 
-          ++j;
-            
-      }else {
-          /* 도트 클릭시 모달창 생성 */
-          rect_Collection[i].addEventListener('click', () => {
+
+        });
+        ++j;
+
+      } else {
+        /* 도트 클릭시 모달창 생성 */
+        // 도트 값이 없을 때 
+        rect_Collection[i].addEventListener('click', () => {
+
+          document.getElementById('ModalBuyHeader').style.display = 'none';
+          document.getElementById('modalHeader').style.display = 'block';
+          if (document.getElementById('modalHeader')) {
+            document.getElementById('dotId').value = rect_Collection[i].getAttribute('id');
+            document.getElementById('price').textContent = rect_Collection[i].getAttribute('price');
+            document.getElementById('location').textContent = i + "";
+
+            document.getElementById('level').value = rect_Collection[i].getAttribute('level');
+            document.getElementById('dotprice').value = rect_Collection[i].getAttribute('price');
            
-            setShowModalBuy(false);
-            setShowModal(true);
-            document.getElementById('ModalBuyHeader').style.display='none';
-            document.getElementById('modalHeader').style.display='block';
-            if (document.getElementById('modalHeader')) {
-              document.getElementById('dotId').value = rect_Collection[i].getAttribute('id');
-              document.getElementById('price').textContent = '가격 : ' + rect_Collection[i].getAttribute('price') + '토큰입니다.';
-              document.getElementById('level').value = rect_Collection[i].getAttribute('level');
-              document.getElementById('dotprice').value=rect_Collection[i].getAttribute('price');
-              document.getElementById('crewId').value="MINECREW";
+            accountMessage();
 
-              
-            }
-          });
+          }
+        });
 
-        }
-        // }
+      } }
 
-        /* 구매가능 지역 툴팁 표시 */
-        // tippy("#dot"+i.toString(), {
-        //     content: rect_Collection[i].getAttribute('price') + '토큰에 구매할수 있는 지역입니다.',
-        //     theme: 'notPurchase',
-        //     arrow: false,
-        // });
-      
+    if (loginTF) {
+
+      document.getElementById('loginform').style.display = 'block';
+      document.getElementById('logoutform').style.display = 'none';
+     
+      if(mycrewinfo.length!==0){
+        document.getElementById('crewoutform').style.display = 'none';
+        document.getElementById('crewinform').style.display = 'block';
+       
+  
+      }
     }
-  }, [dotList]);
-
-
-
-
-
+  }, [login,dotList, mycrewinfo]);
 
 
   return (
     <div id="header">
       <div className="worldhero" style={{ position: 'relative' }} >
-        <Dot/>
+        <Dot />
 
         {/* 땅구매 Modal  */}
         {/* 도트맵에 값이 없을 때 */}
         {/* {showModal && (  */}
-          <div id="modalHeader" className="modal-dialog modal-dialog-scrollable" style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '5%', left: '25%',display:"none"  }}>
-            <div className="modal-content"  style={{ margin: '20px' }}>
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">도트맵에 자신의 흔적을 남겨보세요! <iconify-icon icon="emojione-v1:shooting-star" width="30" height="30"></iconify-icon></h5>
-                <button type="button" className="btn-close" onClick={() => { document.getElementById('modalHeader').style.display='none'}}  aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                <input type="hidden" id="level" />
+        <div id="modalHeader" className="modal-dialog modal-dialog-scrollable"
+          style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '5%', left: '25%', display: "none" }}>
+          <div className="modal-content" style={{ margin: '20px' }}>
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">도트맵에 자신의 흔적을 남겨보세요! <iconify-icon icon="emojione-v1:shooting-star" width="30" height="30"></iconify-icon></h5>
+              <button type="button" className="btn-close" onClick={exixBuyHeader} aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <input type="hidden" id="level" />
+              {/* <!-- 도트 기본 정보 --> */}
+              <div id="basicform" style={{ textAlign: 'center' }}>
                 <p style={{ fontWeight: '700', fontSize: '25px' }}> 지역마다 가격이 다릅니다. </p>
                 <p>💡보유하신 토큰을 확인해주세요</p>
-                <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>로그인이 필요합니다.</a></span>
-                <span>
-                  <div> 
-                    <p id="price" style={{ padding: '8px' }}></p>
-                  </div>
-                </span>
-                {/* <!-- 도트 구매 정보 --> */}
-                <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
-                  <input type="hidden" id="dotId"/>
-                  <input type="hidden" name="crewId" id="crewId"/>
-                  <input type="hidden" id='dotprice' name='price'/>
-                  <div className="mb-3">
-                    <p  name='crewNameSpan'> crewname </p> 
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="description" className="col-form-label">메세지</label>
-                    <input type="text" className="form-control" name="description" maxLength="150" placeholder="구매할 땅에 메시지를 적어보세요." style={{maxWidth:'80%',height:'100px' ,marginLeft:'5px' }}/>
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="dot-img" className="col-form-label">사진</label>
-                    <input type="file" className="form-control" name="uploadFile" accept="*" placeholder="구매할 땅에 이미지를 넣어보세요." 
-                    style={{maxWidth:'50%',marginLeft:'10px'}} />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="dot-color" className="col-form-label">색상</label>
-                    <input type='color' name='dotColor' defaultValue='#0000ff' style={{ padding: '6px' }} />
-                  </div>
-              <div className="modal-footer" style={{ marginRight: '30px' }}>
-                <button id="buyLandButton" type="submit" className="btn btn-primary">구매</button>
-                <button type="button" className="btn btn-secondary" onClick={() => { document.getElementById('modalHeader').style.display='none'; }}>취소</button>
+                <div> 현재 위치는
+                  <p id="location" style={{ padding: '8px', display: 'inline' }}> </p>
+                  입니다.
+                </div>
+
+                <div>현재 위치 가격은
+                  <p id="price" style={{ padding: '8px', display: 'inline' }}></p>
+                  입니다.
+                </div>
               </div>
-                </form>
+              {/* <!-- 로그아웃 시 표시 --> */}
+              <div id="logoutform" style={{ textAlign: 'center' }}>
+                <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>로그인이 필요합니다.</a></span>
+              </div>
+              {/* <!-- 로그인 시 표시 --> */}
+              <div id="loginform" style={{ display: 'none' }}>
+
+                {/* <!-- 크루 미가입 시 표시 --> */}
+                <div id="crewoutform" style={{ textAlign: 'center' }}>
+                  <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입이 필요합니다.</a></span>
+                </div>
+
+                {/* <!-- 크루 가입 시 표시 --> */}
+                <div id='crewinform' style={{ margin: '20px', display: 'none' }}>
+                  <div style={{ backgroundColor: `${mycrewinfo.crewcolor}`, textAlign: 'center' }}>
+                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{mycrewinfo.crewName}</h4>
+                  </div>
+                </div>
+
+                <p id="tokendiff" style={{ display: 'inline-block',color:'red' }}></p>
+                <div id="buyaccept" style={{ display: 'none' }}>
+                  <p style={{ color: 'blue' }}>⭕ 구매가 가능합니다.</p>
+                  
+                  <div>
+                    구매 후 나의 크루포인트는 &nbsp;
+                      <p id="countmytoken" style={{ display: 'inline-block' }}>
+
+                    </p> 원 입니다.
+                  </div>
+                  {/* <!-- 도트 구매 form  --> */}
+                  <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
+                    <input type="hidden" id="dotId" />
+                    <input type="hidden" name="crewId" id="crewId" />
+                    <input type="hidden" id='dotprice' name='price' />
+
+                    <p id="submitalert" style={{ display: 'none', color: 'red' }}>
+                      💡 메세지나 사진을 첨부해주세요..
+                    </p>
+                    <div className="mb-3">
+                      <label htmlFor="description" className="col-form-label">메세지</label>
+                      <input type="text" className="form-control" name="description" maxLength="150" placeholder="구매할 땅에 메시지를 적어보세요." style={{ maxWidth: '80%', height: '100px', marginLeft: '5px' }} />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="dot-img" className="col-form-label">사진</label>
+                      <input type="file" className="form-control" name="uploadFile" accept="*" placeholder="구매할 땅에 이미지를 넣어보세요."
+                        style={{ maxWidth: '50%', marginLeft: '10px' }} />
+                    </div>
+
+                    <div className="modal-footer" style={{ marginRight: '30px' }}>
+                      <button id="buyLandButton" type="submit" className="btn btn-primary"
+                        style={{ marginRight: '10px' }}>구매</button>
+                      <button type="button" className="btn btn-secondary" onClick={exixBuyHeader}>취소</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-         
+        </div>
 
-        {/* // )} */}
 
         {/* 도트맵에 값이 있을 때 */}
-        {/* {showModalBuy && ( */}
-            <div id="ModalBuyHeader" className="modal-dialog modal-center" style={{ position: 'absolute', zIndex: '1', top: '5%', left: '25%',display:"none" }}>
-              <div className="modal-content">
-                {/* BEGIN: card */}
-                <div className="card" data-effect="zoom" onClick={(e)=>{document.getElementById('ModalBuyHeader').style.display='none';}}>
-                  <figure className="card__image">
-                    <img id="dotPicture" alt="Short description" />
-                  </figure>
-                  <div className="card__header" >
-                    <figure className="card__profile">
-                      <img id="myprofile" alt="Short description" src=""/>
-                    </figure>
-                  </div>
-                  <div id="tip"></div>
-                  <div className="card__body">
-                    <h3 className="card__name" id="buyer"></h3>
-                    <p className="card__job">Seize the day</p>
-                    <p className="card__bio" id="dotDescription"></p>
-                  </div>
-                  <div className="card__footer">
-                    <p className="card__date" id="createDate" />
-                    <a href="#" id="dotTxHash" className="card__tx">트랜잭션 정보보기</a>
-                  </div>
-                </div>
-                {/* END: card */}
+
+        <div id="ModalBuyHeader" className="modal-dialog modal-center" style={{ position: 'absolute', zIndex: '1', top: '5%', left: '25%', display: "none" }}>
+          <div className="modal-content">
+
+            <div className="card" data-effect="zoom" onClick={(e) => { document.getElementById('ModalBuyHeader').style.display = 'none'; }}>
+              <figure className="card__image">
+                <img id="dotPicture" alt="Short description" />
+              </figure>
+              <div className="card__header" >
+                <figure className="card__profile">
+                  <img id="myprofile" alt="Short description" src="" />
+                </figure>
+              </div>
+              <div id="tip"></div>
+              <div className="card__body">
+                <h3 className="card__name" id="buyer"></h3>
+                <p className="card__job">Seize the day</p>
+                <p className="card__bio" id="dotDescription"></p>
+              </div>
+              <div className="card__footer">
+                <p className="card__date" id="createDate" />
+                <a href="#" id="dotTxHash" className="card__tx">트랜잭션 정보보기</a>
               </div>
             </div>
-         
-        {/* )} */}
+
+          </div>
+        </div>
 
       </div>
 
