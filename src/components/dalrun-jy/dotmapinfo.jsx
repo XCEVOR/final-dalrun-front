@@ -37,7 +37,7 @@ const DotMapInfo = (props) => {
     if(parseInt(login.point)>= parseInt(score)){
     axios.get("http://localhost:3000/sendDonation",{params:{'id':login.memId,'score':score,'crewseq':login.crewSeq}})
       .then(function (resp) {
-        console.log(resp.data)
+       
         if(resp.data===true){
           alert("전송완료");
           
@@ -87,20 +87,16 @@ const DotMapInfo = (props) => {
   useEffect(() => {
 
     //localStorage.removeItem('login');
-  
+    console.log("2")
     getCrewRank();
     loading();
-    console.log("dotmapinfo")
- 
-
-
-     
+  
   }, []);
   
   useEffect(()=>{
  
     if(loginTF){
-      console.log(props.mycrewinfo)
+   
       if(props.mycrewinfo.length!==0){
       document.getElementById("infologoutform").style.display='none';
       document.getElementById("infocrewform").style.display='none';
