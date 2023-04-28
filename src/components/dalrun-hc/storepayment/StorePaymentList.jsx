@@ -33,7 +33,7 @@ function StoreCartList(props) {
   // console.log("console.log(location.state); ", location.state);
 
 
-  const getCartList = async () => {
+  const getCartList = async () => {  // 분기점 형성을 위해 놔둠.
     const resp = await axios.post("http://localhost:3000/getUserCartInfoList", null, { params: {"memId": userId} });
     console.log("getProductData: ", resp.data);
     setCartList(resp.data);
@@ -46,20 +46,27 @@ function StoreCartList(props) {
     }, 0)
     console.log("===console.log(accumulativeVal, currentVal, idex);", totalSum)
     setSum(totalSum)  // 삭제 예정.
-    setTotalPaymentAmount(totalSum)
+    // setTotalPaymentAmount(totalSum)
     // setItemQuantiry(resp.data.cartProdQuantity);
 
-
-
-
-    
 
     // console.log("console.log(totalPaymentAmount) 3 : ", setTimeout(() => calcTotalPaymentAmount(), 2000) )
     setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
 
 
-  const calcTotalPaymentAmount = () => {  // 번튼으로 활용했던 이제는 죽은 함수.
+
+  const getCartList2 = async () => {
+    const resp = await axios.post("http://localhost:3000/getHashmapUserCartInfoQuantityList", null, { params: {"memId": userId} });
+    console.log(" @ getHashmapUserCartInfoQuantityList : ", resp.data);
+    setCartList(resp.data);
+    // setItemQuantiry(resp.data.cartProdQuantity);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+
+  const calcTotalPaymentAmount = () => {  // 버튼으로 활용했던 이제는 죽은 함수.
     let itemPriceArr = cartList.map(( item ) => ( parseInt(item.productPrice) ))
     console.log(itemPriceArr)
     let totalSum = itemPriceArr.reduce(( accumulativeVal, currentVal, idex ) => {
@@ -78,7 +85,7 @@ function StoreCartList(props) {
   useEffect(() => {
    
 
-    getCartList();
+    getCartList2();
     console.log("console.log(totalPaymentAmount) 1 : ", totalPaymentAmount)  // 삭제 예정.
 
 
@@ -194,6 +201,102 @@ function StoreCartList(props) {
 
 
 
+  const PaymentDataDisplay2 = ({ productInfoList, productIdList }) => {
+    let tempSum = 0;
+    return (
+      <div>
+        {productInfoList.map((prodInfo) => {
+          const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
+          console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          tempSum += (prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          console.log(tempSum)
+          setTotalPaymentAmount(tempSum)
+          return (
+            <div key={prodInfo.productId}>
+              <div className="item">
+
+                {/*                 
+                <div className="buttons">
+                  <span className="delete-btn"></span>
+                  <span
+                    className={likeBtn ? "like-btn is-active" : "like-btn"}
+                    onClick={likeBtnClick}
+                  ></span>
+                </div> 
+                */}
+
+                <div className="image" style={{ width: 160 }}>
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
+                    alt=""
+                  />
+                </div>
+
+                <div className="description">
+                  <span>{prodInfo.productId}</span>
+                  <span>{prodInfo.productName}</span>
+                  <span>{prodInfo.productSize}</span>
+                  <span>{prodInfo.productColor}</span>
+                </div>
+
+                <div className="quantity">
+
+                  {/*                   
+                  <button className="plus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                      alt=""
+                    />
+                  </button> 
+                  */}
+
+                  <input
+                    type="text"
+                    name="name"
+                    defaultValue={matchedProduct.cartProdQuantity}
+                  />
+
+                  {/* 
+                  <button className="minus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                      alt=""
+                    />
+                  </button>
+                  */}
+
+                </div>
+                
+                {/*                 
+                <div>
+                  <button value={prodInfo.productId} onClick={deleteItem}>
+                    삭제: {prodInfo.productId}
+                  </button>
+                </div> 
+                */}
+
+                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+              </div>
+
+              {/* 
+              <p>Product ID: {prodInfo.productId}</p>
+              <p>Product Code: {prodInfo.productCode}</p>
+              <p>Product Name: {prodInfo.productName}</p>
+              <p>Product Price: {prodInfo.productPrice}</p>
+              <p>Product Size: {prodInfo.productSize}</p>
+              <p>Cart Product Quantity: {matchedProduct.cartProdQuantity}</p>
+              <p>Cart Product cartProdName: {matchedProduct.cartProdName}</p> 
+              */}
+
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+
+
   return (
     <div>
       <button onClick={onClickPayment}>결제하기test</button>
@@ -205,11 +308,13 @@ function StoreCartList(props) {
       <p>{pulledOrderRequirment}</p>
       <section>
         <h1>ORDER SUMMARY</h1>
-        <h1>{sum}</h1>
+        <h3>{totalPaymentAmount}</h3>
         {/* <div className="shopping-cart"> */}
         <div>
           {/* <!-- Title --> */}
           <div className="title">Shopping Bag</div>
+
+          <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
           {/* <!-- Product #1 --> */}
           <div className="item">
@@ -338,18 +443,9 @@ function StoreCartList(props) {
           </div>
 
           {/* <!-- DB 데이터 --> */}
+        {/* 
           {cartList.map((item, index) => (
             <div className="item" key={index}>
-              {/*               
-              <div className="buttons">
-                <span className="delete-btn"></span>
-                <span
-                  className={likeBtn ? "like-btn is-active" : "like-btn"}
-                  onClick={likeBtnClick}
-                ></span>
-              </div>
-*/}
-
               <div className="image" style={{ width: 160 }}>
                 <img
                   src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
@@ -363,33 +459,10 @@ function StoreCartList(props) {
                 <span>{item.productColor}</span>
               </div>
 
-              {/* 
-              <div className="quantity">
-                <button className="plus-btn" type="button" name="button">
-                  <img
-                    src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                    alt=""
-                  />
-                </button>
-                <input type="text" name="name" defaultValue={ item[0].cartProdQuantity } />
-                <button className="minus-btn" type="button" name="button">
-                  <img
-                    src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                    alt=""
-                  />
-                </button>
-              </div>
-
-              <div>
-                <button value={item.productId} onClick={deleteItem}>
-                  삭제: {item.productId}
-                </button>
-              </div>
-*/}
-
               <div className="total-price">₩ {item.productPrice}</div>
             </div>
           ))}
+        */}
         </div>
       </section>
 
