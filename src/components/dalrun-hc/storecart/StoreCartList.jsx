@@ -19,8 +19,8 @@ function StoreCartList() {
 
 
   const getCartList = async () => {
-    const resp = await axios.post("http://localhost:3000/getUserCartInfoList", null, { params: {"memId": userId} });
-    console.log("getProductData: ", resp.data);
+    const resp = await axios.post("http://localhost:3000/getHashmapUserCartInfoQuantityList", null, { params: {"memId": userId} });
+    console.log(" @ getHashmapUserCartInfoQuantityList : ", resp.data);
     setCartList(resp.data);
     // setItemQuantiry(resp.data.cartProdQuantity);
 
@@ -77,10 +77,128 @@ function StoreCartList() {
 
 
 
+  
+  // function CartDataDisplayTest({ cartData }) {
+  //   return (
+  //     <div>
+  //       {cartData.productIdList.map((product) => {
+  //         const matchedProduct = cartData.productInfoList.find((info) => info.productId === product.productId);
+  //         if (!matchedProduct) return null;
+  //         return (
+  //           <div key={product.productId}>
+  //             <p>Quantity: {product.cartProdQuantity}</p>
+  //             <p>Product ID: {product.productId}</p>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // }
+
+  // const CartDataDisplay = ({ productIdList, productInfoList }) => {
+  //   return (
+  //     <div>
+  //       {productIdList.map((product) => {
+  //         const productInfo = productInfoList.find((info) => info.productId === product.productId);
+  //         return (
+  //           <div key={product.productId}>
+  //             <p>Product ID: {product.productId}</p>
+  //             <p>Product Code: {productInfo.productCode}</p>
+  //             <p>Product Name: {productInfo.productName}</p>
+  //             <p>Product Price: {productInfo.productPrice}</p>
+  //             <p>Product Size: {productInfo.productSize}</p>
+  //             <p>Cart Product Quantity: {product.cartProdQuantity}</p>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // };
+
+  const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
+    return (
+      <div>
+        {productInfoList.map((prodInfo) => {
+          const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
+          return (
+            <div key={prodInfo.productId}>
+              <div className="item">
+                <div className="buttons">
+                  <span className="delete-btn"></span>
+                  <span
+                    className={likeBtn ? "like-btn is-active" : "like-btn"}
+                    onClick={likeBtnClick}
+                  ></span>
+                </div>
+
+                <div className="image" style={{ width: 160 }}>
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
+                    alt=""
+                  />
+                </div>
+
+                <div className="description">
+                  <span>{prodInfo.productName}</span>
+                  <span>{prodInfo.productSize}</span>
+                  <span>{prodInfo.productColor}</span>
+                </div>
+
+                <div className="quantity">
+                  <button className="plus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                      alt=""
+                    />
+                  </button>
+                  <input
+                    type="text"
+                    name="name"
+                    defaultValue={matchedProduct.cartProdQuantity}
+                  />
+                  <button className="minus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                      alt=""
+                    />
+                  </button>
+                </div>
+                <div>
+                  <button value={prodInfo.productId} onClick={deleteItem}>
+                    삭제: {prodInfo.productId}
+                  </button>
+                </div>
+
+                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+              </div>
+
+              {/* 
+              <p>Product ID: {prodInfo.productId}</p>
+              <p>Product Code: {prodInfo.productCode}</p>
+              <p>Product Name: {prodInfo.productName}</p>
+              <p>Product Price: {prodInfo.productPrice}</p>
+              <p>Product Size: {prodInfo.productSize}</p>
+              <p>Cart Product Quantity: {matchedProduct.cartProdQuantity}</p>
+              <p>Cart Product cartProdName: {matchedProduct.cartProdName}</p> 
+              */}
+
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+
   return (
     <div>
       <section>
         <h1>CART</h1>
+        {/* <CartDataDisplayTest cartData={cartList} /> */}
+        {/* <CartDataDisplay productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} /> */}
+        <CartDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
+
+
         {/* <div className="shopping-cart"> */}
         <div>
           {/* <!-- Title --> */}
@@ -213,53 +331,54 @@ function StoreCartList() {
           </div>
 
           {/* <!-- DB 데이터 --> */}
-          {cartList.map((item, index) => (
-            <div className="item" key={index}>
-              <div className="buttons">
-                <span className="delete-btn"></span>
-                <span
-                  className={likeBtn ? "like-btn is-active" : "like-btn"}
-                  onClick={likeBtnClick}
-                ></span>
-              </div>
+          {/* {cartList.map((item, index) => ( item.map(first => (<div>{first.productId}</div>))
+            
+            // <div className="item" key={index}>
+            //   <div className="buttons">
+            //     <span className="delete-btn"></span>
+            //     <span
+            //       className={likeBtn ? "like-btn is-active" : "like-btn"}
+            //       onClick={likeBtnClick}
+            //     ></span>
+            //   </div>
 
-              <div className="image" style={{ width: 160 }}>
-                <img
-                  src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
-                  alt=""
-                />
-              </div>
+            //   <div className="image" style={{ width: 160 }}>
+            //     <img
+            //       src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+            //       alt=""
+            //     />
+            //   </div>
 
-              <div className="description">
-                <span>{item.productName}</span>
-                <span>{item.productSize}</span>
-                <span>{item.productColor}</span>
-              </div>
+            //   <div className="description">
+            //     <span>{item.productName}</span>
+            //     <span>{item.productSize}</span>
+            //     <span>{item.productColor}</span>
+            //   </div>
 
-              <div className="quantity">
-                <button className="plus-btn" type="button" name="button">
-                  <img
-                    src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                    alt=""
-                  />
-                </button>
-                {/* <input type="text" name="name" defaultValue={ item[0].cartProdQuantity } /> */}
-                <button className="minus-btn" type="button" name="button">
-                  <img
-                    src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                    alt=""
-                  />
-                </button>
-              </div>
-              <div>
-                <button value={item.productId} onClick={deleteItem}>
-                  삭제: {item.productId}
-                </button>
-              </div>
+            //   <div className="quantity">
+            //     <button className="plus-btn" type="button" name="button">
+            //       <img
+            //         src="assets/img/dalrun-hc/store/storecart/plus.svg"
+            //         alt=""
+            //       />
+            //     </button>
+            //     <input type="text" name="name" defaultValue={ item[0].cartProdQuantity } />
+            //     <button className="minus-btn" type="button" name="button">
+            //       <img
+            //         src="assets/img/dalrun-hc/store/storecart/minus.svg"
+            //         alt=""
+            //       />
+            //     </button>
+            //   </div>
+            //   <div>
+            //     <button value={item.productId} onClick={deleteItem}>
+            //       삭제: {item.productId}
+            //     </button>
+            //   </div>
 
-              <div className="total-price">₩ {item.productPrice}</div>
-            </div>
-          ))}
+            //   <div className="total-price">₩ {item.productPrice}</div>
+            // </div>
+          ))} */}
         </div>
       </section>
 
