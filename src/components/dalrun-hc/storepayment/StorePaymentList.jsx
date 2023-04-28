@@ -119,7 +119,7 @@ function StoreCartList(props) {
     console.log("  const onClickPayment = () => {", pulledOrderAddress)
     console.log(process.env.REACT_APP_IAMPORT_MERCHANT_ID); // ENV KEY 출력
     const { IMP } = window;
-    IMP.init([[process.env.REACT_APP_IAMPORT_MERCHANT_ID]]); // 결제 데이터 정의
+    IMP.init([[process.env.REACT_APP_IAMPORT_MERCHANT_ID]]); // 결제 상점 아이디 .env
     const paymentdata = {
       pg: "kcp", // PG사 (필수항목)
       pay_method: 'card', // 결제수단 (필수항목)
@@ -129,7 +129,7 @@ function StoreCartList(props) {
       custom_data: { name: '부가정보', desc: '세부 부가정보' },
       buyer_name: `${pulledOrderName}`, // 구매자 이름
       buyer_tel: `${pulledOrderPhone}`, // 구매자 전화번호 (필수항목)
-      buyer_email: "XCEVOR@GMAIL.COM", // 구매자 이메일
+      buyer_email: "DALRUN@GMAIL.COM", // 구매자 이메일
       buyer_addr: `${pulledOrderAddress}`,
       buyer_postalcode: "우편번호"
     };
@@ -156,7 +156,7 @@ function StoreCartList(props) {
 
 
 
-  const likeBtnClick = () => {
+  const likeBtnClick = () => {  // 삭제 예정.
     setLikeBtn(!likeBtn);
   };
 
@@ -196,7 +196,7 @@ function StoreCartList(props) {
 
   return (
     <div>
-      <button onClick={onClickPayment}>결제하기</button>
+      <button onClick={onClickPayment}>결제하기test</button>
       {/* // Component to Component */}
       <span>{myData}</span>
       <p>{pulledOrderName}</p>
