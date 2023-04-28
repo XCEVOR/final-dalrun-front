@@ -33,7 +33,7 @@ function StoreCartList(props) {
   // console.log("console.log(location.state); ", location.state);
 
 
-  const getCartList = async () => {
+  const getCartList = async () => {  // 분기점 형성을 위해 놔둠.
     const resp = await axios.post("http://localhost:3000/getUserCartInfoList", null, { params: {"memId": userId} });
     console.log("getProductData: ", resp.data);
     setCartList(resp.data);
@@ -46,7 +46,7 @@ function StoreCartList(props) {
     }, 0)
     console.log("===console.log(accumulativeVal, currentVal, idex);", totalSum)
     setSum(totalSum)  // 삭제 예정.
-    setTotalPaymentAmount(totalSum)
+    // setTotalPaymentAmount(totalSum)
     // setItemQuantiry(resp.data.cartProdQuantity);
 
 
@@ -66,7 +66,7 @@ function StoreCartList(props) {
   }
 
 
-  const calcTotalPaymentAmount = () => {  // 번튼으로 활용했던 이제는 죽은 함수.
+  const calcTotalPaymentAmount = () => {  // 버튼으로 활용했던 이제는 죽은 함수.
     let itemPriceArr = cartList.map(( item ) => ( parseInt(item.productPrice) ))
     console.log(itemPriceArr)
     let totalSum = itemPriceArr.reduce(( accumulativeVal, currentVal, idex ) => {
@@ -202,10 +202,15 @@ function StoreCartList(props) {
 
 
   const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
+    let tempSum = 0;
     return (
       <div>
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
+          console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          tempSum += (prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          console.log(tempSum)
+          setTotalPaymentAmount(tempSum)
           return (
             <div key={prodInfo.productId}>
               <div className="item">
@@ -302,14 +307,14 @@ function StoreCartList(props) {
       <p>{pulledOrderRequirment}</p>
       <section>
         <h1>ORDER SUMMARY</h1>
-        <h1>{sum}</h1>
+        <h3>{totalPaymentAmount}</h3>
         {/* <div className="shopping-cart"> */}
         <div>
           {/* <!-- Title --> */}
           <div className="title">Shopping Bag</div>
 
           <CartDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
-          
+
           {/* <!-- Product #1 --> */}
           <div className="item">
             <div className="buttons">

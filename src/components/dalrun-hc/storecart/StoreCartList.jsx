@@ -116,10 +116,15 @@ function StoreCartList() {
   // };
 
   const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
+    let tempSum = 0;
     return (
       <div>
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
+          console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          tempSum += (prodInfo.productPrice * matchedProduct.cartProdQuantity)
+          console.log(tempSum)
+          setTotalPaymentAmount(tempSum)
           return (
             <div key={prodInfo.productId}>
               <div className="item">
@@ -388,6 +393,7 @@ function StoreCartList() {
             <div className="row">
               <div className="col-xl-8">
                 <h1>CHECK OUT</h1>
+                <h3>₩ {totalPaymentAmount}</h3>
                 <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button>
                 <Link to="/store-payment"><button>{totalPaymentAmount}결제 페이지 이동</button></Link>
               </div>
