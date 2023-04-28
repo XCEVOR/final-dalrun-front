@@ -1,6 +1,8 @@
 import axios from "axios";
+import { param } from "jquery";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import StoreDetailsPicture from "../../dalrun-hc/storedetails/StoreDetailsPicture";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -15,6 +17,8 @@ function ProductUpdate({data, onHide}) {
     const [temporaryStock, setTemporaryStock] = useState("");
     const [saleState, setSaleState] = useState("");
     const [regdate, setRegdate] = useState("");
+    const [imgList, setImgList] = useState([]);
+    const [loading, setLoading] = useState(false);
       
     const setInput = (data) => {
         const product = data.getProduct;
@@ -30,6 +34,17 @@ function ProductUpdate({data, onHide}) {
         setTemporaryStock(product.productStock - orderCnt);
         setSaleState(product.productSale);
         setRegdate(product.productRegiDate);
+
+        getProductImgList(product.productCode);
+    }
+
+    const getProductImgList = (code) => {
+        axios.post("http://localhost:3000/getProductAllPictureList", null, { params : { "productCode" : code } })
+            .then((resp) => {
+                setImgList(resp.data);
+                setLoading(true);
+            })
+            .catch((err) => console.log(err));
     }
 
     useEffect(() => {
@@ -71,6 +86,20 @@ function ProductUpdate({data, onHide}) {
             <div className="admin_update">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
+                        <div className="product_img">
+                            {
+                                !loading ? <div>Loading...</div> :
+                                imgList.map((pic, index) => (
+                                    <div key={index}>
+                                    <p>{pic}</p>
+                                    <img
+                                        src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                                        alt={pic}
+                                        loading="lazy"
+                                    />
+                                    </div>
+                            ))}
+                        </div>
                         <div>
                             <label htmlFor="id">상품번호</label>
                             <input type="text" value={id || ""} readOnly={true} />
