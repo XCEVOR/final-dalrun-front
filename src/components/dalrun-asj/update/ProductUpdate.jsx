@@ -96,7 +96,6 @@ function ProductUpdate({data, onHide}) {
                             <input type="number" value={price || ""} onChange={(e) => setPrice(e.target.value)} />
                         </div>
                         <div>
-                        <div>
                             <label htmlFor="stock">창고재고</label>
                             <input type="number" value={stock || ""} onChange={(e) => setStock(e.target.value)} />
                         </div>
@@ -111,6 +110,7 @@ function ProductUpdate({data, onHide}) {
                                 <option value="0">품절</option>
                             </select>
                         </div>
+                        <div>
                             <label htmlFor="regdate">등록일</label>
                             <input type="date" value={regdate || ""} onChange={(e) => setRegdate(e.target.value)} />
                         </div>
