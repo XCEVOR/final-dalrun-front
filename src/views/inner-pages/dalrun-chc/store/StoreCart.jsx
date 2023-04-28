@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from 'react-router';
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
@@ -11,6 +12,9 @@ import StoreCartList from "../../../../components/dalrun-hc/storecart/StoreCartL
 
 
 function StoreCart() {
+  const location = useLocation();
+  console.log(" location = useLocation(); ", location);
+
   return (
     <div className="dalrun_hc">
       <Helmet>
