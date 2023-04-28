@@ -120,7 +120,7 @@ const Dotmap = (props) => {
 
   /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
   useEffect(() => {
-    console.log("1")
+    
     getearthPage();
     loading();         
   

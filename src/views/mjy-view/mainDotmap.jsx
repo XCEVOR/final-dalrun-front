@@ -29,7 +29,7 @@ const MainDotMap = () => {
   }
 
   useEffect(() => {
-    console.log("main")
+
   }, [mycrewinfo]);
  
   return (
