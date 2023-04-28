@@ -42,7 +42,7 @@ const Dotmap = (props) => {
       }).catch(function (err) {
         
       })
-  };
+  };  
 
 
   // 도트맵 구매 버튼을 눌렀을 때 
