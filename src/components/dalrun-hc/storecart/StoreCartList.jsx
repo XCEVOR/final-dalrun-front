@@ -144,6 +144,7 @@ function StoreCartList() {
                 </div>
 
                 <div className="description">
+                  <span>{prodInfo.productId}</span>
                   <span>{prodInfo.productName}</span>
                   <span>{prodInfo.productSize}</span>
                   <span>{prodInfo.productColor}</span>

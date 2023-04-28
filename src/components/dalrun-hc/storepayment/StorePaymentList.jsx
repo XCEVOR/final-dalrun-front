@@ -201,7 +201,7 @@ function StoreCartList(props) {
 
 
 
-  const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
+  const PaymentDataDisplay2 = ({ productInfoList, productIdList }) => {
     let tempSum = 0;
     return (
       <div>
@@ -233,6 +233,7 @@ function StoreCartList(props) {
                 </div>
 
                 <div className="description">
+                  <span>{prodInfo.productId}</span>
                   <span>{prodInfo.productName}</span>
                   <span>{prodInfo.productSize}</span>
                   <span>{prodInfo.productColor}</span>
@@ -313,7 +314,7 @@ function StoreCartList(props) {
           {/* <!-- Title --> */}
           <div className="title">Shopping Bag</div>
 
-          <CartDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
+          <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
           {/* <!-- Product #1 --> */}
           <div className="item">
