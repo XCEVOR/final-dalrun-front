@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link, NavLink, BrowserRouter, Routes, Route  } from "react-router-dom";
 import AllRoutes from "./router/AllRoutes";
 import ScrollToTop from "./components/ScrollToTop";
 import AOS from "aos";
@@ -8,6 +9,7 @@ import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
 // import { jarallax } from "jarallax";
 // import AnimatedCursor from "react-animated-cursor";
+ 
  
 const App = () => {
   useEffect(() => {
@@ -48,3 +50,4 @@ const App = () => {
 };
 
 export default App;
+
