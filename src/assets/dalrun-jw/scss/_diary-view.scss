@@ -1,0 +1,27 @@
+﻿._diary-flex-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+._diary-content {
+  display: flex;
+  flex: 1;
+}
+._diart-sideNav {
+  display: flex;
+  flex: none;
+  width: 60px;
+  overflow: hidden;
+  background-color: #bfbab078;
+}
+._diary-list{
+  display: flex;
+  flex: none;
+  width: 300px;
+  background-color: beige;
+}
+._diary-map{
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}

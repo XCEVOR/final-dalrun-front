@@ -93,6 +93,15 @@
     .only {
         margin: 0 !important;
     }
+
+    .search-btn {
+        display: flex;
+        flex-direction: column;
+
+        .reset-btn {
+            margin-bottom: 8px;
+        }
+    }
 }
 
 .info {

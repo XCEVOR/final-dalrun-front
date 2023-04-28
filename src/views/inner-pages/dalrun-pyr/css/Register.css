@@ -1,0 +1,139 @@
+.register_main{ margin: 0 auto;
+    width: 40%;
+}
+
+
+.register_main h4{ margin: 60px auto;
+text-align: center; font-size: 2em; }
+
+fieldset{
+    border: none;
+}
+
+fieldset > div{ 
+    position: relative;
+    margin-bottom: 10px;
+}
+
+
+.none{
+    display: none;
+}
+
+
+.error{ 
+    font-size: 0.8em;
+    position: absolute;
+    width: auto;
+    top: 18px; right: 10px;
+    text-align: right;
+    color: red;
+}
+
+.vaild{
+    font-size: 0.8em;
+    position: absolute;
+    width: 150px;
+    top: 18px; right: 10px;
+    text-align: right;
+    color: forestgreen;
+}
+
+input[type=text], select, input[type=password], input[type=email],input[type=tel],input[type=date]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit],input[type=button] {
+    width: 100%;
+    background-color: #123;
+    color: white;
+    padding: 14px 20px;
+    margin: 30px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover,input[type=button]:hover {
+    background-color: rgb(43, 49, 54);
+}
+
+#wrap_gender{
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    display: flex;
+}
+
+.gender{
+    display: block;
+    height: 100%; width: 50%;
+    border-right: 1px solid #ccc;
+}
+
+.no_line{
+    border-right:none;
+}
+
+.field.birth div{ /*field 이면서 birth*/
+  display: flex;
+  gap:10px; /*간격 벌려줄때 공식처럼 사용핟나 */
+}
+
+/* .field.birth div > * {  gap 사용한거랑 같은 효과를 줌 
+  flex:1;
+} */
+
+.field.tel-number div {
+  display: flex;
+}
+
+.field.tel-number div input:nth-child(1){
+  flex:2;
+}
+
+.field.tel-number div input:nth-child(2){
+  flex:1;
+}
+
+.field.gender div{
+  border: 1px solid #dadada;
+  padding: 15px 5px;
+  background-color: #fff;
+}
+.content_inner3{
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,0.125);
+  box-shadow: 0 12px 20px rgb(0 0 0 / 10%);
+  margin-bottom: 30px;
+}
+.content_inner3:hover {
+  border: 1px solid #123;
+  border-radius: 4px;
+  transition: all .5s;
+}
+
+/* // label태그 */
+.signup-profileImg-label {
+margin: 5px 0 20px 0;
+font-weight: bold;
+font-size: 13px;
+color: #0095f6;
+display: inline-block;
+cursor: pointer;
+}
+
+/* // input태그 */
+.form-signup input[type="file"] {
+display: none;
+}

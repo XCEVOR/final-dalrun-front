@@ -5,16 +5,22 @@ import { Helmet } from "react-helmet";
 const demoContent = [
   {
     demoImg: "home-default",
-    routerPath: "/course",
-    title: "코스 다이어리",
+    routerPath: "/login",
+    title: "로그인",
     delayAnimationTime: "0",
   },
   {
     demoImg: "home-default",
-    routerPath: "/qna",
-    title: "QnA 페이지",
+    routerPath: "/RegiMain",
+    title: "회원가입",
     delayAnimationTime: "0",
   },
+  {
+    demoImg: "home-default",
+    routerPath: "/home",
+    title: "로그인,로그아웃",
+    delayAnimationTime: "0",
+  }
 
 ];
 

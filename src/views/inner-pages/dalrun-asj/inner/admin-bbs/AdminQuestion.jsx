@@ -21,6 +21,7 @@ function AdminQuestion() {
             const option = [
                 {value : "memId", name : "작성자"},
                 {value : "productId", name : "상품번호"},
+                {value : "title", name : "제목"},
                 {value : "content", name : "내용"},
             ]
 
