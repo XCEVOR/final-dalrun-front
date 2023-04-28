@@ -57,8 +57,8 @@ function AdminCrew() {
                       <th>
                         <input 
                           type="checkbox" 
-                          onChange={(e) => handleSingleCheck(e.target.checked, crew.crewName)} 
-                          checked={checkedList.includes(crew.crewName) ? true : false}
+                          onChange={(e) => handleSingleCheck(e.target.checked, crew.crewSeq)} 
+                          checked={checkedList.includes(crew.crewSeq) ? true : false}
                           />
                       </th>
                       <td>{crew.crewSeq}</td>

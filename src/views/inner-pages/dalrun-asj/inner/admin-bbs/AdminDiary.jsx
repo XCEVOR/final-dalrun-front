@@ -25,7 +25,7 @@ function AdminDiary() {
       <div className="bbs-content">
         <BasicSearch {...optionVal} />
         <div className="info">
-        <ModalBtn {...category} />
+          <ModalBtn {...category} />
           <div className="info_con">
             <Table striped bordered hover>
               <thead>
