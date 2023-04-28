@@ -19,7 +19,6 @@ function AdminCrew() {
     {cate:"delete", name:"크루삭제", selected:"이 크루를 삭제시키시겠습니까?", list:checkedList}
   ];
 
-  console.log(checkedList);
   return (
     <div className="member">
       <div className="member-content">
@@ -44,14 +43,14 @@ function AdminCrew() {
                   <th>레벨</th>
                   <th>포인트</th>
                   <th>색상</th>
-                  <th>최대 인원</th>
+                  <th>인원수</th>
                   <th>등록일</th>
                   <th>수정일</th>
                 </tr>
               </thead>
               <tbody>
                 {
-                   dataList.length !== 0 ?
+                  dataList.length !== 0 ?
                   dataList.map((crew, i) => {
                     return (
                     <tr key={i}>
@@ -69,7 +68,7 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td>{crew.maxMem}명</td>
+                      <td>{crew.crewMemberCnt}/{crew.maxMem}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
                     </tr>
