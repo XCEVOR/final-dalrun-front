@@ -1,6 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import Award from "../../components/award/Award";
 import Blog from "../../components/blog/Blog";
 import Brand from "../../components/brand/Brand";
@@ -19,10 +16,25 @@ import HeromainPage from "../../components/dalrun-jy/HeromainPage";
 import Dotmap from "../../components/dalrun-jy/dotmap";
 import DotMapInfo from "../../components/dalrun-jy/dotmapinfo";
 
+
+import React, { useState ,useEffect} from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const MainDotMap = () => {
+  const [mycrewinfo,setmycrewinfo] =useState([]);
 
+  function Changemycrewinfo(info){
+    setmycrewinfo(info);
+    console.log("main")
+    console.log(mycrewinfo);
+  }
 
+  useEffect(() => {
+    
+  }, [mycrewinfo]);
+ 
   return (
+    
     <div className="ptf-site-wrapper animsition  ptf-is-default">
       <Helmet>
         <title>메인 페이지</title>
@@ -36,7 +48,7 @@ const MainDotMap = () => {
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
             <section>
-              <Dotmap />
+              <Dotmap  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo}/>
             </section>
             <div
               className="ptf-spacer"
@@ -48,7 +60,7 @@ const MainDotMap = () => {
                 className="row"
                 style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
               >
-                <DotMapInfo />
+                <DotMapInfo   mycrewinfo={mycrewinfo}  Changemycrewinfo={Changemycrewinfo}/>
               </div>
             </section>
           </div>
@@ -60,7 +72,7 @@ const MainDotMap = () => {
           <div className="container-xxl">
 
             <div className="ptf-footer__bottom">
-              <CopyRight />
+              <CopyRight/>
             </div>
           </div>
         </footer>
