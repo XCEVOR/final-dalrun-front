@@ -5,7 +5,7 @@ import "../../assets/mjy-assets/css/earth.css";
 import axios from 'axios';
 import Dot from "./dot";
 import ReactTooltip from "react-tooltip";
-
+  
 const Dotmap = (props) => {
 
    //도트맵 리스트
