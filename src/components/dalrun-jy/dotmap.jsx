@@ -6,7 +6,7 @@ import axios from 'axios';
 import Dot from "./dot";
 import ReactTooltip from "react-tooltip";
 
-const Dotmap = () => {
+const Dotmap = (props) => {
 
    //도트맵 리스트
   const [dotList, setDotList] = useState([]);
@@ -15,7 +15,7 @@ const Dotmap = () => {
   const [login, setLogin] = useState([]);
   const [loginTF,setLoginTF]=useState(false);
   // 나의 크루 정보
-  const [mycrewinfo, setMycrewinfo] = useState([]);
+  //const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
 
   // 도트맵 hover 애니메이션
   const [dothover, setDothover] = useState(0);
@@ -37,8 +37,8 @@ const Dotmap = () => {
 
     axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
-        setMycrewinfo(resp.data);
-
+        //setMycrewinfo(resp.data);
+        props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
         
       })
@@ -66,6 +66,9 @@ const Dotmap = () => {
           document.getElementById('ModalBuyHeader').style.display = 'none';
           document.getElementById('modalHeader').style.display = 'none';
           getearthPage();
+          loading();
+  
+        
         })
         .catch(function (error) {
           alert('file upload에 실패했습니다');
@@ -85,9 +88,9 @@ const Dotmap = () => {
 
   // 도트맵 메세지 변경
   const accountMessage = (e) => {
-    if (loginTF && mycrewinfo.length!==0) {
+    if (loginTF && props.mycrewinfo.length!==0) {
       let groundpoint = document.getElementById('price').textContent;
-      let mycrewpoint = mycrewinfo.crewScore;
+      let mycrewpoint = props.mycrewinfo.crewScore;
       let diff = mycrewpoint - parseInt(groundpoint);
 
       if (mycrewpoint >= groundpoint) {
@@ -104,18 +107,21 @@ const Dotmap = () => {
       }
     }
   }
-
-  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
-  useEffect(() => {
-    getearthPage();
-
+  function loading(){
     const logindata=JSON.parse(localStorage.getItem('login'));
     if(logindata){
       console.log(logindata.memId,"님이 접속하였습니다..")
       setLogin(logindata);
       getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
       setLoginTF(true);
+      
     }
+  }
+
+  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
+  useEffect(() => {
+    getearthPage();
+    loading();         
   
   }, []);
 
@@ -206,14 +212,14 @@ const Dotmap = () => {
       document.getElementById('loginform').style.display = 'block';
       document.getElementById('logoutform').style.display = 'none';
      
-      if(mycrewinfo.length!==0){
+      if(props.mycrewinfo.length!==0){
         document.getElementById('crewoutform').style.display = 'none';
         document.getElementById('crewinform').style.display = 'block';
        
   
       }
     }
-  }, [login,dotList, mycrewinfo]);
+  }, [login,dotList]);
 
 
   return (
@@ -261,8 +267,8 @@ const Dotmap = () => {
 
                 {/* <!-- 크루 가입 시 표시 --> */}
                 <div id='crewinform' style={{ margin: '20px', display: 'none' }}>
-                  <div style={{ backgroundColor: `${mycrewinfo.crewcolor}`, textAlign: 'center' }}>
-                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{mycrewinfo.crewName}</h4>
+                  <div style={{ backgroundColor: `${props.mycrewinfo.crewcolor}`, textAlign: 'center' }}>
+                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{props.mycrewinfo.crewName}</h4>
                   </div>
                 </div>
 
