@@ -78,42 +78,42 @@ function StoreCartList() {
 
 
   
-  function CartDataDisplayTest({ cartData }) {
-    return (
-      <div>
-        {cartData.productIdList.map((product) => {
-          const matchedProduct = cartData.productInfoList.find((info) => info.productId === product.productId);
-          if (!matchedProduct) return null;
-          return (
-            <div key={product.productId}>
-              <p>Quantity: {product.cartProdQuantity}</p>
-              <p>Product ID: {product.productId}</p>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+  // function CartDataDisplayTest({ cartData }) {
+  //   return (
+  //     <div>
+  //       {cartData.productIdList.map((product) => {
+  //         const matchedProduct = cartData.productInfoList.find((info) => info.productId === product.productId);
+  //         if (!matchedProduct) return null;
+  //         return (
+  //           <div key={product.productId}>
+  //             <p>Quantity: {product.cartProdQuantity}</p>
+  //             <p>Product ID: {product.productId}</p>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // }
 
-  const CartDataDisplay = ({ productIdList, productInfoList }) => {
-    return (
-      <div>
-        {productIdList.map((product) => {
-          const productInfo = productInfoList.find((info) => info.productId === product.productId);
-          return (
-            <div key={product.productId}>
-              <p>Product ID: {product.productId}</p>
-              <p>Product Code: {productInfo.productCode}</p>
-              <p>Product Name: {productInfo.productName}</p>
-              <p>Product Price: {productInfo.productPrice}</p>
-              <p>Product Size: {productInfo.productSize}</p>
-              <p>Cart Product Quantity: {product.cartProdQuantity}</p>
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
+  // const CartDataDisplay = ({ productIdList, productInfoList }) => {
+  //   return (
+  //     <div>
+  //       {productIdList.map((product) => {
+  //         const productInfo = productInfoList.find((info) => info.productId === product.productId);
+  //         return (
+  //           <div key={product.productId}>
+  //             <p>Product ID: {product.productId}</p>
+  //             <p>Product Code: {productInfo.productCode}</p>
+  //             <p>Product Name: {productInfo.productName}</p>
+  //             <p>Product Price: {productInfo.productPrice}</p>
+  //             <p>Product Size: {productInfo.productSize}</p>
+  //             <p>Cart Product Quantity: {product.cartProdQuantity}</p>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // };
 
   const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
     return (
@@ -122,13 +122,66 @@ function StoreCartList() {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
           return (
             <div key={prodInfo.productId}>
+              <div className="item">
+                <div className="buttons">
+                  <span className="delete-btn"></span>
+                  <span
+                    className={likeBtn ? "like-btn is-active" : "like-btn"}
+                    onClick={likeBtnClick}
+                  ></span>
+                </div>
+
+                <div className="image" style={{ width: 160 }}>
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
+                    alt=""
+                  />
+                </div>
+
+                <div className="description">
+                  <span>{prodInfo.productName}</span>
+                  <span>{prodInfo.productSize}</span>
+                  <span>{prodInfo.productColor}</span>
+                </div>
+
+                <div className="quantity">
+                  <button className="plus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                      alt=""
+                    />
+                  </button>
+                  <input
+                    type="text"
+                    name="name"
+                    defaultValue={matchedProduct.cartProdQuantity}
+                  />
+                  <button className="minus-btn" type="button" name="button">
+                    <img
+                      src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                      alt=""
+                    />
+                  </button>
+                </div>
+                <div>
+                  <button value={prodInfo.productId} onClick={deleteItem}>
+                    삭제: {prodInfo.productId}
+                  </button>
+                </div>
+
+                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+              </div>
+
+              {/* 
               <p>Product ID: {prodInfo.productId}</p>
               <p>Product Code: {prodInfo.productCode}</p>
               <p>Product Name: {prodInfo.productName}</p>
               <p>Product Price: {prodInfo.productPrice}</p>
               <p>Product Size: {prodInfo.productSize}</p>
               <p>Cart Product Quantity: {matchedProduct.cartProdQuantity}</p>
-              <p>Cart Product cartProdName: {matchedProduct.cartProdName}</p>
+              <p>Cart Product cartProdName: {matchedProduct.cartProdName}</p> 
+              */}
+
             </div>
           );
         })}
@@ -141,8 +194,8 @@ function StoreCartList() {
     <div>
       <section>
         <h1>CART</h1>
-        <CartDataDisplayTest cartData={cartList} />
-        <CartDataDisplay productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
+        {/* <CartDataDisplayTest cartData={cartList} /> */}
+        {/* <CartDataDisplay productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} /> */}
         <CartDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
 
