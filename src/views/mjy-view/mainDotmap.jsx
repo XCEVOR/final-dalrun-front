@@ -54,7 +54,7 @@ const MainDotMap = () => {
               className="ptf-spacer"
               style={{ "--ptf-xxl": "2rem" }}
             ></div>
-
+  
             <section>
               <div
                 className="row"
