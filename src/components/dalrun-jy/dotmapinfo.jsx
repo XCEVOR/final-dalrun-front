@@ -87,7 +87,7 @@ const DotMapInfo = (props) => {
   useEffect(() => {
 
     //localStorage.removeItem('login');
-    console.log("2")
+
     getCrewRank();
     loading();
   
