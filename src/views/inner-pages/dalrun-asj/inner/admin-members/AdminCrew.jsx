@@ -4,10 +4,16 @@ import BasicSearch from "../../../../../components/dalrun-asj/BasicSearch";
 import { Table } from "react-bootstrap";
 import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import CrewMembersModal from "../../../../../components/dalrun-asj/CrewMembers";
 
 function AdminCrew() {
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
+  const [crewName, setCrewName] = useState("");
+  const [crewMembers, setCrewMembers] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
 
   const optionVal = [
     {value : "crewName", name : "크루명"},
@@ -18,6 +24,16 @@ function AdminCrew() {
     {cate:"update", name:"크루수정", selected:"크루수정 페이지", list:checkedList}, 
     {cate:"delete", name:"크루삭제", selected:"이 크루를 삭제시키시겠습니까?", list:checkedList}
   ];
+
+  const showCrewDetail = (seq, name) => {
+    axios.post('http://localhost:3000/getCrewMember',null, { params: {"crewSeq" : seq} })
+        .then((resp) => {
+          setCrewMembers(resp.data);
+          setCrewName(name);
+          setModalShow(true);
+        })
+        .catch((err) => console.log(err));
+  }
 
   return (
     <div className="member">
@@ -46,12 +62,16 @@ function AdminCrew() {
                   <th>인원수</th>
                   <th>등록일</th>
                   <th>수정일</th>
+                  <th>삭제</th>
                 </tr>
               </thead>
               <tbody>
                 {
                   dataList.length !== 0 ?
                   dataList.map((crew, i) => {
+                    let seq = crew.crewSeq;
+                    let name = crew.crewName;
+
                     return (
                     <tr key={i}>
                       <th>
@@ -68,9 +88,10 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td>{crew.crewMemberCnt}/{crew.maxMem}명</td>
+                      <td><Link onClick={() => showCrewDetail(seq, name)}>{crew.crewMemberCnt}</Link>/{crew.maxMem}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
+                      <td>{crew.crewDel !== 0?"삭제":""}</td>
                     </tr>
                     );
                   })
@@ -82,6 +103,12 @@ function AdminCrew() {
           </div>
         </div>
       </div>
+      <CrewMembersModal
+        show={modalShow} 
+        crewname={crewName}
+        mem={crewMembers}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }
