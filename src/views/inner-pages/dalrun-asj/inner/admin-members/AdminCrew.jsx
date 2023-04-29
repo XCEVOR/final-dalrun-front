@@ -25,7 +25,7 @@ function AdminCrew() {
     {cate:"delete", name:"크루삭제", selected:"이 크루를 삭제시키시겠습니까?", list:checkedList}
   ];
 
-  const showCrewDetail = (seq, name) => {
+  const showCrewMembers = (seq, name) => {
     axios.post('http://localhost:3000/getCrewMember',null, { params: {"crewSeq" : seq} })
         .then((resp) => {
           setCrewMembers(resp.data);
@@ -88,7 +88,7 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td><Link onClick={() => showCrewDetail(seq, name)}>{crew.crewMemberCnt}</Link>/{crew.maxMem}명</td>
+                      <td><Link onClick={() => showCrewMembers(seq, name)}>{crew.crewMemberCnt}</Link>/{crew.maxMem}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
                       <td>{crew.crewDel !== 0?"삭제":""}</td>
