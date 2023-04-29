@@ -67,7 +67,8 @@ const Contact = () => {
           <section>
             <div className="container-xxl">
               <div className="row">
-                <div className="col-lg-8">
+                <div className="col-lg-7">
+                  <h1>left</h1>
                   {/* // Component to Component */}
                   <StorePaymentUser
                     pushData={StorePaymentList.pullData}
@@ -79,7 +80,8 @@ const Contact = () => {
                 </div>
                 {/* End .col */}
 
-                <div className="col-lg-4">
+                <div className="col-lg-5">
+                  <h1>right</h1>
                   {/* <!--Animated Block--> */}
                   <div
                     className="ptf-animated-block"

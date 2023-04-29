@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-const DotMapInfo = () => {
+const DotMapInfo = (props) => {
   const [rankList, setrankList] = useState([]);
-  const [mycrewinfo, setMycrewinfo] = useState([]);
+  //const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
+  //const [logininfo, setLogininfo] = useState([]);
 
+ 
   // 로그인 정보
   const [login,setLogin]=useState([]);
   const [loginTF,setLoginTF]=useState(false);
@@ -24,23 +26,28 @@ const DotMapInfo = () => {
   function getMyCrewinfo(crewSeq) { 
     axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
-        setMycrewinfo(resp.data);
-
+        //setMycrewinfo(resp.data);
+        props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
         
       })
   };
   function sendDonation() {
     const score= document.getElementById("pointselect").value;
-    if(login.point>=score){
+    if(parseInt(login.point)>= parseInt(score)){
     axios.get("http://localhost:3000/sendDonation",{params:{'id':login.memId,'score':score,'crewseq':login.crewSeq}})
       .then(function (resp) {
-        console.log(resp.data)
+       
         if(resp.data===true){
           alert("전송완료");
-          getCrewRank();
-          getMyCrewinfo();
+          
+          let logininfo= login;
+
+          logininfo.point= logininfo.point- parseInt(score)
+          console.log("after",logininfo);
+          localStorage.setItem("login", JSON.stringify(logininfo));
         
+          loading();
         }else{
           alert("전송미완료");
 
@@ -54,37 +61,43 @@ const DotMapInfo = () => {
   function donationAlet(){
     
     const score= document.getElementById("pointselect").value;
-    if(login.point>=score){
+    if(score!=='none'){
+    if(parseInt(login.point)>=parseInt(score)){
       document.getElementById('sendBtn').removeAttribute('disabled');
       document.getElementById('donationalert').style.display='none';
     }else{
       document.getElementById('sendBtn').setAttribute('disabled',"disabled");
       document.getElementById('donationalert').style.display='block';
     }
+  }else{
+    document.getElementById('donationalert').style.display='none';
   }
-
+  }
+  function loading(){
+    const logindata=JSON.parse(localStorage.getItem('login'));
+    if(logindata){
+      setLogin(logindata);
+      getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
+      setLoginTF(true);
+      
+    }
+  }
   
   
   useEffect(() => {
 
     //localStorage.removeItem('login');
-  
+
     getCrewRank();
-    
-    const logindata=JSON.parse(localStorage.getItem('login'));
-    if(logindata){
-      console.log(logindata.memId,"님이 접속하였습니다..")
-      setLogin(logindata);
-      getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
-      setLoginTF(true);
-    }
-    
+    loading();
+  
   }, []);
   
   useEffect(()=>{
-
+ 
     if(loginTF){
-      if(mycrewinfo.length!==0){
+   
+      if(props.mycrewinfo.length!==0){
       document.getElementById("infologoutform").style.display='none';
       document.getElementById("infocrewform").style.display='none';
       document.getElementById("infologinform").style.display='block';
@@ -93,9 +106,9 @@ const DotMapInfo = () => {
       document.getElementById("infologoutform").style.display='none';
       document.getElementById("infocrewform").style.display='block';
       }}
-  },[login,rankList,mycrewinfo])
+  },[login,rankList])
 
- 
+  
   return (
     <>
       {/* ranking */}
@@ -120,8 +133,8 @@ const DotMapInfo = () => {
 
           ))}
           <div style={{display:'none'}}  id="infologinform" className="ptf-pricing-table__description">
-            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{mycrewinfo.myrank} 등 </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrewinfo.crewcolor}` }}>
+            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{props.mycrewinfo.myrank} 등 </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${props.mycrewinfo.crewcolor}` }}>
             </div>
           </div>
 
@@ -158,13 +171,13 @@ const DotMapInfo = () => {
    
           <div id="infologinform2" style={{display:'none'}} >
           <div className="ptf-pricing-table__content">
-            <h6 style={{ display: 'inline' }}>나의 크루 : {mycrewinfo.crewName} </h6>
-            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${mycrewinfo.crewcolor}` }}></div>
+            <h6 style={{ display: 'inline' }}>나의 크루 : {props.mycrewinfo.crewName} </h6>
+            <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${props.mycrewinfo.crewcolor}` }}></div>
             <h6>나의 포인트 : { login.point}</h6>
           </div>
 
           <div className="ptf-pricing-table__description">
-            <h4>나의 크루 포인트: {mycrewinfo.crewScore} point</h4>
+            <h4>나의 크루 포인트: {props.mycrewinfo.crewScore} point</h4>
           </div>
 
 
