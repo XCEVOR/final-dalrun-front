@@ -137,6 +137,12 @@
 
 // 회원관리
 .member {
+    .info_con {
+        a {
+            text-decoration: revert;
+            color: var(--ptf-accent-4);
+        }
+    }
 }
 
 // 게시물 관리
