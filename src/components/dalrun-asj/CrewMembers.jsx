@@ -16,6 +16,10 @@ function CrewMembersModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <div style={{marginBottom:"10px"}}>
+            <span style={{paddingRight:"15px"}}>최대인원수 : {props.max}</span> 
+            <span>현재인원수 : {props.cnt}</span>
+          </div>
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -23,14 +27,13 @@ function CrewMembersModal(props) {
                 <th>가입일</th>
                 <th>수정일</th>
                 <th>크루권한</th>
-                <th>크루탈퇴</th>
+                <th>탈퇴여부</th>
               </tr>
             </thead>
             <tbody>
               {
                 crewMemList.length !== 0 ?
                 crewMemList.map((cmem, i)=>{
-                    console.log(cmem)
                     return(
                     <tr key={i}>
                         <td>{cmem.memId}</td>

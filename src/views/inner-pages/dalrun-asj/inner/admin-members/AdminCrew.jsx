@@ -12,6 +12,8 @@ function AdminCrew() {
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
   const [crewName, setCrewName] = useState("");
+  const [crewMaxMem, setCrewMaxMem] = useState("");
+  const [crewMemCnt, setMemCnt] = useState("");
   const [crewMembers, setCrewMembers] = useState([]);
   const [modalShow, setModalShow] = useState(false);
 
@@ -25,10 +27,12 @@ function AdminCrew() {
     {cate:"delete", name:"크루삭제", selected:"이 크루를 삭제시키시겠습니까?", list:checkedList}
   ];
 
-  const showCrewMembers = (seq, name) => {
+  const showCrewMembers = (seq, name, max, cnt) => {
     axios.post('http://localhost:3000/getCrewMember',null, { params: {"crewSeq" : seq} })
         .then((resp) => {
           setCrewMembers(resp.data);
+          setCrewMaxMem(max);
+          setMemCnt(cnt);
           setCrewName(name);
           setModalShow(true);
         })
@@ -71,6 +75,8 @@ function AdminCrew() {
                   dataList.map((crew, i) => {
                     let seq = crew.crewSeq;
                     let name = crew.crewName;
+                    let max = crew.maxMem;
+                    let cnt = crew.crewMemberCnt
 
                     return (
                     <tr key={i}>
@@ -88,7 +94,7 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td><Link onClick={() => showCrewMembers(seq, name)}>{crew.crewMemberCnt}</Link>/{crew.maxMem}명</td>
+                      <td><Link onClick={() => showCrewMembers(seq, name, max, cnt)}>{cnt}</Link>/{max}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
                       <td>{crew.crewDel !== 0?"삭제":""}</td>
@@ -107,6 +113,8 @@ function AdminCrew() {
         show={modalShow} 
         crewname={crewName}
         mem={crewMembers}
+        max={crewMaxMem}
+        cnt={crewMemCnt}
         onHide={() => setModalShow(false)}
       />
     </div>
