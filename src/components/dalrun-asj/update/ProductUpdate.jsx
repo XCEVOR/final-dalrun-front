@@ -1,8 +1,6 @@
 import axios from "axios";
-import { param } from "jquery";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import StoreDetailsPicture from "../../dalrun-hc/storedetails/StoreDetailsPicture";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
