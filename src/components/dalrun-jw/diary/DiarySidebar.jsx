@@ -74,7 +74,6 @@ function UploadModal() {
     const [diary, setDiary] = useState({
       title: '',
       content: '',
-      writer: '',
       file: null,
     });
 
@@ -104,7 +103,7 @@ function UploadModal() {
     const formData = new FormData();
     formData.append('title', diary.title);
     formData.append('content', diary.content);
-    formData.append('author', diary.author);
+    // formData.append('memId', diary.writer);
     formData.append('file', diary.file);
 
     axios
@@ -113,11 +112,11 @@ function UploadModal() {
           'Content-Type': 'multipart/form-data',
         },
       })
-      .then((response) => {
-        console.log(response);
+      .then((resp) => {
+        console.log(resp.data);
       })
       .catch((error) => {
-        console.error(error);
+        console.error('error');
       });
     };
 
