@@ -94,7 +94,7 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td><Link class="table_link" onClick={() => showCrewMembers(seq, name, max, cnt)}>{cnt}</Link>/{max}명</td>
+                      <td><Link className="table_link" onClick={() => showCrewMembers(seq, name, max, cnt)}>{cnt}</Link>/{max}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
                       <td>{crew.crewDel !== 0?"삭제":""}</td>
