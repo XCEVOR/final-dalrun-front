@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
+import configReduxStore from "../redux/configReduxStore";
 import myReduxStore from "../myredux/myReduxStore";
 
 import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
@@ -46,7 +47,7 @@ function StoreDetailsCommentForm() {
 
     return (
         <div>
-            <Provider store={myReduxStore}>
+            <Provider store={configReduxStore}>
                 {/* <TestReduxLeft></TestReduxLeft> */}{/*  // TEST REDUX*/}
                 {/* <TestReduxRight></TestReduxRight> */}
                 <TestReduxRight2></TestReduxRight2>
@@ -172,6 +173,10 @@ function TestReduxRight2 () {
     const [memId, setMemId] = useState('TestMemId');
 
     const myDispatch = useDispatch();
+    const storeDetailsCommentSeqDispatch = useDispatch();
+
+    const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
+    const [inqSeq, setInqSeq] = useState(sliceInqSeq);
 
     const writeComment = () => {
     if(subject === undefined || subject.trim() === ''){
@@ -205,6 +210,7 @@ function TestReduxRight2 () {
     const myOnClickFunc = () => {
         writeComment();
         myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
+        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
     }
 
 

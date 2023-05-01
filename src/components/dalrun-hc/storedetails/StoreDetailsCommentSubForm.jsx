@@ -97,8 +97,9 @@ function TestReduxRight2 () {
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
 
-    const storeDetailsCommentSeqDispatch = useDispatch();
+
     const myDispatch = useDispatch();
+    const storeDetailsCommentSeqDispatch = useDispatch();
 
     const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
     const [inqSeq, setInqSeq] = useState(sliceInqSeq);
@@ -137,7 +138,7 @@ function TestReduxRight2 () {
 
     const myOnClickFunc = () => {
         writeComment();
-        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", step: 2} );
+        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
     }
 
 
