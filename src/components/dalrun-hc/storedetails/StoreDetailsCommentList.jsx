@@ -163,6 +163,8 @@ function StoreDetailsCommentList() {
 
 
 
+// ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== 
+
 
 // function TestReduxLeft () {
 
@@ -188,6 +190,7 @@ function TestReduxLeft2 () {
 
     const [inquiryList, setInquiryList] = useState([]);
     const [isOffReply, setIsOffReply] = useState(true);
+    const [selectedReply, setSelectedReply] = useState(0);
 
     const storeDetailsCommentSeqDispatch = useDispatch();
 
@@ -225,11 +228,11 @@ function TestReduxLeft2 () {
 
 
     const onClickReply = (eve) => {
-        
+        setSelectedReply(Number(eve.target.value))
 
         setIsOffReply(!isOffReply)
-        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: eve.target.value} )
-        console.log("eve.target.value", eve.target.value)
+        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: Number(eve.target.value)} )
+        console.log("eve.target.value", Number(eve.target.value))
         
     }
 
@@ -254,7 +257,7 @@ function TestReduxLeft2 () {
                                 <p>{inq.inqContent}</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
                                 <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq} 댓글 onoff</button>
-                                {isOffReply ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+                                {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
                             </div>
                         </div>
                     </li>
