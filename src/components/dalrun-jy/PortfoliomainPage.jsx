@@ -48,7 +48,7 @@ const PortfoliomainPage = () => {
                 <img
                   src={`assets/img/dalrun-jy/${item.img}.jpg`}
                   alt=""
-                  loading="lazy"
+                  
                 />
               </div>
               <div className="ptf-work__meta">

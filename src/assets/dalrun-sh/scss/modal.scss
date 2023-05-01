@@ -1,0 +1,19 @@
+.modal {
+    z-index: 100;
+}
+
+.modal-backdrop {
+    --bs-backdrop-zindex: 80;
+}
+
+.modal-content {
+    width: auto;
+}
+
+.modal-dialog-centered {
+    justify-content: center;
+}
+
+.modal-dialog {
+    // width: 0;
+}

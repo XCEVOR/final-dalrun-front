@@ -15,9 +15,15 @@ function AdminMember() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"회원수정", selected:<MemberUpdate />}, 
-    {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?"}
+    {cate:"update", name:"회원수정", list:checkedList}, 
+    {cate:"delete", name:"회원탈퇴", selected:"이 회원을 탈퇴시키시겠습니까?", list:checkedList}
   ];
+
+  const reset = () => {
+    setGrade("");
+    setChoice("");
+    setSearch("");
+  }
 
   return (
     <div className="member">
@@ -44,9 +50,12 @@ function AdminMember() {
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <button>
-            <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
-          </button>
+          <div className="search-btn">
+            <button className="reset-btn" onClick={reset}>초기화</button>
+            <button>
+              <Link to={`?choice=${choice}&search=${search}&grade=${grade}`}>검색</Link>
+            </button>
+          </div>
         </div>
         <div className="info">
           <ModalBtn {...category} />
@@ -71,10 +80,13 @@ function AdminMember() {
                   <th>등급</th>
                   <th>발사이즈</th>
                   <th>가입일</th>
+                  <th>수정일</th>
+                  <th>탈퇴</th>
                 </tr>
               </thead>
               <tbody>
                 {
+                   dataList.length !== 0 ?
                   dataList.map((mem, i) => {
                     return (
                     <tr key={i}>
@@ -94,10 +106,13 @@ function AdminMember() {
                       <td>{mem.point}</td>
                       <td>{mem.grade}</td>
                       <td>{mem.foot}</td>
-                      <td>{mem.regdate}</td>
+                      <td>{mem.regdate.split('T')[0]}</td>
+                      <td>{mem.memberupdate.split('T')[0]}</td>
+                      <td>{mem.del === 1 ? "탈퇴":""}</td>
                     </tr>
                     );
                   })
+                  : <tr style={{textAlign:"center"}}><td colSpan="13">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>

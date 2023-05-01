@@ -57,7 +57,7 @@ import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
 import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
 import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
-import StoreCheckout from "../views/inner-pages/dalrun-chc/store/StoreCheckout";
+import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
 import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
 import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
 import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
@@ -73,9 +73,25 @@ import MainDotMap from "../views/mjy-view/mainDotmap";
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
+import MyPage from "../views/inner-pages/dalrun-osh/Mypage";
+
+// import MyInform from "../views/inner-pages/dalrun-osh/mypage/MyInform";
+// import MyCrew from "../views/inner-pages/dalrun-osh/mypage/MyCrew";
+// import MyRunning from "../views/inner-pages/dalrun-osh/mypage/MyRunning";
+// import MyStore from "../views/inner-pages/dalrun-osh/mypage/MyStore";
+// import MyWrite from "../views/inner-pages/dalrun-osh/mypage/MyWrite";
+// import MyRating from "../views/inner-pages/dalrun-osh/mypage/MyRating";
 
 // 박예린
 import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
+import Login from "../views/inner-pages/dalrun-pyr/Login";
+import Register from "../views/inner-pages/dalrun-pyr/Register";
+import Home from "../views/inner-pages/dalrun-pyr/Home";
+import RegisterComponent from "../views/inner-pages/dalrun-pyr/RegiMain";
+import Logout from "../views/inner-pages/dalrun-pyr/Logout";
+import CrewBbsMain from "../views/inner-pages/dalrun-pyr/crew/CrewBbsMain";
+import PostCrewBbsWriteForm from "../components/dalrun-pyr/crewBbs/CrewBbsWrite";
+import CrewBbsDetail from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDetail";
 
 
 
@@ -135,7 +151,7 @@ const AllRoutes = () => {
         <Route path='/store-main' element={<StoreMain />} />
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
-        <Route path='/store-checkout' element={<StoreCheckout />} />
+        <Route path='/store-payment' element={<StorePayment />} />
         <Route path='/review-main' element={<ReviewMain />} />
         <Route path='/review-details' element={<ReviewDetails />} />
         <Route path='/competition-main' element={<CompetitionMain />} />
@@ -157,8 +173,26 @@ const AllRoutes = () => {
         {/* 오성혁 */}
         <Route path='/osh-work' element={<OshWorkspace/>} />
 
+        <Route path='/mypage/*' element={<MyPage/>} />
+
+        {/* <Route path='/mypage/myinform' element={<MyInform/>} />
+        <Route path='/mypage/mycrew' element={<MyCrew/>} />
+        <Route path='/mypage/myrunning' element={<MyRunning/>} />
+        <Route path='/mypage/mystore' element={<MyStore/>} />
+        <Route path='/mypage/mywrite' element={<MyWrite/>} />
+        <Route path='/mypage/myrating' element={<MyRating/>} /> */}
+
         {/* 박예린 */}
         <Route path='/pyr-work' element={<PyrWorkspace/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/regimain" element={<RegisterComponent/>}/>
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/crewBbsMain" element={<CrewBbsMain/>}/>
+        <Route path="/crewBbsWrite" element={<PostCrewBbsWriteForm/>}/>
+        <Route path="/crewBbsDetail" element={<CrewBbsDetail/>}/>
+
       </Routes>
     </>
   );

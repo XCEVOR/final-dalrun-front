@@ -7,6 +7,10 @@ import Social from "../../../../components/social/Social";
 import ContactForm from "../../../../components/ContactForm";
 import Address from "../../../../components/Address";
 
+import StorePaymentUser from "../../../../components/dalrun-hc/storepayment/StorePaymentUser";  // StorePaymentUser 에서
+import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";  // StorePaymentList 으로 데이터 공유.
+
+
 const Contact = () => {
   return (
     <div className="dalrun_hc">
@@ -36,10 +40,7 @@ const Contact = () => {
                     data-aos="fade"
                     data-aos-delay="0"
                   >
-                    <h1 className="large-heading">
-                      Let's get Contact an <br />
-                      estimate
-                    </h1>
+                    <h1 className="large-heading">TOTAL PAYMENT</h1>
                     {/* <!--Spacer--> */}
                     <div
                       className="ptf-spacer"
@@ -66,12 +67,21 @@ const Contact = () => {
           <section>
             <div className="container-xxl">
               <div className="row">
-                <div className="col-lg-4">
-                  <Address />
+                <div className="col-lg-7">
+                  <h1>left</h1>
+                  {/* // Component to Component */}
+                  <StorePaymentUser
+                    pushData={StorePaymentList.pullData}
+                    pushOrderNamePackage={StorePaymentList.pullOrderNamePackage}
+                    pushOrderAddressPackage={StorePaymentList.pullOrderAddressPackage}
+                    pushOrderPhonePackage={StorePaymentList.pullOrderPhonePackage}
+                    pushOrderRequirmentPackage={StorePaymentList.pullOrderRequirmentPackage}
+                  />
                 </div>
                 {/* End .col */}
 
-                <div className="col-lg-8">
+                <div className="col-lg-5">
+                  <h1>right</h1>
                   {/* <!--Animated Block--> */}
                   <div
                     className="ptf-animated-block"
@@ -86,7 +96,9 @@ const Contact = () => {
                       className="ptf-spacer"
                       style={{ "--ptf-xxl": "3.125rem" }}
                     ></div>
-                    <ContactForm />
+
+                    {/* // Component to Component */}
+                    <StorePaymentList />
                     {/* End ContactForm */}
                   </div>
                 </div>
