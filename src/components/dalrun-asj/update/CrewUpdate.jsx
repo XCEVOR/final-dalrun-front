@@ -33,7 +33,35 @@ function CrewUpdate({data, onHide}) {
         setInput(data);
     }, [data]);
 
-    const onSubmit = () => {}
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("crewSeq", seq);
+        formData.append("crewName", crewName);
+        formData.append("memId", id);
+        formData.append("crewSetUp", setup);
+        formData.append("crewLevel", level);
+        formData.append("crewScore", score);
+        formData.append("crewcolor", color);
+        formData.append("maxMem", maxMem);
+        formData.append("crewCreateDate", regdate);
+
+        axios.post('http://localhost:3000/admin_updatecrew', formData)
+            .then((resp) => {
+                if(resp.data === "YES") {
+                    alert("수정완료");
+                    onHide();
+                    setSearchParam(searchParam.set('target',''));
+                } else {
+                    alert("수정실패");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+    }
 
     return(
         <div className="admin_update_container">
