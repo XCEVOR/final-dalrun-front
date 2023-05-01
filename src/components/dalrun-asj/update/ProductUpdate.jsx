@@ -15,6 +15,8 @@ function ProductUpdate({data, onHide}) {
     const [temporaryStock, setTemporaryStock] = useState("");
     const [saleState, setSaleState] = useState("");
     const [regdate, setRegdate] = useState("");
+    const [imgList, setImgList] = useState([]);
+    const [loading, setLoading] = useState(false);
       
     const setInput = (data) => {
         const product = data.getProduct;
@@ -30,6 +32,17 @@ function ProductUpdate({data, onHide}) {
         setTemporaryStock(product.productStock - orderCnt);
         setSaleState(product.productSale);
         setRegdate(product.productRegiDate);
+
+        getProductImgList(product.productCode);
+    }
+
+    const getProductImgList = (code) => {
+        axios.post("http://localhost:3000/getProductAllPictureList", null, { params : { "productCode" : code } })
+            .then((resp) => {
+                setImgList(resp.data);
+                setLoading(true);
+            })
+            .catch((err) => console.log(err));
     }
 
     useEffect(() => {
@@ -71,6 +84,20 @@ function ProductUpdate({data, onHide}) {
             <div className="admin_update">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
+                        <div className="product_img">
+                            {
+                                !loading ? <div>Loading...</div> :
+                                imgList.map((pic, index) => (
+                                    <div key={index}>
+                                    <p>{pic}</p>
+                                    <img
+                                        src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                                        alt={pic}
+                                        loading="lazy"
+                                    />
+                                    </div>
+                            ))}
+                        </div>
                         <div>
                             <label htmlFor="id">상품번호</label>
                             <input type="text" value={id || ""} readOnly={true} />
@@ -96,7 +123,6 @@ function ProductUpdate({data, onHide}) {
                             <input type="number" value={price || ""} onChange={(e) => setPrice(e.target.value)} />
                         </div>
                         <div>
-                        <div>
                             <label htmlFor="stock">창고재고</label>
                             <input type="number" value={stock || ""} onChange={(e) => setStock(e.target.value)} />
                         </div>
@@ -111,6 +137,7 @@ function ProductUpdate({data, onHide}) {
                                 <option value="0">품절</option>
                             </select>
                         </div>
+                        <div>
                             <label htmlFor="regdate">등록일</label>
                             <input type="date" value={regdate || ""} onChange={(e) => setRegdate(e.target.value)} />
                         </div>
