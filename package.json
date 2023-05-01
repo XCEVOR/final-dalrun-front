@@ -21,6 +21,7 @@
     "react-bootstrap": "^2.7.4",
     "react-cookie": "^4.1.1",
     "react-countup": "^6.1.0",
+    "react-datepicker": "^4.11.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.6.3",
@@ -32,9 +33,10 @@
     "react-naver-maps": "^0.1.2",
     "react-parallax": "^3.3.0",
     "react-pro-sidebar": "^0.7.1",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-svg-tooltip": "^0.0.11",
     "react-tabs": "^6.0.0",
     "react-tooltip": "^4.2.21",
     "react-transition-group": "^4.4.2",
@@ -42,6 +44,7 @@
     "sass": "^1.62.0",
     "simple-react-lightbox": "^3.6.9-0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
@@ -68,5 +71,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.1",
+    "babel-plugin-styled-components": "^2.1.1"
   }
 }

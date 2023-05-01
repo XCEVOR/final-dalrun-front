@@ -39,16 +39,11 @@ const HeadermainPage = () => {
               <Link className="ptf-navbar-logo" to="/">
                 <img
                   className="black"
-                  src="assets/img/root/logo-dark.png"
+                  src="logo.svg"
                   alt=""
                   loading="lazy"
                 />
-                <img
-                  className="white"
-                  src="assets/img/root/logo-white.png"
-                  alt=""
-                  loading="lazy"
-                />
+                
               </Link>
               {/* <!--Navigation--> */}
               <nav className="ptf-nav ptf-nav--default">

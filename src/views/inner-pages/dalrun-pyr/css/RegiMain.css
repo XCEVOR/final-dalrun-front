@@ -1,0 +1,116 @@
+#content{
+    width: 100%;
+    height: 720px;
+}
+.content_inner{
+    width: 900px;
+    height: 590px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.125);
+    box-shadow: 0 12px 20px rgb(0 0 0 / 10%);
+}
+.content_inner:hover {
+    border: 1px solid #000;
+    border-radius: 4px;
+    transition: all .5s;
+}
+/* .content_inner img {
+    width: 32px;
+    height: 32px;
+    margin: 35px 0 0 30px;
+}  */
+.content_inner h5 {
+    color: #174c88;
+    margin: 5px 0 0 30px;
+    font-size: 14px;
+}
+.content_inner h6 {
+    width: 840px;
+    font-size: 36px;
+    margin: 35px 0 0 30px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.4;
+}
+.reg_t1 {
+    display: inline-block;
+    width: 890px;
+}
+.content_inner p{
+    color: #888;
+    margin: 35px 0 0 30px;
+    font-size: 14px;
+}
+.btnkaka {
+    display: inline;
+    width: 900px;
+    height: 50px;
+    color: #3c1e1e;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-color: #fee500;
+    background: #fee500;
+    border-radius: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all .5s;
+    margin: 10px 0;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+}
+.btnkaka span {
+    margin-right: 20px;
+}
+.btnkaka img {
+    width: 16px;
+    height: 16px;
+}
+.btnre {
+    display: inline;
+    width: 900px;
+    height: 50px;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-color: #fee500;
+    background: #123;
+    border-radius: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all .5s;
+    margin: 10px 0;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+}
+.btnre span {
+    margin-right: 20px;
+}
+.hint {
+    color: #999;
+    font-size: 14px;
+}
+.hint a:hover {
+    color: #007bff;
+    background-color: transparent;
+}
+.k1{
+    width: 300px;
+    height: 300px;
+}
+
+.kakao{
+    margin-left: 25px;
+    display: inline;
+    width: 170px;
+    height: 41px;
+}
+
+.logo2{
+    width: 150px;
+    height: 130px;
+}

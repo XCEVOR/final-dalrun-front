@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
+import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
+import { Table } from "react-bootstrap";
+import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
 
 function AdminProduct() {
   const [choice, setChoice] = useState("");
@@ -11,6 +14,20 @@ function AdminProduct() {
 
   const handleSaleRadio = (e) => setSaleState(e.target.value);
   const handleStockRadio = (e) => setStockState(e.target.value);
+  const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
+
+  const category = [
+    {cate:"insert", name:"상품등록", selected:"상품등록 페이지", list:[]},
+    {cate:"update", name:"상품수정", selected:"상품수정 페이지", list:checkedList}, 
+    {cate:"delete", name:"상품삭제", selected:"이 상품을 삭제하겠습니까?", list:checkedList}
+  ];
+
+  const reset = () => {
+    setSaleState("");
+    setStockState("");
+    setChoice("");
+    setSearch("");
+  }
 
   return (
     <div className="store">
@@ -46,13 +63,72 @@ function AdminProduct() {
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <button>
-            <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
-          </button>
+          <div className="search-btn">
+            <button className="reset-btn" onClick={reset}>초기화</button>
+            <button>
+              <Link to={`?choice=${choice}&search=${search}&sale=${saleState}&stock=${stockState}`}>검색</Link>
+            </button>
           </div>
-          <div className="info outline">
-            상품관리
-            <AdminSearch setData={setDataList} />          
+          </div>
+          <div className="info">
+            <ModalBtn {...category} />
+            <div className="info_con">
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>
+                    <input 
+                      type="checkbox" 
+                      onChange={(e) => handleAllCheck(e.target.checked)} 
+                      checked={checkedList.length === dataList.length ? true : false}
+                      />
+                    </th>
+                    <th>상품번호</th>
+                    <th>상품코드</th>
+                    <th>카테고리</th>
+                    <th>브랜드</th>
+                    <th>상품명</th>
+                    <th>색상</th>
+                    <th>사이즈</th>
+                    <th>가격</th>
+                    <th>재고</th>
+                    <th>등록일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    dataList.length !== 0 ?
+                    dataList.map((item, i) => {
+                      return(
+                        <tr key={i}>
+                          <th>
+                            <input 
+                              type="checkbox" 
+                              onChange={(e) => handleSingleCheck(e.target.checked, item.productId)} 
+                              checked={checkedList.includes(item.productId) ? true : false}
+                              />
+                          </th>
+                          <td>
+                            <Link to={`/store-details/${item.productCode}`}>{item.productId}</Link>
+                          </td>
+                          <td>{item.productCode}</td>
+                          <td>{item.productCategory}</td>
+                          <td>{item.productBrand}</td>
+                          <td>{item.productName}</td>
+                          <td>{item.productColor}</td>
+                          <td>{item.productSize}</td>
+                          <td>{item.productPrice}</td>
+                          <td>{item.productStock}</td>
+                          <td>{item.productRegiDate}</td>
+                        </tr>
+                      );
+                    }) 
+                    : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                  }
+                </tbody>
+              </Table>
+              <AdminSearch setData={setDataList} />
+            </div>          
           </div>
       </div>
     </div>
