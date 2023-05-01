@@ -178,7 +178,7 @@ function TestReduxRight2 () {
     const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
     const [inqSeq, setInqSeq] = useState(sliceInqSeq);
 
-    const writeComment = () => {
+    const writeCommentMain = () => {
     if(subject === undefined || subject.trim() === ''){
         alert('제목을 입력해 주십시오');
         return;
@@ -209,9 +209,9 @@ function TestReduxRight2 () {
     }
 
     const myOnClickFunc = () => {
-        writeComment();
-        myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
-        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
+      writeCommentMain();
+      myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
+      storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
     }
 
 

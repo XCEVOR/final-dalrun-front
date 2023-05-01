@@ -100,22 +100,26 @@ function TestReduxRight2 () {
 
     const myDispatch = useDispatch();
     const storeDetailsCommentSeqDispatch = useDispatch();
+    const storeDetailsCommentRefDispatch = useDispatch();
 
     const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
     const [inqSeq, setInqSeq] = useState(sliceInqSeq);
+    const sliceInqRef = useSelector(state => state.storeDetailsCommentRefInConfigureStore.sliceInqRef)
+    const [inqRef, setInqRef] = useState(sliceInqRef);
 
-    const writeComment = () => {
+    const writeCommentSub = () => {
       if (subject === undefined || subject.trim() === "") {
         alert("제목을 입력해 주십시오");
         return;
       }
 
-      console.log("  inqSubseq: inqSeq, ", inqSeq);
+      console.log(" SUB FORM inqSubseq: inqSeq, ", inqSeq);
+      // console.log(" SUB FORM inqSubseq: inqRef, ", inqRef);
 
       axios
-        .post("http://localhost:3000/writeProductInquirySub", null, {
+        .post("http://localhost:3000/writeProductInquiryRefDepthSub", null, {
           params: {
-            inqSubseq: inqSeq,
+            inqRef: inqRef,
             inqWriter: name,
             inqContent: message,
             productId: productId,
@@ -137,8 +141,8 @@ function TestReduxRight2 () {
     };
 
     const myOnClickFunc = () => {
-        writeComment();
-        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
+      writeCommentSub();
+      storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentSeq", sliInqRef: 2} );
     }
 
 
@@ -146,7 +150,7 @@ function TestReduxRight2 () {
     return (
         <div>
             <h1>TEST REDUX SUB RIGHT</h1>
-            <h2>{sliceInqSeq}</h2>
+            <h2>{sliceInqSeq}, {sliceInqRef}</h2>
             <input type="button" value="  // TEST REDUX +2" onClick={() => storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => ( console.log("clicked"))}></input>

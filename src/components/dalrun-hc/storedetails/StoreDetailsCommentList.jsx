@@ -192,6 +192,7 @@ function TestReduxLeft2 () {
     const [selectedReply, setSelectedReply] = useState(0);
 
     const storeDetailsCommentSeqDispatch = useDispatch();
+    const storeDetailsCommentRefDispatch = useDispatch();
 
 
     // const number = useSelector(state => state.myCounterInConfigureStore.number)
@@ -230,7 +231,7 @@ function TestReduxLeft2 () {
         setSelectedReply(Number(eve.target.value))
 
         setIsOffReply(!isOffReply)
-        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: Number(eve.target.value)} )
+        storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentRef", sliInqRef: Number(eve.target.value)} )
         console.log("eve.target.value", Number(eve.target.value))
         
     }
@@ -259,7 +260,7 @@ function TestReduxLeft2 () {
 
                                 {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                     ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                    : <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                    : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
                                 }
                                 {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
 
