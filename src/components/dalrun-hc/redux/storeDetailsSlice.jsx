@@ -8,7 +8,7 @@ const storeDetailsSlice = createSlice({
     reducers: {
         CommentSeq: (state, action) => {
             console.log("  @@ console.log(action); ", action);
-            state.sliceInqSeq = action.seq;
+            state.sliceInqSeq = state.sliceInqSeq + action.seq;
         }
     }
 })

@@ -100,8 +100,6 @@ function TestReduxRight2 () {
     const storeDetailsCommentSeqDispatch = useDispatch();
     const myDispatch = useDispatch();
 
-    const seq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
-
     const writeComment = () => {
     if(subject === undefined || subject.trim() === ''){
         alert('제목을 입력해 주십시오');
@@ -141,7 +139,6 @@ function TestReduxRight2 () {
     return (
         <div>
             <h1>TEST REDUX SUB RIGHT</h1>
-            <h1>{seq}</h1>
             <input type="button" value="  // TEST REDUX +2" onClick={() => storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => ( console.log("clicked"))}></input>
