@@ -3,7 +3,10 @@ import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
 import myReduxStore from "../myredux/myReduxStore";
+import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
+import StoreDetailsCommentForm_copy from "./StoreDetailsCommentForm_copy";
+import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
 
 
 
@@ -20,6 +23,7 @@ function StoreDetailsCommentList() {
 
     const [inquiryList, setInquiryList] = useState([]);
     const [isOffReply, setIsOffReply] = useState(true);
+    // const myDispatch = useDispatch();
 
 
     const getCommentList = (productCode) => {
@@ -50,8 +54,15 @@ function StoreDetailsCommentList() {
     }
   
     const onClickReply = () => {
+        
         setIsOffReply(!isOffReply)
+        
     }
+
+    // const testest = () => {
+        
+    //     myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
+    // }
 
 
     return (
@@ -75,8 +86,8 @@ function StoreDetailsCommentList() {
                                 </div>
                                 <p>The bee's knees bite your arm off bits and bobs he nicked it gosh gutted mate blimey, old off his nut argy bargy vagabond buggered dropped.</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
-                                <button onClick={onClickReply}>댓글</button>
-                                {isOffReply ? <div></div> : <div><StoreDetailsCommentForm /></div>}
+                                <button onClick={onClickReply}>댓글 onoff</button>
+                                {isOffReply ? <div></div> : <div><StoreDetailsCommentForm_copy /></div>}
                             </div>
                         </div>
                     </li>
@@ -135,10 +146,15 @@ function StoreDetailsCommentList() {
             </div>
             ))}
             */}
-            <Provider store={myReduxStore}>
+            {/* <Provider store={myReduxStore}> */}
+                {/* <TestReduxLeft></TestReduxLeft> */}
+                {/* <TestReduxLeft2></TestReduxLeft2> */}
+            {/* </Provider> */}
+            <Provider store={configReduxStore}>
                 {/* <TestReduxLeft></TestReduxLeft> */}
                 <TestReduxLeft2></TestReduxLeft2>
             </Provider>
+
         </div>
     </div>
     )
@@ -148,16 +164,16 @@ function StoreDetailsCommentList() {
 
 
 
-function TestReduxLeft () {
+// function TestReduxLeft () {
 
-    const number = useSelector(state => state.myCounterInConfigureStore.number)
+//     const number = useSelector(state => state.myCounterInConfigureStore.number)
 
-    return (
-        <div>
-            <h1>TEST REDUX LEFT: {number}</h1>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <h1>TEST REDUX LEFT: {number}</h1>
+//         </div>
+//     )
+// }
 
 function TestReduxLeft2 () {
     const [name, setName] = useState('');
@@ -171,14 +187,19 @@ function TestReduxLeft2 () {
     const [loading, setLoading] = useState(false);
 
     const [inquiryList, setInquiryList] = useState([]);
+    const [isOffReply, setIsOffReply] = useState(true);
 
-    const number = useSelector(state => state.myCounterInConfigureStore.number)
+    const storeDetailsCommentSeqDispatch = useDispatch();
+
+
+    // const number = useSelector(state => state.myCounterInConfigureStore.number)
+    const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
 
 
     const getCommentList = (productCode) => {
         axios.post("http://localhost:3000/getProductInquiry", null, 
-                    { params:{ "productCode": productCode } })
-             .then(res => {
+                { params:{ "productCode": productCode } })
+            .then(res => {
                 console.log(res.data);
                 setInquiryList(res.data);
                 // if(res.data === "SUCCESS"){
@@ -188,24 +209,34 @@ function TestReduxLeft2 () {
                 //     alert("등록되지 않았습니다");
                 // }
                 setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
-             })
-             .catch(function(err){
+            })
+                .catch(function(err){
                 alert(err);
-             })   
+            })   
     }
 
     useEffect(() => {
         getCommentList(productCode);
-      }, [productCode, number])
-    
-      if(loading === false){
+    }, [productCode, sliceInqSeq])
+
+    if(loading === false){
         return <div>Loading...</div>
-      }
+    }
+
+
+    const onClickReply = (eve) => {
+        
+
+        setIsOffReply(!isOffReply)
+        storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: eve.target.value} )
+        console.log("eve.target.value", eve.target.value)
+        
+    }
 
 
     return (
         <div>
-            <h1>TEST REDUX LEFT: {number}</h1>
+            <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
             
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
@@ -222,6 +253,8 @@ function TestReduxLeft2 () {
                                 </div>
                                 <p>{inq.inqContent}</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+                                <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq} 댓글 onoff</button>
+                                {isOffReply ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
                             </div>
                         </div>
                     </li>
