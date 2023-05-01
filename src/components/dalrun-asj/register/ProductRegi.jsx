@@ -5,18 +5,43 @@ import ImgUpload from "../ImgUpload";
 
 function ProductRegi({onHide}) {
     const [code, setCode] = useState("");
+    const [brand, setBrand] = useState("");
     const [cate, setCate] = useState("");
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
     const [price, setPrice] = useState("");
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
     const [stock, setStock] = useState(0);
-    const [saleState, setSaleState] = useState("");
+    const [saleState, setSaleState] = useState(1);
     const [imgList, setImgList] = useState([]);
       
     const onSubmit = (e) => {
         e.preventDefault();
-    }
 
+        let formdata = new FormData();
+
+        imgList.map((file) => {
+            formdata.append("fileList", file);
+        });
+
+        formdata.append("productBrand", brand);
+        formdata.append("productCategory", cate);
+        formdata.append("productCode", code);
+        formdata.append("productName", productName);
+        formdata.append("productDescription", productDesc);
+        formdata.append("productPrice", price);
+        formdata.append("productColor", color);
+        formdata.append("productSize", size);
+        formdata.append("productStock", stock);
+        formdata.append("productSale", saleState);
+
+        axios.post('http://localhost:3000/productRegi', formdata)
+            .then((resp) => console.log(resp))
+            .catch((err) => console.log(err));
+    }
+    
+    console.log(imgList)
     return (
         <div className="admin_update_container">
             <div className="admin_update">
@@ -32,6 +57,10 @@ function ProductRegi({onHide}) {
                             <input type="text" value={cate || ""} onChange={(e) => setCate(e.target.value)} />
                         </div>
                         <div>
+                            <label htmlFor="brand">브랜드</label>
+                            <input type="text" value={brand || ""} onChange={(e) => setBrand(e.target.value)} />
+                        </div>
+                        <div>
                             <label htmlFor="productName">상품명</label>
                             <input type="text" value={productName || ""} onChange={(e) => setProductName(e.target.value)} />
                         </div>
@@ -42,6 +71,14 @@ function ProductRegi({onHide}) {
                         <div>
                             <label htmlFor="price">가격</label>
                             <input type="number" value={price || ""} onChange={(e) => setPrice(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="color">색상</label>
+                            <input type="text" value={color || ""} onChange={(e) => setColor(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="size">사이즈</label>
+                            <input type="number" value={size || ""} onChange={(e) => setSize(e.target.value)} />
                         </div>
                         <div>
                             <label htmlFor="stock">창고재고</label>
