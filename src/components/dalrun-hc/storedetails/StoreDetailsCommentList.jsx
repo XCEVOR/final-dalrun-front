@@ -5,7 +5,6 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import myReduxStore from "../myredux/myReduxStore";
 import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
-import StoreDetailsCommentForm_copy from "./StoreDetailsCommentForm_copy";
 import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
 
 
@@ -87,7 +86,7 @@ function StoreDetailsCommentList() {
                                 <p>The bee's knees bite your arm off bits and bobs he nicked it gosh gutted mate blimey, old off his nut argy bargy vagabond buggered dropped.</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
                                 <button onClick={onClickReply}>댓글 onoff</button>
-                                {isOffReply ? <div></div> : <div><StoreDetailsCommentForm_copy /></div>}
+                                {isOffReply ? <div></div> : <div><StoreDetailsCommentForm /></div>}
                             </div>
                         </div>
                     </li>

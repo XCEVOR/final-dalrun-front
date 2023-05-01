@@ -100,36 +100,40 @@ function TestReduxRight2 () {
     const storeDetailsCommentSeqDispatch = useDispatch();
     const myDispatch = useDispatch();
 
-    const inqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
+    const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
+    const [inqSeq, setInqSeq] = useState(sliceInqSeq);
 
     const writeComment = () => {
-    if(subject === undefined || subject.trim() === ''){
-        alert('제목을 입력해 주십시오');
+      if (subject === undefined || subject.trim() === "") {
+        alert("제목을 입력해 주십시오");
         return;
-    }
+      }
 
-    axios
-      .post("http://localhost:3000/writeProductInquiry", null, {
-        params: {
-          inqWriter: name,
-          inqContent: message,
-          productId: productId,
-          memId: memId,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data === "SUCCESS") {
-          alert("성공적으로 등록되었습니다");
-          // history('/bbslist');    // bbslist로 이동
-        } else {
-          alert("등록되지 않았습니다");
-        }
-      })
-      .catch(function (err) {
-        alert(err);
-      });   
-    }
+      console.log("  inqSubseq: inqSeq, ", inqSeq);
+
+      axios
+        .post("http://localhost:3000/writeProductInquirySub", null, {
+          params: {
+            inqSubseq: inqSeq,
+            inqWriter: name,
+            inqContent: message,
+            productId: productId,
+            memId: memId,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data === "SUCCESS") {
+            alert("성공적으로 등록되었습니다");
+            // history('/bbslist');    // bbslist로 이동
+          } else {
+            alert("등록되지 않았습니다");
+          }
+        })
+        .catch(function (err) {
+          alert(err);
+        });
+    };
 
     const myOnClickFunc = () => {
         writeComment();
@@ -141,7 +145,7 @@ function TestReduxRight2 () {
     return (
         <div>
             <h1>TEST REDUX SUB RIGHT</h1>
-            <h2>{inqSeq}</h2>
+            <h2>{sliceInqSeq}</h2>
             <input type="button" value="  // TEST REDUX +2" onClick={() => storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => ( console.log("clicked"))}></input>
