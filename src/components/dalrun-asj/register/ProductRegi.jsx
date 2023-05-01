@@ -1,9 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ImgUpload from "../ImgUpload";
 
 function ProductRegi({onHide}) {
+    const [searchParam, setSearchParam] = useSearchParams();
+
     const [code, setCode] = useState("");
     const [brand, setBrand] = useState("");
     const [cate, setCate] = useState("");
@@ -37,7 +39,15 @@ function ProductRegi({onHide}) {
         formdata.append("productSale", saleState);
 
         axios.post('http://localhost:3000/productRegi', formdata)
-            .then((resp) => console.log(resp))
+            .then((resp) => {
+                if(resp.data === "YES") {
+                    alert("상품등록 성공");
+                    onHide();
+                    setSearchParam(searchParam.set('target',''));
+                } else {
+                    alert("상품등록 실패");
+                }
+            })
             .catch((err) => console.log(err));
     }
 
@@ -49,7 +59,7 @@ function ProductRegi({onHide}) {
                         <ImgUpload max="9" setImgList={setImgList} />
                         <div>
                             <label htmlFor="code">상품코드</label>
-                            <input type="text" value={code || ""} onChange={(e) => setCode(e.target.value)} />
+                            <input type="text" value={code || ""} onChange={(e) => setCode(e.target.value)} required />
                         </div>
                         <div>
                             <label htmlFor="cate">카테고리</label>
