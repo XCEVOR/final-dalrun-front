@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
 import myReduxStore from "../myredux/myReduxStore";
+import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
 
 
 
@@ -18,12 +19,13 @@ function StoreDetailsCommentList() {
     const [loading, setLoading] = useState(false);
 
     const [inquiryList, setInquiryList] = useState([]);
+    const [isOffReply, setIsOffReply] = useState(true);
 
 
     const getCommentList = (productCode) => {
         axios.post("http://localhost:3000/getProductInquiry", null, 
-                    { params:{ "productCode": productCode } })
-             .then(res => {
+                { params:{ "productCode": productCode } })
+            .then(res => {
                 console.log(res.data);
                 setInquiryList(res.data);
                 // if(res.data === "SUCCESS"){
@@ -33,20 +35,24 @@ function StoreDetailsCommentList() {
                 //     alert("등록되지 않았습니다");
                 // }
                 setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
-             })
-             .catch(function(err){
+            })
+                .catch(function(err){
                 alert(err);
-             })   
+            })   
     }
 
     useEffect(() => {
         getCommentList(productCode);
-      }, [productCode])
-    
-      if(loading === false){
+    }, [productCode])
+
+    if(loading === false){
         return <div>Loading...</div>
-      }
+    }
   
+    const onClickReply = () => {
+        setIsOffReply(!isOffReply)
+    }
+
 
     return (
         <div>
@@ -69,6 +75,8 @@ function StoreDetailsCommentList() {
                                 </div>
                                 <p>The bee's knees bite your arm off bits and bobs he nicked it gosh gutted mate blimey, old off his nut argy bargy vagabond buggered dropped.</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+                                <button onClick={onClickReply}>댓글</button>
+                                {isOffReply ? <div></div> : <div><StoreDetailsCommentForm /></div>}
                             </div>
                         </div>
                     </li>
