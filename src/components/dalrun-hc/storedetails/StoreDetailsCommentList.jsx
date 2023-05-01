@@ -255,11 +255,15 @@ function TestReduxLeft2 () {
                                 </div>
                                 <p>{inq.inqContent}</p>
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+
+
                                 {Number(inq.inqSeq) !== Number(inq.inqSubseq) 
                                     ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}</div> 
                                     : <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} 댓글 onoff</button>
                                 }
                                 {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+                                
                             </div>
                         </div>
                     </li>
