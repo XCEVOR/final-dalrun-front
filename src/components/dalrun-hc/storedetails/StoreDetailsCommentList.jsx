@@ -257,13 +257,13 @@ function TestReduxLeft2 () {
                                 <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
 
 
-                                {Number(inq.inqSeq) !== Number(inq.inqSubseq) 
-                                    ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}</div> 
-                                    : <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} 댓글 onoff</button>
+                                {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                    ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                    : <button value={inq.inqSeq} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
                                 }
                                 {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
 
-                                
+
                             </div>
                         </div>
                     </li>

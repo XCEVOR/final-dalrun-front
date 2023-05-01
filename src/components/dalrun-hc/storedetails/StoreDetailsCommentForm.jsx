@@ -185,8 +185,9 @@ function TestReduxRight2 () {
     }
 
     axios
-      .post("http://localhost:3000/writeProductInquiry", null, {
+      .post("http://localhost:3000/writeProductInquiryRefDepth", null, {
         params: {
+          inqDepth: 0,
           inqWriter: name,
           inqContent: message,
           productId: productId,
