@@ -40,8 +40,7 @@ function ProductRegi({onHide}) {
             .then((resp) => console.log(resp))
             .catch((err) => console.log(err));
     }
-    
-    console.log(imgList)
+
     return (
         <div className="admin_update_container">
             <div className="admin_update">
