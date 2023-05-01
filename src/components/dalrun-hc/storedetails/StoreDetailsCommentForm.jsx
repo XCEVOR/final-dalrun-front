@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
+import { Provider, useSelector, useDispatch } from "react-redux";
+import myReduxStore from "../myredux/myReduxStore";
+
+import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
+import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
+import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
+
+
+
 function StoreDetailsCommentForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -38,6 +47,10 @@ function StoreDetailsCommentForm() {
 
     return (
         <div>
+            <Provider store={myReduxStore}>
+                {/* <TestReduxLeft></TestReduxLeft> */}{/*  // TEST REDUX*/}
+                <TestReduxRight></TestReduxRight>
+            </Provider>
         <div className="post-comment-form">
             <h4>Leave a Reply </h4>
             <span>Your email address will not be published.</span>
@@ -76,5 +89,62 @@ function StoreDetailsCommentForm() {
         </div>
     )
 }
+
+
+
+
+
+////////// ////////// ////////// ////////// ////////// 
+// ===> ../myredux/countReduxSlice.jsx
+// const countReduxSlice = createSlice({
+//     name: "myCounterInSlice",
+//     initialState: {number: 0},
+//     reducers: {
+//         PLUS: (state, action) => {
+//             console.log("  @@ console.log(action); ", action);
+//             state.number = state.number + action.step;
+//         }
+//     }
+// })
+
+
+////////// ////////// ////////// ////////// ////////// 
+// ===> ../myredux/myReduxStore.jsx
+// const myReduxStore = configureStore({
+//     reducer: {
+//         myCounterInConfigureStore: countReduxSlice.reducer
+//     }
+// })
+
+
+////////// ////////// ////////// ////////// ////////// 
+// ===> ./StoreDetailsCommentList.jsx
+// function TestReduxLeft () {
+
+//     const number = useSelector(state => state.myCounterInConfigureStore.number)
+
+//     return (
+//         <div>
+//             <h1>TEST REDUX LEFT: {number}</h1>
+//         </div>
+//     )
+// }
+
+
+////////// ////////// ////////// ////////// ////////// 
+// ===> ./StoreDetailsCommentForm.jsx
+function TestReduxRight () {
+
+    const myDispatch = useDispatch();
+
+    return (
+        <div>
+            <h1>TEST REDUX RIGHT</h1>
+            <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
+        </div>
+    )
+}
+
+
 
 export default StoreDetailsCommentForm;

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
+import { Provider, useSelector, useDispatch } from "react-redux";
+import myReduxStore from "../myredux/myReduxStore";
+
+
+
 function StoreDetailsCommentList() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -44,6 +49,9 @@ function StoreDetailsCommentList() {
 
     return (
         <div>
+            <Provider store={myReduxStore}>
+                <TestReduxLeft></TestReduxLeft>
+            </Provider>
         <div className="post-comments mb-95">
         <div className="post-comment-title mb-40">
             <h3>3 Comments</h3>
@@ -123,6 +131,20 @@ function StoreDetailsCommentList() {
     </div>
     )
 
+}
+
+
+
+
+function TestReduxLeft () {
+
+    const number = useSelector(state => state.myCounterInConfigureStore.number)
+
+    return (
+        <div>
+            <h1>TEST REDUX LEFT: {number}</h1>
+        </div>
+    )
 }
 
 export default StoreDetailsCommentList;
