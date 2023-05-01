@@ -25,12 +25,11 @@ const MainDotMap = () => {
 
   function Changemycrewinfo(info){
     setmycrewinfo(info);
-    console.log("main")
-    console.log(mycrewinfo);
+ 
   }
 
   useEffect(() => {
-    
+
   }, [mycrewinfo]);
  
   return (

@@ -5,7 +5,7 @@ import "../../assets/mjy-assets/css/earth.css";
 import axios from 'axios';
 import Dot from "./dot";
 import ReactTooltip from "react-tooltip";
-
+  
 const Dotmap = (props) => {
 
    //도트맵 리스트
@@ -15,7 +15,7 @@ const Dotmap = (props) => {
   const [login, setLogin] = useState([]);
   const [loginTF,setLoginTF]=useState(false);
   // 나의 크루 정보
-  //const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
+  const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
 
   // 도트맵 hover 애니메이션
   const [dothover, setDothover] = useState(0);
@@ -37,12 +37,12 @@ const Dotmap = (props) => {
 
     axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
-        //setMycrewinfo(resp.data);
+        setMycrewinfo(resp.data);
         props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
         
       })
-  };
+  };  
 
 
   // 도트맵 구매 버튼을 눌렀을 때 
@@ -88,9 +88,9 @@ const Dotmap = (props) => {
 
   // 도트맵 메세지 변경
   const accountMessage = (e) => {
-    if (loginTF && props.mycrewinfo.length!==0) {
+    if (loginTF && mycrewinfo.length!==0) {
       let groundpoint = document.getElementById('price').textContent;
-      let mycrewpoint = props.mycrewinfo.crewScore;
+      let mycrewpoint = mycrewinfo.crewScore;
       let diff = mycrewpoint - parseInt(groundpoint);
 
       if (mycrewpoint >= groundpoint) {
@@ -120,6 +120,7 @@ const Dotmap = (props) => {
 
   /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
   useEffect(() => {
+    
     getearthPage();
     loading();         
   
@@ -211,15 +212,15 @@ const Dotmap = (props) => {
 
       document.getElementById('loginform').style.display = 'block';
       document.getElementById('logoutform').style.display = 'none';
-     
-      if(props.mycrewinfo.length!==0){
+      console.log(mycrewinfo);
+      if(mycrewinfo.length!==0){
         document.getElementById('crewoutform').style.display = 'none';
         document.getElementById('crewinform').style.display = 'block';
        
   
       }
     }
-  }, [login,dotList]);
+  }, [login,dotList,mycrewinfo]);
 
 
   return (
@@ -267,8 +268,8 @@ const Dotmap = (props) => {
 
                 {/* <!-- 크루 가입 시 표시 --> */}
                 <div id='crewinform' style={{ margin: '20px', display: 'none' }}>
-                  <div style={{ backgroundColor: `${props.mycrewinfo.crewcolor}`, textAlign: 'center' }}>
-                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{props.mycrewinfo.crewName}</h4>
+                  <div style={{ backgroundColor: `${mycrewinfo.crewcolor}`, textAlign: 'center' }}>
+                    <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{mycrewinfo.crewName}</h4>
                   </div>
                 </div>
 
