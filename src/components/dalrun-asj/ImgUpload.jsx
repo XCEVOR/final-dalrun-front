@@ -4,7 +4,6 @@ function ImgUpload({max, setImgList}) {
     const [previewImages, setPreviewImages] = useState([]);
     const [uploadImages, setUploadImages] = useState([]);
     const dragBoxRef = useRef();
-
     const ImgLoader = (files) => {
         for(const file of files) {
             // 전송할 이미지

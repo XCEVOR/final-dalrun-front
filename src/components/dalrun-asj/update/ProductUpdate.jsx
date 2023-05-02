@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import ImgUpload from "../ImgUpload";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -16,6 +17,7 @@ function ProductUpdate({data, onHide}) {
     const [saleState, setSaleState] = useState("");
     const [regdate, setRegdate] = useState("");
     const [imgList, setImgList] = useState([]);
+    const [addimgList, setAddImgList] = useState([]);
     const [loading, setLoading] = useState(false);
       
     const setInput = (data) => {
@@ -68,6 +70,12 @@ function ProductUpdate({data, onHide}) {
             formData.append("updateImg", img);
         });
 
+        if(addimgList.length !== 0) {   // 추가 파일이 존재하는 경우에만 전송
+            addimgList.map((img) => {
+                formData.append("addFiles", img);
+            });
+        }   
+
         formData.append("productId", id);
         formData.append("productCode", code);
         formData.append("productCategory", cate);
@@ -98,20 +106,21 @@ function ProductUpdate({data, onHide}) {
             <div className="admin_update">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
-                        <div className="product_img">
+                        <ImgUpload max={`${9-imgList.length}`} setImgList={setAddImgList} />
+                        <ul className="product_img">
                             {
-                                !loading ? <div>Loading...</div> :
+                                !loading ? <div>Loading...</div> : 
                                 imgList.map((pic, index) => (
-                                    <div key={index}>
+                                    <li key={index}>
                                         <img
                                             src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
                                             alt={pic}
                                             loading="lazy"
                                         />
                                         <button value={index} onClick={delImg}>X</button>
-                                    </div>
+                                    </li>
                             ))}
-                        </div>
+                        </ul>
                         <div>
                             <label htmlFor="id">상품번호</label>
                             <input type="text" value={id || ""} readOnly={true} />
