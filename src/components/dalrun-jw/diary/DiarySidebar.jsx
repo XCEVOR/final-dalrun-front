@@ -69,55 +69,64 @@ function MyDropdown() {
 // 다이어리 작성
 function UploadModal() {
 
-    // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
-    const [modalOpen, setModalOpen] = useState(false);
-    const [diary, setDiary] = useState({
-      title: '',
-      content: '',
-      file: null,
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  const memId = loginData.memId;
+
+  // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [diary, setDiary] = useState({
+    title: '',
+    content: '',
+    file: null,
+  });
+
+  const handleModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    setDiary({
+      ...diary,
+      [e.target.name]: e.target.value,
     });
+  };
+  const handleFileChange = (e) => {
+    setDiary({
+      ...diary,
+      file: e.target.files[0],
+    });
+    console.log(e.target.files[0]);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handleModal = () => {
-      setModalOpen(true);
-    };
-    const closeModal = () => {
-      setModalOpen(false);
-    };
+  const formData = new FormData();
+  formData.append('title', diary.title);
+  formData.append('content', diary.content);
+  formData.append('memId', memId);
+  formData.append('gpxFile', diary.file);
 
-    const handleInputChange = (e) => {
-      setDiary({
-        ...diary,
-        [e.target.name]: e.target.value,
-      });
-    };
-    const handleFileChange = (e) => {
-      setDiary({
-        ...diary,
-        file: e.target.files[0],
-      });
-      console.log(e.target.file[0]);
-    };
-    const handleSubmit = (e) => {
-      e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('title', diary.title);
-    formData.append('content', diary.content);
-    // formData.append('memId', diary.writer);
-    formData.append('file', diary.file);
-
-    axios
-      .post('http://localhost:3000/gpxUpload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((error) => {
-        console.error('error');
-      });
+  axios
+  .post('http://localhost:3000/gpxUpload', formData)
+  .then((resp) => {
+      console.log(resp.data);
+  })
+  .catch((error) => {
+    console.error(error);
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
     };
 
     return (
@@ -134,15 +143,15 @@ function UploadModal() {
                   <MyDropzone/>
                 </section>
                 <label>
-                  <input type="file" onChange={handleFileChange} />
+                  <input type="file" name="gpxFile" onChange={handleFileChange} />
                 </label>
                 <label>
                   제목:
-                  <input type="text" value={diary.title} onChange={handleInputChange} autoFocus/>
+                  <input type="text" name="title" value={diary.title} onChange={handleInputChange} autoFocus/>
                 </label>
                 <label>
                   내용:
-                  <textarea value={diary.content} onChange={handleInputChange} />
+                  <textarea name="content" value={diary.content} onChange={handleInputChange} />
                 </label>
                 <footer>
                   <button type='submit' className="close">
