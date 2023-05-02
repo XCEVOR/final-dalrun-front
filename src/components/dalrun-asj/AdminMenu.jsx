@@ -37,7 +37,7 @@ const AdminMenu = () => {
               ))}
             </ul>
             <div className="admin-sidebar-menu_btns">
-              <Link to={"#main"}>돌아가기</Link>
+              <Link to={"/mainPage"}>돌아가기</Link>
               <button className="logout">로그아웃</button>
             </div>
         </div>

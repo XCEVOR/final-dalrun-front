@@ -10,7 +10,7 @@ import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
 import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
 
 
-function StoreDetailsCommentForm() {
+function StoreDetailsCommentSubForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -52,44 +52,6 @@ function StoreDetailsCommentForm() {
                 {/* <TestReduxRight></TestReduxRight> */}
                 <TestReduxRight2></TestReduxRight2>
             </Provider>
-        {/*             
-        <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
-            <span>Your email address will not be published.</span>
-            <div className="bd-contact-form-wrapper mb-30">
-                <form action="#">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Name"  value={name}  onChange={(e)=>setName(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="email" placeholder="Email"  value={email}  onChange={(e)=>setEmail(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Subject"  value={subject}  onChange={(e)=>setSubject(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <textarea placeholder="Message"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field">
-                                <button type="submit" className="theme-btn" onClick={()=>writeComment()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> 
-        */}
-
         </div>
     )
 }
@@ -99,44 +61,7 @@ function StoreDetailsCommentForm() {
 
 
 ////////// ////////// ////////// ////////// ////////// 
-// ===> ../myredux/countReduxSlice.jsx
-// const countReduxSlice = createSlice({
-//     name: "myCounterInSlice",
-//     initialState: {number: 0},
-//     reducers: {
-//         PLUS: (state, action) => {
-//             console.log("  @@ console.log(action); ", action);
-//             state.number = state.number + action.step;
-//         }
-//     }
-// })
-
-
-////////// ////////// ////////// ////////// ////////// 
-// ===> ../myredux/myReduxStore.jsx
-// const myReduxStore = configureStore({
-//     reducer: {
-//         myCounterInConfigureStore: countReduxSlice.reducer
-//     }
-// })
-
-
-////////// ////////// ////////// ////////// ////////// 
-// ===> ./StoreDetailsCommentList.jsx
-// function TestReduxLeft () {
-
-//     const number = useSelector(state => state.myCounterInConfigureStore.number)
-
-//     return (
-//         <div>
-//             <h1>TEST REDUX LEFT: {number}</h1>
-//         </div>
-//     )
-// }
-
-
-////////// ////////// ////////// ////////// ////////// 
-// ===> ./StoreDetailsCommentForm.jsx
+// ===> ./StoreDetailsCommentSubForm.jsx
 function TestReduxRight () {    const [name, setName] = useState('');
 
     const myDispatch = useDispatch();
@@ -172,58 +97,67 @@ function TestReduxRight2 () {
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
 
+
     const myDispatch = useDispatch();
     const storeDetailsCommentSeqDispatch = useDispatch();
+    const storeDetailsCommentRefDispatch = useDispatch();
 
     const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
     const [inqSeq, setInqSeq] = useState(sliceInqSeq);
+    const sliceInqRef = useSelector(state => state.storeDetailsCommentRefInConfigureStore.sliceInqRef)
+    const [inqRef, setInqRef] = useState(sliceInqRef);
 
-    const writeCommentMain = () => {
-    if(subject === undefined || subject.trim() === ''){
-        alert('제목을 입력해 주십시오');
+    const writeCommentSub = () => {
+      if (subject === undefined || subject.trim() === "") {
+        alert("제목을 입력해 주십시오");
         return;
-    }
+      }
 
-    axios
-      .post("http://localhost:3000/writeProductInquiryRefDepth", null, {
-        params: {
-          inqDepth: 0,
-          inqWriter: name,
-          inqContent: message,
-          productId: productId,
-          memId: memId,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data === "SUCCESS") {
-          alert("성공적으로 등록되었습니다");
-          // history('/bbslist');    // bbslist로 이동
-        } else {
-          alert("등록되지 않았습니다");
-        }
-      })
-      .catch(function (err) {
-        alert(err);
-      });   
-    }
+      console.log(" SUB FORM inqSubseq: inqSeq, ", inqSeq);
+      // console.log(" SUB FORM inqSubseq: inqRef, ", inqRef);
+
+      axios
+        .post("http://localhost:3000/writeProductInquiryRefDepthSub", null, {
+          params: {
+            inqRef: inqRef,
+            inqWriter: name,
+            inqContent: message,
+            productId: productId,
+            memId: memId,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data === "SUCCESS") {
+            alert("성공적으로 등록되었습니다");
+            // history('/bbslist');    // bbslist로 이동
+          } else {
+            alert("등록되지 않았습니다");
+          }
+        })
+        .catch(function (err) {
+          alert(err);
+        });
+    };
 
     const myOnClickFunc = () => {
-      writeCommentMain();
-      myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
-      storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
+      writeCommentSub();
+      storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentSeq", sliInqRef: 2} );
     }
 
 
 
     return (
         <div>
-            <h1>TEST REDUX RIGHT</h1>
+            <h1>TEST REDUX SUB RIGHT</h1>
+            <h2>{sliceInqSeq}, {sliceInqRef}</h2>
+            <input type="button" value="  // TEST REDUX +2" onClick={() => storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", step: 2} )}></input>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
+            <input type="button" value="  // TEST REDUX +2" onClick={() => ( console.log("clicked"))}></input>
 
             <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
-            <span>Your email address will not be published.</span>
+            <h4>StoreDetailsCommentSubForm</h4>
+            <span>StoreDetailsCommentSubForm</span>
             <div className="bd-contact-form-wrapper mb-30">
                 <form action="#">
                     <div className="row">
@@ -261,4 +195,4 @@ function TestReduxRight2 () {
 }
 
 
-export default StoreDetailsCommentForm;
+export default StoreDetailsCommentSubForm;

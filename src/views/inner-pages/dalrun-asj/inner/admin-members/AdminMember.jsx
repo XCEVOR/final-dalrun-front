@@ -107,7 +107,7 @@ function AdminMember() {
                       <td>{mem.grade}</td>
                       <td>{mem.foot}</td>
                       <td>{mem.regdate.split('T')[0]}</td>
-                      <td>{mem.memberupdate.split('T')[0]}</td>
+                      <td>{mem.memberupdate !== null ? mem.memberupdate.split('T')[0] : mem.memberupdate}</td>
                       <td>{mem.del === 1 ? "탈퇴":""}</td>
                     </tr>
                     );

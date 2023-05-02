@@ -57,7 +57,6 @@ function AdminSearch(props) {
     }
 
     const handlePagination = (page) => {
-        console.log(page);
         setPage(page);
         getDataList(page-1);
     }

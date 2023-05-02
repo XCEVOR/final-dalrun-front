@@ -37,6 +37,29 @@
             }
         }
 
+        .product_img {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            div, li {
+                padding: 8px;
+                position: relative;
+            }
+
+            button {
+                border: none;
+                position: absolute;
+                background-color: transparent;
+                right: 10px;
+                top: 10px;
+            }
+
+        }
+
+        .add_padding {
+            padding-top: 50px;
+        }
+        
         label {
             font-size: 1.07rem;
             font-weight: 700;
