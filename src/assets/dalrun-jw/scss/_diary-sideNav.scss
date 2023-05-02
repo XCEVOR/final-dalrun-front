@@ -1,7 +1,6 @@
 ﻿$icon-color: #212529; // 아이콘 색상
-$icon-hover-color: #0d6efd; // 아이콘 호버 색상
-$link-color: #0d6efd; // 링크 색상
-$link-hover-color: #0a58ca; // 링크 호버 색상
+$btn-color: #343a40; // 링크 색상
+$btn-hover-color: #94f1dd; // 링크 호버 색상
 $bg-color: #343a40; // 배경 색상
 
 .diary-navbar-container{
@@ -40,7 +39,7 @@ $bg-color: #343a40; // 배경 색상
 
         &:hover{
             opacity: 0.7;
-            background-color: #deea74;
+            background-color: #94f1dd;
         }
     }
     
@@ -56,6 +55,15 @@ $bg-color: #343a40; // 배경 색상
 
     Link{
         display: block;
+    }
+
+    button{
+        display: block;
+        margin-left: 1rem;
+        &:hover {
+        opacity: 0.1;
+        background-color: #94f1dd;
+        }
     }
 
     .dropup-container {

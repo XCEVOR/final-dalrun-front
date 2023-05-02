@@ -1,10 +1,11 @@
 ﻿import React, { useState, useMemo } from 'react';
-import ReactDOM from 'react-dom';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ModalPortal from "../Portal";
-import Modal from "../ModalFrame";
+import ModalFrame from "../ModalFrame";
 import '../../../assets/dalrun-jw/scss/_modal.scss'
+import MyDropzone from '../MyDropzone';
+import axios from 'axios';
 
 const DiarySidebar = () => {
   return (
@@ -52,7 +53,7 @@ function MyDropdown() {
   return (
 
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
-      <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none' }}>
+      <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none', marginLeft: 'auto' }}>
         <img src='https://github.com/mdo.png' alt='mdo' width='24' height='24' className='rounded-circle' />
       </Dropdown.Toggle>
 
@@ -65,36 +66,67 @@ function MyDropdown() {
   );
 } // <MYDropdown/>
 
+// 다이어리 작성
 function UploadModal() {
 
-    // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
-    const [modalOpen, setModalOpen] = useState(false);
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const [file, setFile] = useState(null);
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  const memId = loginData.memId;
 
-    const handleModal = () => {
-      setModalOpen(true);
-    };
-    const closeModal = () => {
-      setModalOpen(false);
-    };
+  // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [diary, setDiary] = useState({
+    title: '',
+    content: '',
+    file: null,
+  });
 
-    const handleTitleChange = (e) => {
-      setTitle(e.target.value);
-    };
-    const handleContentChange = (e) => {
-      setContent(e.target.value);
-    };
-    const handleFileChange = (e) =>{
-      setFile(e.target.files[0]);
-    };
+  const handleModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // 입력된 정보와 파일을 서버로 보내는 작업을 구현합니다.
-      // 이후 모달을 닫는 등의 추가 작업을 수행합니다.
-      closeModal();
+  const handleInputChange = (e) => {
+    setDiary({
+      ...diary,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleFileChange = (e) => {
+    setDiary({
+      ...diary,
+      file: e.target.files[0],
+    });
+    console.log(e.target.files[0]);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  const formData = new FormData();
+  formData.append('title', diary.title);
+  formData.append('content', diary.content);
+  formData.append('memId', memId);
+  formData.append('gpxFile', diary.file);
+
+  axios
+  .post('http://localhost:3000/gpxUpload', formData)
+  .then((resp) => {
+      console.log(resp.data);
+  })
+  .catch((error) => {
+    console.error(error);
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
     };
 
     return (
@@ -105,22 +137,33 @@ function UploadModal() {
         </button>
         <ModalPortal>
           {modalOpen && (
-            <Modal open={modalOpen} close={closeModal} header="다이어리 업로드">
+            <ModalFrame open={modalOpen} close={closeModal} header="다이어리 업로드">
               <form onSubmit={handleSubmit}>
+                <section className="uploadBox" style={{width:'500px', height:'500px', border:'1px solid black'}}>
+                  <MyDropzone/>
+                </section>
+                <label>
+                  <input type="file" name="gpxFile" onChange={handleFileChange} />
+                </label>
                 <label>
                   제목:
-                  <input type="text" value={title} onChange={handleTitleChange} autoFocus/>
+                  <input type="text" name="title" value={diary.title} onChange={handleInputChange} autoFocus/>
                 </label>
                 <label>
                   내용:
-                  <textarea value={content} onChange={handleContentChange} />
+                  <textarea name="content" value={diary.content} onChange={handleInputChange} />
                 </label>
-                <label>
-                  파일 업로드:<input type="file" onChange={handleFileChange} />
-                </label>
-                <button type="submit">업로드</button>
+                <footer>
+                  <button type='submit' className="close">
+                    업로드
+                  </button>
+                  &nbsp;&nbsp; 
+                  <button className="close" onClick={closeModal}>
+                    close
+                  </button>
+                </footer>
               </form>
-            </Modal>
+            </ModalFrame>
           )}
         </ModalPortal>
       </React.Fragment>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import ImgUpload from "../ImgUpload";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -11,10 +12,13 @@ function ProductUpdate({data, onHide}) {
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
     const [price, setPrice] = useState("");
-    const [stock, setStock] = useState(0);
+    const [stock, setStock] = useState("");
     const [temporaryStock, setTemporaryStock] = useState("");
-    const [saleState, setSaleState] = useState("");
+    const [saleState, setSaleState] = useState("1");
     const [regdate, setRegdate] = useState("");
+    const [imgList, setImgList] = useState([]);
+    const [addimgList, setAddImgList] = useState([]);
+    const [loading, setLoading] = useState(false);
       
     const setInput = (data) => {
         const product = data.getProduct;
@@ -28,8 +32,28 @@ function ProductUpdate({data, onHide}) {
         setPrice(product.productPrice);
         setStock(product.productStock);
         setTemporaryStock(product.productStock - orderCnt);
-        setSaleState(product.productSale);
+        setSaleState(String(product.productSale));
         setRegdate(product.productRegiDate);
+
+        getProductImgList(product.productCode);
+    }
+
+    const getProductImgList = (code) => {
+        axios.post("http://localhost:3000/getProductAllPictureList", null, { params : { "productCode" : code } })
+            .then((resp) => {
+                setImgList(resp.data);
+                console.log(imgList);
+                setLoading(true);
+            })
+            .catch((err) => console.log(err));
+    }
+
+    const delImg = (e) => {
+        e.preventDefault();
+
+        const idx = e.target.value;
+        
+        setImgList(imgList.filter((f, index) => index !== Number(idx)));
     }
 
     useEffect(() => {
@@ -41,6 +65,17 @@ function ProductUpdate({data, onHide}) {
         e.preventDefault();
 
         let formData = new FormData();
+
+        imgList.map((img) => {
+            formData.append("updateImg", img);
+        });
+
+        if(addimgList.length !== 0) {   // 추가 파일이 존재하는 경우에만 전송
+            addimgList.map((img) => {
+                formData.append("addFiles", img);
+            });
+        }   
+
         formData.append("productId", id);
         formData.append("productCode", code);
         formData.append("productCategory", cate);
@@ -65,13 +100,28 @@ function ProductUpdate({data, onHide}) {
                 console.log(err);
             });
     }
-
+   
     return (
         <div className="admin_update_container">
             <div className="admin_update">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
-                        <div>
+                        <ImgUpload max={`${9-imgList.length}`} setImgList={setAddImgList} />
+                        <ul className="product_img">
+                            {
+                                !loading ? <div>Loading...</div> : 
+                                imgList.map((pic, index) => (
+                                    <li key={index}>
+                                        <img
+                                            src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                                            alt={pic}
+                                            loading="lazy"
+                                        />
+                                        <button value={index} onClick={delImg}>X</button>
+                                    </li>
+                            ))}
+                        </ul>
+                        <div className="add_padding">
                             <label htmlFor="id">상품번호</label>
                             <input type="text" value={id || ""} readOnly={true} />
                         </div>
@@ -96,7 +146,6 @@ function ProductUpdate({data, onHide}) {
                             <input type="number" value={price || ""} onChange={(e) => setPrice(e.target.value)} />
                         </div>
                         <div>
-                        <div>
                             <label htmlFor="stock">창고재고</label>
                             <input type="number" value={stock || ""} onChange={(e) => setStock(e.target.value)} />
                         </div>
@@ -111,6 +160,7 @@ function ProductUpdate({data, onHide}) {
                                 <option value="0">품절</option>
                             </select>
                         </div>
+                        <div>
                             <label htmlFor="regdate">등록일</label>
                             <input type="date" value={regdate || ""} onChange={(e) => setRegdate(e.target.value)} />
                         </div>

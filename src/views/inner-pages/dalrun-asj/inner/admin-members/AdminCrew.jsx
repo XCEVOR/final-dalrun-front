@@ -4,10 +4,18 @@ import BasicSearch from "../../../../../components/dalrun-asj/BasicSearch";
 import { Table } from "react-bootstrap";
 import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import CrewMembersModal from "../../../../../components/dalrun-asj/CrewMembers";
 
 function AdminCrew() {
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
+  const [crewName, setCrewName] = useState("");
+  const [crewMaxMem, setCrewMaxMem] = useState("");
+  const [crewMemCnt, setMemCnt] = useState("");
+  const [crewMembers, setCrewMembers] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
 
   const optionVal = [
     {value : "crewName", name : "크루명"},
@@ -19,7 +27,18 @@ function AdminCrew() {
     {cate:"delete", name:"크루삭제", selected:"이 크루를 삭제시키시겠습니까?", list:checkedList}
   ];
 
-  console.log(checkedList);
+  const showCrewMembers = (seq, name, max, cnt) => {
+    axios.post('http://localhost:3000/getCrewMember',null, { params: {"crewSeq" : seq} })
+        .then((resp) => {
+          setCrewMembers(resp.data);
+          setCrewMaxMem(max);
+          setMemCnt(cnt);
+          setCrewName(name);
+          setModalShow(true);
+        })
+        .catch((err) => console.log(err));
+  }
+
   return (
     <div className="member">
       <div className="member-content">
@@ -44,22 +63,28 @@ function AdminCrew() {
                   <th>레벨</th>
                   <th>포인트</th>
                   <th>색상</th>
-                  <th>최대 인원</th>
+                  <th>인원수</th>
                   <th>등록일</th>
                   <th>수정일</th>
+                  <th>삭제</th>
                 </tr>
               </thead>
               <tbody>
                 {
-                   dataList.length !== 0 ?
+                  dataList.length !== 0 ?
                   dataList.map((crew, i) => {
+                    let seq = crew.crewSeq;
+                    let name = crew.crewName;
+                    let max = crew.maxMem;
+                    let cnt = crew.crewMemberCnt
+
                     return (
                     <tr key={i}>
                       <th>
                         <input 
                           type="checkbox" 
-                          onChange={(e) => handleSingleCheck(e.target.checked, crew.crewName)} 
-                          checked={checkedList.includes(crew.crewName) ? true : false}
+                          onChange={(e) => handleSingleCheck(e.target.checked, crew.crewSeq)} 
+                          checked={checkedList.includes(crew.crewSeq) ? true : false}
                           />
                       </th>
                       <td>{crew.crewSeq}</td>
@@ -69,9 +94,10 @@ function AdminCrew() {
                       <td>{crew.crewLevel}</td>
                       <td>{crew.crewScore}</td>
                       <td>{crew.crewcolor}</td>
-                      <td>{crew.maxMem}명</td>
+                      <td><Link className="table_link" onClick={() => showCrewMembers(seq, name, max, cnt)}>{cnt}</Link>/{max}명</td>
                       <td>{crew.crewCreateDate}</td>
                       <td>{crew.crewUpdate}</td>
+                      <td>{crew.crewDel !== 0?"삭제":""}</td>
                     </tr>
                     );
                   })
@@ -83,6 +109,14 @@ function AdminCrew() {
           </div>
         </div>
       </div>
+      <CrewMembersModal
+        show={modalShow} 
+        crewname={crewName}
+        mem={crewMembers}
+        max={crewMaxMem}
+        cnt={crewMemCnt}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }

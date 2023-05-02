@@ -27,8 +27,6 @@ function MemberUpdate({data, onHide}) {
         setPoint(data.point);
         setFootSize(data.foot);
         setGrade(data.grade);
-        console.log(typeof(data.point));
-        console.log(typeof(point));
     }
 
     useEffect(() => {
