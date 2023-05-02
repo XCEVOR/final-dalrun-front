@@ -67,9 +67,9 @@ const Team = () => {
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
-    axios.get("http://localhost:3000/allProductListDistinct", {})
+    axios.get("http://localhost:3000/allProductListDeduplication", {})
     .then (function (resp) {
-      console.log("allProductListDistinct resp: ", resp.data);
+      console.log("allProductListDeduplication resp: ", resp.data);
       setProductList(resp.data);
     })
     .catch (function (err) {
@@ -146,6 +146,7 @@ const Team = () => {
                 <h6 className="ptf-team-member__name">
                   <a href="#">{singleproduct.productName}</a>
                 </h6>
+                <h5>₩ {singleproduct.productPrice}</h5>
                 <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
               </div>
             </div>
