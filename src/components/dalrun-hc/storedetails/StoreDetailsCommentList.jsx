@@ -244,30 +244,62 @@ function TestReduxLeft2 () {
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
                 <ul>
-                    <li>
-                        <div className="comments-box">
-                            <div className="comments-avatar">
-                                <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
-                            </div>
-                            <div className="comments-text">
-                                <div className="avatar-name">
-                                    <h5>서버22: {inq.inqWriter}</h5>
-                                    <span className="post-meta">{inq.inqDate}</span>
-                                </div>
-                                <p>{inq.inqContent}</p>
-                                <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
 
 
-                                {Number(inq.inqSeq) !== Number(inq.inqRef) 
-                                    ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                    : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
-                                }
-                                {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+                    {inq.inqDepth == 0 
+                      ?
+                      <li>
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>서버 inqDepth 0: {inq.inqWriter}</h5>
+                                      <span className="post-meta">{inq.inqDate}</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
+                                  <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
 
 
-                            </div>
-                        </div>
-                    </li>
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                  }
+                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+
+                              </div>
+                          </div>
+                      </li>
+
+                      :
+                      <li className="children">
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>서버 inqDepth 1: {inq.inqWriter}</h5>
+                                      <span className="post-meta">February 20, 2022</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
+                                  <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                  }
+                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+
+                              </div>
+                          </div>
+                      </li>
+                    }
+
+
                 </ul>
             </div>
             ))}
