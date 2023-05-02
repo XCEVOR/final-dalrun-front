@@ -121,7 +121,7 @@ function ProductUpdate({data, onHide}) {
                                     </li>
                             ))}
                         </ul>
-                        <div>
+                        <div className="add_padding">
                             <label htmlFor="id">상품번호</label>
                             <input type="text" value={id || ""} readOnly={true} />
                         </div>

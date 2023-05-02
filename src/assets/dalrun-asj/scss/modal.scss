@@ -53,16 +53,17 @@
                 right: 10px;
                 top: 10px;
             }
+
         }
 
+        .add_padding {
+            padding-top: 50px;
+        }
+        
         label {
             font-size: 1.07rem;
             font-weight: 700;
             color: var(--bs-teal);
-        }
-
-        label[for="id"] {
-            padding-top: 50px;
         }
     }
 }

@@ -57,7 +57,7 @@ function ProductRegi({onHide}) {
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                     <fieldset>
                         <ImgUpload max="9" setImgList={setImgList} />
-                        <div>
+                        <div className="add_padding">
                             <label htmlFor="code">상품코드</label>
                             <input type="text" value={code || ""} onChange={(e) => setCode(e.target.value)} required />
                         </div>
