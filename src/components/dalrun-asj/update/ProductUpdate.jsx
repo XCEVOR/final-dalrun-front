@@ -12,9 +12,9 @@ function ProductUpdate({data, onHide}) {
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
     const [price, setPrice] = useState("");
-    const [stock, setStock] = useState(0);
+    const [stock, setStock] = useState("");
     const [temporaryStock, setTemporaryStock] = useState("");
-    const [saleState, setSaleState] = useState("");
+    const [saleState, setSaleState] = useState("1");
     const [regdate, setRegdate] = useState("");
     const [imgList, setImgList] = useState([]);
     const [addimgList, setAddImgList] = useState([]);
@@ -32,7 +32,7 @@ function ProductUpdate({data, onHide}) {
         setPrice(product.productPrice);
         setStock(product.productStock);
         setTemporaryStock(product.productStock - orderCnt);
-        setSaleState(product.productSale);
+        setSaleState(String(product.productSale));
         setRegdate(product.productRegiDate);
 
         getProductImgList(product.productCode);
@@ -100,7 +100,7 @@ function ProductUpdate({data, onHide}) {
                 console.log(err);
             });
     }
-
+   
     return (
         <div className="admin_update_container">
             <div className="admin_update">
