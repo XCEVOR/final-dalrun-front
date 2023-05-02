@@ -40,9 +40,18 @@ function ProductUpdate({data, onHide}) {
         axios.post("http://localhost:3000/getProductAllPictureList", null, { params : { "productCode" : code } })
             .then((resp) => {
                 setImgList(resp.data);
+                console.log(imgList);
                 setLoading(true);
             })
             .catch((err) => console.log(err));
+    }
+
+    const delImg = (e) => {
+        e.preventDefault();
+
+        const idx = e.target.value;
+        
+        setImgList(imgList.filter((f, index) => index !== Number(idx)));
     }
 
     useEffect(() => {
@@ -54,6 +63,11 @@ function ProductUpdate({data, onHide}) {
         e.preventDefault();
 
         let formData = new FormData();
+
+        imgList.map((img) => {
+            formData.append("updateImg", img);
+        });
+
         formData.append("productId", id);
         formData.append("productCode", code);
         formData.append("productCategory", cate);
@@ -89,12 +103,12 @@ function ProductUpdate({data, onHide}) {
                                 !loading ? <div>Loading...</div> :
                                 imgList.map((pic, index) => (
                                     <div key={index}>
-                                    <p>{pic}</p>
-                                    <img
-                                        src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
-                                        alt={pic}
-                                        loading="lazy"
-                                    />
+                                        <img
+                                            src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                                            alt={pic}
+                                            loading="lazy"
+                                        />
+                                        <button value={index} onClick={delImg}>X</button>
                                     </div>
                             ))}
                         </div>
