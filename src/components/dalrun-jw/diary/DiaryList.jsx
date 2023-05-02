@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const DiaryList = () => {
 
   return(
-    <div className="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary">
+    <div className="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-dark">
       <Link to="/" className="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
         <svg className="bi pe-none me-2" width="30" height="24"><use xlinkHref="#bootstrap"/></svg>
         <span className="fs-5 fw-semibold">List group</span>

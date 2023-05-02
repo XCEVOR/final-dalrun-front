@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.8.4",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -21,7 +22,9 @@
     "react-bootstrap": "^2.7.4",
     "react-cookie": "^4.1.1",
     "react-countup": "^6.1.0",
+    "react-datepicker": "^4.11.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.6.3",
     "react-js-pagination": "^3.0.3",
@@ -32,6 +35,7 @@
     "react-naver-maps": "^0.1.2",
     "react-parallax": "^3.3.0",
     "react-pro-sidebar": "^0.7.1",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
@@ -43,6 +47,7 @@
     "sass": "^1.62.0",
     "simple-react-lightbox": "^3.6.9-0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
@@ -69,5 +74,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.1",
+    "babel-plugin-styled-components": "^2.1.1"
   }
 }

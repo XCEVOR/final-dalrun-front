@@ -5,8 +5,8 @@ import "../../assets/mjy-assets/css/earth.css";
 import axios from 'axios';
 import Dot from "./dot";
 import ReactTooltip from "react-tooltip";
-
-const Dotmap = () => {
+  
+const Dotmap = (props) => {
 
    //도트맵 리스트
   const [dotList, setDotList] = useState([]);
@@ -15,7 +15,7 @@ const Dotmap = () => {
   const [login, setLogin] = useState([]);
   const [loginTF,setLoginTF]=useState(false);
   // 나의 크루 정보
-  const [mycrewinfo, setMycrewinfo] = useState([]);
+  const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
 
   // 도트맵 hover 애니메이션
   const [dothover, setDothover] = useState(0);
@@ -38,11 +38,11 @@ const Dotmap = () => {
     axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
       .then(function (resp) {
         setMycrewinfo(resp.data);
-
+        props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
         
       })
-  };
+  };  
 
 
   // 도트맵 구매 버튼을 눌렀을 때 
@@ -66,6 +66,9 @@ const Dotmap = () => {
           document.getElementById('ModalBuyHeader').style.display = 'none';
           document.getElementById('modalHeader').style.display = 'none';
           getearthPage();
+          loading();
+  
+        
         })
         .catch(function (error) {
           alert('file upload에 실패했습니다');
@@ -104,18 +107,22 @@ const Dotmap = () => {
       }
     }
   }
-
-  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
-  useEffect(() => {
-    getearthPage();
-
+  function loading(){
     const logindata=JSON.parse(localStorage.getItem('login'));
     if(logindata){
       console.log(logindata.memId,"님이 접속하였습니다..")
       setLogin(logindata);
       getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
       setLoginTF(true);
+      
     }
+  }
+
+  /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
+  useEffect(() => {
+    
+    getearthPage();
+    loading();         
   
   }, []);
 
@@ -205,7 +212,7 @@ const Dotmap = () => {
 
       document.getElementById('loginform').style.display = 'block';
       document.getElementById('logoutform').style.display = 'none';
-     
+      console.log(mycrewinfo);
       if(mycrewinfo.length!==0){
         document.getElementById('crewoutform').style.display = 'none';
         document.getElementById('crewinform').style.display = 'block';
@@ -213,7 +220,7 @@ const Dotmap = () => {
   
       }
     }
-  }, [login,dotList, mycrewinfo]);
+  }, [login,dotList,mycrewinfo]);
 
 
   return (
