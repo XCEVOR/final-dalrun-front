@@ -40,13 +40,9 @@
         .product_img {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            padding-bottom: 50px;
 
             div, li {
                 padding: 8px;
-            }
-
-            li {
                 position: relative;
             }
 
@@ -57,8 +53,13 @@
                 right: 10px;
                 top: 10px;
             }
+
         }
 
+        .add_padding {
+            padding-top: 50px;
+        }
+        
         label {
             font-size: 1.07rem;
             font-weight: 700;
