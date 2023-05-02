@@ -67,9 +67,9 @@ const Team = () => {
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
-    axios.get("http://localhost:3000/allProductListGetMapping", {})
+    axios.get("http://localhost:3000/allProductListDistinct", {})
     .then (function (resp) {
-      console.log("allProductListGetMapping resp: ", resp.data);
+      console.log("allProductListDistinct resp: ", resp.data);
       setProductList(resp.data);
     })
     .catch (function (err) {
@@ -135,7 +135,7 @@ const Team = () => {
                   {" "}
                   <img
                     // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`assets/img/dalrun-hc/store/storedetails/${singleproduct.productOrigFile}.png`}
+                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
                     alt={singleproduct.productName}
                     loading="lazy"
                   />
