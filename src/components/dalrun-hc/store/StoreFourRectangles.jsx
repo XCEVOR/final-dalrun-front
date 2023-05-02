@@ -135,7 +135,7 @@ const Team = () => {
                   {" "}
                   <img
                     // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`assets/img/dalrun-hc/store/storedetails/${singleproduct.productOrigFile}.png`}
+                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-02.png`}
                     alt={singleproduct.productName}
                     loading="lazy"
                   />
