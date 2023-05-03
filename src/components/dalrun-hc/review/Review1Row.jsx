@@ -26,7 +26,7 @@ const blogContent = [
   },
 ];
 
-const BlogFour = () => {
+const Review1Row = () => {
   return (
     <>
       {blogContent.map((val, i) => (
@@ -71,4 +71,4 @@ const BlogFour = () => {
   );
 };
 
-export default BlogFour;
+export default Review1Row;

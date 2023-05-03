@@ -1,16 +1,18 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import BlogSidebarPost from "../../../../components/blog/blog-sidebar/BlogSidebarPost";
-import BlogFive from "../../../../components/dalrun-hc/review/BlogFive";
-import BlogFour from "../../../../components/dalrun-hc/review/BlogFour";
+
+
 import Pagination from "../../../../components/blog/Pagination";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
 import Footer from "../../../../components/footer/Footer";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 
-import SearchBlog from "../../../../components/dalrun-hc/review/SearchBlog";
+import BlogFour from "../../../../components/dalrun-hc/review/Review1Row";
+import BlogFive from "../../../../components/dalrun-hc/review/Review2Row";
+import SearchBlog from "../../../../components/dalrun-hc/review/ReviewSearch";
 
-const BlogSidebar = () => {
+const ReviewMain = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
       <Helmet>
@@ -177,4 +179,4 @@ const BlogSidebar = () => {
   );
 };
 
-export default BlogSidebar;
+export default ReviewMain;

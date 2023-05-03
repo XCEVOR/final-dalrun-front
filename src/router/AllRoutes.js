@@ -152,7 +152,7 @@ const AllRoutes = () => {
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
         <Route path='/review-main' element={<ReviewMain />} />
-        <Route path='/review-details' element={<ReviewDetails />} />
+        <Route path='/review-details/:shoereviewdetailSeq' exact element={<ReviewDetails />} />
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}

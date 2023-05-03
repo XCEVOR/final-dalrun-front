@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchBlog = () => {
+const ReviewSearch = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -20,4 +20,4 @@ const SearchBlog = () => {
   );
 };
 
-export default SearchBlog;
+export default ReviewSearch;
