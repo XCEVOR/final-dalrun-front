@@ -4,6 +4,8 @@ import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
 import { Table } from "react-bootstrap";
 import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
+import axios from "axios";
+import OrderDetailsModal from "../../../../../components/dalrun-asj/details/OrderDetailsModal";
 
 function AdminOrder() {
   const [choice, setChoice] = useState("");
@@ -11,6 +13,11 @@ function AdminOrder() {
   const [orderState, setOrderState] = useState("");
   const [deliveryState, setDeliveryState] = useState("");
   const [dataList, setDataList] = useState([]);
+  const [orderdetail, setOrderdetail] = useState([]);
+  const [orderNumber, setOrderNumber] = useState();
+  const [totalPrice, setTotalPrice] = useState();
+  const [quantity, setQuantity] = useState();
+  const [modalShow, setModalShow] = useState(false);
 
   const handleOrderRadio = (e) => setOrderState(e.target.value);
   const handleDeliveryRadio = (e) => setDeliveryState(e.target.value);
@@ -32,6 +39,19 @@ function AdminOrder() {
     if(d === 0) return "배송준비"
     else if(d === 1) return "배송중"
     else if(d === 2) return "배송완료"
+  }
+
+  const showOrderDetail = (num, price, quantity) => {
+    axios.post('http://localhost:3000/getOrderDetail',null, { params: {"orderNumber" : num} })
+        .then((resp) => {
+          setOrderdetail(resp.data);
+          setOrderNumber(num);
+          setTotalPrice(price);
+          setQuantity(quantity);
+          setModalShow(true);
+          console.log(orderdetail);
+        })
+        .catch((err) => console.log(err));
   }
 
   return (
@@ -96,6 +116,7 @@ function AdminOrder() {
                     <th>주소</th>
                     <th>연락처</th>
                     <th>요청사항</th>
+                    <th>주문수량</th>
                     <th>총금액</th>
                     <th>주문일자</th>
                     <th>주문상태</th>
@@ -106,6 +127,10 @@ function AdminOrder() {
                   {
                     dataList.length !== 0 ?
                     dataList.map((order, i) => {
+                      const orderNumber = order.orderNumber;
+                      const totalPrice = order.orderTotalprice;
+                      const orderQuantity = order.orderQuantity;
+
                       return(
                         <tr key={i}>
                           <th>
@@ -115,13 +140,16 @@ function AdminOrder() {
                               checked={checkedList.includes(order.orderNumber) ? true : false}
                               />
                           </th>
-                          <td>{order.orderNumber}</td>
+                          <td>
+                            <Link className="table_link" onClick={() => showOrderDetail(orderNumber, totalPrice, orderQuantity)}>{orderNumber}</Link>
+                          </td>
                           <td>{order.memId}</td>
                           <td>{order.orderName}</td>
                           <td>{order.orderAddress}</td>
                           <td>{order.orderPhone}</td>
                           <td>{order.orderRequirment}</td>
-                          <td>{order.orderTotalprice}</td>
+                          <td>{orderQuantity}</td>
+                          <td>{totalPrice}</td>
                           <td>{order.orderDate}</td>
                           <td>{orderstate(order.orderState)}</td>
                           <td>{deliverystate(order.deliveryState)}</td>
@@ -136,6 +164,14 @@ function AdminOrder() {
             </div>
           </div>
       </div>
+      <OrderDetailsModal 
+        show={modalShow} 
+        orderdetail={orderdetail}
+        ordernumber={orderNumber}
+        totalPrice={totalPrice}
+        quantity={quantity}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }
