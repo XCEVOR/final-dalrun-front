@@ -8,6 +8,8 @@ import CopyRight from "../../../../components/footer/copyright/CopyRight";
 import Footer from "../../../../components/footer/Footer";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
 
+import SearchBlog from "../../../../components/dalrun-hc/review/SearchBlog";
+
 const BlogSidebar = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
@@ -85,6 +87,7 @@ const BlogSidebar = () => {
             Start Blog With Sidebar  Section 
             ============================================== */}
             <section>
+
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
@@ -92,7 +95,28 @@ const BlogSidebar = () => {
               ></div>
               <div className="container-xxl">
                 <div className="row">
-                  <div className="col-xl-8">
+
+
+                  {/* <!--Widget--> */}
+                  <div className="ptf-widget ptf-widget-search">
+                    {/* <!--Animated Block--> */}
+                    <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                      <h4 className="ptf-widget-title">Search</h4>
+                      <SearchBlog />
+                    </div>
+                  </div>
+                  {/* <!--Widget--> */}
+
+
+
+                  <div
+                    className="ptf-spacer"
+                    style={{ "--ptf-xxl": "1.5rem", "--ptf-md": "3.75rem" }}
+                  ></div>
+
+
+
+                  <div className="col-xl-12">
                     {/* <!--Animated Block--> */}
                     <div
                       className="ptf-animated-block"
@@ -115,11 +139,13 @@ const BlogSidebar = () => {
                     <Pagination />
                   </div>
                   {/* Blog grid  */}
+                  {/* 
                   <div className="col-xl-4">
                     <div className="ptf-sidebar ptf-sidebar--right">
                       <BlogSidebarPost />
                     </div>
-                  </div>
+                  </div> 
+                  */}
                   {/* End sidebar */}
                 </div>
               </div>
