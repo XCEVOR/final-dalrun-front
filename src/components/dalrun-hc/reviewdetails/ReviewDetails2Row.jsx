@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ReviewDetailAbstract from "./ReviewDetailAbstract";
 
 const ReviewDetails2Row = () => {
   const sampleData = [
@@ -58,7 +59,7 @@ const ReviewDetails2Row = () => {
                 </div>
               </div>
             </section>
-
+            <ReviewDetailAbstract></ReviewDetailAbstract>
             <section>
               {/* <!--Spacer--> */}
               <div
@@ -263,5 +264,42 @@ const ReviewDetails2Row = () => {
         </div>
     )
 }
+
+// const ReviewDatailDataDispatch = () => {
+//   const dataDispatch = useDispatch();
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
+// }
+
+
+// const ReviewSeqDispatch = () => {
+//   let reviewDetailParams = useParams();
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams.shoereviewdetailSeq)
+//   const reviewSeqDispatch = useDispatch();
+
+//   useEffect (() => {
+//     reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: reviewDetailParams.shoereviewdetailSeq})
+//   }, [reviewDetailParams])
+
+//   const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
+
+//   const [singleReview, setSingleReview] = useState([]);
+//   const getSingleShoeReview = async () => {
+//       const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
+//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
+//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+//       setSingleReview(resp.data)
+//   }
+
+//   useEffect (() => {
+//       getSingleShoeReview(pageDetailSeq);
+//   }, [pageDetailSeq])
+
+//   // return (
+//   //   <div>
+//   //     <button onClick={() => {reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: 2})}}>ReviewSeqDispatch</button>
+//   //   </div>
+//   // )
+// }
 
 export default ReviewDetails2Row;
