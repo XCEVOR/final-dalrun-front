@@ -48,8 +48,20 @@ function StoreDetailsSelection() {
     }
 
 
+    const updateProductView = async () => {
+      const resp = await axios.post("http://localhost:3000/updateProductView", null, { params: {"productCode": prodParams.productCode} });
+      console.log(" updateProductView: ", resp.data);
+    }
 
+    const updateProductLike = async () => {
+      const resp = await axios.post("http://localhost:3000/updateProductLike", null, { params: {"productCode": prodParams.productCode} });
+      console.log(" updateProductLike: ", resp.data);
+    }
 
+    const updateProductRecomm = async (eve) => {
+      const resp = await axios.post("http://localhost:3000/updateProductRecomm", null, { params: {"productCode": prodParams.productCode, "productRecomm": eve} });
+      console.log(" updateProductRecomm: ", resp.data);
+    }
 
   
     useEffect(() => {
@@ -104,6 +116,13 @@ function StoreDetailsSelection() {
 
     return (
       <div>
+        <button onClick={updateProductView}>VIEW TEST</button>
+        <button onClick={updateProductLike}>LIKE TEST</button>
+        <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
+        <button value="2" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 2 TEST</button>
+        <button value="3" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 3 TEST</button>
+
+        
         <div className="product_id">
           <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
         </div>
