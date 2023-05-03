@@ -17,6 +17,11 @@ function StoreCartList(props) {
   const [data, setData] = useState([]);  // 삭제 예정.
   const [sum, setSum] = useState(0);  // 삭제 예정.
 
+  // --------주문상세 데이터를 담기위한 state----------
+  const [orderNumber, setOrderNumber] = useState();
+  const [orderItems, setOrderItems] = useState([]);
+  // ------------------------------------------------
+
   // Component to Component
   const [myData, setMyData] = React.useState("<blank>");
   pullData = setMyData;
@@ -177,8 +182,6 @@ function StoreCartList(props) {
     window.location.reload();
   }
 
-
-
   const writeOrderData = async () => {
     const resp = await axios.post(
       "http://localhost:3000/writeOrderData",
@@ -195,8 +198,31 @@ function StoreCartList(props) {
         },
       }
     );
-    console.log("  sendOrderData: ", resp.data);
+    console.log("  sendOrderData: ", resp.data.result);
+    setOrderNumber(resp.data.orderNumber);
 
+    // 주문 성공시, 주문상세 데이터 넣기
+    const newOrderItems = cartList.productIdList.map((list) => ({
+      "orderNumber": resp.data.orderNumber,
+      "productId": list.productId,
+      "productName": list.cartProdName,
+      "productPrice": list.cartProdPrice,
+      "productQuantity": list.cartProdQuantity
+    }));
+    
+    if(newOrderItems.length > 0) {
+      console.log(newOrderItems);
+      setOrderItems((prev) => [...prev, ...newOrderItems]);
+      
+      console.log(orderItems);
+  
+      axios.post("http://localhost:3000/writeOrderDetail", newOrderItems)
+        .then((resp) => {
+          console.log(resp.data);
+          setOrderItems([]);
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
 

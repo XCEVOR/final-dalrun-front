@@ -6,7 +6,7 @@ import useCheckControl from "../../../../../components/dalrun-asj/useCheckContro
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import CrewMembersModal from "../../../../../components/dalrun-asj/CrewMembers";
+import CrewMembersModal from "../../../../../components/dalrun-asj/details/CrewMembersModal";
 
 function AdminCrew() {
   const [dataList, setDataList] = useState([]);
