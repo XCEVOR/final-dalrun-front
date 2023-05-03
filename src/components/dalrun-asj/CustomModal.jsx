@@ -17,9 +17,9 @@ function CustomModal(props) {
   const getTarget = () => {
     if(props.checked.length !== 0) {
       axios.post(`http://localhost:3000/get${cate}`, null, { params:{ "target":props.checked[0] } })
-          .then((resp) => {
-              setData(resp.data);
-              console.log("getTarget");
+      .then((resp) => {
+            setData(resp.data);
+            console.log("getTarget");
           })
           .catch((err) => {
               console.log(err);

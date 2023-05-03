@@ -111,20 +111,20 @@ function AdminOrder() {
                           <th>
                             <input 
                               type="checkbox" 
-                              onChange={(e) => handleSingleCheck(e.target.checked, order.orderSeq)} 
-                              checked={checkedList.includes(order.orderSeq) ? true : false}
+                              onChange={(e) => handleSingleCheck(e.target.checked, order.orderNumber)} 
+                              checked={checkedList.includes(order.orderNumber) ? true : false}
                               />
                           </th>
-                          <th>{order.orderSeq}</th>
-                          <th>{order.memId}</th>
-                          <th>{order.orderName}</th>
-                          <th>{order.orderAddress}</th>
-                          <th>{order.orderPhone}</th>
-                          <th>{order.orderRequirment}</th>
-                          <th>{order.orderTotalprice}</th>
-                          <th>{order.orderDate}</th>
-                          <th>{orderstate(order.orderState)}</th>
-                          <th>{deliverystate(order.deliveryState)}</th>
+                          <td>{order.orderNumber}</td>
+                          <td>{order.memId}</td>
+                          <td>{order.orderName}</td>
+                          <td>{order.orderAddress}</td>
+                          <td>{order.orderPhone}</td>
+                          <td>{order.orderRequirment}</td>
+                          <td>{order.orderTotalprice}</td>
+                          <td>{order.orderDate}</td>
+                          <td>{orderstate(order.orderState)}</td>
+                          <td>{deliverystate(order.deliveryState)}</td>
                         </tr>
                       );
                     }) 
