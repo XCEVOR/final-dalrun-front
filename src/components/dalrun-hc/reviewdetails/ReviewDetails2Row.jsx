@@ -1,8 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const ReviewDetails2Row = () => {
     const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
+
+    const [singleReview, setSingleReview] = useState([]);
+    const getSingleShoeReview = async () => {
+        const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
+        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
+        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+        setSingleReview(resp.data)
+    }
+
+    useEffect (() => {
+        getSingleShoeReview(pageDetailSeq);
+    }, [pageDetailSeq])
 
     return (
         <div>
@@ -46,6 +59,10 @@ const ReviewDetails2Row = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
+                  <h1>{singleReview.shoereviewdetailTitle}</h1><br/>
+                  <p className="fz-30 has-black-color">
+                    {singleReview.shoereviewdetailContent}
+                  </p>
                   <p className="fz-30 has-black-color">
                     Lewis Studio Website is a startup that aims to supply energy
                     (starting with gas) to domestic household acrossthe UK.
