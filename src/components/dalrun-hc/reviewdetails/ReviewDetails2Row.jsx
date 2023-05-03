@@ -3,6 +3,20 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const ReviewDetails2Row = () => {
+  const sampleData = [
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/ADID-LIRA/ADID-LIRA.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/NBAL-FRFO/NBAL-FRFO.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/PUMA-AMSN/PUMA-AMSN.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/RBOK-DYAD/RBOK-DYAD.png",
+    },
+  ];
     const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
 
     const [singleReview, setSingleReview] = useState([]);
@@ -31,11 +45,11 @@ const ReviewDetails2Row = () => {
                   {/* <!--Simple Image--> */}
                   <div className="ptf-simple-image">
                     <a
-                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      href="https://i.ebayimg.com/images/g/sE4AAOSwCXRicCxv/s-l1600.jpg"
                       rel="nofollow"
                     >
                       <img
-                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        src={`http://localhost:3000/dalrun-hc/review/${pageDetailSeq}/${pageDetailSeq}-1.png`}
                         alt="work"
                         loading="lazy"
                       />

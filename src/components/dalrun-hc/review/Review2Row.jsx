@@ -67,7 +67,7 @@ const Review2Row = () => {
             <div className="ptf-post__media">
               <Link className="ptf-work__link" to={`/review-details/${review.shoereviewdetailSeq}`}></Link>
               <img
-                src={`assets/img/dalrun-hc/${review.img}.jpg`}
+                src={`http://localhost:3000/dalrun-hc/review/${review.shoereviewdetailSeq}/${review.shoereviewdetailSeq}-1.png`}
                 alt={review.shoereviewSeq}
                 loading="lazy"
               />
