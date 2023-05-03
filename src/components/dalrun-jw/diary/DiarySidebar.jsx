@@ -111,10 +111,13 @@ function UploadModal() {
 
   axios
   .post('http://localhost:3000/gpxUpload', formData)
-  .then((resp) => {
+  .then((resp) => { // success
       console.log(resp.data);
+      const gpxDataList = resp.data;
+      alert('업로드 완료');
   })
-  .catch((error) => {
+  .catch((error) => { // fail
+    alert('업로드 실패');
     console.error(error);
     if (error.response) {
       console.log(error.response.data);
