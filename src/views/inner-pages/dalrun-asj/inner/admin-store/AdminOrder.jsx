@@ -24,8 +24,8 @@ function AdminOrder() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"주문수정", selected:"주문내역 수정 페이지"}, 
-    {cate:"delete", name:"주문삭제", selected:"이 주문내역을 삭제하겠습니까?"}
+    {cate:"update", name:"주문수정", selected:"주문내역 수정 페이지", list:checkedList}, 
+    {cate:"delete", name:"주문삭제", selected:"이 주문내역을 삭제하겠습니까?", list:checkedList}
   ];
 
   const orderstate = (o) => {
@@ -49,7 +49,6 @@ function AdminOrder() {
           setTotalPrice(price);
           setQuantity(quantity);
           setModalShow(true);
-          console.log(orderdetail);
         })
         .catch((err) => console.log(err));
   }
@@ -156,7 +155,7 @@ function AdminOrder() {
                         </tr>
                       );
                     }) 
-                    : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                    : <tr style={{textAlign:"center"}}><td colSpan="12">데이터가 없습니다</td></tr>
                   }
                 </tbody>
               </Table>
