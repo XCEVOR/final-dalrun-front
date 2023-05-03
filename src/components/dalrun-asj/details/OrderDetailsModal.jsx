@@ -46,7 +46,7 @@ function OrderDetailsModal(props) {
                   </tr>
                   )
               })
-              : <tr style={{textAlign:"center"}}><td colSpan="11">크루멤버가 없습니다</td></tr>
+              : <tr style={{textAlign:"center"}}><td colSpan="11">주문목록이 없습니다</td></tr>
             }
           </tbody>
         </Table>
