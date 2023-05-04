@@ -10,7 +10,6 @@ function AdminProductinquiry() {
 
   const category = [
     {cate:"reply", name:"문의답변", selected:"문의답변 페이지", list:checkedList}, 
-    {cate:"update", name:"문의수정", selected:"문의수정 페이지", list:checkedList}, 
     {cate:"delete", name:"문의삭제", selected:"이 문의를 삭제하겠습니까?", list:checkedList}
   ];
 
@@ -33,14 +32,16 @@ function AdminProductinquiry() {
                 <th>상품번호</th>
                 <th>작성자</th>
                 <th>제목</th>
+                <th>문의내용</th>
                 <th>답변상태</th>
                 <th>작성일</th>
               </tr>
             </thead>
             <tbody>
               {
-                  dataList.length !== 0 ?
+                dataList.length !== 0 ?
                 dataList.map((inq, i) => {
+                  console.log(i, inq);
                   return (
                   <tr key={i}>
                     <th>
@@ -54,6 +55,8 @@ function AdminProductinquiry() {
                     <td>{inq.productId}</td>
                     <td>{inq.inqWriter}</td>
                     <td>{inq.inqTitle}</td>
+                    <td>{inq.inqContent}</td>
+                    <td>{inq.replyCnt > 1 ? "답변완료" : "답변대기"}</td>
                     <td>{inq.inqDate}</td>
                   </tr>
                   );

@@ -29,7 +29,7 @@ function CustomModal(props) {
   }
 
   const delTargets = () => {
-    axios.post(`http://localhost:3000/admin_del${cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
+    axios.post(`http://localhost:3000/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
         .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
