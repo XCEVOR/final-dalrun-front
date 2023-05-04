@@ -9,7 +9,6 @@ import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
 import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
-import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
@@ -51,6 +50,142 @@ const WorksShowcase = () => {
     <>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
+    <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
+      <Helmet>
+        <title>STORE DETAILS</title>
+      </Helmet>
+      {/* End Page SEO Content */}
+      <div className="ptf-site-wrapper__inner">
+        <HeaderDefault />
+        {/* End  HeaderHomeDefault */}
+
+        <div className="main">
+          <article className="ptf-page ptf-page--single-work-1">
+            
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8">
+                      <StoreDetailsPicture />
+                    </div>
+                    <div className="col-xl-4">
+                      <StoreDetailsSelection />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentList />
+                </div>
+                
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
+
+
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentForm />
+                </div>
+                
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "32.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
+
+
+
+
+
+
+            
+          </article>
+          {/* End .ptf-page */}
+        </div>
+      </div>
+      {/* End .main */}
+
+      {/* <!--Footer--> */}
+      <footer className="ptf-footer ptf-footer--style-1">
+        <div className="container-xxl">
+          <div className="ptf-footer__top">
+            <Footer />
+          </div>
+          <div className="ptf-footer__bottom">
+            <CopyRight />
+          </div>
+        </div>
+      </footer>
+    </div>
+    </div>
+    // End .ptf-is--blog-grid
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>
+      <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>
@@ -461,15 +596,6 @@ const WorksShowcase = () => {
     </div>
     </div>
     // End .ptf-is--blog-grid
-    </>
-    )
-
-
-    // DEVELOPER_MODE
-    : (
-      <>
-      <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
-
       </>
     )
 };
