@@ -90,6 +90,8 @@ function TestReduxRight () {    const [name, setName] = useState('');
 ////////// ////////// ////////// ////////// ////////// 
 // ===> COMMENT
 function TestReduxRight2 () {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -147,7 +149,10 @@ function TestReduxRight2 () {
 
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
             <h1>TEST REDUX SUB RIGHT</h1>
             <h2>{sliceInqSeq}, {sliceInqRef}</h2>
@@ -191,6 +196,15 @@ function TestReduxRight2 () {
             </div>
         </div>
         </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+      </>
     )
 }
 
