@@ -109,6 +109,11 @@
 
     .info_con {
         height: 100%;
+
+        .table_link {
+            text-decoration: revert;
+            color: var(--ptf-accent-4);
+        }
     }
 }
 
@@ -137,12 +142,6 @@
 
 // 회원관리
 .member {
-    .info_con {
-        .table_link {
-            text-decoration: revert;
-            color: var(--ptf-accent-4);
-        }
-    }
 }
 
 // 게시물 관리

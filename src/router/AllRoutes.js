@@ -150,7 +150,6 @@ const AllRoutes = () => {
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
- 
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}

@@ -15,6 +15,7 @@ function StoreDetailsSelection() {
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [selectedProdId, setSelectedProdId] = useState("");
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
     const [userOrderData, setUserOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderProductQuantity": selectedQuantity});
@@ -48,8 +49,20 @@ function StoreDetailsSelection() {
     }
 
 
+    const updateProductView = async () => {
+      const resp = await axios.post("http://localhost:3000/updateProductView", null, { params: {"productCode": prodParams.productCode} });
+      console.log(" updateProductView: ", resp.data);
+    }
 
+    const updateProductLike = async () => {
+      const resp = await axios.post("http://localhost:3000/updateProductLike", null, { params: {"productCode": prodParams.productCode} });
+      console.log(" updateProductLike: ", resp.data);
+    }
 
+    const updateProductRecomm = async (eve) => {
+      const resp = await axios.post("http://localhost:3000/updateProductRecomm", null, { params: {"productCode": prodParams.productCode, "productRecomm": eve} });
+      console.log(" updateProductRecomm: ", resp.data);
+    }
 
   
     useEffect(() => {
@@ -62,16 +75,16 @@ function StoreDetailsSelection() {
 
     const selectColorBtn = (e) => {
       setSelectedColor(e.target.value);
-      console.log(selectedColor);
+      console.log("console.log(selectedColor);", selectedColor);
     }
     const selectSizeBtn = (e) => {
       setSelectedSize(e.target.value);
-      console.log(selectedSize);
+      console.log("console.log(selectedSize);", selectedSize);
     }
     const selectQuantityMinusBtn = (e) => {
       if (selectedQuantity <= 1) return;
       setSelectedQuantity(selectedQuantity - 1);
-      console.log(selectedQuantity);
+      console.log("console.log(selectedQuantity);", selectedQuantity);
     }
 
 
@@ -80,13 +93,16 @@ function StoreDetailsSelection() {
       if(selectedColor === undefined || selectedSize === undefined ){
         alert('제목을 입력해 주십시오');
         return;
-    }
+      }
       const resp = await axios.post("http://localhost:3000/getSelectedProductInfo", null, { params: {"productCode": prodParams.productCode, "productColor": selectedColor, "productSize": selectedSize} });
       console.log(prodParams.productCode, selectedColor, selectedSize);
       console.log(" @ selectedItemInfo: ", resp.data);
       if (resp.data.length === 0) {alert('색상 & 사이즈를 선택하세요'); return;}
+      setSelectedProdId(resp.data[0].productId);
+      console.log("  setSelectedProdId(: ", selectedProdId)
       setSelectedItemInfo(resp.data);
-      window.localStorage.setItem("orderProductId", selectedItemInfo[0].productId)
+      console.log("  setSelectedItemInfo(: ", selectedItemInfo)
+      // window.localStorage.setItem("orderProductId", selectedItemInfo[0].productId)
       setUserOrderData({ ...userOrderData, orderProductId: selectedItemInfo[0].productId, orderProductQuantity: selectedQuantity});
       console.log("  selectedItemInfo[0].productId: ", selectedItemInfo[0].productId)
     }
@@ -94,8 +110,8 @@ function StoreDetailsSelection() {
 
 
     const addToCart = async () => {
-      console.log(" @ console.log(orderProductId): ", userOrderData)
-      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": userOrderData.orderProductQuantity, "productId": userOrderData.orderProductId, "memId": "user01test", "orderSeq": 33} });
+      console.log(" @ console.log(userOrderData): ", userOrderData)
+      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
     }
 
@@ -104,6 +120,13 @@ function StoreDetailsSelection() {
 
     return (
       <div>
+        <button onClick={updateProductView}>VIEW TEST</button>
+        <button onClick={updateProductLike}>LIKE TEST</button>
+        <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
+        <button value="2" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 2 TEST</button>
+        <button value="3" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 3 TEST</button>
+
+        
         <div className="product_id">
           <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
         </div>
@@ -156,6 +179,7 @@ function StoreDetailsSelection() {
             {selectedItemInfo[0].productCode}//
             {selectedItemInfo[0].productColor}//
             {selectedItemInfo[0].productSize}//
+            {selectedProdId}//
           </p>
         </div>
 
@@ -172,7 +196,7 @@ function StoreDetailsSelection() {
           to="/store-cart"
         >
           장바구니
-            <p>//ID: {userOrderData.orderProductId}//Qty: {userOrderData.orderProductQuantity}</p>
+            <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p>
         </Link>
 
         <div className="product_checkout">
