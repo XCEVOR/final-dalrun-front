@@ -67,7 +67,7 @@ function CustomModal(props) {
 
   useEffect(()=>{
     getTarget();
-  }, [props.checked[0]]);
+  }, [props]);
 
   return (
     <Modal
