@@ -200,6 +200,8 @@ function StoreDetailsCommentList() {
 // }
 
 function TestReduxLeft2 () {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -260,7 +262,10 @@ function TestReduxLeft2 () {
     }
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <>          <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
             <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
             
@@ -328,6 +333,15 @@ function TestReduxLeft2 () {
             ))}
             
         </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+      </>
     )
 }
 
