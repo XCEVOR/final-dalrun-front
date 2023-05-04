@@ -7,10 +7,29 @@ function ProductInqReply({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
     const [id, setId] = useState("adminId");
     const [replyCon, setReplyCon] = useState("");
+    const [inqList, setInqList] = useState([]);
 
     useEffect(() => {
         // setReplyTitle(`re: ${data[0].inqTitle}`);
     }, [data]);
+
+    const handleUpdate = (con, seq) => {
+        const updateReply = {
+            "inqSeq" : seq,
+            "inqContent" : con
+        }
+
+        axios.post("http://localhost:3000/updatereply", null, { params : updateReply })
+            .then((resp) => {
+                if(resp.data === "YES") {
+                    alert("답변 수정 완료");
+                    onHide();
+                } else {
+                    alert("답변 수정 실패");
+                }
+            })
+            .catch((err) => console.log(err));
+      }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -38,7 +57,7 @@ function ProductInqReply({data, onHide}) {
 
     return(
         <div>
-            <Table striped bordered hover>
+            <Table striped bordered hover className="modalInTable">
                 <thead>
                     <tr>
                         <th>문의상품</th>
@@ -46,19 +65,35 @@ function ProductInqReply({data, onHide}) {
                         <th>이름</th>
                         <th>제목</th>
                         <th>문의내용</th>
+                        <th>관리</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         data.map((inq, i) => {
-                            console.log(i, inq)
                             return(
                             <tr key={i}>
                                 <td>{inq.productId}</td>
                                 <td>{inq.memId}</td>
                                 <td>{inq.inqWriter}</td>
                                 <td>{inq.inqTitle}</td>
-                                <td>{inq.inqContent}</td>
+                                {inq.inqDepth !== 0 ? 
+                                    <td>
+                                        <input type="text" value={inq.inqContent || ""} onChange={(e) => {
+                                            if (inq.inqContent !== e.target.value) {
+                                                inq.inqContent = e.target.value;
+                                                setInqList([...inqList]); // 변경된 inqList 상태를 업데이트
+                                            }
+                                        }} />
+                                    </td> 
+                                    : <td>{inq.inqContent}</td>
+                                }
+                                <td>
+                                    {inq.inqDepth !== 0 ? 
+                                        <a className="table_link" onClick={() => handleUpdate(inq.inqContent, inq.inqSeq)}>수정</a>
+                                        : ''
+                                    }
+                                </td>
                             </tr>
                             )
                         })
