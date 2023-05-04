@@ -58,6 +58,7 @@ function CustomModal(props) {
       if(cate === "member") return "이 회원을 탈퇴시키겠습니까?";
       else if(cate === "product") return "이 상품을 삭제하겠습니까?";
       else if(cate === "order") return "이 주문내역을 삭제하겠습니까?";
+      else if(sub === "productinquiry") return "이 문의내역을 삭제하겠습니까?";
     } 
     else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />
