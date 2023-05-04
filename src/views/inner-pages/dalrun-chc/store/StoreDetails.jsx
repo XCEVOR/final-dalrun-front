@@ -21,6 +21,7 @@ import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetai
 
 
 const WorksShowcase = () => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   let prodParams = useParams();
   console.log("prodParams: ", prodParams);
   console.log("prodParams.productCode: ", prodParams.productCode);
@@ -44,7 +45,11 @@ const WorksShowcase = () => {
     return <div>Loading...</div>
   }
 
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>
+    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
@@ -456,7 +461,17 @@ const WorksShowcase = () => {
     </div>
     </div>
     // End .ptf-is--blog-grid
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>
+      <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+      </>
+    )
 };
 
 export default WorksShowcase;
