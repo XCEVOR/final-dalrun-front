@@ -121,6 +121,7 @@ function TestReduxRight2 () {
           params: {
             inqRef: inqRef,
             inqWriter: name,
+            inqTitle: subject,
             inqContent: message,
             productId: productId,
             memId: memId,
