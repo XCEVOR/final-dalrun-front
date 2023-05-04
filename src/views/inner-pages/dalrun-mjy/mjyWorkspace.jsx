@@ -15,6 +15,19 @@ const demoContent = [
     title: "도트맵 페이지",
     delayAnimationTime: "0",
   },
+  {
+    demoImg: "home-default",
+    routerPath: "/review-main",
+    title: "리뷰 메인",
+    delayAnimationTime: "200",
+  },
+  {
+    demoImg: "home-default",
+    routerPath: "/competition-main",
+    title: "대회 메인",
+    delayAnimationTime: "400",
+  },
+  
 
 ];
 

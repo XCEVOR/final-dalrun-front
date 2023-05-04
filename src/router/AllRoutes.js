@@ -60,15 +60,14 @@ import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
 import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
 import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
 import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
-import CompetitionMain from "../views/inner-pages/dalrun-chc/competition/CompetitionMain";
-import CompetitionDetails from "../views/inner-pages/dalrun-chc/competition/CompetitionDetails";
 import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
 import MainPage from"../views/mjy-view/mainPage";
 import MainDotMap from "../views/mjy-view/mainDotmap";
-
+import CompetitionMain from "../views/mjy-view/competition/CompetitionMain";
+import CompetitionDetails from "../views/mjy-view/competition/CompetitionDetails";
 
 
 // 오성혁
@@ -154,9 +153,7 @@ const AllRoutes = () => {
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
         <Route path='/review-main' element={<ReviewMain />} />
-        <Route path='/review-details' element={<ReviewDetails />} />
-        <Route path='/competition-main' element={<CompetitionMain />} />
-        <Route path='/competition-details' element={<CompetitionDetails />} />
+        <Route path='/review-details/:shoereviewdetailSeq' exact element={<ReviewDetails />} />
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
@@ -169,6 +166,11 @@ const AllRoutes = () => {
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
         <Route path='/mainPage' element={<MainPage/>} />
         <Route path='/dotmap' element={<MainDotMap/>} />
+        <Route path='/competition-main' element={<CompetitionMain />}/>
+        <Route path="/competition-detail/:compSeq" element={<CompetitionDetails/>}/>
+        
+
+        
 
 
         {/* 오성혁 */}

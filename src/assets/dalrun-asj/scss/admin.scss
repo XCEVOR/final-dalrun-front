@@ -109,6 +109,11 @@
 
     .info_con {
         height: 100%;
+
+        .table_link {
+            text-decoration: revert;
+            color: var(--ptf-accent-4);
+        }
     }
 }
 

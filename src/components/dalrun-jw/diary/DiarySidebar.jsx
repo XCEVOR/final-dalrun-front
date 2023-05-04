@@ -1,10 +1,9 @@
-﻿import React, { useState, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+﻿import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ModalPortal from "../Portal";
-import Modal from "../ModalFrame";
+import UploadModal from './UploadModal';
 import '../../../assets/dalrun-jw/scss/_modal.scss'
+
 
 const DiarySidebar = () => {
   return (
@@ -52,7 +51,7 @@ function MyDropdown() {
   return (
 
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
-      <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none' }}>
+      <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none', marginLeft: 'auto' }}>
         <img src='https://github.com/mdo.png' alt='mdo' width='24' height='24' className='rounded-circle' />
       </Dropdown.Toggle>
 
@@ -64,65 +63,3 @@ function MyDropdown() {
 
   );
 } // <MYDropdown/>
-
-function UploadModal() {
-
-    // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
-    const [modalOpen, setModalOpen] = useState(false);
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const [file, setFile] = useState(null);
-
-    const handleModal = () => {
-      setModalOpen(true);
-    };
-    const closeModal = () => {
-      setModalOpen(false);
-    };
-
-    const handleTitleChange = (e) => {
-      setTitle(e.target.value);
-    };
-    const handleContentChange = (e) => {
-      setContent(e.target.value);
-    };
-    const handleFileChange = (e) =>{
-      setFile(e.target.files[0]);
-    };
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // 입력된 정보와 파일을 서버로 보내는 작업을 구현합니다.
-      // 이후 모달을 닫는 등의 추가 작업을 수행합니다.
-      closeModal();
-    };
-
-    return (
-      <React.Fragment>
-        <button onClick={handleModal} style={{ backgroundColor: "#343a40", border: 0 }}>
-          <img src="assets/img/dalrun-jw/file-earmark-arrow-up-fill.svg" />
-          <span>업로드</span>
-        </button>
-        <ModalPortal>
-          {modalOpen && (
-            <Modal open={modalOpen} close={closeModal} header="다이어리 업로드">
-              <form onSubmit={handleSubmit}>
-                <label>
-                  제목:
-                  <input type="text" value={title} onChange={handleTitleChange} autoFocus/>
-                </label>
-                <label>
-                  내용:
-                  <textarea value={content} onChange={handleContentChange} />
-                </label>
-                <label>
-                  파일 업로드:<input type="file" onChange={handleFileChange} />
-                </label>
-                <button type="submit">업로드</button>
-              </form>
-            </Modal>
-          )}
-        </ModalPortal>
-      </React.Fragment>
-    );
-} // <UpploadModal/>

@@ -17,9 +17,16 @@ const blogContent = [
     title: "The evolution of Swiss style in Interaction Design",
     delayAnimation: "100",
   },
+  {
+    img: "work-2",
+    cat: "Product",
+    date: "Dec 15, 2021",
+    title: "ite inspiration with Swiss style",
+    delayAnimation: "0",
+  },
 ];
 
-const BlogFour = () => {
+const Review1Row = () => {
   return (
     <>
       {blogContent.map((val, i) => (
@@ -64,4 +71,4 @@ const BlogFour = () => {
   );
 };
 
-export default BlogFour;
+export default Review1Row;

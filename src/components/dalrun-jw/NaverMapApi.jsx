@@ -1,7 +1,8 @@
 ﻿import { Container as MapDiv, NaverMap, Marker, useNavermaps, Overlay, useMap, Polyline} from 'react-naver-maps';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import MyPolyline from './diary/Polyline';
-import { useMemo } from 'react';
+import { useDiaryGPXData } from './diary/DiaryGPXData';
+
 
 function LocationBtn() {
   const naverMap = useMap();
@@ -37,8 +38,10 @@ function LocationBtn() {
   );
 }
 
-
 function NaverMapApi(){
+  const { gpxData } = useDiaryGPXData();
+  console.log('gpxData:', JSON.stringify(gpxData));
+
   const navermaps = useNavermaps();
 
   const mapOptions = useMemo(
@@ -55,46 +58,25 @@ function NaverMapApi(){
         position: navermaps.Position.RIGHT_CENTER,
         style: navermaps.ZoomControlStyle.SMALL,
       },
-    }),
-    []
-  );
-  return(
+    }), []
+    );
+    
+ return (
     <MapDiv
-    style={{
-      position: 'relative',
-      width: '100%',
-      height: '100vh',
-    }}>
-      {useMemo(()=> {
-        return(
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+      }}
+    >
+      {useMemo(() => {
+        return (
           <NaverMap {...mapOptions}>
             <LocationBtn/>
-            <MyPolyline/>
+            <MyPolyline gpxData={gpxData} />
           </NaverMap>
         );
       }, [])}
-      {/* <NaverMap
-        // 로드 시 위치
-        defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)}
-        // 로드 시 줌
-        defaultZoom={7}
-        // 좌측 하단 네이버 Corp 
-        mapDataControl={true}
-        // 일반 or 위성
-        mapTypeControl
-        mapTypeControlOptions={{
-          position: navermaps.Position.RIGHT_TOP,
-        }}
-        // 줌 버튼
-        zoomControl={true}
-        zoomControlOptions={{
-          position: navermaps.Position.RIGHT_CENTER,
-          style: navermaps.ZoomControlStyle.SMALL,
-        }}
-      >
-        <LocationBtn/>
-        <MyPolyline/>
-      </NaverMap> */}
     </MapDiv>
   );
 }
