@@ -18,6 +18,13 @@
     // width: 0;
 }
 
+.modalInTable {
+    .table_link {
+        text-decoration: underline;
+        color: var(--ptf-accent-4);
+    }
+}
+
 // update
 .admin_update_container {
     width: 766px;
