@@ -8,24 +8,26 @@ function ProductInqReply({data, onHide}) {
     const [id, setId] = useState("adminId");
     const [replyCon, setReplyCon] = useState("");
     const [inqList, setInqList] = useState([]);
+    const [modalClose, setModalClose] = useState(false);
 
-    useEffect(() => {
-        // setReplyTitle(`re: ${data[0].inqTitle}`);
-    }, [data]);
+    useEffect(() => {}, [modalClose]);
 
-    const handleUpdate = (con, seq) => {
-        const updateReply = {
+    const handleLInk = (con, seq, edit) => {
+        const EditReply = edit==="update"?{
             "inqSeq" : seq,
             "inqContent" : con
-        }
+        }:{"inqSeq" : seq};
 
-        axios.post("http://localhost:3000/updatereply", null, { params : updateReply })
+        const str = edit==="update"? "수정":"삭제";
+
+        axios.post(`http://localhost:3000/admin_${edit}reply`, null, { params : EditReply })
             .then((resp) => {
                 if(resp.data === "YES") {
-                    alert("답변 수정 완료");
-                    onHide();
+                    alert(`답변 ${str} 완료`);
+                    setModalClose(true);
+                    setSearchParam(searchParam.set('target',''));
                 } else {
-                    alert("답변 수정 실패");
+                    alert(`답변 ${str} 실패`);
                 }
             })
             .catch((err) => console.log(err));
@@ -88,9 +90,12 @@ function ProductInqReply({data, onHide}) {
                                     </td> 
                                     : <td>{inq.inqContent}</td>
                                 }
-                                <td>
+                                <td style={{textAlign:"center", lineHeight:"38px", width:"90px"}}>
                                     {inq.inqDepth !== 0 ? 
-                                        <a className="table_link" onClick={() => handleUpdate(inq.inqContent, inq.inqSeq)}>수정</a>
+                                        <>
+                                            <a style={{paddingRight:"5px"}} className="table_link" onClick={() => handleLInk(inq.inqContent, inq.inqSeq, "update")}>수정</a>
+                                            <a className="table_link" onClick={() => handleLInk(inq.inqContent, inq.inqSeq, "del")}>삭제</a>
+                                        </>
                                         : ''
                                     }
                                 </td>
