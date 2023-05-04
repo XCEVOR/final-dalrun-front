@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function StoreDetailsPicture() {
   let prodParams = useParams();
   console.log("StoreDetailsPicture() {: ", prodParams.productCode);
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
   const [productPictureList, setProductPictureList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,11 @@ function StoreDetailsPicture() {
   }
 
 
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>
+    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
       <div className="product_productOrigFile">
         <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
@@ -46,7 +51,34 @@ function StoreDetailsPicture() {
 
 
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>
+      <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div>
+      <div className="product_productOrigFile">
+        <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
+      </div>
+
+      {productPictureList.map((pic, index) => (
+        <div key={index}>
+          <p>{index}</p>
+          <img
+            src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+            alt={pic}
+            loading="lazy"
+          />
+        </div>
+      ))}
+
+
+    </div>
+    </>
+    )
 }
 
 export default StoreDetailsPicture;
