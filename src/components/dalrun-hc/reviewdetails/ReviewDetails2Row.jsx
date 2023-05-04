@@ -1,103 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ReviewDetailAbstract from "./ReviewDetailAbstract";
 
-import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
-import Social from "../../../../components/social/Social";
-// import WorksCaseStudy from "./WorksCaseStudy";
-import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
+const ReviewDetails2Row = () => {
+  const sampleData = [
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/ADID-LIRA/ADID-LIRA.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/NBAL-FRFO/NBAL-FRFO.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/PUMA-AMSN/PUMA-AMSN.png",
+    },
+    {
+      img: "http://localhost:3000/dalrun-hc/review/products/RBOK-DYAD/RBOK-DYAD.png",
+    },
+  ];
+    const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
 
-import ReviewDetails2Row from "../../../../components/dalrun-hc/reviewdetails/ReviewDetails2Row";
-import BlogComment from "../../../../components/dalrun-hc/reviewdetails/BlogComment";
-import BlogCommentForm from "../../../../components/dalrun-hc/reviewdetails/BlogCommentForm";
+    const [singleReview, setSingleReview] = useState([]);
+    const getSingleShoeReview = async () => {
+        const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
+        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
+        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+        setSingleReview(resp.data)
+    }
 
-import { Provider } from "react-redux";
-import configReduxStore from "../redux/configReduxStore";
+    useEffect (() => {
+        getSingleShoeReview(pageDetailSeq);
+    }, [pageDetailSeq])
 
-
-
-const ReviewDetails = () => {
-  let reviewDetailParams = useParams();
-  console.log("  ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
-
-
-
-
-  return (
-    
-    <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
-      {/* <button onClick={() => {reviewSeqDispatch({ type: "namePageReview", payload: 2})}}></button> */}
-      <Helmet>
-        <title>REVIEW DETAILS</title>
-      </Helmet>
-      {/* End Page SEO Content */}
-      <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
-        {/* End  HeaderHomeDefault */}
-
-        <div className="main">
-          <article className="ptf-page ptf-page--single-work-1">
-            <section>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
-              ></div>
-              <div className="container-xxl">
-                <div className="row">
-                  <div className="col-xl-6">
-                    {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="0"
-                    >
-                      <h1 className="large-heading">
-                        REVIEW DETAILS <br />
-                        Website
-                      </h1>
-                      {/* <!--Spacer--> */}
-                      <div
-                        className="ptf-spacer"
-                        style={{ "--ptf-xxl": "4rem", "--ptf-md": "2.5rem" }}
-                      ></div>
-                      <Social />
-                    </div>
-                    {/* <!--Spacer--> */}
-                    <div
-                      className="ptf-spacer"
-                      style={{
-                        "--ptf-lg": "4.375rem",
-                        "--ptf-md": "2.1875rem",
-                      }}
-                    ></div>
-                  </div>
-                  {/* End .col */}
-                  {/* <WorksCaseStudy /> */}
-                </div>
-              </div>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
-              ></div>
-            </section>
-
-
-            
-            <section>
-              <Provider store={configReduxStore}>
-                <ReviewDetails2Row />
-                <ReviewSeqDispatch />
-              </Provider>
-            </section>
-
-
-
+    return (
+        <div>
+            <h1>{pageDetailSeq}</h1>
             <section>
               <div className="container-xxl">
                 {/* <!--Animated Block--> */}
@@ -109,11 +46,11 @@ const ReviewDetails = () => {
                   {/* <!--Simple Image--> */}
                   <div className="ptf-simple-image">
                     <a
-                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      href="https://i.ebayimg.com/images/g/sE4AAOSwCXRicCxv/s-l1600.jpg"
                       rel="nofollow"
                     >
                       <img
-                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        src={`http://localhost:3000/dalrun-hc/review/${pageDetailSeq}/${pageDetailSeq}-1.png`}
                         alt="work"
                         loading="lazy"
                       />
@@ -122,7 +59,7 @@ const ReviewDetails = () => {
                 </div>
               </div>
             </section>
-
+            <ReviewDetailAbstract></ReviewDetailAbstract>
             <section>
               {/* <!--Spacer--> */}
               <div
@@ -137,6 +74,10 @@ const ReviewDetails = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
+                  <h1>{singleReview.shoereviewdetailTitle}</h1><br/>
+                  <p className="fz-30 has-black-color">
+                    {singleReview.shoereviewdetailContent}
+                  </p>
                   <p className="fz-30 has-black-color">
                     Lewis Studio Website is a startup that aims to supply energy
                     (starting with gas) to domestic household acrossthe UK.
@@ -316,90 +257,49 @@ const ReviewDetails = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Gallery--> */}
-                  <ImageGridThree />
+                  {/* <ImageGridThree /> */}
                 </div>
               </div>
             </section>
-
-
-
-            {/* <!--Post Wrapper--> */}
-            {/* <div className="ptf-single-post__wrapper"> */}
-            <div className="container-xxl">
-              <div className="row">
-                {/* <!--Comments--> */}
-                <div className="col-xl-8">
-                  <section className="ptf-page-comments">
-                    {/* <!--Comments list--> */}
-                    <div className="ptf-page-comments__list">
-                      <h2 className="ptf-page-comments__title">03 Comments:</h2>
-                      <BlogComment />
-                    </div>
-
-                    {/* <!--Comments form--> */}
-                    <div className="ptf-page-comments__form">
-                      <h2 className="ptf-page-comments__title">
-                        Leave a comment:
-                      </h2>
-                      <BlogCommentForm />
-                    </div>
-                  </section>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-
-
-
-            <section>
-              {/* <!--Post Navigation--> */}
-              <div className="ptf-post-navigation ptf-post-navigation--style-2">
-                <div className="container">
-                  <span>Next Project</span>
-                  <a className="h1 large-heading ptf-filled-link" href="#">
-                    SPA Brand
-                  </a>
-                </div>
-              </div>
-            </section>
-          </article>
-          {/* End .ptf-page */}
         </div>
-      </div>
-      {/* End .main */}
-
-      {/* <!--Footer--> */}
-      <footer className="ptf-footer ptf-footer--style-1">
-        <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
-          <div className="ptf-footer__bottom">
-            <CopyRight />
-          </div>
-        </div>
-      </footer>
-    </div>
-    // End .ptf-is--blog-grid
-  );
-};
-
-
-const ReviewSeqDispatch = () => {
-  let reviewDetailParams = useParams();
-  console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
-  console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams.shoereviewdetailSeq)
-  const reviewSeqDispatch = useDispatch();
-
-  useEffect (() => {
-    reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: reviewDetailParams.shoereviewdetailSeq})
-  }, [reviewDetailParams])
-
-  // return (
-  //   <div>
-  //     <button onClick={() => {reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: 2})}}>ReviewSeqDispatch</button>
-  //   </div>
-  // )
+    )
 }
 
-export default ReviewDetails;
+// const ReviewDatailDataDispatch = () => {
+//   const dataDispatch = useDispatch();
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
+// }
+
+
+// const ReviewSeqDispatch = () => {
+//   let reviewDetailParams = useParams();
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams)
+//   console.log("  @@@ReviewDetails.jsx]]  let reviewDetailParams = useParams(); ", reviewDetailParams.shoereviewdetailSeq)
+//   const reviewSeqDispatch = useDispatch();
+
+//   useEffect (() => {
+//     reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: reviewDetailParams.shoereviewdetailSeq})
+//   }, [reviewDetailParams])
+
+//   const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
+
+//   const [singleReview, setSingleReview] = useState([]);
+//   const getSingleShoeReview = async () => {
+//       const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
+//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
+//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+//       setSingleReview(resp.data)
+//   }
+
+//   useEffect (() => {
+//       getSingleShoeReview(pageDetailSeq);
+//   }, [pageDetailSeq])
+
+//   // return (
+//   //   <div>
+//   //     <button onClick={() => {reviewSeqDispatch({ type: "namePageReview/pageDetailSeq", seq: 2})}}>ReviewSeqDispatch</button>
+//   //   </div>
+//   // )
+// }
+
+export default ReviewDetails2Row;

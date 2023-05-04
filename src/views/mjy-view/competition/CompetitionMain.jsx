@@ -1,23 +1,21 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BlogSidebarPost from "../../../../components/blog/blog-sidebar/BlogSidebarPost";
+import ContentComp from "../../../components/dalrun-jy/competition/ContentComp";
+import HeaderComp from "../../../components/dalrun-jy/competition/HeaderComp";
+import CompSidebarPost from "../../../components/dalrun-jy/competition/CompSidebarPost";
 
 
-import Pagination from "../../../../components/blog/Pagination";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
+import CopyRight from "../../../components/footer/copyright/CopyRight";
+import Footer from "../../../components/footer/Footer";
+import HeaderDefault from "../../../components/header/HeaderDefault";
 
-import BlogFour from "../../../../components/dalrun-hc/review/Review1Row";
-import BlogFive from "../../../../components/dalrun-hc/review/Review2Row";
-import SearchBlog from "../../../../components/dalrun-hc/review/ReviewSearch";
-
-const ReviewMain = () => {
+const CompetitionMain = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
       <Helmet>
-        <title>REVIEW MAIN</title>
+        <title>대회 신청</title>
       </Helmet>
+      
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
         <HeaderDefault />
@@ -28,11 +26,12 @@ const ReviewMain = () => {
             {/*=============================================
             Start Blog  Section 
             ============================================== */}
+            
             <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+                style={{ "--ptf-xxl": "2rem", "--ptf-md": "5rem" }}
               ></div>
               <div className="container-xxl">
                 <div className="row">
@@ -43,14 +42,14 @@ const ReviewMain = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">REVIEW MAIN</h1>
+                      <h5 className="large-heading">이 번달 대회 일정</h5>
                     </div>
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"
-                  style={{ "--ptf-xxl": "6.875rem" }}
+                  style={{ "--ptf-xxl": "1.875rem" }}
                 ></div>
               </div>
               <div className="container-xxl">
@@ -61,13 +60,13 @@ const ReviewMain = () => {
                     "--bs-gutter-y": "3.75rem",
                   }}
                 >
-                  <BlogFour />
+                  <HeaderComp />
                 </div>
               </div>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
+                style={{ "--ptf-xxl": "3.5rem", "--ptf-md": "3.75rem" }}
               ></div>
             </section>
             {/* End .blog */}
@@ -89,36 +88,14 @@ const ReviewMain = () => {
             Start Blog With Sidebar  Section 
             ============================================== */}
             <section>
-
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
+                style={{ "--ptf-xxl": "3.5rem", "--ptf-md": "3.75rem" }}
               ></div>
               <div className="container-xxl">
                 <div className="row">
-
-
-                  {/* <!--Widget--> */}
-                  <div className="ptf-widget ptf-widget-search">
-                    {/* <!--Animated Block--> */}
-                    <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-                      <h4 className="ptf-widget-title">Search</h4>
-                      <SearchBlog />
-                    </div>
-                  </div>
-                  {/* <!--Widget--> */}
-
-
-
-                  <div
-                    className="ptf-spacer"
-                    style={{ "--ptf-xxl": "1.5rem", "--ptf-md": "3.75rem" }}
-                  ></div>
-
-
-
-                  <div className="col-xl-12">
+                  <div className="col-xl-8">
                     {/* <!--Animated Block--> */}
                     <div
                       className="ptf-animated-block"
@@ -126,7 +103,7 @@ const ReviewMain = () => {
                       data-aos-delay="0"
                     >
                       <div className="ptf-isotope-grid">
-                        <BlogFive />
+                        <ContentComp choice={""} search={""} page={0}/>
                       </div>
                       {/* End .ptf-isotope-grid */}
                     </div>
@@ -138,16 +115,14 @@ const ReviewMain = () => {
                         "--ptf-md": "4.6875rem",
                       }}
                     ></div>
-                    <Pagination />
+                  
                   </div>
                   {/* Blog grid  */}
-                  {/* 
                   <div className="col-xl-4">
                     <div className="ptf-sidebar ptf-sidebar--right">
-                      <BlogSidebarPost />
+                      <CompSidebarPost />
                     </div>
-                  </div> 
-                  */}
+                  </div>
                   {/* End sidebar */}
                 </div>
               </div>
@@ -166,9 +141,7 @@ const ReviewMain = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+          
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>
@@ -179,4 +152,4 @@ const ReviewMain = () => {
   );
 };
 
-export default ReviewMain;
+export default CompetitionMain;
