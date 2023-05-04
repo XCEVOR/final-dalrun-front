@@ -73,6 +73,23 @@ function StoreDetailsCommentList() {
         <div>
 
         <div className="post-comments mb-95">
+            
+            <Provider store={configReduxStore}>
+                <TestReduxLeft2></TestReduxLeft2>
+            </Provider>
+
+        </div>
+    </div>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <><input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+        <div>
+
+        <div className="post-comments mb-95">
             <div className="post-comment-title mb-40">
                 <h3>3 Comments</h3>
             </div>
@@ -160,15 +177,7 @@ function StoreDetailsCommentList() {
             </Provider>
 
         </div>
-    </div>
-    </>
-    )
-
-
-    // DEVELOPER_MODE
-    : (
-      <><input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
-
+        </div>
       </>
     )
 
