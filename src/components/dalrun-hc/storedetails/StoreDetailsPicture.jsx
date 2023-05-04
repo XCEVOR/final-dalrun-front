@@ -34,13 +34,10 @@ function StoreDetailsPicture() {
     <>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
-      <div className="product_productOrigFile">
-        <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
-      </div>
+
 
       {productPictureList.map((pic, index) => (
         <div key={index}>
-          <p>{index}</p>
           <img
             src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
             alt={pic}
