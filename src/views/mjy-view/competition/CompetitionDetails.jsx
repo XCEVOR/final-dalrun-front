@@ -83,6 +83,7 @@ const CompetitionDetails = () => {
                   </div>
                   <div className="col-xl-6" >
                     <div className="row">
+
                       <div
                         className="ptf-animated-block"
                         data-aos="fade"
@@ -98,18 +99,94 @@ const CompetitionDetails = () => {
 
 
                       </div>
+                      <div className="col-xl-6" >
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">일시</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                            {compBbs.compDateStart} ~ {compBbs.compDateEnd}
 
-                      <h5>일시  {compBbs.compDateStart} ~ {compBbs.compDateEnd}</h5>
-                      <h5>접수 기간  {compBbs.receiptStart} ~ {compBbs.receiptEnd}</h5>
-                      <h5>장소  {compBbs.compLocation}</h5>
-                      <h5>주최자  {compBbs.compSponsor}</h5>
-                      <h5>홈페이지  {compBbs.compLink}</h5>
-                      <h5>장소  {compBbs.compLocation}</h5>
-                      <h5>조회수 {compBbs.readcount}</h5>
+                          </p>
+                        </div>
+
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">접수 기간</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                            {compBbs.receiptStart} ~ {compBbs.receiptEnd}
+
+                          </p>
+                        </div>
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
 
 
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">장소</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                            {compBbs.compLocation}
+
+                          </p>
+                        </div>
+
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+                        
+                      <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">홈페이지</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                           <a className="ptf-btn ptf-btn--primary ptf-btn--inversed" href={compBbs.compLink}>홈페이지 방문하기</a>
+
+                          </p>
+                        </div>
+            
+                      </div>
+
+                      <div className="col-xl-6" >
+
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">주최측</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                          {compBbs.compSponsor}
+
+                          </p>
+                        </div>
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">장소</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                            {compBbs.compLocation}
+
+                          </p>
+                        </div>
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+
+
+                        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+                          <h5 className="fz-14 text-uppercase has-3-color fw-normal">조회수</h5>
+                          {/* <!--Spacer--> */}
+                          <p className="fz-20 lh-1p5 has-black-color">
+                            {compBbs.readcount}
+
+                          </p>
+                        </div>
+                        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+
+
+                    
+                      </div>
+
+
+
+                       
+       
                     </div>
-                    <a
+                    {/* <a
                       className="ptf-social-icon ptf-social-icon--style-3"
                       href="#"
                       target="_blank"
@@ -117,7 +194,7 @@ const CompetitionDetails = () => {
                       <div style={{ border: '1px solid black' }}>
                         <img id="likeimg" src={`../assets/img/dalrun-jy/like.png`} />
                       </div>
-                    </a>
+                    </a> */}
                   </div>
 
                   {/* End .col */}
@@ -217,7 +294,7 @@ const CompetitionDetails = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
-          
+
 
                   <CompetitionComment compSeq={`${compBbs.compSeq}`} />
 
