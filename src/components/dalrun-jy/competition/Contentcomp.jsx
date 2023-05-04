@@ -5,8 +5,7 @@ import axios from 'axios';
 import CCPagination from "../search/pagination";
 
 
-const Contentcomp = () => {
-
+const ContentComp = () => {
   const params = useParams();
   const mapElement = useRef(null);
   const [compList, setCompList] = useState([]);
@@ -163,4 +162,4 @@ const Contentcomp = () => {
   );
 };
 
-export default Contentcomp;
+export default ContentComp;
