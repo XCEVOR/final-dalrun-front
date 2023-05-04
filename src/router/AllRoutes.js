@@ -58,8 +58,6 @@ import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
 import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
 import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
-import ReviewMain from "../views/inner-pages/dalrun-chc/review/ReviewMain";
-import ReviewDetails from "../views/inner-pages/dalrun-chc/review/ReviewDetails";
 import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
@@ -68,7 +66,8 @@ import MainPage from"../views/mjy-view/mainPage";
 import MainDotMap from "../views/mjy-view/mainDotmap";
 import CompetitionMain from "../views/mjy-view/competition/CompetitionMain";
 import CompetitionDetails from "../views/mjy-view/competition/CompetitionDetails";
-
+import ReviewMain from "../views/mjy-view/review/ReviewMain";
+import ReviewDetails from "../views/mjy-view/review/ReviewDetails";
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
@@ -151,8 +150,6 @@ const AllRoutes = () => {
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
-        <Route path='/review-main' element={<ReviewMain />} />
-        <Route path='/review-details/:shoereviewdetailSeq' exact element={<ReviewDetails />} />
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
@@ -167,8 +164,8 @@ const AllRoutes = () => {
         <Route path='/dotmap' element={<MainDotMap/>} />
         <Route path='/competition-main' element={<CompetitionMain />}/>
         <Route path="/competition-detail/:compSeq" element={<CompetitionDetails/>}/>
-        
-
+        <Route path='/review-main' element={<ReviewMain />} />
+        <Route path='/review-detail/:srSeq' element={<ReviewDetails />} />
         
 
 

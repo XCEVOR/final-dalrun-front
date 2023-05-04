@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import ContentComp from "../../../components/dalrun-jy/competition/ContentComp";
-import HeaderComp from "../../../components/dalrun-jy/competition/HeaderComp";
-import CompSidebarPost from "../../../components/dalrun-jy/competition/CompSidebarPost";
+import ContentReview from "../../../components/dalrun-jy/review/ContentReview";
+import HeaderReview from "../../../components/dalrun-jy/review/HeaderReview";
+import ReviewSidebarPost from "../../../components/dalrun-jy/review/ReviewSidebarPost";
 
 
 import CopyRight from "../../../components/footer/copyright/CopyRight";
@@ -13,7 +13,7 @@ const CompetitionMain = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
       <Helmet>
-        <title>대회 신청</title>
+        <title>러닝화 리뷰</title>
       </Helmet>
       
       {/* End Page SEO Content */}
@@ -42,7 +42,7 @@ const CompetitionMain = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h5 className="large-heading">이 번달 대회 일정</h5>
+                      <h5 className="large-heading">신상품</h5>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@ const CompetitionMain = () => {
                     "--bs-gutter-y": "3.75rem",
                   }}
                 >
-                  <HeaderComp />
+                  <HeaderReview />
                 </div>
               </div>
               {/* <!--Spacer--> */}
@@ -103,7 +103,7 @@ const CompetitionMain = () => {
                       data-aos-delay="0"
                     >
                       <div className="ptf-isotope-grid">
-                        <ContentComp choice={""} search={""} page={0}/>
+                        <ContentReview choice={""} search={""} page={0}/>
                       </div>
                       {/* End .ptf-isotope-grid */}
                     </div>
@@ -120,7 +120,7 @@ const CompetitionMain = () => {
                   {/* Blog grid  */}
                   <div className="col-xl-4">
                     <div className="ptf-sidebar ptf-sidebar--right">
-                      <CompSidebarPost />
+                      <ReviewSidebarPost />
                     </div>
                   </div>
                   {/* End sidebar */}

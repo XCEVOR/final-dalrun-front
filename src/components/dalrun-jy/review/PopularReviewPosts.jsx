@@ -4,14 +4,14 @@ import axios from 'axios';
 
 
 
-const PopularPosts = () => {
+const PopularReviewPosts = () => {
 
   const [popularList,setPopularList]=useState([]);
 
   
   function getPopularList(){
 
-    axios.get("http://localhost:3000/getPopularList")
+    axios.get("http://localhost:3000/getPopularShoeList")
     .then(function(resp){
       console.log(resp.data)
       setPopularList(resp.data);
@@ -34,11 +34,11 @@ const PopularPosts = () => {
     <>
       {popularList.map((val, i) => (
 
-        <Link className="ptf-popular-post" to={`/competition-detail/${val.compSeq}`} key={i}>
+        <Link className="ptf-popular-post" to={`/review-detail/${val.srSeq}`} key={i}>
           <div className="ptf-popular-post__number">{i+1}</div>
           <div className="ptf-popular-post__content">
-            <span className="cat">{val.compLocal}</span>
-            <h6>{val.compTitle}</h6>
+            <span className="cat">{val.srBrand}</span>
+            <h6>{val.srTitle}</h6>
           </div>
         </Link>
       ))}
@@ -46,4 +46,4 @@ const PopularPosts = () => {
   );
 };
 
-export default PopularPosts;
+export default PopularReviewPosts;

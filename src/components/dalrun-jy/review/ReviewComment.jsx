@@ -3,41 +3,42 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
 
-function CompetitionComment({ compSeq }) {
+function ReviewComment({ srSeq }) {
 
     const params = useParams();
-    const [ccList, setCCList] = useState([]);
+    const [scList, setScList] = useState([]);
     const [comment, setComment] = useState("");
 
     const [login,setLogin]=useState([]);
 
 
     const ChangeComment = (e) => setComment(e.target.value);
-    function getCompCommentList(compSeq) {
+    function getReviewCommentList(srSeq) {
 
-        axios.get("http://localhost:3000/getCompCommentList", { params: { 'compSeq': compSeq } })
+        axios.get("http://localhost:3000/getReviewCommentList", { params: { 'srSeq': srSeq } })
             .then(function (resp) {
                 console.log(resp.data);
               
-                setCCList(resp.data);
+                setScList(resp.data);
             }).catch(function (err) {
 
             })  
     }  
 
     function sendComment() {
-        if (comment === undefined && comment.trim() === '') {
-            alert("제목을 입력해주세요");
+
+        if (comment === undefined || comment.trim() === '') {
+            alert("답글을 입력해주세요");
             return;
         } else {
             
-        axios.get("http://localhost:3000/sendComment",{params:{'CCmemId':login.memId,"CCcontent":comment,"compSeq":params.compSeq}})
+        axios.get("http://localhost:3000/ReviewsendComment",{params:{'scmemId':login.memId,"sccontent":comment,"srSeq":params.srSeq}})
             .then(function (resp) {
                 if(resp.data==='YES'){
                     console.log("답글 전송 완료");
                     setComment("");
                     document.getElementById("inputText").value="";
-                    getCompCommentList(params.compSeq)
+                    getReviewCommentList(params.srSeq)
                 }else{
                     console.log("답글 전송 실패");
                 }
@@ -57,12 +58,12 @@ function CompetitionComment({ compSeq }) {
           
         }
       }
-
+ 
 
     useEffect(() => {
         
 
-        getCompCommentList(params.compSeq);
+        getReviewCommentList(params.srSeq);
         loading();
 
     }, []);
@@ -71,27 +72,10 @@ function CompetitionComment({ compSeq }) {
     useEffect(() => {
 
 
-    }, [ccList]);
+    }, [scList]);
 
     return (
         <div className="container">
-
-            {/* <!--Animated Block--> */}
-
-            {/* <!--Divider--> */}
-            <div
-                className="ptf-divider"
-                style={{
-                    "--ptf-height": "1px",
-                    "--ptf-color": "var(--ptf-color-14)",
-                }}
-            ></div>
-
-            {/* <!--Spacer--> */}
-            <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "6.25rem", "--ptf-md": "3.125rem" }}
-            ></div>
 
             {/* <!--Animated Block--> */}
             <div
@@ -104,7 +88,7 @@ function CompetitionComment({ compSeq }) {
             
                 <input type="text" id="inputText" placeholder="답글을 달아주세요.." onChange={ChangeComment} style={{maxWidth:'90%',display:'inline'}} />
                 <a className='ptf-submit-button ptf-submit-button--style-2' onClick={sendComment}>전송</a>
-
+               
             </div>
 
             {/* <!--Spacer--> */}
@@ -121,19 +105,19 @@ function CompetitionComment({ compSeq }) {
             >
             </div>
             <ul className="ptf-comments">
-                {ccList.map((val, i) => (
+                {scList.map((val, i) => (
                     <li className="ptf-comment-item" key={i}>
                         <div className="ptf-comment-item__inner" key={i}>
                             <div className="ptf-comment-content">
                                 <div className="ptf-comment-header">
                                     <h5 className="ptf-comment-name">
-                                        <a href="#">{val.ccmemId}</a>
+                                        <a href="#">{val.scmemId}</a>
                                     </h5>
-                                    <div className="ptf-comment-metas">{val.ccwdate}</div>
+                                    <div className="ptf-comment-metas">{val.scwdate}</div>
                                 </div>
                                 <div className="ptf-comment-text">
                                     <p>
-                                        {val.cccontent}
+                                        {val.sccontent}
                                     </p>
                                 </div>
 
@@ -162,4 +146,4 @@ function CompetitionComment({ compSeq }) {
     );
 }
 
-export default CompetitionComment;
+export default ReviewComment;
