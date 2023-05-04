@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-const Headercomp = () => {
+const HeaderComp = () => {
   const [compList,setCompList]=useState([]);
 
   
@@ -68,9 +68,9 @@ const Headercomp = () => {
                 loading="lazy"
                 style={{ position: 'relative',height:'200px',width:'200px'}}
               />
-              {check(val.receiptStart,val.receiptEnd)==1 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'blue',padding:'10px',margin:'5px' }}>접수중</p>}
-              {check(val.receiptStart,val.receiptEnd)==2 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'gray',padding:'10px',margin:'5px'}}>접수 예정</p>}
-              {check(val.receiptStart,val.receiptEnd)==3 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'red',padding:'10px',margin:'5px'}}>접수 종료</p>}
+              {check(val.receiptStart,val.receiptEnd)===1 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'blue',padding:'10px',margin:'5px' }}>접수중</p>}
+              {check(val.receiptStart,val.receiptEnd)===2 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'gray',padding:'10px',margin:'5px'}}>접수 예정</p>}
+              {check(val.receiptStart,val.receiptEnd)===3 && <p style={{position:'absolute', zIndex:'1',top:'10px',background:'white',opacity:'0.8', borderRadius:'20px', color:'red',padding:'10px',margin:'5px'}}>접수 종료</p>}
 
            
                 </div>
@@ -90,4 +90,4 @@ const Headercomp = () => {
   );
 };
 
-export default Headercomp;
+export default HeaderComp;

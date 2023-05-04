@@ -3,16 +3,16 @@ import SearchBlog from "../../form/SearchBlog";
 import NewsletterThree from "../../newsletter/NewsletterThree";
 import Social from "../../social/Social";
 
-import PopularPosts from "./PopularPosts";
+import PopularReviewPosts from "./PopularReviewPosts";
 
-const BlogSidebarPost = () => {
+const ReviewSidebarPost = () => {
   return (
     <>
       <div className="ptf-widget ptf-widget-popular-posts">
         {/* <!--Animated Block--> */}
         <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-          <h4 className="ptf-widget-title">인기 대회</h4>
-          <PopularPosts />
+          <h4 className="ptf-widget-title">인기 상품</h4>
+          <PopularReviewPosts />
         </div>
       </div>
       {/* <!--Widget--> */}
@@ -25,4 +25,4 @@ const BlogSidebarPost = () => {
   );
 };
 
-export default BlogSidebarPost;
+export default ReviewSidebarPost;
