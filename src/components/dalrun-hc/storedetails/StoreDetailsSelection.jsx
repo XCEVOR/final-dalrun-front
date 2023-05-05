@@ -80,11 +80,25 @@ function StoreDetailsSelection() {
 
     const selectColorBtn = (e) => {
       setSelectedColor(e.target.value);
-      console.log("console.log(selectedColor);", selectedColor);
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+      if (filteredProducts.length === 0) alert("존재하지 않는 상품 옵션")
     }
     const selectSizeBtn = (e) => {
       setSelectedSize(e.target.value);
-      console.log("console.log(selectedSize);", selectedSize);
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+      if (filteredProducts.length === 0) alert("존재하지 않는 상품 옵션")
     }
     const selectQuantityMinusBtn = (e) => {
       if (selectedQuantity <= 1) return;
@@ -92,6 +106,17 @@ function StoreDetailsSelection() {
       console.log("console.log(selectedQuantity);", selectedQuantity);
     }
 
+    
+    const ProductTable = () => {  // TEST CODE 상품 필터
+      console.log(" @console.log(productDetails) ", productDetails)
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+    }
 
 
     const selectProductOptionTest = async () => {
@@ -219,10 +244,13 @@ function StoreDetailsSelection() {
 
         <button onClick={() => showToast("success")}>Success</button>
         <Toast
-        toastlist={addCartModal}
-        position="top-right"
-        setAddCartModal={setAddCartModal}
-      />
+          toastlist={addCartModal}
+          position="top-right"
+          setAddCartModal={setAddCartModal}
+        />
+
+        <button onClick={ProductTable}>ProductTable</button>
+
         <button onClick={updateProductView}>VIEW TEST</button>
         <button onClick={updateProductLike}>LIKE TEST</button>
         <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
@@ -270,11 +298,10 @@ function StoreDetailsSelection() {
         </div>
 
         <div className="product_quantity">
-          <p>{selectedColor}//</p>
-          <p>{selectedSize}//</p>
+          <p>{selectedColor}// //</p>
+          <p>{selectedSize}// //</p>
           <p>{selectedQuantity}</p>
         </div>
-
         <div>
           <button onClick={selectProductOptionTest}>상품 ID 체크 테스트</button>
           <p>
