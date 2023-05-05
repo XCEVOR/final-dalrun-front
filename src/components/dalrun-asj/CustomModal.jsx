@@ -9,6 +9,8 @@ import CrewUpdate from './update/CrewUpdate';
 import ProductRegi from './register/ProductRegi';
 import OrderUpdate from './update/OrderUpdate';
 import ProductInqReply from './register/ProductInqReply';
+import CompetitionUpdate from './update/CompetitionUpdate';
+import CompetitionRegi from './register/CompetitionRegi';
 
 function CustomModal(props) {
   const separator = ', ';
@@ -53,6 +55,7 @@ function CustomModal(props) {
       else if(cate === "crew") return <CrewUpdate data={data} onHide={props.onHide} />;
       else if(cate === "order") return <OrderUpdate data={data} onHide={props.onHide} />;
       else if(sub === "productinquiry") return <ProductInqReply data={data} onHide={props.onHide} />;
+      else if(cate === "competition") return <CompetitionUpdate data={data} onHide={props.onHide} />;
     } 
     else if(props.category === "delete") {
       if(cate === "member") return "이 회원을 탈퇴시키겠습니까?";
@@ -62,6 +65,7 @@ function CustomModal(props) {
     } 
     else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />
+      else if(cate === "competition") return <CompetitionRegi onHide={props.onHide} />
     }
   }
 

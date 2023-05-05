@@ -72,5 +72,44 @@
             font-weight: 700;
             color: var(--bs-teal);
         }
+
+        textarea {
+            resize: none;
+            height: 37px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .date_flex {
+            display: flex;
+
+            span {
+                padding: 0 20px;
+            }
+
+            input[type="date"] {
+                background-color: var(--bs-gray-200);
+                color: var(--bs-gray-600);
+                border: none;
+                border-radius: 7px;
+                margin-bottom: 10px;
+                padding: 5px 14px;
+                line-height: 28px;
+            }
+
+            input[type='date']::before {
+                content: attr(data-placeholder);
+                width: 100%;
+            }
+              
+            input[type='date']:focus::before,
+            input[type='date']:valid::before {
+                display: none;
+            }
+
+            input[type="date"]:first-child {
+                margin-right: 20px;
+            }
+        }
     }
 }
