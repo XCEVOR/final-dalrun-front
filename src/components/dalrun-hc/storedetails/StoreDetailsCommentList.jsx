@@ -10,6 +10,8 @@ import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
 
 
 function StoreDetailsCommentList() {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -64,7 +66,27 @@ function StoreDetailsCommentList() {
     // }
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <><input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+        <div>
+
+        <div className="post-comments mb-95">
+            
+            <Provider store={configReduxStore}>
+                <TestReduxLeft2></TestReduxLeft2>
+            </Provider>
+
+        </div>
+    </div>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <><input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
 
         <div className="post-comments mb-95">
@@ -155,7 +177,8 @@ function StoreDetailsCommentList() {
             </Provider>
 
         </div>
-    </div>
+        </div>
+      </>
     )
 
 }
@@ -177,6 +200,8 @@ function StoreDetailsCommentList() {
 // }
 
 function TestReduxLeft2 () {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -237,7 +262,81 @@ function TestReduxLeft2 () {
     }
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+        <div>
+            {inquiryList.map((inq, index) => (
+            <div className="latest-comments" key={index}>
+                <ul>
+
+
+                    {inq.inqDepth == 0 
+                      ?
+                      <li>
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>MAIN: {inq.inqWriter}</h5>
+                                      <span className="post-meta">{inq.inqDate}</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
+
+
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
+                                  }
+                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+
+                              </div>
+                          </div>
+                      </li>
+
+                      :
+                      <li className="children">
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>서버 inqDepth 1: {inq.inqWriter}</h5>
+                                      <span className="post-meta">February 20, 2022</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
+                                  <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                  }
+                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+
+                              </div>
+                          </div>
+                      </li>
+                    }
+
+
+                </ul>
+            </div>
+            ))}
+            
+        </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
             <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
             
@@ -305,6 +404,7 @@ function TestReduxLeft2 () {
             ))}
             
         </div>
+      </>
     )
 }
 

@@ -48,48 +48,8 @@ function StoreDetailsCommentForm() {
     return (
         <div>
             <Provider store={configReduxStore}>
-                {/* <TestReduxLeft></TestReduxLeft> */}{/*  // TEST REDUX*/}
-                {/* <TestReduxRight></TestReduxRight> */}
                 <TestReduxRight2></TestReduxRight2>
             </Provider>
-        {/*             
-        <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
-            <span>Your email address will not be published.</span>
-            <div className="bd-contact-form-wrapper mb-30">
-                <form action="#">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Name"  value={name}  onChange={(e)=>setName(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="email" placeholder="Email"  value={email}  onChange={(e)=>setEmail(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Subject"  value={subject}  onChange={(e)=>setSubject(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <textarea placeholder="Message"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field">
-                                <button type="submit" className="theme-btn" onClick={()=>writeComment()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> 
-        */}
-
         </div>
     )
 }
@@ -165,6 +125,8 @@ function TestReduxRight () {    const [name, setName] = useState('');
 ////////// ////////// ////////// ////////// ////////// 
 // ===> COMMENT
 function TestReduxRight2 () {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -216,7 +178,53 @@ function TestReduxRight2 () {
 
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+        <div>
+            <div className="post-comment-form">
+            <h4>Leave a Reply </h4>
+            <div className="bd-contact-form-wrapper mb-30">
+                <form action="#">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="bd-contact-field mb-30">
+                                <input type="text" placeholder="아이디"  value={name}  onChange={(e)=>setName(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="bd-contact-field mb-30">
+                                <input type="email" placeholder="이메일"  value={email}  onChange={(e)=>setEmail(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field mb-30">
+                                <input type="text" placeholder="제목"  value={subject}  onChange={(e)=>setSubject(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field mb-30">
+                                <textarea placeholder="내용"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field">
+                                <button type="submit" onClick={myOnClickFunc}>등록</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
             <h1>TEST REDUX RIGHT</h1>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
@@ -257,6 +265,7 @@ function TestReduxRight2 () {
             </div>
         </div>
         </div>
+      </>
     )
 }
 

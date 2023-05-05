@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import Toast from "./Toast.jsx";
+
 function StoreDetailsSelection() {
     let prodParams = useParams();
     console.log(prodParams.productCode);
@@ -11,6 +13,7 @@ function StoreDetailsSelection() {
     const [productDetails, setProductDetails] = useState();
     const [itemColorList, setItemColorList] = useState([]);
     const [itemSizeList, setItemSizeList] = useState([]);
+    const [isProdId, setIsProdId] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const [selectedColor, setSelectedColor] = useState("");
@@ -20,6 +23,8 @@ function StoreDetailsSelection() {
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
     const [userOrderData, setUserOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderProductQuantity": selectedQuantity});
+
+    const [addCartModal, setAddCartModal] = useState([]);
 
 
     let deduplicateColorList = [];
@@ -37,6 +42,8 @@ function StoreDetailsSelection() {
       });
       setItemColorList(Array.from(new Set(deduplicateColorList)));
       console.log("  itemColorList: ", itemColorList);
+      setSelectedColor(deduplicateColorList[0])
+
 
       // 중복 사이즈 옵션 이름 제거
       resp.data.forEach(item => {
@@ -44,6 +51,7 @@ function StoreDetailsSelection() {
       });
       setItemSizeList(Array.from(new Set(deduplicateSizeList)));
       console.log(" itemSizeList: ", itemSizeList);
+      setSelectedSize(deduplicateSizeList[0])
 
       
       setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
@@ -76,18 +84,49 @@ function StoreDetailsSelection() {
 
     const selectColorBtn = (e) => {
       setSelectedColor(e.target.value);
-      console.log("console.log(selectedColor);", selectedColor);
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+      if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+      console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
+      setSelectedProdId(filteredProducts[0].productId)
+      setIsProdId(true)
     }
     const selectSizeBtn = (e) => {
       setSelectedSize(e.target.value);
-      console.log("console.log(selectedSize);", selectedSize);
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+      if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+      console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
+      setSelectedProdId(filteredProducts[0].productId)
     }
     const selectQuantityMinusBtn = (e) => {
       if (selectedQuantity <= 1) return;
       setSelectedQuantity(selectedQuantity - 1);
       console.log("console.log(selectedQuantity);", selectedQuantity);
+      setIsProdId(true)
     }
 
+    
+    const ProductTable = () => {  // TEST CODE 상품 필터
+      console.log(" @console.log(productDetails) ", productDetails)
+      console.log(" @console.log(selectedColor) ", selectedColor)
+      console.log(" @console.log(selectedSize) ", selectedSize)
+      const filteredProducts = productDetails.filter(
+        (product) =>
+          product.productColor === selectedColor && product.productSize === selectedSize
+      );
+      console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+    }
 
 
     const selectProductOptionTest = async () => {
@@ -110,11 +149,43 @@ function StoreDetailsSelection() {
 
 
 
+
+    let toastProperties = null;
+    const showToast = (type) => {
+      switch (type) {
+        case "success":
+          toastProperties = {
+            id: addCartModal.length + 1,
+            title: "Success",
+            product: productDetails[0].productName,
+            description: " 상품이 카트에 추가되었습니다",
+            tocart: "카트 확인 👆",
+            backgroundColor: "#333"
+          };
+          break;
+        default:
+          toastProperties = [];
+      }
+      setAddCartModal([...addCartModal, toastProperties]);
+    };
+
+
+
+
+
+    
     const addToCart = async () => {
+      if (isProdId === false) {alert("상품 옵션 선택"); return;}
       console.log(" @ console.log(userOrderData): ", userOrderData)
       const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
+      showToast("success");
+      setIsProdId(false)
     }
+
+
+
+
 
 
 
@@ -126,13 +197,11 @@ function StoreDetailsSelection() {
       <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
 
-        
-        <button onClick={updateProductView}>VIEW TEST</button>
-        <button onClick={updateProductLike}>LIKE TEST</button>
-        <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
-        <button value="2" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 2 TEST</button>
-        <button value="3" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 3 TEST</button>
-
+        <Toast
+          toastlist={addCartModal}
+          position="top-right"
+          setAddCartModal={setAddCartModal}
+        />
         
         <div className="product_id">
           <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
@@ -141,28 +210,23 @@ function StoreDetailsSelection() {
           <h1 className="product_code">product_code 서버: {productDetails[0].productCode}</h1>
         </div>
         <div className="product_category">
-          <h1 className="product_category">product_category 서버: {productDetails[0].productCategory}</h1>
+          <h1 className="product_category">{productDetails[0].productCategory}</h1>
         </div>
         <div className="product_name">
-          <h1 className="product_name">product_name 서버: {productDetails[0].productName}</h1>
+          <h1 className="product_name">{productDetails[0].productName}</h1>
         </div>
         <div className="product_brand">
-          <h1 className="product_brand">product_brand 서버: {productDetails[0].productBrand}</h1>
+          <h1 className="product_brand">{productDetails[0].productBrand}</h1>
         </div>
         <div className="product_price">
-          <h1 className="product_price">product_price 서버: {productDetails[0].productPrice}</h1>
+          <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
         </div>
         <div className="product_color">
-          <button className="">f-red</button>
-          <button className="">f-blue</button>
-          <button className="">f-green</button>
           {itemColorList.map((icolor, index) => (
             <button className="product_color" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
           ))}
         </div>
         <div className="product_size">
-          <button className="product_size">f-210</button>
-          <button className="product_size">f-220</button>
           {itemSizeList.map((isize, index) => (
             <button className="product_size" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
           ))}
@@ -173,56 +237,17 @@ function StoreDetailsSelection() {
           <button onClick={selectQuantityMinusBtn}>-</button>
         </div>
 
-        <div className="product_quantity">
-          <p>{selectedColor}//</p>
-          <p>{selectedSize}//</p>
-          <p>{selectedQuantity}</p>
-        </div>
 
-        <div>
-          <button onClick={selectProductOptionTest}>상품 ID 체크 테스트</button>
-          <p>
-            {selectedItemInfo[0].productId}//
-            {selectedItemInfo[0].productCode}//
-            {selectedItemInfo[0].productColor}//
-            {selectedItemInfo[0].productSize}//
-            {selectedProdId}//
-          </p>
-        </div>
 
-        <div className="product_cart">
-            <button onClick={addToCart}>ADD TO CART</button>
-        </div>
-        <div className="product_cart">
-          <Link to="/store-cart" state={{ "orderProductId": userOrderData.orderProductId, "orderProductQuantity": userOrderData.orderProductQuantity }}>
-            <button onClick={addToCart}>ADD TO CART & GO</button>
-          </Link>
-        </div>
-        <Link
+
+        <div
           className="ptf-btn ptf-btn--primary ptf-btn--block"
-          to="/store-cart"
+          onClick={addToCart}
         >
-          장바구니
-            <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p>
-        </Link>
-
-        <div className="product_checkout">
-          <button>CHECKOUT</button>
-
+          카트 담기
+            {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
         </div>
-        <Link
-          className="ptf-btn ptf-btn--primary ptf-btn--block"
-          to="/store-payment"
-        >
-          바로구매
-        </Link>
 
-        <div className="product_description">
-          <h1 className="product_description">product_description 서버: {productDetails[0].productDescription}</h1>
-        </div>
-        <div className="product_description">
-          <h1 className="product_description">product_origfile_blob 서버: {productDetails[0].productOrigFile}</h1>
-        </div>
       </div>
       </>
     )
@@ -234,7 +259,15 @@ function StoreDetailsSelection() {
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div>
 
-        
+        <button onClick={() => showToast("success")}>Success</button>
+        <Toast
+          toastlist={addCartModal}
+          position="top-right"
+          setAddCartModal={setAddCartModal}
+        />
+
+        <button onClick={ProductTable}>ProductTable</button>
+
         <button onClick={updateProductView}>VIEW TEST</button>
         <button onClick={updateProductLike}>LIKE TEST</button>
         <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
@@ -282,11 +315,10 @@ function StoreDetailsSelection() {
         </div>
 
         <div className="product_quantity">
-          <p>{selectedColor}//</p>
-          <p>{selectedSize}//</p>
+          <p>{selectedColor}// //</p>
+          <p>{selectedSize}// //</p>
           <p>{selectedQuantity}</p>
         </div>
-
         <div>
           <button onClick={selectProductOptionTest}>상품 ID 체크 테스트</button>
           <p>
