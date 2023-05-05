@@ -17,6 +17,9 @@ import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails
 import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
 import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
 
+import Button from "./Button";
+import Toast from "./Toast";
+
 
 
 const WorksShowcase = () => {
@@ -27,6 +30,10 @@ const WorksShowcase = () => {
 
   const [productDetails, setProductDetails] = useState();
   const [loading, setLoading] = useState(false);
+
+  const [addCartModal, setAddCartModal] = useState([]);
+
+  
 
   const productDetailsData = async (productCode) => {
     const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
@@ -43,6 +50,29 @@ const WorksShowcase = () => {
   if(loading === false){
     return <div>Loading...</div>
   }
+
+
+  let toastProperties = null;
+  const showToast = (type) => {
+    switch (type) {
+      case "success":
+        toastProperties = {
+          id: addCartModal.length + 1,
+          title: "Success",
+          description: "This is a success toast component",
+          backgroundColor: "#999"
+        };
+        break;
+      default:
+        toastProperties = [];
+    }
+    setAddCartModal([...addCartModal, toastProperties]);
+  };
+
+
+
+
+
 
   return checkbox_DisplayMode 
   // USER_MODE
@@ -186,6 +216,23 @@ const WorksShowcase = () => {
       <>
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div className="dalrun_hc">
+
+
+    <div>
+      <h1>React Toast Component</h1>
+      <div>
+        <Button handleClick={() => showToast("success")}>Success</Button>
+        {/* <button onClick={() => showToast("success")}>Success</button> */}
+      </div>
+      <Toast
+        toastlist={addCartModal}
+        position="top-right"
+        setAddCartModal={setAddCartModal}
+      />
+    </div>
+
+
+
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>

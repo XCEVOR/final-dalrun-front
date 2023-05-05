@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import Toast from "./Toast.jsx";
+
 function StoreDetailsSelection() {
     let prodParams = useParams();
     console.log(prodParams.productCode);
@@ -20,6 +22,8 @@ function StoreDetailsSelection() {
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
     const [userOrderData, setUserOrderData] = useState({"orderProductId": selectedItemInfo[0].productId, "orderProductQuantity": selectedQuantity});
+
+    const [addCartModal, setAddCartModal] = useState([]);
 
 
     let deduplicateColorList = [];
@@ -118,6 +122,25 @@ function StoreDetailsSelection() {
 
 
 
+    let toastProperties = null;
+    const showToast = (type) => {
+      switch (type) {
+        case "success":
+          toastProperties = {
+            id: addCartModal.length + 1,
+            title: "Success",
+            description: "This is a success toast component",
+            backgroundColor: "#333"
+          };
+          break;
+        default:
+          toastProperties = [];
+      }
+      setAddCartModal([...addCartModal, toastProperties]);
+    };
+
+
+
 
     return checkbox_DisplayMode 
     // USER_MODE
@@ -201,7 +224,12 @@ function StoreDetailsSelection() {
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div>
 
-        
+        <button onClick={() => showToast("success")}>Success</button>
+        <Toast
+        toastlist={addCartModal}
+        position="top-right"
+        setAddCartModal={setAddCartModal}
+      />
         <button onClick={updateProductView}>VIEW TEST</button>
         <button onClick={updateProductLike}>LIKE TEST</button>
         <button value="1" onClick={(e) => updateProductRecomm(e.target.value)}>RECOMM 1 TEST</button>
