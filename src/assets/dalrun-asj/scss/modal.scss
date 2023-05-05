@@ -83,8 +83,16 @@
         .date_flex {
             display: flex;
 
-            span {
-                padding: 0 20px;
+            input[type="number"] {
+                margin-right: 20px;
+            }
+
+            button {
+                width: 100px;
+                border: none;
+                background-color: var(--ptf-accent-1);
+                border-radius: 7px;
+                color: #123;
             }
 
             input[type="date"] {
