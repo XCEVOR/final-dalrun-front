@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect  } from "react";
+import { useState, useEffect, useRef  } from "react";
 import { useSearchParams } from "react-router-dom";
 import NaverMapView from "../../dalrun-jy/competition/NaverMapview";
 
@@ -19,6 +19,21 @@ function CompetitionRegi({onHide}) {
     const [sponsor, setSponsor] = useState("");
     const [receipEnd, setReceipEnd] = useState("");
     const [receipStart, setReceipStart] = useState("");
+    const [imgFile, setImgFile] = useState("");
+    const [uploadImg, setUploadImg] = useState("");
+
+    const imgRef = useRef();
+
+    const viewImgFile = () => {
+        const file = imgRef.current.files[0];
+        setUploadImg(file); // 업로드할 이미지
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setImgFile(reader.result);  // 미리보기 할 이미지
+        };
+    }
 
     const handleInput = (e) => {
         const textarea = e.target;
@@ -63,7 +78,7 @@ function CompetitionRegi({onHide}) {
         formdata.append("compSponsor", sponsor);
         formdata.append("receiptStart", receipEnd);
         formdata.append("receiptEnd", receipStart);
-        formdata.append("compimage", "");
+        formdata.append("compimage", uploadImg);
 
         axios.post('http://localhost:3000/competitionRegi', formdata)
             .then((resp) => {
@@ -140,6 +155,10 @@ function CompetitionRegi({onHide}) {
                         <div>
                             <label htmlFor="link">링크</label>
                             <input type="text" value={link || ""} onChange={(e) => setLink(e.target.value)} />
+                        </div>
+                        <div>
+                            <input type="file" onChange={viewImgFile} ref={imgRef}/>
+                            <img src={imgFile} style={{marginTop:"20px", width:"55%"}} />
                         </div>
                         <input type="submit" value="등록" />
                     </fieldset>
