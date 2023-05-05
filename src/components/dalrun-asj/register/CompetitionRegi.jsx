@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect  } from "react";
 import { useSearchParams } from "react-router-dom";
+import NaverGeocoding from "../geocoding/NaverGeocoding";
 
 function CompetitionRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -27,7 +28,29 @@ function CompetitionRegi({onHide}) {
         setContnet(textarea.value); // 입력한 값을 상태값에 저장
     }
 
-    const onSubmit = () => {}
+    const searchGeoData = (e, address) => {
+        e.preventDefault();
+
+        if(address !== undefined) {
+            axios.get("http://localhost:3000/getGeometricData", { params: {"address":address} })
+                .then((resp) => {
+                    const addresses = resp.data.addresses;
+                    if(addresses && addresses.length > 0) {
+                        const address = addresses[0];
+                        console.log(address);
+                        setLocationLat(address.x);
+                        setLocationLng(address.y);
+                    } else {
+                        alert("정확한 주소를 입력해주세요.");
+                    }
+                })
+                .catch((err) => console.log(err));
+        }
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+    }
 
     return(
         <div className="admin_update_container">
@@ -54,7 +77,15 @@ function CompetitionRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="location">상세 주소</label>
-                            <input type="text" value={location || ""} onChange={(e) => setLocation(e.target.value)} />
+                            <input type="text" value={location || ""} onChange={(e) => setLocation(e.target.value)} required />
+                        </div>
+                        <div>
+                            {/* <label htmlFor="location">상세 주소 좌표</label> */}
+                            <div className="date_flex">
+                                <input type="number" value={locationLat || ""} placeholder="위도" onChange={(e) => setLocationLat(e.target.value)} required />
+                                <input type="number" value={locationLng || ""} placeholder="경도" onChange={(e) => setLocationLng(e.target.value)} required />
+                                <button onClick={(e) => searchGeoData(e, location)} >찾기</button>
+                            </div>
                         </div>
                         <div>
                             <label htmlFor="sponsor">개최측</label>
