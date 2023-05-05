@@ -189,6 +189,11 @@ function StoreDetailsSelection() {
       <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
 
+        <Toast
+          toastlist={addCartModal}
+          position="top-right"
+          setAddCartModal={setAddCartModal}
+        />
         
         <div className="product_id">
           <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
