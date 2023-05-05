@@ -180,6 +180,7 @@ function StoreDetailsSelection() {
       const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
       showToast("success");
+      setIsProdId(false)
     }
 
 
