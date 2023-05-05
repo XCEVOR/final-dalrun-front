@@ -87,7 +87,9 @@ function StoreDetailsSelection() {
           product.productColor === selectedColor && product.productSize === selectedSize
       );
       console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
-      if (filteredProducts.length === 0) alert("존재하지 않는 상품 옵션")
+      if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+      console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
+      setSelectedProdId(filteredProducts[0].productId)
     }
     const selectSizeBtn = (e) => {
       setSelectedSize(e.target.value);
@@ -98,7 +100,9 @@ function StoreDetailsSelection() {
           product.productColor === selectedColor && product.productSize === selectedSize
       );
       console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
-      if (filteredProducts.length === 0) alert("존재하지 않는 상품 옵션")
+      if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+      console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
+      setSelectedProdId(filteredProducts[0].productId)
     }
     const selectQuantityMinusBtn = (e) => {
       if (selectedQuantity <= 1) return;
