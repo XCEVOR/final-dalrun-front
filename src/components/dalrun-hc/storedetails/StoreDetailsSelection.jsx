@@ -41,6 +41,8 @@ function StoreDetailsSelection() {
       });
       setItemColorList(Array.from(new Set(deduplicateColorList)));
       console.log("  itemColorList: ", itemColorList);
+      setSelectedColor(deduplicateColorList[0])
+
 
       // 중복 사이즈 옵션 이름 제거
       resp.data.forEach(item => {
@@ -48,6 +50,7 @@ function StoreDetailsSelection() {
       });
       setItemSizeList(Array.from(new Set(deduplicateSizeList)));
       console.log(" itemSizeList: ", itemSizeList);
+      setSelectedSize(deduplicateSizeList[0])
 
       
       setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
