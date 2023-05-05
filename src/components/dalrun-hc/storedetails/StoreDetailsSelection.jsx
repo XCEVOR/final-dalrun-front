@@ -114,13 +114,6 @@ function StoreDetailsSelection() {
 
 
 
-    const addToCart = async () => {
-      console.log(" @ console.log(userOrderData): ", userOrderData)
-      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
-      console.log("  const addToCart = async () => { ", resp.data);
-    }
-
-
 
     let toastProperties = null;
     const showToast = (type) => {
@@ -129,7 +122,9 @@ function StoreDetailsSelection() {
           toastProperties = {
             id: addCartModal.length + 1,
             title: "Success",
-            description: "This is a success toast component",
+            product: productDetails[0].productName,
+            description: " 상품이 카트에 추가되었습니다",
+            tocart: "카트 확인 👆",
             backgroundColor: "#333"
           };
           break;
@@ -138,6 +133,22 @@ function StoreDetailsSelection() {
       }
       setAddCartModal([...addCartModal, toastProperties]);
     };
+
+
+
+
+
+
+    const addToCart = async () => {
+      console.log(" @ console.log(userOrderData): ", userOrderData)
+      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
+      console.log("  const addToCart = async () => { ", resp.data);
+      showToast("success");
+    }
+
+
+
+
 
 
 
@@ -186,32 +197,14 @@ function StoreDetailsSelection() {
 
 
 
-        <div className="product_cart">
-            <button onClick={addToCart}>ADD TO CART</button>
-        </div>
-        <div className="product_cart">
-          <Link to="/store-cart" state={{ "orderProductId": userOrderData.orderProductId, "orderProductQuantity": userOrderData.orderProductQuantity }}>
-            <button onClick={addToCart}>ADD TO CART & GO</button>
-          </Link>
-        </div>
-        <Link
-          className="ptf-btn ptf-btn--primary ptf-btn--block"
-          to="/store-cart"
-        >
-          장바구니
-            <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p>
-        </Link>
 
-        <div className="product_checkout">
-          <button>CHECKOUT</button>
-
-        </div>
-        <Link
+        <div
           className="ptf-btn ptf-btn--primary ptf-btn--block"
-          to="/store-payment"
+          onClick={addToCart}
         >
-          바로구매
-        </Link>
+          카트 담기
+            {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
+        </div>
 
       </div>
       </>
