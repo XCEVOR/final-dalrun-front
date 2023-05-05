@@ -65,7 +65,9 @@ function AdminCompetition() {
                           />
                       </th>
                       <td>{comp.compSeq}</td>
-                      <td>{comp.compTitle}</td>
+                      <td>
+                        <Link to={`/competition-detail/${comp.compSeq}`}>{comp.compTitle}</Link>
+                      </td>
                       <td>{comp.compLocal}</td>
                       <td>{comp.compDateStart}~{comp.compDateEnd}</td>
                       <td>{comp.compSponsor}</td>

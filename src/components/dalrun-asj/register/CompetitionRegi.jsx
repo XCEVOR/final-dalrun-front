@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useState, useEffect  } from "react";
 import { useSearchParams } from "react-router-dom";
-import NaverGeocoding from "../geocoding/NaverGeocoding";
+import NaverMapView from "../../dalrun-jy/competition/NaverMapview";
 
 function CompetitionRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
 
-    const [seq, setSeq] = useState();
     const [title, setTitle] = useState("");
     const [content, setContnet] = useState("");
     const [dateEnd, setDateEnd] = useState("");
@@ -14,12 +13,12 @@ function CompetitionRegi({onHide}) {
     const [link, setLink] = useState("");
     const [local, setLocal] = useState("");
     const [location, setLocation] = useState("");
+    const [locationdetail, setLocationdetail] = useState("");
     const [locationLat, setLocationLat] = useState(0);
     const [locationLng, setLocationLng] = useState(0);
     const [sponsor, setSponsor] = useState("");
     const [receipEnd, setReceipEnd] = useState("");
     const [receipStart, setReceipStart] = useState("");
-    const [regdate, setRegdate] = useState("");
 
     const handleInput = (e) => {
         const textarea = e.target;
@@ -38,8 +37,8 @@ function CompetitionRegi({onHide}) {
                     if(addresses && addresses.length > 0) {
                         const address = addresses[0];
                         console.log(address);
-                        setLocationLat(address.x);
-                        setLocationLng(address.y);
+                        setLocationLat(address.y);
+                        setLocationLng(address.x);
                     } else {
                         alert("정확한 주소를 입력해주세요.");
                     }
@@ -50,6 +49,33 @@ function CompetitionRegi({onHide}) {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        let formdata = new FormData();
+        formdata.append("compTitle", title);
+        formdata.append("compContent", content);
+        formdata.append("compDateEnd", dateEnd);
+        formdata.append("compDateStart", dateStart);
+        formdata.append("compLink", link);
+        formdata.append("compLocal", local);
+        formdata.append("compLocation", locationdetail);
+        formdata.append("locationLat", locationLat);
+        formdata.append("locationLng", locationLng);
+        formdata.append("compSponsor", sponsor);
+        formdata.append("receiptStart", receipEnd);
+        formdata.append("receiptEnd", receipStart);
+        formdata.append("compimage", "");
+
+        axios.post('http://localhost:3000/competitionRegi', formdata)
+            .then((resp) => {
+                if(resp.data === "YES") {
+                    alert("대회등록 성공");
+                    onHide();
+                    setSearchParam(searchParam.set('target',''));
+                } else {
+                    alert("대회등록 실패");
+                }
+            })
+            .catch((err) => console.log(err));
     }
 
     return(
@@ -77,18 +103,20 @@ function CompetitionRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="location">상세 주소</label>
-                            <input type="text" value={location || ""} onChange={(e) => setLocation(e.target.value)} required />
+                            <input type="text" value={location || ""} placeholder="도로명주소" onChange={(e) => setLocation(e.target.value)} required />
+                            <input type="text" style={{marginTop: "10px"}} value={locationdetail || ""} placeholder="장소" onChange={(e) => setLocationdetail(e.target.value)} required />
                         </div>
                         <div>
-                            {/* <label htmlFor="location">상세 주소 좌표</label> */}
+                            <label htmlFor="location">좌표 찾기</label>
                             <div className="date_flex">
                                 <input type="number" value={locationLat || ""} placeholder="위도" onChange={(e) => setLocationLat(e.target.value)} required />
                                 <input type="number" value={locationLng || ""} placeholder="경도" onChange={(e) => setLocationLng(e.target.value)} required />
                                 <button onClick={(e) => searchGeoData(e, location)} >찾기</button>
                             </div>
                         </div>
+                        <NaverMapView mapLat={locationLat} mapLng={locationLng} />
                         <div>
-                            <label htmlFor="sponsor">개최측</label>
+                            <label htmlFor="sponsor">주최측</label>
                             <input type="text" value={sponsor || ""} onChange={(e) => setSponsor(e.target.value)} />
                         </div>
                         <div>
