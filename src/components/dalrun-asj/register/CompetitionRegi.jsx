@@ -76,8 +76,8 @@ function CompetitionRegi({onHide}) {
         formdata.append("locationLat", locationLat);
         formdata.append("locationLng", locationLng);
         formdata.append("compSponsor", sponsor);
-        formdata.append("receiptStart", receipEnd);
-        formdata.append("receiptEnd", receipStart);
+        formdata.append("receiptStart", receipStart);
+        formdata.append("receiptEnd", receipEnd);
         formdata.append("uploadImg", uploadImg);
 
         axios.post('http://localhost:3000/competitionRegi', formdata)
