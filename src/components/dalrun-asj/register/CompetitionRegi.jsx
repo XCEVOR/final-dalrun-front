@@ -2,12 +2,13 @@ import axios from "axios";
 import { useState, useEffect, useRef  } from "react";
 import { useSearchParams } from "react-router-dom";
 import NaverMapView from "../../dalrun-jy/competition/NaverMapview";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function CompetitionRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
 
     const [title, setTitle] = useState("");
-    const [content, setContnet] = useState("");
+    const [content, setContent] = useState("");
     const [dateEnd, setDateEnd] = useState("");
     const [dateStart, setDateStart] = useState("");
     const [link, setLink] = useState("");
@@ -33,13 +34,6 @@ function CompetitionRegi({onHide}) {
         reader.onloadend = () => {
             setImgFile(reader.result);  // 미리보기 할 이미지
         };
-    }
-
-    const handleInput = (e) => {
-        const textarea = e.target;
-        textarea.style.height = 'auto'; // 높이를 자동으로 조정하기 위해 높이를 초기화
-        textarea.style.height = `${textarea.scrollHeight}px`; // 입력한 내용에 맞게 높이 조정
-        setContnet(textarea.value); // 입력한 값을 상태값에 저장
     }
 
     const searchGeoData = (e, address) => {
@@ -138,7 +132,7 @@ function CompetitionRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="content">대회소개</label>
-                            <textarea value={content || ""} onChange={(e) => setContnet(e.target.value)} onInput={handleInput} />
+                            <AdjustableTextarea val={content} setVal={setContent} /> 
                         </div>
                         <div>
                             <label htmlFor="receip">접수 기간</label>

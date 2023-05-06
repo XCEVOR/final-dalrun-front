@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ImgUpload from "../ImgUpload";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function ProductRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -17,13 +18,6 @@ function ProductRegi({onHide}) {
     const [stock, setStock] = useState(0);
     const [saleState, setSaleState] = useState(1);
     const [imgList, setImgList] = useState([]);
-      
-    const handleInput = (e) => {
-        const textarea = e.target;
-        textarea.style.height = 'auto'; // 높이를 자동으로 조정하기 위해 높이를 초기화
-        textarea.style.height = `${textarea.scrollHeight}px`; // 입력한 내용에 맞게 높이 조정
-        setProductDesc(textarea.value); // 입력한 값을 상태값에 저장
-    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -82,7 +76,8 @@ function ProductRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="productDesc">상품설명</label>
-                            <textarea value={productDesc || ""} onInput={handleInput} />
+                            <AdjustableTextarea val={productDesc} setVal={setProductDesc} />
+                            {/* <textarea value={productDesc || ""} onInput={handleInput} /> */}
                         </div>
                         <div>
                             <label htmlFor="price">가격</label>

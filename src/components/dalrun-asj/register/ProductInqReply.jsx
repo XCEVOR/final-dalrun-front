@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function ProductInqReply({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -81,12 +82,16 @@ function ProductInqReply({data, onHide}) {
                                 <td>{inq.inqTitle}</td>
                                 {inq.inqDepth !== 0 ? 
                                     <td>
-                                        <input type="text" value={inq.inqContent || ""} onChange={(e) => {
-                                            if (inq.inqContent !== e.target.value) {
-                                                inq.inqContent = e.target.value;
-                                                setInqList([...inqList]); // 변경된 inqList 상태를 업데이트
-                                            }
-                                        }} />
+                                        <AdjustableTextarea 
+                                            val={inq.inqContent} 
+                                            handleInput={(e) => {
+                                                    if (inq.inqContent !== e.target.value) {
+                                                        inq.inqContent = e.target.value;
+                                                        setInqList([...inqList]); // 변경된 inqList 상태를 업데이트
+                                                    }
+                                                }
+                                            } 
+                                        />
                                     </td> 
                                     : <td>{inq.inqContent}</td>
                                 }
@@ -110,7 +115,7 @@ function ProductInqReply({data, onHide}) {
                     <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                         <fieldset>
                             <div className="add_padding">
-                                <input type="text" value={replyCon || ""} placeholder="답변 입력" onChange={(e) => setReplyCon(e.target.value)} />
+                                <AdjustableTextarea val={replyCon} setVal={setReplyCon} placeholder={"답변 입력"} />
                             </div>
                             <input type="submit" value="답변하기" />
                         </fieldset>
