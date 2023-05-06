@@ -23,6 +23,13 @@
         text-decoration: underline;
         color: var(--ptf-accent-4);
     }
+
+    textarea {
+        resize: none;
+        height: 37px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
 }
 
 // update
