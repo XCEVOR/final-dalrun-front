@@ -11,7 +11,7 @@ function CompetitionRegi({onHide}) {
     const [dateEnd, setDateEnd] = useState("");
     const [dateStart, setDateStart] = useState("");
     const [link, setLink] = useState("");
-    const [local, setLocal] = useState("");
+    const [local, setLocal] = useState("서울");
     const [location, setLocation] = useState("");
     const [locationdetail, setLocationdetail] = useState("");
     const [locationLat, setLocationLat] = useState(0);
@@ -78,7 +78,7 @@ function CompetitionRegi({onHide}) {
         formdata.append("compSponsor", sponsor);
         formdata.append("receiptStart", receipEnd);
         formdata.append("receiptEnd", receipStart);
-        formdata.append("compimage", uploadImg);
+        formdata.append("uploadImg", uploadImg);
 
         axios.post('http://localhost:3000/competitionRegi', formdata)
             .then((resp) => {
@@ -86,7 +86,9 @@ function CompetitionRegi({onHide}) {
                     alert("대회등록 성공");
                     onHide();
                     setSearchParam(searchParam.set('target',''));
-                } else {
+                } else if(resp.data = "file size is too large") {
+                    alert("이미지 파일 사이즈를 줄여주세요.");
+                }else {
                     alert("대회등록 실패");
                 }
             })
@@ -96,7 +98,7 @@ function CompetitionRegi({onHide}) {
     return(
         <div className="admin_update_container">
             <div className="admin_update">
-                <form name="frm" onSubmit={onSubmit} encType="multipart/form">
+                <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                     <fieldset>
                         <div>
                             <label htmlFor="title">대회명</label>
