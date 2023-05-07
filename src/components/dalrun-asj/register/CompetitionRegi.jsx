@@ -3,6 +3,7 @@ import { useState, useEffect, useRef  } from "react";
 import { useSearchParams } from "react-router-dom";
 import NaverMapView from "../../dalrun-jy/competition/NaverMapview";
 import AdjustableTextarea from "../AdjustableTextarea";
+import GeometricDataSearchBtn from "../GeometricDataSearchBtn";
 
 function CompetitionRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -36,26 +37,6 @@ function CompetitionRegi({onHide}) {
         };
     }
 
-    const searchGeoData = (e, address) => {
-        e.preventDefault();
-
-        if(address !== undefined) {
-            axios.get("http://localhost:3000/getGeometricData", { params: {"address":address} })
-                .then((resp) => {
-                    const addresses = resp.data.addresses;
-                    if(addresses && addresses.length > 0) {
-                        const address = addresses[0];
-                        console.log(address);
-                        setLocationLat(address.y);
-                        setLocationLng(address.x);
-                    } else {
-                        alert("정확한 주소를 입력해주세요.");
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
-    }
-
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -80,9 +61,7 @@ function CompetitionRegi({onHide}) {
                     alert("대회등록 성공");
                     onHide();
                     setSearchParam(searchParam.set('target',''));
-                } else if(resp.data = "file size is too large") {
-                    alert("이미지 파일 사이즈를 줄여주세요.");
-                }else {
+                } else {
                     alert("대회등록 실패");
                 }
             })
@@ -122,7 +101,7 @@ function CompetitionRegi({onHide}) {
                             <div className="date_flex">
                                 <input type="number" value={locationLat || ""} placeholder="위도" onChange={(e) => setLocationLat(e.target.value)} required />
                                 <input type="number" value={locationLng || ""} placeholder="경도" onChange={(e) => setLocationLng(e.target.value)} required />
-                                <button onClick={(e) => searchGeoData(e, location)} >찾기</button>
+                                <GeometricDataSearchBtn setLat={setLocationLat} setLng={setLocationLng} location={location} />
                             </div>
                         </div>
                         <NaverMapView mapLat={locationLat} mapLng={locationLng} />
