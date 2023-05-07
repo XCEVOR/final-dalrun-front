@@ -249,6 +249,11 @@ const StoreMain = () => {
     )
 
 
+
+
+
+
+
     // DEVELOPER_MODE
     : (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
@@ -392,14 +397,10 @@ const StoreMain = () => {
                     data-aos="fade"
                     data-aos-delay="0"
                   >
-                    <div
-                      className="ptf-isotope-grid row"
-                      style={{
-                        "--bs-gutter-x": "3rem",
-                        "--bs-gutter-y": "3rem",
-                      }}
-                    >
+                    <div className="dalrun_hc">
+                      <div className="container">
                       <StoreThreeRectangles />
+                      </div>
                     </div>
                   </div>
                   {/* End .ptf-animated-block */}

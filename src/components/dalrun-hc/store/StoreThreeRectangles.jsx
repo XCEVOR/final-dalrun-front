@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const blogContent = [
@@ -60,14 +61,76 @@ const blogContent = [
 
 const StoreThreeRectangles = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
-  
+
+  const [productList, setProductList] = useState([]);
+
+  const getProductList = () => {
+    axios.get("http://localhost:3000/allProductListDeduplication", {})
+    .then (function (resp) {
+      console.log("allProductListDeduplication resp: ", resp.data);
+      setProductList(resp.data);
+    })
+    .catch (function (err) {
+      alert(err);
+    })
+  }
+
+  useEffect (function () {
+    getProductList();
+  }, [])
+
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
     <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div>
+    <div className="threerectangles-grid">
+
+        {/* 서버 데이터 */}
+        {productList.map((singleproduct, i) => (
+          <div
+            className="ptf-animated-block"
+            data-aos="fade"
+            data-aos-delay={100}
+            key={i}
+          >
+            {/* <!--Team Member--> */}
+            <div className="ptf-team-member ptf-team-member--has-effect">
+              <div className="ptf-team-member__avatar">
+                {/* <div className="shadow-effect"></div> */}
+                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
+                {/* <a href="#"> */}
+                  {" "}
+                  <img
+                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
+                    alt={singleproduct.productName}
+                    loading="lazy"
+                  />
+                {/* </a> */}
+                </Link>
+              </div>
+              <div className="ptf-team-member__content">
+                <h6 className="ptf-team-member__name">
+                  <a href="#">{singleproduct.productName}</a>
+                </h6>
+                <h5>₩ {singleproduct.productPrice}</h5>
+                <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+    <div className="threerectangles-grid">
         {blogContent.map((val, i) => (
-          <div className="col-xl-4 col-lg-4" key={i}>
+          <div className="col-xl-12 col-lg-6" key={i}>
             <article className="ptf-post ptf-post--style-1">
               <div className="ptf-post__media">
                 <Link className="ptf-work__link" to="/blog-details"></Link>
@@ -91,38 +154,40 @@ const StoreThreeRectangles = () => {
             </article>
           </div>
         ))}
-      </div>
-    </>
-    )
 
 
-    // DEVELOPER_MODE
-    : (
-    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
-      <div>
-        {blogContent.map((val, i) => (
-          <div className="col-xl-4 col-lg-4" key={i}>
-            <article className="ptf-post ptf-post--style-1">
-              <div className="ptf-post__media">
-                <Link className="ptf-work__link" to="/blog-details"></Link>
-                <img
-                  src={`assets/img/blog/grid/${val.img}.png`}
-                  alt="blog"
-                  loading="lazy"
-                />
+        {/* 서버 데이터 */}
+        {productList.map((singleproduct, i) => (
+          <div
+            className="ptf-animated-block"
+            data-aos="fade"
+            data-aos-delay={100}
+            key={i}
+          >
+            {/* <!--Team Member--> */}
+            <div className="ptf-team-member ptf-team-member--has-effect">
+              <div className="ptf-team-member__avatar">
+                {/* <div className="shadow-effect"></div> */}
+                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
+                {/* <a href="#"> */}
+                  {" "}
+                  <img
+                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
+                    alt={singleproduct.productName}
+                    loading="lazy"
+                  />
+                {/* </a> */}
+                </Link>
               </div>
-              <div className="ptf-post__content">
-                <header className="ptf-post__header">
-                  <div className="ptf-post__meta">
-                    <span className="cat">{val.cat}</span>
-                    <span className="date">{val.date}</span>
-                  </div>
-                  <h3 className="ptf-post__title">
-                    <Link to="/blog-details">{val.title}</Link>
-                  </h3>
-                </header>
+              <div className="ptf-team-member__content">
+                <h6 className="ptf-team-member__name">
+                  <a href="#">{singleproduct.productName}</a>
+                </h6>
+                <h5>₩ {singleproduct.productPrice}</h5>
+                <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
               </div>
-            </article>
+            </div>
           </div>
         ))}
       </div>

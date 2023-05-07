@@ -251,6 +251,26 @@
     }
   }
 
+  .threerectangles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    &--3-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    grid-gap: px2rem(60px);
+    @include mq("large") {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: px2rem(30px);
+    }
+    @include mq("medium") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mq("small") {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: px2rem(30px);
+    }
+  }
+
   .mytestgrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
