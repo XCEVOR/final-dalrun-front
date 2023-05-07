@@ -64,6 +64,7 @@ const teamContent = [
 
 
 const Team = () => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
@@ -81,7 +82,10 @@ const Team = () => {
     getProductList();
   }, [])
 
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
     <div className="fourrectangles-grid fourrectangles-grid-effect">
         {/* 프론트 데이터 */}
         {teamContent.map((val, i) => (
@@ -154,7 +158,16 @@ const Team = () => {
         ))}
 
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+    </>
+    )
 };
 
 export default Team;

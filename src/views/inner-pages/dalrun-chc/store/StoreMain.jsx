@@ -18,7 +18,6 @@ import StoreMainCover from "../../../../components/dalrun-hc/store/StoreMainCove
 import StoreTwoRectangles from "../../../../components/dalrun-hc/store/StoreTwoRectangles";
 import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThree";
 import StoreFourRectangles from "../../../../components/dalrun-hc/store/StoreFourRectangles";
-import StoreFourRectangles_temp from "../../../../components/dalrun-hc/store/StoreFourRectangles-temp";
 import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreThreeRectangles";
 
 const HomeAgency = () => {
