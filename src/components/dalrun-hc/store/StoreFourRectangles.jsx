@@ -33,10 +33,14 @@ const teamContent = [
 
 const StoreFourRectangles = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   const [productList, setProductList] = useState([]);
   const [isInitialRender, setIsInitialRender] = useState(true);
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [filteredProductsList, setFilteredProductsList] = useState([]);
+
+
 
   const getProductList = () => {
     axios.get("http://localhost:3000/allProductListDeduplication", {})
@@ -72,8 +76,18 @@ const StoreFourRectangles = () => {
 
   const selectCategoryBtn = (e) => {
     setSelectedCategory(e.target.value);
+    // 
+    // console.log(" @console.log(selectedCategory) ", selectedCategory)
+    // 
+    //   const filteredProducts = productList.filter(
+    //     (product) => product.productCategory === selectedCategory);
+    //   console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
+    //   if (filteredProducts.length === 0) {alert("존재하지 않는 상품 카테고리"); return;}
+    //   setFilteredProductsList(filteredProducts);
+    // 
   }
 
+  
 
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE 
