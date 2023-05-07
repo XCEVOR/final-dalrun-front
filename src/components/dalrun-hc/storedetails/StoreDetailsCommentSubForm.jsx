@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -11,6 +12,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
 
 
 function StoreDetailsCommentSubForm() {
+    let prodParams = useParams();
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -48,7 +51,7 @@ function StoreDetailsCommentSubForm() {
     return (
         <div>
             <Provider store={configReduxStore}>
-                <TestReduxRight2></TestReduxRight2>
+                <TestReduxRight2 prodParams={prodParams}></TestReduxRight2>
             </Provider>
         </div>
     )
@@ -87,7 +90,7 @@ function TestReduxRight () {    const [name, setName] = useState('');
 
 ////////// ////////// ////////// ////////// ////////// 
 // ===> COMMENT
-function TestReduxRight2 () {
+function TestReduxRight2 (props) {
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
     const [name, setName] = useState('');
@@ -121,9 +124,11 @@ function TestReduxRight2 () {
           params: {
             inqRef: inqRef,
             inqWriter: name,
+            inqTitle: subject,
             inqContent: message,
             productId: productId,
             memId: memId,
+            productCode: props.prodParams.productCode,
           },
         })
         .then((res) => {

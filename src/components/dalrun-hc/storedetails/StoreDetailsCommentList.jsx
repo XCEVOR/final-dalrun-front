@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -10,6 +11,8 @@ import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
 
 
 function StoreDetailsCommentList() {
+    let prodParams = useParams();
+
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
     const [name, setName] = useState('');
@@ -75,7 +78,7 @@ function StoreDetailsCommentList() {
         <div className="post-comments mb-95">
             
             <Provider store={configReduxStore}>
-                <TestReduxLeft2></TestReduxLeft2>
+                <TestReduxLeft2 prodParams={prodParams}></TestReduxLeft2>
             </Provider>
 
         </div>
@@ -173,7 +176,7 @@ function StoreDetailsCommentList() {
             {/* </Provider> */}
             <Provider store={configReduxStore}>
                 {/* <TestReduxLeft></TestReduxLeft> */}
-                <TestReduxLeft2></TestReduxLeft2>
+                <TestReduxLeft2 prodParams={prodParams}></TestReduxLeft2>
             </Provider>
 
         </div>
@@ -199,7 +202,7 @@ function StoreDetailsCommentList() {
 //     )
 // }
 
-function TestReduxLeft2 () {
+function TestReduxLeft2 (props) {
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
     const [name, setName] = useState('');
@@ -263,7 +266,7 @@ function TestReduxLeft2 () {
 
 
     return checkbox_DisplayMode 
-    // USER_MODE
+    // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
@@ -271,8 +274,10 @@ function TestReduxLeft2 () {
             <div className="latest-comments" key={index}>
                 <ul>
 
-
-                    {inq.inqDepth == 0 
+                {inq.productCode !== props.prodParams.productCode 
+                ? <div></div> 
+                : <div> 
+                    {inq.inqDepth === 0 
                       ?
                       <li>
                           <div className="comments-box">
@@ -314,7 +319,7 @@ function TestReduxLeft2 () {
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth} 댓글 onoff</button>
                                   }
                                   {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
 
@@ -323,8 +328,8 @@ function TestReduxLeft2 () {
                           </div>
                       </li>
                     }
-
-
+                </div>
+                }
                 </ul>
             </div>
             ))}
@@ -334,7 +339,7 @@ function TestReduxLeft2 () {
     )
 
 
-    // DEVELOPER_MODE
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     : (
       <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
@@ -344,7 +349,9 @@ function TestReduxLeft2 () {
             <div className="latest-comments" key={index}>
                 <ul>
 
-
+                {inq.productCode !== props.prodParams.productCode 
+                ? <div><p> inq.productCode /// {inq.productCode} !== {props.prodParams.productCode} /// props.prodParams.productCode</p></div> 
+                : <div><div><p> inq.productCode /// /// {inq.productCode} === {props.prodParams.productCode} /// /// props.prodParams.productCode</p></div> 
                     {inq.inqDepth == 0 
                       ?
                       <li>
@@ -363,7 +370,7 @@ function TestReduxLeft2 () {
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth}, inqProductCode: {inq.productCode}  댓글 onoff</button>
                                   }
                                   {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
 
@@ -397,8 +404,8 @@ function TestReduxLeft2 () {
                           </div>
                       </li>
                     }
-
-
+                </div>
+                }
                 </ul>
             </div>
             ))}
