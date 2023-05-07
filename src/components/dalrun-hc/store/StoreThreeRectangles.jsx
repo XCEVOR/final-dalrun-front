@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const blogContent = [
@@ -59,7 +59,11 @@ const blogContent = [
 ];
 
 const BlogThree = () => {
-  return (
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
       {blogContent.map((val, i) => (
         <div className="col-xl-4 col-lg-4" key={i}>
@@ -87,7 +91,16 @@ const BlogThree = () => {
         </div>
       ))}
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+    </>
+    )
 };
 
 export default BlogThree;
