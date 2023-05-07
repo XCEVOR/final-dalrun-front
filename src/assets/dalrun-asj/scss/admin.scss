@@ -189,8 +189,69 @@
     }
 
     .todolist {
-        height: 100px;
+        // height: 100px;
 
+        .todo_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            margin: 10px 0 30px 0;
+
+            .todo_box {
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+
+                .flex {
+                    display: flex;
+
+                    .icon {
+                        padding: 10px;
+                        border-radius: 27%;
+                    }
+
+                    .i_1 {
+                        background-color: rgba(38, 174, 154, 0.3);
+                    }
+
+                    .i_2 {
+                        background-color: rgba(50, 120, 145, 0.3);
+                    }
+
+                    .i_3 {
+                        background-color: rgba(49, 87, 126, 0.3);
+                    }
+
+                    .i_4 {
+                        background-color: rgba(41, 68, 77, 0.3);
+                    }
+
+                    div {
+                        line-height: 38px;
+                        margin-left: 15px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .todo_title {
+                            font-size: 14px;
+                        }
+
+                        .todo_con {
+                            margin: 0 10px;
+
+                            a {
+                                text-decoration: revert;
+                                color: var(--ptf-accent-4);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .todo_box:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
     }
 
     .subtitle {
