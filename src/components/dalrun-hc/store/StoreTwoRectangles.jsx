@@ -101,7 +101,7 @@ const testimonialContent = [
   },
 ];
 
-const TestimonialTwo = () => {
+const StoreTwoRectangles = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   const settings = {
     dots: true,
@@ -124,99 +124,130 @@ const TestimonialTwo = () => {
   // USER_MODE
   ? (
     <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-    <div>
-      <Slider {...settings} className="arrow-none">
-        {testimonialContent.map((val, i) => (
-          <div className="swiper-slide" key={i}>
+      <div>
+        <Slider {...settings} className="arrow-none">
+          {testimonialContent.map((val, i) => (
+            <div className="swiper-slide" key={i}>
 
 
-            {/* <!--Portfolio Item--> */}
-            <article className="ptf-work ptf-work--style-6">
+              {/* <!--Portfolio Item--> */}
+              <article className="ptf-work ptf-work--style-6">
 
 
-              <div className="ptf-work__media">
-                <Link to={val.routerPath} rel="noopener noreferrer">
-                <img
-                  src={`assets/img/dalrun-hc/${val.img}.jpg`}
-                  // src={`assets/img/home/studio/${val.img}.png`}
-                  alt={val.title}
-                  loading="lazy"
-                />
-
-                  {val.name}
-                </Link>
-              </div>
-
-{/* 
-              <Link className="ptf-work__meta" to="/works-showcase">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  style={{ height: "1em" }}
-                  viewBox="0 0 17 17"
-                >
-                  
-                  <path d="M16 .997V10h-1V2.703L4.683 13l-.707-.708L14.291 1.997H6.975v-1H16z" />
-                </svg>
-                <div className="ptf-work__category">{val.categorie}</div>
-                <h4 className="ptf-work__title">{val.title}</h4>
-              </Link>
-               */}
-            </article>
-
-
-{/* 
-            <div
-              className="ptf-twitter-review ptf-twitter-review--style-1"
-              key={i}
-            >
-              <div className="ptf-twitter-review__header">
-                <div className="ptf-twitter-review__avatar">
+                <div className="ptf-work__media">
+                  <Link to={val.routerPath} rel="noopener noreferrer">
                   <img
-                    src={`assets/img/root/${val.avatar}.png`}
-                    alt="avatar"
+                    src={`assets/img/dalrun-hc/${val.img}.jpg`}
+                    // src={`assets/img/home/studio/${val.img}.png`}
+                    alt={val.title}
                     loading="lazy"
                   />
+
+                    {val.name}
+                  </Link>
                 </div>
-                <div className="ptf-twitter-review__meta">
-                  <h6 className="ptf-twitter-review__author">{val.name}</h6>
-                  <div className="ptf-twitter-review__info">
-                    <a href="mailto:ibthemes21@gmail.com">{val.email}</a> -{" "}
-                    {val.date}
-                  </div>
-                </div>
-                <div className="ptf-twitter-review__icon">
-                  <i className="socicon-twitter"></i>
-                </div>
-              </div>
-              <div className="ptf-twitter-review__content">
-                <p>
-                  <a
-                    href="https://twitter.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {val.hightlightText}
-                  </a>{" "}
-                  - {val.description}
-                </p>
-              </div>
+
+  
+              </article>
+
+
+  
             </div>
-*/}
-          </div>
-        ))}
-      </Slider>
-    </div>
+          ))}
+        </Slider>
+      </div>
     </>
     )
 
 
     // DEVELOPER_MODE
     : (
-      <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div>
+        <Slider {...settings} className="arrow-none">
+          {testimonialContent.map((val, i) => (
+            <div className="swiper-slide" key={i}>
 
+
+              {/* <!--Portfolio Item--> */}
+              <article className="ptf-work ptf-work--style-6">
+
+
+                <div className="ptf-work__media">
+                  <Link to={val.routerPath} rel="noopener noreferrer">
+                  <img
+                    src={`assets/img/dalrun-hc/${val.img}.jpg`}
+                    // src={`assets/img/home/studio/${val.img}.png`}
+                    alt={val.title}
+                    loading="lazy"
+                  />
+
+                    {val.name}
+                  </Link>
+                </div>
+
+  {/* 
+                <Link className="ptf-work__meta" to="/works-showcase">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    style={{ height: "1em" }}
+                    viewBox="0 0 17 17"
+                  >
+                    
+                    <path d="M16 .997V10h-1V2.703L4.683 13l-.707-.708L14.291 1.997H6.975v-1H16z" />
+                  </svg>
+                  <div className="ptf-work__category">{val.categorie}</div>
+                  <h4 className="ptf-work__title">{val.title}</h4>
+                </Link>
+                */}
+              </article>
+
+
+  {/* 
+              <div
+                className="ptf-twitter-review ptf-twitter-review--style-1"
+                key={i}
+              >
+                <div className="ptf-twitter-review__header">
+                  <div className="ptf-twitter-review__avatar">
+                    <img
+                      src={`assets/img/root/${val.avatar}.png`}
+                      alt="avatar"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="ptf-twitter-review__meta">
+                    <h6 className="ptf-twitter-review__author">{val.name}</h6>
+                    <div className="ptf-twitter-review__info">
+                      <a href="mailto:ibthemes21@gmail.com">{val.email}</a> -{" "}
+                      {val.date}
+                    </div>
+                  </div>
+                  <div className="ptf-twitter-review__icon">
+                    <i className="socicon-twitter"></i>
+                  </div>
+                </div>
+                <div className="ptf-twitter-review__content">
+                  <p>
+                    <a
+                      href="https://twitter.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {val.hightlightText}
+                    </a>{" "}
+                    - {val.description}
+                  </p>
+                </div>
+              </div>
+  */}
+            </div>
+          ))}
+        </Slider>
+      </div>
     </>
     )
 };
 
-export default TestimonialTwo;
+export default StoreTwoRectangles;
