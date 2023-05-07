@@ -39,7 +39,7 @@ function StoreDetailsPicture() {
       {productPictureList.map((pic, index) => (
         <div className="columnimg" key={index}>
           <img
-            className="detailimg"
+            className="detailimg zoomimg"
             src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
             alt={pic}
             loading="lazy"
