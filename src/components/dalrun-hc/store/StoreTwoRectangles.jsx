@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 
@@ -102,6 +102,7 @@ const testimonialContent = [
 ];
 
 const TestimonialTwo = () => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   const settings = {
     dots: true,
     arrow: false,
@@ -119,7 +120,10 @@ const TestimonialTwo = () => {
       },
     ],
   };
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
       <Slider {...settings} className="arrow-none">
         {testimonialContent.map((val, i) => (
@@ -203,7 +207,16 @@ const TestimonialTwo = () => {
         ))}
       </Slider>
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+    </>
+    )
 };
 
 export default TestimonialTwo;
