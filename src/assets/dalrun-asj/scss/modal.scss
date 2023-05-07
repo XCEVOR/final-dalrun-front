@@ -70,6 +70,16 @@
 
         }
 
+        .comp_img {
+            position: relative;
+            margin-top:20px;
+            width: 55%;
+
+            img {
+                width:"100%"
+            }
+        }
+
         .add_padding {
             padding-top: 50px;
         }
