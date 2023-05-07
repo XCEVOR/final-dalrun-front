@@ -63,7 +63,7 @@ const teamContent = [
 
 
 
-const Team = () => {
+const StoreFourRectangles = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   const [productList, setProductList] = useState([]);
 
@@ -85,8 +85,54 @@ const Team = () => {
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
-    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="fourrectangles-grid fourrectangles-grid-effect">
+
+
+        {/* 서버 데이터 */}
+        {productList.map((singleproduct, i) => (
+          <div
+            className="ptf-animated-block"
+            data-aos="fade"
+            data-aos-delay={100}
+            key={i}
+          >
+            {/* <!--Team Member--> */}
+            <div className="ptf-team-member ptf-team-member--has-effect">
+              <div className="ptf-team-member__avatar">
+                {/* <div className="shadow-effect"></div> */}
+                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
+                {/* <a href="#"> */}
+                  {" "}
+                  <img
+                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
+                    alt={singleproduct.productName}
+                    loading="lazy"
+                  />
+                {/* </a> */}
+                </Link>
+              </div>
+              <div className="ptf-team-member__content">
+                <h6 className="ptf-team-member__name">
+                  <a href="#">{singleproduct.productName}</a>
+                </h6>
+                <h5>₩ {singleproduct.productPrice}</h5>
+                <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+
+    </div>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div className="fourrectangles-grid fourrectangles-grid-effect">
         {/* 프론트 데이터 */}
         {teamContent.map((val, i) => (
           <div
@@ -157,17 +203,10 @@ const Team = () => {
           </div>
         ))}
 
-    </div>
-    </>
-    )
-
-
-    // DEVELOPER_MODE
-    : (
-      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      </div>
 
     </>
     )
 };
 
-export default Team;
+export default StoreFourRectangles;
