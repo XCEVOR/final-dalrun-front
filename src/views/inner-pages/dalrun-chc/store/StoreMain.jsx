@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CounterTwo from "../../../../components/counter/CounterTwo";
@@ -21,7 +21,12 @@ import StoreFourRectangles from "../../../../components/dalrun-hc/store/StoreFou
 import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreThreeRectangles";
 
 const HomeAgency = () => {
-  return (
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+  <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--home-agency">
       <Helmet>
@@ -684,7 +689,16 @@ const HomeAgency = () => {
       {/* End .ptf-site-wrapper__inner */}
     </div>
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+    </>
+    )
 };
 
 export default HomeAgency;
