@@ -104,6 +104,10 @@ const StoreMain = () => {
               </section>
 
 
+
+            
+
+
             {/*=============================================
             일반 상품
             ============================================== */}
@@ -177,6 +181,7 @@ const StoreMain = () => {
                   >
                     <div className="dalrun_hc">
                       <div className="container">
+                      <h2 className="h1 large-heading has-accent-1">일반 상품2</h2>
                       <StoreThreeRectangles />
                       </div>
                     </div>
@@ -334,6 +339,56 @@ const StoreMain = () => {
               </section>
 
 
+
+            {/*=============================================
+            상품 분류
+            ============================================== */}
+              <section className="ptf-custom--1569">
+                {/* <!--Spacer--> */}
+                <div
+                  className="ptf-spacer"
+                  style={{ "--ptf-xxl": "8.75rem", "--ptf-md": "4.375rem" }}
+                ></div>
+                <div className="container">
+                  {/* <!--Animated Block--> */}
+                  <div
+                    className="ptf-animated-block"
+                    data-aos="fade"
+                    data-aos-delay="0"
+                  >
+                    <h2 className="h1 large-heading has-accent-1">상품 분류</h2>
+                  </div>
+                  
+                  {/* <!--Spacer--> */}
+                  <div
+                    className="ptf-spacer"
+                    style={{ "--ptf-xxl": "5.625rem", "--ptf-md": "2.8125rem" }}
+                  ></div>
+                </div>
+                <div className="dalrun_hc">
+                  <div className="container">
+                    <div>
+                      <div>SHOES, SOCKS, HATS, GLASSES, BOTTLES, BELTS</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <!--Spacer--> */}
+                <div
+                  className="ptf-spacer"
+                  style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+                ></div>
+              </section>
+
+              <section>
+                <div className="container">
+                  {/* <!--Divider--> */}
+                  <div className="ptf-divider"></div>
+                </div>
+              </section>
+              {/* End .ptf-devider */}
+
+
             {/*=============================================
             일반 상품
             ============================================== */}
@@ -381,7 +436,7 @@ const StoreMain = () => {
 
 
               {/*=============================================
-              일반 상품 Start Blog Grid section
+              일반 상품2 Start Blog Grid section
               ============================================== */}
               <section>
                 {/* <!--Spacer--> */}
@@ -399,6 +454,7 @@ const StoreMain = () => {
                   >
                     <div className="dalrun_hc">
                       <div className="container">
+                      <h2 className="h1 large-heading has-accent-1">일반 상품2</h2>
                       <StoreThreeRectangles />
                       </div>
                     </div>
