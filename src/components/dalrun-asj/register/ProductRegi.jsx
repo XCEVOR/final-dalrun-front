@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ImgUpload from "../ImgUpload";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function ProductRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -17,7 +18,7 @@ function ProductRegi({onHide}) {
     const [stock, setStock] = useState(0);
     const [saleState, setSaleState] = useState(1);
     const [imgList, setImgList] = useState([]);
-      
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -75,7 +76,8 @@ function ProductRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="productDesc">상품설명</label>
-                            <input type="text" value={productDesc || ""} onChange={(e) => setProductDesc(e.target.value)} />
+                            <AdjustableTextarea val={productDesc} setVal={setProductDesc} />
+                            {/* <textarea value={productDesc || ""} onInput={handleInput} /> */}
                         </div>
                         <div>
                             <label htmlFor="price">가격</label>
