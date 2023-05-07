@@ -58,49 +58,77 @@ const blogContent = [
   },
 ];
 
-const BlogThree = () => {
+const StoreThreeRectangles = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+  
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
     <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-    <div>
-      {blogContent.map((val, i) => (
-        <div className="col-xl-4 col-lg-4" key={i}>
-          <article className="ptf-post ptf-post--style-1">
-            <div className="ptf-post__media">
-              <Link className="ptf-work__link" to="/blog-details"></Link>
-              <img
-                src={`assets/img/blog/grid/${val.img}.png`}
-                alt="blog"
-                loading="lazy"
-              />
-            </div>
-            <div className="ptf-post__content">
-              <header className="ptf-post__header">
-                <div className="ptf-post__meta">
-                  <span className="cat">{val.cat}</span>
-                  <span className="date">{val.date}</span>
-                </div>
-                <h3 className="ptf-post__title">
-                  <Link to="/blog-details">{val.title}</Link>
-                </h3>
-              </header>
-            </div>
-          </article>
-        </div>
-      ))}
-    </div>
+      <div>
+        {blogContent.map((val, i) => (
+          <div className="col-xl-4 col-lg-4" key={i}>
+            <article className="ptf-post ptf-post--style-1">
+              <div className="ptf-post__media">
+                <Link className="ptf-work__link" to="/blog-details"></Link>
+                <img
+                  src={`assets/img/blog/grid/${val.img}.png`}
+                  alt="blog"
+                  loading="lazy"
+                />
+              </div>
+              <div className="ptf-post__content">
+                <header className="ptf-post__header">
+                  <div className="ptf-post__meta">
+                    <span className="cat">{val.cat}</span>
+                    <span className="date">{val.date}</span>
+                  </div>
+                  <h3 className="ptf-post__title">
+                    <Link to="/blog-details">{val.title}</Link>
+                  </h3>
+                </header>
+              </div>
+            </article>
+          </div>
+        ))}
+      </div>
     </>
     )
 
 
     // DEVELOPER_MODE
     : (
-      <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div>
+        {blogContent.map((val, i) => (
+          <div className="col-xl-4 col-lg-4" key={i}>
+            <article className="ptf-post ptf-post--style-1">
+              <div className="ptf-post__media">
+                <Link className="ptf-work__link" to="/blog-details"></Link>
+                <img
+                  src={`assets/img/blog/grid/${val.img}.png`}
+                  alt="blog"
+                  loading="lazy"
+                />
+              </div>
+              <div className="ptf-post__content">
+                <header className="ptf-post__header">
+                  <div className="ptf-post__meta">
+                    <span className="cat">{val.cat}</span>
+                    <span className="date">{val.date}</span>
+                  </div>
+                  <h3 className="ptf-post__title">
+                    <Link to="/blog-details">{val.title}</Link>
+                  </h3>
+                </header>
+              </div>
+            </article>
+          </div>
+        ))}
+      </div>
 
     </>
     )
 };
 
-export default BlogThree;
+export default StoreThreeRectangles;
