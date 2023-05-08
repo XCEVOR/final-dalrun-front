@@ -27,6 +27,7 @@
     "react-dropzone": "^14.2.3",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.6.3",
+    "react-icons": "^4.8.0",
     "react-js-pagination": "^3.0.3",
     "react-kakao-maps-sdk": "^1.1.8",
     "react-masonry-css": "^1.0.16",
