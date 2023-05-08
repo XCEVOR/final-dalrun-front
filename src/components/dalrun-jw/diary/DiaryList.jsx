@@ -3,22 +3,32 @@ import {Link} from 'react-router-dom';
 
 const DiaryList = () => {
 
-  return(
-    <div className="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-dark">
-      <Link to="/" className="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
-        <svg className="bi pe-none me-2" width="30" height="24"><use xlinkHref="#bootstrap"/></svg>
-        <span className="fs-5 fw-semibold">List group</span>
-      </Link>
-      <div className="list-group list-group-flush border-bottom scrollarea" style={{"overflowY":'auto'}}>
-        <Link to="#" className="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
-          <div className="d-flex w-100 align-items-center justify-content-between">
-            <strong className="mb-1">프로필, 닉네임, 크루 이름, 기록까지~~</strong>
-            <small>번호</small>
+  const diaryItems = [
+    '다이어리 1',
+    '다이어리 2',
+    '다이어리 3',
+    '다이어리 4',
+    '다이어리 5',
+  ];
+
+  return (
+    <div className="diary-list-container">
+      <div className="diary-list-header">
+        <h4 style={{margin:'0.5rem'}}>다이어리 목록</h4>
+        <input type="text" placeholder="검색" />
+      </div>
+      <div className="diary-list-item first-place">
+        <h6>1등</h6>
+      </div>
+      <div className="diary-list-items">
+       {diaryItems.map((item, index) => (
+          <div key={index} className="diary-list-item">
+            {item}
           </div>
-          <div className="col-10 mb-1 small">여기는 기록이 들어갈거야~~~</div>
-        </Link>
+        ))}
       </div>
     </div>
   );
+
 }
 export default DiaryList;
