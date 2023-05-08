@@ -2,11 +2,13 @@
 import { useDiaryGPXData  } from './DiaryGPXData';
 
 const MyPolyline = () => {
+
   // const [data, setData] = useState([]);
+  // const [param] = useState([]);
 
   // useInsertionEffect(() => {
   //   const fetchData = async () => {
-  //     const result = await axios(
+  //     const result = await axios('http://localhost:3000/gpxList',{param}
 
   //     );
       
