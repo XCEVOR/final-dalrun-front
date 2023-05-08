@@ -17,20 +17,6 @@ function TaskList() {
               })
               .catch((err) => console.log(err));
     }
-  
-    const TodoBox = (icon, color, title, con) => {
-        return(
-            <div className="todo_box">
-                <div className="flex">
-                    <FontAwesomeIcon icon={icon} style={{color: `${color}`,}} />
-                    <div>
-                        <span>{title}</span>
-                        <span>{con}</span>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     useEffect(() => {
       getTaskList();

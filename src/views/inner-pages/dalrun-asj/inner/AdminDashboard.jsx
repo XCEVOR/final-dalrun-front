@@ -1,4 +1,5 @@
 import TaskList from "../../../../components/dalrun-asj/dashboard/TaskList";
+import WeekSummary from "../../../../components/dalrun-asj/dashboard/WeekSummary";
 
 function AdminDashboard() {
   return (
@@ -10,11 +11,12 @@ function AdminDashboard() {
           <TaskList />
         </div>
         <div className="summary">
-          <div className="visiter outline">
+          <div className="visiter">
             <span className="subtitle">방문자 현황</span>
           </div>
-          <div className="week outline">
+          <div className="week">
             <span className="subtitle">일자별 요약</span>
+            <WeekSummary />
           </div>
         </div>
       </div>
