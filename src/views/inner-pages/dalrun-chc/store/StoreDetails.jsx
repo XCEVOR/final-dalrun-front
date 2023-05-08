@@ -16,6 +16,7 @@ import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/S
 import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
 import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
 import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
+import CommentAppContext from './StoreAppContext';
 
 import Button from "./Button";
 import Toast from "./Toast";
@@ -32,6 +33,8 @@ const WorksShowcase = () => {
   const [loading, setLoading] = useState(false);
 
   const [addCartModal, setAddCartModal] = useState([]);
+
+  const [commentContxData, setCommentContxData] = useState(false);
 
   
 
@@ -78,6 +81,7 @@ const WorksShowcase = () => {
   // USER_MODE
   ? (
     <>
+    <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
@@ -207,6 +211,7 @@ const WorksShowcase = () => {
     </div>
     </div>
     // End .ptf-is--blog-grid
+    </CommentAppContext.Provider>
     </>
     )
 
@@ -214,6 +219,7 @@ const WorksShowcase = () => {
     // DEVELOPER_MODE
     : (
       <>
+      <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div className="dalrun_hc">
 
@@ -643,7 +649,8 @@ const WorksShowcase = () => {
     </div>
     </div>
     // End .ptf-is--blog-grid
-      </>
+    </CommentAppContext.Provider>
+    </>
     )
 };
 

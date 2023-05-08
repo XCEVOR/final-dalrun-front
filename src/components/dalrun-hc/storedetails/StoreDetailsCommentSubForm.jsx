@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 
@@ -9,6 +9,8 @@ import myReduxStore from "../myredux/myReduxStore";
 import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
 import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
 import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
+
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
 
 
 function StoreDetailsCommentSubForm() {
@@ -100,6 +102,8 @@ function TestReduxRight2 (props) {
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
 
+    const { setCommentContxData } = useContext(CommentAppContext);
+
 
     const myDispatch = useDispatch();
     const storeDetailsCommentSeqDispatch = useDispatch();
@@ -148,6 +152,7 @@ function TestReduxRight2 (props) {
     const myOnClickFunc = () => {
       writeCommentSub();
       storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentSeq", sliInqRef: 2} );
+      setCommentContxData(prev => !prev);
     }
 
 

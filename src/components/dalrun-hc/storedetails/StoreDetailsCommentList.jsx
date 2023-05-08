@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 
@@ -7,6 +7,8 @@ import myReduxStore from "../myredux/myReduxStore";
 import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
 import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
+
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
 
 
 
@@ -222,6 +224,8 @@ function TestReduxLeft2 (props) {
     const storeDetailsCommentSeqDispatch = useDispatch();
     const storeDetailsCommentRefDispatch = useDispatch();
 
+    const { commentContxData } = useContext(CommentAppContext);
+
 
     // const number = useSelector(state => state.myCounterInConfigureStore.number)
     const sliceInqSeq = useSelector(state => state.storeDetailsCommentSeqInConfigureStore.sliceInqSeq)
@@ -248,7 +252,7 @@ function TestReduxLeft2 (props) {
 
     useEffect(() => {
         getCommentList(productCode);
-    }, [productCode, sliceInqSeq])
+    }, [productCode, sliceInqSeq, commentContxData])
 
     if(loading === false){
         return <div>Loading...</div>
@@ -269,7 +273,7 @@ function TestReduxLeft2 (props) {
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-        <div>
+        <div><div>contxData {commentContxData}</div>
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
                 <ul>

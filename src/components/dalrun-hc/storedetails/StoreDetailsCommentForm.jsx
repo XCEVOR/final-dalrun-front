@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 
@@ -10,6 +10,8 @@ import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
 import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
 import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
 
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
+
 
 function StoreDetailsCommentForm() {
     let prodParams = useParams();
@@ -20,6 +22,7 @@ function StoreDetailsCommentForm() {
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
+
 
     const writeComment = () => {
         if(subject === undefined || subject.trim() === ''){
@@ -138,6 +141,9 @@ function TestReduxRight2 (props) {
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
 
+    const { setCommentContxData } = useContext(CommentAppContext);
+
+
     const myDispatch = useDispatch();
     const storeDetailsCommentSeqDispatch = useDispatch();
 
@@ -180,6 +186,7 @@ function TestReduxRight2 (props) {
       writeCommentMain();
       myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
       storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
+      setCommentContxData(prev => !prev);
     }
 
 
