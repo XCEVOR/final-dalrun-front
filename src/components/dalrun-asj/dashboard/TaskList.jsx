@@ -51,7 +51,7 @@ function TaskList() {
             </div>    
             <div className="todo_box">
                 <div className="flex">
-                    <FontAwesomeIcon className="icon i_2" icon={faBan} style={{color: "#327891",}} />
+                    <FontAwesomeIcon className="icon i_2" icon={faBan} style={{color: "#2b54a3",}} />
                     <div>
                         <span className="todo_title">취소/환불/반품</span>
                         <span className="todo_con">
@@ -62,7 +62,7 @@ function TaskList() {
             </div>
             <div className="todo_box">
                 <div className="flex">
-                    <FontAwesomeIcon className="icon i_3" icon={faCubes} style={{color: "#31577e",}} />
+                    <FontAwesomeIcon className="icon i_3" icon={faCubes} style={{color: "#7d2c8b",}} />
                     <div>
                         <span className="todo_title">재고부족</span>
                         <span className="todo_con">
@@ -73,7 +73,7 @@ function TaskList() {
             </div>
             <div className="todo_box">
                 <div className="flex">
-                    <FontAwesomeIcon className="icon i_4" icon={faCommentDots} style={{color: "#29444d",}} />
+                    <FontAwesomeIcon className="icon i_4" icon={faCommentDots} style={{color: "#cb1270",}} />
                     <div>
                         <span className="todo_title">답변대기</span>
                         <span className="todo_con">
