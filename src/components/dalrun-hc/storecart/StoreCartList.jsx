@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 function StoreCartList() {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   // const location = useLocation();
   const [userId, setUserId] = useState("user01test");
   const [cartList, setCartList] = useState([]);
@@ -196,7 +198,10 @@ function StoreCartList() {
   };
 
 
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+  ? (
+    <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
       <section>
         <h1>CART</h1>
@@ -404,7 +409,16 @@ function StoreCartList() {
       </section>
 
     </div>
-  );
+    </>
+  )
+
+
+  // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+  : (
+    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+    </>
+  )
 }
 
 export default StoreCartList;
