@@ -225,6 +225,7 @@ function TestReduxLeft2 (props) {
     const storeDetailsCommentRefDispatch = useDispatch();
 
     const { commentContxData } = useContext(CommentAppContext);
+    const [commentContxDataState, setCommentContxDataState] = useState(null);
 
 
     // const number = useSelector(state => state.myCounterInConfigureStore.number)
@@ -252,6 +253,7 @@ function TestReduxLeft2 (props) {
 
     useEffect(() => {
         getCommentList(productCode);
+        setCommentContxDataState(false)
     }, [productCode, sliceInqSeq, commentContxData])
 
     if(loading === false){
@@ -265,7 +267,8 @@ function TestReduxLeft2 (props) {
         setIsOffReply(!isOffReply)
         storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentRef", sliInqRef: Number(eve.target.value)} )
         console.log("eve.target.value", Number(eve.target.value))
-        
+        console.log(" console.log (commentContxData)", commentContxData)
+        setCommentContxDataState(prev => !prev)
     }
 
 
@@ -273,7 +276,7 @@ function TestReduxLeft2 (props) {
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-        <div><div>contxData {commentContxData}</div>
+        <div>
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
                 <ul>
@@ -300,8 +303,10 @@ function TestReduxLeft2 (props) {
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
                                       : <button value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
                                   }
-                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
-
+                                  {commentContxDataState
+                                  ? <div> {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /> </div>}
+                                  </div> 
+                                  : <div>  </div>}
 
                               </div>
                           </div>
@@ -348,7 +353,7 @@ function TestReduxLeft2 (props) {
       <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
             <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
-            
+            {commentContxDataState ? <div>열림</div> : <div>닫힘</div>}
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
                 <ul>
@@ -376,7 +381,14 @@ function TestReduxLeft2 (props) {
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
                                       : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth}, inqProductCode: {inq.productCode}  댓글 onoff</button>
                                   }
-                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+                                  {commentContxDataState
+                                  ? <div>
+                                      열림 // {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm />
+                                    </div>}
+                                  </div> 
+                                  : <div>
+                                      닫힘 // 
+                                    </div>}
 
 
                               </div>
