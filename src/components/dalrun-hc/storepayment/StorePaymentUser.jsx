@@ -66,8 +66,11 @@ const StorePaymentUser = (props) => {
       props.pushOrderAddressPackage(orderAddress)
       props.pushOrderPhonePackage(orderPhone)
       props.pushOrderRequirmentPackage(orderRequirment)
-    
   }
+
+  useEffect(() => {
+    pushTest();
+  } ,[])
 
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
