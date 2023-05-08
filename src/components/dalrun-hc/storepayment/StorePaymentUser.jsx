@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 const StorePaymentUser = (props) => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   const [orderName, setOrderName] = useState('제프 베이조스');
   const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
   const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
@@ -64,13 +66,102 @@ const StorePaymentUser = (props) => {
       props.pushOrderAddressPackage(orderAddress)
       props.pushOrderPhonePackage(orderPhone)
       props.pushOrderRequirmentPackage(orderRequirment)
-    
   }
 
-  return (
-    <>
-      {/* // Component to Component */}
-      <input
+  useEffect(() => {
+    pushTest();
+  } ,[])
+
+  return checkbox_DisplayMode 
+  // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+  ? (
+    <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+
+      {/* <!--Animated Block--> */}
+      <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+        {/* <!--Spacer--> */}
+        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+
+        <div className="post-comment-form">
+          <h4>주문자 정보 </h4>
+          <span>Your email address will not be published.</span>
+          <div className="bd-contact-form-wrapper mb-30">
+            <form action="#">
+              <div className="row">
+                <div className="col-12">
+                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    orderName
+                  </h5>
+                  <div className="bd-contact-field mb-30">
+                    <input
+                      type="text"
+                      placeholder="orderName"
+                      value={orderName}
+                      onChange={makeOrderNamePackage}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    orderAddress
+                  </h5>
+                  <div className="bd-contact-field mb-30">
+                    <input
+                      type="text"
+                      placeholder="orderAddress"
+                      value={orderAddress}
+                      onChange={makeOrderAddressPackage}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    orderPhone
+                  </h5>
+                  <div className="bd-contact-field mb-30">
+                    <input
+                      type="text"
+                      placeholder="orderPhone"
+                      value={orderPhone}
+                      onChange={makeOrderPhonePackage}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    orderRequirment
+                  </h5>
+                  <div className="bd-contact-field mb-30">
+                    <textarea
+                      placeholder="orderRequirment"
+                      value={orderRequirment}
+                      onChange={makeOrderRequirmentPackage}
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="bd-contact-field">
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+        </>
+    )
+
+
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+{/* // Component to Component */}
+<input
         onChange={(event) => {
           props.pushData(event.target.value);
         }}
@@ -200,8 +291,8 @@ const StorePaymentUser = (props) => {
         className="ptf-spacer"
         style={{ "--ptf-lg": "4.375rem", "--ptf-md": "2.1875rem" }}
       ></div>
-    </>
-  );
+      </>
+    )
 };
 
 export default StorePaymentUser;
