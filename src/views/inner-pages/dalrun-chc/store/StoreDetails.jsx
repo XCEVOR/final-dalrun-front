@@ -104,10 +104,14 @@ const WorksShowcase = () => {
                 <div className="container-xxl">
                   <div className="row">
                     <div className="col-xl-8">
-                      <StoreDetailsPicture />
+                      <div className="picture_container">
+                        <StoreDetailsPicture />
+                      </div>
                     </div>
                     <div className="col-xl-4">
-                      <StoreDetailsSelection />
+                      <div className="selection_container">
+                        <StoreDetailsSelection />
+                      </div>
                     </div>
                   </div>
                 </div>
