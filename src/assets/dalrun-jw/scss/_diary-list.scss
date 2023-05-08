@@ -1,0 +1,38 @@
+﻿.diary-list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 300px;
+  padding: 0;
+}
+
+.diary-list-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  background-color: #F6FDF8;
+}
+
+.diary-list-item.first-place {
+  display: flex;
+  padding-top: 1rem;
+  height: 10%;
+  background-color: #F6FDF8;
+}
+
+.diary-list-items {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  overflow-y: auto;
+
+  :hover{
+    background-color: #9de9cc;
+    cursor: pointer;
+  }
+
+}
+
+
