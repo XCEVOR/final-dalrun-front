@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 const StorePaymentUser = (props) => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   const [orderName, setOrderName] = useState('제프 베이조스');
   const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
   const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
@@ -67,8 +69,10 @@ const StorePaymentUser = (props) => {
     
   }
 
-  return (
-    <>
+  return checkbox_DisplayMode 
+  // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+  ? (
+    <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       {/* // Component to Component */}
       <input
         onChange={(event) => {
@@ -200,8 +204,16 @@ const StorePaymentUser = (props) => {
         className="ptf-spacer"
         style={{ "--ptf-lg": "4.375rem", "--ptf-md": "2.1875rem" }}
       ></div>
-    </>
-  );
+        </>
+    )
+
+
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+      </>
+    )
 };
 
 export default StorePaymentUser;
