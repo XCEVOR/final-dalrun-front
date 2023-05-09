@@ -9,12 +9,6 @@ const DiarySidebar = () => {
   const loginData = JSON.parse(localStorage.getItem("login"));
   const memId = loginData.memId;
 
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/diary?search=${memId}`);
-  };
-
   return (
 
     <header className='diary-navbar-container'>
@@ -25,10 +19,10 @@ const DiarySidebar = () => {
       <nav className='head-nav'>
         <ul>
           <li className='nav-item'>
-            <button title='내 기록' onClick={() => handleClick()}>
+            <Link to={`?search=${memId}`} title='내 기록'>
               <img src="assets/img/dalrun-jw/person-circle.svg"/>
               <span>내 기록</span>
-            </button>
+            </Link>
           </li>
           <li className='nav-item'>
             <UploadModal/>
