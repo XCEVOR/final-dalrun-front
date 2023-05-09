@@ -25,14 +25,45 @@
 .diary-list-items {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 75%;
   overflow-y: auto;
+}
+
+.diary-list-pagination {
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  margin-bottom: 0.4rem;
+}
+
+.diary-list-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
 
   :hover{
     background-color: #9de9cc;
     cursor: pointer;
   }
-
 }
 
+.diary-list-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.diary-list-item-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.diary-list-item-date,
+.diary-list-item-distance,
+.diary-list-item-time {
+  display: inline-block;
+  margin-right: 5px;
+}
 
