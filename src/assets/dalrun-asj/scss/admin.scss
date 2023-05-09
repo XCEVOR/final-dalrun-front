@@ -1,3 +1,65 @@
+
+// admin-sidebar
+.ptf-admin-sidebar {
+    position : relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index : 10;
+    border-right : 2px solid var(--ptf-color-black);
+    
+    ul {
+      width: 250px;
+      list-style-type: none;
+      padding: 3rem 0 9rem 0;
+      text-align: center;
+  
+      li {
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+        font-weight: bold;
+        color: var(--ptf-color-black);
+        }
+    }
+  
+    .admin-sidebar-menu_btns {
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 60px;
+    }
+  }
+  
+  .ptf-mypage-sidebar {
+    position : relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index : 10;
+    border-right : 2px solid var(--ptf-color-black);
+    
+    ul {
+      width: 300px;
+      list-style-type: none;
+      padding: 3rem 0 9rem 0;
+      text-align: center;
+  
+      li {
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+        font-weight: bold;
+        color: var(--ptf-color-black);
+        }
+    }
+  
+    .mypage-sidebar-menu_btns {
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 60px;
+    }
+}
+
 .container {
     width: 100%;
     padding: 50px;
@@ -109,6 +171,11 @@
 
     .info_con {
         height: 100%;
+
+        .table_link {
+            text-decoration: revert;
+            color: var(--ptf-accent-4);
+        }
     }
 }
 
@@ -137,12 +204,6 @@
 
 // 회원관리
 .member {
-    .info_con {
-        .table_link {
-            text-decoration: revert;
-            color: var(--ptf-accent-4);
-        }
-    }
 }
 
 // 게시물 관리

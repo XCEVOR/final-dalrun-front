@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 function StoreCartList(props) {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   // const location = useLocation();
   const [userId, setUserId] = useState("user01test");
   const [cartList, setCartList] = useState([]);
@@ -16,6 +18,11 @@ function StoreCartList(props) {
 
   const [data, setData] = useState([]);  // 삭제 예정.
   const [sum, setSum] = useState(0);  // 삭제 예정.
+
+  // --------주문상세 데이터를 담기위한 state----------
+  const [orderNumber, setOrderNumber] = useState();
+  const [orderItems, setOrderItems] = useState([]);
+  // ------------------------------------------------
 
   // Component to Component
   const [myData, setMyData] = React.useState("<blank>");
@@ -177,8 +184,6 @@ function StoreCartList(props) {
     window.location.reload();
   }
 
-
-
   const writeOrderData = async () => {
     const resp = await axios.post(
       "http://localhost:3000/writeOrderData",
@@ -195,8 +200,31 @@ function StoreCartList(props) {
         },
       }
     );
-    console.log("  sendOrderData: ", resp.data);
+    console.log("  sendOrderData: ", resp.data.result);
+    setOrderNumber(resp.data.orderNumber);
 
+    // 주문 성공시, 주문상세 데이터 넣기
+    const newOrderItems = cartList.productIdList.map((list) => ({
+      "orderNumber": resp.data.orderNumber,
+      "productId": list.productId,
+      "productName": list.cartProdName,
+      "productPrice": list.cartProdPrice,
+      "productQuantity": list.cartProdQuantity
+    }));
+    
+    if(newOrderItems.length > 0) {
+      console.log(newOrderItems);
+      setOrderItems((prev) => [...prev, ...newOrderItems]);
+      
+      console.log(orderItems);
+  
+      axios.post("http://localhost:3000/writeOrderDetail", newOrderItems)
+        .then((resp) => {
+          console.log(resp.data);
+          setOrderItems([]);
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
 
@@ -297,205 +325,278 @@ function StoreCartList(props) {
 
 
 
-  return (
-    <div>
-      <button onClick={onClickPayment}>결제하기test</button>
-      {/* // Component to Component */}
-      <span>{myData}</span>
-      <p>{pulledOrderName}</p>
-      <p>{pulledOrderAddress}</p>
-      <p>{pulledOrderPhone}</p>
-      <p>{pulledOrderRequirment}</p>
-      <section>
-        <h1>ORDER SUMMARY</h1>
-        <h3>{totalPaymentAmount}</h3>
-        {/* <div className="shopping-cart"> */}
-        <div>
-          {/* <!-- Title --> */}
-          <div className="title">Shopping Bag</div>
+    return checkbox_DisplayMode 
+    // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+      <div>
 
-          <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
+        <section>
+          <h1>ORDER SUMMARY</h1>
 
-          {/* <!-- Product #1 --> */}
-          <div className="item">
-            <div className="buttons">
-              <span className="delete-btn"></span>
-              <span
-                className={likeBtn ? "like-btn is-active" : "like-btn"}
-                onClick={likeBtnClick}
-              ></span>
-            </div>
+          {/* <div className="shopping-cart"> */}
+          <div>
+            {/* <!-- Title --> */}
+            <div className="title">Shopping Bag</div>
 
-            <div className="image">
-              <img
-                src="assets/img/dalrun-hc/store/storecart/item-1.png"
-                alt=""
-              />
-            </div>
+            <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
-            <div className="description">
-              <span>Common Projects</span>
-              <span>Bball High</span>
-              <span>White</span>
-            </div>
+            {/* <!-- DB 데이터 --> */}
+          {/* 
+            {cartList.map((item, index) => (
+              <div className="item" key={index}>
+                <div className="image" style={{ width: 160 }}>
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                    alt=""
+                  />
+                </div>
 
-            <div className="quantity">
-              <button className="plus-btn" type="button" name="button">
-                <img
-                  src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                  alt=""
-                />
-              </button>
-              <input type="text" name="name" defaultValue="1" />
-              <button className="minus-btn" type="button" name="button">
-                <img
-                  src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                  alt=""
-                />
-              </button>
-            </div>
+                <div className="description">
+                  <span>{item.productName}</span>
+                  <span>{item.productSize}</span>
+                  <span>{item.productColor}</span>
+                </div>
 
-            <div className="total-price">$549</div>
+                <div className="total-price">₩ {item.productPrice}</div>
+              </div>
+            ))}
+          */}
           </div>
+        </section>
 
-          {/* <!-- Product #2 --> */}
-          <div className="item">
-            <div className="buttons">
-              <span className="delete-btn"></span>
-              <span
-                className={likeBtn ? "like-btn is-active" : "like-btn"}
-                onClick={likeBtnClick}
-              ></span>
+        <section>
+          <div className="ptf-single-post__wrapper">
+            <div className="container-xxl">
+              <div className="row">
+                <div className="col-xl-8">
+                  <h3>TOTAL PAYMENT AMOUNT</h3>
+                  <button onClick={calcTotalPaymentAmount}>
+                    {totalPaymentAmount}결제금액확인test
+                  </button>
+                  <Link to="/store-payment">
+                    <button onClick={writeOrderData}>
+                      {totalPaymentAmount}결제 실행 (주문 데이터)
+                    </button>
+                  </Link>
+                  <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
+                  <Link to="/store-payment">
+                    <button>{totalPaymentAmount}결제 실행 (링크)</button>
+                  </Link>
+                  <h3 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h3>
+
+                </div>
+              </div>
             </div>
-
-            <div className="image">
-              <img
-                src="assets/img/dalrun-hc/store/storecart/item-2.png"
-                alt=""
-              />
-            </div>
-
-            <div className="description">
-              <span>Maison Margiela</span>
-              <span>Future Sneakers</span>
-              <span>White</span>
-            </div>
-
-            <div className="quantity">
-              <button className="plus-btn" type="button" name="button">
-                <img
-                  src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                  alt=""
-                />
-              </button>
-              <input type="text" name="name" defaultValue="1" />
-              <button className="minus-btn" type="button" name="button">
-                <img
-                  src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-
-            <div className="total-price">$870</div>
           </div>
+        </section>
+      </div>
+    </>
+    )
 
-          {/* <!-- Product #3 --> */}
-          <div className="item">
-            <div className="buttons">
-              <span className="delete-btn"></span>
-              <span
-                className={likeBtn ? "like-btn is-active" : "like-btn"}
-                onClick={likeBtnClick}
-              ></span>
-            </div>
 
-            <div className="image">
-              <img
-                src="assets/img/dalrun-hc/store/storecart/item-3.png"
-                alt=""
-              />
-            </div>
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div>
+        <button onClick={onClickPayment}>결제하기test</button>
+        {/* // Component to Component */}
+        <span>{myData}</span>
+        <p>{pulledOrderName}</p>
+        <p>{pulledOrderAddress}</p>
+        <p>{pulledOrderPhone}</p>
+        <p>{pulledOrderRequirment}</p>
+        <section>
+          <h1>ORDER SUMMARY</h1>
+          <h3>{totalPaymentAmount}</h3>
+          {/* <div className="shopping-cart"> */}
+          <div>
+            {/* <!-- Title --> */}
+            <div className="title">Shopping Bag</div>
 
-            <div className="description">
-              <span>Our Legacy</span>
-              <span>Brushed Scarf</span>
-              <span>Brown</span>
-            </div>
+            <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
-            <div className="quantity">
-              <button className="plus-btn" type="button" name="button">
+            {/* <!-- Product #1 --> */}
+            <div className="item">
+              <div className="buttons">
+                <span className="delete-btn"></span>
+                <span
+                  className={likeBtn ? "like-btn is-active" : "like-btn"}
+                  onClick={likeBtnClick}
+                ></span>
+              </div>
+
+              <div className="image">
                 <img
-                  src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                  alt=""
-                />
-              </button>
-              <input type="text" name="name" defaultValue="1" />
-              <button className="minus-btn" type="button" name="button">
-                <img
-                  src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-
-            <div className="total-price">$349</div>
-          </div>
-
-          {/* <!-- DB 데이터 --> */}
-        {/* 
-          {cartList.map((item, index) => (
-            <div className="item" key={index}>
-              <div className="image" style={{ width: 160 }}>
-                <img
-                  src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                  src="assets/img/dalrun-hc/store/storecart/item-1.png"
                   alt=""
                 />
               </div>
 
               <div className="description">
-                <span>{item.productName}</span>
-                <span>{item.productSize}</span>
-                <span>{item.productColor}</span>
+                <span>Common Projects</span>
+                <span>Bball High</span>
+                <span>White</span>
               </div>
 
-              <div className="total-price">₩ {item.productPrice}</div>
-            </div>
-          ))}
-        */}
-        </div>
-      </section>
-
-      <section>
-        <div className="ptf-single-post__wrapper">
-          <div className="container-xxl">
-            <div className="row">
-              <div className="col-xl-8">
-                <h3>TOTAL PAYMENT AMOUNT</h3>
-                <button onClick={calcTotalPaymentAmount}>
-                  {totalPaymentAmount}결제금액확인test
+              <div className="quantity">
+                <button className="plus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                    alt=""
+                  />
                 </button>
-                <Link to="/store-payment">
-                  <button onClick={writeOrderData}>
-                    {totalPaymentAmount}결제 실행 (주문 데이터)
-                  </button>
-                </Link>
-                <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                <Link to="/store-payment">
-                  <button>{totalPaymentAmount}결제 실행 (링크)</button>
-                </Link>
-                <h6 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h6>
-                <input
-                  defaultValue={totalPaymentAmount}
-                  onChange={(e) => e.target.value}
+                <input type="text" name="name" defaultValue="1" />
+                <button className="minus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+
+              <div className="total-price">$549</div>
+            </div>
+
+            {/* <!-- Product #2 --> */}
+            <div className="item">
+              <div className="buttons">
+                <span className="delete-btn"></span>
+                <span
+                  className={likeBtn ? "like-btn is-active" : "like-btn"}
+                  onClick={likeBtnClick}
+                ></span>
+              </div>
+
+              <div className="image">
+                <img
+                  src="assets/img/dalrun-hc/store/storecart/item-2.png"
+                  alt=""
                 />
+              </div>
+
+              <div className="description">
+                <span>Maison Margiela</span>
+                <span>Future Sneakers</span>
+                <span>White</span>
+              </div>
+
+              <div className="quantity">
+                <button className="plus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                    alt=""
+                  />
+                </button>
+                <input type="text" name="name" defaultValue="1" />
+                <button className="minus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+
+              <div className="total-price">$870</div>
+            </div>
+
+            {/* <!-- Product #3 --> */}
+            <div className="item">
+              <div className="buttons">
+                <span className="delete-btn"></span>
+                <span
+                  className={likeBtn ? "like-btn is-active" : "like-btn"}
+                  onClick={likeBtnClick}
+                ></span>
+              </div>
+
+              <div className="image">
+                <img
+                  src="assets/img/dalrun-hc/store/storecart/item-3.png"
+                  alt=""
+                />
+              </div>
+
+              <div className="description">
+                <span>Our Legacy</span>
+                <span>Brushed Scarf</span>
+                <span>Brown</span>
+              </div>
+
+              <div className="quantity">
+                <button className="plus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/plus.svg"
+                    alt=""
+                  />
+                </button>
+                <input type="text" name="name" defaultValue="1" />
+                <button className="minus-btn" type="button" name="button">
+                  <img
+                    src="assets/img/dalrun-hc/store/storecart/minus.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+
+              <div className="total-price">$349</div>
+            </div>
+
+            {/* <!-- DB 데이터 --> */}
+          {/* 
+            {cartList.map((item, index) => (
+              <div className="item" key={index}>
+                <div className="image" style={{ width: 160 }}>
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                    alt=""
+                  />
+                </div>
+
+                <div className="description">
+                  <span>{item.productName}</span>
+                  <span>{item.productSize}</span>
+                  <span>{item.productColor}</span>
+                </div>
+
+                <div className="total-price">₩ {item.productPrice}</div>
+              </div>
+            ))}
+          */}
+          </div>
+        </section>
+
+        <section>
+          <div className="ptf-single-post__wrapper">
+            <div className="container-xxl">
+              <div className="row">
+                <div className="col-xl-8">
+                  <h3>TOTAL PAYMENT AMOUNT</h3>
+                  <button onClick={calcTotalPaymentAmount}>
+                    {totalPaymentAmount}결제금액확인test
+                  </button>
+                  <Link to="/store-payment">
+                    <button onClick={writeOrderData}>
+                      {totalPaymentAmount}결제 실행 (주문 데이터)
+                    </button>
+                  </Link>
+                  <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
+                  <Link to="/store-payment">
+                    <button>{totalPaymentAmount}결제 실행 (링크)</button>
+                  </Link>
+                  <h6 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h6>
+                  <input
+                    defaultValue={totalPaymentAmount}
+                    onChange={(e) => e.target.value}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+      </>
+    )
 }
 
 

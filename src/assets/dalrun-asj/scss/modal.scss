@@ -18,6 +18,20 @@
     // width: 0;
 }
 
+.modalInTable {
+    .table_link {
+        text-decoration: underline;
+        color: var(--ptf-accent-4);
+    }
+
+    textarea {
+        resize: none;
+        height: 37px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+}
+
 // update
 .admin_update_container {
     width: 766px;
@@ -56,6 +70,16 @@
 
         }
 
+        .comp_img {
+            position: relative;
+            margin-top:20px;
+            width: 55%;
+
+            img {
+                width:"100%"
+            }
+        }
+
         .add_padding {
             padding-top: 50px;
         }
@@ -64,6 +88,53 @@
             font-size: 1.07rem;
             font-weight: 700;
             color: var(--bs-teal);
+        }
+
+        textarea {
+            resize: none;
+            height: 37px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .date_flex {
+            display: flex;
+
+            input[type="number"] {
+                margin-right: 20px;
+            }
+
+            button {
+                width: 100px;
+                border: none;
+                background-color: var(--ptf-accent-1);
+                border-radius: 7px;
+                color: #123;
+            }
+
+            input[type="date"] {
+                background-color: var(--bs-gray-200);
+                color: var(--bs-gray-600);
+                border: none;
+                border-radius: 7px;
+                margin-bottom: 10px;
+                padding: 5px 14px;
+                line-height: 28px;
+            }
+
+            input[type='date']::before {
+                content: attr(data-placeholder);
+                width: 100%;
+            }
+              
+            input[type='date']:focus::before,
+            input[type='date']:valid::before {
+                display: none;
+            }
+
+            input[type="date"]:first-child {
+                margin-right: 20px;
+            }
         }
     }
 }

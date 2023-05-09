@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ImgUpload from "../ImgUpload";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -11,6 +12,8 @@ function ProductUpdate({data, onHide}) {
     const [cate, setCate] = useState("");
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
     const [temporaryStock, setTemporaryStock] = useState("");
@@ -29,6 +32,8 @@ function ProductUpdate({data, onHide}) {
         setCate(product.productCategory);
         setProductName(product.productName);
         setProductDesc(product.productDescription);
+        setColor(product.productColor);
+        setSize(product.productSize);
         setPrice(product.productPrice);
         setStock(product.productStock);
         setTemporaryStock(product.productStock - orderCnt);
@@ -81,6 +86,8 @@ function ProductUpdate({data, onHide}) {
         formData.append("productCategory", cate);
         formData.append("productName", productName);
         formData.append("productDescription", productDesc);
+        formData.append("productColor", color);
+        formData.append("productSize", size);
         formData.append("productPrice", price);
         formData.append("productStock", stock);
         formData.append("productSale", saleState);
@@ -139,7 +146,15 @@ function ProductUpdate({data, onHide}) {
                         </div>
                         <div>
                             <label htmlFor="productDesc">상품설명</label>
-                            <input type="text" value={productDesc || ""} onChange={(e) => setProductDesc(e.target.value)} />
+                            <AdjustableTextarea val={productDesc} setVal={setProductDesc} />
+                        </div>
+                        <div>
+                            <label htmlFor="color">색상</label>
+                            <input type="text" value={color || ""} onChange={(e) => setColor(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="size">사이즈</label>
+                            <input type="text" value={size || ""} onChange={(e) => setSize(e.target.value)} />
                         </div>
                         <div>
                             <label htmlFor="price">가격</label>
