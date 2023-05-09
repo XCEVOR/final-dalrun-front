@@ -56,7 +56,7 @@ function AdminOrder() {
   return (
     <div className="store">
       <div className="store-content">
-          <div className="search outline">
+          <div className="search">
             <div>
               <div style={{display:'flex', justifyContent:'space-between'}}>
               <div className="search-content">
