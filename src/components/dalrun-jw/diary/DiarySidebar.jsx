@@ -1,11 +1,20 @@
 ﻿import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UploadModal from './UploadModal';
 import '../../../assets/dalrun-jw/scss/_modal.scss'
 
 
 const DiarySidebar = () => {
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  const memId = loginData.memId;
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/diary?search=${memId}`);
+  };
+
   return (
 
     <header className='diary-navbar-container'>
@@ -16,10 +25,10 @@ const DiarySidebar = () => {
       <nav className='head-nav'>
         <ul>
           <li className='nav-item'>
-            <Link to="/" title='내 기록'>
+            <button title='내 기록' onClick={() => handleClick()}>
               <img src="assets/img/dalrun-jw/person-circle.svg"/>
               <span>내 기록</span>
-            </Link>
+            </button>
           </li>
           <li className='nav-item'>
             <UploadModal/>
