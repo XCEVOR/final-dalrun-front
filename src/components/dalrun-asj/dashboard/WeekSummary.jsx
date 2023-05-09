@@ -6,21 +6,8 @@ function WeekSummary() {
     const [weekData, setWeekData] = useState([]);
     const [getData, setGetData] = useState(false);
 
-    const week = [];
-    const day = new Date();
-
-    let year = day.getFullYear();
-    let date = day.getDate();
-    let month = String(day.getMonth()+1).padStart(2, '0');
-
-    for(let i=0; i<7; i++) {
-        let today = `${year}-${month}-${String(date).padStart(2,'0')}`;
-        date -= 1;
-        week.push(today);
-    }
-
     const getWeekSummaryData = () => {
-        axios.get('http://localhost:3000/getWeekSummaryData', { params: {"list" : week.join(',')} })
+        axios.get('http://localhost:3000/getWeekSummaryData')
                 .then((resp) => {
                     setGetData(true);
                     setWeekData(resp.data);
@@ -61,7 +48,7 @@ function WeekSummary() {
 
     return(
         <div>
-            <Table responsive>
+            <Table responsive hover>
                 <thead>
                     <tr>
                         <th>일자</th>
