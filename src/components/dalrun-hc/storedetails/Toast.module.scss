@@ -1,11 +1,11 @@
 .container {
-    font-size: 14px;
+    font-size: 16px;
     position: fixed;
     z-index: 999;
   }
   
   .top-right {
-    top: 1rem;
+    top: 11rem;
     right: 1rem;
     animation: toast-in-right .7s;
   }
@@ -25,10 +25,10 @@
   }
   
   .toast {
-    height: 120px;
-    width: 365px;
+    height: 140px;
+    width: 400px;
     color: #fff;
-    padding: 20px 15px 10px 10px;
+    padding: 20px 25px 10px 20px;
   }
   
   .container button {
