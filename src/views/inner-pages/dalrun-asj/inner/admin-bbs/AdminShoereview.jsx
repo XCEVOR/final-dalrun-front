@@ -29,7 +29,7 @@ function AdminShoereview() {
         <div className="info">
           <ModalBtn {...category} />
           <div  className="info_con">
-            <Table responsive>
+            <Table responsive hover>
               <thead>
                 <tr>
                   <th>

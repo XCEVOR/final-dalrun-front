@@ -28,7 +28,7 @@ function TaskList() {
                 <div className="flex">
                     <FontAwesomeIcon className="icon i_1" icon={faBell} style={{color: "#26ae9a",}} />
                     <div>
-                        <span className="todo_title">주문</span>
+                        <span className="todo_title">주문건수</span>
                         <span className="todo_con">
                             <Link to={"/admin/store/order?order=0&delivery=0"}>{taskData.orderCnt}건</Link>
                         </span>

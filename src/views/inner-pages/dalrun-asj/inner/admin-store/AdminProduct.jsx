@@ -73,7 +73,7 @@ function AdminProduct() {
           <div className="info">
             <ModalBtn {...category} />
             <div className="info_con">
-              <Table striped bordered hover size="sm">
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>

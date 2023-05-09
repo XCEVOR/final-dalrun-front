@@ -99,7 +99,7 @@ function AdminOrder() {
           <div className="info">
             <ModalBtn {...category} />
             <div className="info_con">
-              <Table striped bordered hover>
+              <Table responsive hover>
                 <thead>
                   <tr>
                   <th>
