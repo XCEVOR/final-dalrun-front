@@ -9,6 +9,7 @@ import MypageMenu from "../../../components/dalrun-sh/mypageMenu";
 
 import "./sideMenu.css";
 import MyInform from "./mypage/MyInform";
+import MyInform2 from "./mypage/MyInform2";
 import MyCrew from "./mypage/MyCrew";
 import MyRunning from "./mypage/MyRunning";
 import MyStore from "./mypage/MyStore";
@@ -30,11 +31,11 @@ const Mypage = () => {
             <div className="main container-xxl" style={{display:"flex"}}>
               <MypageMenu />
               <Routes>
-                <Route path="myinform" element={<MyInform />} />
+                <Route path="myinform2" element={<MyInform2 />} />
                 <Route path="mycrew" element={<MyCrew />} />
                 <Route path="myrunning" element={<MyRunning />} />
-                <Route path="mystore" element={<MyStore />} />
-                <Route path="mywrite" element={<MyWrite />} />
+                <Route path="mystore/*" element={<MyStore />} />
+                <Route path="mywrite/*" element={<MyWrite />} />
                 <Route path="myrating" element={<MyRating />} />         
               </Routes>
             </div>
