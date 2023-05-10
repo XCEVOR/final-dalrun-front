@@ -1,42 +1,23 @@
 import React from "react";
+import { BsGithub } from 'react-icons/bs';
 
-const SocialShare = [
-  {
-    iconName: "socicon-twitter",
-    link: "https://twitter.com/",
-    iconClass: "twitter",
-  },
-  {
-    iconName: "socicon-facebook",
-    link: "https://www.facebook.com/",
-    iconClass: "facebook",
-  },
-  {
-    iconName: "socicon-instagram",
-    link: "https://www.instagram.com/",
-    iconClass: "instagram",
-  },
-  {
-    iconName: "socicon-pinterest",
-    link: "https://www.pinterest.com/",
-    iconClass: "pinterest",
-  },
-];
+
+
 const Social = () => {
   return (
     <div className="ptf-offcanvas-menu__socials">
       {/* <!--Social Icon--> */}
-      {SocialShare.map((icon, i) => (
+     
         <a
-          className={`ptf-social-icon ptf-social-icon--style-1  ${icon.iconClass}`}
-          href={icon.link}
+          className={`ptf-social-icon ptf-social-icon--style-1 `}
+          
           target="_blank"
           rel="noopener noreferrer"
-          key={i}
+          href="https://github.com/XCEVOR/final-dalrun-front"
         > 
-          <i className={icon.iconName}></i>
+         <BsGithub />
         </a>
-      ))}
+     
     </div>
   );
 };

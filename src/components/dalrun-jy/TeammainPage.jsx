@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+
 const teamContent = [
   {
     delayAnimation: "0",
@@ -63,6 +65,7 @@ const teamContent = [
 const TeammainPage = () => {
   return (
     <>
+    <div className="ptf-team-member-grid">
       {teamContent.map((val, i) => (
         <div
           className="ptf-animated-block"
@@ -71,10 +74,10 @@ const TeammainPage = () => {
           key={i}
         >
           {/* <!--Team Member--> */}
-          <div className="ptf-team-member ptf-team-member--has-effect">
-            <div className="ptf-team-member__avatar">
+          <div className="ptf-team-member">
+            <div className="ptf-team-member__avatar" >
               <div className="shadow-effect"></div>
-              <Link to={`/${val.link}`}>
+              <Link to={`/${val.link}`} >
                 {" "}
                 <img
                   src={`assets/img/dalrun-jy/${val.img}.png`}
@@ -92,6 +95,7 @@ const TeammainPage = () => {
           </div>
         </div>
       ))}
+      </div>
     </>
   );
 };

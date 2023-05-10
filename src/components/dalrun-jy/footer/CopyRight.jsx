@@ -5,28 +5,55 @@ const logo = "logo.svg";
 
 const CopyRight = () => {
   return (
-    <div className="row align-items-center justify-content-center">
-
-      <div className="col-12 col-md">
-          <img src={logo} alt="" loading="lazy" />
-      </div>
-      <div className="col-12 col-md text-md-center text-lg-center">
-        <p className="ptf-footer-copyright has-black-color">
-          ©{new Date().getFullYear()}{" "}
+    <>
+      <div className="row align-items-center justify-content-center">
+        <div className="col-2 col-md">
+          <a href="/mainPage">
+          <img style={{display:'inline' , marginRight:'50px'}} src={logo} alt="" loading="lazy" />
+          </a>
           <span>
-            
-            
-          </span>
-          . All Rights Reserved.ddd
-        </p>
-      </div>
-      <div className="col-12 col-lg text-md-center text-lg-end">
-        <div className="ptf-footer-socials has-black-color ">
-          <Social/>
+            달런달런 | 팀장: 안선정 | 팀원: 장호찬,김종완,오성혁,박예린,문준영 <br></br>
+
+            </span>
+           
         </div>
       </div>
-    </div>
+
+      <div className="row align-items-center justify-content-center">
+
+
+        <div className="col-5 col-md">
+          <p className="ptf-footer-copyright has-black-color">
+
+            스폰서   &nbsp;&nbsp;&nbsp;
+            <img
+              src="assets/img/dalrun-jy/mulcamlogo.jpg"
+              style={{ width: '200px'  }}
+            >
+            </img>
+
+          </p>
+        </div>
+
+        <div className="col-5 col-md">
+          <p className="ptf-footer-copyright has-black-color">
+            ©{new Date().getFullYear()}{" "}
+            Copyright © 달런달런 All rights reserved
+          </p>
+
+        </div>
+      <div className="col-5 col-lg text-md-center text-lg-end">
+        <div className="ptf-footer-socials has-black-color ">
+          <Social />
+        </div>
+      </div>
+      </div>
+
+
+    </>
   );
 };
 
 export default CopyRight;
+
+

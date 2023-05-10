@@ -24,7 +24,7 @@ const DotMapInfo = (props) => {
   };
   // 나의 크루 정보 가져오기
   function getMyCrewinfo(crewSeq) { 
-    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
+    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
       .then(function (resp) {
         //setMycrewinfo(resp.data);
         props.Changemycrewinfo(resp.data);
@@ -35,7 +35,7 @@ const DotMapInfo = (props) => {
   function sendDonation() {
     const score= document.getElementById("pointselect").value;
     if(parseInt(login.point)>= parseInt(score)){
-    axios.get("http://localhost:3000/sendDonation",{params:{'id':login.memId,'score':score,'crewseq':login.crewSeq}})
+    axios.get("http://localhost:3000/sendDonation",{params:{'id':login.memId,'score':score,'crewSeq':login.crewSeq}})
       .then(function (resp) {
        
         if(resp.data===true){
@@ -97,7 +97,7 @@ const DotMapInfo = (props) => {
  
     if(loginTF){
    
-      if(props.mycrewinfo.length!==0){
+      if(props.mycrewinfo.length !== 0){
       document.getElementById("infologoutform").style.display='none';
       document.getElementById("infocrewform").style.display='none';
       document.getElementById("infologinform").style.display='block';
@@ -148,9 +148,8 @@ const DotMapInfo = (props) => {
 
         {/* <!--Pricing Table--> */}
         <div className="ptf-pricing-table h-100">
-
           <div className="ptf-pricing-table__header">
-            <h3>나의 크루 정보</h3>
+            <h3>나의 정보</h3>
           </div>
 
           <div id="infologoutform" style={{marginTop:'150px'}} className="ptf-pricing-table__description">
@@ -162,8 +161,10 @@ const DotMapInfo = (props) => {
           </div>
 
           <div id="infocrewform" style={{marginTop:'150px',display:'none'}} className="ptf-pricing-table__description">
-
-            <h6 style={{marginBottom:'40px'}}>해당 정보는 크루 가입이 필요합니다.</h6>
+         
+            <h6>나의 포인트 : { login.point}</h6>
+            <br/>
+            <h6 style={{marginBottom:'40px'}}>상세 정보는 크루 가입이 필요합니다.</h6>
             <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입하러 가기</a></span>
 
 
@@ -173,9 +174,8 @@ const DotMapInfo = (props) => {
           <div className="ptf-pricing-table__content">
             <h6 style={{ display: 'inline' }}>나의 크루 : {props.mycrewinfo.crewName} </h6>
             <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${props.mycrewinfo.crewcolor}` }}></div>
-            <h6>나의 포인트 : { login.point}</h6>
           </div>
-
+          <h6>나의 포인트 : { login.point}</h6>
           <div className="ptf-pricing-table__description">
             <h4>나의 크루 포인트: {props.mycrewinfo.crewScore} point</h4>
           </div>

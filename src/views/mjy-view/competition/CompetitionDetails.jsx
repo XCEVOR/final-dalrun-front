@@ -72,7 +72,7 @@ const CompetitionDetails = () => {
                     >
                       <img
                         // src={`../assets/img/dalrun-jy/${compBbs.compimage}`}
-                        src={`http://localhost:3000/dalrun-hc/competition/${compBbs.compimage}`}
+                        src={`http://localhost:3000/dalrun-jy/competition/marathon_${compBbs.compSeq}.jpg`}
                         loading="lazy"
                         style={{ position: 'relative' }}
 

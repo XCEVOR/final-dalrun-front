@@ -5,15 +5,15 @@ import "../../assets/mjy-assets/css/earth.css";
 import axios from 'axios';
 import Dot from "./dot";
 import ReactTooltip from "react-tooltip";
-  
+
 const Dotmap = (props) => {
 
-   //도트맵 리스트
+  //도트맵 리스트
   const [dotList, setDotList] = useState([]);
 
   // 로그인 정보
   const [login, setLogin] = useState([]);
-  const [loginTF,setLoginTF]=useState(false);
+  const [loginTF, setLoginTF] = useState(false);
   // 나의 크루 정보
   const [mycrewinfo, setMycrewinfo] = useState(props.mycrewinfo);
 
@@ -33,42 +33,76 @@ const Dotmap = (props) => {
   };
 
   // 나의 크루 정보 가져오기
-  function getMyCrewinfo(crewSeq) { 
+  function getMyCrewinfo(crewSeq) {
 
-    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewseq':crewSeq }})
+    axios.get("http://localhost:3000/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
       .then(function (resp) {
         setMycrewinfo(resp.data);
         props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
-        
+
       })
-  };  
+  };
 
 
   // 도트맵 구매 버튼을 눌렀을 때 
   //(formdata 전송 [크루이름, 위치, 가격, 이미지, 메세지])
-  const onSubmit = (e) => {
+  const crew_onSubmit = (e) => {
     e.preventDefault();
 
     let formData = new FormData();
+    formData.append("crewSeq", mycrewinfo.crewSeq);
+    formData.append("memId", login.memId);
     formData.append("crewName", document.getElementById('mycrewname').textContent);
-    formData.append("message", document.frm.description.value);
-    formData.append("price", document.frm.dotprice.value);
-    formData.append("image", document.frm.uploadFile.files[0]);
+    formData.append("message", document.crew_frm.crew_description.value);
+    formData.append("price",document.getElementById('price').textContent);
+    formData.append("image", document.crew_frm.crew_uploadFile.files[0]);
     formData.append("location", document.getElementById("location").textContent);
 
-    if (document.frm.description.value && document.frm.uploadFile.files[0]) {
+    if (document.crew_frm.crew_description.value && document.crew_frm.crew_uploadFile.files[0]) {
 
-      axios.post("http://localhost:3000/buydotMap", formData)
+      axios.post("http://localhost:3000/crew_buydotMap", formData)
         .then(res => {
           alert('file upload에 성공했습니다');
-          document.frm.reset();
+          document.crew_frm.reset();
           document.getElementById('ModalBuyHeader').style.display = 'none';
           document.getElementById('modalHeader').style.display = 'none';
           getearthPage();
           loading();
-  
-        
+
+
+        })
+        .catch(function (error) {
+          alert('file upload에 실패했습니다');
+        });
+    } else {
+      document.getElementById('submitalert').style.display = 'block';
+    }
+
+  }
+
+  const my_onSubmit = (e) => {
+    e.preventDefault();
+
+    let formData = new FormData();
+    formData.append("memId", document.getElementById('mymemId').textContent);
+    formData.append("price",document.getElementById('price').textContent);
+    formData.append("message", document.my_frm.my_description.value);
+    formData.append("image", document.my_frm.my_uploadFile.files[0]);
+    formData.append("location", document.getElementById("location").textContent);
+
+    if (document.my_frm.my_description.value && document.my_frm.my_uploadFile.files[0]) {
+
+      axios.post("http://localhost:3000/my_buydotMap", formData)
+        .then(res => {
+          alert('file upload에 성공했습니다');
+          document.my_frm.reset();
+          document.getElementById('ModalBuyHeader').style.display = 'none';
+          document.getElementById('modalHeader').style.display = 'none';
+          getearthPage();
+          loading();
+
+
         })
         .catch(function (error) {
           alert('file upload에 실패했습니다');
@@ -81,14 +115,16 @@ const Dotmap = (props) => {
 
   // 도트맵 메세지를 닫았을 때
   const exixBuyHeader = (e) => {
-    document.frm.reset();
+    document.my_frm.reset();
+    document.crew_frm.reset();
+
     document.getElementById('modalHeader').style.display = 'none';
     document.getElementById('submitalert').style.display = 'none';
   }
 
   // 도트맵 메세지 변경
-  const accountMessage = (e) => {
-    if (loginTF && mycrewinfo.length!==0) {
+  const crew_accountMessage = (e) => {
+    if (loginTF && mycrewinfo.length !== 0) {
       let groundpoint = document.getElementById('price').textContent;
       let mycrewpoint = mycrewinfo.crewScore;
       let diff = mycrewpoint - parseInt(groundpoint);
@@ -107,27 +143,52 @@ const Dotmap = (props) => {
       }
     }
   }
-  function loading(){
-    const logindata=JSON.parse(localStorage.getItem('login'));
-    if(logindata){
-      console.log(logindata.memId,"님이 접속하였습니다..")
+
+    // 개인 메세지 변경
+    const my_accountMessage = (e) => {
+      if (loginTF) {
+        let groundpoint = document.getElementById('price').textContent;
+        let mypoint = login.point;
+        let diff = mypoint - parseInt(groundpoint);
+  
+        if (mypoint >= groundpoint) {
+          document.getElementById('my_buyaccept').style.display = 'block';
+          document.getElementById('my_tokendiff').style.display = 'none';
+          document.getElementById('my_countmytoken').textContent = diff;
+        } else if (mypoint < groundpoint) {
+          document.getElementById('my_buyaccept').style.display = 'none';
+          document.getElementById('my_tokendiff').style.display = 'block';
+  
+          document.getElementById('my_tokendiff').textContent = "❌ 잔액 부족 " + Math.abs(diff) + " 원이 부족합니다..";
+  
+  
+        }
+      }
+    }
+
+
+  function loading() {
+    const logindata = JSON.parse(localStorage.getItem('login'));
+    if (logindata) {
+      console.log(logindata.memId, "님이 접속하였습니다..")
       setLogin(logindata);
       getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
       setLoginTF(true);
-      
+
     }
   }
 
   /* 시작 시 나의 크루 정보 및 도트맵 정보를 가져옴 */
   useEffect(() => {
-    
+
     getearthPage();
-    loading();         
+    loading();
   
+
   }, []);
 
   useEffect(() => {
-
+    // console.log(dotList)
     //getearthPage();
     const rect_Collection = document.querySelectorAll('rect');
     /* 도트 */
@@ -159,24 +220,38 @@ const Dotmap = (props) => {
       }
 
       /* dotList가 갱신되었을 때 이벤트 추가 */
-      if (dotList.length !== 0 && dotList.length > j + 1 && i === dotList[j].location) {
+      if (dotList.length !== 0 && dotList.length >= j + 1 && i === dotList[j].location) {
 
-        let { location, crewName, id, regdate, message, groundcolor, dotNewFile, sale } = dotList[j];
-
-        rect_Collection[i].style.fill = groundcolor;
+        let { location, crewName, memId,regdate, message, groundColor, dotNewFile, sale } = dotList[j];
+        rect_Collection[i].style.fill = groundColor;
+        console.log(dotList)
         /* 도트 클릭시 모달창 생성 */
         // 도트 값이 있을 때
         rect_Collection[i].addEventListener('click', () => {
-          
+          console.log(dotList)
+
           document.getElementById('modalHeader').style.display = 'none';
           document.getElementById('ModalBuyHeader').style.display = 'block';
 
           if (document.getElementById('ModalBuyHeader')) {
+            
             document.getElementById('dotPicture').src = "http://localhost:3000/dalrun-jy/uploadtemp/" + dotNewFile;
-            document.getElementById('myprofile').src = "assets/img/dalrun-jy/mainreview.jpg";
-            document.getElementById('buyer').textContent = id;
             document.getElementById('dotDescription').textContent = message;
             document.getElementById('createDate').textContent = regdate;
+            
+            // 크루 땅일 시
+            if(sale==1){
+              document.getElementById('myprofile').style.display='block';
+              document.getElementById('myprofile').src = "assets/img/dalrun-jy/mainreview.jpg";
+              document.getElementById('mycrewinfo_name').textContent=crewName
+            }else{
+              // 개인 땅일 시
+              document.getElementById('myprofile').style.display='none';
+              document.getElementById('mycrewinfo_name').textContent=memId
+
+
+            }
+            
 
           }
         });
@@ -199,28 +274,28 @@ const Dotmap = (props) => {
             document.getElementById('location').textContent = i + "";
 
             document.getElementById('level').value = rect_Collection[i].getAttribute('level');
-            document.getElementById('dotprice').value = rect_Collection[i].getAttribute('price');
-           
-            accountMessage();
+            crew_accountMessage();
+            my_accountMessage();
 
           }
         });
 
-      } }
+      }
+    }
 
     if (loginTF) {
 
       document.getElementById('loginform').style.display = 'block';
       document.getElementById('logoutform').style.display = 'none';
-      console.log(mycrewinfo);
-      if(mycrewinfo.length!==0){
+      // console.log(mycrewinfo);
+      if (mycrewinfo.length !== 0) {
         document.getElementById('crewoutform').style.display = 'none';
         document.getElementById('crewinform').style.display = 'block';
-       
-  
+
+
       }
     }
-  }, [login,dotList,mycrewinfo]);
+  }, [login, dotList, mycrewinfo]);
 
 
   return (
@@ -261,55 +336,102 @@ const Dotmap = (props) => {
               {/* <!-- 로그인 시 표시 --> */}
               <div id="loginform" style={{ display: 'none' }}>
 
-                {/* <!-- 크루 미가입 시 표시 --> */}
-                <div id="crewoutform" style={{ textAlign: 'center' }}>
-                  <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입이 필요합니다.</a></span>
-                </div>
 
-                {/* <!-- 크루 가입 시 표시 --> */}
+
+                {/* <!-- 크루 가입 시 표시  크루 구매 시--> */}
                 <div id='crewinform' style={{ margin: '20px', display: 'none' }}>
                   <div style={{ backgroundColor: `${mycrewinfo.crewcolor}`, textAlign: 'center' }}>
                     <h4 style={{ display: 'inline', color: 'white' }} id="mycrewname">{mycrewinfo.crewName}</h4>
                   </div>
-                </div>
 
-                <p id="tokendiff" style={{ display: 'inline-block',color:'red' }}></p>
-                <div id="buyaccept" style={{ display: 'none' }}>
-                  <p style={{ color: 'blue' }}>⭕ 구매가 가능합니다.</p>
-                  
-                  <div>
-                    구매 후 나의 크루포인트는 &nbsp;
-                      <p id="countmytoken" style={{ display: 'inline-block' }}>
 
-                    </p> 원 입니다.
+                  <p id="tokendiff" style={{ display: 'inline-block', color: 'red' }}></p>
+                  <div id="buyaccept" style={{ display: 'none' }}>
+                    <p style={{ color: 'blue' }}>⭕ 구매가 가능합니다.</p>
+
+                    <div>
+                      구매 후 나의 크루포인트는 &nbsp;
+                      <p id="countmytoken" style={{ display: 'inline-block' }}></p> 원 입니다.
+                    </div>
+                    {/* <!-- 도트 구매 form  --> */}
+                    <form name="crew_frm" onSubmit={crew_onSubmit} encType="multipart/form-data">
+                      <input type="hidden" id="dotId" />
+                      <input type="hidden" name="crewId" id="crewId" />
+
+
+                      <p id="submitalert" style={{ display: 'none', color: 'red' }}>
+                        💡 메세지나 사진을 첨부해주세요..
+                      </p>
+                      <div className="mb-3">
+                        <label htmlFor="description" className="col-form-label">메세지</label>
+                        <input type="text" className="form-control" name="crew_description" maxLength="150" placeholder="구매할 땅에 메시지를 적어보세요." style={{ maxWidth: '80%', height: '100px', marginLeft: '5px' }} />
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="dot-img" className="col-form-label">사진</label>
+                        <input type="file" className="form-control" name="crew_uploadFile" accept="*" placeholder="구매할 땅에 이미지를 넣어보세요."
+                          style={{ maxWidth: '50%', marginLeft: '10px' }} />
+                      </div>
+
+                      <div className="modal-footer" style={{ marginRight: '30px' }}>
+                        <button id="buyLandButton" type="submit" className="btn btn-primary"
+                          style={{ marginRight: '10px' }}>구매</button>
+                        <button type="button" className="btn btn-secondary" onClick={exixBuyHeader}>취소</button>
+                      </div>
+                    </form>
                   </div>
-                  {/* <!-- 도트 구매 form  --> */}
-                  <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
-                    <input type="hidden" id="dotId" />
-                    <input type="hidden" name="crewId" id="crewId" />
-                    <input type="hidden" id='dotprice' name='price' />
 
-                    <p id="submitalert" style={{ display: 'none', color: 'red' }}>
-                      💡 메세지나 사진을 첨부해주세요..
-                    </p>
-                    <div className="mb-3">
-                      <label htmlFor="description" className="col-form-label">메세지</label>
-                      <input type="text" className="form-control" name="description" maxLength="150" placeholder="구매할 땅에 메시지를 적어보세요." style={{ maxWidth: '80%', height: '100px', marginLeft: '5px' }} />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="dot-img" className="col-form-label">사진</label>
-                      <input type="file" className="form-control" name="uploadFile" accept="*" placeholder="구매할 땅에 이미지를 넣어보세요."
-                        style={{ maxWidth: '50%', marginLeft: '10px' }} />
-                    </div>
 
-                    <div className="modal-footer" style={{ marginRight: '30px' }}>
-                      <button id="buyLandButton" type="submit" className="btn btn-primary"
-                        style={{ marginRight: '10px' }}>구매</button>
-                      <button type="button" className="btn btn-secondary" onClick={exixBuyHeader}>취소</button>
-                    </div>
-                  </form>
                 </div>
+
+                  {/* 크루 미가입 시 개인 구매 시 */}
+                <div id="crewoutform" style={{ margin: '20px'}}>
+                <div style={{ backgroundColor: 'white', textAlign: 'center' }}>
+                    <h4 style={{ display: 'inline', color: 'black' }} id="mymemId">{login.memId}</h4>
+                  </div>
+
+                  <p id="my_tokendiff" style={{ display: 'inline-block', color: 'red' }}></p>
+                  <div id="my_buyaccept" style={{ display: 'none' }}>
+                    <p style={{ color: 'blue' }}>⭕ 구매가 가능합니다.</p>
+
+                    <div>
+                      구매 후 나의 크루포인트는 &nbsp;
+                      <p id="my_countmytoken" style={{ display: 'inline-block' }}>
+
+                      </p> 원 입니다.
+                    </div>
+                    {/* <!-- 도트 구매 form  --> */}
+                    <form name="my_frm" onSubmit={my_onSubmit} encType="multipart/form-data">
+                      <input type="hidden" id="dotId" />
+                      <input type="hidden" name="crewId" id="my_crewId" />
+
+                      <p id="submitalert" style={{ display: 'none', color: 'red' }}>
+                        💡 메세지나 사진을 첨부해주세요..
+                      </p>
+                      <div className="mb-3">
+                        <label htmlFor="description" className="col-form-label">메세지</label>
+                        <input type="text" className="form-control" name="my_description" maxLength="150" placeholder="구매할 땅에 메시지를 적어보세요." style={{ maxWidth: '80%', height: '100px', marginLeft: '5px' }} />
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="dot-img" className="col-form-label">사진</label>
+                        <input type="file" className="form-control" name="my_uploadFile" accept="*" placeholder="구매할 땅에 이미지를 넣어보세요."
+                          style={{ maxWidth: '50%', marginLeft: '10px' }} />
+                      </div>
+
+                      <div className="modal-footer" style={{ marginRight: '30px' }}>
+                        <button id="my_buyLandButton" type="submit" className="btn btn-primary"
+                          style={{ marginRight: '10px' }}>구매</button>
+                        <button type="button" className="btn btn-secondary" onClick={exixBuyHeader}>취소</button>
+                      </div>
+                    </form>
+                  </div>
+
+
+                </div>
+
               </div>
+
+
+
             </div>
           </div>
         </div>
@@ -317,12 +439,12 @@ const Dotmap = (props) => {
 
         {/* 도트맵에 값이 있을 때 */}
 
-        <div id="ModalBuyHeader" className="modal-dialog modal-center" style={{ position: 'absolute', zIndex: '1', top: '5%', left: '25%', display: "none" }}>
+        <div id="ModalBuyHeader" className="modal-dialog modal-center" style={{ position: 'absolute', zIndex: '1', top: '20%', left: '30%', display: "none" ,width:'600px'}}>
           <div className="modal-content">
 
             <div className="card" data-effect="zoom" onClick={(e) => { document.getElementById('ModalBuyHeader').style.display = 'none'; }}>
               <figure className="card__image">
-                <img id="dotPicture" alt="Short description" />
+                <img id="dotPicture" alt="Short description"  />
               </figure>
               <div className="card__header" >
                 <figure className="card__profile">
@@ -331,12 +453,12 @@ const Dotmap = (props) => {
               </div>
               <div id="tip"></div>
               <div className="card__body">
-                <h3 className="card__name" id="buyer"></h3>
-                <p className="card__job">Seize the day</p>
-                <p className="card__bio" id="dotDescription"></p>
+                <h3 className="card__name" id="mycrewinfo_name"></h3>
+
+                <p className="card__bio" id="dotDescription" style={{width:'200px'}}></p>
               </div>
               <div className="card__footer">
-                <p className="card__date" id="createDate" />
+                <p className="card__date" id="createDate" ></p>
                 <a href="#" id="dotTxHash" className="card__tx">트랜잭션 정보보기</a>
               </div>
             </div>
