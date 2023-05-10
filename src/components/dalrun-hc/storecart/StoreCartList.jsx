@@ -4,6 +4,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
+import ModalButton from "./storemodal/ModalButton";
+import ModalContainer from "./storemodal/ModalContainer";
+
 function StoreCartList() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
@@ -123,7 +126,7 @@ function StoreCartList() {
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div>
+      <div><ModalButton ></ModalButton>
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
           console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)
@@ -154,6 +157,7 @@ function StoreCartList() {
                     삭제: {prodInfo.productId}
                   </button>
                   <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span>
+                  
                 </div>
 
                 <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>

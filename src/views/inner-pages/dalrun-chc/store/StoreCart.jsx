@@ -25,6 +25,34 @@ function StoreCart() {
       <HeaderDefault />
       {/* End Header */}
 
+      <div className="main">
+          <article className="ptf-page ptf-page--single-work-1">
+            
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                  <StoreCartList />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
+
+
+            
+          </article>
+          {/* End .ptf-page */}
+        </div>
+
+
+
+
       <div className="ptf-main">
         <div className="ptf-page ptf-page--contact">
           <section>
@@ -33,8 +61,8 @@ function StoreCart() {
               className="ptf-spacer"
               style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
             ></div>
-
-            <div className="container">
+<StoreCartList />
+            <div className="container-xxl">
               <div className="row">
                 <div className="col-xl-12">
                   {/* <!--Animated Block--> */}
