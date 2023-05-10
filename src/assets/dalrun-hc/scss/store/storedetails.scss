@@ -397,7 +397,10 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+  }
+
+  .zoomin_pointer {
+    cursor: zoom-in;
   }
 
   .columnimg {
@@ -406,19 +409,23 @@
     padding: 10px;
   }
 
-  .zoomimg {
-    // padding: 50px;
-    background-color: green;
-    transition: transform .2s; /* Animation */
-    // width: 200px;
-    // height: 200px;
-    margin: 0 auto;
-  }
+  // .zooming {
+  //   // padding: 50px;
+  //   background-color: green;
+  //   transition: transform .2s; /* Animation */
+  //   // width: 200px;
+  //   // height: 200px;
+  //   margin: 0 auto;
+  // }
   
-  .zoomimg:hover {
-    transform: scale(1.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    filter: drop-shadow(5px 5px 5px rgba(66, 66, 66, 0.5));
-    z-index: 999;
+  // .zooming:hover {
+  //   transform: scale(1.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  //   filter: drop-shadow(5px 5px 5px rgba(66, 66, 66, 0.5));
+  //   z-index: 999;
+  // }
+
+    .modal_picture {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
 }
 
