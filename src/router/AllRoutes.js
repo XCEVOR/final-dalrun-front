@@ -89,9 +89,11 @@ import RegisterComponent from "../views/inner-pages/dalrun-pyr/RegiMain";
 import Logout from "../views/inner-pages/dalrun-pyr/Logout";
 import CrewBbsMain from "../views/inner-pages/dalrun-pyr/crew/CrewBbsMain";
 import PostCrewBbsWriteForm from "../components/dalrun-pyr/crewBbs/CrewBbsWrite";
-import CrewBbsDetail from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDetail";
-
-
+import CrewBbsBlogDetails from "../views/inner-pages/dalrun-pyr/crew/CrewBbsBlogDetails";
+import KakaoCallback from "../views/inner-pages/dalrun-pyr/KakaoCallback";
+import CrewBbsUpdate from "../views/inner-pages/dalrun-pyr/crew/CrewBbsUpdate";
+import CrewBbsDelete from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDelete";
+import FindPassword from "../views/inner-pages/dalrun-pyr/FindPassword";
 
 const AllRoutes = () => {
   return (
@@ -167,8 +169,6 @@ const AllRoutes = () => {
         <Route path='/review-main' element={<ReviewMain />} />
         <Route path='/review-detail/:srSeq' element={<ReviewDetails />} />
         
-
-
         {/* 오성혁 */}
         <Route path='/osh-work' element={<OshWorkspace/>} />
 
@@ -189,8 +189,13 @@ const AllRoutes = () => {
         <Route path="/regimain" element={<RegisterComponent/>}/>
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/crewBbsMain" element={<CrewBbsMain/>}/>
+        <Route path="/crewBbsMain/:choice/:search" element={<CrewBbsMain/>}/>
         <Route path="/crewBbsWrite" element={<PostCrewBbsWriteForm/>}/>
-        <Route path="/crewBbsDetail" element={<CrewBbsDetail/>}/>
+        <Route path="/crewBbsBlogDetails/:crewSeq" exact element={<CrewBbsBlogDetails/>} />
+        <Route path="/kakaocallback" element={<KakaoCallback/>}/>
+        <Route path="/crewBbsUpdate/:crewSeq" exact element={<CrewBbsUpdate />}/>
+        <Route path="/crewBbsDelete/:crewSeq" exact element={<CrewBbsDelete />}/>
+        <Route path="/findPassword" element={<FindPassword/>}/>
 
       </Routes>
     </>
