@@ -77,7 +77,7 @@ const ContentReview = () => {
               {/* <NaverMapView mapLat={`${val.lat}`} mapLng={`${val.lng}`}></NaverMapView> */}
               <Link className="ptf-work__link" to={`/review-detail/${val.srSeq}`}></Link>
               <img
-                src={`assets/img/dalrun-jy/${val.srimage}`}
+                   src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${val.srSeq}.jpg`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative' }}

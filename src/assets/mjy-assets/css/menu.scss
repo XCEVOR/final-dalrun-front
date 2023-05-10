@@ -15,7 +15,7 @@
 
     background-color: var(--ptf-avatar-background);
 
-    .shadow-effect {
+    .shadow-effec2 {
       position: absolute;
       top: 0;
       left: 0;
@@ -85,39 +85,10 @@
 
 .ptf-team-member-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  &--4-columns {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  grid-gap: px2rem(60px);
-  @include mq("large") {
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: px2rem(30px);
-  }
-  @include mq("medium") {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include mq("small") {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: px2rem(30px);
-  }
-}
-.ptf-team-member2 {
-  display: grid;
   grid-template-columns: repeat(8, 1fr);
   &--4-columns {
     grid-template-columns: repeat(4, 1fr);
   }
   grid-gap: px2rem(60px);
-  @include mq("large") {
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: px2rem(30px);
-  }
-  @include mq("medium") {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include mq("small") {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: px2rem(30px);
-  }
+
 }

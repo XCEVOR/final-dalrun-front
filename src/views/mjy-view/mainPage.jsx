@@ -78,9 +78,9 @@ const MainPage = () => {
                   className="ptf-spacer"
                   style={{ "--ptf-xxl": "2.5rem", "--ptf-md": "2.75rem" }}
                 ></div>
-                <div className="ptf-team-member-grid">
+        
                   <TeammainPage />
-                </div>
+              
               </div>
               {/* <!--Spacer--> */}
               <div

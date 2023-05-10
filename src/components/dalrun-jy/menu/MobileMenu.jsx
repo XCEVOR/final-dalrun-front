@@ -53,7 +53,7 @@ const menuContent = [
       },
       {
         name: "장바구니",
-        routerPath: "/store-main",
+        routerPath: "/store-cart",
       },
     ],
   },
@@ -90,13 +90,8 @@ const menuContent = [
     dropDownItems: [
       {
         name: "러닝화 리뷰",
-        routerPath: "/coming-soon",
-      },
-    
-      {
-        name: "리뷰 작성",
-        routerPath: "/coming-soon",
-      },
+        routerPath: "/review-main",
+      }
     ],
   },
   {
@@ -153,21 +148,11 @@ const MobileMenu = () => {
 
       <div className="ptf-offcanvas-menu__footer">
         <p className="ptf-offcanvas-menu__copyright">
-          @{new Date().getFullYear()} <span>Moonex</span>. All Rights Reserved.{" "}
-          <br />
-          Development by{" "}
-          <span>
-            <a
-              href="https://themeforest.net/user/ib-themes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ib-themes
-            </a>
-          </span>
-          .
-        </p>
+        ©{new Date().getFullYear()}{" "}
+            Copyright © 달런달런 All rights reserved 
         <Social />
+          
+        </p>
       </div>
       {/* End .ptf-offcanvas-menu__footer */}
     </>
