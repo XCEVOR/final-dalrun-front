@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Writecrew from "./inner/mypage-writes/Writecrew";
+import WriteQnA from "./inner/mypage-writes/WriteQnA";
+import MywriteContent from "./inner/mypage-contents/MywriteContent";
+import MypageBtn from "../../../../components/dalrun-sh/MypageBtn";
 
 function Write(){
-  const [posts, setPosts] = useState([
-    { id: 1, title: '오늘 런닝뛰고 옴', views: 10, writedate: '2023-04-27' },
-    { id: 2, title: '운동 할 때 좋은 야식', views: 5, writedate: '2023-04-26'  },
-    { id: 3, title: '운영자님 이거 버그인가요??', views: 3, writedate: '2023-04-24'  },
-  ]);
+  const category = [
+        {cate:"crew", name:"크루게시판", selected:<Writecrew/>}, 
+        {cate:"QnA", name:"QnA게시판", selected:<WriteQnA/>}
+  ];
 
   return(
     <div className="members container">
@@ -14,26 +17,10 @@ function Write(){
       <br />
       <div className="inform outline" />
       <br />      
-      <table>
-        <thead>
-          <tr>
-            <th>게시판</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일자</th>
-          </tr>
-        </thead>
-        <tbody>
-          {posts.map(post => (
-            <tr key={post.id}>
-              <td>게시판 이름</td>
-              <td><Link to={`/posts/${post.id}`}>{post.title}</Link></td>
-              <td>{post.views}</td>
-              <td>{post.writedate}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <MypageBtn {...category} />
+        <Routes>
+            <Route path=":cate" element={<MywriteContent {...category} />} />
+        </Routes>
 
     </div>
     )

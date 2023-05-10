@@ -16,18 +16,6 @@ function Running() {
     setEndDate(date);
   };
 
-  // const [startDate, setStartDate] = useState(new Date());
-
-  // useEffect(() => {
-  //   axios.get(`/api/running_records?date=${startDate.toISOString().substring(0, 10)}`)
-  //     .then(response => {
-  //       setRunningRecords(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }, [startDate]);
-
   const todayRecords = runningRecords.filter(record => {
     return new Date(record.date).toDateString() === startDate.toDateString();
   });

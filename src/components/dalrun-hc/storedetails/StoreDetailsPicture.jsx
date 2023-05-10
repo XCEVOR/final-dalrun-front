@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ModalButton from "./storemodal/ModalButton";
 
 function StoreDetailsPicture() {
   let prodParams = useParams();
@@ -71,6 +72,7 @@ function StoreDetailsPicture() {
       <>
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div>
+      <ModalButton prodParams={prodParams} productPictureList={productPictureList}></ModalButton>
       <div className="product_productOrigFile">
         <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
       </div>

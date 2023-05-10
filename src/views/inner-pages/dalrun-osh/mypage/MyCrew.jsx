@@ -235,6 +235,13 @@ function MyCrew() {
             <Table striped bordered hover>
               <thead>
                 <tr>
+                  <th>
+                    <input 
+                      type="checkbox" 
+                      onChange={(e) => handleAllCheck(e.target.checked)} 
+                      checked={checkedList.length === dataList.length ? true : false}
+                      />
+                  </th>                  
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
@@ -250,6 +257,13 @@ function MyCrew() {
                   crewList.map((crew, i) => {
                     return (
                       <tr key={i}>
+                      <th>
+                        <input 
+                          type="checkbox" 
+                          onChange={(e) => handleSingleCheck(e.target.checked, crew.orderSeq)} 
+                          checked={checkedList.includes(crew.orderSeq) ? true : false}
+                        />
+                      </th>                      
                         <td>{i + 1}</td>
                         <td>{crew.memberName}</td>
                         <td>{crew.memId}</td>
