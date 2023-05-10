@@ -122,6 +122,8 @@ function StoreCartList() {
 
   const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
     let tempSum = 0;
+    console.log("  console.log(productInfoList) ", productInfoList)
+    console.log("  console.log(productIdList) ", productIdList)
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
@@ -134,7 +136,7 @@ function StoreCartList() {
           console.log(tempSum)
           setTotalPaymentAmount(tempSum)
           return (
-            <div key={prodInfo.productId}>
+            <div key={matchedProduct.cartId}>
               <div className="item">
                 <div className="image" style={{ width: 160 }}>
                   <img
@@ -157,7 +159,15 @@ function StoreCartList() {
                     삭제: {prodInfo.productId}
                   </button>
                   <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span>
-                  <ModalButton modal_productid={prodInfo.productId} modal_quantity={matchedProduct.cartProdQuantity} ></ModalButton>
+                  <ModalButton 
+                    modal_cartid={matchedProduct.cartId} 
+                    modal_productid={prodInfo.productId} 
+                    modal_productcode={prodInfo.productCode}
+                    modal_productcolor={prodInfo.productColor}
+                    modal_productsize={prodInfo.productSize}
+                    modal_quantity={matchedProduct.cartProdQuantity}
+                  >
+                  </ModalButton>
                 </div>
 
                 <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
