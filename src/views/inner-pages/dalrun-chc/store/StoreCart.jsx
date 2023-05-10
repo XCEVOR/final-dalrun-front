@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from 'react-router';
 import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../../components/header/HeaderDefault";
@@ -12,10 +12,15 @@ import StoreCartList from "../../../../components/dalrun-hc/storecart/StoreCartL
 
 
 function StoreCart() {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
   const location = useLocation();
   console.log(" location = useLocation(); ", location);
 
-  return (
+  return checkbox_DisplayMode 
+  // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+  ? (
+    <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
       <Helmet>
         <title>Moonex - Contact</title>
@@ -131,7 +136,16 @@ function StoreCart() {
         </div>
       </footer>
     </div>
-  );
+    </>
+    )
+
+
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+
+      </>
+    )
 }
 
 export default StoreCart;
