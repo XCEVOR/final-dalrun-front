@@ -1,253 +1,245 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams} from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import CrewBbsPagination from "./CrewBbsPagination";
 import axios from 'axios';
 
-import Pagination from 'react-js-pagination';
-
-//서버로부터 json 형태의 데이터 받아야 함
-// img : img
-// cat : memId
-// date : wdate
-// title : title
-
-const blogContent = [
-  {
-    img: "post-1",
-    cat: "Product",
-    date: "Dec 15, 2021",
-    title: "Review product BWIB",
-  },
-  {
-    img: "post-2",
-    cat: "Inspiration",
-    date: "Dec 7, 2021",
-    title: "Contrast in Brand Design",
-  },
-  {
-    img: "post-3",
-    cat: "Community",
-    date: "Dec 7, 2021",
-    title: "The evolution of Swiss style in Interaction Design",
-  },
-  {
-    img: "post-4",
-    cat: "Product",
-    date: "Dec 15, 2021",
-    title: "Site inspiration with Swiss style",
-  },
-  {
-    img: "post-5",
-    cat: "Inspiration",
-    date: "Dec 7, 2021",
-    title: "Minimalist Trends",
-  },
-  {
-    img: "post-6",
-    cat: "Community",
-    date: "Dec 7, 2021",
-    title: "Design Trends - Stage 14",
-  },
-  {
-    img: "post-7",
-    cat: "Product",
-    date: "Dec 15, 2021",
-    title: "Business Card, small but the most important",
-  },
-  {
-    img: "post-8",
-    cat: "Inspiration",
-    date: "Dec 7, 2021",
-    title: "The role of leader in teamwork",
-  },
-  {
-    img: "post-9",
-    cat: "Community",
-    date: "Dec 7, 2021",
-    title: "Simple Logos Collection",
-  },
-];
-
 const CrewBlogThree = () => {
+  const crewBbsParams = useParams();
+  const [crewBbsList, setCrewBbsList] = useState([]);
 
-  const [data, setData] = useState([]);
-  useEffect(()=> {
-    axios.get('/crewBbsMain')
-      .then(response => setData(response.data.dtoList))
-      .catch(error => console.log(error))
-  }, []);
+  const [choice, setChoice] = useState("");
+  const [search, setSearch] = useState("");
+  // paging
+  const [page, setPage] = useState(1);
+  const [totalCnt, setTotalCnt] = useState(0);
+
+  const [imgid, setImgId] = useState([]);
+  const [crewSeq, setCrewSeq] = useState(crewBbsParams.crewSeq);
+
+  const [type, setType] = useState('all');
+
+  const choiceChange = (e) => setChoice(e.target.value);
+  const searchChange = (e) => setSearch(e.target.value);
+
+  function getimgstr() {
+    console.log("crewSeq",crewSeq);
+        axios.get("http://localhost:3000/getimgstr", {
+        params: {
+          "crewSeq": crewSeq
+        }
+      })
+      .then((res) => {
+        const imgid = res.data.split('/');
+        setImgId(imgid); //상태 변수 업데이트
+        alert(imgid);
+        console.log("crewSeq ", crewSeq);
+        const firstImg = imgid[0];
+        alert(firstImg);
+      }).catch((err) => {
+        alert(err);
+        console.log("crewSeq ", crewSeq);
+      });
+  }
+
+  function getCrewBbsList(c,s,p) {
+    axios.get('http://localhost:3000/crewBbsMain', {params:{ "choice":c, "search":s, "pageNumber":p  } })
+      .then(function(res){
+        console.log("allGetCrewBbs resp : " ,res.data.list);
+        setCrewBbsList(res.data.list);
+        setTotalCnt(res.data.cnt);
+            })
+            .catch(function(err){
+              alert(err);
+            })
+  }
+
+  function getBbsListByReadCount(c,s,p){
+    axios.get('http://localhost:3000/readcount', {params : {"choice":c, "search":s, "pageNumber":p} })
+    .then(function(res){
+      console.log("allgetListByReadcount res ", res.data.list);
+      setCrewBbsList(res.data.list);
+      setTotalCnt(res.data.cnt);
+    })
+    .catch(function(err){
+      alert(err);
+    })
+  }
+
+  function getBbsListByLikeCount(c,s,p){
+    axios.get('http://localhost:3000/likecount', {params:{ "choice":c, "search":s, "pageNumber":p  } })
+    .then(function(res){
+      console.log("allgetListByLikeCount res : ", res.data.list);
+      setCrewBbsList(res.data.list);
+      setTotalCnt(res.data.cnt);
+    })
+    .catch(function(err){
+      alert(err);
+    })
+  }
+
+  const handlePagination= (page) => {
+    console.log(page);
+    setPage(page);
+    getCrewBbsList(choice, search, page-1);
+    getBbsListByReadCount(choice, search, page-1);
+    getBbsListByLikeCount(choice, search, page-1);
+  }
+
+  let navigate = useNavigate();
+
+  function searchBtn(){
+    // choice, search 검사
+    if(choice.toString().trim() !== "" && search.toString().trim() !== ""){
+        navigate('/crewBbsMain/' + choice + "/" + search);
+    }
+    else{
+        navigate('/crewBbsMain/');
+    }
+    // 데이터를 다시 한번 갖고 온다
+    getCrewBbsList(choice, search);
+}
+
+useEffect(function () {
+  getCrewBbsList(crewBbsParams.choice, crewBbsParams.search, crewBbsParams.page);
+}, [crewBbsParams.crewSeq])
+
+useEffect(()=> {
+  console.log(crewBbsList);
+}, [crewBbsList])
+
+useEffect(() => {
+  console.log("crewSeq : ", crewSeq);
+}, [crewSeq]);
+
+// const getCrewTypeList = (type) => {
+//   axios.get(`/crewBbsMain/${type}`)
+//   .then(res => {
+//     alert(typeof res.data.crewBbsList);
+//     console.log(typeof res.data.crewBbsList);
+//     setCrewBbsList(res.data.crewBbsList);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+// }
+
+// useEffect(() => {
+//   getCrewTypeList(type);
+// }, [type]);
+
+// const handleButtonClick = (type) => {
+//   getCrewTypeList(type);
+//   console.log("type",type);
+//   alert(type);
+// };
+
+// const handleTypeChange = (e) => {
+//   setType(e.target.value);
+// }
 
   return (
     <>
-      {blogContent.map((val, i) => (
+
+          {/* <button type="button" onClick={handleButtonClick}>type</button> */}
+          <div>
+      <div className="col-auto">
+        <input type="checkbox" id="all" name="type_all" value="all" checked={type === 'all'} />
+        <label htmlFor="all">전체</label>
+
+        <input type="checkbox" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
+        <label htmlFor="recruiting">모집중</label>
+
+        <input type="checkbox" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
+        <label htmlFor="closed">모집 완료</label>
+      </div>
+
+  {/* <div class="col-auto">
+      <button className="btn btn-primary">
+      전체
+    </button>
+    <button className="btn btn-primary">
+      모집중
+    </button>
+    <button className="btn btn-primary">
+      모집완료
+    </button>
+      </div> */}
+  </div>
+
+    {/* <button onClick={getimgstr}>getimgstr</button> */}
+    <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"20px", marginBottom:"5px" }}>
+            <tbody>
+            <tr>
+                <td style={{ paddingLeft:"3px" }}>
+                    <select className="custom-select" value={choice} onChange={choiceChange}>
+                        <option value=''>검색</option>
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                        <option value="memId">작성자</option>
+                    </select>
+                </td>
+                <td style={{ paddingLeft:"5px" }} className="align-middle">
+                    <input type="text" className="form-control" placeholder="검색어"
+                        value={search} onChange={searchChange}/>
+                </td>
+                <td style={{ paddingLeft:"5px" }}>
+                    <span>
+                        <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+            <br></br>
+          <div class="col-auto">
+          <button className="btn btn-primary" onClick={getCrewBbsList}>
+          최신순
+        </button>
+        <button className="btn btn-primary" onClick={getBbsListByReadCount}>
+          조회수 순
+        </button>
+        <button className="btn btn-primary" onClick={getBbsListByLikeCount}>
+          좋아요 순
+        </button>
+          </div>
+        </table>
+      
+      {/* 서버 데이터 */}
+      {crewBbsList.map((singleBbs, i) => (
         <div className="col-xl-4 col-lg-4" key={i}>
           <article className="ptf-post ptf-post--style-1">
             <div className="ptf-post__media">
-              <Link className="ptf-work__link" to="/crewBbsBlogDetail"></Link>
-              <img
-                src={`assets/img/blog/grid/${val.img}.png`}
+              <Link className="ptf-work__link" to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}></Link>
+              {/*singleBbs.imgurl = "assets/img/dalrun-pyr/run1.jpg" */}
+               {/* <img
+                src={"http://localhost:3000/getimg?imgid=" + imgid[0]}
                 alt="blog"
                 loading="lazy"
-              />
+              />  */}
+              {/* file:///C:/Users/ParkYerin/git/final-dalrun-front/public/assets/img/dalrun-pyr/0b557f74-4d1d-4dda-b4c2-b6e5f978aa70.PNG */}
+              <img src={`${singleBbs.crewImg}`}
+               alt="blog"
+               loading="lazy"
+             />
             </div>
             <div className="ptf-post__content">
               <header className="ptf-post__header">
                 <div className="ptf-post__meta">
-                  <span className="cat">{val.cat}</span>
-                  <span className="date">{val.date}</span>
+                  <span className="cat">{singleBbs.type}</span>
+                  <span className="date">{singleBbs.crewCreateDate}</span>
                 </div>
                 <h3 className="ptf-post__title">
-                  <Link to="/crewBbsBlogDetail">{val.title}</Link>
+                  <span>&lt;{singleBbs.crewName}&gt;</span><br></br>
+                  <Link to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}>{singleBbs.title}</Link>
                 </h3>
               </header>
             </div>
           </article>
         </div>
       ))}
+      <CrewBbsPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination} />
     </>
   );
 };
 
 export default CrewBlogThree;
-
-// function CrewBlogThree(){
-//   const [crewBbsList, setCrewBbsList] = useState([]);
-  
-//   const [choice, setChoice] = useState("");
-//   const [search, setSearch] = useState("");
-
-//   //paging
-//   const [page, setPage] = useState(1);
-//   const [totalCnt, SetTotalCnt] = useState(0);
-
-//   const choiceChange = (e) => setChoice(e.target.value);
-//   const searchChange = (e) => setSearch(e.target.value);
-
-//   const fetchData = async (c,s,p) => {
-//     await axios.get('http://localhost:3000/crewBbsMain', { params:{ "choice":c, "search":s, "pageNumber":p  } })
-//         .then(function(res){
-//           console.log(res.data.list);
-//           setCrewBbsList(res.data.list);
-
-//           SetTotalCnt(res.data.cnt); //글의 총수
-//         })
-//         .catch(function(err){
-//           console.log(err);
-//         })
-//   }
-
-//   useEffect(()=> { //initialize
-//     fetchData('','',0);
-//   }, []);
-
-//   let navigate = useNavigate();
-
-//   function searchBtn(){
-//     //choice, search 검사
-//     if(choice.toString().trim() !== "" && search.toString().trim() !== ""){
-//       navigate('/crewBbsMain/' + choice + "/" + search);
-//     }else {
-//       navigate('/crewBbsMain/');
-//     }
-//     // 데이터를 다시 한번 갖고 온다
-//     fetchData(choice, search);
-//   }
-
-//   function handlePageChange(page){
-//     setPage(page);
-//     fetchData(choice, search, page-1);
-// }
-
-//   return (
-//     <div>
-//       <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"3px", marginBottom:"3px" }}>
-//         <tbody>
-//           <tr>
-//             <td style={{ paddingLeft:"3px"}}>
-//               <select className="" value={choice} onChange={choiceChange}>
-//                 <option value=''>검색</option>
-//                 <option value="title">제목</option>
-//                 <option value="content">내용</option>
-//                 <option value="writer">작성자</option>
-//               </select>
-//             </td>
-//             <td style={{ paddingLeft:"5px" }} className="align-middle">
-//                     <input type="text" className="form-control" placeholder="검색어"
-//                         value={search} onChange={searchChange}/>
-//                 </td>
-//                 <td style={{ paddingLeft:"5px" }}>
-//                     <span>
-//                         <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
-//                     </span>
-//                 </td>
-//             </tr>
-//             </tbody>
-//         </table>
-
-//         <br/>
-
-//         <table className="table table-hover table-sm" style={{ width: "1000" }}>
-//             <colgroup>
-//                 <col width="70"/><col width="600"/><col width="100"/><col width="150"/>
-//             </colgroup>
-//             <thead>
-//                 <tr className="bg-primary" style={{ color: "white" }}>
-//                     <th>번호</th><th>제목</th><th>조회수</th><th>작성자</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {
-//                     crewBbsList.map(function(dto, i){
-//                         return (
-//                             <TableRow bbs={dto} cnt={i+1} key={i} />
-//                         )
-//                     })
-//                 }                
-//             </tbody>
-//         </table> 
-
-//         <br/>
-
-//         {/* https://mui.com/material-ui/react-pagination/  */}
-//         <Pagination
-//             activePage={page}
-//             itemsCountPerPage={10}
-//             totalItemsCount={totalCnt}
-//             pageRangeDisplayed={5}
-//             prevPageText={"‹"}
-//             nextPageText={"›"}
-//             onChange={handlePageChange} />
-//       </div>
-//     )
-// }
-
-// function TableRow(props){
-//   return (
-//       <tr>
-//           <td>{props.cnt}</td>
-
-//           {/* <td style={{ textAlign:"left" }}>{getArrow(props.bbs.depth)}{props.bbs.title}</td> */}
-//           {BbsTitleProc(props)}
-
-//           <td>{props.bbs.readcount}</td>
-//           <td>{props.bbs.id}</td>
-//       </tr>
-//   );
-// }
-
-// // 제목에 대한 링크 및 삭제된 글의 처리
-// function BbsTitleProc(props){
-//   if(props.bbs.del === 0){
-//       return (
-//           <td style={{ textAlign:"left" }}>           
-//               <Link to={`/crewBbsBlogDetail/${props.bbs.seq}`}>{props.bbs.title}</Link>                
-//           </td>
-//       );
-//   }else{
-//       return (
-//           <td>*** 이 글은 작성자에 의해서 삭제되었습니다 ***</td>
-//       );
-//   }
-// }
-
-// export default CrewBlogThree;

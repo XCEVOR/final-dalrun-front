@@ -48,12 +48,6 @@ const ContentReview = () => {
     getAllShoeList(choice, search);
   }
 
-  function handlePageChange(page) {
-    setPage(page);
-    getAllShoeList(choice, search, page - 1);
-  }
-
-
   useEffect(() => {
 
     getAllShoeList(params.choice, params.search, params.page);
@@ -63,12 +57,10 @@ const ContentReview = () => {
   
   useEffect(() => {
     console.log(compList);
-   
   }, [compList])
 
   return (
     <>
-
       {compList.map((val, i) => (
         <div className="grid-item" key={i}>
           {/* <!--Blog Post--> */}
@@ -107,7 +99,6 @@ const ContentReview = () => {
           </article>
         </div>
       ))}
-
 
       <div
         className="ptf-spacer"

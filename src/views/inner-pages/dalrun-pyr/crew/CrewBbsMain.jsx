@@ -1,21 +1,23 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../../../components/dalrun-pyr/Header';
 import CrewBlogThree from '../../../../components/dalrun-pyr/crewBbs/CrewBlogThree';
 import CopyRight from '../../../../components/footer/copyright/CopyRight';
 import Footer from '../../../../components/footer/Footer';
-import CrewSearchBlog from '../../../../components/dalrun-pyr/crewBbs/CrewSearchBlog';
-import NewsletterTwo from '../../../../components/newsletter/NewsletterTwo';
 import CrewBbsGridContent from '../../../../components/dalrun-pyr/crewBbs/CrewBbsGridSLider';
-import CrewBbsList from '../../../../components/dalrun-pyr/crewBbs/CrewBbsList';
-import CrewBbsClassification from '../../../../components/dalrun-pyr/crewBbs/CrewBbsClassification';
+
+import '../css/CrewBbsMain.css';
 
 const CrewBbsMain = () => {
+  const history = useNavigate();
+  const gotoWrite = () => {
+    history("/crewBbsWrite");
+  }
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-grid">
       <Helmet>
-        <title>달런달런 - 크루 모집 페이지</title>
+        <title>달런달런 - 크루 페이지</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -40,7 +42,7 @@ const CrewBbsMain = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">달런달런</h1>
+                      <h1 className="large-heading">🏃‍♀️Crew🏃</h1>
                     </div>
                   </div>
                   {/* End .col */}
@@ -51,13 +53,26 @@ const CrewBbsMain = () => {
                       data-aos="fade"
                       data-aos-delay="100"
                     >
-                      <div className="ptf-widget ptf-widget-search">
+                      {/* <div className="ptf-widget ptf-widget-search">
                         <CrewSearchBlog />
-                      </div>
+                      </div> */}
                       <br></br>
-                      <Link to="/crewBbsWrite">크루모집 글쓰기</Link>
-                   
+                      {/* <Link to="/crewBbsWrite">크루 생성</Link> */}
+                      {/* <button className="crewwrite" type="button" onClick={gotoWrite}>
+                        <div className="btnTwo">
+                          <span className="btnText">크루 생성</span>
+                          <span className="btnText2">GO!</span>
+                        </div>
+                      </button> */}
                     </div>
+                    <div id="holder" onClick={gotoWrite}>
+                        <div class="button_write">
+                            <p class="btnText">크루 생성</p>
+                            <div class="btnTwo">
+                              <p class="btnText2">GO!</p>
+                            </div>
+                        </div>
+                        </div>
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
@@ -144,7 +159,7 @@ const CrewBbsMain = () => {
                   >
                     {/* 게시글 list */}
                     <CrewBlogThree />
-                    <CrewBbsList/>
+                    {/* <CrewBbsList/> */}
                   </div>
                 </div>
                 {/* End .ptf-animated-block */}
@@ -232,7 +247,7 @@ const CrewBbsMain = () => {
                       data-aos-delay="100"
                     >
                       {/* <!--Spacer--> */}
-                      <NewsletterTwo />
+                      {/* <NewsletterTwo /> */}
                     </div>
                   </div>
                 </div>
