@@ -79,7 +79,7 @@ function AdminShoereview() {
                     </tr>
                     );
                   })
-                  : <tr style={{textAlign:"center"}}><td colSpan="7">데이터가 없습니다</td></tr>
+                  : <tr style={{textAlign:"center"}}><td colSpan="10">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>

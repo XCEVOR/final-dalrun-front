@@ -11,6 +11,7 @@ import OrderUpdate from './update/OrderUpdate';
 import ProductInqReply from './register/ProductInqReply';
 import CompetitionUpdate from './update/CompetitionUpdate';
 import CompetitionRegi from './register/CompetitionRegi';
+import ShoereviewRegi from './register/ShoereviewRegi';
 
 function CustomModal(props) {
   const separator = ', ';
@@ -66,6 +67,7 @@ function CustomModal(props) {
     else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />
       else if(cate === "competition") return <CompetitionRegi onHide={props.onHide} />
+      else if(cate === "shoereview") return <ShoereviewRegi onHide={props.onHide} />
     }
   }
 
