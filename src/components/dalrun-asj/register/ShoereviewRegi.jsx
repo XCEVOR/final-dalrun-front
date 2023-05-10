@@ -3,27 +3,31 @@ import AdjustableTextarea from "../AdjustableTextarea";
 import ImgUpload from "../ImgUpload";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function ShoereviewRegi({onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
 
     const [brand, setBrand] = useState("");
     const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
-    const [section1, setSection1] = useState("");
-    const [section2, setSection2] = useState("");
-    const [section3, setSection3] = useState("");
+    const [content, setContent] = useState("");
+    const [descList, setDescList] = useState([]);
+    const [desc, setDesc] = useState([]);
     const [price, setPrice] = useState("");
     const [link, setLink] = useState("");
     const [imgList, setImgList] = useState([]);
 
     const onSubmit = (e) => {
         e.preventDefault();
-        
-        const sections = [];
-        if(section1 !== "") sections.push(section1);
-        if(section2 !== "") sections.push(section2);
-        if(section3 !== "") sections.push(section3);
+
+        if(imgList.length === 0) {
+            alert("하나 이상의 이미지를 등록해주세요.");
+            return;
+        }
+        else if(imgList.length-1 !== descList.length) {
+            alert("이미지에 대한 설명을 입력해주세요.");
+            return;
+        }
 
         let formdata = new FormData();
 
@@ -31,13 +35,13 @@ function ShoereviewRegi({onHide}) {
             formdata.append("fileList", file);
         });
 
-        sections.map((section) => {
-            formdata.append("sections", section);
+        descList.map((desc) => {
+            formdata.append("descList", desc);
         });
 
         formdata.append("srBrand", brand);
         formdata.append("srTitle", title);
-        formdata.append("srCotent", desc);
+        formdata.append("srCotent", content);
         formdata.append("srPrice", price);
         formdata.append("srLink", link);
 
@@ -55,35 +59,59 @@ function ShoereviewRegi({onHide}) {
             .catch((err) => console.log(err));
     }
 
+    const handleTextInput = (e, desc, max) => {
+        e.preventDefault();
+
+        setDescList(prev => [...prev, desc].slice(0, max));
+        setDesc("");
+
+        if (descList.length > max) {
+            setDescList(prev => prev.slice(0, max));
+        }
+    }
+
+    useEffect(() => {
+        let max = imgList.length-1;
+
+        if (descList.length > max) {
+            setDescList(prev => prev.slice(0, max));
+        }
+    }, [imgList]);
+
     return (
         <div className="admin_update_container">
-            <div className="admin_update">
+            <div className="admin_update review_regi_img">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                     <fieldset>
                         <ImgUpload max="4" setImgList={setImgList} />
                         <div className="add_padding">
                             <label htmlFor="brand">브랜드</label>
-                            <input type="text" value={brand || ""} onChange={(e) => setBrand(e.target.value)} required />
+                            <input type="text" value={brand || ""} onChange={(e) => setBrand(e.target.value)} />
                         </div>
                         <div>
                             <label htmlFor="title">품명</label>
                             <input type="text" value={title || ""} onChange={(e) => setTitle(e.target.value)} />
                         </div>
                         <div>
-                            <label htmlFor="desc">운동화 설명</label>
-                            <AdjustableTextarea val={desc} setVal={setDesc} />
+                            <label htmlFor="content">운동화 설명</label>
+                            <AdjustableTextarea val={content} setVal={setContent} />
                         </div>
                         <div>
-                            <label htmlFor="section1">섹션1</label>
-                            <AdjustableTextarea val={section1} setVal={setSection1} placeholder={"운동화 후기 코멘트를 입력해주세요"} />
-                        </div>
-                        <div>
-                            <label htmlFor="section2">섹션2</label>
-                            <AdjustableTextarea val={section2} setVal={setSection2} placeholder={"운동화 후기 코멘트를 입력해주세요"} />
-                        </div>
-                        <div>
-                            <label htmlFor="section3">섹션3</label>
-                            <AdjustableTextarea val={section3} setVal={setSection3} placeholder={"운동화 후기 코멘트를 입력해주세요"} />
+                            <label htmlFor="desc">이미지에 대한 설명</label>
+                            <div className="text_flex">
+                                <AdjustableTextarea val={desc} setVal={setDesc} placeholder={"운동화 후기를 입력해주세요."} />
+                                <button onClick={(e) => handleTextInput(e, desc, imgList.length-1)}>입력</button>
+                            </div>
+                            <div>
+                            {descList.map((d, i) => {
+                                return(
+                                    <div key={i}>
+                                        <label htmlFor="desc">리뷰 {i+1}</label>
+                                        <AdjustableTextarea val={d} readOnly={true} />
+                                    </div>
+                                );
+                            })}
+                            </div>
                         </div>
                         <div>
                             <label htmlFor="price">가격</label>

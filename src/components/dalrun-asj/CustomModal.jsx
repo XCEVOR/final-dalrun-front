@@ -85,6 +85,7 @@ function CustomModal(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      contentClassName="modal-max-width"
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
