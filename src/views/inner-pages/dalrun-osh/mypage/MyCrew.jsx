@@ -22,10 +22,13 @@ function MyCrew() {
   // 나의 크루 포인트 퍼센트
   const [pointPercent, setPointPercent] = useState(0);
 
+  // 전송할 포인트 
+  const [sendScore,setSendscore] =useState(0);
+
   const [imgFile, setImgFile] = useState(null);
 
   // 크루 탈퇴 경고알림창
-  const [modalIsOpen, setModalState] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -72,7 +75,8 @@ function MyCrew() {
       })
   };
   function crewLeave() {
-    axios.get("http://localhost:3000/crewLeave", { params: { 'memId': login.memId } })
+    let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
+    axios.get("http://localhost:3000/crewLeave", { params: { 'memId': login.memId ,'crewSeq':crewSeq} })
       .then(function (resp) {
         localStorage.removeItem('login');
         alert("다시 로그인해주세요..");
@@ -91,30 +95,39 @@ function MyCrew() {
   }
   function crewUpgrade() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
+    let score=0;
+
     if (pointPercent >= 100) {
-      axios.get("http://localhost:3000/crewUpgrade", { params: { 'crewSeq': crewSeq } })
+      axios.get("http://localhost:3000/crewUpgrade", { params: { 'crewSeq': crewSeq,'score': sendScore} })
         .then(function (resp) {
-          setCrewPoint(resp.data);
-
+          alert("크루가 업그레이드 됐습니다.")
+         
+          loading();
         }).catch(function (err) {
-
+            alert(err);
         })
     } else {
       alert("포인트를 더 누적해주세요.")
     }
   }
   function crewLeaveAlart() {
-    alert("dd")
+    if(modalIsOpen){
+      crewLeave();
+    }else{
+    document.getElementById("crewAlterfont").textContent='정말 크루를 탈퇴하시겠습니까?'
+    document.getElementById("crewAlterA").style.backgroundColor="red";
+    deleteHandler();
+ }
   }
 
 
   function deleteHandler() {
-    setModalState(true);
+    setModalIsOpen(true);
     // modalIsOpen을 true로 변경.
   }
 
   function closeModalHandler() {
-    setModalState(false);
+    setModalIsOpen(false);
     // modalIsOpen을 false로 변경.
   }
 
@@ -125,7 +138,7 @@ function MyCrew() {
 
     loading();
 
-  }, []);
+  },[]);
 
   useEffect(() => {
     // 출력 확인 useEffect 
@@ -133,11 +146,28 @@ function MyCrew() {
     console.log(mycrewinfo)
     console.log(crewList)
     console.log(crewPoint)
-    console.log(parseInt(crewPoint / 3000 * 100));
-    if (mycrewinfo.crewLevel == 1) {
+  
+    if (mycrewinfo.crewLevel === 1) {
       setPointPercent(parseInt(crewPoint / 3000 * 100));
+      setSendscore(3000);
+    }else if(mycrewinfo.crewLevel === 2){
+      setPointPercent(parseInt(crewPoint / 10000 * 100));
+      setSendscore(10000);
+    }else if(mycrewinfo.crewLevel === 3){
+      setPointPercent(parseInt(crewPoint / 30000 * 100));
+      setSendscore(30000);
+      
+    }else if(mycrewinfo.crewLevel === 4){
+      setPointPercent(parseInt(crewPoint / 100000 * 100));
+      setSendscore(100000);
+
+    }else if(mycrewinfo.crewLevel === 5){
+      setPointPercent(parseInt(crewPoint / 100000 * 100));
+      setSendscore(100000);
+
     }
-  })
+    
+  },[crewPoint,pointPercent,mycrewinfo,login])
 
   return (
     <div className="members container">
@@ -147,12 +177,12 @@ function MyCrew() {
         <div id="crewinform">
           <div className="container-xxl">
             <div className="row">
-              <div className="col-4" >
+              <div className="col-6" >
                 <div className="row-4" >
                   {/* 서버에서 이미지를 가져올 수 있게 폴더 명만 바꾸면 될 것 같습니다. */}
                   
                   {/* <img src={`http://localhost:3000/dalrun-jy/competition/${mycrewinfo.crewImg}`} style={{ margin: "20px" }} /> */}
-                  <img src={`http://localhost:3000/dalrun-jy/competition/marathon_1.jpg`} style={{ margin: "20px" }} />
+                  <img src={`http://localhost:3000/dalrun-jy/competition/marathon_1.jpg`} style={{ margin: "10px" }} />
 
                   {/* 크루 조장일 때만 수정 가능하게 조건문 걸었습니다. 수정기능 완료 하시면 주석처리 풀어주시면 될 것 같습니다.*/}
                 </div>
@@ -181,7 +211,7 @@ function MyCrew() {
 
 
               </div>
-              <div className="col-7">
+              <div className="col-5">
                 <form name="crew_frm" encType="multipart/form-data">
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p style={{ margin: "20px", minWidth: "80px" }}>크루명</p>
@@ -193,6 +223,11 @@ function MyCrew() {
                 } */}
 
                   </div>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>레벨</p>
+                    <p>{mycrewinfo.crewLevel}</p>
+                  </div>
+                  
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p style={{ margin: "20px", minWidth: "80px" }}>리더</p>
                     <p>{mycrewinfo.memId}</p>
@@ -235,13 +270,7 @@ function MyCrew() {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>
-                    <input 
-                      type="checkbox" 
-                      onChange={(e) => handleAllCheck(e.target.checked)} 
-                      checked={checkedList.length === dataList.length ? true : false}
-                      />
-                  </th>                  
+                                   
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
@@ -257,13 +286,7 @@ function MyCrew() {
                   crewList.map((crew, i) => {
                     return (
                       <tr key={i}>
-                      <th>
-                        <input 
-                          type="checkbox" 
-                          onChange={(e) => handleSingleCheck(e.target.checked, crew.orderSeq)} 
-                          checked={checkedList.includes(crew.orderSeq) ? true : false}
-                        />
-                      </th>                      
+                     
                         <td>{i + 1}</td>
                         <td>{crew.memberName}</td>
                         <td>{crew.memId}</td>
@@ -283,8 +306,8 @@ function MyCrew() {
             </Table>
             
             <div style={{ textAlign: 'center' }}>
-              <a className="ptf-btn ptf-btn--primary" onClick={crewLeaveAlart}
-                style={{ width: '400px', padding: '10px', marginTop: '100px' }}><h5>크루 탈퇴</h5>
+              <a id="crewAlterA" className="ptf-btn ptf-btn--primary" onClick={crewLeaveAlart}
+                style={{ width: '400px', padding: '10px', marginTop: '100px' }}><h5 id="crewAlterfont">크루 탈퇴</h5>
               </a>
             </div>
           </div>
