@@ -36,7 +36,7 @@ function StoreCart() {
 
             <div className="container">
               <div className="row">
-                <div className="col-xl-10">
+                <div className="col-xl-12">
                   {/* <!--Animated Block--> */}
                   <div
                     className="ptf-animated-block"

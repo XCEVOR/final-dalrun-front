@@ -8,6 +8,9 @@ import ProductUpdate from './update/ProductUpdate';
 import CrewUpdate from './update/CrewUpdate';
 import ProductRegi from './register/ProductRegi';
 import OrderUpdate from './update/OrderUpdate';
+import ProductInqReply from './register/ProductInqReply';
+import CompetitionUpdate from './update/CompetitionUpdate';
+import CompetitionRegi from './register/CompetitionRegi';
 
 function CustomModal(props) {
   const separator = ', ';
@@ -17,7 +20,7 @@ function CustomModal(props) {
 
   const getTarget = () => {
     if(props.checked.length !== 0) {
-      axios.post(`http://localhost:3000/get${cate}`, null, { params:{ "target":props.checked[0] } })
+      axios.post(`http://localhost:3000/get${cate === "question" ? sub : cate}`, null, { params:{ "target":props.checked[0] } })
       .then((resp) => {
             setData(resp.data);
             console.log("getTarget");
@@ -29,7 +32,7 @@ function CustomModal(props) {
   }
 
   const delTargets = () => {
-    axios.post(`http://localhost:3000/admin_del${cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
+    axios.post(`http://localhost:3000/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
         .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
@@ -51,18 +54,24 @@ function CustomModal(props) {
       else if(cate === "product") return <ProductUpdate data={data} onHide={props.onHide} />;
       else if(cate === "crew") return <CrewUpdate data={data} onHide={props.onHide} />;
       else if(cate === "order") return <OrderUpdate data={data} onHide={props.onHide} />;
-    } else if(props.category === "delete") {
+      else if(sub === "productinquiry") return <ProductInqReply data={data} onHide={props.onHide} />;
+      else if(cate === "competition") return <CompetitionUpdate data={data} onHide={props.onHide} />;
+    } 
+    else if(props.category === "delete") {
       if(cate === "member") return "이 회원을 탈퇴시키겠습니까?";
       else if(cate === "product") return "이 상품을 삭제하겠습니까?";
       else if(cate === "order") return "이 주문내역을 삭제하겠습니까?";
-    } else if(props.category === "insert") {
+      else if(sub === "productinquiry") return "이 문의내역을 삭제하겠습니까?";
+    } 
+    else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />
+      else if(cate === "competition") return <CompetitionRegi onHide={props.onHide} />
     }
   }
 
   useEffect(()=>{
     getTarget();
-  }, [props.checked[0]]);
+  }, [props]);
 
   return (
     <Modal
@@ -80,15 +89,13 @@ function CustomModal(props) {
         <div>[ {props.checked.join(separator)} ]</div>
         <ModalBody />
       </Modal.Body>
-      <Modal.Footer>
         {
           props.category === "delete" ?
-            <>
+            <Modal.Footer>
               <Button variant="secondary" onClick={props.onHide}>취소</Button>
               <Button variant="primary" onClick={delTargets}>확인</Button>
-            </> : ''
+            </Modal.Footer> : ''
         }
-      </Modal.Footer>
     </Modal>
   );
 }

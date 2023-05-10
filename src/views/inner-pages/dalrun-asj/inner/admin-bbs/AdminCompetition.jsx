@@ -4,6 +4,7 @@ import AdminSearch from "../../../../../components/dalrun-asj/AdminSerach";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
 import { Table } from "react-bootstrap";
 import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
+import { Link } from "react-router-dom";
 
 function AdminCompetition() {
   const [dataList, setDataList] = useState([]);
@@ -29,7 +30,7 @@ function AdminCompetition() {
         <div className="info">
           <ModalBtn {...category} />
           <div  className="info_con">
-            <Table striped bordered hover>
+            <Table striped bordered hover size="sm">
               <thead>
                 <tr>
                   <th>
@@ -42,9 +43,12 @@ function AdminCompetition() {
                   <th>대회번호</th>
                   <th>제목</th>
                   <th>지역</th>
-                  <th>참가비</th>
                   <th>개최일</th>
+                  <th>주최</th>
                   <th>링크</th>
+                  <th>조회수</th>
+                  <th>댓글수</th>
+                  <th>작성일</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,11 +65,18 @@ function AdminCompetition() {
                           />
                       </th>
                       <td>{comp.compSeq}</td>
-                      <td>{comp.compdetailTitle}</td>
-                      <td>{comp.compdetailLocation}</td>
-                      <td>{comp.compdetailPrice}</td>
-                      <td>{comp.compdetailDate}</td>
-                      <td>{comp.compdetailLink}</td>
+                      <td>
+                        <Link to={`/competition-detail/${comp.compSeq}`}>{comp.compTitle}</Link>
+                      </td>
+                      <td>{comp.compLocal}</td>
+                      <td>{comp.compDateStart}~{comp.compDateEnd}</td>
+                      <td>{comp.compSponsor}</td>
+                      <td>
+                        <Link target="_blank" className="table_link" to={comp.compLink}>이동</Link>
+                      </td>
+                      <td>{comp.readcount}</td>
+                      <td>{comp.commentcount}</td>
+                      <td>{comp.comRegdate}</td>
                     </tr>
                     );
                   })

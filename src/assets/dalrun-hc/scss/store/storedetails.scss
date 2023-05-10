@@ -2,181 +2,212 @@
 
 
 .dalrun_hc {
-div .product_id {
-  position: relative;
-  width: 501px;
-  height: 20px;
-  /* left: 1306px;
-  top: 1471px; */
+  div .product_id {
+    position: relative;
+    width: 501px;
+    height: 20px;
+    /* left: 1306px;
+    top: 1471px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  /* identical to box height, or 154% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
 
-  color: #aaa;
-}
+    color: #aaa;
+  }
 
-div .product_code {
-  position: relative;
-  width: 501px;
-  height: 20px;
-  /* left: 1306px;
-  top: 1471px; */
+  div .product_code {
+    position: relative;
+    width: 501px;
+    height: 20px;
+    /* left: 1306px;
+    top: 1471px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  /* identical to box height, or 154% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
 
-  color: #aaa;
-}
+    color: #aaa;
+  }
 
-div .product_category {
-  position: relative;
-  width: 501px;
-  height: 20px;
-  /* left: 1306px;
-  top: 1471px; */
+  div .product_category {
+    position: relative;
+    width: 501px;
+    height: 20px;
+    /* left: 1306px;
+    top: 1471px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  /* identical to box height, or 154% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
 
-  color: #666666;
-}
+    color: #666666;
+  }
 
-div .product_name {
-  /* Clearance $54.98 */
+  div .product_name {
+    /* Clearance $54.98 */
 
-  position: relative;
-  width: 501px;
-  height: 60px;
-  /* left: 1306px;
-  top: 1498px; */
+    position: relative;
+    width: 501px;
+    height: 60px;
+    /* left: 1306px;
+    top: 1498px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 29px;
-  /* identical to box height, or 143% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 29px;
+    /* identical to box height, or 143% */
 
-  color: #000000;
-}
+    color: #000000;
+  }
 
-div .product_brand {
-  /* Clearance $54.98 */
+  div .product_brand {
+    /* Clearance $54.98 */
 
-  position: relative;
-  width: 501px;
-  height: 80px;
-  /* left: 1306px;
-  top: 1498px; */
+    position: relative;
+    width: 501px;
+    height: 80px;
+    /* left: 1306px;
+    top: 1498px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 29px;
-  /* identical to box height, or 143% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    /* identical to box height, or 143% */
 
-  color: #000000;
-}
+    color: #000000;
+  }
 
-div .product_price {
-  /* Clearance $54.98 */
+  div .product_price {
+    /* Clearance $54.98 */
 
-  position: relative;
-  width: 501px;
-  height: 60px;
-  /* left: 1306px;
-  top: 1498px; */
+    position: relative;
+    width: 501px;
+    height: 60px;
+    /* left: 1306px;
+    top: 1498px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 29px;
-  /* identical to box height, or 143% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 29px;
+    /* identical to box height, or 143% */
 
-  color: #c31e45;
-}
+    color: #c31e45;
+  }
 
-button .product_color {
-  position: relative;
-  display: flex;
-  width: 501px;
-  height: 80px;
-  /* left: 1298px;
-top: 908px; */
+  button .product_color {
+    position: relative;
+    display: flex;
+    width: 501px;
+    height: 80px;
+    /* left: 1298px;
+  top: 908px; */
 
-  background: #aaa;
-  border-radius: 0px;
-}
+    background: #aaa;
+    border-radius: 0px;
+  }
 
-div button .product_size {
-  position: relative;
-  display: flex;
-  width: 100px;
-  height: 160px;
-  /* left: 1000px;
-  top: 1093px; */
+  div button .product_size {
+    position: relative;
+    display: flex;
+    width: 100px;
+    height: 160px;
+    /* left: 1000px;
+    top: 1093px; */
 
-  background: #8e9090;
-  border-radius: 10px;
-}
+    background: #8e9090;
+    border-radius: 10px;
+  }
 
-div .product_quantity {
-  display: flex;
-  width: 300px;
-}
+  div .product_quantity {
+    display: flex;
+    width: 300px;
+  }
 
-.product_cart {
-  position: relative;
-  width: 384px;
-  height: 48px;
-  /* left: 1306px;
-  top: 2147px; */
+  .product_cart {
+    position: relative;
+    width: 384px;
+    height: 48px;
+    /* left: 1306px;
+    top: 2147px; */
 
-  background: #222;
-  border-radius: 0px;
-}
+    background: #222;
+    border-radius: 0px;
+  }
 
-.product_checkout {
-  position: relative;
-  width: 384px;
-  height: 48px;
-  /* left: 1306px;
-  top: 2147px; */
+  .product_checkout {
+    position: relative;
+    width: 384px;
+    height: 48px;
+    /* left: 1306px;
+    top: 2147px; */
 
-  background: #222;
-  border-radius: 0px;
-}
+    background: #222;
+    border-radius: 0px;
+  }
 
-div .product_description {
-  position: relative;
-  width: 501px;
-  height: 29px;
-  /* left: 1306px;
-  top: 1498px; */
+  div .product_description {
+    position: relative;
+    width: 501px;
+    height: 29px;
+    /* left: 1306px;
+    top: 1498px; */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 29px;
-  /* identical to box height, or 143% */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    /* identical to box height, or 143% */
 
-  color: #c31e45;
-}
+    color: #c31e45;
+  }
+
+  div .picture_container {
+    margin: auto;
+    top: 0;
+    z-index: 999;
+  }
+
+  @media only screen and (max-width: 600px) {
+    div .selection_container {
+      max-width: 600px;
+      margin: auto;
+      float: right;
+      position: sticky;
+      top: 90;
+      z-index: 0;
+    }
+   }
+  
+  
+   @media only screen and (min-width: 660px) {
+    div .selection_container {
+      max-width: 400px;
+      margin: auto;
+      padding-top: 120px;
+      float: right;
+      position: sticky;
+      top: 0;
+      z-index: 0;
+    }
+   }
+
 }
 
 
@@ -188,177 +219,206 @@ div .product_description {
 
 //comment post
 .dalrun_hc {
-.post-comment-title h3 {
-	font-size: 22px;
-    font-weight: 600;
-}
-.latest-comments ul {
-    list-style: none;
-}
-.latest-comments li:first-child .comments-box {
-	border-top: 0;
-	padding-top: 0;
-}
-.comments-avatar {
-	float: left;
-	margin-right: 20px;
-    img {
-        border-radius: 50%;
-    }
-}
-.comments-text {
-	overflow: hidden;
-	border-bottom: 1px solid var(--clr-bg-gray2);
-	padding-bottom: 30px;
-	margin-bottom: 30px;
-    & p {
-        margin-bottom: 20px;
-    }
-}
-.comment-reply {
-	font-weight: 500;
-	font-size: 14px;
-	color: var(--clr-body-heading);
-    &:hover {
-        color: var(--clr-theme-1);
-    }
-}
-.avatar-name {
-    margin-bottom: 10px;
-	overflow: hidden;
-	position: relative;
-    & h5 {
-        font-size: 18px;
-	    margin-bottom: 5px;
-        font-weight: 600;
-    }
-    & span {
-        font-size: 14px;
-	    font-weight: 500;
-    }
-}
-.ablog-4 {
-    border-radius: 10px;
+  .post-comment-title h3 {
+    font-size: 22px;
+      font-weight: 600;
+  }
+  .latest-comments ul {
+      list-style: none;
+  }
+  .latest-comments li:first-child .comments-box {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .comments-avatar {
+    float: left;
+    margin-right: 20px;
+      img {
+          border-radius: 50%;
+      }
+  }
+  .comments-text {
     overflow: hidden;
-    -webkit-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
-    -moz-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
-    box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
-}
-.ablog__img img {
-	width: 100%;
-}
-.ablog__text4 {
-    padding: 32px 40px 40px 40px;
-    border-top: 0px;
-    // @media #{$xxs} {
-    //     padding: 32px 20px 30px 20px;
-    // }
-}
-.latest-comments li.children {  // 들여쓰기
-	margin-left: 105px;
-    // @media #{$xs} {
-    //     margin-left: 0px;
-    // }
-    // @media #{$sm} {
-    //     margin-left: 70px;
-    // }
-}
-.post-comment-form h4 {
-	font-size: 22px;
-	margin-bottom: 7px;
-    font-weight: 600;
-}
-.post-comment-form > span {
-	display: inline-block;
-	margin-bottom: 45px;
-}
-.bd-blog-details-title {
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 1.16;
-    // @media #{$xs} {
-    //     font-size: 34px;
-    // }
-    // @media #{$xxxs}{
-    //     font-size: 30px;
-    // }
-}
-// .blog__details--wrapper.mr-50 {
-//     // @media #{$lg,$md,$xs} {
-//     //     margin-right: 0px;
-//     // }
-// }
+    border-bottom: 1px solid var(--clr-bg-gray2);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+      & p {
+          margin-bottom: 20px;
+      }
+  }
+  .comment-reply {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--clr-body-heading);
+      &:hover {
+          color: var(--clr-theme-1);
+      }
+  }
+  .avatar-name {
+      margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+      & h5 {
+          font-size: 18px;
+        margin-bottom: 5px;
+          font-weight: 600;
+      }
+      & span {
+          font-size: 14px;
+        font-weight: 500;
+      }
+  }
+  .ablog-4 {
+      border-radius: 10px;
+      overflow: hidden;
+      -webkit-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+      -moz-box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+      box-shadow: 0px 1px 2px 0px rgba(10, 0, 58, 0.14);
+  }
+  .ablog__img img {
+    width: 100%;
+  }
+  .ablog__text4 {
+      padding: 32px 40px 40px 40px;
+      border-top: 0px;
+      // @media #{$xxs} {
+      //     padding: 32px 20px 30px 20px;
+      // }
+  }
+  .latest-comments li.children {  // 들여쓰기
+    margin-left: 105px;
+      // @media #{$xs} {
+      //     margin-left: 0px;
+      // }
+      // @media #{$sm} {
+      //     margin-left: 70px;
+      // }
+  }
+  .post-comment-form h4 {
+    font-size: 22px;
+    margin-bottom: 7px;
+      font-weight: 600;
+  }
+  .post-comment-form > span {
+    display: inline-block;
+    margin-bottom: 45px;
+  }
+  .bd-blog-details-title {
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.16;
+      // @media #{$xs} {
+      //     font-size: 34px;
+      // }
+      // @media #{$xxxs}{
+      //     font-size: 30px;
+      // }
+  }
+  // .blog__details--wrapper.mr-50 {
+  //     // @media #{$lg,$md,$xs} {
+  //     //     margin-right: 0px;
+  //     // }
+  // }
 }
 
 
 // comments
 .dalrun_hc {
-.post-comment-form h4 {
-  font-size: 22px;
-  margin-bottom: 7px;
-  font-weight: 600;
-}
-.post-comment-form > span {
-  display: inline-block;
-  margin-bottom: 45px;
-}
-.bd-contact-form-wrapper {
-  .bd-section-title {
-      transform: translateY(-10px);
+  .post-comment-form h4 {
+    font-size: 22px;
+    margin-bottom: 7px;
+    font-weight: 600;
   }
+  .post-comment-form > span {
+    display: inline-block;
+    margin-bottom: 45px;
+  }
+  .bd-contact-form-wrapper {
+    .bd-section-title {
+        transform: translateY(-10px);
+    }
+    .bd-contact-field {
+        input,textarea {
+            // background: var(--clr-bg-gray);
+            background: #f9f9f9;
+        }
+    }
+  }
+
   .bd-contact-field {
-      input,textarea {
-          // background: var(--clr-bg-gray);
-          background: #f9f9f9;
-      }
+    input,
+    textarea {
+        height: 60px;
+        width: 100%;
+        border-radius: 10px;
+        background: var(--clr-common-white);
+        border: none;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 0px 20px;
+        // outline: none;
+        outline-color: #222;
+        color: var(--clr-body-text);
+        &::-moz-placeholder {
+            font-size: 16px;
+            opacity: 1;
+            color: var(--clr-body-text);
+        }
+        &::placeholder {
+            font-size: 16px;
+            opacity: 1;
+            color: var(--clr-body-text);
+        }
+    }
+    textarea {
+        height: 120px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        resize: none;
+        // @media #{$xxs} {
+        //     height: 200px;
+        // }
+    }
+    .theme-btn {
+        font-size: 16px;
+    }
   }
-}
 
-.bd-contact-field {
-  input,
-  textarea {
-      height: 60px;
-      width: 100%;
-      border-radius: 10px;
-      background: var(--clr-common-white);
-      border: none;
-      font-size: 16px;
-      font-weight: 400;
-      padding: 0px 20px;
-      // outline: none;
-      outline-color: #222;
-      color: var(--clr-body-text);
-      &::-moz-placeholder {
-          font-size: 16px;
-          opacity: 1;
-          color: var(--clr-body-text);
-      }
-      &::placeholder {
-          font-size: 16px;
-          opacity: 1;
-          color: var(--clr-body-text);
-      }
+  div .col-md-6 {
+    padding-bottom: 26px;
   }
-  textarea {
-      height: 120px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      resize: none;
-      // @media #{$xxs} {
-      //     height: 200px;
-      // }
-  }
-  .theme-btn {
-      font-size: 16px;
-  }
-}
 
-div .col-md-6 {
-  padding-bottom: 26px;
-}
+    div .col-12 {
+    padding-bottom: 26px;
+  }
 
-div .col-12 {
-  padding-bottom: 26px;
-}
+  .detailimg {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .columnimg {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .zoomimg {
+    // padding: 50px;
+    background-color: green;
+    transition: transform .2s; /* Animation */
+    // width: 200px;
+    // height: 200px;
+    margin: 0 auto;
+  }
+  
+  .zoomimg:hover {
+    transform: scale(1.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    filter: drop-shadow(5px 5px 5px rgba(66, 66, 66, 0.5));
+    z-index: 999;
+  }
 }
 

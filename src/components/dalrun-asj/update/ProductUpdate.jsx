@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ImgUpload from "../ImgUpload";
+import AdjustableTextarea from "../AdjustableTextarea";
 
 function ProductUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -145,7 +146,7 @@ function ProductUpdate({data, onHide}) {
                         </div>
                         <div>
                             <label htmlFor="productDesc">상품설명</label>
-                            <input type="text" value={productDesc || ""} onChange={(e) => setProductDesc(e.target.value)} />
+                            <AdjustableTextarea val={productDesc} setVal={setProductDesc} />
                         </div>
                         <div>
                             <label htmlFor="color">색상</label>

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -7,9 +8,15 @@ import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
 import StoreDetailsCommentSubForm from "./StoreDetailsCommentSubForm";
 
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
+
 
 
 function StoreDetailsCommentList() {
+    let prodParams = useParams();
+
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -64,7 +71,27 @@ function StoreDetailsCommentList() {
     // }
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <><input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+        <div>
+
+        <div className="post-comments mb-95">
+            
+            <Provider store={configReduxStore}>
+                <TestReduxLeft2 prodParams={prodParams}></TestReduxLeft2>
+            </Provider>
+
+        </div>
+    </div>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <><input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
 
         <div className="post-comments mb-95">
@@ -151,11 +178,12 @@ function StoreDetailsCommentList() {
             {/* </Provider> */}
             <Provider store={configReduxStore}>
                 {/* <TestReduxLeft></TestReduxLeft> */}
-                <TestReduxLeft2></TestReduxLeft2>
+                <TestReduxLeft2 prodParams={prodParams}></TestReduxLeft2>
             </Provider>
 
         </div>
-    </div>
+        </div>
+      </>
     )
 
 }
@@ -176,7 +204,9 @@ function StoreDetailsCommentList() {
 //     )
 // }
 
-function TestReduxLeft2 () {
+function TestReduxLeft2 (props) {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -193,6 +223,9 @@ function TestReduxLeft2 () {
 
     const storeDetailsCommentSeqDispatch = useDispatch();
     const storeDetailsCommentRefDispatch = useDispatch();
+
+    const { commentContxData } = useContext(CommentAppContext);
+    const [commentContxDataState, setCommentContxDataState] = useState(null);
 
 
     // const number = useSelector(state => state.myCounterInConfigureStore.number)
@@ -220,7 +253,8 @@ function TestReduxLeft2 () {
 
     useEffect(() => {
         getCommentList(productCode);
-    }, [productCode, sliceInqSeq])
+        setCommentContxDataState(false)
+    }, [productCode, sliceInqSeq, commentContxData])
 
     if(loading === false){
         return <div>Loading...</div>
@@ -233,19 +267,100 @@ function TestReduxLeft2 () {
         setIsOffReply(!isOffReply)
         storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentRef", sliInqRef: Number(eve.target.value)} )
         console.log("eve.target.value", Number(eve.target.value))
-        
+        console.log(" console.log (commentContxData)", commentContxData)
+        setCommentContxDataState(prev => !prev)
     }
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
-            <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
-            
             {inquiryList.map((inq, index) => (
             <div className="latest-comments" key={index}>
                 <ul>
 
+                {inq.productCode !== props.prodParams.productCode 
+                ? <div></div> 
+                : <div> 
+                    {inq.inqDepth === 0 
+                      ?
+                      <li>
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>MAIN: {inq.inqWriter}</h5>
+                                      <span className="post-meta">{inq.inqDate}</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
 
+
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
+                                  }
+                                  {commentContxDataState
+                                  ? <div> {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /> </div>}
+                                  </div> 
+                                  : <div>  </div>}
+
+                              </div>
+                          </div>
+                      </li>
+
+                      :
+                      <li className="children">
+                          <div className="comments-box">
+                              <div className="comments-avatar">
+                                  <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/>
+                              </div>
+                              <div className="comments-text">
+                                  <div className="avatar-name">
+                                      <h5>서버 inqDepth 1: {inq.inqWriter}</h5>
+                                      <span className="post-meta">February 20, 2022</span>
+                                  </div>
+                                  <p>{inq.inqContent}</p>
+                                  <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
+
+                                  {Number(inq.inqSeq) !== Number(inq.inqRef) 
+                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                  }
+                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+
+
+                              </div>
+                          </div>
+                      </li>
+                    }
+                </div>
+                }
+                </ul>
+            </div>
+            ))}
+            
+        </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ DEVELOPER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+        <div>
+            <h1>TEST REDUX LEFT: {sliceInqSeq}</h1>
+            {commentContxDataState ? <div>열림</div> : <div>닫힘</div>}
+            {inquiryList.map((inq, index) => (
+            <div className="latest-comments" key={index}>
+                <ul>
+
+                {inq.productCode !== props.prodParams.productCode 
+                ? <div><p> inq.productCode /// {inq.productCode} !== {props.prodParams.productCode} /// props.prodParams.productCode</p></div> 
+                : <div><div><p> inq.productCode /// /// {inq.productCode} === {props.prodParams.productCode} /// /// props.prodParams.productCode</p></div> 
                     {inq.inqDepth == 0 
                       ?
                       <li>
@@ -264,9 +379,16 @@ function TestReduxLeft2 () {
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth} 댓글 onoff</button>
+                                      : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth}, inqProductCode: {inq.productCode}  댓글 onoff</button>
                                   }
-                                  {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
+                                  {commentContxDataState
+                                  ? <div>
+                                      열림 // {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm />
+                                    </div>}
+                                  </div> 
+                                  : <div>
+                                      닫힘 // 
+                                    </div>}
 
 
                               </div>
@@ -298,13 +420,14 @@ function TestReduxLeft2 () {
                           </div>
                       </li>
                     }
-
-
+                </div>
+                }
                 </ul>
             </div>
             ))}
             
         </div>
+      </>
     )
 }
 

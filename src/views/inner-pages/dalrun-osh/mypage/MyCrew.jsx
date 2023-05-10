@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import IU from "../IU.jpg"
+import useCheckControl from "../../../../components/dalrun-sh/useCheckControl";
 
 function MyCrew(){
   const [dataList, setDataList] = useState([]);
@@ -16,6 +17,8 @@ function MyCrew(){
       const inputElement = document.getElementById("imageInput");
       inputElement.click();
     };
+
+    const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   return (
   <div className="members container">
@@ -53,12 +56,20 @@ function MyCrew(){
         onChange={handleImageChange}
       />
       <button onClick={handleImageUploadClick}>이미지 선택</button>
+      <button >수 정</button><button >저 장</button>
     </div>    
 
       <div className="info_con">
             <Table striped bordered hover>
               <thead>
                 <tr>
+                  <th>
+                    <input 
+                      type="checkbox" 
+                      onChange={(e) => handleAllCheck(e.target.checked)} 
+                      checked={checkedList.length === dataList.length ? true : false}
+                      />
+                  </th>                  
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
@@ -74,6 +85,13 @@ function MyCrew(){
                   dataList.map((crew, i) => {
                     return (
                     <tr key={i}>
+                      <th>
+                        <input 
+                          type="checkbox" 
+                          onChange={(e) => handleSingleCheck(e.target.checked, crew.orderSeq)} 
+                          checked={checkedList.includes(crew.orderSeq) ? true : false}
+                        />
+                      </th>                      
                       <td>{i+1}</td>
                       <td>{crew.memberName}</td>
                       <td>{crew.memId}</td>

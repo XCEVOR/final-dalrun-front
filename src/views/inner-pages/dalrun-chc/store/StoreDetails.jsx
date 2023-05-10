@@ -9,7 +9,6 @@ import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
 import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
-import Pricing from "../../../../components/dalrun-hc/storedetails/Pricing";
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
 import BlogCommentForm from "../../../../components/dalrun-hc/storedetails/BlogCommentForm";
@@ -17,16 +16,27 @@ import StoreDetailsPicture from "../../../../components/dalrun-hc/storedetails/S
 import StoreDetailsSelection from "../../../../components/dalrun-hc/storedetails/StoreDetailsSelection";
 import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
 import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
+import CommentAppContext from './StoreAppContext';
+
+import Button from "./Button";
+import Toast from "./Toast";
 
 
 
 const WorksShowcase = () => {
+  const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   let prodParams = useParams();
   console.log("prodParams: ", prodParams);
   console.log("prodParams.productCode: ", prodParams.productCode);
 
   const [productDetails, setProductDetails] = useState();
   const [loading, setLoading] = useState(false);
+
+  const [addCartModal, setAddCartModal] = useState([]);
+
+  const [commentContxData, setCommentContxData] = useState(false);
+
+  
 
   const productDetailsData = async (productCode) => {
     const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
@@ -44,8 +54,195 @@ const WorksShowcase = () => {
     return <div>Loading...</div>
   }
 
-  return (
+
+  let toastProperties = null;
+  const showToast = (type) => {
+    switch (type) {
+      case "success":
+        toastProperties = {
+          id: addCartModal.length + 1,
+          title: "Success",
+          description: "This is a success toast component",
+          backgroundColor: "#999"
+        };
+        break;
+      default:
+        toastProperties = [];
+    }
+    setAddCartModal([...addCartModal, toastProperties]);
+  };
+
+
+
+
+
+
+  return checkbox_DisplayMode 
+  // USER_MODE
+  ? (
+    <>
+    <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
+    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
+    <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
+      <Helmet>
+        <title>STORE DETAILS</title>
+      </Helmet>
+      {/* End Page SEO Content */}
+      <div className="ptf-site-wrapper__inner">
+        <HeaderDefault />
+        {/* End  HeaderHomeDefault */}
+
+        <div className="main">
+          <article className="ptf-page ptf-page--single-work-1">
+            
+
+
+
+            <section>
+              <div className="ptf-single-post__wrapper">
+                <div className="container-xxl">
+                  <div className="row">
+                    <div className="col-xl-8">
+                      <div className="picture_container">
+                        <StoreDetailsPicture />
+                      </div>
+                    </div>
+                    <div className="col-xl-4">
+                      <div className="selection_container">
+                        <StoreDetailsSelection />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentList />
+                </div>
+                
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "2.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
+
+
+
+            <section>
+              <div className="container-xxl">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Simple Image--> */}
+                  <div className="ptf-simple-image">
+                    <a
+                      href="assets/img/portfolio/single-work/content-image-1.png"
+                      rel="nofollow"
+                    >
+                      <img
+                        src="assets/img/portfolio/single-work/content-image-1.png"
+                        alt="work"
+                        loading="lazy"
+                      />
+                    </a>
+                    
+                  </div>
+                      <StoreDetailsCommentForm />
+                </div>
+                
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "32.25rem", "--ptf-md": "1rem" }}
+              ></div>
+            </section>
+
+
+
+
+
+
+            
+          </article>
+          {/* End .ptf-page */}
+        </div>
+      </div>
+      {/* End .main */}
+
+      {/* <!--Footer--> */}
+      <footer className="ptf-footer ptf-footer--style-1">
+        <div className="container-xxl">
+          <div className="ptf-footer__top">
+            <Footer />
+          </div>
+          <div className="ptf-footer__bottom">
+            <CopyRight />
+          </div>
+        </div>
+      </footer>
+    </div>
+    </div>
+    // End .ptf-is--blog-grid
+    </CommentAppContext.Provider>
+    </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>
+      <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
+      <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
+      <div className="dalrun_hc">
+
+
+    <div>
+      <h1>React Toast Component</h1>
+      <div>
+        <Button handleClick={() => showToast("success")}>Success</Button>
+        {/* <button onClick={() => showToast("success")}>Success</button> */}
+      </div>
+      <Toast
+        toastlist={addCartModal}
+        position="top-right"
+        setAddCartModal={setAddCartModal}
+      />
+    </div>
+
+
+
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>
@@ -456,7 +653,9 @@ const WorksShowcase = () => {
     </div>
     </div>
     // End .ptf-is--blog-grid
-  );
+    </CommentAppContext.Provider>
+    </>
+    )
 };
 
 export default WorksShowcase;

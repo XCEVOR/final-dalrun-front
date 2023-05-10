@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -9,14 +10,19 @@ import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
 import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
 import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
 
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
+
 
 function StoreDetailsCommentForm() {
+    let prodParams = useParams();
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
+
 
     const writeComment = () => {
         if(subject === undefined || subject.trim() === ''){
@@ -48,48 +54,8 @@ function StoreDetailsCommentForm() {
     return (
         <div>
             <Provider store={configReduxStore}>
-                {/* <TestReduxLeft></TestReduxLeft> */}{/*  // TEST REDUX*/}
-                {/* <TestReduxRight></TestReduxRight> */}
-                <TestReduxRight2></TestReduxRight2>
+                <TestReduxRight2 prodParams={prodParams}></TestReduxRight2>
             </Provider>
-        {/*             
-        <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
-            <span>Your email address will not be published.</span>
-            <div className="bd-contact-form-wrapper mb-30">
-                <form action="#">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Name"  value={name}  onChange={(e)=>setName(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="bd-contact-field mb-30">
-                                <input type="email" placeholder="Email"  value={email}  onChange={(e)=>setEmail(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <input type="text" placeholder="Subject"  value={subject}  onChange={(e)=>setSubject(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field mb-30">
-                                <textarea placeholder="Message"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="bd-contact-field">
-                                <button type="submit" className="theme-btn" onClick={()=>writeComment()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> 
-        */}
-
         </div>
     )
 }
@@ -164,13 +130,19 @@ function TestReduxRight () {    const [name, setName] = useState('');
 
 ////////// ////////// ////////// ////////// ////////// 
 // ===> COMMENT
-function TestReduxRight2 () {
+function TestReduxRight2 (props) {
+    const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+    console.log(" console.log(props.productCode);", props.prodParams.productCode);
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
+
+    const { setCommentContxData } = useContext(CommentAppContext);
+
 
     const myDispatch = useDispatch();
     const storeDetailsCommentSeqDispatch = useDispatch();
@@ -189,9 +161,11 @@ function TestReduxRight2 () {
         params: {
           inqDepth: 0,
           inqWriter: name,
+          inqTitle: subject,
           inqContent: message,
           productId: productId,
           memId: memId,
+          productCode: props.prodParams.productCode,
         },
       })
       .then((res) => {
@@ -212,11 +186,58 @@ function TestReduxRight2 () {
       writeCommentMain();
       myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
       storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
+      setCommentContxData(prev => !prev);
     }
 
 
 
-    return (
+    return checkbox_DisplayMode 
+    // USER_MODE
+    ? (
+      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+        <div>
+            <div className="post-comment-form">
+            <h4>Leave a Reply </h4>
+            <div className="bd-contact-form-wrapper mb-30">
+                <form action="#">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="bd-contact-field mb-30">
+                                <input type="text" placeholder="아이디"  value={name}  onChange={(e)=>setName(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="bd-contact-field mb-30">
+                                <input type="email" placeholder="이메일"  value={email}  onChange={(e)=>setEmail(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field mb-30">
+                                <input type="text" placeholder="제목"  value={subject}  onChange={(e)=>setSubject(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field mb-30">
+                                <textarea placeholder="내용"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="bd-contact-field">
+                                <button type="submit" onClick={myOnClickFunc}>등록</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        </>
+    )
+
+
+    // DEVELOPER_MODE
+    : (
+      <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
         <div>
             <h1>TEST REDUX RIGHT</h1>
             <input type="button" value="  // TEST REDUX +2" onClick={() => myDispatch( {type: "myCounterInSlice/PLUS", step: 2} )}></input>
@@ -257,6 +278,7 @@ function TestReduxRight2 () {
             </div>
         </div>
         </div>
+      </>
     )
 }
 

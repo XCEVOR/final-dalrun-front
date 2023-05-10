@@ -71,8 +71,8 @@ const CompetitionDetails = () => {
                       data-aos-delay="0"
                     >
                       <img
-                        src={`../assets/img/dalrun-jy/${compBbs.compimage}`}
-
+                        // src={`../assets/img/dalrun-jy/${compBbs.compimage}`}
+                        src={`http://localhost:3000/dalrun-hc/competition/${compBbs.compimage}`}
                         loading="lazy"
                         style={{ position: 'relative' }}
 

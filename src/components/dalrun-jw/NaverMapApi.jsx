@@ -44,10 +44,41 @@ function NaverMapApi(){
 
   const navermaps = useNavermaps();
 
+  const [center, setCenter] = useState({ lat: 37.3595704, lng: 127.105399 })
+  const [zoom, setZoom] = useState(7);
+
+  const calculateCenterAndZoom = (path) => {
+    let minLat = 40;
+    let maxLat = 0;
+    let minLng = 130;
+    let maxLng = 0;
+  
+    path.forEach(({ lat, lng }) => {
+      minLat = Math.min(minLat, lat);
+      maxLat = Math.max(maxLat, lat);
+      minLng = Math.min(minLng, lng);
+      maxLng = Math.max(maxLng, lng);
+    });
+  
+    const centerLat = (minLat + maxLat) / 2;
+    const centerLng = (minLng + maxLng) / 2;
+  
+    return { center: { lat: centerLat, lng: centerLng }, zoom: 7 };
+  };
+
+  useEffect(() => {
+    if (gpxData && Object.keys(gpxData).length > 0) {
+      const path = gpxData[Object.keys(gpxData)[0]];
+      const { center, zoom } = calculateCenterAndZoom(path);
+      setCenter(center);
+      setZoom(zoom);
+    }
+  }, [gpxData]);
+
   const mapOptions = useMemo(
     () => ({
-      defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
-      defaultZoom: 7,
+      // defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
+      // defaultZoom: 7,
       mapDataControl: true,
       mapTypeControl: true,
       mapTypeControlOptions: {
@@ -71,7 +102,7 @@ function NaverMapApi(){
     >
       {useMemo(() => {
         return (
-          <NaverMap {...mapOptions}>
+          <NaverMap {...mapOptions} center={center} zoom={zoom}>
             <LocationBtn/>
             <MyPolyline gpxData={gpxData} />
           </NaverMap>
