@@ -51,7 +51,7 @@ const BodyWrapper = styled.div`
   bottom: 0;
 `;
 
-const ModalContainer = ({ pictureLocation2, onClose }) => {
+const ModalContainer = ({ modal_productid, modal_quantity, onClose }) => {
   const modalRef = useRef();
   const [pictureLocation3, setPictureLocation3] = useState("");
 
@@ -68,9 +68,6 @@ const ModalContainer = ({ pictureLocation2, onClose }) => {
     };
   }, [handleClickOutside]);
 
-  useEffect(() => {
-    setPictureLocation3(pictureLocation2)
-  }, [pictureLocation2])
 
   return (
     <div>
@@ -80,7 +77,8 @@ const ModalContainer = ({ pictureLocation2, onClose }) => {
           <CloseButton onClick={onClose}>×</CloseButton>
           <h2>Modal Title</h2>
           <p>Modal Content</p>
-          {/* <img style={{width: 1000}} src={pictureLocation3} loading="lazy"/> */}
+          <p>{modal_productid}</p>
+          <p>{modal_quantity}</p>
         </ModalContent>
       </ModalWrapper>
     </div>
