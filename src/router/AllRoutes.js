@@ -58,6 +58,7 @@ import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
 import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
 import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
+import StorePaymentConfirm from "../views/inner-pages/dalrun-chc/store/StorePaymentConfirm";
 import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
@@ -152,6 +153,7 @@ const AllRoutes = () => {
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
+        <Route path='/store-payment-confirm/:ordernumber' exact element={<StorePaymentConfirm />} />
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}

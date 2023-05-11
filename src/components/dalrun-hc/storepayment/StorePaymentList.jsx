@@ -380,7 +380,7 @@ function StoreCartList(props) {
                     </button>
                   </Link>
                   <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                  <Link to="/store-payment">
+                  <Link to={`/store-payment-confirm/${orderNumber}`} >
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link>
                   <h3 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h3>
@@ -581,7 +581,7 @@ function StoreCartList(props) {
                     </button>
                   </Link>
                   <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                  <Link to="/store-payment">
+                  <Link to="/store-payment-confirm">
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link>
                   <h6 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h6>
