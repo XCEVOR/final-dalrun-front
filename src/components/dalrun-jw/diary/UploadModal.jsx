@@ -1,11 +1,16 @@
 ﻿import React, { useState } from 'react';
 import ModalPortal from "../Portal";
 import ModalFrame from "../ModalFrame";
-import MyDropzone from '../MyDropzone';
 import axios from 'axios';
 import { useDiaryGPXData } from './DiaryGPXData';
+import CustomEditor from '../CustomEditor';
+import { useNavigate } from 'react-router-dom';
+import { nanoid } from '@reduxjs/toolkit';
 
 function UploadModal() {
+  // 다이어리 고유 아이디
+  const postId = nanoid();
+
 
   // gpxData 저장소
   const { addGPXData } = useDiaryGPXData();
@@ -23,14 +28,9 @@ function UploadModal() {
   });
 
   // 모달 열기
-  const handleModal = () => {
-    setModalOpen(true);
-  };
-
+  const handleModal = () => setModalOpen(true);
   // 모달 닫기
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const closeModal = () => setModalOpen(false);
 
   // 다이어리 입력
   const handleInputChange = (e) => {
@@ -46,7 +46,7 @@ function UploadModal() {
       ...diary,
       file: e.target.files[0],
     });
-    console.log(e.target.files[0]);
+   // console.log(e.target.files[0]);
   };
 
   // 다이어리 제출
@@ -59,6 +59,7 @@ function UploadModal() {
   formData.append('content', diary.content);
   formData.append('memId', memId);
   formData.append('gpxFile', diary.file);
+  formData.append('postId', postId);
   
   // 서버로 전달
   axios
@@ -69,8 +70,9 @@ function UploadModal() {
       const gpxDataList = resp.data;
       addGPXData(gpxDataList);
       console.log('업로드 완료');
-      alert('업로드 완료');
       closeModal(); // 모달 닫기
+      window.location.reload();
+      alert('업로드 완료');
   })
   .catch((error) => { // fail
     alert('업로드 실패');
@@ -98,19 +100,20 @@ function UploadModal() {
           {modalOpen && (
             <ModalFrame open={modalOpen} close={closeModal} header="다이어리 업로드">
               <form onSubmit={handleSubmit}>
-                {/* <section className="uploadBox" style={{width:'500px', height:'500px', border:'1px solid black'}}>
-                  <MyDropzone/>
-                </section> */}
                 <label>
+                GPX파일
+                  {/* <section className="uploadBox" style={{width:'500px', height:'500px', border:'1px solid black'}}>
+                    <MyDropzone/>
+                  </section> */}
                   <input type="file" name="gpxFile" onChange={handleFileChange} />
                 </label>
                 <label>
-                  제목:
+                  제목
                   <input type="text" name="title" value={diary.title} onChange={handleInputChange} autoFocus/>
                 </label>
                 <label>
-                  내용:
-                  <textarea name="content" value={diary.content} onChange={handleInputChange} />
+                  내용
+                  <CustomEditor handleEditorChange={handleInputChange} />
                 </label>
                 <footer>
                   <button type='submit' className="close">

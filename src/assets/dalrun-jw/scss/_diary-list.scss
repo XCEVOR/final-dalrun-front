@@ -14,6 +14,12 @@
   height: 10%;
   padding-top: 0;
   background-color: #F6FDF8;
+
+  h5{
+    position: relative;
+    top: -1rem;
+    color: #51e3d4;
+  }
 }
 
 .diary-list-search {
@@ -68,6 +74,7 @@
   background-color: #F6FDF8;
 }
 
+
 .diary-list-items {
   display: flex;
   flex-direction: column;
@@ -79,18 +86,41 @@
   }
 }
 
-.diary-list-pagination {
-  display: flex;
-  justify-content: center;
-  height: 5%;
-  margin-bottom: 0.4rem;
-}
-
 .diary-list-item {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  height: 140px;
+  padding: 5px;
   border-bottom: 1px solid #51e3d4;
+
+  table {
+    border: none;
+    margin: 0;
+
+    td, th {
+      border: none;
+      padding: 0.1rem;
+      font-size: 12px;
+    }
+
+    .tableItem {
+      font-size: 8px;
+    }
+
+    
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #51e3d4;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(#51e3d4, 10%);
+      }
+    }
+  }
 }
 
 .diary-list-item-title {
@@ -112,3 +142,64 @@
   margin-right: 5px;
 }
 
+.diary-list-pagination {
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  margin-bottom: 0.4rem;
+}
+
+
+
+// .diary-list-items {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   //   height: 75%;
+// //   overflow-y: auto;
+//   padding: 20px;
+  
+//   .diary-list-item {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     width: 300px;
+//     max-width: 300px; // 최대 너비 설정
+//     margin-bottom: 20px;
+//     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+//     border-radius: 10px;
+//     overflow: hidden;
+    
+//     table {
+//       width: 300px;
+//       border-collapse: collapse;
+
+//       th, td {
+//         border: none;
+//         padding: 10px;
+//         text-align: center;
+//         font-size: 14px;
+//       }
+
+//       .faLocationPin, .faCircleUser {
+//         color: #51e3d4;
+//       }
+
+//       button {
+//         padding: 5px 10px;
+//         border: none;
+//         border-radius: 5px;
+//         background-color: #51e3d4;
+//         color: white;
+//         cursor: pointer;
+
+//         &:hover {
+//           background-color: darken(#51e3d4, 10%);
+//         }
+//       }
+//     }
+//   }
+// }
