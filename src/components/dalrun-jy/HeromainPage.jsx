@@ -10,14 +10,13 @@ const heroContent = [{
   앞으로도 열심히 달려봐야겠다~`,
   img: 'thisweek1'
 },
-  {
+{
   subTitle1: "러닝사랑",
   detailsDescription: `수많은 갈등 끝에 러닝하였습니다.
   장거리 러닝을 1주일에 1회씩 하면서 매번 스스로에게 핑계를 대봅니다.
   미세먼지 때문에, 몸 컨디션 때문에, 수면 부족 때문에.. 오늘은 그냥 패스하자… 라는 악마의 속삭임이 계속됩니다.
   그러나 다시 마음을 붙잡고 집에서 지하철을 타고 도림천역으로 향합니다. 그리고 신정교 밑에서 뛰고 있는 제 자신을 발견합니다.
-  오늘 러닝은 약간 힘들었지만 17km 완주 후에 해냈다는 사실만으로 제 자신을 칭찬합니다.
-  매일 꾸준히 러닝하시는 회원들 보면.. 대단하는 말 밖에 안나올 정도로 존경스럽네요.`,
+  오늘 러닝은 약간 힘들었지만 17km 완주 후에 해냈다는 사실만으로 제 자신을 칭찬합니다.`,
   img: 'thisweek2'
 
 },
@@ -25,45 +24,41 @@ const heroContent = [{
   subTitle1: "Awan",
   detailsDescription: `언제가 될지 모르는 대회참가를 위해 지속적으로 준비를 해야겠다. 
   나름 월 목표를 조금씩 늘려나가며, 건강과 성취감을 모두 챙길 수 있는 그런 런닝생활을 이어 가야할 것이다. 
-  이제 지천명을 바라보는 나의 인생에 달리기(跑步)가 함께 하길 바라며…`,
+  이제 지천명을 바라보는 나의 인생에 달리기(跑步)가 함께 하길 바라며… `,
   img: 'thisweek3'
 
 }
 ];
 const HeromainPage = () => {
 
-  const [index,setIndex]=useState(0);
-  function alertSet(){
-    if(index>=2){
+  const [index, setIndex] = useState(0);
+  function alertSet() {
+    if (index >= 2) {
       setIndex(0);
-    }else{
-      setIndex(index+1);
+    } else {
+      setIndex(index + 1);
     }
-    
+
   }
-  useEffect(()=>{
+  useEffect(() => {
     let timer = setTimeout(alertSet, 4000);
   });
 
   return (
-    
-    <div className="row" style={{margin:'15px'}}>
-      <div className="col-12 col-lg-5">
-        {/* <!--Animated Block--> */}
-        <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-          <h3 className="fz-25 fz-130--lg fz-90--md text-center">이 주의 러너</h3>
-        </div>
-        {/* <!--Spacer--> */}
-        <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "4.375rem", "--ptf-md": "1.1875rem" }}
-              ></div>
-        {/* <!--Animated Block--> */}
-        <div
-          className="ptf-animated-block"
-          data-aos="fade"
-          data-aos-delay="100"
-        >
+
+    <div className="row" style={{
+      backgroundImage: `url(assets/img/dalrun-jy/${heroContent[index].img}.jpg)`
+      , backgroundSize: 'cover', height: '800px',position: 'relative'
+    }}>
+
+     
+
+        <footer className="ptf-post__footer"  style={{ backgroundColor: 'rgba(0, 255,133, 0.3 )'
+        ,position: 'absolute',bottom:'0%' }}>
+
+          <h2 style={{ color: 'white' ,marginBottom:'50px'}}>
+              {heroContent[index].subTitle1} 님 <br />
+            </h2>
           <p
             className="
                 fz-30
@@ -71,56 +66,16 @@ const HeromainPage = () => {
                 lh-1p2
                 text-uppercase
                 has-white-color
-              "
-          >
-            {heroContent[index].subTitle1} 님 <br />
-
+              ">
+            {heroContent[index].detailsDescription}
           </p>
-        </div>
-        {/* <!--Spacer--> */}
-
-        {/* <!--Animated Block--> */}
-
-
-        <div>
-          <div className="row align-items-center">
-          <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "1.375rem", "--ptf-md": "1.1875rem" }}
-              ></div>
-            <div>
-              <div >
-                {/* <!--Animated Block--> */}
-                <div
-                  className="ptf-animated-block"
-                  data-aos="fade"
-                  data-aos-delay="0"
-                >
-                  {/* <!--Divider--> */}
-                  <div ></div>
-                  <p className="fz-15 has-black-color">
-                    {heroContent[index].detailsDescription}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-        </div>
-      </div>
-      
-      <div className="col-12  col-lg-7">
-        <div>
-          <div className="ptf-mask-image">
-            <img src={`assets/img/dalrun-jy/${heroContent[index].img}.jpg`}
-            style={{ paddingBottom: '10px' ,height:'400px',width:'100%', objectFit:'cover'}} />
-          </div>
-        </div>
+            
+        </footer>
       </div>
 
-    </div>
+
+
+
   );
 };
 

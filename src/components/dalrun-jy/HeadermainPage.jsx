@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Search from "../form/Search";
 import DropdownMenu from "./menu/DropdownMenu";
 import MobileMenu from "./menu/MobileMenu";
+import LoginFormMenu from "./menu/LoginFormMenu";
 
 const HeadermainPage = () => {
   const [click, setClick] = useState(false);
@@ -36,7 +37,9 @@ const HeadermainPage = () => {
           <div className="container-xxl">
             <div className="ptf-navbar-inner">
               {/* <!--Logo--> */}
-              <Link className="ptf-navbar-logo" to="/">
+              
+                <Link className="ptf-navbar-logo" to="/">
+               
                 <img
                   className="black"
                   src="logo.svg"
@@ -45,32 +48,20 @@ const HeadermainPage = () => {
                 />
                 
               </Link>
+   
               {/* <!--Navigation--> */}
               <nav className="ptf-nav ptf-nav--default">
                 {/* <!--Menu--> */}
                 <DropdownMenu />
               </nav>
-              {/* <!--Buttons--> */}
 
-              {/* <!--Navbar Search--> */}
-              <div
-                className={
-                  click ? "ptf-navbar-search is-open" : "ptf-navbar-search"
-                }
-              >
-                <div className="ptf-navbar-search__wrapper">
-                  <Search />
-                </div>
-
-                <div
-                  className="ptf-navbar-search__toggle"
-                  onClick={handleClick}
-                >
-                  <i className="lnir lnir-search-alt"></i>
-                  <i className="lnir lnir-close"></i>
-                </div>
-              </div>
-              {/* <!--Offcanvas Menu Toggle--> */}
+              <nav className="ptf-nav ptf-nav--default"
+              style={{marginRight:'100px'}}>
+                <LoginFormMenu/>
+                {/* <!--Menu--> */}
+              </nav>
+             
+             
 
               <div
                 className="ptf-offcanvas-menu-icon js-offcanvas-menu-toggle bar right"

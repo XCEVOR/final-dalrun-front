@@ -25,11 +25,9 @@ const MainPage = () => {
       <Helmet>
         <title>메인 페이지</title>
       </Helmet>
-      {/* End Page SEO Content */}
-      
-      <HeadermainPage />
-      {/* End Header Default */}
 
+      <HeadermainPage />
+    
       <div className="ptf-site-wrapper__inner">
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
@@ -37,12 +35,9 @@ const MainPage = () => {
                 이 주의 러너 베너
               ============================================== */}
             <div className="container-xxl">
-            <section className="has-accent-1-background">
+            <section>
               {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem" }}
-              ></div>
+              
                 <HeromainPage />
              
               {/* <!--Spacer--> */}

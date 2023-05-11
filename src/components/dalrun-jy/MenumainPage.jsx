@@ -14,7 +14,7 @@ const teamContent = [
     delayAnimation: "100",
     img: "diary",
     title: "러닝 다이어리",
-    link: ''
+    link: 'diary'
 
   },
   {
@@ -49,14 +49,14 @@ const teamContent = [
     delayAnimation: "100",
     img: "crew",
     title: "크루 모집",
-    link: ''
+    link: 'crewBbsMain'
 
   },
   {
     delayAnimation: "100",
     img: "mypage",
     title: "마이페이지",
-    link: ''
+    link: 'mypage'
 
   },
 
