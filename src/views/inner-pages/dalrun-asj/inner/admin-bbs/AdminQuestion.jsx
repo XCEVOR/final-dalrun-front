@@ -43,15 +43,19 @@ function AdminQuestion() {
     }, [sub]);
     
     return (
-        <div className="bbs">
-            <div className="bbs-content">
-                <BasicSearch {...optionVal} />
+        <>  
+            <div style={{ float:"right" }}>
                 <AdminBtn {...qCategory}/>
-                <Routes>
-                    <Route path=":sub/*" element={<AdminQuestionContent {...qCategory} />} />
-                </Routes>
             </div>
-        </div>
+            <div className="bbs">
+                <div className="bbs-content">
+                    <BasicSearch {...optionVal} />
+                    <Routes>
+                        <Route path=":sub/*" element={<AdminQuestionContent {...qCategory} />} />
+                    </Routes>
+                </div>
+            </div>
+        </>
     );
 }
 

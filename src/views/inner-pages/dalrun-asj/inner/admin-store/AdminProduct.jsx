@@ -32,7 +32,7 @@ function AdminProduct() {
   return (
     <div className="store">
       <div className="store-content">
-          <div className="search outline">
+          <div className="search">
           <div>
             <div style={{display:'flex', justifyContent:'space-between'}}>
             <div className="search-content">
@@ -73,7 +73,7 @@ function AdminProduct() {
           <div className="info">
             <ModalBtn {...category} />
             <div className="info_con">
-              <Table striped bordered hover size="sm">
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>

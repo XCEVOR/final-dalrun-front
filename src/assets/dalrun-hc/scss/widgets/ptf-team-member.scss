@@ -16,6 +16,12 @@
 
     background-color: var(--ptf-avatar-background);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 210px;
+    overflow: hidden;
+
     .shadow-effect {
       position: absolute;
       top: 0;
@@ -69,6 +75,17 @@
     .ptf-team-member__avatar .shadow-effect {
       box-shadow: inset 0 0 0 2px var(--ptf-avatar-border-color-hover);
     }
+  }
+}
+
+.productPic_container {
+  .product_pic {
+    width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
+    overflow: hidden;
   }
 }
 

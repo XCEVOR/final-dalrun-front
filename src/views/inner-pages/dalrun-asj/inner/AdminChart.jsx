@@ -1,6 +1,6 @@
 function AdminChart() {
   return (
-    <div className="chart container">
+    <div className="chart admin-container">
       <h4 className="title">차트</h4>
       <div className="chart-content">
         <div className="info outline">개인달리기순위</div>

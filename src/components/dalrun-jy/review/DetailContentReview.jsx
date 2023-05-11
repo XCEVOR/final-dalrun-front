@@ -44,7 +44,7 @@ const DetailContentReview = () => {
             {(i % 2 === 0) ? <>
               <div className="ptf-post__media" >
                 <img
-                 src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${item.srSeq}_${item.srdSeq}.jpg`}
+                 src={`http://localhost:3000/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
                   alt=""
                   loading="lazy"
                 />
@@ -66,7 +66,7 @@ const DetailContentReview = () => {
 
                 <div className="ptf-post__media" >
                   <img
-                    src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${item.srSeq}_${item.srdSeq}.jpg`}
+                    src={`http://localhost:3000/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
                     alt=""
                     loading="lazy"
                   />
