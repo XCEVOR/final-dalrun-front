@@ -103,6 +103,21 @@ const StoreFourRectangles = () => {
 
   }
 
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('productBrand');
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const filteredProducts = productList.filter((product) =>
+    product[category].toLowerCase().includes(query.toLowerCase())
+  );
+
   
 
   return checkbox_DisplayMode 
@@ -120,6 +135,40 @@ const StoreFourRectangles = () => {
       <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
       <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
+    <form>
+        <label htmlFor="search">Search:</label>
+        <input type="text" id="search" value={query} onChange={handleSearch} />
+
+        <label htmlFor="category">Search in:</label>
+        <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productBrand">Brand</option>
+          <option value="productName">Name</option>
+          {/* <option value="productDescription">Description</option> */}
+        </select>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Product Brand</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredProducts.map((product) => (
+            <tr key={product.productId}>
+              <td>{product.productId}</td>
+              <td>{product.productBrand}</td>
+              <td>{product.productName}</td>
+              <td>{product.productDescription}</td>
+              <td>{product.productPrice}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
     <div className="fourrectangles-grid fourrectangles-grid-effect">
 
 
@@ -179,6 +228,41 @@ const StoreFourRectangles = () => {
       <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
       <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
+
+    <form>
+        <label htmlFor="search">Search:</label>
+        <input type="text" id="search" value={query} onChange={handleSearch} />
+
+        <label htmlFor="category">Search in:</label>
+        <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productBrand">Brand</option>
+          <option value="productName">Name</option>
+          {/* <option value="productDescription">Description</option> */}
+        </select>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Product Brand</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredProducts.map((product) => (
+            <tr key={product.productId}>
+              <td>{product.productId}</td>
+              <td>{product.productBrand}</td>
+              <td>{product.productName}</td>
+              <td>{product.productDescription}</td>
+              <td>{product.productPrice}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
       {/* 프론트 데이터 */}
