@@ -96,12 +96,12 @@ const StoreFourRectangles = () => {
     if (e.target.value === "VIEW") {
       const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
       console.log(resp.data)
-      setProductList(resp.data)
+      setFilteredProductsList(resp.data)
     }
     else if (e.target.value === "LIKE") {
       const resp = await axios.post("http://localhost:3000/getAllProductListSortLike", null, {});
       console.log(resp.data)
-      setProductList(resp.data)
+      setFilteredProductsList(resp.data)
     }
 
   }
