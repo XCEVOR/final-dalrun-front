@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { async } from "q";
 
 const teamContent = [
   {
@@ -62,7 +63,10 @@ const StoreFourRectangles = () => {
   useEffect (function () {
     console.log(" @console.log(isInitialRender) ", isInitialRender)
     console.log(" @console.log(selectedCategory) ", selectedCategory)
-    if (isInitialRender === false) {
+    if (selectedCategory === "DEFAULT") {
+      setFilteredProductsList(productList)
+    }
+    else if (isInitialRender === false) {
       const filteredProducts = productList.filter(
         (product) => product.productCategory === selectedCategory);
       console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
@@ -70,6 +74,7 @@ const StoreFourRectangles = () => {
       setFilteredProductsList(filteredProducts);
     }
   }, [selectedCategory])
+
 
 
 
@@ -87,17 +92,73 @@ const StoreFourRectangles = () => {
     // 
   }
 
+  const selectSortBtn = async (e) => {
+    if (e.target.value === "VIEW") {
+      const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
+      console.log(resp.data)
+      setFilteredProductsList(resp.data)
+    }
+    else if (e.target.value === "LIKE") {
+      const resp = await axios.post("http://localhost:3000/getAllProductListSortLike", null, {});
+      console.log(resp.data)
+      setFilteredProductsList(resp.data)
+    }
+
+  }
+
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('productName');
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+    console.log(" handleSearch " ,  e.target.value)
+    // setProductList(searchedProducts)
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const searchedProducts = filteredProductsList.filter((product) =>
+    product[category].toLowerCase().includes(query.toLowerCase())
+  );
+
   
 
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE 
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    <div>
+      <button value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
+      <button value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
+      <button value="HATS" onClick={selectCategoryBtn}>HATS</button>
+      <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
+      <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
+      <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+    </div>
+    <div>
+      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
+    </div>
+    <form>
+        <label htmlFor="search">Search:</label>
+        <input type="text" id="search" value={query} onChange={handleSearch} />
+
+        <label htmlFor="category">Search in:</label>
+        <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productName" selected >Name</option>
+          <option value="productBrand">Brand</option>
+          {/* <option value="productDescription">Description</option> */}
+        </select>
+      </form>
+
+
     <div className="fourrectangles-grid fourrectangles-grid-effect">
 
 
         {/* 서버 데이터 */}
-        {productList.map((singleproduct, i) => (
+        {searchedProducts.map((singleproduct, i) => (
           <div
             className="ptf-animated-block"
             data-aos="fade"
@@ -126,6 +187,8 @@ const StoreFourRectangles = () => {
                 </h6>
                 <h5>₩ {singleproduct.productPrice}</h5>
                 <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+                <p className="ptf-team-member__function">view: {singleproduct.productView}</p>
+                <p className="ptf-team-member__function">like: {singleproduct.productLike}</p>
               </div>
             </div>
           </div>
@@ -146,6 +209,45 @@ const StoreFourRectangles = () => {
       <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
       <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
+    <div>
+      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
+    </div>
+
+    <form>
+        <label htmlFor="search">Search:</label>
+        <input type="text" id="search" value={query} onChange={handleSearch} />
+
+        <label htmlFor="category">Search in:</label>
+        <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productName" selected >Name</option>
+          <option value="productBrand">Brand</option>
+          {/* <option value="productDescription">Description</option> */}
+        </select>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Product Brand</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {searchedProducts.map((product) => (
+            <tr key={product.productId}>
+              <td>{product.productId}</td>
+              <td>{product.productBrand}</td>
+              <td>{product.productName}</td>
+              <td>{product.productDescription}</td>
+              <td>{product.productPrice}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
       {/* 프론트 데이터 */}
@@ -184,7 +286,7 @@ const StoreFourRectangles = () => {
 
 
       {/* 서버 데이터 */}
-      {filteredProductsList.map((singleproduct, i) => (
+      {searchedProducts.map((singleproduct, i) => (
         <div
           className="ptf-animated-block"
           data-aos="fade"
@@ -213,6 +315,8 @@ const StoreFourRectangles = () => {
               </h6>
               <h5>₩ {singleproduct.productPrice}</h5>
               <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+              <p className="ptf-team-member__function">{singleproduct.productView}</p>
+              <p className="ptf-team-member__function">{singleproduct.productLike}</p>
             </div>
           </div>
         </div>
