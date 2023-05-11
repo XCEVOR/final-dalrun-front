@@ -90,14 +90,14 @@ const ContentComp = () => {
               <Link className="ptf-work__link" to={`/competition-detail/${val.compSeq}`}></Link>
               <img
                 // src={`assets/img/dalrun-jy/${val.compimage}`}
-                src={`http://localhost:3000/dalrun-hc/competition/${val.compimage}`}
+                src={`http://localhost:3000/dalrun-jy/competition/marathon_${val.compSeq}.jpg`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative' }}
               />
-              {check(val.receiptStart, val.receiptEnd) == 1 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'blue', padding: '10px', margin: '5px' }}>접수중</h3>}
-              {check(val.receiptStart, val.receiptEnd) == 2 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'gray', padding: '10px', margin: '5px' }}>접수 예정</h3>}
-              {check(val.receiptStart, val.receiptEnd) == 3 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'red', padding: '10px', margin: '5px' }}>접수 종료</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 1 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'blue', padding: '10px', margin: '5px' }}>접수중</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 2 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'gray', padding: '10px', margin: '5px' }}>접수 예정</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 3 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'red', padding: '10px', margin: '5px' }}>접수 종료</h3>}
 
             </div>
             <div className="ptf-post__content">

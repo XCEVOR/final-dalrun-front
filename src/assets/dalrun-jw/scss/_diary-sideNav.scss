@@ -60,6 +60,8 @@ $bg-color: #343a40; // 배경 색상
     button{
         display: block;
         margin-left: 1rem;
+        border:none;
+        background-color: $bg-color;
         &:hover {
         opacity: 0.1;
         background-color: #94f1dd;

@@ -83,7 +83,7 @@ const ReviewDetails = () => {
                       data-aos-delay="0"
                     >
                       <img
-                        src={`../assets/img/dalrun-jy/${reviewBbs.srimage}`}
+                        src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${reviewBbs.srSeq}.jpg`}
 
                         loading="lazy"
                         style={{ position: 'relative' }}

@@ -7,6 +7,8 @@ import axios from "axios";
 
 import './css/Login.css';
 import logo from './img/logo.png';
+import FindPassword from "./FindPassword";
+import kakao_login from './img/kakao_login.png';
 
 
 function Login(){
@@ -16,6 +18,13 @@ function Login(){
     const [pwd, setPwd] = useState('');
     const [cookies, setCookies, removeCookies] = useCookies('id'); //쿠키 hook
     const [saveId, setSaveId] = useState(false);
+
+     //카카오 로그인
+    // 카카오 로그인 함수를 실행시키면 아래에 설정해 놓은 KAKAO_AUTH_URL 주소로 이동한다.
+    // 이동 된 창에서 kakao 계정 로그인을 시도할 수 있으며 로그인 버튼 클릭 시 Redirect URI로 이동하면서 빈 화면과 함게 인가코드가 발급된다.(인가코드는 파라미터 값에 들어가 있다!)
+    const REST_API_KEY = '33861296b5dfb84484e1df231821dd86';
+    const REDIRECT_URI = "http://localhost:9200/kakaocallback";
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
     const idChange = (e) => setId(e.target.value);
     const pwdChange = (e) => setPwd(e.target.value);
@@ -33,12 +42,17 @@ function Login(){
         history("/home");
     }
 
+    const gotoFindPassword = () => {
+        history("/findPassword")
+    }
+
     function login(){
         axios.post("http://localhost:3000/login", null, {params:{'memId':id, 'password':pwd}})
             .then(function(res){
                 if(res.data !== null && res.data !== ""){
                     alert('환영합니다');
                     localStorage.setItem("login", JSON.stringify(res.data));
+                    localStorage.setItem("memId", id);
                     gotoHome();
                 }else{
                     alert('id나 password를 확인해 주십시오');
@@ -48,14 +62,6 @@ function Login(){
                 alert(err);
             })
     }
-
-    // function logout(){
-    //     localStorage.removeItem("memId");
-    //     localStorage.removeItem("password");
-    //     localStorage.removeItem("login");
-    //     setSavedLoginId(localStorage.getItem("memId"));
-    //     setSavedLoginId(localStorage.getItem("password"));
-    // }
 
     useEffect(()=>{
         let user_id = cookies.user_id;
@@ -92,13 +98,26 @@ function Login(){
                     <div className="check">
                         <input type="checkbox" checked={saveId} onChange={checkHandler} className="chk"/>
                         <label className="chke">아이디 저장</label>
-                    </div>
-                    <button type="button" onClick={login} className="login_button">로그인</button>
-                    {/* <button type="button" onClick={logout} className="login_button">로그아웃</button> */}
                     <div className="forget_pw">
                         <a>비밀번호를 잊으셨나요?</a>
                     </div>
+                    </div>
+                    <button type="button" onClick={login} className="login_button">로그인</button>
+                    <div className="pyr_kakao">
+                    <a href={KAKAO_AUTH_URL}>
+                    <img
+                        src={kakao_login}
+                        className="kakao"
+                        alt="kakao"
+                    />
+                    </a>
+                    </div>
                 </div>
+                <div className="forget_pw2">
+                <a>달런달런이 처음이신가요?</a>
+                <a href="http://localhost:9200/RegiMain">회원가입</a>
+                </div>
+                    {/* <button type="button" onClick={logout} className="login_button">로그아웃</button> */}
             </div>
         </div>
         
