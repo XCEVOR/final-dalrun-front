@@ -45,7 +45,60 @@ function StorePaymentConfirm() {
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
         <section>
-          <h1>PAYMENT SUMMARY</h1>
+          <h2>주문이 정상적으로 완료되었습니다.</h2>
+
+
+          <div className="container-xxl">
+
+
+
+          <div>
+            <div className="ptf-animated-block" data-aos="fade">
+              {/* <!--FAQ--> */}
+              <div className="ptf-faq">
+
+
+
+
+                <div className="ptf-faq__content">
+                     <div className="ptf-faq__item">
+                      <div className="ptf-faq__question">
+                        <h6>주문번호</h6>
+                      </div>
+                      <div className="ptf-faq__answer">
+                        <p>{orderInfo.orderNumber}</p>
+                      </div>
+                    </div>
+
+                  
+                    <div className="ptf-faq__item">
+                      <div className="ptf-faq__question">
+                        <h6>배송정보</h6>
+                      </div>
+                      <div className="ptf-faq__answer">
+                        <p>{orderInfo.orderNumber}</p>
+                        <p>{orderInfo.orderPhone}</p>
+                        <p>{orderInfo.orderAddress}</p>
+                      </div>
+                    </div>
+
+
+              
+                  {/* End .ptf-faq__item */}
+                </div>
+              </div>
+            </div>
+            <div
+              className="ptf-spacer"
+              style={{ "--ptf-xxl": "5.625rem" }}
+            ></div>
+          </div>
+   
+   
+
+        </div>
+
+
 
           {/* <div className="shopping-cart"> */}
           <div>
