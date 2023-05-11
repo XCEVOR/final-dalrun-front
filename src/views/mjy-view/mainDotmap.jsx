@@ -28,6 +28,13 @@ const MainDotMap = () => {
  
   }
 
+  const [login, setLogin] = useState([]);
+
+  function Changelogininfo(info){
+    setLogin(info);
+ 
+  }
+
   useEffect(() => {
 
   }, [mycrewinfo]);
@@ -47,7 +54,7 @@ const MainDotMap = () => {
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
             <section>
-              <Dotmap  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo}/>
+              <Dotmap  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo}/>
             </section>
             <div
               className="ptf-spacer"
@@ -59,7 +66,7 @@ const MainDotMap = () => {
                 className="row"
                 style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
               >
-                <DotMapInfo   mycrewinfo={mycrewinfo}  Changemycrewinfo={Changemycrewinfo}/>
+                <DotMapInfo   mycrewinfo={mycrewinfo}  Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo}/>
               </div>
             </section>
           </div>
