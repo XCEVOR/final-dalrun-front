@@ -63,7 +63,10 @@ const StoreFourRectangles = () => {
   useEffect (function () {
     console.log(" @console.log(isInitialRender) ", isInitialRender)
     console.log(" @console.log(selectedCategory) ", selectedCategory)
-    if (isInitialRender === false) {
+    if (selectedCategory === "DEFAULT") {
+      setFilteredProductsList(productList)
+    }
+    else if (isInitialRender === false) {
       const filteredProducts = productList.filter(
         (product) => product.productCategory === selectedCategory);
       console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
@@ -108,13 +111,15 @@ const StoreFourRectangles = () => {
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
+    console.log(" handleSearch " ,  e.target.value)
+    // setProductList(searchedProducts)
   };
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
 
-  const filteredProducts = productList.filter((product) =>
+  const searchedProducts = filteredProductsList.filter((product) =>
     product[category].toLowerCase().includes(query.toLowerCase())
   );
 
@@ -125,6 +130,7 @@ const StoreFourRectangles = () => {
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
+      <button value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
       <button value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
       <button value="HATS" onClick={selectCategoryBtn}>HATS</button>
       <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
@@ -146,34 +152,13 @@ const StoreFourRectangles = () => {
           {/* <option value="productDescription">Description</option> */}
         </select>
       </form>
-      <table>
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Brand</th>
-            <th>Product Name</th>
-            <th>Product Description</th>
-            <th>Product Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredProducts.map((product) => (
-            <tr key={product.productId}>
-              <td>{product.productId}</td>
-              <td>{product.productBrand}</td>
-              <td>{product.productName}</td>
-              <td>{product.productDescription}</td>
-              <td>{product.productPrice}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
 
 
         {/* 서버 데이터 */}
-        {productList.map((singleproduct, i) => (
+        {searchedProducts.map((singleproduct, i) => (
           <div
             className="ptf-animated-block"
             data-aos="fade"
@@ -235,8 +220,8 @@ const StoreFourRectangles = () => {
 
         <label htmlFor="category">Search in:</label>
         <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productName" defaultChecked >Name</option>
           <option value="productBrand">Brand</option>
-          <option value="productName">Name</option>
           {/* <option value="productDescription">Description</option> */}
         </select>
       </form>
@@ -251,7 +236,7 @@ const StoreFourRectangles = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredProducts.map((product) => (
+          {searchedProducts.map((product) => (
             <tr key={product.productId}>
               <td>{product.productId}</td>
               <td>{product.productBrand}</td>
@@ -301,7 +286,7 @@ const StoreFourRectangles = () => {
 
 
       {/* 서버 데이터 */}
-      {filteredProductsList.map((singleproduct, i) => (
+      {searchedProducts.map((singleproduct, i) => (
         <div
           className="ptf-animated-block"
           data-aos="fade"
