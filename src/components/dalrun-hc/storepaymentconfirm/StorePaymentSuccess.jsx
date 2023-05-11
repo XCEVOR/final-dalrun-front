@@ -60,7 +60,38 @@ function StorePaymentConfirm() {
               <div >
 
                 <div >
-                  <h5>주문번호: {orderInfo.orderNumber}</h5>
+                <table>
+                  <tbody>
+                  <tr>
+                    <td>&nbsp;주문번호</td>
+                    <td>{orderInfo.orderNumber}</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;배송정보</td>
+                    <td>{orderInfo.orderPhone}&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>{orderInfo.orderAddress}&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;결제금액</td>
+                    <td>43545</td>
+                  </tr>
+                  </tbody>
+                </table>
+                  <div>
+                  <h5>주문번호</h5><div><h5> {orderInfo.orderNumber}</h5></div>
+                  </div>
+                  <div></div>
                   <p>{orderInfo.orderAddress}</p>
                   <p>{orderInfo.orderDate}</p>
                   <p>{orderInfo.orderName}</p>
