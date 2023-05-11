@@ -176,7 +176,8 @@ const StoreFourRectangles = () => {
       <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
     <div>
-      <button value="VIEW" onClick={selectSortBtn}>조회</button>
+      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
