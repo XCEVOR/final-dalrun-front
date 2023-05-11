@@ -1,0 +1,54 @@
+.pyr-bbsWrite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .table {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .table th {
+    width: 100px;
+    font-weight: bold;
+  }
+  
+  .table td {
+    padding: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  textarea.form-control {
+    resize: none;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }

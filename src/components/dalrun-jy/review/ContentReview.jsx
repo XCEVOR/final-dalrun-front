@@ -48,12 +48,6 @@ const ContentReview = () => {
     getAllShoeList(choice, search);
   }
 
-  function handlePageChange(page) {
-    setPage(page);
-    getAllShoeList(choice, search, page - 1);
-  }
-
-
   useEffect(() => {
 
     getAllShoeList(params.choice, params.search, params.page);
@@ -63,12 +57,10 @@ const ContentReview = () => {
   
   useEffect(() => {
     console.log(compList);
-   
   }, [compList])
 
   return (
     <>
-
       {compList.map((val, i) => (
         <div className="grid-item" key={i}>
           {/* <!--Blog Post--> */}
@@ -77,7 +69,7 @@ const ContentReview = () => {
               {/* <NaverMapView mapLat={`${val.lat}`} mapLng={`${val.lng}`}></NaverMapView> */}
               <Link className="ptf-work__link" to={`/review-detail/${val.srSeq}`}></Link>
               <img
-                src={`assets/img/dalrun-jy/${val.srimage}`}
+                   src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${val.srSeq}.jpg`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative' }}
@@ -107,7 +99,6 @@ const ContentReview = () => {
           </article>
         </div>
       ))}
-
 
       <div
         className="ptf-spacer"

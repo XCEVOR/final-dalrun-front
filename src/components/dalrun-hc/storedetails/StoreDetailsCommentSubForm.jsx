@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -9,8 +10,12 @@ import { PLUS } from "../myredux/countReduxSlice";  // TEST REDUX
 import TestReduxLeft from "./StoreDetailsCommentList";  // TEST REDUX
 import { configureStore, createSlice } from '@reduxjs/toolkit';  // TEST REDUX
 
+import CommentAppContext from "../../../views/inner-pages/dalrun-chc/store/StoreAppContext";
+
 
 function StoreDetailsCommentSubForm() {
+    let prodParams = useParams();
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -48,7 +53,7 @@ function StoreDetailsCommentSubForm() {
     return (
         <div>
             <Provider store={configReduxStore}>
-                <TestReduxRight2></TestReduxRight2>
+                <TestReduxRight2 prodParams={prodParams}></TestReduxRight2>
             </Provider>
         </div>
     )
@@ -87,7 +92,7 @@ function TestReduxRight () {    const [name, setName] = useState('');
 
 ////////// ////////// ////////// ////////// ////////// 
 // ===> COMMENT
-function TestReduxRight2 () {
+function TestReduxRight2 (props) {
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
     const [name, setName] = useState('');
@@ -96,6 +101,8 @@ function TestReduxRight2 () {
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
     const [memId, setMemId] = useState('TestMemId');
+
+    const { setCommentContxData } = useContext(CommentAppContext);
 
 
     const myDispatch = useDispatch();
@@ -125,6 +132,7 @@ function TestReduxRight2 () {
             inqContent: message,
             productId: productId,
             memId: memId,
+            productCode: props.prodParams.productCode,
           },
         })
         .then((res) => {
@@ -144,6 +152,7 @@ function TestReduxRight2 () {
     const myOnClickFunc = () => {
       writeCommentSub();
       storeDetailsCommentRefDispatch( {type: "storeDetailsCommentRefInSlice/CommentSeq", sliInqRef: 2} );
+      setCommentContxData(prev => !prev);
     }
 
 

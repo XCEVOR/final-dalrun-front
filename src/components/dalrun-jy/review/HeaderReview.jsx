@@ -50,7 +50,7 @@ const HeaderReview = () => {
                 <div className="ptf-post__media">
                 <Link className="ptf-work__link" to={`/review-detail/${val.srSeq}`}></Link>
               <img
-                src={`assets/img/dalrun-jy/${val.srimage}`}
+                 src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${val.srSeq}.jpg`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative',height:'200px',width:'200px'}}

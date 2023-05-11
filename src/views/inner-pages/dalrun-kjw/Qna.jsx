@@ -3,13 +3,14 @@ import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../components/header/HeaderDefault";
 import CopyRight from "../../../components/footer/copyright/CopyRight";
 import Footer from "../../../components/footer/Footer";
+import QnABody from "../../../components/dalrun-jw/qna/QnABody";
 import PortfolioListing from "../../../components/portfolio/PortfolioListing";
 
 const WorksListing = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
       <Helmet>
-        <title>Moonex - Works/Portfolio Listing</title>
+        <title>달런 달런</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -34,7 +35,7 @@ const WorksListing = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">Portfolio</h1>
+                      <h1 className="large-heading">QnA</h1>
                     </div>
                   </div>
                 </div>
@@ -50,7 +51,7 @@ const WorksListing = () => {
                 Start Portfolio main 
                 ============================================== */}
               <div className="container-xxl">
-                <PortfolioListing />
+                <QnABody />
               </div>
               {/* <!--Spacer--> */}
               <div
