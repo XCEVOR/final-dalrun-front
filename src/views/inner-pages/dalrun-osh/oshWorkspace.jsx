@@ -37,7 +37,7 @@ const demoContent = [
   },  {
     demoImg: "home-default",
     routerPath: "/mypage/mywrite",
-    title: "게시글 내역",
+    title: "내 문의 내역",
     delayAnimationTime: "0",
   },
   {

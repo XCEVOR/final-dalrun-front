@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useRef, useEffect, useState  } from "react";
 import RatingImg from "../../../../components/dalrun-sh/RatingImg";
+import { useNavigate } from "react-router-dom";
 
 function Rating(){
+
+  const [id, setId] = useState("");
+  const [grade, setGrade] = useState("");
+  const [point, setPoint] = useState(0);
+ 
+  const history = useNavigate();
+
+  useEffect(()=>{
+    const str = localStorage.getItem('login')
+    if(str !== null){
+        const login = JSON.parse(str);
+        setId(login.memId);
+        setPoint(login.point);
+        setGrade(login.grade);
+    }else {
+        alert('login을 해주세요.');
+        history('/login');
+    }
+}, [history, setId]);
+const onSubmit = (e) => {
+  e.preventDefault();
+
+  let formData = new FormData();
+  formData.append("memId", id);
+  formData.append("point", point);
+  formData.append("grade", grade);
+}
   return(
     <div className="members container">
       <h4 className="title">내 등급</h4>
@@ -45,11 +73,11 @@ function Rating(){
               ></div>
             </section>
       <div>
-        당신의 등급은 '런니니' 입니다.
+        당신의 등급은 '{grade}' 입니다.
       </div>            
       <br />
       <div>
-        당신의 누적 포인트는 '' 입니다.
+        당신의 누적 포인트는 '{point}' 입니다.
       </div>            
       <br />
       <div className="inform outline" />

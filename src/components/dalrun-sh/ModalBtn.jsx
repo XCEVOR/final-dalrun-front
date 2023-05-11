@@ -4,7 +4,6 @@ import { useSearchParams } from "react-router-dom";
 
 function ModalBtn(props) {
     const [modalShow, setModalShow] = useState(false);
-    const [selected, setSelected] = useState();
     const [ModalHeader, setModalHeader] = useState();
     const [checkedList, setCheckedList] = useState([]);
     const [category, setCategory] = useState("");
@@ -26,7 +25,6 @@ function ModalBtn(props) {
                             setModalShow(true);
                             setCheckedList(prop.list);
                             setCategory(prop.cate);
-                            // setSelected(prop.selected);
                             setModalHeader(prop.name);
                         }}>{prop.name}</button>
                     );
@@ -37,7 +35,6 @@ function ModalBtn(props) {
                 onHide={() => setModalShow(false)} 
                 checked={checkedList}
                 category={category}
-                // selected={selected}
                 header={ModalHeader}
             />
         </div>
