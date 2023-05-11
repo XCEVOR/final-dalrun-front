@@ -40,13 +40,14 @@ const CloseButton = styled.button`
   border: none;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 48px;
 `;
 
-const ModalContainer = ({ props, onClose }) => {
+const ModalContainer = ({ pictureLocation2, onClose }) => {
   const modalRef = useRef();
+  const [pictureLocation3, setPictureLocation3] = useState("");
 
   // const [productPictureList, setProductPictureList] = useState([props.productPictureList]);
 
@@ -64,6 +65,11 @@ const ModalContainer = ({ props, onClose }) => {
     };
   }, [handleClickOutside]);
 
+  useEffect(() => {
+    setPictureLocation3(pictureLocation2)
+    console.log(pictureLocation2)
+  }, [pictureLocation2])
+
   return (
     <div>
       <ModalWrapper>
@@ -71,7 +77,7 @@ const ModalContainer = ({ props, onClose }) => {
           <CloseButton onClick={onClose}>×</CloseButton>
           <h2>Modal Title</h2>
           <p>Modal Content</p>
-          <img src="http://localhost:3000/dalrun-hc/store/products/NBAL-FRFO/NBAL-FRFO-01.png" loading="lazy"/>
+          <img style={{width: 1000}} src={pictureLocation3} loading="lazy"/>
         </ModalContent>
       </ModalWrapper>
     </div>

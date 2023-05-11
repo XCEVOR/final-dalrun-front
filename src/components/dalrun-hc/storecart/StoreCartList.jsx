@@ -4,6 +4,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
+import ModalButton from "./storemodal/ModalButton";
+import ModalContainer from "./storemodal/ModalContainer";
+
 function StoreCartList() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
@@ -119,11 +122,13 @@ function StoreCartList() {
 
   const CartDataDisplay2 = ({ productInfoList, productIdList }) => {
     let tempSum = 0;
+    console.log("  console.log(productInfoList) ", productInfoList)
+    console.log("  console.log(productIdList) ", productIdList)
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div>
+      <div><ModalButton ></ModalButton>
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
           console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)
@@ -131,7 +136,7 @@ function StoreCartList() {
           console.log(tempSum)
           setTotalPaymentAmount(tempSum)
           return (
-            <div key={prodInfo.productId}>
+            <div key={matchedProduct.cartId}>
               <div className="item">
                 <div className="image" style={{ width: 160 }}>
                   <img
@@ -154,6 +159,15 @@ function StoreCartList() {
                     삭제: {prodInfo.productId}
                   </button>
                   <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span>
+                  <ModalButton 
+                    modal_cartid={matchedProduct.cartId} 
+                    modal_productid={prodInfo.productId} 
+                    modal_productcode={prodInfo.productCode}
+                    modal_productcolor={prodInfo.productColor}
+                    modal_productsize={prodInfo.productSize}
+                    modal_quantity={matchedProduct.cartProdQuantity}
+                  >
+                  </ModalButton>
                 </div>
 
                 <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>

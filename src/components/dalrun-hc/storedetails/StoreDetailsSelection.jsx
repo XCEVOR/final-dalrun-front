@@ -177,7 +177,7 @@ function StoreDetailsSelection() {
     const addToCart = async () => {
       if (isProdId === false) {alert("상품 옵션 선택"); return;}
       console.log(" @ console.log(userOrderData): ", userOrderData)
-      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": "user01carttest", "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
+      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": Date.now(), "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
       showToast("success");
       setIsProdId(false)

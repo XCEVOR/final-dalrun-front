@@ -293,8 +293,9 @@ function TestReduxLeft2 (props) {
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>MAIN: {inq.inqWriter}</h5>
-                                      <span className="post-meta">{inq.inqDate}</span>
+                                      <h5>MAIN: {inq.inqTitle}</h5>
+                                      <span className="post-meta">{inq.inqWriter} //</span>
+                                      <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
                                   <p>{inq.inqContent}</p>
 
@@ -320,11 +321,11 @@ function TestReduxLeft2 (props) {
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>서버 inqDepth 1: {inq.inqWriter}</h5>
-                                      <span className="post-meta">February 20, 2022</span>
+                                      <h5>SUB: {inq.inqTitle}</h5>
+                                      <span className="post-meta">{inq.inqWriter} //</span>
+                                      <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
                                   <p>{inq.inqContent}</p>
-                                  <a href="#" className="comment-reply"><i className="fal fa-reply"></i> Reply</a>
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
