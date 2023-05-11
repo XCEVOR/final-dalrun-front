@@ -34,11 +34,20 @@
         overflow: hidden;
         margin-bottom: 10px;
     }
+
+    .inq_title {
+        width: 250px;
+    }
+
+    .inq_con {
+        width: 300px;
+    }
 }
 
 // update
 .admin_update_container {
     width: 766px;
+    margin: auto;
 
     .review_regi_img {
         .product_img {
