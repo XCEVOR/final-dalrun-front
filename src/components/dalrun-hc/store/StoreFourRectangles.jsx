@@ -90,9 +90,17 @@ const StoreFourRectangles = () => {
   }
 
   const selectSortBtn = async (e) => {
-    const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
-    console.log(resp.data)
-    setProductList(resp.data)
+    if (e.target.value === "VIEW") {
+      const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
+      console.log(resp.data)
+      setProductList(resp.data)
+    }
+    else if (e.target.value === "LIKE") {
+      const resp = await axios.post("http://localhost:3000/getAllProductListSortLike", null, {});
+      console.log(resp.data)
+      setProductList(resp.data)
+    }
+
   }
 
   
@@ -109,7 +117,8 @@ const StoreFourRectangles = () => {
       <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
     <div>
-      <button value="VIEW" onClick={selectSortBtn}>조회</button>
+      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
     <div className="fourrectangles-grid fourrectangles-grid-effect">
 
@@ -144,6 +153,8 @@ const StoreFourRectangles = () => {
                 </h6>
                 <h5>₩ {singleproduct.productPrice}</h5>
                 <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+                <p className="ptf-team-member__function">view: {singleproduct.productView}</p>
+                <p className="ptf-team-member__function">like: {singleproduct.productLike}</p>
               </div>
             </div>
           </div>
