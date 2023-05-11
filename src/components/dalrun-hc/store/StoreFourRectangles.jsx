@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { async } from "q";
 
 const teamContent = [
   {
@@ -74,6 +75,7 @@ const StoreFourRectangles = () => {
 
 
 
+
   const selectCategoryBtn = (e) => {
     setSelectedCategory(e.target.value);
     // 
@@ -87,12 +89,28 @@ const StoreFourRectangles = () => {
     // 
   }
 
+  const selectSortBtn = async (e) => {
+    const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
+    console.log(resp.data)
+    setProductList(resp.data)
+  }
+
   
 
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE 
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    <div>
+      <button value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
+      <button value="HATS" onClick={selectCategoryBtn}>HATS</button>
+      <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
+      <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
+      <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+    </div>
+    <div>
+      <button value="VIEW" onClick={selectSortBtn}>조회</button>
+    </div>
     <div className="fourrectangles-grid fourrectangles-grid-effect">
 
 
@@ -145,6 +163,9 @@ const StoreFourRectangles = () => {
       <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
       <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
       <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+    </div>
+    <div>
+      <button value="VIEW" onClick={selectSortBtn}>조회</button>
     </div>
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
@@ -213,6 +234,8 @@ const StoreFourRectangles = () => {
               </h6>
               <h5>₩ {singleproduct.productPrice}</h5>
               <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
+              <p className="ptf-team-member__function">{singleproduct.productView}</p>
+              <p className="ptf-team-member__function">{singleproduct.productLike}</p>
             </div>
           </div>
         </div>
