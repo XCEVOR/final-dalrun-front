@@ -6,7 +6,7 @@ function BasicSearch(props) {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="search outline">
+    <div className="search">
       <div className="search-content only">
         <span className="search-title">검색어</span>
         <select value={choice} onChange={(e)=>setChoice(e.target.value)}>

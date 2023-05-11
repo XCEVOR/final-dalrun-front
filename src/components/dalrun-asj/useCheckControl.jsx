@@ -17,7 +17,7 @@ function useCheckControl({dataList}) {
                 else if(cate === "product") allcheck = el.productId;
                 else if(cate === "order") allcheck = el.orderNumber;
                 else if(sub === "productinquiry") allcheck = el.inqSeq;
-                else if(cate === "shoereview") allcheck = el.shoereviewSeq;
+                else if(cate === "shoereview") allcheck = el.srSeq;
                 else if(cate === "competition") allcheck = el.compSeq;
 
                 checkedArr.push(allcheck);

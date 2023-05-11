@@ -30,6 +30,11 @@ const AdminMenu = () => {
       <div className="ptf-admin-sidebar">
         <div>
             <ul className="admin-sidebar-menu_wrapper">
+              <div className="logo">
+                <Link to="/" title="Home" className='logo-Link'>
+                  <img src="logo.svg" className='logo'/>
+                </Link>
+              </div>
               {menuContent.map((item, i) => (
                 <li key={i}>
                     <Link to={item.routerRoute}>{item.name}</Link>

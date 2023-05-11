@@ -11,7 +11,7 @@ function AdminStore() {
     ];
 
     return (
-        <div className="store container">
+        <div className="store admin-container">
             <h4 className="title">쇼핑몰 관리</h4>
             <AdminBtn {...category} />
             <Routes>
