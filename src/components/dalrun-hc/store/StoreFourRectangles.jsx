@@ -107,7 +107,7 @@ const StoreFourRectangles = () => {
   }
 
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('productBrand');
+  const [category, setCategory] = useState('productName');
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
@@ -147,8 +147,8 @@ const StoreFourRectangles = () => {
 
         <label htmlFor="category">Search in:</label>
         <select id="category" value={category} onChange={handleCategoryChange}>
+          <option value="productName" selected >Name</option>
           <option value="productBrand">Brand</option>
-          <option value="productName">Name</option>
           {/* <option value="productDescription">Description</option> */}
         </select>
       </form>
@@ -220,7 +220,7 @@ const StoreFourRectangles = () => {
 
         <label htmlFor="category">Search in:</label>
         <select id="category" value={category} onChange={handleCategoryChange}>
-          <option value="productName" defaultChecked >Name</option>
+          <option value="productName" selected >Name</option>
           <option value="productBrand">Brand</option>
           {/* <option value="productDescription">Description</option> */}
         </select>
