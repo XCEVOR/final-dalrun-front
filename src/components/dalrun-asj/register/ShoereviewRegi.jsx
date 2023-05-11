@@ -20,17 +20,21 @@ function ShoereviewRegi({onHide}) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(imgList.length === 0) {
-            alert("하나 이상의 이미지를 등록해주세요.");
+        const mainImg = document.frm.main.files[0];
+
+        if(mainImg === undefined) {
+            alert("대표이미지를 등록해주세요.");
             return;
         }
-        else if(imgList.length-1 !== descList.length) {
+        else if(imgList.length !== descList.length) {
+            console.log(imgList, descList);
             alert("이미지에 대한 설명을 입력해주세요.");
             return;
         }
-
         let formdata = new FormData();
 
+        setImgList(prev => [...prev, mainImg]);
+        console.log(imgList);
         imgList.map((file) => {
             formdata.append("fileList", file);
         });
@@ -39,13 +43,13 @@ function ShoereviewRegi({onHide}) {
             formdata.append("descList", desc);
         });
 
+        formdata.append("mainImg", mainImg);
         formdata.append("srBrand", brand);
         formdata.append("srTitle", title);
         formdata.append("srCotent", content);
         formdata.append("srPrice", price);
         formdata.append("srLink", link);
 
-        console.log(formdata);
         axios.post('http://localhost:3000/shoereviewRegi', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
@@ -71,7 +75,7 @@ function ShoereviewRegi({onHide}) {
     }
 
     useEffect(() => {
-        let max = imgList.length-1;
+        let max = imgList.length;
 
         if (descList.length > max) {
             setDescList(prev => prev.slice(0, max));
@@ -83,7 +87,11 @@ function ShoereviewRegi({onHide}) {
             <div className="admin_update review_regi_img">
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form-data">
                     <fieldset>
-                        <ImgUpload max="4" setImgList={setImgList} />
+                        <div>
+                            <label htmlFor="mainImg">대표이미지</label>
+                            <input type="file" name="main" />
+                        </div>
+                        <ImgUpload max="3" setImgList={setImgList} />
                         <div className="add_padding">
                             <label htmlFor="brand">브랜드</label>
                             <input type="text" value={brand || ""} onChange={(e) => setBrand(e.target.value)} />
@@ -100,7 +108,7 @@ function ShoereviewRegi({onHide}) {
                             <label htmlFor="desc">이미지에 대한 설명</label>
                             <div className="text_flex">
                                 <AdjustableTextarea val={desc} setVal={setDesc} placeholder={"운동화 후기를 입력해주세요."} />
-                                <button onClick={(e) => handleTextInput(e, desc, imgList.length-1)}>입력</button>
+                                <button onClick={(e) => handleTextInput(e, desc, imgList.length)}>입력</button>
                             </div>
                             <div>
                             {descList.map((d, i) => {
