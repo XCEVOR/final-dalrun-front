@@ -23,7 +23,7 @@ const portfolioContent = [
   }
 ];
 
-const PortfoliomainPage = () => {
+const Weekrun_mainPage = () => {
   const settings = {
     dots: false,
     arrow: true,
@@ -65,4 +65,4 @@ const PortfoliomainPage = () => {
   );
 };
 
-export default PortfoliomainPage;
+export default Weekrun_mainPage;

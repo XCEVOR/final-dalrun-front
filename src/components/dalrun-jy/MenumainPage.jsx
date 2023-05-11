@@ -62,7 +62,7 @@ const teamContent = [
 
 ];
 
-const TeammainPage = () => {
+const MenumainPage = () => {
   return (
     <>
     <div className="ptf-team-member-grid">
@@ -75,9 +75,9 @@ const TeammainPage = () => {
         >
           {/* <!--Team Member--> */}
           <div className="ptf-team-member">
-            <div className="ptf-team-member__avatar" >
-              <div className="shadow-effect"></div>
-              <Link to={`/${val.link}`} >
+            <div className="ptf-team-member" >
+             
+              <Link  to={`/${val.link}`} >
                 {" "}
                 <img
                   src={`assets/img/dalrun-jy/${val.img}.png`}
@@ -86,7 +86,7 @@ const TeammainPage = () => {
                 />
               </Link>
             </div>
-            <div className="ptf-team-member__content">
+            <div className="ptf-team-member__content" style={{textAlign:'center'}}>
               <h6 className="ptf-team-member__name">
                 <a href="#">{val.title}</a>
               </h6>
@@ -100,4 +100,4 @@ const TeammainPage = () => {
   );
 };
 
-export default TeammainPage;
+export default MenumainPage;
