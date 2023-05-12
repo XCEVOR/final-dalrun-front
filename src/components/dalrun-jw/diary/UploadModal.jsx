@@ -2,18 +2,12 @@
 import ModalPortal from "../Portal";
 import ModalFrame from "../ModalFrame";
 import axios from 'axios';
-import { useDiaryGPXData } from './DiaryGPXData';
 import CustomEditor from '../CustomEditor';
-import { useNavigate } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 
 function UploadModal() {
   // 다이어리 고유 아이디
   const postId = nanoid();
-
-
-  // gpxData 저장소
-  const { addGPXData } = useDiaryGPXData();
 
   // 서버에 회원 정보 같이 보내기
   const loginData = JSON.parse(localStorage.getItem("login"));
@@ -68,10 +62,10 @@ function UploadModal() {
       console.log(resp.data);
       // gpxData 저장소
       const gpxDataList = resp.data;
-      addGPXData(gpxDataList);
+      // addGPXData(gpxDataList);
       console.log('업로드 완료');
       closeModal(); // 모달 닫기
-      window.location.reload();
+      // window.location.reload();
       alert('업로드 완료');
   })
   .catch((error) => { // fail
