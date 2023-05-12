@@ -38,6 +38,11 @@ function AdminSearch(props) {
             params.delivery = deliveryState;
         } else if(cate === "question") {
             searchUrl = `http://localhost:3000/admin_${sub}list`;
+
+            if(sub === "productinquiry") {
+                const inqState = searchParams.get("inqState");
+                params.inqState = inqState;
+            }
         }
     }
     
