@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 function CrewComment({crewSeq}) {
+    const history = useNavigate();
+
     const params = useParams();
     const [commentList, setCommentList] = useState([]);
     const [comment, setComment] = useState("");
@@ -27,18 +29,21 @@ function CrewComment({crewSeq}) {
             alert("댓글을 입력해주세요");
             return;
         }else {
-            axios.get("http://localhost:3000/writeCrewBbsComment", {params:{"cbMemId":login.memId, "cbContent":comment, "crewSeq":crewSeq}})
+            axios.get("http://localhost:3000/writeCrewBbsComment", {params:{"cbMemId":login.memId, "cbContent":comment, "crewSeq":params.crewSeq}})
             .then(function(res){
                 if(res.data ==="YES"){
-                    setComment("");
-                    document.getElementById("inputTest").value="";
-                    getCrewBbsCommentList(params.crewSeq)
                     alert("댓글 작성 성공");
+                    setComment("");
+                    document.getElementById("inputText").value="";
+                    getCrewBbsCommentList(params.crewSeq)
                 }else {
                     alert("댓글 작성에 실패했습니다");
                 }
             }).catch(function(err){
                 alert(err);
+                alert(login.memId);
+                alert(comment);
+                alert(params.crewSeq);
             })
         }
     }

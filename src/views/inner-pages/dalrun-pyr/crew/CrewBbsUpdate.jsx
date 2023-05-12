@@ -17,9 +17,24 @@ function CrewBbsUpdate(){
     const [crewName, setCrewName] = useState('');
     const [crewSetUp, setCrewSetUp] = useState('');
     const [type, setType] = useState('');
+    const [imgFile, setImgFile] = useState([]);
+    const [crewcolor, setCrewColor] = useState('');
 
     // 데이터를 모두 읽어 들일 때까지 rendering을 조절하는 변수
     const [loading, setLoading] = useState(false);
+
+    const titleChange = (e) => setTitle(e.target.value);
+    const contentChange = (e) => setContent(e.target.value);
+    const crewNameChange = (e) => setCrewName(e.target.value);
+    const typeChange = (e) => setType(e.target.value);
+    const setupChage = (e) => setCrewSetUp(e.target.value);
+    const colorChange = (e) => setCrewColor(e.target.value);
+    const fileChange = (e) => {
+        const fileList = e.target.files;
+        const newFiles = Array.from(fileList);
+        setImgFile(newFiles);
+        alert(newFiles.length);
+    }
 
     const crewBbsData = async(crewSeq) => {
         const resp = await axios.get('http://localhost:3000/crewBbsBlogDetail', { params:{"crewSeq":crewSeq} });
@@ -31,15 +46,11 @@ function CrewBbsUpdate(){
         setCrewName(resp.data.crewName);
         setType(resp.data.type);
         setCrewSetUp(resp.data.crewSetUp);
+        setImgFile(resp.data.crewImg);
+        setCrewColor(resp.data.crewcolor)
 
         setLoading(true);
     }
-
-    const titleChange = (e) => setTitle(e.target.value);
-    const contentChange = (e) => setContent(e.target.value);
-    const crewNameChange = (e) => setCrewName(e.target.value);
-    const typeChange = (e) => setType(e.target.value);
-    const setupChage = (e) => setCrewSetUp(e.target.value);
 
     useEffect(()=>{
         crewBbsData(params.crewSeq);
