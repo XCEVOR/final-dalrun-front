@@ -42,9 +42,10 @@ const HeadermainPage = () => {
                
                 <img
                   className="black"
-                  src="logo.svg"
+                  src="logo.png"
                   alt=""
                   loading="lazy"
+                  style={{width:'120px'}}
                 />
                 
               </Link>

@@ -13,7 +13,7 @@ const teamContent = [
   {
     delayAnimation: "100",
     img: "diary",
-    title: "러닝 다이어리",
+    title: "다이어리",
     link: 'diary'
 
   },
@@ -75,8 +75,9 @@ const MenumainPage = () => {
         >
           {/* <!--Team Member--> */}
           <div className="ptf-team-member">
-            <div className="ptf-team-member" >
-             
+            <div className="ptf-animated-block aos-init aos-animate"  >
+
+          <div className="bounce_button"> 
               <Link  to={`/${val.link}`} >
                 {" "}
                 <img
@@ -85,14 +86,17 @@ const MenumainPage = () => {
                   loading="lazy"
                 />
               </Link>
-            </div>
-            <div className="ptf-team-member__content" style={{textAlign:'center'}}>
-              <h6 className="ptf-team-member__name">
-                <a href="#">{val.title}</a>
-              </h6>
+            <div className="ptf-team-member__content" style={{textAlign:'center',marginTop:'10px'}}>
+            <a className="h5 ptf-work__meta" to={`/${val.link}`} >
+              
+                {val.title}
+              
+            </a>
 
+        </div> 
             </div>
           </div>
+            </div>
         </div>
       ))}
       </div>
