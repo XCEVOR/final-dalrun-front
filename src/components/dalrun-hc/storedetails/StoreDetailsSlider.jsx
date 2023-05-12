@@ -125,54 +125,62 @@ const StoreDetailsSlider = () => {
 
   return (
     <div className="ptf-content-slider swiper-container slide-portfolio">
-      <div><h6>좋아할 만한 상품들</h6></div>
+      <div><h5>좋아할 만한 상품들</h5></div>
       <div className="swiper-wrapper">
         <Slider {...settings}>
           {/* <!--Portfolio Item--> */}
           {likeable.map((item, i) => (
             <article className="ptf-work ptf-work--style-3" key={i}>
-              <div className="product_details_slider">
-                <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
-                  <img className="product_details_slider"
-                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
-                    alt={item.productName}
-                    loading="lazy"
-                  />
-                </Link>
-              </div>
-              <div className="ptf-work__meta">
-                <div className="ptf-work__category">{item.productName}</div>
-                {/* <h4 className="ptf-work__title">
-                  <Link to="/works-showcase">{item.title}</Link>
-                </h4> */}
-              </div>
+              <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
+                <div className="product_details_slider">
+                  
+                    <img className="product_details_slider"
+                      // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                      src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                      alt={item.productName}
+                      loading="lazy"
+                    />
+                </div>
+                <div className="ptf-work__meta">
+                  <div className="ptf-work__category">{item.productName}</div>
+                  <h6 className="ptf-work__title">
+                    ₩ {item.productPrice}
+                  </h6>
+                </div>
+              </Link>
             </article>
           ))}
         </Slider>
       </div>
-      <div><h6>관심 있을 상품들</h6></div>
+
+      <div
+        className="ptf-spacer"
+        style={{ "--ptf-xxl": "3.75rem" }}
+      ></div>
+
+      <div><h5>관심 있을 상품들</h5></div>
       <div className="swiper-wrapper">
         <Slider {...settings}>
           {/* <!--Portfolio Item--> */}
           {interested.map((item, i) => (
             <article className="ptf-work ptf-work--style-3" key={i}>
-              <div className="product_details_slider">
-                <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
-                  <img className="product_details_slider"
-                    // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
-                    alt={item.productName}
-                    loading="lazy"
-                  />
-                </Link>
-              </div>
-              <div className="ptf-work__meta">
-                <div className="ptf-work__category">{item.productName}</div>
-                {/* <h4 className="ptf-work__title">
-                  <Link to="/works-showcase">{item.title}</Link>
-                </h4> */}
-              </div>
+              <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
+                <div className="product_details_slider">
+                  
+                    <img className="product_details_slider"
+                      // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
+                      src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                      alt={item.productName}
+                      loading="lazy"
+                    />
+                </div>
+                <div className="ptf-work__meta">
+                  <div className="ptf-work__category">{item.productName}</div>
+                  <h6 className="ptf-work__title">
+                    ₩ {item.productPrice}
+                  </h6>
+                </div>
+              </Link>
             </article>
           ))}
         </Slider>
