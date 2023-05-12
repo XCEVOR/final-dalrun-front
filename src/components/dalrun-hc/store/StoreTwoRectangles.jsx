@@ -160,7 +160,7 @@ const StoreTwoRectangles = () => {
 
                 <div>
                   <div className="image-container">
-                    <Link to={`/store-details/${recomm.productCode}`} rel="noopener noreferrer">
+                    <Link to={`/store-recommend/${recomm.productCode}`} rel="noopener noreferrer">
                     <img className="background-image"
                       src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}
                       // src={`assets/img/home/studio/${val.img}.png`}
