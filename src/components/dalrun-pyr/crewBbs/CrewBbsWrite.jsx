@@ -47,7 +47,7 @@ function PostCrewBbsWriteForm() {
         const newFiles = Array.from(fileList);
 
         setImgFile(newFiles);
-        alert(newFiles.length);
+       // alert(newFiles.length);
     }
 
     const writeCrewBbs = () => {
@@ -58,8 +58,8 @@ function PostCrewBbsWriteForm() {
         for(let i=0; i<imgFile.length; i++) {
             fd.append("crewImg", imgFile[i]);
         }
-        alert(imgFile);
-        alert(imgFile.length);
+       // alert(imgFile);
+       // alert(imgFile.length);
 
             axios.post("http://localhost:3000/crewBbsWrite", fd, {
                 headers: {
@@ -83,7 +83,7 @@ function PostCrewBbsWriteForm() {
 
     return (
         <div className='pyr-bbsWrite'>
-        <table className="table table-sm">
+        <table className="pyr-table">
             <colgroup>
                 <col width="100px"/><col width="500px"/>
             </colgroup>

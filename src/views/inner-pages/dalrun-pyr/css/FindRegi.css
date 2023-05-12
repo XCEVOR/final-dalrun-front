@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+.content_inner{
+    width: 900px;
+    height: 590px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.125);
+    box-shadow: 0 12px 20px rgb(0 0 0 / 10%);
+}
+.content_inner:hover {
+    border: 1px solid #000;
+    border-radius: 4px;
+    transition: all .5s;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0px solid brown;
+}
+
+img {
+  width: 100px;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  color: #666;
+  letter-spacing: 0.1px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #333;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: #444;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.1rem;
+  line-height: 2.4rem;
+}
+
+a:link {
+  color: #123;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #123;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: red;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.pyr_button {
+  padding: 8px 20px;
+  background: #333;
+  transition: 0.3s;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  border: 1px solid #333;
+}
+
+.pyr_button:hover {
+  color: #123;
+  color: white;
+  cursor: pointer;
+}
+
+/*start*/
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 50px;
+}
+
+
+
+
+.hero{
+  width: 1000px;
+  margin: 0 auto;
+  padding: 8rem 0 9rem 0;
+}
+
+.hero h2{
+  font-size: 2rem;
+}
+
+label{
+  color: #aaa;
+  font-size: 0.8rem;
+}
+small{
+  font-weight: 400;
+  color: #999;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+   width:100%;
+   margin:auto;
+   max-width:600px;
+   min-height:300px;
+   position:relative;
+   background:#fff;
+}
+.login-html{
+   width:100%;
+   height:100%;
+   position:absolute;
+   padding:40px 70px 100px 70px;
+   background:#fff;
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   position:absolute;
+   transform:rotateY(180deg);
+   backface-visibility:hidden;
+   transition:all .4s linear;
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+   display:none;
+}
+
+.sign-in-htm .group h4{
+  text-align: center;
+}
+
+.sign-in-htm .group h5{
+  text-align: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+
+.sign-up-htm .group h4{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sign-up-htm .group h5{
+  text-align: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+   text-transform:uppercase;
+  color: #666;
+  font-weight: 400;
+}
+.login-html .tab{
+   font-size:1rem;
+   margin-right:20px;
+   padding-bottom:10px;
+   margin-bottom: 20px;
+   display:inline-block;
+   border-bottom:2px solid transparent;
+  cursor: pointer;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+   color:#d1021c;
+   border-color:#d1021c;
+  font-weight: bold;
+}
+.login-form{
+   min-height:315px;
+   position:relative;
+   perspective:1000px;
+   transform-style:preserve-3d;
+}
+.login-form .group{
+   margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+   width:100%;
+   color:#000;
+   display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+   border: 1px solid #ddd;
+   padding:15px 20px;
+   border-radius:25px;
+   background:#fff;
+}
+.login-form .group input[data-type="password"]{
+   text-security:circle;
+   -webkit-text-security:circle;
+}
+.login-form .group .label{
+   color:#888;
+   font-size:0.8rem;
+  margin-bottom: 5px;
+}
+
+input:focus{
+  outline: none;
+}
+.login-form .group .button{
+   background:#123;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.login-form .group label .icon{
+   width:15px;
+   height:15px;
+   border-radius:2px;
+   position:relative;
+   display:inline-block;
+   background:rgba(0,0,0,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+   content:'';
+   width:10px;
+   height:2px;
+   background:#fff;
+   position:absolute;
+   transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+   left:3px;
+   width:5px;
+   bottom:6px;
+   transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+   top:6px;
+   right:0;
+   transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+   color:#000;
+}
+.login-form .group .check:checked + label .icon{
+   background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+   transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+   transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+   transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+   transform:rotate(0);
+}
+
+.sign-up-htm ul{
+  margin-bottom: 4rem;
+}
+
+.sign-up-htm ul li{
+  list-style: circle;
+  font-size: 0.8rem;
+  list-style-position: inside;
+}
+
+.hr{
+   height:2px;
+   margin:60px 0 50px 0;
+   background:rgba(0,0,0,.2);
+}
+.foot-lnk{
+   text-align:center;
+}
+
+.foot-lnk a:hover{
+  color: #666;
+}
+
+.already{
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+}
+
+
+
+footer button:last-child{
+  background: none;
+  color: #333;
+  border: 1px solid #333;
+  margin-left: 10px;
+}
+
+
+
+.fo-img img{
+  width: 25px;
+  margin-top: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.fo-img img:last-child{
+  margin-right: 0;
+}

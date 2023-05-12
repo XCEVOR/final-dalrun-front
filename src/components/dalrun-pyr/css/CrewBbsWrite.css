@@ -4,7 +4,7 @@
     align-items: center;
   }
   
-  .table {
+  .pyr-table {
     width: 80%;
     max-width: 800px;
     border-radius: 10px;
@@ -14,12 +14,12 @@
     margin-bottom: 50px;
   }
   
-  .table th {
+  .pyr-table th {
     width: 100px;
     font-weight: bold;
   }
   
-  .table td {
+  .pyr-table td {
     padding: 10px;
   }
   

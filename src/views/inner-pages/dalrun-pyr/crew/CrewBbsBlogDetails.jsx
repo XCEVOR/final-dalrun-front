@@ -24,8 +24,9 @@ const CrewBbsBlogDetails = () => {
     const [crewSeq, setCrewSeq] = useState(crewBbsParams.crewSeq);
     const [imgid, setImgId] = useState([]);
     
-    const [likecount, setLikecount] = useState(0);
+    //const [likecount, setLikecount] = useState(crewBbsParams.likeCount);
     const [isLiked, setIsLiked] = useState(false);
+    var likecount = 0;
   
     const handleGetLike = () => {
       const str = JSON.parse(localStorage.getItem('login'));
@@ -56,6 +57,7 @@ const CrewBbsBlogDetails = () => {
       getimgstr();
     }, [crewBbsParams.crewSeq])
   
+    //크루 이미지 리스트
   function getimgstr() {
     axios.get("http://localhost:3000/getimgstr", {
         params: {
@@ -68,17 +70,19 @@ const CrewBbsBlogDetails = () => {
         const firstImg = imgid[0];
       });
   }
-  
-    const crewBbsDetailsData = async(crewSeq) => {
-      const resp = await axios.get('http://localhost:3000/crewBbsBlogDetail', {params:{"crewSeq": crewSeq}});
-      console.log("resp.data : ", resp.data);
-  
-      //update state with new data
-      //setLc(crewBbsDetails.likecount);
-      setCrewBbsDetails(resp.data);
-      setLikecount(resp.data.likeCount);
-      setLoading(true); //rendering
+
+    const crewBbsDetailsData = (crewSeq) => {
+      axios.get('http://localhost:3000/crewBbsBlogDetail', {params:{crewSeq: crewSeq}})
+        .then((res) => {
+          setCrewBbsDetails(res.data);
+          likecount = res.data.likeCount;
+          setLoading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
+    
   
     if(loading === false){
       return <div>Loading...</div> //show user - randering 
@@ -92,6 +96,26 @@ const CrewBbsBlogDetails = () => {
       history("/crewBbsDelete/" + crewBbsDetails.crewSeq);
     }
   
+    // const handleLike = () => {
+    //   const str = JSON.parse(localStorage.getItem('login'));
+    //   const memId = str.memId;
+    //   axios.post("http://localhost:3000/like", {
+    //         memId: memId,
+    //         crewSeq: crewSeq
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //       setIsLiked(true);
+    //       //alert("성공");
+    //       alert(response.data);
+    //       setLikecount(likecount+1);
+    //       console.log("str", str.memId);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
+
     const handleLike = () => {
       const str = JSON.parse(localStorage.getItem('login'));
       const memId = str.memId;
@@ -104,7 +128,7 @@ const CrewBbsBlogDetails = () => {
           setIsLiked(true);
           //alert("성공");
           alert(response.data);
-          setLikecount(likecount+1);
+          likecount += 1;
           console.log("str", str.memId);
         })
         .catch((error) => {
@@ -112,25 +136,45 @@ const CrewBbsBlogDetails = () => {
         });
     };
   
+    // const handleCancelLike = () => {
+    //  const str = JSON.parse(localStorage.getItem('login'));
+    //  const memId = str.memId;
+    //   axios.post("http://localhost:3000/cancellike", {
+    //         memId: memId,
+    //         crewSeq: crewSeq
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //       setIsLiked(false);
+    //       //alert("좋아요 취소 성공");
+    //       setLikecount(likecount-1);
+    //       alert(response.data);
+    //       console.log("str", str.memId);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
+
     const handleCancelLike = () => {
-     const str = JSON.parse(localStorage.getItem('login'));
-     const memId = str.memId;
-      axios.post("http://localhost:3000/cancellike", {
-            memId: memId,
-            crewSeq: crewSeq
-        })
-        .then((response) => {
-          console.log(response);
-          setIsLiked(false);
-          //alert("좋아요 취소 성공");
-          setLikecount(likecount-1);
-          alert(response.data);
-          console.log("str", str.memId);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+      const str = JSON.parse(localStorage.getItem('login'));
+      const memId = str.memId;
+       axios.post("http://localhost:3000/cancellike", {
+             memId: memId,
+             crewSeq: crewSeq
+         })
+         .then((response) => {
+           console.log(response);
+           setIsLiked(false);
+           //alert("좋아요 취소 성공");
+           likecount -= 1;
+           alert(response.data);
+           console.log("str", str.memId);
+         })
+         .catch((error) => {
+           console.log(error);
+         });
+     };
   
     // login한 id와 작성자 id와 같을 시에는 버튼을 보여줌
     function UpdateButtonLoad(){
@@ -215,7 +259,7 @@ const CrewBbsBlogDetails = () => {
                           ) : (
                             <button onClick={handleLike}>좋아요</button>
                           )}
-                          {/* <button onClick={handleGetLike}>좋아요 여부 확인</button> */}
+                          <button onClick={handleGetLike}>좋아요 여부 확인</button>
                         </div>
   
                       {/* <!--Post Excerpt--> */}
