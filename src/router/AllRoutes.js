@@ -95,7 +95,8 @@ import CrewBbsBlogDetails from "../views/inner-pages/dalrun-pyr/crew/CrewBbsBlog
 import KakaoCallback from "../views/inner-pages/dalrun-pyr/KakaoCallback";
 import CrewBbsUpdate from "../views/inner-pages/dalrun-pyr/crew/CrewBbsUpdate";
 import CrewBbsDelete from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDelete";
-import FindPassword from "../views/inner-pages/dalrun-pyr/FindPassword";
+import FindRegi from "../views/inner-pages/dalrun-pyr/FindRegi";
+import SignupSuccess from "../views/inner-pages/dalrun-pyr/SignupSuccess";
 
 const AllRoutes = () => {
   return (
@@ -199,7 +200,8 @@ const AllRoutes = () => {
         <Route path="/kakaocallback" element={<KakaoCallback/>}/>
         <Route path="/crewBbsUpdate/:crewSeq" exact element={<CrewBbsUpdate />}/>
         <Route path="/crewBbsDelete/:crewSeq" exact element={<CrewBbsDelete />}/>
-        <Route path="/findPassword" element={<FindPassword/>}/>
+        <Route path="/findRegi" element={<FindRegi/>}/>
+        <Route path="/signupSuccess" element={<SignupSuccess/>}/>
 
       </Routes>
     </>
