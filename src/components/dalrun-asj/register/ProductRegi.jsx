@@ -64,7 +64,13 @@ function ProductRegi({onHide}) {
                         </div>
                         <div>
                             <label htmlFor="cate">카테고리</label>
-                            <input type="text" value={cate || ""} onChange={(e) => setCate(e.target.value)} />
+                            <select value={cate} onChange={(e) => setCate(e.target.value)}>
+                                <option value="SHOE">SHOE</option>
+                                <option value="HAT">HAT</option>
+                                <option value="GLASSES">GLASSES</option>
+                                <option value="BOTTLES">BOTTLES</option>
+                                <option value="BELTS">BELTS</option>
+                            </select>
                         </div>
                         <div>
                             <label htmlFor="brand">브랜드</label>
@@ -77,7 +83,6 @@ function ProductRegi({onHide}) {
                         <div>
                             <label htmlFor="productDesc">상품설명</label>
                             <AdjustableTextarea val={productDesc} setVal={setProductDesc} />
-                            {/* <textarea value={productDesc || ""} onInput={handleInput} /> */}
                         </div>
                         <div>
                             <label htmlFor="price">가격</label>
