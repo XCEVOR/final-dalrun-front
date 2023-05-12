@@ -125,6 +125,12 @@ const StoreDetailsSlider = () => {
 
   return (
     <div className="ptf-content-slider swiper-container slide-portfolio">
+
+      <div
+        className="ptf-spacer"
+        style={{ "--ptf-xxl": "7.75rem" }}
+      ></div>
+
       <div><h5>좋아할 만한 상품들</h5></div>
       <div className="swiper-wrapper">
         <Slider {...settings}>
@@ -155,7 +161,7 @@ const StoreDetailsSlider = () => {
 
       <div
         className="ptf-spacer"
-        style={{ "--ptf-xxl": "3.75rem" }}
+        style={{ "--ptf-xxl": "5.75rem" }}
       ></div>
 
       <div><h5>관심 있을 상품들</h5></div>
@@ -185,6 +191,12 @@ const StoreDetailsSlider = () => {
           ))}
         </Slider>
       </div>
+
+      <div
+        className="ptf-spacer"
+        style={{ "--ptf-xxl": "7.75rem" }}
+      ></div>
+
     </div>
   );
 };
