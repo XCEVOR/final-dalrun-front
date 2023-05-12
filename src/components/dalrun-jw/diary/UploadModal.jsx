@@ -3,11 +3,8 @@ import ModalPortal from "../Portal";
 import ModalFrame from "../ModalFrame";
 import axios from 'axios';
 import CustomEditor from '../CustomEditor';
-import { nanoid } from '@reduxjs/toolkit';
 
 function UploadModal() {
-  // 다이어리 고유 아이디
-  const postId = nanoid();
 
   // 서버에 회원 정보 같이 보내기
   const loginData = JSON.parse(localStorage.getItem("login"));
@@ -53,7 +50,6 @@ function UploadModal() {
   formData.append('content', diary.content);
   formData.append('memId', memId);
   formData.append('gpxFile', diary.file);
-  formData.append('postId', postId);
   
   // 서버로 전달
   axios
@@ -93,13 +89,13 @@ function UploadModal() {
         <ModalPortal>
           {modalOpen && (
             <ModalFrame open={modalOpen} close={closeModal} header="다이어리 업로드">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{margin:0}}>
                 <label>
                 GPX파일
                   {/* <section className="uploadBox" style={{width:'500px', height:'500px', border:'1px solid black'}}>
                     <MyDropzone/>
                   </section> */}
-                  <input type="file" name="gpxFile" onChange={handleFileChange} />
+                  <input type="file" name="gpxFile" accept='.gpx' onChange={handleFileChange} />
                 </label>
                 <label>
                   제목
