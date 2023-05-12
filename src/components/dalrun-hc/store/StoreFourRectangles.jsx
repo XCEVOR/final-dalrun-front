@@ -130,16 +130,16 @@ const StoreFourRectangles = () => {
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
-      <button value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
-      <button value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
-      <button value="HATS" onClick={selectCategoryBtn}>HATS</button>
-      <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
-      <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
-      <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+      <button className="store_main_button" value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
+      <button className="store_main_button" value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
+      <button className="store_main_button" value="HATS" onClick={selectCategoryBtn}>HATS</button>
+      <button className="store_main_button" value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
+      <button className="store_main_button" value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
+      <button className="store_main_button" value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
     <div>
-      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
-      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
+      <button className="store_main_button" value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button className="store_main_button" value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
     <form>
         <label htmlFor="search">Search:</label>
