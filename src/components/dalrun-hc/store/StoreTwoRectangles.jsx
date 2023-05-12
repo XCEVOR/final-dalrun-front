@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 
+import ImageOverlay from "./imageoverlay/ImgOverlay";
+
+
+
 const testimonialContent = [
   {
     avatar: "twitter-avatar",
@@ -144,6 +148,7 @@ const StoreTwoRectangles = () => {
   ? (
     <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
+        
         <Slider {...settings} className="arrow-none">
           {productRecomm.map((recomm, i) => (
             <div className="swiper-slide" key={i}>
@@ -153,17 +158,24 @@ const StoreTwoRectangles = () => {
               <article className="ptf-work ptf-work--style-6">
 
 
-                <div className="ptf-work__media">
-                  <Link to={`/store-details/${recomm.productCode}`} rel="noopener noreferrer">
-                  <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}
-                    // src={`assets/img/home/studio/${val.img}.png`}
-                    // alt={val.title}
-                    loading="lazy"
-                  />
+                <div>
+                  <div className="image-container">
+                    <Link to={`/store-details/${recomm.productCode}`} rel="noopener noreferrer">
+                    <img className="background-image"
+                      src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}
+                      // src={`assets/img/home/studio/${val.img}.png`}
+                      // alt={val.title}
+                      loading="lazy"
+                    />
+                    <img
+                      className="overlay-image"
+                      src="assets/img/dalrun-hc/store/dalrun_award_05.png"
+                      alt="Overlay"
+                    />
 
-                    {/* {val.name} */}
-                  </Link>
+                      {/* {val.name} */}
+                    </Link>
+                  </div>
                 </div>
 
   
@@ -183,6 +195,7 @@ const StoreTwoRectangles = () => {
     : (
     <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div>
+        <ImageOverlay />
         <Slider {...settings} className="arrow-none">
           {productRecomm.map((recomm, i) => (
             <div className="swiper-slide" key={i}>
@@ -192,17 +205,36 @@ const StoreTwoRectangles = () => {
               <article className="ptf-work ptf-work--style-6">
 
 
-                <div className="ptf-work__media">
-                  <Link to={recomm.routerPath} rel="noopener noreferrer">
-                  <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}
-                    // src={`assets/img/home/studio/${val.img}.png`}
-                    // alt={val.title}
-                    loading="lazy"
-                  />
+                <div>
+                  <div className="image-container">
+                    <Link to={`/store-details/${recomm.productCode}`} rel="noopener noreferrer">
+                    <img className="background-image"
+                      src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}
+                      // src={`assets/img/home/studio/${val.img}.png`}
+                      // alt={val.title}
+                      loading="lazy"
+                    />
+                    <img
+                      className="overlay-image"
+                      src="assets/img/dalrun-hc/store/dalrun_award_05.png"
+                      alt="Overlay"
+                    />
 
-                    {/* {val.name} */}
-                  </Link>
+                      {/* {val.name} */}
+                    </Link>
+                  </div>
+                </div>
+                <div className="image-container">
+                  <img
+                    className="background-image"
+                    src="assets/img/dalrun-hc/store/storedetails/ADID-LIRA-01.png"
+                    alt="Background"
+                  />
+                  <img
+                    className="overlay-image"
+                    src="assets/img/dalrun-hc/store/dalrun_award_05.png"
+                    alt="Overlay"
+                  />
                 </div>
 
   
