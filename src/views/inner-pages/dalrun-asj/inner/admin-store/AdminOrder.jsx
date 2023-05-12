@@ -24,8 +24,8 @@ function AdminOrder() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"주문수정", selected:"주문내역 수정 페이지", list:checkedList}, 
-    {cate:"delete", name:"주문삭제", selected:"이 주문내역을 삭제하겠습니까?", list:checkedList}
+    {cate:"update", name:"주문수정", list:checkedList}, 
+    {cate:"delete", name:"주문삭제", list:checkedList}
   ];
 
   const orderstate = (o) => {
@@ -86,8 +86,7 @@ function AdminOrder() {
                 <select value={choice} onChange={(e)=>setChoice(e.target.value)}>
                   <option value="">선택</option>
                   <option value="memId">주문자</option>
-                  <option value="orderSeq">주문번호</option>
-                  <option value="productId">상품번호</option>
+                  <option value="orderNumber">주문번호</option>
                 </select>
                 <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
               </div>
