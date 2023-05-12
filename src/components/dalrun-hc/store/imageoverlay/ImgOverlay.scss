@@ -1,0 +1,19 @@
+.image-container {
+    position: relative; /* position container */
+    width: 640px; /* set width to your desired size */
+    height: 480px; /* set height to your desired size */
+  }
+  
+  .background-image,
+  .overlay-image {
+    position: absolute; /* position images */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .overlay-image {
+    opacity: 1; /* set opacity to your desired value */
+  }
+  
