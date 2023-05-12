@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CounterTwo from "../../../../components/counter/CounterTwo";
 import CopyRightTwo from "../../../../components/footer/copyright/CopyRightTwo";
@@ -21,9 +21,14 @@ import StoreRecommendFloatingBtn from "../../../../components/dalrun-hc/storerec
 
 
 const StoreRecommend = () => {
+  let prodParams = useParams();
+  console.log("prodParams: ", prodParams);
+  console.log("prodParams.productCode: ", prodParams.productCode);
+
+
   return (
     <div className="dalrun-hc">
-      <StoreRecommendFloatingBtn />
+      <StoreRecommendFloatingBtn productCode={prodParams.productCode}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Moonex - Home Agency</title>
