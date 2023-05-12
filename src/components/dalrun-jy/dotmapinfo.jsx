@@ -82,6 +82,7 @@ const DotMapInfo = (props) => {
       props.Changelogininfo(logindata)
       getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
       setLoginTF(true);
+      getCrewRank();
       
     }
   }
@@ -90,8 +91,6 @@ const DotMapInfo = (props) => {
   useEffect(() => {
 
     //localStorage.removeItem('login');
-
-    getCrewRank();
     loading();
     console.log("dtopmapinfo=====\n",props.login);
   }, []);

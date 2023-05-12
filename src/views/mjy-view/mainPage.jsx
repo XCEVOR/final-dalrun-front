@@ -28,14 +28,16 @@ const MainPage = () => {
 
       <HeadermainPage />
     
-      <div className="ptf-site-wrapper__inner">
+      <div className="ptf-site-wrapper__inner" >
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
+            
             {/*=============================================
                 이 주의 러너 베너
               ============================================== */}
             <div className="container-xxl">
             <section>
+              
               {/* <!--Spacer--> */}
               
                 <HeromainPage />
