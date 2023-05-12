@@ -41,7 +41,7 @@ function TaskList() {
                     <div>
                         <span className="todo_title">취소/환불/반품</span>
                         <span className="todo_con">
-                            <Link to={"/admin/store/order"}>{taskData.orderSummaryCnt}건</Link>
+                            <Link to={"/admin/store/order?order=4"}>{taskData.orderSummaryCnt}건</Link>
                         </span>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ function TaskList() {
                     <div>
                         <span className="todo_title">재고부족</span>
                         <span className="todo_con">
-                            <Link to={"/admin/store/product"}>{taskData.stockoutCnt}건</Link>
+                            <Link to={"/admin/store/product?stock=0"}>{taskData.stockoutCnt}건</Link>
                         </span>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ function TaskList() {
                     <div>
                         <span className="todo_title">답변대기</span>
                         <span className="todo_con">
-                            <Link to={"/admin/bbs/question/productinquiry"}>{taskData.inquiryWaitingCnt}건</Link>
+                            <Link to={"/admin/bbs/question/productinquiry?inqState=0"}>{taskData.inquiryWaitingCnt}건</Link>
                         </span>
                     </div>
                 </div>

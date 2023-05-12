@@ -9,8 +9,8 @@ function AdminProductinquiry() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const category = [
-    {cate:"update", name:"문의답변", selected:"문의답변 페이지", list:checkedList}, 
-    {cate:"delete", name:"문의삭제", selected:"이 문의를 삭제하겠습니까?", list:checkedList}
+    {cate:"update", name:"문의답변", list:checkedList}, 
+    {cate:"delete", name:"문의삭제", list:checkedList}
   ];
 
   return (
@@ -53,8 +53,8 @@ function AdminProductinquiry() {
                         />
                     </th>
                     <td>{inq.inqSeq}</td>
-                    <td>{inq.memId}</td>
                     <td>{inq.productId}</td>
+                    <td>{inq.memId}</td>
                     <td>{inq.inqWriter}</td>
                     <td>{inq.inqTitle}</td>
                     <td>{inq.inqContent}</td>

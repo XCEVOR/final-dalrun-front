@@ -4,7 +4,7 @@ import WeekSummary from "../../../../components/dalrun-asj/dashboard/WeekSummary
 function AdminDashboard() {
   return (
     <div className="dashboard admin-container">
-      <span className="title">대시보드</span>
+      <h4 className="title">대시보드</h4>
       <div className="dashboard-content">
         <div className="todolist">
           <span className="subtitle">오늘 할 일</span>

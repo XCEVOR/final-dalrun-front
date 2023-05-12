@@ -11,9 +11,7 @@ function AdminCompetition() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const optionVal = [
-    {value : "seq", name : "대회번호"},
     {value : "name", name : "대회명"},
-    {value : "location", name : "대회지역"},
     {value : "content", name : "대회내용"},
   ]
 
@@ -41,7 +39,7 @@ function AdminCompetition() {
                     />
                   </th>
                   <th>대회번호</th>
-                  <th>제목</th>
+                  <th>대회명</th>
                   <th>지역</th>
                   <th>개최일</th>
                   <th>주최</th>
