@@ -11,7 +11,7 @@ function AdminQuestionContent(props) {
             const option = [
                 {value : "memId", name : "작성자"},
                 {value : "inqWriter", name : "이름"},
-                {value : "productId", name : "상품번호"},
+                {value : "productCode", name : "상품코드"},
                 {value : "title", name : "제목"},
                 {value : "content", name : "내용"}
             ]
