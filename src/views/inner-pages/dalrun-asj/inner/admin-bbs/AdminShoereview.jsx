@@ -11,7 +11,6 @@ function AdminShoereview() {
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const optionVal = [
-    {value : "memId", name : "작성자"},
     {value : "title", name : "제목"},
     {value : "content", name : "내용"}
   ]

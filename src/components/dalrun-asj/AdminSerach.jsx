@@ -24,8 +24,8 @@ function AdminSearch(props) {
             const grade = searchParams.get("grade");
             params.grade = grade;
         } else if(cate === "competition") {
-            const date = searchParams.get("date");            
-            params.date = date;
+            const local = searchParams.get("local");            
+            params.local = local;
         } else if(cate === "product") {
             const saleState = searchParams.get("sale");            
             const stockState = searchParams.get("stock");            
