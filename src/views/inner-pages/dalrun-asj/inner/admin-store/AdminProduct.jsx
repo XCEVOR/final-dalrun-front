@@ -56,9 +56,9 @@ function AdminProduct() {
               <span className="search-title">검색어</span>
               <select value={choice} onChange={(e)=>setChoice(e.target.value)}>
                 <option value="">선택</option>
-                <option value="category">카테고리</option>
-                <option value="productId">상품코드</option>
-                <option value="name">상품명</option>
+                <option value="productId">상품번호</option>
+                <option value="productCode">상품코드</option>
+                <option value="productName">상품명</option>
               </select>
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
@@ -91,7 +91,8 @@ function AdminProduct() {
                     <th>색상</th>
                     <th>사이즈</th>
                     <th>가격</th>
-                    <th>재고</th>
+                    <th>창고재고</th>
+                    <th>가재고</th>
                     <th>판매여부</th>
                     <th>등록일</th>
                   </tr>
@@ -120,6 +121,7 @@ function AdminProduct() {
                           <td>{item.productSize}</td>
                           <td>{item.productPrice}</td>
                           <td>{item.productStock}</td>
+                          <td>{item.productStock-item.orderCnt}</td>
                           <td>{item.productSale !== 0 ? '판매' : '품절'}</td>
                           <td>{item.productRegiDate}</td>
                         </tr>
