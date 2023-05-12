@@ -1,7 +1,99 @@
 ﻿import { Container as MapDiv, NaverMap, Marker, useNavermaps, Overlay, useMap, Polyline} from 'react-naver-maps';
 import React, { useState, useEffect, useMemo } from 'react';
-import MyPolyline from './diary/Polyline';
-import { useDiaryGPXData } from './diary/DiaryGPXData';
+import axios from 'axios';
+
+function NaverMapApi({ diaries, selectedDiary }){
+  // console.log('네이버맵 다이어리 데이터', diaries);
+  console.log('네이버맵-리스트에서 선택된 다이어리: ', selectedDiary);
+  const navermaps = useNavermaps();
+
+  const [center, setCenter] = useState({ lat: 37.3595704, lng: 127.105399 })
+  const [zoom, setZoom] = useState(7);
+
+  const [gpxData, setGpxData] = useState({});
+  const [path, setPath] = useState({});
+
+  useEffect(() => {
+    if(diaries && diaries.length > 0){
+      // diaries에서 diarySeq만 추출하여 리스트 생성
+      const diarySeqList = diaries.map(diary => diary.diarySeq);
+      console.log(diarySeqList);
+
+      axios.get('http://localhost:3000/gpxDataList', {
+        params: {
+          diarySeqList: diarySeqList.join(',') // [1, 2, 3] -> 1, 2, 3
+        }
+      })
+      .then(response => {
+        // console.log('diarySeq 보내서 받은 데이터', response.data);
+
+        const gpxDataObj = {};
+        const pathObj = {};
+
+        response.data.forEach(item => {
+          const { diarySeq, latitude, longitude } = item;
+
+          // gpxData 객체를 구성합니다.
+          if (gpxDataObj[diarySeq]) {
+            gpxDataObj[diarySeq].push(item);
+          } else {
+            gpxDataObj[diarySeq] = [item];
+          }
+
+           // path 객체를 구성합니다.
+          if (pathObj[diarySeq]) {
+            pathObj[diarySeq].push({ lat: latitude, lng: longitude });
+          } else {
+            pathObj[diarySeq] = [{ lat: latitude, lng: longitude }];
+          }
+        });
+
+        setGpxData(gpxDataObj);
+        setPath(pathObj); //
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }, [diaries]);
+
+  const mapOptions = useMemo(
+    () => ({
+      defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
+      defaultZoom: 7,
+      mapDataControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        position: navermaps.Position.RIGHT_TOP,
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+        position: navermaps.Position.RIGHT_CENTER,
+        style: navermaps.ZoomControlStyle.SMALL,
+      },
+    }), []
+    );
+    
+  return (
+    <MapDiv
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+      }}
+    >
+      {useMemo(() => {
+        return (
+          <NaverMap {...mapOptions} center={center} zoom={zoom}>
+            <LocationBtn/>
+            <MySetCenter selectedDiary={selectedDiary} path={path} />
+          </NaverMap>
+        );
+      }, [selectedDiary, path])}
+    </MapDiv>
+  );
+}
+export default NaverMapApi;
 
 
 function LocationBtn() {
@@ -38,77 +130,53 @@ function LocationBtn() {
   );
 }
 
-function NaverMapApi(){
-  const { gpxData } = useDiaryGPXData();
-  console.log('gpxData:', JSON.stringify(gpxData));
-
+function MySetCenter({ selectedDiary, path }) {
+  const nMap = useMap();
   const navermaps = useNavermaps();
 
-  const [center, setCenter] = useState({ lat: 37.3595704, lng: 127.105399 })
-  const [zoom, setZoom] = useState(7);
-
-  const calculateCenterAndZoom = (path) => {
-    let minLat = 40;
-    let maxLat = 0;
-    let minLng = 130;
-    let maxLng = 0;
-  
-    path.forEach(({ lat, lng }) => {
-      minLat = Math.min(minLat, lat);
-      maxLat = Math.max(maxLat, lat);
-      minLng = Math.min(minLng, lng);
-      maxLng = Math.max(maxLng, lng);
-    });
-  
-    const centerLat = (minLat + maxLat) / 2;
-    const centerLng = (minLng + maxLng) / 2;
-  
-    return { center: { lat: centerLat, lng: centerLng }, zoom: 7 };
-  };
-
   useEffect(() => {
-    if (gpxData && Object.keys(gpxData).length > 0) {
-      const path = gpxData[Object.keys(gpxData)[0]];
-      const { center, zoom } = calculateCenterAndZoom(path);
-      setCenter(center);
-      setZoom(zoom);
+    if (selectedDiary) {
+      const selectedPath = path[selectedDiary.diarySeq];
+      if (selectedPath && selectedPath.length > 0){
+        const newCenter = selectedPath[0];
+        nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
+        nMap.setZoom(17);
+      }
+    } else {
+      const initCenter = { lat: 37.3595704, lng: 127.105399 };
+      nMap.setCenter(new navermaps.LatLng(initCenter.lat, initCenter.lng));
+      nMap.setZoom(7);
     }
-  }, [gpxData]);
+  }, [selectedDiary, path]);
 
-  const mapOptions = useMemo(
-    () => ({
-      // defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
-      // defaultZoom: 7,
-      mapDataControl: true,
-      mapTypeControl: true,
-      mapTypeControlOptions: {
-        position: navermaps.Position.RIGHT_TOP,
-      },
-      zoomControl: true,
-      zoomControlOptions: {
-        position: navermaps.Position.RIGHT_CENTER,
-        style: navermaps.ZoomControlStyle.SMALL,
-      },
-    }), []
-    );
-    
- return (
-    <MapDiv
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100vh',
-      }}
-    >
-      {useMemo(() => {
-        return (
-          <NaverMap {...mapOptions} center={center} zoom={zoom}>
-            <LocationBtn/>
-            <MyPolyline gpxData={gpxData} />
-          </NaverMap>
-        );
-      }, [])}
-    </MapDiv>
+  return (
+    <React.Fragment>
+      {!selectedDiary && Object.entries(path).map(([diarySeq, path], index) => {
+        if (path && path.length > 0) {
+          return <Marker 
+                    key={diarySeq} 
+                    position={path[0]}
+                    icon={{
+                      url: '/map_marker.png',
+                      size: { width: 40, height: 40 },
+                      anchor: { x: 20, y: 40 },
+                    }}
+                  />;
+        }
+        return null;
+      })}
+      {selectedDiary && path[selectedDiary.diarySeq] && (
+        <React.Fragment>
+          <Marker position={path[selectedDiary.diarySeq][0]} />
+          <Polyline
+            path={path[selectedDiary.diarySeq]}
+            strokeColor={'#74EABC'}
+            // strokeOpacity={1}
+            strokeWeight={8}
+          />
+        </React.Fragment>
+      )}
+    </React.Fragment>
   );
+  
 }
-export default NaverMapApi;

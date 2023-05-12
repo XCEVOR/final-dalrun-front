@@ -12,7 +12,7 @@ import DetailModal from './DetailModal';
 import ModalFrame from '../ModalFrame';
 
 
-const DiaryList = () => {
+const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
   const [diaryItems, setDiaryItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalCnt, setTotalCnt] = useState(0);  
@@ -20,7 +20,10 @@ const DiaryList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
+  // 모달 창 상태 관리
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 다이어리 선택
   const [selectedDiary, setSelectedDiary] = useState(null);
 
   const openModal = (diary) => {
@@ -58,6 +61,7 @@ const DiaryList = () => {
       });
       console.log('가져오는 데이터:',response.data.list);
       setDiaryItems(response.data.list);
+      onDiaryItemsChange(response.data.list);
       setTotalCnt(response.data.cnt);
     } catch (error) {
       console.error('다이어리 리스트를 가져오지 못했습니다.', error);
@@ -84,10 +88,12 @@ const DiaryList = () => {
     }
   };
 
+  // 페이지 변경 메소드
   const handlePagination = (selectedPage) => {
     setPage(selectedPage);
   };
 
+  // 시간 표현 형식 변경 메소드
   const formatTime =(sec) => {
     const hours = Math.floor(sec/3600);
     const minutes = Math.floor((sec % 3600)/60);
@@ -115,7 +121,7 @@ const DiaryList = () => {
       <div className="diary-list-items">
       {diaryItems.length > 0 ? (
         diaryItems.map((item, index) => (
-          <div key={index} className="diary-list-item">
+          <div key={index} className="diary-list-item" onClick={() => onDiarySelect(item)}>
             <table style={{border:"none"}}>
               <colgroup>
                 <col style={{width: '20px'}}/>
@@ -149,14 +155,6 @@ const DiaryList = () => {
                   </td>
                 </tr>
               </tbody>
-            {/* <div className="diary-list-item-title">{item.title}</div>
-            <div className="diary-list-item-info">
-              <p className="diary-list-item-date">{item.wdate}</p>
-              <p className="diary-list-item-distance">{item.totalDist}</p>
-              <p className="diary-list-item-time">{item.totalTime}</p>
-              <p className="diary-list-item-time">{item.memId}</p>
-              <button onClick={() => openModal(item)}>상세 보기</button>
-            </div> */}
             </table>
           </div>
         ))
