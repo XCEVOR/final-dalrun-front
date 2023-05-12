@@ -65,7 +65,7 @@ function UploadModal() {
       // addGPXData(gpxDataList);
       console.log('업로드 완료');
       closeModal(); // 모달 닫기
-      // window.location.reload();
+      window.location.reload();
       alert('업로드 완료');
   })
   .catch((error) => { // fail

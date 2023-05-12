@@ -140,7 +140,7 @@ function MySetCenter({ selectedDiary, path }) {
       if (selectedPath && selectedPath.length > 0){
         const newCenter = selectedPath[0];
         nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
-        nMap.setZoom(17);
+        nMap.setZoom(13);
       }
     } else {
       const initCenter = { lat: 37.3595704, lng: 127.105399 };
