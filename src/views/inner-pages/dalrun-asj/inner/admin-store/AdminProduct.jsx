@@ -38,15 +38,15 @@ function AdminProduct() {
             <div className="search-content">
               <span className="search-title">판매상태</span>
               <div>
-                <label><input type="radio" value="0" onChange={handleSaleRadio} checked={saleState === "0"}/>판매</label>
-                <label><input type="radio" value="1" onChange={handleSaleRadio} checked={saleState === "1"}/>품절</label>
+                <label><input type="radio" value="1" onChange={handleSaleRadio} checked={saleState === "1"}/>판매</label>
+                <label><input type="radio" value="0" onChange={handleSaleRadio} checked={saleState === "0"}/>품절</label>
               </div>
             </div>
             <div className="search-content">
               <span className="search-title">재고상태</span>
               <div>
-                <label><input type="radio" value="0" onChange={handleStockRadio} checked={stockState === "0"}/>충분</label>
-                <label><input type="radio" value="1" onChange={handleStockRadio} checked={stockState === "1"}/>부족</label>
+                <label><input type="radio" value="1" onChange={handleStockRadio} checked={stockState === "1"}/>충분</label>
+                <label><input type="radio" value="0" onChange={handleStockRadio} checked={stockState === "0"}/>부족</label>
               </div>
             </div>
             </div>
@@ -92,6 +92,7 @@ function AdminProduct() {
                     <th>사이즈</th>
                     <th>가격</th>
                     <th>재고</th>
+                    <th>판매여부</th>
                     <th>등록일</th>
                   </tr>
                 </thead>
@@ -119,6 +120,7 @@ function AdminProduct() {
                           <td>{item.productSize}</td>
                           <td>{item.productPrice}</td>
                           <td>{item.productStock}</td>
+                          <td>{item.productSale !== 0 ? '판매' : '품절'}</td>
                           <td>{item.productRegiDate}</td>
                         </tr>
                       );
