@@ -132,7 +132,7 @@ const MobileMenu = () => {
           <SidebarContent>
             <Menu className="sidebar-menu_wrapper">
               {menuContent.map((item, i) => (
-                <SubMenu title={item.name} key={i}>
+                <SubMenu title={item.name} key={i} style={{padding:'30px 10px'}}>
                   {item.dropDownItems.map((val, i) => (
                     <MenuItem key={i}>
                       <Link to={val.routerPath}>{val.name}</Link>
@@ -149,10 +149,11 @@ const MobileMenu = () => {
       <div className="ptf-offcanvas-menu__footer">
         <p className="ptf-offcanvas-menu__copyright">
         ©{new Date().getFullYear()}{" "}
-            Copyright © 달런달런 All rights reserved 
+            Copyright © 달런달런 All rights reserved
+        </p>
         <Social />
           
-        </p>
+      
       </div>
       {/* End .ptf-offcanvas-menu__footer */}
     </>

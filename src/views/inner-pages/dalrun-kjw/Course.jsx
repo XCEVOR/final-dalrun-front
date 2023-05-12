@@ -10,7 +10,7 @@ const Course = () => {
 
         {/* 사이드 바 */}
         <div id="sideNav" className='_diary-sideNav'>
-          < DiarySidebar/>
+          
         </div>
 
         {/* 기록 리스트 */}
@@ -20,7 +20,7 @@ const Course = () => {
 
         {/* 지도 부분 */}
         <div id="map" className='_diary-map'>
-          <NaverMapApi/>
+          
         </div>
       </div>
      
