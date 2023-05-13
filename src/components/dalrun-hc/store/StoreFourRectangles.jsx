@@ -130,28 +130,37 @@ const StoreFourRectangles = () => {
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
-      <button value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
-      <button value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
-      <button value="HATS" onClick={selectCategoryBtn}>HATS</button>
-      <button value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
-      <button value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
-      <button value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+      <button className="store_main_button" value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
+      <button className="store_main_button" value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
+      <button className="store_main_button" value="HATS" onClick={selectCategoryBtn}>HATS</button>
+      <button className="store_main_button" value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
+      <button className="store_main_button" value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
+      <button className="store_main_button" value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
     <div>
-      <button value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
-      <button value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
+      <button className="store_main_button" value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button className="store_main_button" value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
-    <form>
-        <label htmlFor="search">Search:</label>
-        <input type="text" id="search" value={query} onChange={handleSearch} />
 
-        <label htmlFor="category">Search in:</label>
-        <select id="category" value={category} onChange={handleCategoryChange}>
-          <option value="productName" selected >Name</option>
+
+    <div className="search-box-container">
+      <div className="search-box">
+        <input
+          type="text"
+          placeholder="Search"
+          value={query}
+          onChange={handleSearch}
+          className="search-box-input"
+        />
+        <select value={category} onChange={handleCategoryChange} className="search-box-select">
+          <option value="productName">Name</option>
           <option value="productBrand">Brand</option>
-          {/* <option value="productDescription">Description</option> */}
         </select>
-      </form>
+      </div>
+    </div>
+
+
+
 
 
     <div className="fourrectangles-grid fourrectangles-grid-effect">
