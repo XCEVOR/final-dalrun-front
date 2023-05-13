@@ -1,7 +1,7 @@
 import axios from "axios";
 import CrewRankChart from "../../../../components/dalrun-asj/chart/CrewRankChart";
 import CrewRankTable from "../../../../components/dalrun-asj/chart/CrewRankTable";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CrewMonthlyRank from "../../../../components/dalrun-asj/chart/CrewMonthlyRank";
 
 function AdminChart() {
@@ -12,10 +12,10 @@ function AdminChart() {
       <h4 className="title">차트</h4>
       <div className="chart-content">
         <div className="info">
-          개인달리기순위
+          <span className="subtitle">개인달리기순위</span>
         </div>
         <div className="info">
-          크루순위
+          <span className="subtitle">크루순위</span>
           <CrewMonthlyRank setData={setData} />
           <CrewRankTable dataList={data} />
           <CrewRankChart dataList={data} />
