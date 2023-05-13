@@ -13,8 +13,8 @@ const teamContent = [
   {
     delayAnimation: "100",
     img: "diary",
-    title: "러닝 다이어리",
-    link: ''
+    title: "다이어리",
+    link: 'diary'
 
   },
   {
@@ -49,20 +49,20 @@ const teamContent = [
     delayAnimation: "100",
     img: "crew",
     title: "크루 모집",
-    link: ''
+    link: 'crewBbsMain'
 
   },
   {
     delayAnimation: "100",
     img: "mypage",
     title: "마이페이지",
-    link: ''
+    link: 'mypage'
 
   },
 
 ];
 
-const TeammainPage = () => {
+const MenumainPage = () => {
   return (
     <>
     <div className="ptf-team-member-grid">
@@ -75,9 +75,10 @@ const TeammainPage = () => {
         >
           {/* <!--Team Member--> */}
           <div className="ptf-team-member">
-            <div className="ptf-team-member__avatar" >
-              <div className="shadow-effect"></div>
-              <Link to={`/${val.link}`} >
+            <div className="ptf-animated-block aos-init aos-animate"  >
+
+          <div className="bounce_button"> 
+              <Link  to={`/${val.link}`} >
                 {" "}
                 <img
                   src={`assets/img/dalrun-jy/${val.img}.png`}
@@ -85,14 +86,17 @@ const TeammainPage = () => {
                   loading="lazy"
                 />
               </Link>
-            </div>
-            <div className="ptf-team-member__content">
-              <h6 className="ptf-team-member__name">
-                <a href="#">{val.title}</a>
-              </h6>
+            <div className="ptf-team-member__content" style={{textAlign:'center',marginTop:'10px'}}>
+            <a className="h5 ptf-work__meta" to={`/${val.link}`} >
+              
+                {val.title}
+              
+            </a>
 
+        </div> 
             </div>
           </div>
+            </div>
         </div>
       ))}
       </div>
@@ -100,4 +104,4 @@ const TeammainPage = () => {
   );
 };
 
-export default TeammainPage;
+export default MenumainPage;

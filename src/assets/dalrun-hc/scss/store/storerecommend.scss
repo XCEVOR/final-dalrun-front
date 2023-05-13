@@ -1,0 +1,107 @@
+/* SECTION: PAGE CONTACT
+-------------------------------------------- */
+
+  /* SECTION: HOME AGENCY
+  -------------------------------------------- */
+.dalrun-hc {
+    .recommend {
+        position: relative;
+        background-image: url(../../img/home/agency/about-image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        &::after {
+          content: "";
+    
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: -1;
+    
+          width: calc(50% - #{px2rem(250px)});
+    
+          background-color: var(--ptf-color-white);
+    
+          @include mq("large") {
+            width: 100%;
+          }
+        }
+    }
+
+  .ptf-is--home-agency {
+    .ptf-custom--3993 {
+      position: relative;
+      background-image: url(../../img/home/agency/about-image.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+  
+      &::after {
+        content: "";
+  
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+  
+        width: calc(50% - #{px2rem(250px)});
+  
+        background-color: var(--ptf-color-white);
+  
+        @include mq("large") {
+          width: 100%;
+        }
+      }
+    }
+  
+    .ptf-custom--1569 {
+      background-color: var(--ptf-color-8);
+      background-image: url(../../img/root/home-agency-symbol.png);
+      background-repeat: no-repeat;
+      background-position: calc(100% + 15px) calc(100% + 150px);
+    }
+  }
+  .ptf-btn.ptf-btn--underlined {
+    font-size: 1rem;
+    padding: 0.5625rem 0;
+    color: var(--ptf-color-black);
+    -webkit-box-shadow: inset 0 -2px currentColor;
+    box-shadow: inset 0 -2px currentColor;
+  }
+  .ptf-twitter-review__content span {
+    color: #0cf;
+  }
+  .scroll-top {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #000;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    outline: none;
+    &::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      top: 100%;
+      left: 5%;
+      height: 10px;
+      width: 90%;
+      opacity: 1;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.25) 0,
+        transparent 80%
+      );
+    }
+  }
+}

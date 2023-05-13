@@ -5,6 +5,11 @@ import { useNavigate, useSearchParams} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
+import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import ModalPortal from '../Portal';
+import DetailModal from './DetailModal';
+import ModalFrame from '../ModalFrame';
 
 
 const DiaryList = () => {
@@ -14,6 +19,19 @@ const DiaryList = () => {
   const [search, setSearch] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDiary, setSelectedDiary] = useState(null);
+
+  const openModal = (diary) => {
+    setSelectedDiary(diary);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedDiary(null);
+    setIsModalOpen(false);
+  };
 
 
   useEffect(() => {
@@ -38,6 +56,7 @@ const DiaryList = () => {
           pageNumber: pageNumber,
         },
       });
+      console.log('가져오는 데이터:',response.data.list);
       setDiaryItems(response.data.list);
       setTotalCnt(response.data.cnt);
     } catch (error) {
@@ -69,6 +88,14 @@ const DiaryList = () => {
     setPage(selectedPage);
   };
 
+  const formatTime =(sec) => {
+    const hours = Math.floor(sec/3600);
+    const minutes = Math.floor((sec % 3600)/60);
+    const seconds = sec % 60;
+
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
   return (
     <div className="diary-list-container">
       <div className="diary-list-header">
@@ -81,7 +108,7 @@ const DiaryList = () => {
         </div>
       </div>
       <div className="diary-list-item first-place">
-        <div style={{marginTop:'1.3rem'}}>
+        <div style={{marginTop:'1.3rem', marginLeft:'0.5rem'}}>
           <FontAwesomeIcon icon={faCrown} title='1등' bounce size="2xl" style={{color: "#f5dc3d",}}/>
         </div>
       </div>
@@ -89,14 +116,48 @@ const DiaryList = () => {
       {diaryItems.length > 0 ? (
         diaryItems.map((item, index) => (
           <div key={index} className="diary-list-item">
-            <div className="diary-list-item-title">{item.title}</div>
+            <table style={{border:"none"}}>
+              <colgroup>
+                <col style={{width: '20px'}}/>
+                <col style={{width: '120px'}}/>
+                <col style={{width: '20px'}}/>
+                <col style={{width: '120px'}}/>
+                <col style={{width: '20px'}}/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon icon={faLocationPin} size="xl" style={{color: "#51e3d4",}} />
+                  </td>
+                  <td>
+                    &nbsp;&nbsp;<FontAwesomeIcon icon={faCircleUser} size="xl" /> {item.memId}
+                  </td>
+                  <td colSpan={3} style={{overflowX:'hidden'}}>{item.title}</td>
+                </tr>
+                <tr>
+                  <td colSpan={2} className='tableItem'>이동 거리 {(item.totalDist/1000).toFixed(2)} km</td>
+                  <td></td><td colSpan={2} className='tableItem'>평균 페이스 {item.meanPace.toFixed(1)} 분/km </td>
+                </tr>
+                <tr>
+                  <td colSpan={2} className='tableItem'>이동 시간 {formatTime(item.totalTime)} </td>
+                  <td></td><td colSpan={2} className='tableItem'>칼로리 {item.kcal} kcal</td>
+                </tr>
+                <tr>
+                  <td colSpan={3} style={{color:"grey"}}>{new Date(item.wdate).toLocaleDateString('ko-KR', {year: 'numeric', month: '2-digit', day: '2-digit'}).replaceAll('. ', '-').replaceAll('.', '')}</td>
+                  <td colSpan={2} style={{textAlign:'right'}}>
+                    <button onClick={() => openModal(item)}>상세 보기</button>
+                  </td>
+                </tr>
+              </tbody>
+            {/* <div className="diary-list-item-title">{item.title}</div>
             <div className="diary-list-item-info">
               <p className="diary-list-item-date">{item.wdate}</p>
               <p className="diary-list-item-distance">{item.totalDist}</p>
               <p className="diary-list-item-time">{item.totalTime}</p>
               <p className="diary-list-item-time">{item.memId}</p>
-              <button>상세 보기</button>
-            </div>
+              <button onClick={() => openModal(item)}>상세 보기</button>
+            </div> */}
+            </table>
           </div>
         ))
       ) 
@@ -106,6 +167,13 @@ const DiaryList = () => {
       <div className='diary-list-pagination'>
         <AdminPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination}/>
       </div>
+      <ModalPortal>
+        {openModal && (
+          <ModalFrame open={isModalOpen} close={closeModal} header="다이어리" >
+            <DetailModal diary={selectedDiary} onClose={closeModal} />
+          </ModalFrame>
+        )}
+      </ModalPortal>
     </div>
   );
 

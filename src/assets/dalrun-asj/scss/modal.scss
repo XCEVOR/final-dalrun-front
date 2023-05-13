@@ -15,8 +15,12 @@
 }
 
 .modal-dialog {
-    // width: 0;
+    max-width: 1200px;
 }
+
+.modal-max-width {
+    max-width: 1200px;
+  }
 
 .modalInTable {
     .table_link {
@@ -30,11 +34,26 @@
         overflow: hidden;
         margin-bottom: 10px;
     }
+
+    .inq_title {
+        width: 250px;
+    }
+
+    .inq_con {
+        width: 300px;
+    }
 }
 
 // update
 .admin_update_container {
     width: 766px;
+    margin: auto;
+
+    .review_regi_img {
+        .product_img {
+            grid-template-columns: 1fr 1fr 1fr 1fr !important;
+        }
+    }
 
     .admin_update {
         margin: 0 auto;
@@ -134,6 +153,23 @@
 
             input[type="date"]:first-child {
                 margin-right: 20px;
+            }
+        }
+
+        .text_flex {
+            display: flex;
+
+            textarea {
+                margin-right: 20px;
+            }
+
+            button {
+                width: 60px;
+                height: 35px;
+                border: none;
+                background-color: var(--ptf-accent-1);
+                border-radius: 7px;
+                margin-bottom: 10px;
             }
         }
     }

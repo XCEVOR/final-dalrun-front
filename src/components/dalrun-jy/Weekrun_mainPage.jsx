@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
+
 import Slider from "react-slick";
 
+
+// 임시 데이터
 const portfolioContent = [
   {
     img: "load",
@@ -23,7 +27,6 @@ const portfolioContent = [
   }
 ];
 
-const PortfoliomainPage = () => {
   const settings = {
     dots: false,
     arrow: true,
@@ -36,24 +39,59 @@ const PortfoliomainPage = () => {
     
   };
 
+const Weekrun_mainPage = () => {
+
+  const [courseList,setCourseList]=useState([]);
+
+
+  // 종완님 구현 부탁드려요
+  function getPopularCourse(){
+    axios.get("http://localhost:3000/")
+      .then(function (resp) {
+        setCourseList(resp.data);
+
+      }).catch(function (err) {
+        alert(err);
+      })
+
+  }
+
+  useEffect(() => {
+
+   //getPopularCourse();
+  
+   
+
+  }, []);
+
+  useEffect(() => {
+
+  });
+
+
+
   return (
     <div className="ptf-content-slider swiper-container slide-portfolio">
       <div className="swiper-wrapper">
         <Slider {...settings}>
           {/* <!--Portfolio Item--> */}
           {portfolioContent.map((item, i) => (
+          // {courseList.map((item, i) => (
+
             <article className="ptf-work ptf-work--style-4" key={i}>
               <div className="ptf-work__media">
                 <Link to={`/${item.link}`} className="ptf-work__link"></Link>
+
+
                 <img
                   src={`assets/img/dalrun-jy/${item.img}.jpg`}
                   alt=""
                   
                 />
               </div>
-              <div className="ptf-work__meta">
+              <div className="ptf-work__meta" style={{marginLeft:'20px'}}>
                 <div className="ptf-work__category">{item.categorie}</div>
-                <h4 className="ptf-work__title">
+                <h4 className="ptf-work__title" >
                   <Link to="/">{item.title}</Link>
                 </h4>
               </div>
@@ -65,4 +103,4 @@ const PortfoliomainPage = () => {
   );
 };
 
-export default PortfoliomainPage;
+export default Weekrun_mainPage;

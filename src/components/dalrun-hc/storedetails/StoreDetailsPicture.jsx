@@ -64,10 +64,11 @@ function StoreDetailsPicture() {
   ? (
     <>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-    <div>
+    <div className="productPic_container">
 
 
       {productPictureList.map((pic, index) => (
+
         <div key={index}>
           {index == 0 ?
             <div>

@@ -12,8 +12,10 @@ import Testimonial from "../../components/testimonial/Testimonial";
 
 
 import CopyRight from "../../components/dalrun-jy/footer/CopyRight";
-import PortfoliomainPage from "../../components/dalrun-jy/PortfoliomainPage";
-import TeammainPage from "../../components/dalrun-jy/TeammainPage";
+import Weekrun_mainPage from "../../components/dalrun-jy/Weekrun_mainPage";
+import Weekshop_mainPage from "../../components/dalrun-jy/Weekshop_mainPage";
+
+import MenumainPage from "../../components/dalrun-jy/MenumainPage";
 import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";
 import HeromainPage from "../../components/dalrun-jy/HeromainPage";
 
@@ -23,24 +25,21 @@ const MainPage = () => {
       <Helmet>
         <title>메인 페이지</title>
       </Helmet>
-      {/* End Page SEO Content */}
 
       <HeadermainPage />
-      {/* End Header Default */}
-
-      <div className="ptf-site-wrapper__inner">
+    
+      <div className="ptf-site-wrapper__inner" >
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default">
+            
             {/*=============================================
                 이 주의 러너 베너
               ============================================== */}
             <div className="container-xxl">
-            <section className="has-accent-1-background">
+            <section>
+              
               {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem" }}
-              ></div>
+              
                 <HeromainPage />
              
               {/* <!--Spacer--> */}
@@ -79,7 +78,7 @@ const MainPage = () => {
                   style={{ "--ptf-xxl": "2.5rem", "--ptf-md": "2.75rem" }}
                 ></div>
         
-                  <TeammainPage />
+                  <MenumainPage />
               
               </div>
               {/* <!--Spacer--> */}
@@ -117,11 +116,7 @@ const MainPage = () => {
 
                   </div>
                 </div>
-                {/* <!--Spacer--> */}
-                <div
-                  className="ptf-spacer"
-                  style={{ "--ptf-xxl": "2.25rem" }}
-                ></div>
+               
                 {/* <!--Animated Block--> */}
                 <div
                   className="ptf-animated-block"
@@ -129,7 +124,7 @@ const MainPage = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Content Slider--> */}
-                  <PortfoliomainPage />
+                  <Weekrun_mainPage />
                 </div>
               </div>
               {/* <!--Spacer--> */}
@@ -144,7 +139,51 @@ const MainPage = () => {
               ============================================== */}
 
             <section>
+            <div className="container-xxl">
+                <div className="row align-items-center">
+                  <div className="col-12 col-md-9">
+                    {/* <!--Animated Block--> */}
+                    <div
+                      className="ptf-animated-block"
+                      data-aos="fade"
+                      data-aos-delay="0"
+                    >
+                      <h2 className="text-uppercase fw-semibold">
+                       이주의 쇼핑 상품 추천
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-3 text-md-end">
+                    {/* <!--Spacer--> */}
+                    <div
+                      className="ptf-spacer"
+                      style={{ "--ptf-md": "1.875rem" }}
+                    ></div>
+                    {/* <!--Animated Block--> */}
 
+                  </div>
+                </div>
+                {/* <!--Spacer--> */}
+                <div
+                  className="ptf-spacer"
+                  style={{ "--ptf-xxl": "2.25rem" }}
+                ></div>
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  {/* <!--Content Slider--> */}
+                  
+                  <Weekshop_mainPage />
+                </div>
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "9.5rem" }}
+              ></div>
 
             </section>
           </div>

@@ -55,9 +55,11 @@ import Admin from "../views/inner-pages/dalrun-asj/Admin";
 // 장호찬
 import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
 import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
+import StoreRecommend from "../views/inner-pages/dalrun-chc/store/StoreRecommend";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
 import StoreCart from "../views/inner-pages/dalrun-chc/store/StoreCart";
 import StorePayment from "../views/inner-pages/dalrun-chc/store/StorePayment";
+import StorePaymentConfirm from "../views/inner-pages/dalrun-chc/store/StorePaymentConfirm";
 import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
@@ -93,7 +95,8 @@ import CrewBbsBlogDetails from "../views/inner-pages/dalrun-pyr/crew/CrewBbsBlog
 import KakaoCallback from "../views/inner-pages/dalrun-pyr/KakaoCallback";
 import CrewBbsUpdate from "../views/inner-pages/dalrun-pyr/crew/CrewBbsUpdate";
 import CrewBbsDelete from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDelete";
-import FindPassword from "../views/inner-pages/dalrun-pyr/FindPassword";
+import FindRegi from "../views/inner-pages/dalrun-pyr/FindRegi";
+import SignupSuccess from "../views/inner-pages/dalrun-pyr/SignupSuccess";
 
 const AllRoutes = () => {
   return (
@@ -149,9 +152,11 @@ const AllRoutes = () => {
         {/* 장호찬 */}
         <Route path='/chc-work' element={<ChcWorkspace/>} />
         <Route path='/store-main' element={<StoreMain />} />
+        <Route path='/store-recommend/:productCode' exact element={<StoreRecommend />} />
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
         <Route path='/store-cart' element={<StoreCart />} />
         <Route path='/store-payment' element={<StorePayment />} />
+        <Route path='/store-payment-confirm/:ordernumber' exact element={<StorePaymentConfirm />} />
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
@@ -195,7 +200,8 @@ const AllRoutes = () => {
         <Route path="/kakaocallback" element={<KakaoCallback/>}/>
         <Route path="/crewBbsUpdate/:crewSeq" exact element={<CrewBbsUpdate />}/>
         <Route path="/crewBbsDelete/:crewSeq" exact element={<CrewBbsDelete />}/>
-        <Route path="/findPassword" element={<FindPassword/>}/>
+        <Route path="/findRegi" element={<FindRegi/>}/>
+        <Route path="/signupSuccess" element={<SignupSuccess/>}/>
 
       </Routes>
     </>

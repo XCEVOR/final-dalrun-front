@@ -66,8 +66,8 @@ function ProductInqReply({data, onHide}) {
                         <th>문의상품</th>
                         <th>작성자</th>
                         <th>이름</th>
-                        <th>제목</th>
-                        <th>문의내용</th>
+                        <th className="inq_title">제목</th>
+                        <th className="inq_con">문의내용</th>
                         <th>관리</th>
                     </tr>
                 </thead>

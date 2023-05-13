@@ -22,7 +22,7 @@ const menuContent = [
         name: "도트맵 페이지",
         routerPath: "/dotMap",
       },
-    
+
     ],
   },
   {
@@ -40,91 +40,105 @@ const menuContent = [
         name: "업로드 등록방법",
         routerPath: "/diary",
       },
-      
-      
+
+
     ],
   },
   {
+
     name: "스토어",
-    dropDownItems: [
-      {
-        name: "스토어",
-        routerPath: "/store-main",
-      },
-      {
-        name: "장바구니",
-        routerPath: "/store-cart",
-      },
-    ],
+    routerPath: "/store-main",
+
   },
   {
-    name: "러닝 코스 추천",
-    dropDownItems: [
-      {
-        name: "러닝 코스",
-        routerPath: "/coming-soon",
-      },
-    
-      {
-        name: "coming-soon",
-        routerPath: "/coming-soon",
-      },
-    ],
+
+    name: "러닝 코스",
+    routerPath: "/coming-soon",
+
   },
   {
     name: "대회 신청",
-    dropDownItems: [
-      {
-        name: "대회 일정",
-        routerPath: "/competition-main",
-      },
-    
-      {
-        name: "Coming Soon",
-        routerPath: "/coming-soon",
-      },
-    ],
+    routerPath: "/competition-main",
+
+
+
   },
   {
     name: "러닝화 리뷰",
-    dropDownItems: [
-      {
-        name: "러닝화 리뷰",
-        routerPath: "/review-main",
-      }
-    ],
+    routerPath: "/review-main",
+
   },
   {
+
     name: "QnA",
-    dropDownItems: [
-      {
-        name: "QnA 게시판",
-        routerPath: "/coming-soon",
-      },
-    
-      {
-        name: "coming-soon",
-        routerPath: "/coming-soon",
-      },
-    ],
+    routerPath: "/coming-soon",
+
   },
   {
     name: "마이페이지",
     dropDownItems: [
       {
-        name: "마이페이지",
-        routerPath: "/coming-soon",
+        name: "회원정보",
+        routerPath: "/mypage/myinform",
       },
-    
+
       {
-        name: "coming-soon",
+        name: "나의 크루",
+        routerPath: "/mypage/mycrew",
+      },
+      {
+        name: "러닝 기록",
+        routerPath: "/mypage/myrunning",
+      },
+
+      {
+        name: "스토어 구매 이력",
+        routerPath: "/mypage/mystore",
+      },
+
+      {
+        name: "게시글 내역",
+        routerPath: "/mypage/mywrite",
+      },
+      {
+        name: "나의 회원 등급",
+        routerPath: "/mypage/myrating",
+      },
+    ],
+  },
+  {
+    name: "관리자 페이지",
+    dropDownItems: [
+      {
+        name: "대시보드",
+        routerPath: "/admin/dashboard",
+      },
+
+      {
+        name: "회원 관리",
         routerPath: "/coming-soon",
       },
+      {
+        name: "게시글 관리",
+        routerPath: "/admin/members",
+      },
+      {
+        name: "쇼핑몰 관리",
+        routerPath: "/admin/bbs/question/",
+      },
+      {
+        name: "차트",
+        routerPath: "/admin/chart",
+      }
     ],
   },
 ];
 
+
+
 const MobileMenu = () => {
+
+  console.log(menuContent)
   return (
     <>
       <div className="ptf-offcanvas-menu__navigation">
@@ -132,14 +146,33 @@ const MobileMenu = () => {
           <SidebarContent>
             <Menu className="sidebar-menu_wrapper">
               {menuContent.map((item, i) => (
-                <SubMenu title={item.name} key={i}>
-                  {item.dropDownItems.map((val, i) => (
-                    <MenuItem key={i}>
-                      <Link to={val.routerPath}>{val.name}</Link>
-                    </MenuItem>
-                  ))}
-                </SubMenu>
-              ))}
+                <React.Fragment key={i}>
+                  {item.dropDownItems !== undefined &&
+
+                    <SubMenu title={item.name} key={item.name} style={{ padding: '10px' }}>
+
+                      {
+                        item.dropDownItems.map((val, j) => (
+                          <MenuItem key={i+'A'+j}>
+                            <Link  to={val.routerPath}>{val.name}</Link>
+                          </MenuItem>
+                        ))}
+                    </SubMenu>
+                    ||
+                    <li className="pro-menu-item pro-sub-menu"   key={i+'B'} style={{ padding: '10px' }}>
+                      <div className="pro-inner-item"   >
+                        <span className="pro-item-content"   > {item.name}  </span>
+                        <Link   to={item.routerPath}></Link>
+
+                      </div>
+                    </li>
+
+
+                  }
+                </React.Fragment>
+              )
+
+              )}
             </Menu>
           </SidebarContent>
         </ProSidebar>
@@ -148,11 +181,12 @@ const MobileMenu = () => {
 
       <div className="ptf-offcanvas-menu__footer">
         <p className="ptf-offcanvas-menu__copyright">
-        ©{new Date().getFullYear()}{" "}
-            Copyright © 달런달런 All rights reserved 
-        <Social />
-          
+          ©{new Date().getFullYear()}{" "}
+          Copyright © 달런달런 All rights reserved
         </p>
+        <Social />
+
+
       </div>
       {/* End .ptf-offcanvas-menu__footer */}
     </>

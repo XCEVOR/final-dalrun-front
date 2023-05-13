@@ -15,9 +15,11 @@ function AdminBbs() {
     ];
 
     return(
-        <div className="bbs container">
+        <div className="bbs admin-container">
             <h4 className="title">게시물 관리</h4>
-            <AdminBtn {...category} />
+            <div style={{ float:"left" }}>
+                <AdminBtn {...category} />
+            </div>
             <Routes>
                 <Route path=":cate/*" element={<AdminBbsContent {...category}/>} />
             </Routes>

@@ -89,8 +89,7 @@ const ContentComp = () => {
               {/* <NaverMapView mapLat={`${val.lat}`} mapLng={`${val.lng}`}></NaverMapView> */}
               <Link className="ptf-work__link" to={`/competition-detail/${val.compSeq}`}></Link>
               <img
-                // src={`assets/img/dalrun-jy/${val.compimage}`}
-                src={`http://localhost:3000/dalrun-jy/competition/marathon_${val.compSeq}.jpg`}
+                src={`http://localhost:3000/dalrun-hc/competition/${val.compimage}`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative' }}
