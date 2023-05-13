@@ -191,7 +191,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 }
 
 .info {
-    height: 580px;
     margin-top: 25px;
 
     .info_con {
@@ -324,13 +323,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
             box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.1);
             background-color: var(--ptf-color-white);
         }
-
-        // .week {
-        //     border-radius: 10px;
-        //     padding: 20px;
-        //     box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.1);
-        //     background-color: var(--ptf-color-white);
-        // }
     }
 }
 
@@ -365,9 +357,8 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
     }
     
     .rank_table {
-        margin-top: 20px;
+        margin: 40px 0 50px 0;
         display: flex;
-        // justify-content: center;
 
         tbody {
             display: flex;
@@ -376,9 +367,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
         tr {
             display: flex;
             flex-direction: column;
-        }
-
-        td {
         }
     }
 }
