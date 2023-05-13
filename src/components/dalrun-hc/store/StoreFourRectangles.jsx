@@ -143,7 +143,7 @@ const StoreFourRectangles = () => {
     </div>
 
 
-    <div className="search-box-container">
+    <div className="search_box_container">
       <div className="search-box">
         <input
           type="text"
