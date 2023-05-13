@@ -6,13 +6,16 @@
     margin-left: 200px;
 }
 rect{
-    fill: darkslategrey;
+    fill: rgba(20, 20, 20);
     pointer-events: all;
-    transition: all 1s;
+    transition: all 0.5s;
+   
 }
 rect:hover {
     fill: white;
-    cursor: pointer;
+    cursor: pointer; 
+   
+   
 }
 .tippy-box[data-theme~="purchased"] {
     background-color: #4158d0;

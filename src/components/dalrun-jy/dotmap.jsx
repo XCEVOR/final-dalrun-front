@@ -111,37 +111,7 @@ const Dotmap = (props) => {
 
   }
 
-  // const my_onSubmit = (e) => {
-  //   e.preventDefault();
 
-  //   let formData = new FormData();
-  //   formData.append("memId", document.getElementById('mymemId').textContent);
-  //   formData.append("price",document.getElementById('price').textContent);
-  //   formData.append("message", document.frm.description.value);
-  //   formData.append("image", document.frm.uploadFile.files[0]);
-  //   formData.append("location", document.getElementById("location").textContent);
-
-  //   if (document.frm.description.value && document.frm.uploadFile.files[0]) {
-
-  //     axios.post("http://localhost:3000/my_buydotMap", formData)
-  //       .then(res => {
-  //         alert('file upload에 성공했습니다');
-  //         document.my_frm.reset();
-  //         document.getElementById('ModalBuyHeader').style.display = 'none';
-  //         document.getElementById('modalHeader').style.display = 'none';
-  //         getearthPage();
-  //         loading();
-
-
-  //       })
-  //       .catch(function (error) {
-  //         alert('file upload에 실패했습니다');
-  //       });
-  //   } else {
-  //     document.getElementById('submitalert').style.display = 'block';
-  //   }
-
-  // }
 
   // 도트맵 메세지를 닫았을 때
   const exixBuyHeader = (e) => {
@@ -183,6 +153,7 @@ const Dotmap = (props) => {
       console.log(logindata.memId, "님이 접속하였습니다..")
       setLogin(logindata);
       props.Changelogininfo(logindata);
+      
       getMyCrewinfo(JSON.parse(localStorage.getItem('login')).crewSeq);
       setLoginTF(true);
 
@@ -193,8 +164,10 @@ const Dotmap = (props) => {
   useEffect(() => {
 
     getearthPage();
-    loading();
-    console.log("dtopmap=====\n",props.login);
+    if(props.main!==false){
+      loading();
+      console.log("dtopmap=====\n",props.login);
+    }
 
   }, []);
 
@@ -233,7 +206,7 @@ const Dotmap = (props) => {
       /* dotList가 갱신되었을 때 이벤트 추가 */
       if (dotList.length !== 0 && dotList.length >= j + 1 && i === dotList[j].location) {
 
-        let { location, crewName, memId,regdate, message, groundColor, dotNewFile, sale } = dotList[j];
+        let { location, crewName, myFile,memId,regdate, message, groundColor, dotNewFile, sale } = dotList[j];
         rect_Collection[i].style.fill = groundColor;
         
         /* 도트 클릭시 모달창 생성 */
@@ -252,8 +225,9 @@ const Dotmap = (props) => {
             
             // 크루 땅일 시
             if(sale==1){
+             
               document.getElementById('myprofile').style.display='block';
-              document.getElementById('myprofile').src = "assets/img/dalrun-jy/mainreview.jpg";
+              document.getElementById('myprofile').src = "http://localhost:3000/dalrun-yr/crewImg/"+ (myFile.split('/')[0]);
               document.getElementById('mycrewinfo_name').textContent=crewName
             }else{
               // 개인 땅일 시
