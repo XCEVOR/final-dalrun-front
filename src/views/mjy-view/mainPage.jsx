@@ -1,27 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Award from "../../components/award/Award";
-import Blog from "../../components/blog/Blog";
-import Brand from "../../components/brand/Brand";
-import Counter from "../../components/counter/Counter";
-import Footer from "../../components/footer/Footer";
-import Approach from "../../components/service/Approach";
-import ServiceOne from "../../components/service/ServiceOne";
-import Testimonial from "../../components/testimonial/Testimonial";
 
 
 import CopyRight from "../../components/dalrun-jy/footer/CopyRight";
 import Weekrun_mainPage from "../../components/dalrun-jy/Weekrun_mainPage";
 import Weekshop_mainPage from "../../components/dalrun-jy/Weekshop_mainPage";
-
 import MenumainPage from "../../components/dalrun-jy/MenumainPage";
 import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";
 import HeromainPage from "../../components/dalrun-jy/HeromainPage";
-
+import Ad from "../../components/dalrun-jy/ad";
 const MainPage = () => {
   return (
-    <div className="ptf-site-wrapper animsition  ptf-is-default">
+    <div className="ptf-site-wrapper animsition  ptf-is-default" style={{position:'relative'}}>
+      <Ad left={25} top={3} image={"ad.png"}/>
       <Helmet>
         <title>메인 페이지</title>
       </Helmet>
@@ -30,7 +22,7 @@ const MainPage = () => {
     
       <div className="ptf-site-wrapper__inner" >
         <div className="ptf-main">
-          <div className="ptf-page ptf-page--home-default">
+          <div className="ptf-page ptf-page--home-default" >
             
             {/*=============================================
                 이 주의 러너 베너
