@@ -5,6 +5,9 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
 function CrewRankChart({ dataList }) {  
     if(dataList === undefined) return;
 
+    const year = dataList[0].year;
+    const month = dataList[0].month;
+
     const data = {
         labels: dataList.map(data => data.crewName),
         datasets: [
@@ -26,6 +29,7 @@ function CrewRankChart({ dataList }) {
                 data = {data}
                 options = {options}
             />
+            <div className='charting_month'>{year}년 {month}월</div>
         </div>
     );
 }

@@ -66,6 +66,14 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
     }
 }
 
+// admin-content
+.dashboard, .members, 
+.store, .chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .admin-container {
     width: 100%;
     padding: 60px 130px;
@@ -89,7 +97,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
         margin: 10px 0;
         padding: 3px 10px;
         font-size: 15px;
-        // border:1px solid var(--bs-gray-700);
         border: none;
         background-color: var(--bs-gray-300);
         font-weight: 500;
@@ -98,10 +105,7 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 
     button:hover,
     .active {
-        // background-color: var(--bs-gray-700);
-        // color: var(--ptf-color-white);
         background-color: var(--ptf-accent-1);
-        // color: #123;
     }
     
     .title {
@@ -352,6 +356,10 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
         margin-right: 20px;
     }
 
+    .info > div {
+        margin: 0 20px;
+    }
+
     .subtitle {
         font-weight: 700;
     }
@@ -359,6 +367,7 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
     .rank_table {
         margin: 40px 0 50px 0;
         display: flex;
+        justify-content: center;
 
         tbody {
             display: flex;
@@ -368,5 +377,14 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
             display: flex;
             flex-direction: column;
         }
+
+        td {
+            width: 100%;
+        }
+    }
+
+    .charting_month {
+        margin-top: 30px;
+        text-align: center;
     }
 }
