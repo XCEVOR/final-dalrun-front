@@ -64,7 +64,7 @@ function AdminDiary() {
                         <td>{d.diarySeq}</td>
                         <td>{d.memId}</td>
                         <td>{d.title}</td>
-                        <td>{d.content}</td>
+                        <td className="text_overflow">{d.content}</td>
                         <td>{d.totalDist}</td>
                         <td>{d.totalTime}</td>
                         <td>{d.kcal}</td>
