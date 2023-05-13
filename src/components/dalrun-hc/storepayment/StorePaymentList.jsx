@@ -118,6 +118,14 @@ function StoreCartList(props) {
     
   }, [data])
 
+  
+  useEffect (() => {
+    alert(orderNumber)
+    if (orderNumber === undefined) return;
+    navigate(`/store-payment-confirm/${orderNumber}`);
+  }, [orderNumber])
+
+
   if(loading === false){
     return <div>Loading...</div>
   }
@@ -343,12 +351,26 @@ function StoreCartList(props) {
 
 
 
+
+
+  // 주문번호 작성 후 페이지 이동.
+  const testSuccessPayment = () => {
+    axios.get(`http://localhost:3000/korean`, {})
+    .then (function () {
+      writeOrderData();
+    })
+    .catch (function (err) {
+      alert(err);
+    })
+  }
+
+
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
-
+        
         <section>
           <h1>ORDER SUMMARY</h1>
 
@@ -402,6 +424,7 @@ function StoreCartList(props) {
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link>
                   <h3 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h3>
+                  <button onClick={testSuccessPayment}>testSuccessPayment</button>
 
                 </div>
               </div>
