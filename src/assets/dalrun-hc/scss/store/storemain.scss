@@ -210,3 +210,44 @@
       }
 
 }
+
+
+
+
+
+
+.dalrun_hc {
+  .ptf-is--home-agency {
+    .ptf-custom--3993 {
+      position: relative;
+      background-image: url(../../img/home/agency/about-image.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        width: calc(50% - #{px2rem(250px)});
+
+        background-color: var(--ptf-color-white);
+
+        @include mq("large") {
+          width: 100%;
+        }
+      }
+    }
+
+    .store_four_rectangles {
+      // background-color: var(--ptf-color-8);
+      background-image: url(../../img/root/home-agency-symbol.png);
+      background-repeat: no-repeat;
+      background-position: calc(100% + 15px) calc(100% + 150px);
+    }
+  }
+}
