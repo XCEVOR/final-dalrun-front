@@ -4,7 +4,6 @@ import axios from "axios";
 
 //import FootSizeSelector from "./FootInfromation";
 import './css/Register.css';
-import { useEffect } from "react";
 
 //프로필 사진 profile
 //발 모양 정보 foot
@@ -36,7 +35,7 @@ function Register(){
     }
 
     const fileChange = (event) => {
-        alert("file changed");
+        //alert("file changed");
         const fileList = event.target.files;
         let reader = new FileReader();
         if (fileList !== null){
@@ -133,7 +132,7 @@ function Register(){
     };
 
     const gotoLogin = () =>{
-        history("/login");
+        history("/signupSuccess");
     }
 
     function idChkBtn(){
@@ -162,7 +161,7 @@ function Register(){
     })
             .then(function(res){
                 if(res.data === "YES"){
-                    alert('🎉환영합니다! 포인트 100점을 선물로 드렸으니 확인해보세요.🎉');
+                    //alert('🎉환영합니다! 포인트 100점을 선물로 드렸으니 확인해보세요.🎉');
                     gotoLogin();
                     console.log('params:', { memId: id, password: pwd, memberName: name, email: email, phone: phone, birth: birth, foot: footSize, profile: imgFile });
                 }

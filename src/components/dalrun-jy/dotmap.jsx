@@ -421,7 +421,7 @@ const Dotmap = (props) => {
               <div className="card__body">
                 <h3 className="card__name" id="mycrewinfo_name"></h3>
 
-                <p className="card__bio" id="dotDescription" style={{width:'200px'}}></p>
+                <p className="card__bio" id="dotDescription" ></p>
               </div>
               <div className="card__footer">
                 <p className="card__date" id="createDate" ></p>

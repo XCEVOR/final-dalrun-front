@@ -15,7 +15,7 @@ function DetailModal({ diary, onClose}){
 
     return (
       <div className="modal-overlay" onClick={onClose}>
-        <div style={{ display: "flex", justifyContent: "center", width:"100%", height:"400px", overflow: "auto" }}>
+        <div style={{ display: "flex", justifyContent: "center", width:"100%", height:"800px", overflow: "auto" }}>
           <Table>
             <colgroup>
               <col style={{width: '200px'}}/>
@@ -30,10 +30,10 @@ function DetailModal({ diary, onClose}){
               </tr>
               <tr>
                 <th>이동 거리</th><th>{totalDist} km</th>
-                <th>이동 시간</th><th>{formatTime(diary.totalTime)} sec</th>
+                <th>이동 시간</th><th>{formatTime(diary.totalTime)}</th>
               </tr>
               <tr>
-                <th>평균 페이스</th><th>{diary.meanPace.toFixed(1)}분/km</th>
+                <th>평균 페이스</th><th>{diary.meanPace.toFixed(1)} 분/km</th>
                 <th>소모 칼로리</th><th>{diary.kcal} kcal</th>
               </tr>
               <tr>

@@ -1,7 +1,7 @@
 import React from "react";
 import Social from "./Social";
 
-const logo = "logo.svg";
+const logo = "logo.png";
 
 const CopyRight = () => {
   return (
@@ -9,7 +9,7 @@ const CopyRight = () => {
       <div className="row align-items-center justify-content-center">
         <div className="col-2 col-md">
           <a href="/mainPage">
-          <img style={{display:'inline' , marginRight:'50px'}} src={logo} alt="" loading="lazy" />
+          <img style={{display:'inline' , marginRight:'50px', width:'120px'}} src={logo} alt="" loading="lazy"  />
           </a>
           <span>
             달런달런 | 팀장: 안선정 | 팀원: 장호찬,김종완,오성혁,박예린,문준영 <br></br>

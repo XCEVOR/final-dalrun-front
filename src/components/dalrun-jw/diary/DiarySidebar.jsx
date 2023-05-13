@@ -2,12 +2,37 @@
 import { Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import UploadModal from './UploadModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import '../../../assets/dalrun-jw/scss/_modal.scss'
 
 
 const DiarySidebar = () => {
   const loginData = JSON.parse(localStorage.getItem("login"));
-  const memId = loginData.memId;
+  let memId = null;
+  if(loginData){
+    memId = loginData.memId;
+  }
+
+  const loginAlert = ( (event) => {
+    if(!loginData){
+      event.preventDefault();
+      alert('로그인이 필요합니다.');
+    }
+  });
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleModal = (e) => {
+    if(loginData){
+      setModalOpen(true);
+    } else { 
+      e.preventDefault();
+      alert('로그인이 필요합니다.');
+    }
+  };
+  const closeModal = () => setModalOpen(false);
 
   return (
 
@@ -19,17 +44,21 @@ const DiarySidebar = () => {
       <nav className='head-nav'>
         <ul>
           <li className='nav-item'>
-            <Link to={`?search=${memId}`} title='내 기록'>
-              <img src="assets/img/dalrun-jw/person-circle.svg"/>
+            <Link to={`?search=${memId}`} title='내 기록' onClick={loginAlert}>
+              <FontAwesomeIcon icon={faCircleUser} size='xl' style={{color:"#74EABC"}} />
               <span>내 기록</span>
             </Link>
           </li>
           <li className='nav-item'>
-            <UploadModal/>
+            <button onClick={handleModal}>
+              <FontAwesomeIcon icon={faCloudArrowUp} size="xl" style={{color:"#74EABC"}}/>
+              <span>업로드</span>
+            </button>
+            <UploadModal open={modalOpen} close={closeModal}/>
           </li>
           <li className='nav-item'>
             <Link to="/">
-              <img src="assets/img/dalrun-jw/question-circle-fill.svg"/>
+            <FontAwesomeIcon icon={faCircleQuestion} size="xl" style={{color:"#74EABC"}}/>
               <span>업로드</span>
               <span style={{marginTop:'0', marginRight:'0.2rem'}}>방법</span>
             </Link>
@@ -51,6 +80,10 @@ function MyDropdown() {
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
+  const handleLogout = ( () => {
+    sessionStorage.removeItem("login");
+  });
+
   return (
 
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
@@ -60,7 +93,7 @@ function MyDropdown() {
 
       <Dropdown.Menu>
         <Dropdown.Item href="#/action-1">마이페이지</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">로그아웃</Dropdown.Item>
+        <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
 
