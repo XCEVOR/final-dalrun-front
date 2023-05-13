@@ -345,6 +345,40 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 // 차트
 .chart {
     .chart-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info {
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.1);
+        background-color: var(--ptf-color-white);
+    }
+
+    .info:first-child {
+        margin-right: 20px;
+    }
+
+    .subtitle {
+        font-weight: 700;
+    }
+    
+    .rank_table {
+        margin-top: 20px;
         display: flex;
+        // justify-content: center;
+
+        tbody {
+            display: flex;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: column;
+        }
+
+        td {
+        }
     }
 }
