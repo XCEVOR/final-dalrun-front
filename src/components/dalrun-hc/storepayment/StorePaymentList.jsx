@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 function StoreCartList(props) {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+  const navigate = useNavigate();
 
   // const location = useLocation();
   const [userId, setUserId] = useState("user01test");
@@ -152,17 +153,33 @@ function StoreCartList(props) {
   
   const callback = (response) => {
     const {success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status} = response;
-    if (success) {
-      alert('결제 성공');
-      console.log(response);
-      console.log("imp_uid: ", imp_uid);
-      console.log("merchant_uid: ", merchant_uid);
-      console.log("pay_method: ", pay_method);
-      console.log("paid_amount: ", paid_amount);
-      console.log("status: ", status);
-    } else {
-      alert(`결제 실패 : ${error_msg}`);
-    }
+
+    axios.get(`http://localhost:3000/verifyIamport/${imp_uid}`, {})
+    .then (function (resp) {
+      console.log(" @ verifyIamport resp: ", resp.data);
+      console.log(" @ verifyIamport resp: ", resp.data.response.amount);
+      if (resp.data.response.amount === totalPaymentAmount) {
+        alert("결제 성공 response")
+      }
+    })
+    .then (function () {
+      writeOrderData();
+    })
+    .catch (function (err) {
+      alert(err);
+    })
+
+    // if (success) {
+    //   alert('결제 성공');
+    //   console.log(response);
+    //   console.log("imp_uid: ", imp_uid);
+    //   console.log("merchant_uid: ", merchant_uid);
+    //   console.log("pay_method: ", pay_method);
+    //   console.log("paid_amount: ", paid_amount);
+    //   console.log("status: ", status);
+    // } else {
+    //   alert(`결제 실패 : ${error_msg}`);
+    // }
   }
 
 
@@ -226,6 +243,7 @@ function StoreCartList(props) {
         .catch((err) => console.log(err));
     }
   }
+
 
 
 
