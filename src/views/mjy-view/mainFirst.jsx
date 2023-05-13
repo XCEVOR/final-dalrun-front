@@ -46,7 +46,7 @@ const MainFirst = () => {
       <div className="ptf-site-wrapper__inner"  style={{backgroundImage:'url(assets/img/dalrun-jy/space11.gif)'}}>
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default" style={{position:'relative'}}>
-          <Ad left={20} image={"ad.png"}/>
+          <Ad left={20} image={"ad3.png"} color={"white"}/>
 
             <section>
               <Dotmap main={false}  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
@@ -68,7 +68,7 @@ const MainFirst = () => {
         {/* <!--Footer--> */}
 
 
-        <footer className="ptf-footer ptf-footer--style-5">
+        <footer className="ptf-footer ptf-footer--style-2">
           <div className="container-xxl" >
             <div className="ptf-footer__bottom">
               <CopyRight />

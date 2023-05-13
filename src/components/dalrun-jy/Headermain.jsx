@@ -34,14 +34,14 @@ const Headermain = () => {
               : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"
               
           }
-          style={{backgroundImage:'url(assets/img/dalrun-jy/space11.gif)' }}
+          
           
         >
-          <div className="container-xxl" style={{maxWidth:'100%'}}>
+          <div className="container-xxl" style={{maxWidth:'100%',backgroundImage:'url(assets/img/dalrun-jy/space11.gif)' }} >
             <div className="ptf-navbar-inner">
               {/* <!--Logo--> */}
               
-                <Link className="ptf-navbar-logo" to="/">
+                <Link className="ptf-navbar-logo" to="/mainpage">
                
                 <img
                   className="black"
@@ -58,7 +58,9 @@ const Headermain = () => {
                 />
                 
               </Link>
-   
+              <a  className="ptf-btn ptf-btn--success" style={{marginLeft:'auto',color:'white'}}  href="/mainPage">
+              <h2 style={{color:'white'}}>WELCOME TO DALRUN WORLD</h2>
+              </a>
               {/* <!--Navigation--> */}
              
                 {/* <!--Menu--> */}

@@ -10,9 +10,9 @@ function Ad(props) {
     return(
         <>
         <div id='modalAd' 
-        style={{height:'700px',width:'650px',backgroundSize:'cover' , backgroundColor:'white',position:'absolute', zIndex:'1' ,left:`${props.left}%`,
+        style={{height:'700px',width:'650px',backgroundSize:'cover' , backgroundColor:'white',position:'absolute', zIndex:'1' ,left:`${props.left}%`,top:`${props.top}%`,
         backgroundImage:`url(assets/img/dalrun-jy/${props.image})`}} >
-            <button style={{float:"right" }} type="button" className="btn-close" onClick={exixBuyHeader} aria-label="Close"></button>
+            <button style={{float:"right" ,backgroundColor:`${props.color}`}} type="button" className="btn-close" onClick={exixBuyHeader} aria-label="Close"></button>
             </div>
         </>
     )

@@ -1,18 +1,13 @@
-import Award from "../../components/award/Award";
-import Blog from "../../components/blog/Blog";
-import Brand from "../../components/brand/Brand";
-import Counter from "../../components/counter/Counter";
-import Footer from "../../components/footer/Footer";
-import Approach from "../../components/service/Approach";
-import ServiceOne from "../../components/service/ServiceOne";
-import Testimonial from "../../components/testimonial/Testimonial";
-
-
 import CopyRight from "../../components/dalrun-jy/footer/CopyRight";
 import CrewRoleFooter from "../../components/dalrun-jy/footer/CrewRoleFooter";
 
 import TeammainPage from "../../components/dalrun-jy/Weekshop_mainPage";
+
+
 import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";
+
+
+
 import HeromainPage from "../../components/dalrun-jy/HeromainPage";
 import Dotmap from "../../components/dalrun-jy/dotmap";
 import DotMapInfo from "../../components/dalrun-jy/dotmapinfo";
@@ -53,7 +48,7 @@ const MainDotMap = () => {
 
       <div className="ptf-site-wrapper__inner">
         <div className="ptf-main">
-          <div className="ptf-page ptf-page--home-default">
+          <div className="ptf-page ptf-page--home-default" >
             <section>
               <Dotmap mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
             </section>
@@ -65,8 +60,11 @@ const MainDotMap = () => {
             <section>
               <div
                 className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem" }}
+                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem"}}
+
+                
               >
+                
                 <DotMapInfo mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
               </div>
             </section>
