@@ -175,7 +175,7 @@ const StoreFourRectangles = () => {
             key={i}
           >
             {/* <!--Team Member--> */}
-            <div className="ptf-team-member ptf-team-member--has-effect">
+            <div className="ptf-team-member store_four_rectangles_effect">
               <div className="ptf-team-member__avatar">
                 {/* <div className="shadow-effect"></div> */}
                 <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
