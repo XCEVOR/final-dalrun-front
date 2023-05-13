@@ -42,7 +42,7 @@ const HeadermainPage = () => {
                
                 <img
                   className="black"
-                  src="logo.png"
+                  src={process.env.PUBLIC_URL + '/dalrun_logo.png'}
                   alt=""
                   loading="lazy"
                   style={{width:'120px'}}
