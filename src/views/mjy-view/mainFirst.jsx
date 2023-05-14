@@ -2,21 +2,18 @@ import CopyRight from "../../components/dalrun-jy/footer/CopyRight";
 import CrewRoleFooter from "../../components/dalrun-jy/footer/CrewRoleFooter";
 
 import TeammainPage from "../../components/dalrun-jy/Weekshop_mainPage";
-
-
-import HeadermainPage from "../../components/dalrun-jy/HeadermainPage";
-
-
-
+import Headermain from "../../components/dalrun-jy/Headermain";
 import HeromainPage from "../../components/dalrun-jy/HeromainPage";
 import Dotmap from "../../components/dalrun-jy/dotmap";
-import DotMapInfo from "../../components/dalrun-jy/dotmapinfo";
+import Ad from "../../components/dalrun-jy/ad";
+
+
 
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-const MainDotMap = () => {
+const MainFirst = () => {
   const [mycrewinfo, setmycrewinfo] = useState([]);
 
   function Changemycrewinfo(info) {
@@ -37,37 +34,27 @@ const MainDotMap = () => {
 
   return (
 
-    <div className="ptf-site-wrapper animsition  ptf-is-default">
+    <div className="ptf-site-wrapper animsition ptf-is--home-dark">
       <Helmet>
         <title>메인 페이지</title>
       </Helmet>
       {/* End Page SEO Content */}
 
-      <HeadermainPage />
+      <Headermain />
       {/* End Header Default */}
 
-      <div className="ptf-site-wrapper__inner">
+      <div className="ptf-site-wrapper__inner"  style={{backgroundImage:'url(assets/img/dalrun-jy/space11.gif)'}}>
         <div className="ptf-main">
-          <div className="ptf-page ptf-page--home-default" >
+          <div className="ptf-page ptf-page--home-default" style={{position:'relative'}}>
+          <Ad left={20} image={"ad3.png"} color={"white"}/>
+
             <section>
-              <Dotmap mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
+              <Dotmap main={false}  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
             </section>
             <div
               className="ptf-spacer"
               style={{ "--ptf-xxl": "2rem" }}
             ></div>
-
-            <section>
-              <div
-                className="row"
-                style={{ "--bs-gutter-x": "2rem", "--bs-gutter-y": "2.5rem"}}
-
-                
-              >
-                
-                <DotMapInfo mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
-              </div>
-            </section>
 
             <section>
 
@@ -81,8 +68,8 @@ const MainDotMap = () => {
         {/* <!--Footer--> */}
 
 
-        <footer className="ptf-footer ptf-footer--style-1">
-          <div className="container-xxl">
+        <footer className="ptf-footer ptf-footer--style-2">
+          <div className="container-xxl" >
             <div className="ptf-footer__bottom">
               <CopyRight />
             </div>
@@ -93,4 +80,4 @@ const MainDotMap = () => {
   );
 };
 
-export default MainDotMap;
+export default MainFirst;

@@ -393,8 +393,11 @@
   }
 
   .detailimg {
-    max-width: 100%;
-    display: block;
+    // max-width: 100% !important;
+    width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
@@ -427,5 +430,212 @@
     .modal_picture {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
+
+  div .product_details_slider {
+    width: 100%;
+  }
+
+
+
+
+
+  // @@ 상품 색상 선택 버튼
+  .product_color {
+    margin: 15px 0px 15px 0px;
+  }
+
+  .product_color_btn {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #333;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+  }
+
+  .product_color_btn:hover {
+      color: #ffffff;
+      background-color: #333;
+      border-color: #1b1f2326;
+      box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+      transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_color_btn:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+  .product_color_btn_selected {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #333;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+    transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_color_btn_selected:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+
+  // @@ 상품 사이즈 선택 버튼
+  .product_size {
+    margin: 15px 0px 15px 0px;
+  }
+
+  .product_size_btn {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #333;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+  }
+
+  .product_size_btn:hover {
+      color: #ffffff;
+      background-color: #333;
+      border-color: #1b1f2326;
+      box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+      transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_size_btn:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+  .product_size_btn_selected {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #333;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+    transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_size_btn_selected:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+
+
+  // @@ 상품 개수 선택 버튼
+  .product_quantity {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px 15px 0px;
+  }
+
+  .product_quantity_btn {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #333;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+  }
+
+  .product_quantity_btn:hover {
+      color: #ffffff;
+      background-color: #333;
+      border-color: #1b1f2326;
+      box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+      transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_quantity_btn:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+  .product_quantity_btn_selected {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #333;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+    transition-duration: 0.1s;
+  }
+
+  /* 마우스 클릭하고있을때 */
+  .product_quantity_btn_selected:active{
+    background-color: #999;
+    transition-duration: 0.1s;
+  }
+
+  
 }
 

@@ -4,9 +4,7 @@ import ContentReview from "../../../components/dalrun-jy/review/ContentReview";
 import HeaderReview from "../../../components/dalrun-jy/review/HeaderReview";
 import ReviewSidebarPost from "../../../components/dalrun-jy/review/ReviewSidebarPost";
 
-
 import CopyRight from "../../../components/footer/copyright/CopyRight";
-import Footer from "../../../components/footer/Footer";
 import HeaderDefault from "../../../components/header/HeaderDefault";
 
 const CompetitionMain = () => {
