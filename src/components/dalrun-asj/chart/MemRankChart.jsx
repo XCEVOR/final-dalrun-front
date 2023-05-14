@@ -2,20 +2,25 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Lege
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
 
-function CrewRankChart({ dataList }) {  
+function MemRankChart({ dataList }) {  
     if(dataList === undefined) return;
 
     const year = dataList[0].year;
     const month = dataList[0].month;
 
     const data = {
-        labels: dataList.map(data => data.crewName),
+        labels: dataList.map(data => data.memId),
         datasets: [
             {
                 label: '점수',
                 data: dataList.map(data => data.monthlyScore),
-                backgroundColor: 'rgba(38, 174, 154, 0.5)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
+            {
+                label: '이동거리 (km)',
+                data: dataList.map(data => Math.round(data.monthlyTotalDist/1000*100)/100),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            }
         ]
     }
 
@@ -34,4 +39,4 @@ function CrewRankChart({ dataList }) {
     );
 }
 
-export default CrewRankChart;
+export default MemRankChart;
