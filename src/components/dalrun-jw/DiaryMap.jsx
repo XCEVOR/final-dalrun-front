@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 
-function NaverMapApi({ diaries, selectedDiary }){
+function DiaryMap({ diaries, selectedDiary }){
   // console.log('네이버맵 다이어리 데이터', diaries);
   console.log('네이버맵-리스트에서 선택된 다이어리: ', selectedDiary);
   const navermaps = useNavermaps();
@@ -15,10 +15,12 @@ function NaverMapApi({ diaries, selectedDiary }){
 
   useEffect(() => {
     if(diaries && diaries.length > 0){
+
       // diaries에서 diarySeq만 추출하여 리스트 생성
       const diarySeqList = diaries.map(diary => diary.diarySeq);
       console.log(diarySeqList);
 
+      // diarySeq에 따른 gpxData 호출
       axios.get('http://localhost:3000/gpxDataList', {
         params: {
           diarySeqList: diarySeqList.join(',') // [1, 2, 3] -> 1, 2, 3
@@ -31,16 +33,18 @@ function NaverMapApi({ diaries, selectedDiary }){
         const pathObj = {};
 
         response.data.forEach(item => {
+          
           const { diarySeq, latitude, longitude } = item;
+          // 아이템 객체의 diarySeq, lat, lng의 값을 변수로 추출해서 선언
 
-          // gpxData 객체를 구성합니다.
+          // gpxData 객체를 구성
           if (gpxDataObj[diarySeq]) {
             gpxDataObj[diarySeq].push(item);
           } else {
             gpxDataObj[diarySeq] = [item];
           }
 
-           // path 객체를 구성합니다.
+           // path 객체를 구성
           if (pathObj[diarySeq]) {
             pathObj[diarySeq].push({ lat: latitude, lng: longitude });
           } else {
@@ -57,22 +61,21 @@ function NaverMapApi({ diaries, selectedDiary }){
     }
   }, [diaries]);
 
-  const mapOptions = useMemo(
-    () => ({
-      defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
-      defaultZoom: 7,
-      mapDataControl: true,
-      mapTypeControl: true,
-      mapTypeControlOptions: {
-        position: navermaps.Position.RIGHT_TOP,
-      },
-      zoomControl: true,
-      zoomControlOptions: {
-        position: navermaps.Position.RIGHT_CENTER,
-        style: navermaps.ZoomControlStyle.SMALL,
-      },
-    }), []
-    );
+  const mapOptions = {
+    defaultCenter: new navermaps.LatLng(37.3595704, 127.105399),
+    defaultZoom: 7,
+    mapDataControl: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      position: navermaps.Position.RIGHT_TOP,
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+      position: navermaps.Position.RIGHT_CENTER,
+      style: navermaps.ZoomControlStyle.SMALL,
+    },
+  };
+  
     
   return (
     <MapDiv
@@ -93,7 +96,7 @@ function NaverMapApi({ diaries, selectedDiary }){
     </MapDiv>
   );
 }
-export default NaverMapApi;
+export default DiaryMap;
 
 
 function LocationBtn() {
@@ -116,7 +119,8 @@ function LocationBtn() {
       <button className='myLocation-button'
         onClick={() => {
           if (myLocation) {
-            naverMap.panTo({ lat: myLocation[0], lng: myLocation[1] });
+            naverMap.setCenter({ lat: myLocation[0], lng: myLocation[1] });
+            // naverMap.panTo({ lat: myLocation[0], lng: myLocation[1] });
             naverMap.setZoom(14);
           } else {
             alert("현재 위치를 가져올 수 없습니다.");
@@ -139,12 +143,16 @@ function MySetCenter({ selectedDiary, path }) {
       const selectedPath = path[selectedDiary.diarySeq];
       if (selectedPath && selectedPath.length > 0){
         const newCenter = selectedPath[0];
-        nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
+        // nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
+        const naverLatLng = new navermaps.LatLng(newCenter.lat, newCenter.lng);
+        nMap.panTo(naverLatLng);
         nMap.setZoom(13);
       }
     } else {
       const initCenter = { lat: 37.3595704, lng: 127.105399 };
-      nMap.setCenter(new navermaps.LatLng(initCenter.lat, initCenter.lng));
+      // nMap.setCenter(new navermaps.LatLng(initCenter.lat, initCenter.lng));
+      const naverLatLng = new navermaps.LatLng(initCenter.lat, initCenter.lng);
+      nMap.panTo(naverLatLng);
       nMap.setZoom(7);
     }
   }, [selectedDiary, path]);
