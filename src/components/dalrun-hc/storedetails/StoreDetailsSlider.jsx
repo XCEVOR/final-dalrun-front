@@ -136,7 +136,7 @@ const StoreDetailsSlider = () => {
         <Slider {...settings}>
           {/* <!--Portfolio Item--> */}
           {likeable.map((item, i) => (
-            <article className="ptf-work ptf-work--style-3" key={i}>
+            <article className="ptf-work ptf-work--style-3 store_item_hover_effect" key={i}>
               <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
                 <div className="product_details_slider">
                   
@@ -169,7 +169,7 @@ const StoreDetailsSlider = () => {
         <Slider {...settings}>
           {/* <!--Portfolio Item--> */}
           {interested.map((item, i) => (
-            <article className="ptf-work ptf-work--style-3" key={i}>
+            <article className="ptf-work ptf-work--style-3 store_item_hover_effect" key={i}>
               <Link to={`/store-details/${item.productCode}`} rel="noopener noreferrer">
                 <div className="product_details_slider">
                   
