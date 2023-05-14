@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import UploadModal from './UploadModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faRoute } from '@fortawesome/free-solid-svg-icons';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import '../../../assets/dalrun-jw/scss/_modal.scss'
@@ -61,6 +61,12 @@ const DiarySidebar = () => {
             <FontAwesomeIcon icon={faCircleQuestion} size="xl" style={{color:"#74EABC"}}/>
               <span>업로드</span>
               <span style={{marginTop:'0', marginRight:'0.2rem'}}>방법</span>
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to="/course">
+              <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
+              <span>코스</span>
             </Link>
           </li>
         </ul>
