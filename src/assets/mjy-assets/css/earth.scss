@@ -5,6 +5,7 @@
     margin-top: 100px;
     margin-left: 200px;
 }
+
 .transparent_header {
     background-color: transparent !important;
 
@@ -69,12 +70,14 @@ rect{
     pointer-events: all;
     transition: all 0.5s;
     animation: fadein 2s;
+
    
 }
 rect:hover {
     fill: white;
     cursor: pointer; 
    
+
   
 }
 @keyframes fadein {
@@ -84,6 +87,7 @@ rect:hover {
         fill: rgba(40, 40, 40);
     }
 }
+
 
 .tippy-box[data-theme~="purchased"] {
     background-color: #4158d0;

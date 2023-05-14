@@ -7,13 +7,13 @@ import MypageBtn from "../../../../components/dalrun-sh/MypageBtn";
 
 function Write(){
   const category = [
-        {cate:"crew", name:"크루게시판", selected:<Writecrew/>}, 
+        // {cate:"crew", name:"크루게시판", selected:<Writecrew/>}, 
         {cate:"QnA", name:"QnA게시판", selected:<WriteQnA/>}
   ];
 
   return(
     <div className="members container">
-      <h4 className="title">내 게시글 목록</h4>
+      <h4 className="title">내 문의 내역</h4>
       <br />
       <div className="inform outline" />
       <br />      

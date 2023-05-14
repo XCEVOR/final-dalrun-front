@@ -208,6 +208,7 @@ const Dotmap = (props) => {
 
         let { location, crewName, myFile,memId,regdate, message, groundColor, dotNewFile, sale } = dotList[j];
         rect_Collection[i].style.fill = groundColor;
+        rect_Collection[i].style.filter=`drop-shadow(2px 2px 4px ${groundColor})`
         
         /* 도트 클릭시 모달창 생성 */
         // 도트 값이 있을 때

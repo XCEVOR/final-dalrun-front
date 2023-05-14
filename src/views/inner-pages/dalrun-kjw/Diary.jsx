@@ -1,5 +1,5 @@
 ﻿import React, { useState } from "react";
-import NaverMapApi from '../../../components/dalrun-jw/NaverMapApi';
+import DiaryMap from '../../../components/dalrun-jw/DiaryMap';
 import DiarySidebar from '../../../components/dalrun-jw/diary/DiarySidebar';
 import DiaryList from '../../../components/dalrun-jw/diary/DiaryList';
 // import {DiaryGPXDataProvider} from '../../../components/dalrun-jw/diary/DiaryGPXData';
@@ -38,7 +38,7 @@ function Diary(){
 
         {/* 지도 부분 */}
         <div id="map" className='_diary-map'>
-          <NaverMapApi diaries={diaryItems} selectedDiary={selectedDiary} />
+          <DiaryMap diaries={diaryItems} selectedDiary={selectedDiary} />
         </div>
 
       </div>

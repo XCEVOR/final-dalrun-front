@@ -1,8 +1,8 @@
 
 import { Table } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import { GiUpgrade } from "react-icons/gi";
 
@@ -38,9 +38,31 @@ function MyCrew() {
     setImgFile(selectedFile);
   };
 
-  const handleImageUploadClick = () => {
-    const inputElement = document.getElementById("imageInput");
-    inputElement.click();
+  const [crewName, setcrewName] = useState("");
+  const [crewSetUp, setcrewSetUp] = useState("");
+  const [crewImg, setcrewImg] = useState("");
+
+  const setInput = (mycrewinfo) => {
+    setcrewName(mycrewinfo.crewName);
+    setcrewSetUp(mycrewinfo.crewSetUp);
+    setcrewImg(mycrewinfo.crewImg);
+  }
+
+  useEffect(() => {
+    setInput(mycrewinfo);
+}, [mycrewinfo]);
+
+  const UpdateCrewinform = () => {
+    // const inputElement = document.getElementById("imageInput");
+    // inputElement.click();
+
+    // if(crewList.crewAuth == 1 ){
+    //   alert("수정");
+    //   crewUpdate();
+    // }else{
+      alert("수정?");
+      crewUpdate();
+//  }
   };
 
   function loading() {
@@ -51,11 +73,53 @@ function MyCrew() {
       let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
       getMyCrewinfo(crewSeq);
       mycrewMemberList(crewSeq);
-      getcrewPoint(crewSeq);
+      // getcrewPoint(crewSeq);
 
 
     }
   }
+
+  function crewUpdate() {
+    let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
+    axios.post("http://localhost:3000/my_crewUpdate", 
+    { params: { 
+      'crewSeq':crewSeq, 
+      'crewImg':mycrewinfo.crewImg, 
+      'crewSetUp':mycrewinfo.crewSetUp,
+      'crewName':mycrewinfo.crewName
+    } })
+      .then(function (resp) {
+        // localStorage.removeItem('login');
+        // alert("다시 로그인해주세요..");
+      }).catch(function (err) {
+
+      })
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("123");
+    let formData = new FormData();
+    formData.append("crewName", crewName);
+    formData.append("crewSetUp", crewSetUp);
+    formData.append("crewImg", crewImg);
+
+
+    axios.post('http://localhost:3000/my_crewUpdate', formData)
+        .then((resp) => {
+            // console.log(resp.mycrewinfo);
+            if(resp.mycrewinfo === "YES") {
+                alert("수정완료");
+            } else {
+                alert("수정실패");
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
   // 나의 크루 정보 가져오기
   function getMyCrewinfo(crewSeq) {
     axios.get("http://localhost:3000/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
@@ -77,6 +141,7 @@ function MyCrew() {
 
       })
   };
+
   function crewLeave() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
     axios.get("http://localhost:3000/crewLeave", { params: { 'memId': login.memId ,'crewSeq':crewSeq} })
@@ -88,15 +153,27 @@ function MyCrew() {
 
       })
   }
-  function getcrewPoint(crewSeq) {
-    axios.get("http://localhost:3000/getcrewPoint", { params: { 'crewSeq': crewSeq } })
-      .then(function (resp) {
-        setCrewPoint(resp.data);
 
+  function crewmemberLeave() {
+    let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
+    axios.get("http://localhost:3000/crewmemberLeave", { params: { 'memId': login.memId} })
+      .then(function (resp) {
+        localStorage.removeItem('login');
       }).catch(function (err) {
 
       })
   }
+
+  // function getcrewPoint(crewSeq) {
+  //   axios.get("http://localhost:3000/getcrewPoint", { params: { 'crewSeq': crewSeq } })
+  //     .then(function (resp) {
+  //       setCrewPoint(resp.data);
+
+  //     }).catch(function (err) {
+
+  //     })
+  // }
+
   function crewUpgrade() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
     let score=0;
@@ -117,13 +194,13 @@ function MyCrew() {
   function crewLeaveAlart() {
     if(modalIsOpen){
       crewLeave();
+      crewmemberLeave();
     }else{
     document.getElementById("crewAlterfont").textContent='정말 크루를 탈퇴하시겠습니까?'
     document.getElementById("crewAlterA").style.backgroundColor="red";
     deleteHandler();
  }
   }
-
 
   function deleteHandler() {
     setModalIsOpen(true);
@@ -209,19 +286,20 @@ function MyCrew() {
                   </a>
                 </div>
                 {/* {login.memId == mycrewinfo.memId &&   */}
-                <button onClick={handleImageUploadClick}>이미지 선택</button>
+                <button onClick={handleImageChange}>이미지 선택</button>
                 {/* } */}
 
 
 
               </div>
               <div className="col-5">
-                <form name="crew_frm" encType="multipart/form-data">
+                <form name="crew_frm" onSubmit={onSubmit} encType="multipart/form-data">
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p style={{ margin: "20px", minWidth: "80px" }}>크루명</p>
                     {/* {login.memId === mycrewinfo.memId &&   */}
 
-                    <input type="text" name="crewName" defaultValue={mycrewinfo.crewName} />
+                    <input type="text" name="crewName" Value={mycrewinfo.crewName}
+                    onChange={(e) => setcrewName(e.target.value)} />
                     {/* ||
                  <p>{mycrewinfo.crewName}</p> 
                 } */}
@@ -244,7 +322,8 @@ function MyCrew() {
                     <p style={{ margin: "20px", minWidth: "80px" }}>인삿말</p>
 
                     {/* {login.memId === mycrewinfo.memId &&   */}
-                    <input type="text" name="crewSetUp" defaultValue={mycrewinfo.crewSetUp} />
+                    <input type="text" name="crewSetUp" Value={mycrewinfo.crewSetUp} 
+                    onChange={(e) => setcrewName(e.target.value)} />
 
                     {/* ||
 
@@ -255,7 +334,8 @@ function MyCrew() {
                   <div style={{ float: 'right' }}>
                     {/* {login.memId === mycrewinfo.memId &&   */}
 
-                    <button onClick={handleImageUploadClick}>수정</button>
+                    <input type="submit" value="수정" />
+                    <button onClick={UpdateCrewinform}>수정</button>
                     {/* } */}
 
 
@@ -274,13 +354,18 @@ function MyCrew() {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                                   
+                <th>
+                    <input 
+                      type="checkbox" 
+                      // onChange={(e) => handleAllCheck(e.target.checked)} 
+                      // checked={checkedList.length === crewList.length ? true : false}
+                      />
+                  </th>                 
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
                   <th>직책</th>
                   <th>등급</th>
-                  <th>상태</th>
                   <th>포인트</th>
                   <th>가입일</th>
                 </tr>
@@ -290,16 +375,24 @@ function MyCrew() {
                   crewList.map((crew, i) => {
                     return (
                       <tr key={i}>
-                     
+                        <th>
+                          <input 
+                            type="checkbox" 
+                            // onChange={(e) => handleSingleCheck(e.target.checked, crew.memId)} 
+                            // checked={checkedList.includes(crew.memId) ? true : false}
+                            />
+                        </th>
                         <td>{i + 1}</td>
                         <td>{crew.memberName}</td>
                         <td>{crew.memId}</td>
-                        <td>{crew.grade}</td>
-                        <td>
+                        {/* <td>
                           {crew.memberName === mycrewinfo.memId && "리더" || "팀원"}
 
+                        </td> */}
+                        <td>
+                          {crew.crewAuth === 1 ? "리더" : "팀원"}
                         </td>
-                        <td>{crew.state}</td>
+                        <td>{crew.grade}</td>
                         <td>{crew.point}</td>
                         <td>{crew.regdate}</td>
                       </tr>
@@ -308,7 +401,7 @@ function MyCrew() {
                 }
               </tbody>
             </Table>
-            
+            {/* <MypageSerach setData={setCrewList}/>            */}
             <div style={{ textAlign: 'center' }}>
               <a id="crewAlterA" className="ptf-btn ptf-btn--primary" onClick={crewLeaveAlart}
                 style={{ width: '400px', padding: '10px', marginTop: '100px' }}><h5 id="crewAlterfont">크루 탈퇴</h5>
