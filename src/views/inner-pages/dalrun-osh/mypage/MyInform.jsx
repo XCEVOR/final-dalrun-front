@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import useCheckControl from "../../../../components/dalrun-sh/useCheckControl";
 
 function Inform({onHide}) {
-  const [searchParam, setSearchParam] = useSearchParams();
+
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});  
   const history = useNavigate();
@@ -63,7 +63,7 @@ const onSubmit = (e) => {
           if(resp.data === "YES") {
               // alert("수정완료");
               onHide();
-              setSearchParam(searchParam.set('target',''));
+
           } else {
               alert("수정실패");
           }
@@ -88,10 +88,10 @@ const onSubmit = (e) => {
   const passCg = [
     {cate:"insert", name:"비밀번호 변경", selected:<PassChange />, list:checkedList} 
   ];
-  const category = [
-    {cate:"insert", name:"저장", selected:"저장하시겠습니까?", list:checkedList},     
-    {cate:"insert", name:"회원탈퇴", selected:"정말 탈퇴하시겠습니까?", list:checkedList}
-  ];
+  // const category = [
+  //   {cate:"insert", name:"저장", selected:"저장하시겠습니까?", list:checkedList},     
+  //   {cate:"insert", name:"회원탈퇴", selected:"정말 탈퇴하시겠습니까?", list:checkedList}
+  // ];
     // 이미지 파일 선택 함수
     const handlePhotoChange = (event, userId) => {
       const file = event.target.files[0];
@@ -170,7 +170,7 @@ const onSubmit = (e) => {
         </form>
      
         <div>
-          <ModalBtn {...category} />
+        <input type="submit" value="수정" />
         </div>
     
       </div>

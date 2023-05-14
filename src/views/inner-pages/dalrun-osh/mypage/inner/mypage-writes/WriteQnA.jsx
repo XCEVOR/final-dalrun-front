@@ -105,7 +105,7 @@ function WriteQnA() {
                       );
                     }) 
                     : <tr style={{textAlign:"center"}}><td colSpan="11">{id}데이터가 없습니다</td></tr>
-                  }
+                   }
                 </tbody>
               </Table>
               {/* <MypageSerach setData={setmyqnalist} /> */}

@@ -79,7 +79,8 @@ function Store() {
     <br />   
       <div className="store">
         <div className="store-content">
-            <div className="search outline">
+          
+            {/* <div className="search outline">
               <div>
                 <div style={{display:'flex', justifyContent:'space-between'}}>
                 </div>
@@ -90,7 +91,7 @@ function Store() {
                 </div>
               </div>
 
-            </div>
+            </div> */}
             <div className="info">
               <br />
               <div className="info_con">

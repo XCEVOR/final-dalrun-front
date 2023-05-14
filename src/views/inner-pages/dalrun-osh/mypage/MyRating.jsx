@@ -7,7 +7,8 @@ function Rating(){
   const [id, setId] = useState("");
   const [grade, setGrade] = useState("");
   const [point, setPoint] = useState(0);
- 
+  const [totalPoint, settotalpoint] = useState(0);
+
   const history = useNavigate();
 
   useEffect(()=>{
@@ -16,6 +17,7 @@ function Rating(){
         const login = JSON.parse(str);
         setId(login.memId);
         setPoint(login.point);
+        settotalpoint(login.totalPoint);        
         setGrade(login.grade);
     }else {
         alert('login을 해주세요.');
@@ -28,7 +30,9 @@ const onSubmit = (e) => {
   let formData = new FormData();
   formData.append("memId", id);
   formData.append("point", point);
+  formData.append("totalPoint", totalPoint);
   formData.append("grade", grade);
+
 }
   return(
     <div className="members container">
@@ -73,13 +77,17 @@ const onSubmit = (e) => {
               ></div>
             </section>
       <div>
-        당신의 등급은 '{grade}' 입니다.
+        {id}님의 등급은 '{grade}' 입니다.
       </div>            
       <br />
       <div>
-        당신의 누적 포인트는 '{point}' 입니다.
+        {id}님의 누적 포인트는 '{totalPoint}' 입니다.
       </div>            
       <br />
+      <div>
+        {id}님의 현재 포인트는 '{point}' 입니다.
+      </div>            
+      <br />      
       <div className="inform outline" />
       <br />            
 
