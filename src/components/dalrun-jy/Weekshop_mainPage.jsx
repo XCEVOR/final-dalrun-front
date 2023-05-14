@@ -117,27 +117,19 @@ const breakpointColumnsObj = {
 
 const Weekshop_mainPage = () => {
 
-  const [productList,setProductList]=useState([]);
+  const [productList,setProductList] = useState([]);
 
 
   // 호찬님 구현 부탁드려요
-  function getPopularProduct(){
-    axios.get("http://localhost:3000/")
-      .then(function (resp) {
-        setProductList(resp.data);
-
-      }).catch(function (err) {
-        alert(err);
-      })
+  const getPopularProduct = async () => {
+    const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": "RECOMMEND"} });
+    console.log("productDetailsPictureList: ", resp.data);
+    setProductList(resp.data);
 
   }
 
   useEffect(() => {
-
-   //getPopularProduct();
-  
-   
-
+   getPopularProduct();
   }, []);
 
   useEffect(() => {
@@ -151,43 +143,42 @@ const Weekshop_mainPage = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {blogContent.map((item, i) => (
+        {productList.map((recomm, i) => (
 
-
-
-        //{productList.map((item, i) => (
           <div className="grid-item" key={i}>
 
             {/* <!--Blog Post--> */}
             <article className="ptf-post ptf-post--style-2">
-              <div className="ptf-post__media">
-                <img
-                  src={`assets/img/blog/masonry/${item.img}.png`}
+              <Link to={`/store-recommend/${recomm.substring(0, 9)}`} rel="noopener noreferrer">
+                <div className="ptf-post__media">
+                  <img
+                    src={`http://localhost:3000/dalrun-hc/store/products/RECOMMEND/${recomm}`}
 
-                  //src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                    // src={`assets/img/blog/masonry/${item.img}.png`}
 
-                  loading="lazy"
-                />
-                <div className="ptf-post__media__content">
-                  <header className="ptf-post__header">
-                    <div className="ptf-post__meta">
-                      <span className="cat">{item.cat}</span>
-                      <span className="date">{item.date}</span>
+                    //src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
 
-                      {/* <span className="cat">{item.productCategory}</span>
-                      <span className="date">{item.productRegiDate}</span> */}
-                      
-                    </div>
-                    <h3 className="ptf-post__title">
-                    <Link to="/blog-details">{item.title}</Link>
-                      {/* <Link to=`/store-details/${item.productCode}`>{item.productName}</Link> */}
-                      </h3>
+                    loading="lazy"
+                  />
+                  <div className="ptf-post__media__content">
+                    <header className="ptf-post__header">
+                      <div className="ptf-post__meta">
+                        <span className="cat">{recomm.cat}</span>
+                        <span className="date">{recomm.date}</span>
 
-                 
+                        {/* <span className="cat">{item.productCategory}</span>
+                        <span className="date">{item.productRegiDate}</span> */}
+                        
+                      </div>
+                      <h3 className="ptf-post__title">
+                        {/* <Link to=`/store-details/${item.productCode}`>{item.productName}</Link> */}
+                        </h3>
 
-                  </header>
+
+                    </header>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* End .ptf-post */}
               
               {/* End .ptf-post__content */}
