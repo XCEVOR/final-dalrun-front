@@ -35,7 +35,8 @@ const HeadermainPage = () => {
           className={
             `${navbar
               ? "ptf-navbar ptf-navbar--main ptf-navbar--sticky ptf-navbar--fixed"
-              : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"} ${path === '/dotmap' ? 'transparent_header': ''}`
+              : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"} ${path === "/dotmap"
+              ? "transparent_header": ""} ${path === '/mainPage' ? "main_header" : ""}`
           }
         >
           <div className="container-xxl">
@@ -69,7 +70,9 @@ const HeadermainPage = () => {
              
 
               <div
-                className="ptf-offcanvas-menu-icon js-offcanvas-menu-toggle bar right"
+                className={
+                  `ptf-offcanvas-menu-icon js-offcanvas-menu-toggle bar right`
+                }
                 onClick={handleClick1}
               >
                 <i className="lnir lnir-menu-alt-5"></i>

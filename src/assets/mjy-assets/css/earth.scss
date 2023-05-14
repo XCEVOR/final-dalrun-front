@@ -16,13 +16,59 @@
         color: var(--ptf-accent-1);
         transition: color 1s ease;
     }
+    .bar {
+        background-color: transparent !important;
+    }
+    .lnir::before {
+        color: white;
+    }
+}
+.main_header {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(3px);
+
+    span {
+        color: white;
+    }
+
+    span:hover {
+        color: var(--ptf-accent-1);
+        transition: color 1s ease;
+    }
+    .bar {
+        background-color: transparent !important;
+    }
+    .lnir::before {
+        color: white;
+    }
+}
+.thisweek_photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.main_banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+.ptf-main section:not(:first-child) {
+    padding-top: 100px;
 }
 rect{
     /* fill: rgba(20, 20, 20); */
-    fill: rgba(35, 35, 35);
+    fill: rgba(40, 40, 40);
     pointer-events: all;
     transition: all 0.5s;
-    animation: fadein 1.8s;
+    animation: fadein 2s;
    
 }
 rect:hover {
