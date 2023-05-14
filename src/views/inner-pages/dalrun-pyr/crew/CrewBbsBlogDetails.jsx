@@ -7,13 +7,19 @@ import CopyRight from "../../../../components/footer/copyright/CopyRight";
 import Footer from "../../../../components/footer/Footer";
 import Header from "../../../../components/dalrun-pyr/Header";
 import CrewComment from "../../../../components/dalrun-pyr/crewBbs/CrewComment";
+import CrewMember from "./CrewMember";
 import '../css/CrewBbsBlogDetils.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios';
+import {HeartOutlined, HeartFilled} from '@ant-design/icons';	//icons 모듈을 갖고옴
 
 const CrewBbsBlogDetails = () => {
   let history = useNavigate();
+
+  function gotoCrewMember() {
+    history('/crewMember')
+  }
   
     let crewBbsParams = useParams();
     console.log("crewBbsParams : ", crewBbsParams);
@@ -24,7 +30,7 @@ const CrewBbsBlogDetails = () => {
     const [crewSeq, setCrewSeq] = useState(crewBbsParams.crewSeq);
     const [imgid, setImgId] = useState([]);
     
-    //const [likecount, setLikecount] = useState(crewBbsParams.likeCount);
+    //const [likecount, setLikecount] = useState();
     const [isLiked, setIsLiked] = useState(false);
     var likecount = 0;
   
@@ -242,25 +248,25 @@ const CrewBbsBlogDetails = () => {
                         <a className="author" href="#">
                           <i className="lnil lnil-user"></i> <span>크루소개</span>
                         </a>
-                        <a className="view" href="#">
+                        <a className="view" onClick={gotoCrewMember}>
                           <i className="lnil lnil-eye"></i>크루멤버
                         </a>
                         <button className="pyr_crewBnt">가입</button>
-                        <a className="report" href="#">
-                          <i className="lnil lnil-warning"></i>좋아요  {likecount}
+                        <button className="pyr_crewBnt">가입 취소</button>
+                          <i className="icons-list">
+                          {isLiked ? (
+                            <HeartFilled style={{ color: 'red', fontSize: '100px'}} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
+                          ) : (
+                            <HeartOutlined style={{ fontSize: '100px'}} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
+                          )}
+                            </i>좋아요  {likecount}
                           {/* <i className="lnil lnil-warning"></i>좋아요  {lc} */}
                           {/* <LikeButton /> */}
-                        </a>
                       </div>
   
-                        <div>
-                          {isLiked ? (
-                            <button onClick={handleCancelLike}>좋아요 취소</button>
-                          ) : (
-                            <button onClick={handleLike}>좋아요</button>
-                          )}
-                          <button onClick={handleGetLike}>좋아요 여부 확인</button>
-                        </div>
+                        {/* <div>
+                          {/* <button onClick={handleGetLike}>좋아요 여부 확인</button>
+                        </div> */}
   
                       {/* <!--Post Excerpt--> */}
                       {/* <span className="has-accent-1">Pavel Murren</span> -> 강조*/}

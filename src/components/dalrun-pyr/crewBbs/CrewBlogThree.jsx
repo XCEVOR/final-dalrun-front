@@ -5,47 +5,18 @@ import CrewBbsPagination from "./CrewBbsPagination";
 import axios from 'axios';
 
 const CrewBlogThree = () => {
-  //const [crewSeq, setCrewSeq] = useState(null);
   const crewBbsParams = useParams();
   const [crewBbsList, setCrewBbsList] = useState([]);
   const [crewSeq, setCrewSeq] = useState(crewBbsList.crewSeq);
-  
+  const [type, setType] = useState('all');
+  //search & paging
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
-  // paging
   const [page, setPage] = useState(1);
   const [totalCnt, setTotalCnt] = useState(0);
 
-  const [imgid, setImgId] = useState([]);
-  const [type, setType] = useState('all');
-
   const choiceChange = (e) => setChoice(e.target.value);
   const searchChange = (e) => setSearch(e.target.value);
-
-  useEffect(() => {
-    setCrewSeq(crewBbsParams.crewSeq);
-  }, [crewBbsParams.crewSeq]);
-
-  //이미지 표시
-//   function getimgstr() {
-//   console.log("getimgstr crewSeq",crewSeq);
-//       axios.get("http://localhost:3000/getimgstr", {
-//       params: {
-//         "crewSeq": crewSeq
-//       }
-//     })
-//     .then((res) => {
-//       const imgid = res.data.split('/');
-//       setImgId(imgid); //상태 변수 업데이트
-//       alert(imgid);
-//       console.log("crewSeq ", crewSeq);
-//       const firstImg = imgid[0];
-//       console.log("firstImg " ,firstImg);
-//       setImgId(firstImg);
-//     }).catch((err) => {
-//       alert(err);
-//     });
-// }
 
   //게시판 리스트(검색, 페이징)
   function getCrewBbsList(c,s,p) {
@@ -96,8 +67,6 @@ const CrewBlogThree = () => {
   }
 
   let navigate = useNavigate();
-
-  //검색버튼
   function searchBtn(){
     // choice, search 검사
     if(choice.toString().trim() !== "" && search.toString().trim() !== ""){
@@ -106,14 +75,17 @@ const CrewBlogThree = () => {
     else{
         navigate('/crewBbsMain/');
     }
-    // 데이터를 다시 한번 갖고 온다
+    // 데이터를 다시 한번 갖고 옴
     getCrewBbsList(choice, search);
 }
 
 useEffect(function () {
   getCrewBbsList(crewBbsParams.choice, crewBbsParams.search, crewBbsParams.page);
-  //getimgstr();
-}, [crewBbsParams.crewSeq])
+}, [])
+
+useEffect(() => {
+  setCrewSeq(crewBbsParams.crewSeq);
+}, [crewBbsParams.crewSeq]);
 
 //타입 -> 수정중
 // const getCrewTypeList = (type) => {
@@ -144,8 +116,6 @@ useEffect(function () {
 
   return (
     <>
-
-          {/* <button type="button" onClick={handleButtonClick}>type</button> */}
           <div>
       <div className="col-auto">
         <input type="checkbox" id="all" name="type_all" value="all" checked={type === 'all'} />
@@ -157,21 +127,8 @@ useEffect(function () {
         <input type="checkbox" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
         <label htmlFor="closed">모집 완료</label>
       </div>
-
-  {/* <div class="col-auto">
-      <button className="btn btn-primary">
-      전체
-    </button>
-    <button className="btn btn-primary">
-      모집중
-    </button>
-    <button className="btn btn-primary">
-      모집완료
-    </button>
-      </div> */}
   </div>
-
-    {/* <button onClick={getimgstr}>getimgstr</button> */}
+  
     <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"20px", marginBottom:"5px" }}>
             <tbody>
             <tr>
@@ -207,7 +164,6 @@ useEffect(function () {
         </button>
           </div>
         </table>
-         {/* <button onClick={getimgstr}>getimgstr</button> */}
       
       {/* 서버 데이터 */}
       {crewBbsList.map((singleBbs, i) => (
@@ -215,13 +171,6 @@ useEffect(function () {
           <article className="ptf-post ptf-post--style-1">
             <div className="ptf-post__media">
               <Link className="ptf-work__link" to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}></Link>
-              {/*singleBbs.imgurl = "assets/img/dalrun-pyr/run1.jpg" */}
-               {/* <img
-                src={"http://localhost:3000/getimg?imgid=" + imgid[0]}
-                alt="blog"
-                loading="lazy"
-              />  */}
-              {/* file:///C:/Users/ParkYerin/git/final-dalrun-front/public/assets/img/dalrun-pyr/0b557f74-4d1d-4dda-b4c2-b6e5f978aa70.PNG */}
              <img src={"http://localhost:3000/getimg?imgid="+ singleBbs.crewImg }
                alt="blog"
                loading="lazy"
