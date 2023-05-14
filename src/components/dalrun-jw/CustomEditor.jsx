@@ -1,13 +1,22 @@
 ﻿import React, { useState, useRef, useMemo } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
+import { nanoid } from '@reduxjs/toolkit';
 import 'react-quill/dist/quill.snow.css';
 
 const CustomEditor = ({ handleEditorChange }) => {
   const [value, setValue] = useState('');
   const quillRef = useRef();
   const loginData = JSON.parse(localStorage.getItem("login"));
-  const memId = loginData.memId;
+  const postId = nanoid();
+
+  
+  let memId = null;
+  if (loginData) {
+    memId = loginData.memId;
+  }
+
+  
 
   const modules = useMemo(() => {
     return {
@@ -35,7 +44,7 @@ const CustomEditor = ({ handleEditorChange }) => {
               let formData = new FormData();
               formData.append('imageFile', file);
               formData.append('memId', memId);
-              formData.append('imgNumber', '001');
+              formData.append('postId', postId);
 
               try {
                 const response = await axios.post('http://localhost:3000/uploadDiaryImg', formData);
@@ -67,7 +76,7 @@ const CustomEditor = ({ handleEditorChange }) => {
   };
 
   return (
-    <div style={{ height:500, width: 1000}}>
+    <div style={{ height: 500, width: 1000, overflow: 'auto' }}>
       <ReactQuill 
         ref={quillRef} 
         theme="snow" 

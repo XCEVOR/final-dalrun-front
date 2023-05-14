@@ -66,10 +66,13 @@ import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
 import MainPage from"../views/mjy-view/mainPage";
 import MainDotMap from "../views/mjy-view/mainDotmap";
+import MainFirst from "../views/mjy-view/mainFirst";
 import CompetitionMain from "../views/mjy-view/competition/CompetitionMain";
 import CompetitionDetails from "../views/mjy-view/competition/CompetitionDetails";
 import ReviewMain from "../views/mjy-view/review/ReviewMain";
 import ReviewDetails from "../views/mjy-view/review/ReviewDetails";
+
+
 
 // 오성혁
 import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
@@ -169,6 +172,8 @@ const AllRoutes = () => {
         <Route path='/mjy-work' element={<MjyWorkspace/>} />
         <Route path='/mainPage' element={<MainPage/>} />
         <Route path='/dotmap' element={<MainDotMap/>} />
+        <Route path='/main' element={<MainFirst/>} />
+
         <Route path='/competition-main' element={<CompetitionMain />}/>
         <Route path="/competition-detail/:compSeq" element={<CompetitionDetails/>}/>
         <Route path='/review-main' element={<ReviewMain />} />
