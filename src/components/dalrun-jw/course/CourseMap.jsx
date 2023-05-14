@@ -12,13 +12,19 @@ function CourseMap() {
   useEffect(() => {
     const areaData = geoJson.features;
     const polygons = {};
-    
-    areaData.forEach((feature) => {
-      const { properties, geometry } = feature;
-      const coordinates = geometry.coordinates[0];
 
-      polygons[properties.CTPRVN_CD] = coordinates;
-    });
+areaData.forEach((feature) => {
+  const { properties, geometry } = feature;
+  
+  if (geometry.type === 'Polygon') {
+    const coordinates = geometry.coordinates[0];
+    polygons[properties.CTPRVN_CD] = [coordinates]; // Wrap in array for consistency
+  } else if (geometry.type === 'MultiPolygon') {
+    const coordinates = geometry.coordinates.map((polygon) => polygon[0]); // Assuming each polygon is a simple ring
+    polygons[properties.CTPRVN_CD] = coordinates;
+  }
+});
+
 
     setPolygonData(polygons);
   }, []);
@@ -50,15 +56,17 @@ function CourseMap() {
       >
         <NaverMap {... mapOptions} >
           <LocationBtn/>
-          {Object.keys(polygonData).map((areaCode) => (
-            <Polygon
-            key={areaCode}
-            paths={polygonData[areaCode]}
-            strokeColor="#004c80"
-            fillColor="#fff"
-            fillOpacity={0.5}
-            />
-          ))}
+            {Object.keys(polygonData).map((areaCode) =>
+              polygonData[areaCode].map((polygon, index) => (
+                <Polygon
+                  key={`${areaCode}-${index}`}
+                  paths={polygon}
+                  strokeColor="#004c80"
+                  fillColor="#fff"
+                  fillOpacity={0.5}
+                />
+              ))
+            )}
         </NaverMap>
       </MapDiv>
     )
