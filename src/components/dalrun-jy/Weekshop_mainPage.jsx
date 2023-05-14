@@ -149,7 +149,7 @@ const Weekshop_mainPage = () => {
 
             {/* <!--Blog Post--> */}
             <article className="ptf-post ptf-post--style-2">
-              <Link to={`/store-recommend/${recomm.substring(0, 9)}`} rel="noopener noreferrer">
+              <Link to={`/store-recommend/${recomm.substring(2, 11)}`} rel="noopener noreferrer">
                 <div className="ptf-post__media">
                   <img
                     src={`http://localhost:3000/dalrun-hc/store/products/RECOMMEND/${recomm}`}
