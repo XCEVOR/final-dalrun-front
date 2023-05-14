@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import HeaderDefault from "../../../components/header/HeaderDefault";
 import CopyRight from "../../../components/footer/copyright/CopyRight";
 import Footer from "../../../components/footer/Footer";
-import "../../../assets/mjy-assets/css/compcss.css"
 
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -49,7 +48,7 @@ const CompetitionDetails = () => {
         <HeaderDefault />
         {/* End  HeaderHomeDefault */}
 
-        <div className="main">
+        <div className="main comp_detail">
           <article className="ptf-page ptf-page--single-work-1">
             <section >
               <div className="container-xxl" >
@@ -71,6 +70,7 @@ const CompetitionDetails = () => {
                       data-aos-delay="0"
                     >
                       <img
+                        className="comp_img"
                         src={`http://localhost:3000/dalrun-hc/competition/${compBbs.compimage}`}
                         loading="lazy"
                         style={{ position: 'relative' }}
@@ -80,7 +80,7 @@ const CompetitionDetails = () => {
 
 
                   </div>
-                  <div className="col-xl-6" >
+                  <div className="col-xl-6" style={{ marginLeft: '25px' }} >
                     <div className="row">
 
                       <div
@@ -88,9 +88,9 @@ const CompetitionDetails = () => {
                         data-aos="fade"
                         data-aos-delay="0"
                       >
-                        <h2 className="large-heading">
+                        <h4 className="large-heading">
                           {compBbs.compTitle}
-                        </h2>
+                        </h4>
                         <div
                           className="ptf-spacer"
                           style={{ "--ptf-xxl": "2rem", "--ptf-md": "3.125rem" }}
@@ -219,7 +219,7 @@ const CompetitionDetails = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
-                  <h2>대회 소개</h2>
+                  <h3>대회 소개</h3>
                 </div>
                 {/* <!--Spacer--> */}
                 <div
@@ -231,7 +231,7 @@ const CompetitionDetails = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
-                  <p className="fz-30 has-black-color">
+                  <p className="comp_desc has-black-color">
                     {compBbs.compContent}
                   </p>
                 </div>
@@ -263,7 +263,7 @@ const CompetitionDetails = () => {
                   data-aos="fade"
                   data-aos-delay="0"
                 >
-                  <h2>대회 위치</h2>
+                  <h3>대회 위치</h3>
                 </div>
 
                 {/* <!--Spacer--> */}
