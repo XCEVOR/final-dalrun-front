@@ -202,7 +202,8 @@ function StoreDetailsSelection() {
           position="top-right"
           setAddCartModal={setAddCartModal}
         />
-        
+        <div><p>{JSON.parse(productDetails[0].productDescription).descr}</p></div>
+        <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
 
         <div className="product_category">
           <h1 className="product_category">{productDetails[0].productCategory}</h1>

@@ -11,6 +11,7 @@ function StoreDetailsPicture() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
   const [productPictureList, setProductPictureList] = useState([]);
+  const [productDetails, setProductDetails] = useState();
   const [pictureLocation, setPictureLocation] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
@@ -24,8 +25,14 @@ function StoreDetailsPicture() {
     setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
 
+  const productDetailsData = async (productCode) => {  // description 데이터 용.
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    setProductDetails(resp.data);
+  }
+
   useEffect(() => {
     productDetailsPictureList(prodParams.productCode);
+    productDetailsData(prodParams.productCode);
   }, [prodParams.productCode])
 
   useEffect(() => {
@@ -65,7 +72,9 @@ function StoreDetailsPicture() {
     <>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="productPic_container">
-
+    <div><p>{JSON.parse(productDetails[0].productDescription).descr}</p></div>
+    <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
+    <div><p>{JSON.parse(productDetails[0].productDescription).feat2}</p></div>
 
       {productPictureList.map((pic, index) => (
 
