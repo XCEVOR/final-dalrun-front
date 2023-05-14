@@ -72,11 +72,14 @@ const DiarySidebar = () => {
 
   );
 }
-export default DiarySidebar
+export default DiarySidebar;
 
 // 프로필 드롭업
 function MyDropdown() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  const profileImg = loginData.profile;
+  // console.log(profileImg);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
@@ -88,7 +91,7 @@ function MyDropdown() {
 
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
       <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none', marginLeft: 'auto' }}>
-        <img src='https://github.com/mdo.png' alt='mdo' width='24' height='24' className='rounded-circle' />
+        <img src={`http://localhost:3000/final-dalrun/src/main/webapp/dalrun-yr/profiles/${profileImg}`} alt='mdo' width='24' height='24' className='rounded-circle' />
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
