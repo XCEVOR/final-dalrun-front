@@ -111,7 +111,7 @@ const StoreMain = () => {
             {/*=============================================
             일반 상품
             ============================================== */}
-              <section className="ptf-custom--1569">
+              <section className="store_four_rectangles">
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"

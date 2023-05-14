@@ -7,8 +7,8 @@ import axios from "axios";
 
 import './css/Login.css';
 import logo from './img/logo.png';
-import FindPassword from "./FindPassword";
 import kakao_login from './img/kakao_login.png';
+import FindRegi from "./FindRegi";
 
 
 function Login(){
@@ -80,7 +80,7 @@ function Login(){
                 <h3>
                 <img src={logo} alt="logo" className="logo3"/>
                     <br/>
-                    들어오셔서 기뻐요!
+                    서비스 이용을 위해 로그인 해주세요
                 </h3>
                 <p>
                     달런달런 전용 로그인
@@ -99,7 +99,7 @@ function Login(){
                         <input type="checkbox" checked={saveId} onChange={checkHandler} className="chk"/>
                         <label className="chke">아이디 저장</label>
                     <div className="forget_pw">
-                        <a>비밀번호를 잊으셨나요?</a>
+                        <a href="http://localhost:9200/findRegi">아이디 비밀번호 찾기</a>
                     </div>
                     </div>
                     <button type="button" onClick={login} className="login_button">로그인</button>

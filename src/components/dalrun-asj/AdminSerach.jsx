@@ -24,8 +24,8 @@ function AdminSearch(props) {
             const grade = searchParams.get("grade");
             params.grade = grade;
         } else if(cate === "competition") {
-            const date = searchParams.get("date");            
-            params.date = date;
+            const local = searchParams.get("local");            
+            params.local = local;
         } else if(cate === "product") {
             const saleState = searchParams.get("sale");            
             const stockState = searchParams.get("stock");            
@@ -38,6 +38,11 @@ function AdminSearch(props) {
             params.delivery = deliveryState;
         } else if(cate === "question") {
             searchUrl = `http://localhost:3000/admin_${sub}list`;
+
+            if(sub === "productinquiry") {
+                const inqState = searchParams.get("inqState");
+                params.inqState = inqState;
+            }
         }
     }
     

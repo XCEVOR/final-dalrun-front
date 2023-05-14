@@ -27,7 +27,7 @@ function AdminDiary() {
         <div className="info">
           <ModalBtn {...category} />
           <div className="info_con">
-            <Table striped bordered hover>
+            <Table responsive hover>
               <thead>
                 <tr>
                   <th>
@@ -40,8 +40,12 @@ function AdminDiary() {
                   <th>번호</th>
                   <th>작성자</th>
                   <th>제목</th>
-                  <th>소속</th>
+                  <th>내용</th>
+                  <th>총거리</th>
+                  <th>총시간</th>
+                  <th>칼로리</th>
                   <th>등록일</th>
+                  <th>삭제</th>
                 </tr>
               </thead>
               <tbody>
@@ -60,12 +64,16 @@ function AdminDiary() {
                         <td>{d.diarySeq}</td>
                         <td>{d.memId}</td>
                         <td>{d.title}</td>
-                        <td>{d.crewSeq}</td>
+                        <td>{d.content}</td>
+                        <td>{d.totalDist}</td>
+                        <td>{d.totalTime}</td>
+                        <td>{d.kcal}</td>
                         <td>{d.wdate}</td>
+                        <td>{d.diarydel}</td>
                       </tr>
                     );
                   }) 
-                  : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                  : <tr style={{textAlign:"center"}}><td colSpan="10">데이터가 없습니다</td></tr>
                 }
               </tbody>
               </Table>

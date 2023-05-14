@@ -5,9 +5,11 @@ import CrewBbsPagination from "./CrewBbsPagination";
 import axios from 'axios';
 
 const CrewBlogThree = () => {
+  //const [crewSeq, setCrewSeq] = useState(null);
   const crewBbsParams = useParams();
   const [crewBbsList, setCrewBbsList] = useState([]);
-
+  const [crewSeq, setCrewSeq] = useState(crewBbsList.crewSeq);
+  
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
   // paging
@@ -15,33 +17,37 @@ const CrewBlogThree = () => {
   const [totalCnt, setTotalCnt] = useState(0);
 
   const [imgid, setImgId] = useState([]);
-  const [crewSeq, setCrewSeq] = useState(crewBbsParams.crewSeq);
-
   const [type, setType] = useState('all');
 
   const choiceChange = (e) => setChoice(e.target.value);
   const searchChange = (e) => setSearch(e.target.value);
 
-  function getimgstr() {
-    console.log("crewSeq",crewSeq);
-        axios.get("http://localhost:3000/getimgstr", {
-        params: {
-          "crewSeq": crewSeq
-        }
-      })
-      .then((res) => {
-        const imgid = res.data.split('/');
-        setImgId(imgid); //상태 변수 업데이트
-        alert(imgid);
-        console.log("crewSeq ", crewSeq);
-        const firstImg = imgid[0];
-        alert(firstImg);
-      }).catch((err) => {
-        alert(err);
-        console.log("crewSeq ", crewSeq);
-      });
-  }
+  useEffect(() => {
+    setCrewSeq(crewBbsParams.crewSeq);
+  }, [crewBbsParams.crewSeq]);
 
+  //이미지 표시
+//   function getimgstr() {
+//   console.log("getimgstr crewSeq",crewSeq);
+//       axios.get("http://localhost:3000/getimgstr", {
+//       params: {
+//         "crewSeq": crewSeq
+//       }
+//     })
+//     .then((res) => {
+//       const imgid = res.data.split('/');
+//       setImgId(imgid); //상태 변수 업데이트
+//       alert(imgid);
+//       console.log("crewSeq ", crewSeq);
+//       const firstImg = imgid[0];
+//       console.log("firstImg " ,firstImg);
+//       setImgId(firstImg);
+//     }).catch((err) => {
+//       alert(err);
+//     });
+// }
+
+  //게시판 리스트(검색, 페이징)
   function getCrewBbsList(c,s,p) {
     axios.get('http://localhost:3000/crewBbsMain', {params:{ "choice":c, "search":s, "pageNumber":p  } })
       .then(function(res){
@@ -54,6 +60,7 @@ const CrewBlogThree = () => {
             })
   }
 
+  //게시글 조회수 정렬(검색, 페이징)
   function getBbsListByReadCount(c,s,p){
     axios.get('http://localhost:3000/readcount', {params : {"choice":c, "search":s, "pageNumber":p} })
     .then(function(res){
@@ -66,6 +73,7 @@ const CrewBlogThree = () => {
     })
   }
 
+  //게시글 좋아요 수 정렬(검색, 페이징)
   function getBbsListByLikeCount(c,s,p){
     axios.get('http://localhost:3000/likecount', {params:{ "choice":c, "search":s, "pageNumber":p  } })
     .then(function(res){
@@ -78,6 +86,7 @@ const CrewBlogThree = () => {
     })
   }
 
+  //페이징
   const handlePagination= (page) => {
     console.log(page);
     setPage(page);
@@ -88,6 +97,7 @@ const CrewBlogThree = () => {
 
   let navigate = useNavigate();
 
+  //검색버튼
   function searchBtn(){
     // choice, search 검사
     if(choice.toString().trim() !== "" && search.toString().trim() !== ""){
@@ -102,16 +112,10 @@ const CrewBlogThree = () => {
 
 useEffect(function () {
   getCrewBbsList(crewBbsParams.choice, crewBbsParams.search, crewBbsParams.page);
+  //getimgstr();
 }, [crewBbsParams.crewSeq])
 
-useEffect(()=> {
-  console.log(crewBbsList);
-}, [crewBbsList])
-
-useEffect(() => {
-  console.log("crewSeq : ", crewSeq);
-}, [crewSeq]);
-
+//타입 -> 수정중
 // const getCrewTypeList = (type) => {
 //   axios.get(`/crewBbsMain/${type}`)
 //   .then(res => {
@@ -203,6 +207,7 @@ useEffect(() => {
         </button>
           </div>
         </table>
+         {/* <button onClick={getimgstr}>getimgstr</button> */}
       
       {/* 서버 데이터 */}
       {crewBbsList.map((singleBbs, i) => (
@@ -217,7 +222,7 @@ useEffect(() => {
                 loading="lazy"
               />  */}
               {/* file:///C:/Users/ParkYerin/git/final-dalrun-front/public/assets/img/dalrun-pyr/0b557f74-4d1d-4dda-b4c2-b6e5f978aa70.PNG */}
-              <img src={`${singleBbs.crewImg}`}
+             <img src={"http://localhost:3000/getimg?imgid="+ singleBbs.crewImg }
                alt="blog"
                loading="lazy"
              />

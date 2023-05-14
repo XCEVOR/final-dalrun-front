@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 function StoreCartList(props) {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+  const navigate = useNavigate();
 
   // const location = useLocation();
   const [userId, setUserId] = useState("user01test");
@@ -117,6 +118,14 @@ function StoreCartList(props) {
     
   }, [data])
 
+  
+  useEffect (() => {
+    alert(orderNumber)
+    if (orderNumber === undefined) return;
+    navigate(`/store-payment-confirm/${orderNumber}`);
+  }, [orderNumber])
+
+
   if(loading === false){
     return <div>Loading...</div>
   }
@@ -152,17 +161,33 @@ function StoreCartList(props) {
   
   const callback = (response) => {
     const {success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status} = response;
-    if (success) {
-      alert('결제 성공');
-      console.log(response);
-      console.log("imp_uid: ", imp_uid);
-      console.log("merchant_uid: ", merchant_uid);
-      console.log("pay_method: ", pay_method);
-      console.log("paid_amount: ", paid_amount);
-      console.log("status: ", status);
-    } else {
-      alert(`결제 실패 : ${error_msg}`);
-    }
+
+    axios.get(`http://localhost:3000/verifyIamport/${imp_uid}`, {})
+    .then (function (resp) {
+      console.log(" @ verifyIamport resp: ", resp.data);
+      console.log(" @ verifyIamport resp: ", resp.data.response.amount);
+      if (resp.data.response.amount === totalPaymentAmount) {
+        alert("결제 성공 response")
+      }
+    })
+    .then (function () {
+      writeOrderData();
+    })
+    .catch (function (err) {
+      alert(err);
+    })
+
+    // if (success) {
+    //   alert('결제 성공');
+    //   console.log(response);
+    //   console.log("imp_uid: ", imp_uid);
+    //   console.log("merchant_uid: ", merchant_uid);
+    //   console.log("pay_method: ", pay_method);
+    //   console.log("paid_amount: ", paid_amount);
+    //   console.log("status: ", status);
+    // } else {
+    //   alert(`결제 실패 : ${error_msg}`);
+    // }
   }
 
 
@@ -226,6 +251,7 @@ function StoreCartList(props) {
         .catch((err) => console.log(err));
     }
   }
+
 
 
 
@@ -325,12 +351,26 @@ function StoreCartList(props) {
 
 
 
+
+
+  // 주문번호 작성 후 페이지 이동.
+  const testSuccessPayment = () => {
+    axios.get(`http://localhost:3000/korean`, {})
+    .then (function () {
+      writeOrderData();
+    })
+    .catch (function (err) {
+      alert(err);
+    })
+  }
+
+
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div>
-
+        
         <section>
           <h1>ORDER SUMMARY</h1>
 
@@ -380,10 +420,11 @@ function StoreCartList(props) {
                     </button>
                   </Link>
                   <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                  <Link to="/store-payment">
+                  <Link to={`/store-payment-confirm/${orderNumber}`} >
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link>
                   <h3 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h3>
+                  <button onClick={testSuccessPayment}>testSuccessPayment</button>
 
                 </div>
               </div>
@@ -581,7 +622,7 @@ function StoreCartList(props) {
                     </button>
                   </Link>
                   <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                  <Link to="/store-payment">
+                  <Link to="/store-payment-confirm">
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link>
                   <h6 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h6>

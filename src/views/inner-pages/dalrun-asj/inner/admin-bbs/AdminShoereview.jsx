@@ -4,13 +4,13 @@ import BasicSearch from "../../../../../components/dalrun-asj/BasicSearch";
 import ModalBtn from "../../../../../components/dalrun-asj/ModalBtn";
 import { Table } from "react-bootstrap";
 import useCheckControl from "../../../../../components/dalrun-asj/useCheckControl";
+import { Link } from "react-router-dom";
 
 function AdminShoereview() {
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});
 
   const optionVal = [
-    {value : "memId", name : "작성자"},
     {value : "title", name : "제목"},
     {value : "content", name : "내용"}
   ]
@@ -28,7 +28,7 @@ function AdminShoereview() {
         <div className="info">
           <ModalBtn {...category} />
           <div  className="info_con">
-            <Table striped bordered hover>
+            <Table responsive hover>
               <thead>
                 <tr>
                   <th>
@@ -39,9 +39,14 @@ function AdminShoereview() {
                     />
                   </th>
                   <th>리뷰번호</th>
+                  <th>브랜드</th>
                   <th>제목</th>
-                  <th>작성자</th>
-                  <th>등록일</th>
+                  <th>내용</th>
+                  <th>링크</th>
+                  <th>조회수</th>
+                  <th>댓글수</th>
+                  <th>작성일</th>
+                  <th>삭제</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,18 +58,27 @@ function AdminShoereview() {
                       <th>
                         <input 
                           type="checkbox" 
-                          onChange={(e) => handleSingleCheck(e.target.checked, shoe.shoereviewSeq)} 
-                          checked={checkedList.includes(shoe.shoereviewSeq) ? true : false}
+                          onChange={(e) => handleSingleCheck(e.target.checked, shoe.srSeq)} 
+                          checked={checkedList.includes(shoe.srSeq) ? true : false}
                           />
                       </th>
-                      <td>{shoe.shoereviewSeq}</td>
-                      <td>{shoe.shoereviewdetailTitle}</td>
-                      <td>{shoe.memId}</td>
-                      <td>{shoe.shoereviewdetailRegdate}</td>
+                      <td>{shoe.srSeq}</td>
+                      <td>{shoe.srBrand}</td>
+                      <td>
+                        <Link to={`/review-detail/${shoe.srSeq}`}>{shoe.srTitle}</Link>
+                      </td>
+                      <td className="text_overflow">{shoe.srCotent}</td>
+                      <td>
+                        <Link target="_blank" className="table_link" to={shoe.srLink}>이동</Link>
+                      </td>
+                      <td>{shoe.readcount}</td>
+                      <td>{shoe.commentcount}</td>
+                      <td>{shoe.srwdate}</td>
+                      <td>{shoe.srDel !== 0 ? "삭제":""}</td>
                     </tr>
                     );
                   })
-                  : <tr style={{textAlign:"center"}}><td colSpan="11">데이터가 없습니다</td></tr>
+                  : <tr style={{textAlign:"center"}}><td colSpan="10">데이터가 없습니다</td></tr>
                 }
               </tbody>
             </Table>

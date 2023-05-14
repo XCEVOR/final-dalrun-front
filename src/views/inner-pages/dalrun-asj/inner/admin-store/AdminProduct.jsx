@@ -32,21 +32,21 @@ function AdminProduct() {
   return (
     <div className="store">
       <div className="store-content">
-          <div className="search outline">
+          <div className="search">
           <div>
             <div style={{display:'flex', justifyContent:'space-between'}}>
             <div className="search-content">
               <span className="search-title">판매상태</span>
               <div>
-                <label><input type="radio" value="0" onChange={handleSaleRadio} checked={saleState === "0"}/>판매</label>
-                <label><input type="radio" value="1" onChange={handleSaleRadio} checked={saleState === "1"}/>품절</label>
+                <label><input type="radio" value="1" onChange={handleSaleRadio} checked={saleState === "1"}/>판매</label>
+                <label><input type="radio" value="0" onChange={handleSaleRadio} checked={saleState === "0"}/>품절</label>
               </div>
             </div>
             <div className="search-content">
               <span className="search-title">재고상태</span>
               <div>
-                <label><input type="radio" value="0" onChange={handleStockRadio} checked={stockState === "0"}/>충분</label>
-                <label><input type="radio" value="1" onChange={handleStockRadio} checked={stockState === "1"}/>부족</label>
+                <label><input type="radio" value="1" onChange={handleStockRadio} checked={stockState === "1"}/>충분</label>
+                <label><input type="radio" value="0" onChange={handleStockRadio} checked={stockState === "0"}/>부족</label>
               </div>
             </div>
             </div>
@@ -56,9 +56,9 @@ function AdminProduct() {
               <span className="search-title">검색어</span>
               <select value={choice} onChange={(e)=>setChoice(e.target.value)}>
                 <option value="">선택</option>
-                <option value="category">카테고리</option>
-                <option value="productId">상품코드</option>
-                <option value="name">상품명</option>
+                <option value="productId">상품번호</option>
+                <option value="productCode">상품코드</option>
+                <option value="productName">상품명</option>
               </select>
               <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
@@ -73,7 +73,7 @@ function AdminProduct() {
           <div className="info">
             <ModalBtn {...category} />
             <div className="info_con">
-              <Table striped bordered hover size="sm">
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>
@@ -91,7 +91,9 @@ function AdminProduct() {
                     <th>색상</th>
                     <th>사이즈</th>
                     <th>가격</th>
-                    <th>재고</th>
+                    <th>창고재고</th>
+                    <th>가재고</th>
+                    <th>판매여부</th>
                     <th>등록일</th>
                   </tr>
                 </thead>
@@ -119,6 +121,8 @@ function AdminProduct() {
                           <td>{item.productSize}</td>
                           <td>{item.productPrice}</td>
                           <td>{item.productStock}</td>
+                          <td>{item.productStock-item.orderCnt}</td>
+                          <td>{item.productSale !== 0 ? '판매' : '품절'}</td>
                           <td>{item.productRegiDate}</td>
                         </tr>
                       );

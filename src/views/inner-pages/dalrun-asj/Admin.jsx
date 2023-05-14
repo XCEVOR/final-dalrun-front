@@ -17,10 +17,12 @@ const Admin = () => {
       <Helmet>
         <title>Dalrun - Admin</title>
       </Helmet>
-      <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
+      {/* <div className="ptf-site-wrapper__inner"> */}
+      <div>
+        {/* <HeaderDefault /> */}
 
-        <div className="main container-xxl" style={{display:"flex"}}>
+        {/* <div className="main container-xxl" style={{display:"flex"}}> */}
+        <div style={{display:"flex"}}>
           <AdminMenu />
           <Routes>
             <Route path="dashboard" element={<AdminDashboard />} />
@@ -32,7 +34,7 @@ const Admin = () => {
         </div>
       </div>
 
-      <footer className="ptf-footer ptf-footer--style-1">
+      {/* <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
           <div className="ptf-footer__top">
             <Footer />
@@ -41,7 +43,7 @@ const Admin = () => {
             <CopyRight />
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

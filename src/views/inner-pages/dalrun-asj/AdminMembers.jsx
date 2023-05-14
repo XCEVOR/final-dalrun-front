@@ -11,7 +11,7 @@ function AdminMembers() {
     ];
 
     return (
-        <div className="members container">
+        <div className="members admin-container">
             <h4 className="title">회원관리</h4>
             <AdminBtn {...category} />
             <Routes>

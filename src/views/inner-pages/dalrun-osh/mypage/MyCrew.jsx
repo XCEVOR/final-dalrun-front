@@ -1,12 +1,14 @@
 
 import { Table } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import useCheckControl from "../../../../components/dalrun-sh/useCheckControl";
-import MypageSerach from "../../../../components/dalrun-sh/MypageSerach";
+
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { GiUpgrade } from "react-icons/gi";
 
 function MyCrew() {
+
+  const history = useNavigate();
 
   // 로그인 정보
   const [login, setLogin] = useState([]);
@@ -134,7 +136,7 @@ function MyCrew() {
     axios.get("http://localhost:3000/mycrewMemberList", { params: { 'crewSeq': crewSeq } })
       .then(function (resp) {
         setCrewList(resp.data);
-
+        
       }).catch(function (err) {
 
       })
@@ -146,6 +148,7 @@ function MyCrew() {
       .then(function (resp) {
         localStorage.removeItem('login');
         alert("다시 로그인해주세요..");
+         history('/mainPage');    // bbslist로 이동
       }).catch(function (err) {
 
       })

@@ -28,7 +28,7 @@ function AdminMember() {
   return (
     <div className="member">
       <div className="member-content">
-        <div className="search outline">
+        <div className="search">
           <div>
             <div className="search-content">
               <span className="search-title">회원 등급</span>
@@ -60,7 +60,7 @@ function AdminMember() {
         <div className="info">
           <ModalBtn {...category} />
           <div className="info_con">
-            <Table striped bordered hover>
+            <Table responsive hover>
               <thead>
                 <tr>
                   <th>

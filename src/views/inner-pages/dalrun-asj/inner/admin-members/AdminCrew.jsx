@@ -44,9 +44,9 @@ function AdminCrew() {
       <div className="member-content">
         <BasicSearch {...optionVal} />
         <div className="info">
+          <ModalBtn {...category} />
           <div className="info_con">
-            <ModalBtn {...category} />
-            <Table striped bordered hover>
+            <Table responsive hover>
               <thead>
                 <tr>
                   <th>
