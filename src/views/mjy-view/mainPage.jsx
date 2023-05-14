@@ -27,7 +27,8 @@ const MainPage = () => {
             {/*=============================================
                 이 주의 러너 베너
               ============================================== */}
-            <div className="container-xxl">
+            {/* <div className="container-xxl"> */}
+            <div>
             <section>
               
               {/* <!--Spacer--> */}
@@ -56,10 +57,10 @@ const MainPage = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h2 className="text-uppercase fw-semibold">
-                        menu<br />
+                      {/* <h2 className="text-uppercase fw-semibold">
+                        메뉴<br />
 
-                      </h2>
+                      </h2> */}
                     </div>
                   </div>
 

@@ -29,7 +29,7 @@ function AdminProductinquiry() {
                   />
                 </th>
                 <th>문의번호</th>
-                <th>상품번호</th>
+                <th>상품코드</th>
                 <th>작성자</th>
                 <th>이름</th>
                 <th>제목</th>
@@ -53,7 +53,7 @@ function AdminProductinquiry() {
                         />
                     </th>
                     <td>{inq.inqSeq}</td>
-                    <td>{inq.productId}</td>
+                    <td>{inq.productCode}</td>
                     <td>{inq.memId}</td>
                     <td>{inq.inqWriter}</td>
                     <td>{inq.inqTitle}</td>

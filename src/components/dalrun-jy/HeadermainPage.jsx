@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Search from "../form/Search";
 import DropdownMenu from "./menu/DropdownMenu";
 import MobileMenu from "./menu/MobileMenu";
@@ -22,6 +22,10 @@ const HeadermainPage = () => {
     }
   };
 
+  const location = useLocation();
+  const path = location.pathname;
+  console.log(path)
+
   window.addEventListener("scroll", changeBackground);
 
   return (
@@ -29,9 +33,10 @@ const HeadermainPage = () => {
       <header className="ptf-header ptf-header--style-3">
         <div
           className={
-            navbar
+            `${navbar
               ? "ptf-navbar ptf-navbar--main ptf-navbar--sticky ptf-navbar--fixed"
-              : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"
+              : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"} ${path === "/dotmap"
+              ? "transparent_header": ""} ${path === '/mainPage' ? "main_header" : ""}`
           }
         >
           <div className="container-xxl">
@@ -42,7 +47,7 @@ const HeadermainPage = () => {
                
                 <img
                   className="black"
-                  src="logo.png"
+                  src={process.env.PUBLIC_URL + '/dalrun_logo.png'}
                   alt=""
                   loading="lazy"
                   style={{width:'120px'}}
@@ -65,7 +70,9 @@ const HeadermainPage = () => {
              
 
               <div
-                className="ptf-offcanvas-menu-icon js-offcanvas-menu-toggle bar right"
+                className={
+                  `ptf-offcanvas-menu-icon js-offcanvas-menu-toggle bar right`
+                }
                 onClick={handleClick1}
               >
                 <i className="lnir lnir-menu-alt-5"></i>

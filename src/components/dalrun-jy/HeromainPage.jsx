@@ -48,34 +48,35 @@ const HeromainPage = () => {
   });
 
   return (
-
-    <div className="row" style={{
-      backgroundImage: `url(assets/img/dalrun-jy/${heroContent[index].img}.jpg)`
-      , backgroundSize: 'cover', height: '800px',position: 'relative'
+<>
+    <div className="row main_banner" style={{
+      // backgroundImage: `url(assets/img/dalrun-jy/${heroContent[index].img}.jpg),`
+      backgroundSize: 'cover', height: '100vh',position: 'relative',
+      overflow:'hidden'
     }}>
+      <img className="thisweek_photo" src={process.env.PUBLIC_URL + `/assets/img/dalrun-jy/${heroContent[index].img}.jpg`} />
+      </div>
 
      
 
-        <footer className="ptf-post__footer"  style={{position: 'absolute',bottom:'0%' }}>
-
-          <h2 style={{ color: 'white' ,marginBottom:'50px',textShadow:`3px 2px ${heroContent[index].fontColor}`}}>
+        <div style={{position: 'absolute',top:'10%', right:'10%', width:'550px', textAlign: "left", zIndex:'2' }}>
+          <h1 style={{ textAlign: "left", color:'var(--ptf-accent-1)' }}>이 주의 러너</h1>
+          <h3 style={{ color: 'white' ,margin:'14px 0 45px 0'}}>
               {heroContent[index].subTitle1} 님 <br />
-            </h2>
+            </h3>
           <p
             className="
-                fz-30
-                fw-bold
                 lh-1p2
                 text-uppercase
                 has-white-color
               "
-              style={{textShadow:'2px 2px black'}}
+            style={{ fontWeight:'400', fontSize:'18px' }}
               >
             {heroContent[index].detailsDescription}
           </p>
             
-        </footer>
-      </div>
+        </div>
+        </>
 
 
 

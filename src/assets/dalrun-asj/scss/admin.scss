@@ -66,6 +66,14 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
     }
 }
 
+// admin-content
+.dashboard, .members, 
+.store, .chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .admin-container {
     width: 100%;
     padding: 60px 130px;
@@ -89,7 +97,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
         margin: 10px 0;
         padding: 3px 10px;
         font-size: 15px;
-        // border:1px solid var(--bs-gray-700);
         border: none;
         background-color: var(--bs-gray-300);
         font-weight: 500;
@@ -98,10 +105,7 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 
     button:hover,
     .active {
-        // background-color: var(--bs-gray-700);
-        // color: var(--ptf-color-white);
         background-color: var(--ptf-accent-1);
-        // color: #123;
     }
     
     .title {
@@ -191,7 +195,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 }
 
 .info {
-    height: 580px;
     margin-top: 25px;
 
     .info_con {
@@ -324,13 +327,6 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
             box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.1);
             background-color: var(--ptf-color-white);
         }
-
-        // .week {
-        //     border-radius: 10px;
-        //     padding: 20px;
-        //     box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.1);
-        //     background-color: var(--ptf-color-white);
-        // }
     }
 }
 
@@ -345,6 +341,50 @@ body		{ font-family: 'NanumSquare', sans-serif !important }
 // 차트
 .chart {
     .chart-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info {
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.1);
+        background-color: var(--ptf-color-white);
+    }
+
+    .info:first-child {
+        margin-right: 20px;
+    }
+
+    .info > div {
+        margin: 0 20px;
+    }
+
+    .subtitle {
+        font-weight: 700;
+    }
+    
+    .rank_table {
+        margin: 40px 0 50px 0;
         display: flex;
+        justify-content: center;
+
+        tbody {
+            display: flex;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: column;
+        }
+
+        td {
+            width: 100%;
+        }
+    }
+
+    .charting_month {
+        margin-top: 30px;
+        text-align: center;
     }
 }

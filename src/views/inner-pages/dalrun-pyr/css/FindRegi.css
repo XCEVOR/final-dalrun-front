@@ -21,9 +21,9 @@
   border: 0px solid brown;
 }
 
-img {
+/* img {
   width: 100px;
-}
+} */
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
@@ -33,7 +33,7 @@ body {
   letter-spacing: 0.1px;
 }
 
-h2 {
+/* h2 {
   font-size: 2.4rem;
   line-height: 2.4rem;
   text-transform: uppercase;
@@ -41,7 +41,7 @@ h2 {
   color: #333;
   letter-spacing: 2px;
   text-align: center;
-}
+} */
 
 h3 {
   font-size: 1.4rem;

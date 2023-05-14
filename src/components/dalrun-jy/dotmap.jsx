@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../assets/mjy-assets/css/earth.css";
+import "../../assets/mjy-assets/css/earth.scss";
 
 import axios from 'axios';
 import Dot from "./dot";
@@ -208,6 +208,7 @@ const Dotmap = (props) => {
 
         let { location, crewName, myFile,memId,regdate, message, groundColor, dotNewFile, sale } = dotList[j];
         rect_Collection[i].style.fill = groundColor;
+        rect_Collection[i].style.filter=`drop-shadow(2px 2px 4px ${groundColor})`
         
         /* 도트 클릭시 모달창 생성 */
         // 도트 값이 있을 때
@@ -279,7 +280,6 @@ const Dotmap = (props) => {
     }
   }, [login, dotList, mycrewinfo]);
 
-
   return (
     <div id="header">
       <div className="worldhero" style={{ position: 'relative' }} >
@@ -289,7 +289,7 @@ const Dotmap = (props) => {
         {/* 도트맵에 값이 없을 때 */}
         {/* {showModal && (  */}
         <div id="modalHeader" className="modal-dialog modal-dialog-scrollable"
-          style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '5%', left: '25%', display: "none" }}>
+          style={{ position: 'absolute', zIndex: '1', backgroundColor: 'white', top: '20%', left: '25%', display: "none" }}>
           <div className="modal-content" style={{ margin: '20px' }}>
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">도트맵에 자신의 흔적을 남겨보세요! <iconify-icon icon="emojione-v1:shooting-star" width="30" height="30"></iconify-icon></h5>
