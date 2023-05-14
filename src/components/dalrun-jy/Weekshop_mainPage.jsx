@@ -124,7 +124,7 @@ const Weekshop_mainPage = () => {
   const getPopularProduct = async () => {
     const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": "RECOMMEND"} });
     console.log("productDetailsPictureList: ", resp.data);
-    setProductList(resp.data);
+    setProductList(resp.data.sort());
 
   }
 
