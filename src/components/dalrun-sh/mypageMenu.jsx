@@ -19,8 +19,8 @@ const menuContent = [
     routerRoute: "/mypage/mystore"
   },
   {
-    name: "게시글 내역",
-    routerRoute: "/mypage/mywrite"
+    name: "내 문의 내역",
+    routerRoute: "/mypage/mywrite/QnA"
   },
   {
     name: "회원 등급",
