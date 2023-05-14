@@ -13,12 +13,18 @@ import ModalFrame from '../ModalFrame';
 
 
 const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
-  const [diaryItems, setDiaryItems] = useState([]);
+  // 다이어리 리스트
+  const [diaryItems, setDiaryItems] = useState({});
+  // 페이지 설정
   const [page, setPage] = useState(1);
   const [totalCnt, setTotalCnt] = useState(0);  
+  // 검색
   const [search, setSearch] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  // 기록 1등
+  const [todayTopScore, setTodayTopScore] = useState([]);
 
   // 모달 창 상태 관리
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,19 +43,21 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
   };
 
 
+  // 페이지가 마운트될 때 검색 URL을 초기화
   useEffect(() => {
-    // 페이지가 마운트될 때 검색 URL을 초기화
     if (searchParams.get("search") !== null) {// 검색 값이 있을 때만
       navigate('/diary', { replace: true });
     }
   }, []);
 
+  // 검색창에 검색 시
   useEffect(() => {
     const searchUrl = searchParams.get("search");
     setSearch(searchUrl || '');
     fetchDiaryItems(page - 1);
   }, [searchParams, page]);
 
+  // 다이어리 리스트 조회(비동기)
   const fetchDiaryItems = async (pageNumber) => {
     try {
       const search = searchParams.get("search") || '';
@@ -68,6 +76,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
     }
   };
 
+  // 검색창 입력 변환 시
   const handleSearchChange = (e) => {
     const newSearch = e.target.value;
     setSearch(newSearch);
@@ -102,10 +111,25 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }
 
+  // Today 기록 1등
+  useEffect(() => {
+    fetchTopScore();
+  }, [diaryItems])
+
+  const fetchTopScore = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/getTodayTopScore');
+      console.log('TodayTopScore 데이터: ', response.data);
+      setTodayTopScore(response.data[0]);
+    }catch (error) {
+      console.error('기록 1등 다이어리를 조회할 수 없습니다.', error);
+    }
+  };
+
   return (
     <div className="diary-list-container">
       <div className="diary-list-header">
-        <h5 style={{position:'relative', top:'-1rem'}}>다이어리 목록</h5>
+        <h5 style={{position:'relative', top:'-1rem'}}>다이어리 페이지</h5>
         <div className="diary-list-search">
           <input type="text" placeholder="제목,아이디,작성일 검색" value={search} onChange={handleSearchChange}/>
           <button className='diary-list-searchBtn' onClick={() => fetchDiaryItems(page - 1)}>
@@ -114,9 +138,15 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
         </div>
       </div>
       <div className="diary-list-item first-place">
-        <div style={{marginTop:'1.3rem', marginLeft:'0.5rem'}}>
-          <FontAwesomeIcon icon={faCrown} title='1등' bounce size="2xl" style={{color: "#f5dc3d",}}/>
-        </div>
+          {todayTopScore && (
+            <div>
+              <div style={{marginTop:'1.3rem', marginLeft:'0.5rem'}}>
+              <FontAwesomeIcon icon={faCrown} title='1등' bounce size="2xl" style={{color: "#f5dc3d",}}/>
+              <p>{todayTopScore.memId}</p>
+              <p></p>
+              </div>
+            </div>
+          )}
       </div>
       <div className="diary-list-items">
       {diaryItems.length > 0 ? (
