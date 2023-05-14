@@ -71,10 +71,7 @@ function StoreDetailsPicture() {
   ? (
     <>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-    <div className="productPic_container">
-    <div><p>{JSON.parse(productDetails[0].productDescription).descr}</p></div>
-    <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
-    <div><p>{JSON.parse(productDetails[0].productDescription).feat2}</p></div>
+    <div className="productpic_container">
 
       {productPictureList.map((pic, index) => (
 
@@ -98,6 +95,7 @@ function StoreDetailsPicture() {
               />
             </div>
           }
+          
         </div>
       ))}
       
@@ -105,6 +103,27 @@ function StoreDetailsPicture() {
         <ModalContainer pictureLocation2={imageSrc} onClose={handleCloseModal} />
       )}
 
+
+      <div className="ptf-spacer" style={{ "--ptf-xxl": "7.25rem" }}></div>
+
+      <div>
+        <h3 className="text_pdescr">PRODUCT DESCRIPTION</h3>
+        <div>
+          <div>
+          
+            <h6>{productDetails[0].productName}</h6>
+          {productDetails[0].productCode}
+            <p>{JSON.parse(productDetails[0].productDescription).descr}</p>
+          </div>
+          <div><h6>FEATURES</h6></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat2}</p></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat3}</p></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat4}</p></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat5}</p></div>
+          <div><p>{JSON.parse(productDetails[0].productDescription).feat6}</p></div>
+        </div>
+      </div>
     </div>
     </>
     )
@@ -115,21 +134,24 @@ function StoreDetailsPicture() {
       <>
       <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div>
-      <ModalButton prodParams={prodParams} productPictureList={productPictureList} pictureLocation={pictureLocation}></ModalButton>
-      <div className="product_productOrigFile">
-        <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
-      </div>
-
-      {productPictureList.map((pic, index) => (
-        <div key={index}>
-          <p>{index}</p>
-          <img
-            src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
-            alt={pic}
-            loading="lazy"
-          />
+        <ModalButton prodParams={prodParams} productPictureList={productPictureList} pictureLocation={pictureLocation}></ModalButton>
+        <div><p>{JSON.parse(productDetails[0].productDescription).descr}</p></div>
+        <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
+        <div><p>{JSON.parse(productDetails[0].productDescription).feat2}</p></div>
+        <div className="product_productOrigFile">
+          <h1 className="product_productOrigFile">product_origfile_blob 서버: {productPictureList[0]}</h1>
         </div>
-      ))}
+
+        {productPictureList.map((pic, index) => (
+          <div key={index}>
+            <p>{index}</p>
+            <img
+              src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+              alt={pic}
+              loading="lazy"
+            />
+          </div>
+        ))}
 
 
     </div>

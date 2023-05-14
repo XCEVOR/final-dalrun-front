@@ -639,3 +639,28 @@
   
 }
 
+
+
+.dalrun_hc {
+  .productpic_container {
+    .product_pic {
+      width: 640px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 480px;
+      overflow: hidden;
+    }
+  }
+  
+  div .productPic_container .product_description {
+    
+    display: flex;
+    width: 100%;
+    margin: 20px;
+  }
+
+  .text_pdescr {
+    margin: 20px;
+  }
+}
