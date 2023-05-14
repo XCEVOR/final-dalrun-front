@@ -215,16 +215,33 @@ function StoreDetailsSelection() {
         <div className="product_price">
           <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
         </div>
+
         <div className="product_color">
           {itemColorList.map((icolor, index) => (
-            <button className="product_color_btn" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
+            <button
+            className={`product_color_btn ${selectedColor === icolor ? "selected" : ""}`}
+            key={index}
+            value={icolor}
+            onClick={selectColorBtn}
+          >
+            {icolor}
+          </button>
           ))}
         </div>
+
         <div className="product_size">
           {itemSizeList.map((isize, index) => (
-            <button className="product_size_btn" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
+            <button
+            className={`product_size_btn ${selectedSize === isize ? "selected" : ""}`}
+            key={index}
+            value={isize}
+            onClick={selectSizeBtn}
+          >
+            {isize}
+          </button>
           ))}
         </div>
+        
         <div className="product_quantity">
           <button className="product_quantity_btn" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
           {selectedQuantity}
@@ -254,7 +271,7 @@ function StoreDetailsSelection() {
       <div>
         <div><p>{JSON.parse(productDetails[0].productDescription).descr}</p></div>
         <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
-        
+
         <button onClick={() => showToast("success")}>Success</button>
         <Toast
           toastlist={addCartModal}
