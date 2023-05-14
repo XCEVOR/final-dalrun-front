@@ -355,6 +355,43 @@
 
 
 
+.dalrun_hc {
+    
+    // .store_four_rectangles_effect {
+    //   .ptf-team-member__avatar img {
+    //     filter: grayscale(100%);
+    //   }
+  
+    //   &:hover {
+    //     .ptf-team-member__avatar img {
+    //       filter: grayscale(0);
+    //     }
+    //   }
+    // }
+
+  .store_item_hover_effect {
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+  }
+
+}
+
+
+
+
 
 
 .dalrun_hc {
@@ -473,18 +510,7 @@
   }
   
 
-  
-    // .store_four_rectangles_effect {
-    //   // .ptf-team-member__avatar img {
-    //   //   filter: grayscale(100%);
-    //   // }
-  
-    //   // &:hover {
-    //   //   .ptf-team-member__avatar img {
-    //   //     filter: grayscale(0);
-    //   //   }
-    //   // }
-    // }
+
   
   // .ptf-team-member-grid {
   //   display: grid;
