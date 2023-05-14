@@ -1,6 +1,6 @@
 const Dot = () => {
   return (
-    <div className="svg__container" style={{ backgroundImage:'url(assets/img/dalrun-jy/space11.gif)' , marginTop: '132px', zIndex: '5', minHeight: '700px' }}>
+    <div className="svg__container" style={{ backgroundImage:'url(assets/img/dalrun-jy/space11.gif)', padding: '132px 80px 40px 80px' , zIndex: '5', minHeight: '700px' }}>
           <svg viewBox="0 0 811 404" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g id="world" fill="#3D616E">
               <rect x="809.1" y="83.3" width={4} height={4} />

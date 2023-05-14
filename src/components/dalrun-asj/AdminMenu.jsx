@@ -32,7 +32,7 @@ const AdminMenu = () => {
             <ul className="admin-sidebar-menu_wrapper">
               <div className="logo">
                 <Link to="/" title="Home" className='logo-Link'>
-                  <img src="logo.svg" className='logo'/>
+                  <img src={process.env.PUBLIC_URL + '/dalrun_logo.png'} className='logo'/>
                 </Link>
               </div>
               {menuContent.map((item, i) => (
