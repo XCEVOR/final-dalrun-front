@@ -19,6 +19,7 @@ function StoreDetailsSelection() {
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [likeBtn, setLikeBtn] = useState(false);
     const [selectedProdId, setSelectedProdId] = useState("");
     const [selectedItemInfo, setSelectedItemInfo] = useState([{"productCode": "prodParams.productCode", "productColor": "selectedColor", "productSize": "selectedSize"}]);
 
@@ -149,6 +150,12 @@ function StoreDetailsSelection() {
 
 
 
+    const likeBtnClick = () => {
+      setLikeBtn(!likeBtn);
+      if (likeBtn === true) updateProductLike();
+    };
+
+
 
     let toastProperties = null;
     const showToast = (type) => {
@@ -171,9 +178,6 @@ function StoreDetailsSelection() {
 
 
 
-
-
-    
     const addToCart = async () => {
       if (isProdId === false) {alert("상품 옵션 선택"); return;}
       console.log(" @ console.log(userOrderData): ", userOrderData)
@@ -246,8 +250,15 @@ function StoreDetailsSelection() {
           <button className="product_quantity_btn" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
           {selectedQuantity}
           <button className="product_quantity_btn" onClick={selectQuantityMinusBtn}>-</button>
-        </div>
 
+          <div className="like_container">
+            <span
+              className={likeBtn ? "like-btn is-active" : "like-btn"}
+              onClick={likeBtnClick}
+            ></span>
+          </div>
+
+        </div>
 
 
 

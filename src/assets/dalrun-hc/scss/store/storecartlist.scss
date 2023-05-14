@@ -74,15 +74,19 @@
     background: url("../../img/store/storecart/delete-icn.svg") no-repeat center;
     margin-right: 20px;
   }
+
+  .like_container {
+    margin-left: 180px;
+  }
   
   .like-btn {
-    position: absolute;
-    top: 9px;
-    left: 15px;
+    position: relative;
+    // top: 9px;
+    // left: 15px;
     display: inline-block;
     background: url("../../img/store/storecart/twitter-heart.png");
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background-size: 2900%;
     background-repeat: no-repeat;
     cursor: pointer;
