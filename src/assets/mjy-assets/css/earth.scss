@@ -5,18 +5,40 @@
     margin-top: 100px;
     margin-left: 200px;
 }
+.transparent_header {
+    background-color: transparent !important;
+
+    span {
+        color: white;
+    }
+
+    span:hover {
+        color: var(--ptf-accent-1);
+        transition: color 1s ease;
+    }
+}
 rect{
-    fill: rgba(20, 20, 20);
+    /* fill: rgba(20, 20, 20); */
+    fill: rgba(35, 35, 35);
     pointer-events: all;
     transition: all 0.5s;
+    animation: fadein 1.8s;
    
 }
 rect:hover {
     fill: white;
     cursor: pointer; 
    
-   
+  
 }
+@keyframes fadein {
+    from{ 
+        fill: rgba(0, 0, 0);
+    } to {
+        fill: rgba(35, 35, 35);
+    }
+}
+
 .tippy-box[data-theme~="purchased"] {
     background-color: #4158d0;
     background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 100%);
