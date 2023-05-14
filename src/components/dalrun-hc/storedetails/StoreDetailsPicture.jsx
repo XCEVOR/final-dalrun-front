@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -27,11 +27,15 @@ function StoreDetailsPicture() {
 
   const productDetailsData = async (productCode) => {  // description 데이터 용.
     const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log(" DESC productDetailsData: ", resp.data);
     setProductDetails(resp.data);
   }
 
   useEffect(() => {
     productDetailsPictureList(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  useMemo (() => {  // description 변경.
     productDetailsData(prodParams.productCode);
   }, [prodParams.productCode])
 
@@ -108,9 +112,11 @@ function StoreDetailsPicture() {
 
       <div>
         <h3 className="text_pdescr">PRODUCT DESCRIPTION</h3>
+        
+        {/* <p>{productDetails[0].productDescription}</p> */}
         <div>
           <div>
-          
+            <p>{JSON.parse(productDetails[0].productDescription).descr}</p>
             <h6>{productDetails[0].productName}</h6>
           {productDetails[0].productCode}
             <p>{JSON.parse(productDetails[0].productDescription).descr}</p>
