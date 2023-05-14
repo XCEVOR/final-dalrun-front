@@ -203,12 +203,7 @@ function StoreDetailsSelection() {
           setAddCartModal={setAddCartModal}
         />
         
-        <div className="product_id">
-          <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
-        </div>
-        <div className="product_code">
-          <h1 className="product_code">product_code 서버: {productDetails[0].productCode}</h1>
-        </div>
+
         <div className="product_category">
           <h1 className="product_category">{productDetails[0].productCategory}</h1>
         </div>
@@ -223,18 +218,18 @@ function StoreDetailsSelection() {
         </div>
         <div className="product_color">
           {itemColorList.map((icolor, index) => (
-            <button className="product_color" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
+            <button className="product_color_btn" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
           ))}
         </div>
         <div className="product_size">
           {itemSizeList.map((isize, index) => (
-            <button className="product_size" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
+            <button className="product_size_btn" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
           ))}
         </div>
         <div className="product_quantity">
-          <button onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
-          <p>{selectedQuantity}</p>
-          <button onClick={selectQuantityMinusBtn}>-</button>
+          <button className="product_quantity_btn" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
+          {selectedQuantity}
+          <button className="product_quantity_btn" onClick={selectQuantityMinusBtn}>-</button>
         </div>
 
 

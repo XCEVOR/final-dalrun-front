@@ -38,7 +38,8 @@ const StoreFourRectangles = () => {
   const [productList, setProductList] = useState([]);
   const [isInitialRender, setIsInitialRender] = useState(true);
 
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("DEFAULT");
+  const [selectedSort, setSelectedSort] = useState("");
   const [filteredProductsList, setFilteredProductsList] = useState([]);
 
 
@@ -93,6 +94,7 @@ const StoreFourRectangles = () => {
   }
 
   const selectSortBtn = async (e) => {
+    setSelectedSort(e.target.value)
     if (e.target.value === "VIEW") {
       const resp = await axios.post("http://localhost:3000/getAllProductListSortView", null, {});
       console.log(resp.data)
@@ -103,7 +105,6 @@ const StoreFourRectangles = () => {
       console.log(resp.data)
       setFilteredProductsList(resp.data)
     }
-
   }
 
   const [query, setQuery] = useState('');
@@ -130,20 +131,20 @@ const StoreFourRectangles = () => {
   ? (
     <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div>
-      <button className="store_main_button" value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
-      <button className="store_main_button" value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
-      <button className="store_main_button" value="HATS" onClick={selectCategoryBtn}>HATS</button>
-      <button className="store_main_button" value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
-      <button className="store_main_button" value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
-      <button className="store_main_button" value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
+      <button className={selectedCategory !== "DEFAULT" ? "store_category_button" : "store_category_button_selected"} value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
+      <button className={selectedCategory !== "SHOES" ? "store_category_button" : "store_category_button_selected"} value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
+      <button className={selectedCategory !== "HATS" ? "store_category_button" : "store_category_button_selected"} value="HATS" onClick={selectCategoryBtn}>HATS</button>
+      <button className={selectedCategory !== "GLASSES" ? "store_category_button" : "store_category_button_selected"} value="GLASSES" onClick={selectCategoryBtn}>GLASSES</button>
+      <button className={selectedCategory !== "BOTTLES" ? "store_category_button" : "store_category_button_selected"} value="BOTTLES" onClick={selectCategoryBtn}>BOTTLES</button>
+      <button className={selectedCategory !== "BELTS" ? "store_category_button" : "store_category_button_selected"} value="BELTS" onClick={selectCategoryBtn}>BELTS</button>
     </div>
     <div>
-      <button className="store_main_button" value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
-      <button className="store_main_button" value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
+      <button className={selectedSort !== "VIEW" ? "store_sort_button" : "store_sort_button_selected"} value="VIEW" onClick={selectSortBtn}>많이 본 순서</button>
+      <button className={selectedSort !== "LIKE" ? "store_sort_button" : "store_sort_button_selected"} value="LIKE" onClick={selectSortBtn}>좋아요 순서</button>
     </div>
 
 
-    <div className="search-box-container">
+    <div className="search_box_container">
       <div className="search-box">
         <input
           type="text"
@@ -175,7 +176,7 @@ const StoreFourRectangles = () => {
             key={i}
           >
             {/* <!--Team Member--> */}
-            <div className="ptf-team-member ptf-team-member--has-effect">
+            <div className="ptf-team-member store_four_rectangles_effect">
               <div className="ptf-team-member__avatar">
                 {/* <div className="shadow-effect"></div> */}
                 <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
