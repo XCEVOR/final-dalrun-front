@@ -17,6 +17,8 @@ const CompetitionMain = () => {
       
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
+      <div className="ptf-spacer"  style={{ "--ptf-xxl": "7rem", "--ptf-md": "5rem" }}> 
+      </div>
         <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
