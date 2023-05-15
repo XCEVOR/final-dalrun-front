@@ -182,6 +182,9 @@ function TestReduxRight2 (props) {
       });   
     }
 
+    useEffect (() => {
+    }, [setCommentContxData])
+
     const myOnClickFunc = () => {
       writeCommentMain();
       myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
