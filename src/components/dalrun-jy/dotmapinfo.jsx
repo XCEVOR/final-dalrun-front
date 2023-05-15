@@ -96,7 +96,7 @@ const DotMapInfo = (props) => {
   }, []);
   
   useEffect(()=>{
-    console.log(props.mycrewinfo.crewImg.split('/')[0])
+   
     if(loginTF){
    
       if(props.mycrewinfo.length !== 0){
@@ -168,7 +168,7 @@ const DotMapInfo = (props) => {
             <h6>나의 포인트 : { props.login.point}</h6>
             <br/>
             <h6 style={{marginBottom:'40px'}}>상세 정보는 크루 가입이 필요합니다.</h6>
-            <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입하러 가기</a></span>
+            <span ><a href="/crewBbsMain" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입하러 가기</a></span>
 
 
           </div>
@@ -184,12 +184,14 @@ const DotMapInfo = (props) => {
           <div className="ptf-pricing-table__content">
             <div className="row">
             <div className="col-xl-3">
+              {
+                props.mycrewinfo.length !==0 &&
               <img      
               src={'http://localhost:3000/dalrun-yr/crewImg/'+props.mycrewinfo.crewImg.split('/')[0]}
             style={{borderRadius:'30%'}}
               >
-                
               </img>
+              }
             </div>
             <div className="col-xl-6">
             <h6>나의 크루 포인트: {props.mycrewinfo.crewTotalScore} point</h6>
