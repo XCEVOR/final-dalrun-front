@@ -152,15 +152,40 @@
 .dalrun-hc {
   .recomm_floating_btn {
     position: fixed;
-    margin: 100px;
-    bottom: 0px;
-    right: -50px;
+    bottom: 120px;
+    right: 50px;
+    margin: auto;
+    padding: 2px 12px 2px 12px;
+    background-color: rgba(63, 158, 122, 0.85);
+    border-width: 2px;
+    border-radius: 16px;
+    border-color: white;
+    color: white;
+    font-size: 32px;
+    font-weight: 900;
+    font-family: "NanumSquare";
     z-index: 9999;
     // bottom: 100px;
       // position: 'fixed',
       // bottom: '110px',
       // right: '50px',
       // zIndex: "9999"
+
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
   }
 
   button.cart_reddot {
