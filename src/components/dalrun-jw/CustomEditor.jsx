@@ -4,13 +4,13 @@ import ReactQuill from 'react-quill';
 import { nanoid } from '@reduxjs/toolkit';
 import 'react-quill/dist/quill.snow.css';
 
-const CustomEditor = ({ handleEditorChange }) => {
+const CustomEditor = ({ handleEditorChange, val }) => {
   const [value, setValue] = useState('');
   const quillRef = useRef();
   const loginData = JSON.parse(localStorage.getItem("login"));
   const postId = nanoid();
 
-  
+  console.log(val);
   let memId = null;
   if (loginData) {
     memId = loginData.memId;
@@ -82,7 +82,7 @@ const CustomEditor = ({ handleEditorChange }) => {
         theme="snow" 
         modules={modules}
         formats={formats}
-        value={value} 
+        value={val !== undefined ? val : value} 
         onChange={handleChange} 
         style={{ marginTop:'1rem', height: 430, width: 970 }}
       />

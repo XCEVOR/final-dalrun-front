@@ -19,6 +19,7 @@ function useCheckControl({dataList}) {
                 else if(sub === "productinquiry") allcheck = el.inqSeq;
                 else if(cate === "shoereview") allcheck = el.srSeq;
                 else if(cate === "competition") allcheck = el.compSeq;
+                else if(cate === "diary") allcheck = el.diarySeq;
 
                 checkedArr.push(allcheck);
             });
