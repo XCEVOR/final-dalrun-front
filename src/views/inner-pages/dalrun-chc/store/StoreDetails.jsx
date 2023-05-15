@@ -145,7 +145,7 @@ const WorksShowcase = () => {
 
 
             <section>
-              <div className="container-xxl">
+              <div className="inquiry_container">
                 {/* <!--Animated Block--> */}
                 <div
                   className="ptf-animated-block"
@@ -180,7 +180,7 @@ const WorksShowcase = () => {
 
 
             <section>
-              <div className="container-xxl">
+              <div className="inquiry_regi_container">
                 {/* <!--Animated Block--> */}
                 <div
                   className="ptf-animated-block"
