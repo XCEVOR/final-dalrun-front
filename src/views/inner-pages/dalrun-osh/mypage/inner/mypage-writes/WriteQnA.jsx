@@ -59,6 +59,21 @@ function WriteQnA() {
     getqnalist("", "", 0); }
   }, []);
 
+  function executeSearch() {
+    // 검색 버튼 로직 작성
+    getqnalist(choice, search, 0);
+  }
+  
+  useEffect(() => {
+    if (id) {
+      executeSearch(); // 페이지 로드 시 검색 버튼 실행
+    }
+  }, [id]);
+  
+  useEffect(() => {
+    executeSearch(); // search 상태 변경 시 검색 버튼 실행
+  }, [search]);
+
   return (
     <div className="store">
       <div className="store-content">

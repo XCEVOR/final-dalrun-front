@@ -7,8 +7,8 @@ import "../../../../assets/dalrun-sh/scss/inform.scss"
 import { useNavigate } from "react-router-dom";
 import useCheckControl from "../../../../components/dalrun-sh/useCheckControl";
 
-function Inform({onHide}) {
-
+function Inform() {
+  const [searchParam, setSearchParam] = useSearchParams();
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});  
   const history = useNavigate();
@@ -19,11 +19,10 @@ function Inform({onHide}) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [birth, setBirth] = useState("");
-  const [point, setPoint] = useState(0);
+  const [profile, setprofile] = useState("");
   const [footSize, setFootSize] = useState("");
-  const [grade, setGrade] = useState("");
   const [imgFile, setImgFile] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
-  const imgRef = useRef(); // 파일 선택 창에서 선택된 파일을 가리키는 역할
+  const imgRef = useRef(null); // 파일 선택 창에서 선택된 파일을 가리키는 역할
 
   useEffect(()=>{
     const str = localStorage.getItem('login')
@@ -35,14 +34,14 @@ function Inform({onHide}) {
         setEmail(login.email);
         setPhone(login.phone);
         setBirth(login.birth);
-        setPoint(login.point);
+        setBirth(login.profile);
         setFootSize(login.foot);
-        setGrade(login.grade);
     }else {
         alert('login을 해주세요.');
         history('/login');
     }
 }, [history, setId]);
+
 const onSubmit = (e) => {
   e.preventDefault();
 
@@ -53,17 +52,30 @@ const onSubmit = (e) => {
   formData.append("email", email);
   formData.append("phone", phone);
   formData.append("birth", birth);
-  formData.append("point", point);
-  formData.append("grade", grade);
+  formData.append("profile", profile);
   formData.append("foot", footSize);
+
+    // 이미지 파일이 선택되었을 경우에만 업데이트
+    if (imgRef.current.files.length > 0) {
+        const file = imgRef.current.files[0];
+
+        // FormData에 이미지 파일 추가
+        formData.append("profileImage", file);
+        }  
 
   axios.post('http://localhost:3000/my_updatemember', formData)
       .then((resp) => {
-          // console.log(resp.data);
+          console.log(resp.data);
           if(resp.data === "YES") {
-              // alert("수정완료");
-              onHide();
-
+              alert("수정완료");
+              // onHide();
+              setSearchParam(searchParam.set('target',''));
+              localStorage.removeItem('login');
+              alert("다시 로그인해주세요..");      
+              
+            //   // 이미지 URL 업데이트
+            //   const imageUrl = resp.data.imageUrl;
+            //   setImgFile(imageUrl);
           } else {
               alert("수정실패");
           }
@@ -75,42 +87,50 @@ const onSubmit = (e) => {
 
   const [myinform, setmyinform] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/myinform')
-      .then(response => {
-        setmyinform(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-
   const passCg = [
     {cate:"insert", name:"비밀번호 변경", selected:<PassChange />, list:checkedList} 
   ];
-  // const category = [
-  //   {cate:"insert", name:"저장", selected:"저장하시겠습니까?", list:checkedList},     
-  //   {cate:"insert", name:"회원탈퇴", selected:"정말 탈퇴하시겠습니까?", list:checkedList}
-  // ];
+
     // 이미지 파일 선택 함수
-    const handlePhotoChange = (event, userId) => {
-      const file = event.target.files[0];
-  
-      // FileReader 객체 생성
-      const reader = new FileReader();
-  
-      // 파일 읽기 완료 시 미리보기 이미지 업데이트
-      reader.onload = () => {
-        const newUserDataList = [...dataList];
-        const updatedUserData = newUserDataList.find(userData => userData.id === userId);
-        updatedUserData.photoUrl = reader.result;
-        setDataList(newUserDataList);
-      };
-  
-      // 파일 읽기 시작
-      reader.readAsDataURL(file);
+    const handlePhotoChange = (event) => {
+        const file = event.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+      
+          reader.onload = () => {
+            setImgFile(reader.result);
+          };
+      
+            // 파일 읽기 완료 시 미리보기 이미지 업데이트
+    //   reader.onload = () => {
+    //     const newUserDataList = [...dataList];
+    //     const updatedUserData = newUserDataList.find(userData => userData.id === userId);
+    //     updatedUserData.photoUrl = reader.result;
+    //     setDataList(newUserDataList);
+    //   };
+          reader.readAsDataURL(file);
+        }
+
     };
     
+//     <div className="profile_img">
+//     <label className="signup-profileImg-label" htmlFor="profileImg">
+//       프로필 이미지
+//     </label>
+
+//     {/* 업로드 된 이미지 미리보기 */}
+//     <img
+//       src={imgFile ? imgFile : "/images/icon/user.png"}
+//       alt="프로필 이미지"
+//     />
+//     <input
+//       ref={imgRef} // imgRef를 input 요소에 연결
+//       type="file"
+//       accept="image/*"
+//       onChange={handlePhotoChange} // onChange 이벤트 핸들러 수정
+//     />
+//   </div>
   return(
     <div className="container">
         <h4 className="title">회원정보</h4>
@@ -121,17 +141,25 @@ const onSubmit = (e) => {
         <div className="admin_update_container">
             <div className="admin_update"></div>
         <form name="frm" onSubmit={onSubmit} encType="multipart/form">
-          <div className="profile_img">                        
-              <label className="signup-profileImg-label" htmlFor="profileImg">프로필 이미지</label>
 
-              {/* // 업로드 된 이미지 미리보기 */}
-              <img
-              src={imgFile ? imgFile :`/images/icon/user.png`}
-              alt="프로필 이미지"
-              />
-               <input type="file" accept="image/*" onChange={(e) => handlePhotoChange(e, {id})} />
+            <div className="profile_img">
+                <label className="signup-profileImg-label" htmlFor="profileImg">
+                프로필 이미지
+                </label>
 
-          </div>          
+                {/* 업로드 된 이미지 미리보기 */}
+                <img
+                src={imgFile ? imgFile : "/images/icon/user.png"}
+                alt="프로필 이미지"
+                />
+                <input
+                ref={imgRef} // imgRef를 input 요소에 연결
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoChange} // onChange 이벤트 핸들러 수정
+                />
+            </div>
+
           <div>
               <label htmlFor="id">아이디</label>
               <input type="text" value={id || ""} readOnly={true} />
@@ -166,12 +194,11 @@ const onSubmit = (e) => {
                   <option value="wide">넓은편</option>
                   <option value="extra-wide">아주 넓은편</option>
               </select>
-          </div>          
+          </div>  
+
+          <input type="submit" value="수정" />                  
         </form>
-     
-        <div>
-        <input type="submit" value="수정" />
-        </div>
+
     
       </div>
     </div>
