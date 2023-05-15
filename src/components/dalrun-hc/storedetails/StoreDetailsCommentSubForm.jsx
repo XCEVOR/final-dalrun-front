@@ -189,7 +189,7 @@ function TestReduxRight2 (props) {
                         </div>
                         <div className="col-12">
                             <div className="bd-contact-field">
-                                <button type="submit" onClick={myOnClickFunc}>등록</button>
+                                <button className="replysub_regi_btn" type="submit" onClick={myOnClickFunc}>등록</button>
                             </div>
                         </div>
                     </div>

@@ -302,7 +302,7 @@ function TestReduxLeft2 (props) {
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
                                       ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                      : <button value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
+                                      : <button className="reply_regi_btn" value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
                                   }
                                   {commentContxDataState
                                   ? <div> {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /> </div>}
