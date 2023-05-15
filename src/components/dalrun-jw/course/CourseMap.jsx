@@ -18,10 +18,10 @@ areaData.forEach((feature) => {
   
   if (geometry.type === 'Polygon') {
     const coordinates = geometry.coordinates[0];
-    polygons[properties.CTPRVN_CD] = [coordinates]; // Wrap in array for consistency
+    polygons[properties.CTP_KOR_NM] = [coordinates]; // Wrap in array for consistency
   } else if (geometry.type === 'MultiPolygon') {
     const coordinates = geometry.coordinates.map((polygon) => polygon[0]); // Assuming each polygon is a simple ring
-    polygons[properties.CTPRVN_CD] = coordinates;
+    polygons[properties.CTP_KOR_NM] = coordinates;
   }
 });
 
@@ -56,10 +56,10 @@ areaData.forEach((feature) => {
       >
         <NaverMap {... mapOptions} >
           <LocationBtn/>
-            {Object.keys(polygonData).map((areaCode) =>
-              polygonData[areaCode].map((polygon, index) => (
+            {Object.keys(polygonData).map((areaName) =>
+              polygonData[areaName].map((polygon, index) => (
                 <Polygon
-                  key={`${areaCode}-${index}`}
+                  key={`${areaName}-${index}`}
                   paths={polygon}
                   strokeColor="#004c80"
                   fillColor="#fff"
@@ -94,7 +94,7 @@ function LocationBtn() {
       <button className='myLocation-button'
         onClick={() => {
           if (myLocation) {
-            naverMap.panTo({ lat: myLocation[0], lng: myLocation[1] });
+            naverMap.setCenter({ lat: myLocation[0], lng: myLocation[1]});
             naverMap.setZoom(14);
           } else {
             alert("현재 위치를 가져올 수 없습니다.");
