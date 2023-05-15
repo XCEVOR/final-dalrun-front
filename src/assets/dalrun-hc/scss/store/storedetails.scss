@@ -700,15 +700,17 @@
     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
-  }
 
-  .comment_regi_btn:hover {
+    &:hover {
       color: #ffffff;
       background-color: #333;
       border-color: #1b1f2326;
       box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
       transition-duration: 0.1s;
+    }
   }
+
+
 
   .reply_regi_btn {
     display: inline-block;
@@ -728,15 +730,17 @@
     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
-  }
 
-  .reply_regi_btn:hover {
+    &:hover {
       color: #ffffff;
       background-color: #333;
       border-color: #1b1f2326;
       box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
       transition-duration: 0.1s;
+    }
   }
+
+
 
   .replysub_regi_btn {
     display: inline-block;
@@ -756,13 +760,16 @@
     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
-  }
 
-  .replysub_regi_btn:hover {
+    &:hover {
       color: #ffffff;
       background-color: #333;
       border-color: #1b1f2326;
       box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
       transition-duration: 0.1s;
+    }
+
   }
+
+
 }
