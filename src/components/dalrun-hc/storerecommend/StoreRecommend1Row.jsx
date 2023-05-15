@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 
+import recommstyles from './ImageComponent.module.css';
+
 const StoreRecommend1Row = () => {
   const [isOpen, setOpen] = useState(false);
+
+  let testimg = "BROO-GH15";
+  const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${testimg}/${testimg}-01.png`;
+
 
   const settings = {
     dots: true,
@@ -19,13 +25,14 @@ const StoreRecommend1Row = () => {
   };
   return (
     <>
-    <div className="ptf-showcase-image image-1">
+    <div className="ptf-showcase-image store_recomm_cover_image_test" style={{ backgroundImage: `url(${imageUrl})` }} >
+
           <div className="ptf-showcase-slide">
             <div className="container">
-              {/* <h1 className="fz-100 fz-90--lg lh-1 has-white-color text-center">
+              <h1 className="fz-100 fz-90--lg lh-1 has-white-color text-center">
                 <span className="has-accent-1">Bigger</span>, Bolder <br />&
                 Better
-              </h1> */}
+              </h1>
 
               {/* <!--Spacer--> */}
               <div

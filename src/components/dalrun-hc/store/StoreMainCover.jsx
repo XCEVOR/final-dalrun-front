@@ -39,7 +39,7 @@ const StoreMainCover = ({ scrollFunc1comp, scrollFunc2comp }) => {
                 className="fz-24 has-gray-color text-center store_main_cover_subtext"
                 style={{ maxWidth: "36.375rem", margin: "0 auto" }}
               >
-                러너들을 위한 완벽한 아이템으로 러닝의 자유를 느껴보세요
+                러너들을 위한 완벽한 아이템으로 러닝의 자유를 만끽하세요
               </p>
 
               {/* <!--Spacer--> */}
