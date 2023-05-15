@@ -20,14 +20,15 @@ const HeroAgency = () => {
   return (
     <div>
       <Slider {...settings}>
-        <div className="ptf-showcase-image image-1">
+        <div className="ptf-showcase-image store_main_cover_image_1">
           <div className="ptf-showcase-slide">
-            <div className="container">
-              <h1 className="fz-100 fz-90--lg lh-1 has-white-color text-center">
-                <span className="has-accent-1">Store</span>, Store <br />&
-                Better
-              </h1>
-
+            <div className="container div_center">
+              <div className="title_container">
+                <h1 className="fz-100 fz-90--lg lh-1 has-white-color text-center">
+                  <span className="has_title_accent_1">DalRun</span>
+                  <span className="has_title_accent_2">, Store </span>
+                </h1>
+              </div>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"

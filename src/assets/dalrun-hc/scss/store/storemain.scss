@@ -1,4 +1,57 @@
 .dalrun_hc {
+  .store_main_cover_image_1 {
+    background-image: url(../../img/store/storemain/main-slide-1.png);
+    // /* Add the blur effect */
+    // filter: blur(8px);
+    // -webkit-filter: blur(8px);
+    // /* Full height */
+    // height: 100%;
+
+  }
+
+  .store_main_cover_image_2 {
+    background-image: url(../../img/store/storemain/main-slide-2.png);
+  }
+
+  .store_main_cover_image_3 {
+    background-image: url(../../img/store/storemain/main-slide-3.png);
+  }
+
+  .div_center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.title_container {
+    margin: auto;
+    padding: 20px;
+    width: 800px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 4px 4px 16px #999999;
+    // background-color: rgba(255, 255, 255, 0.5);
+    
+
+
+  }
+
+  .has_title_accent_1 {
+    color: #74EABC;
+    text-shadow: 4px 4px 16px #666666;
+  }
+
+  .has_title_accent_2 {
+    color: white;
+    text-shadow: 4px 4px 16px #666666;
+  }
+  
+}
+
+.dalrun_hc {
   .store_main_button {
       display: inline-block;
       outline: 0;
