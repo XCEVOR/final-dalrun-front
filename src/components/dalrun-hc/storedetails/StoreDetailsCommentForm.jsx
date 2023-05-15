@@ -185,6 +185,8 @@ function TestReduxRight2 (props) {
         if (res.data === "SUCCESS") {
           alert("성공적으로 등록되었습니다");
           // history('/bbslist');    // bbslist로 이동
+          setSubject("");
+          setMessage("");
         } else {
           alert("등록되지 않았습니다");
         }
@@ -233,7 +235,7 @@ function TestReduxRight2 (props) {
                         </div>
                         <div className="col-12">
                             <div className="bd-contact-field mb-30">
-                                <textarea placeholder="내용"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
+                                <textarea placeholder="내용을 입력하세요"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
                             </div>
                         </div>
                         <div className="col-12">
