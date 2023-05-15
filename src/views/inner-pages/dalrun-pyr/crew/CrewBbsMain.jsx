@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
 import { useNavigate } from 'react-router-dom';
-import Header from '../../../../components/dalrun-pyr/Header';
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
+
 import CrewBlogThree from '../../../../components/dalrun-pyr/crewBbs/CrewBlogThree';
 import CopyRight from '../../../../components/dalrun-jy/footer/CopyRight';
 
@@ -21,7 +22,7 @@ const CrewBbsMain = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <Header />
+        <HeadermainPage />
         {/* End  Header */}
 
         <div className="main">

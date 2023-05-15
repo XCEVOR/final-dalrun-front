@@ -68,7 +68,7 @@ const MainPage = () => {
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"
-                  style={{ "--ptf-xxl": "2.5rem", "--ptf-md": "2.75rem" }}
+                  style={{ "--ptf-xxl": "5.5rem", "--ptf-md": "2.75rem" }}
                 ></div>
         
                   <MenumainPage />

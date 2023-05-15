@@ -26,10 +26,8 @@ const CompetitionMain = () => {
             
             <section>
               {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "2rem", "--ptf-md": "5rem" }}
-              ></div>
+              <div className="ptf-spacer"  style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}> 
+            </div>
               <div className="container-xxl">
                 <div className="row">
                   <div className="col-xl-10">

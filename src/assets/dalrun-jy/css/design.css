@@ -1,0 +1,9 @@
+.btn-dalrun{
+    color: white;
+    background-color: #51e3d4;
+}
+.btn-dalrun:hover{
+   
+    background-color: #1bc5c5;
+    color: white;
+}
