@@ -293,7 +293,7 @@ function TestReduxLeft2 (props) {
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>MAIN: {inq.inqTitle}</h5>
+                                      <h5>{inq.inqTitle}</h5>
                                       <span className="post-meta">{inq.inqWriter} //</span>
                                       <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
@@ -301,7 +301,8 @@ function TestReduxLeft2 (props) {
 
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
-                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      ? <div></div>
+                                    //   <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
                                       : <button className="reply_regi_btn" value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
                                   }
                                   {commentContxDataState
@@ -321,14 +322,15 @@ function TestReduxLeft2 (props) {
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>SUB: {inq.inqTitle}</h5>
+                                      <h5>{inq.inqTitle}</h5>
                                       <span className="post-meta">{inq.inqWriter} //</span>
                                       <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
                                   <p>{inq.inqContent}</p>
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
-                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      ? <div></div>
+                                    //   <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
                                       : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth} 댓글 onoff</button>
                                   }
                                   {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
