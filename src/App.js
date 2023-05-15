@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
+import VisitorInfo from "./components/dalrun-asj/visitors/visitorInfo";
 // import { jarallax } from "jarallax";
 // import AnimatedCursor from "react-animated-cursor";
 
@@ -27,6 +28,7 @@ const App = () => {
           content="agency, bootstrap 5, business, clean, corporate, creative, fullpage, minimal, modern, multipurpose, parallax, personal, photography, portfolio, showcase"
         />
       </Helmet>
+      <VisitorInfo />
       {/* End React Helmet for SEO */}
 
       {/* <AnimatedCursor
