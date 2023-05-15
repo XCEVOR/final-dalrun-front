@@ -97,7 +97,7 @@ const ComingSoon = () => {
                   >
                     <div className="text-center">
                       <img
-                        src="assets/img/root/coming-soon-logo.png"
+                        src="assets/img/root/coming-soon-dalrun_logo.png"
                         alt=""
                         style={{ maxWidth: "33.25rem" }}
                         loading="lazy"

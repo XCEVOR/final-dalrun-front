@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
+
 import Social from "../../../../components/social/Social";
 // import WorksCaseStudy from "./WorksCaseStudy";
-import ImageGridThree from "../../../../components/image-grid/ImageGridThree";
 
 
 import BlogComment from "../../../../components/dalrun-hc/storedetails/BlogComment";
@@ -91,7 +89,7 @@ const WorksShowcase = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
@@ -227,9 +225,7 @@ const WorksShowcase = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>
@@ -272,7 +268,7 @@ const WorksShowcase = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
@@ -608,7 +604,7 @@ const WorksShowcase = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Gallery--> */}
-                  <ImageGridThree />
+                  
                 </div>
               </div>
             </section>
@@ -665,9 +661,7 @@ const WorksShowcase = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>

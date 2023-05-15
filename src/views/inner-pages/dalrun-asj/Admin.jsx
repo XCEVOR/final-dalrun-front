@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../components/header/HeaderDefault";
-import Footer from "../../../components/footer/Footer";
-import CopyRight from "../../../components/footer/copyright/CopyRight";
+import HeadermainPage from "../../../components/dalrun-jy/HeadermainPage";
+
+import CopyRight from "../../../components/dalrun-jy/footer/CopyRight";
 import AdminMenu from "../../../components/dalrun-asj/AdminMenu";
 import AdminDashboard from "./inner/AdminDashboard";
 import AdminChart from "./inner/AdminChart";
@@ -19,7 +19,7 @@ const Admin = () => {
       </Helmet>
       {/* <div className="ptf-site-wrapper__inner"> */}
       <div>
-        {/* <HeaderDefault /> */}
+        {/* <HeadermainPage /> */}
 
         {/* <div className="main container-xxl" style={{display:"flex"}}> */}
         <div style={{display:"flex"}}>
@@ -36,9 +36,7 @@ const Admin = () => {
 
       {/* <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>

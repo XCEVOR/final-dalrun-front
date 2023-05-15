@@ -1,10 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../components/header/HeaderDefault";
-import CopyRight from "../../../components/footer/copyright/CopyRight";
-import Footer from "../../../components/footer/Footer";
+import HeadermainPage from "../../../components/dalrun-jy/HeadermainPage";import CopyRight from "../../../components/dalrun-jy/footer/CopyRight";
+
 import QnABody from "../../../components/dalrun-jw/qna/QnABody";
-import PortfolioListing from "../../../components/portfolio/PortfolioListing";
 
 const WorksListing = () => {
   return (
@@ -14,7 +12,7 @@ const WorksListing = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
@@ -86,9 +84,7 @@ const WorksListing = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>
