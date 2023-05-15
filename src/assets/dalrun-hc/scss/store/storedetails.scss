@@ -696,6 +696,19 @@
     }
   }
 
+  .inquiry_box_style {
+    margin: 10px;
+    padding: 10px;
+    // border-width: 5px;
+    // border-radius: 14px;
+    // background-color: #666666;
+  }
+
+  .inquiry_regi_form_title {
+    margin: 12px;
+    padding-bottom: 10px;
+  }
+
   .inquiry_regi_btn {
     display: inline-block;
     outline: 0;
@@ -751,8 +764,6 @@
       transition-duration: 0.1s;
     }
   }
-
-
 
   .replysub_regi_btn {
     display: inline-block;

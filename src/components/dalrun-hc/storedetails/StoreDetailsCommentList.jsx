@@ -287,7 +287,7 @@ function TestReduxLeft2 (props) {
                     {inq.inqDepth === 0 
                       ?
                       <li>
-                          <div className="comments-box">
+                          <div className="comments-box inquiry_box_style">
                               <div className="comments-avatar">
                                   <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
                               </div>

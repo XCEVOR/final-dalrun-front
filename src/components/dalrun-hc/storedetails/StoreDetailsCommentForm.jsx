@@ -212,7 +212,7 @@ function TestReduxRight2 (props) {
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
             <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
+            <h4 className="inquiry_regi_form_title">문의 사항을 남겨주세요</h4>
             <div className="bd-contact-form-wrapper mb-30">
                 <form action="#">
                     <div className="row">
