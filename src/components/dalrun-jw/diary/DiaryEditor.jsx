@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import { nanoid } from '@reduxjs/toolkit';
 import 'react-quill/dist/quill.snow.css';
 
-const CustomEditor = ({ handleEditorChange }) => {
+const DiaryEditor = ({ handleEditorChange }) => {
   const [value, setValue] = useState('');
   const quillRef = useRef();
   const loginData = JSON.parse(localStorage.getItem("login"));
@@ -15,15 +15,13 @@ const CustomEditor = ({ handleEditorChange }) => {
   if (loginData) {
     memId = loginData.memId;
   }
-
   
-
   const modules = useMemo(() => {
     return {
       toolbar: {
         container: [
           [{ 'header': ['1', '2', '3', '4', '5', '6', false] }],
-          ['bold', 'italic', 'underline', 'strike', 'clear'],
+          ['bold', 'italic', 'underline', 'strike'],
           [{ 'list': 'ordered'}, { 'list': 'bullet' }],
           [{ 'indent': '-1'}, { 'indent': '+1' }],
           [{ 'size': ['small', false, 'large', 'huge'] }],
@@ -62,7 +60,7 @@ const CustomEditor = ({ handleEditorChange }) => {
 
   const formats = [
     'header',
-    'bold', 'italic', 'underline', 'strike', 'clear',
+    'bold', 'italic', 'underline', 'strike',
     'list', 'bullet', 'indent',
     'size', 'font',
     'color', 'background',
@@ -90,4 +88,4 @@ const CustomEditor = ({ handleEditorChange }) => {
   );
 };
 
-export default CustomEditor;
+export default DiaryEditor;
