@@ -32,50 +32,50 @@ const DotMapInfo = (props) => {
         
       })
   };
-  function sendDonation() {
-    const score= document.getElementById("pointselect").value;
-    if(parseInt(props.login.point)>= parseInt(score)){
-    axios.get("http://localhost:3000/sendDonation",{params:{'id':props.login.memId,'score':score,'crewSeq':props.login.crewSeq}})
-      .then(function (resp) {
+  // function sendDonation() {
+  //   const score= document.getElementById("pointselect").value;
+  //   if(parseInt(props.login.point)>= parseInt(score)){
+  //   axios.get("http://localhost:3000/sendDonation",{params:{'id':props.login.memId,'score':score,'crewSeq':props.login.crewSeq}})
+  //     .then(function (resp) {
        
-        if(resp.data===true){
-          alert("전송완료");
+  //       if(resp.data===true){
+  //         alert("전송완료");
           
-          let logininfo= props.login;
+  //         let logininfo= props.login;
 
           
-          logininfo.point= logininfo.point- parseInt(score)
+  //         logininfo.point= logininfo.point- parseInt(score)
           
-          console.log("after",logininfo);
-          localStorage.setItem("login", JSON.stringify(logininfo));
-          props.Changelogininfo(JSON.stringify(logininfo));
+  //         console.log("after",logininfo);
+  //         localStorage.setItem("login", JSON.stringify(logininfo));
+  //         props.Changelogininfo(JSON.stringify(logininfo));
           
-          loading();
-        }else{
-          alert("전송미완료");
+  //         loading();
+  //       }else{
+  //         alert("전송미완료");
 
-        }
+  //       }
 
-      }).catch(function (err) {
-        alert(err);
-      })
-    }};
+  //     }).catch(function (err) {
+  //       alert(err);
+  //     })
+  //   }};
   
-  function donationAlet(){
+  // function donationAlet(){
     
-    const score= document.getElementById("pointselect").value;
-    if(score!=='none'){
-    if(parseInt(props.login.point)>=parseInt(score)){
-      document.getElementById('sendBtn').removeAttribute('disabled');
-      document.getElementById('donationalert').style.display='none';
-    }else{
-      document.getElementById('sendBtn').setAttribute('disabled',"disabled");
-      document.getElementById('donationalert').style.display='block';
-    }
-  }else{
-    document.getElementById('donationalert').style.display='none';
-  }
-  }
+  //   const score= document.getElementById("pointselect").value;
+  //   if(score!=='none'){
+  //   if(parseInt(props.login.point)>=parseInt(score)){
+  //     document.getElementById('sendBtn').removeAttribute('disabled');
+  //     document.getElementById('donationalert').style.display='none';
+  //   }else{
+  //     document.getElementById('sendBtn').setAttribute('disabled',"disabled");
+  //     document.getElementById('donationalert').style.display='block';
+  //   }
+  // }else{
+  //   document.getElementById('donationalert').style.display='none';
+  // }
+  // }
   function loading(){
     const logindata=JSON.parse(localStorage.getItem('login'));
     if(logindata){
@@ -96,7 +96,7 @@ const DotMapInfo = (props) => {
   }, []);
   
   useEffect(()=>{
- 
+    console.log(props.mycrewinfo.crewImg.split('/')[0])
     if(loginTF){
    
       if(props.mycrewinfo.length !== 0){
@@ -121,23 +121,24 @@ const DotMapInfo = (props) => {
         <div className="ptf-pricing-table h-100">
 
           <div className="ptf-pricing-table__header">
-            <h3>Ranking</h3>
+            <h3>Space Ranking</h3>
           </div>
 
           {rankList.map((val, i) => (
             <div className="ptf-pricing-table__description" key={i}>
               <h6 style={{ display: 'inline' }}>{i + 1}등 : {val.crewName} </h6>
               <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${val.crewcolor}` }}></div>
-              <h6 style={{ display: 'inline'}}>  ({val.crewScore}점)  </h6>
+              <h6 style={{ display: 'inline'}}> ({val.groundCount})  </h6>
               
             </div>
 
 
           ))}
           <div style={{display:'none'}}  id="infologinform" className="ptf-pricing-table__description">
-            <h6 style={{ display: 'inline' }}>나의 크루 등수 :{props.mycrewinfo.myrank} 등 </h6>
+            <h6 style={{ display: 'inline' }}> 나의 크루 </h6>
             <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${props.mycrewinfo.crewcolor}` }}>
             </div>
+            <h6 style={{ display: 'inline' }}> ({props.mycrewinfo.groundCount})   </h6>
           </div>
 
         </div>
@@ -178,13 +179,32 @@ const DotMapInfo = (props) => {
             <div style={{ display: 'inline-block', width: '40px', height: '15px', backgroundColor: `${props.mycrewinfo.crewcolor}` }}></div>
           </div>
           <h6>나의 포인트 : { props.login.point}</h6>
-          <div className="ptf-pricing-table__description">
-            <h4>나의 크루 포인트: {props.mycrewinfo.crewScore} point</h4>
+         
+            <hr></hr>
+          <div className="ptf-pricing-table__content">
+            <div className="row">
+            <div className="col-xl-3">
+              <img      
+              src={'http://localhost:3000/dalrun-yr/crewImg/'+props.mycrewinfo.crewImg.split('/')[0]}
+            style={{borderRadius:'30%'}}
+              >
+                
+              </img>
+            </div>
+            <div className="col-xl-6">
+            <h6>나의 크루 포인트: {props.mycrewinfo.crewTotalScore} point</h6>
+            <br></br>
+            <h6> 나의 크루 레벨  {props.mycrewinfo.crewLevel}</h6>
+            <br></br>
+            <h6> 나의 크루 보유 Ground  ({props.mycrewinfo.groundCount})</h6>
+              </div>
+            
+            </div>
           </div>
+          
 
-
-          <div  className="ptf-pricing-table__action">
-            {/* <!--Button--> */}
+          {/* <div  className="ptf-pricing-table__action">
+         
             <select id="pointselect" style={{maxWidth:'200px'}} onChange={donationAlet}>
             <option value="none">point를 선택하세요</option>
             <option value="500">500 point</option>
@@ -194,7 +214,7 @@ const DotMapInfo = (props) => {
           </select><br/>
             <button id="sendBtn" onClick={sendDonation} > 기부하기 </button>
             <p id="donationalert" style={{color:'red',display:'none'}}>💡 포인트가 부족합니다! </p>
-          </div>
+          </div> */}
         </div>
 
         </div>

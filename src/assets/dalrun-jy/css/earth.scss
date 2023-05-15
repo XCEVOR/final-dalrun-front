@@ -61,9 +61,7 @@
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
-.ptf-main section:not(:first-child) {
-    padding-top: 100px;
-}
+
 rect{
     /* fill: rgba(20, 20, 20); */
     fill: rgba(40, 40, 40);
@@ -371,3 +369,4 @@ rect:hover {
     filter: grayscale(50%) contrast(80%) brightness(1.6);
     mix-blend-mode: normal;
 }
+

@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import NaverMapView from "./NaverMapview";
 import axios from 'axios';
 import CCPagination from "../search/pagination";
-
+import "../../../assets/dalrun-jy/css/design.css";
 
 const ContentComp = () => {
   const params = useParams();
@@ -151,7 +151,7 @@ const ContentComp = () => {
             </td>
             <td style={{ paddingLeft: "5px" }}>
               <span>
-                <button type="button" className="btn btn-primary" onClick={() => searchBtn()}>검색</button>
+                <button type="button" className="btn btn-dalrun" onClick={() => searchBtn()}>검색</button>
               </span>
             </td>
           </tr>
