@@ -1,4 +1,98 @@
 .dalrun_hc {
+  .store_main_cover_image_1 {
+    background-image: url(../../img/store/storemain/main-slide-1.png);
+    // /* Add the blur effect */
+    // filter: blur(8px);
+    // -webkit-filter: blur(8px);
+    // /* Full height */
+    // height: 100%;
+
+  }
+
+  .store_main_cover_image_2 {
+    background-image: url(../../img/store/storemain/main-slide-2.png);
+  }
+
+  .store_main_cover_image_3 {
+    background-image: url(../../img/store/storemain/main-slide-3.png);
+  }
+
+  .div_center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  // div.title_container {
+  //   margin: auto;
+  //   padding: 20px;
+  //   width: 800px;
+  //   height: 150px;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border-width: 2px;
+  //   border-style: solid;
+  //   border-color: white;
+  //   box-shadow: 4px 4px 16px #999999;
+  //   // background-color: rgba(255, 255, 255, 0.5);
+    
+  //   -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+  //     var(--ptf-transition-easing);
+  //   transition: -webkit-transform var(--ptf-transition-duration)
+  //     var(--ptf-transition-easing);
+  //   transition: transform var(--ptf-transition-duration)
+  //     var(--ptf-transition-easing);
+  //   transition: transform var(--ptf-transition-duration)
+  //     var(--ptf-transition-easing),
+  //   -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+    
+  //   &:hover {
+  //     -webkit-transform: translateY(-5px);
+  //     -ms-transform: translateY(-5px);
+  //     transform: translateY(-5px);
+  //   }
+  // }
+
+  div.title_container {
+    margin: auto;
+    padding: 20px;
+    width: 800px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 4px 4px 16px #999999;
+    // background-color: rgba(255, 255, 255, 0.5);
+    
+    animation: bounce 1s infinite;
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-50px);
+      }
+    }
+  }
+
+  .has_title_accent_1 {
+    color: #74EABC;
+    text-shadow: 4px 4px 16px #666666;
+  }
+
+  .has_title_accent_2 {
+    color: white;
+    text-shadow: 4px 4px 16px #666666;
+  }
+
+  .store_main_cover_subtext {
+    text-shadow: -2px -2px 2px #ffffff;
+  }
+  
+}
+
+.dalrun_hc {
   .store_main_button {
       display: inline-block;
       outline: 0;
@@ -531,4 +625,57 @@
   //     grid-gap: px2rem(30px);
   //   }
   // }
+}
+
+.dalrun_hc {
+  button.cart_reddot {
+    background-color: transparent;
+
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: -webkit-transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing),
+  -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+  
+  &:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+
+  }
+  
+  span.cart_reddot {
+    background: red;
+     border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.5em; 
+    height: 1.5em; 
+  }
+
+  span.cart_none {
+    background: transparent;
+     border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: transparent;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.5em; 
+    height: 1.5em; 
+  }
 }

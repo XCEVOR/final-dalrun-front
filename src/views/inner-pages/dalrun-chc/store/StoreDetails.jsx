@@ -16,6 +16,7 @@ import StoreDetailsSlider from "../../../../components/dalrun-hc/storedetails/St
 import StoreDetailsCommentForm from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentForm";
 import StoreDetailsCommentList from "../../../../components/dalrun-hc/storedetails/StoreDetailsCommentList";
 import CommentAppContext from './StoreAppContext';
+import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
 
 import Button from "./Button";
 import Toast from "./Toast";
@@ -83,6 +84,7 @@ const WorksShowcase = () => {
     <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
     <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
     <div className="dalrun_hc">
+    <StoreCartFloatingBtn productCode={prodParams.productCode}/>
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
         <title>STORE DETAILS</title>

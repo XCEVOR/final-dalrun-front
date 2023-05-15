@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import StoreRecommend1Row from "../../../../components/dalrun-hc/storerecommend/StoreRecommend1Row";
 import StoreRecommendPhoto from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPhoto";
 import StoreRecommendFloatingBtn from "../../../../components/dalrun-hc/storerecommend/StoreRecommendFloatingBtn";
+import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
 
 
 const StoreRecommend = () => {
@@ -12,16 +13,23 @@ const StoreRecommend = () => {
   console.log("prodParams: ", prodParams);
   console.log("prodParams.productCode: ", prodParams.productCode);
 
+  let storage_memId = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) storage_memId = "user01test";
+  else storage_memId = JSON.parse(json_login).memId;
+
+
 
   return (
     <div className="dalrun-hc">
       <StoreRecommendFloatingBtn productCode={prodParams.productCode}/>
+      <StoreCartFloatingBtn storage_memId={storage_memId}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Moonex - Home Agency</title>
         </Helmet>
         {/* End Page SEO Content */}
-        <StoreRecommendFloatingBtn />
+
         <div className="ptf-site-wrapper__inner">
          
           {/* End Header Agency */}
