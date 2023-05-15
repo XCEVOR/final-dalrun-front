@@ -40,7 +40,7 @@ const Headermain = () => {
           <div className="container-xxl" style={{maxWidth:'100%',backgroundImage:'url(assets/img/dalrun-jy/space11.gif)' }} >
             <div className="ptf-navbar-inner">
               {/* <!--Logo--> */}
-              
+              <div style={{width:'5%'}}/>
                 <Link className="ptf-navbar-logo" to="/mainpage">
                
                 <img
@@ -66,7 +66,9 @@ const Headermain = () => {
              
                 {/* <!--Menu--> */}
                 <DropdownMenu />
-          
+              <div style={{width:'10%'}}/>
+
+             
 
              
              
