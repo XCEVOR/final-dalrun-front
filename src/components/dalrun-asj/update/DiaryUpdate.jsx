@@ -14,6 +14,10 @@ function DiaryUpdate({data, onHide}) {
     const [totalDist, setTotalDist] = useState(0);
     const [meanPace, setMeanPace] = useState(0);
     const [regdate, setRegdate] = useState(0);
+    const [update, setUpdate] = useState(false);
+    const [updatedFiles, setUpdatedFiles] = useState([]);
+
+    let filelist = [];
 
     const setInput = (data) => {
         setDiarySeq(data.diarySeq);
@@ -26,12 +30,30 @@ function DiaryUpdate({data, onHide}) {
         setRegdate(data.wdate);
     }
 
+    const getFilename = (content) => {
+        const contentSpilt = content.split('diaryImg/');
+
+        contentSpilt.map((s, i) => {
+            if(i>0) {
+                const indexof = s.indexOf('.');
+                const filename = s.substring(0, indexof+4);  
+                console.log(filename); 
+                
+                filelist.push(filename);
+            }
+        }); 
+    }
+
     useEffect(() => {
         setInput(data);
     }, []);
-
+    
     const onSubmit = (e) => {
         e.preventDefault();
+        
+        setUpdate(true);
+        getFilename(content);
+        setUpdatedFiles(filelist);
 
         let formdata = new FormData();
         formdata.append("diarySeq", diarySeq);
@@ -90,7 +112,7 @@ function DiaryUpdate({data, onHide}) {
                         </div>
                         <div>
                             <label htmlFor="content">내용</label>
-                            <CustomEditor val={content} handleEditorChange={(e) => setContent(e.target.value)} />
+                            <CustomEditor val={content} update={update} id={id} updatedFiles={updatedFiles} handleEditorChange={(e) => setContent(e.target.value)} />
                         </div>
                         <input type="submit" value="수정" />
                     </fieldset>
