@@ -35,8 +35,21 @@
     box-shadow: 4px 4px 16px #999999;
     // background-color: rgba(255, 255, 255, 0.5);
     
-
-
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+    
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
   }
 
   .has_title_accent_1 {
@@ -588,7 +601,24 @@
 
 .dalrun_hc {
   button.cart_reddot {
-    background-color: transparent !important;
+    background-color: transparent;
+
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: -webkit-transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing);
+  transition: transform var(--ptf-transition-duration)
+    var(--ptf-transition-easing),
+  -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+  
+  &:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+
   }
   
   span.cart_reddot {
