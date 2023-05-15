@@ -134,8 +134,20 @@ function TestReduxRight2 (props) {
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
     console.log(" console.log(props.productCode);", props.prodParams.productCode);
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    let storage_memId = "x";
+    let storage_memEmail = "x";
+    let json_login = localStorage.getItem("login");
+    if (json_login === null) {
+        storage_memId = "user01test";
+        storage_memEmail = "user@email.com";
+    }
+    else {
+        storage_memId = JSON.parse(json_login).memId;
+        storage_memEmail = JSON.parse(json_login).email;
+    }
+
+    const [name, setName] = useState(storage_memId);
+    const [email, setEmail] = useState(storage_memEmail);
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
