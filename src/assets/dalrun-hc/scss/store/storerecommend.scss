@@ -105,3 +105,53 @@
     }
   }
 }
+
+
+.dalrun-hc {
+  .recomm_floating_btn {
+    position: fixed;
+    margin: 100px;
+    bottom: 0px;
+    right: -50px;
+    z-index: 9999;
+    // bottom: 100px;
+      // position: 'fixed',
+      // bottom: '110px',
+      // right: '50px',
+      // zIndex: "9999"
+  }
+
+  button.cart_reddot {
+    background-color: transparent !important;
+  }
+  
+  span.cart_reddot {
+    background: red;
+     border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.5em; 
+    height: 1.5em; 
+  }
+
+  span.cart_none {
+    background: transparent;
+     border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: transparent;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.5em; 
+    height: 1.5em; 
+  }
+}
