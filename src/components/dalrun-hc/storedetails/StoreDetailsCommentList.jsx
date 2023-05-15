@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 import myReduxStore from "../myredux/myReduxStore";
 import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
@@ -289,7 +293,8 @@ function TestReduxLeft2 (props) {
                       <li>
                           <div className="comments-box inquiry_box_style">
                               <div className="comments-avatar">
-                                  <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
+                                  {/* <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/> */}
+                                  <FontAwesomeIcon icon={faUser} size="2x"/>
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
@@ -318,7 +323,8 @@ function TestReduxLeft2 (props) {
                       <li className="children">
                           <div className="comments-box">
                               <div className="comments-avatar">
-                                  <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/>
+                                  {/* <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/> */}
+                                  <FontAwesomeIcon icon={faUser} size="2x"/>
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
