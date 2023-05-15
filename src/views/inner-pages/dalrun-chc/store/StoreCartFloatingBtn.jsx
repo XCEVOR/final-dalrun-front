@@ -3,19 +3,26 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import { useMemo } from 'react';
 
 const StoreCartFloatingBtn = (props) => {
+  let json_login = localStorage.getItem("login")
+  // alert(json_login)
+  let storage_memId = JSON.parse(json_login).memId
+  const [memId, setMemId] = useState(storage_memId)
+
   const [cartQuantity, setCartQuantity] = useState(0);
 
-  const getUserCartQuantity = async() => {
-    const resp = await axios.post("http://localhost:3000/getUserCartQuantity", null, { params: {"memId": "user01test"}});
+  const getUserCartQuantity = async (memId) => {
+    const resp = await axios.post("http://localhost:3000/getUserCartQuantity", null, { params: {"memId": memId}});
     // alert(resp.data)
     setCartQuantity(resp.data)  // 담긴 물건이 0 이면 투명, 0 이 아니면 "cart_reddot"
   }
 
   useEffect (() => {
-    getUserCartQuantity()
-  }, [cartQuantity])
+    getUserCartQuantity(storage_memId)
+  }, [storage_memId, cartQuantity])
+
 
   const handleClick = () => {
     // window.open("https://example.com", "_blank");

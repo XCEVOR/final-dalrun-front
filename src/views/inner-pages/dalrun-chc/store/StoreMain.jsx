@@ -19,15 +19,21 @@ import StoreTwoRectangles from "../../../../components/dalrun-hc/store/StoreTwoR
 import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThree";
 import StoreFourRectangles from "../../../../components/dalrun-hc/store/StoreFourRectangles";
 import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreThreeRectangles";
+import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
 
 const StoreMain = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
+  let json_login = localStorage.getItem("login")
+  let memId = JSON.parse(json_login).memId
+  // alert(JSON.parse(memId).memId)
 
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
   <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div className="dalrun_hc">
+        <StoreCartFloatingBtn memId={memId}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Store - Main</title>
