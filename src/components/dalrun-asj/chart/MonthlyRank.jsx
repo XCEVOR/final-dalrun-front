@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect } from "react";
 
-function CrewMonthlyRank({setData}) {
+function MonthlyRank({setMemRank, setCrewRank}) {
     const getData = () => {
-        axios.post("http://localhost:3000/getCrewScoreRank")
+        axios.post("http://localhost:3000/getScoreRank")
             .then((resp) => {
-              setData(resp.data);
+              setMemRank(resp.data.memRank);
+              setCrewRank(resp.data.crewRank);
             })
             .catch((err) => alert(err));
     }
@@ -16,4 +17,4 @@ function CrewMonthlyRank({setData}) {
 }
 
 
-export default CrewMonthlyRank;
+export default MonthlyRank;

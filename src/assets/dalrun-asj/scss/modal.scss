@@ -45,6 +45,14 @@
 }
 
 // update
+.diary_update_container {
+    width: auto !important;
+
+    .admin_update {
+        width: 97% !important;
+    }
+}
+
 .admin_update_container {
     width: 766px;
     margin: auto;
@@ -58,6 +66,23 @@
     .admin_update {
         margin: 0 auto;
         width: 80%;
+
+        fieldset .score_con {
+            position: relative;
+
+            .calcScore {
+                position: absolute;
+                top: 4px;
+                right: 13px;
+                font-size: 14px;
+                color: var(--bs-link-hover-color);
+
+                p {
+                    margin: auto;
+                }
+            }
+        }
+
 
         .profile_img {
             margin: 0 auto;
@@ -87,6 +112,7 @@
                 top: 10px;
             }
 
+            
         }
 
         .comp_img {

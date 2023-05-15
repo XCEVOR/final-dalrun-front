@@ -94,18 +94,19 @@ const ContentComp = () => {
                 loading="lazy"
                 style={{ position: 'relative' }}
               />
-              {check(val.receiptStart, val.receiptEnd) === 1 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'blue', padding: '10px', margin: '5px' }}>접수중</h3>}
-              {check(val.receiptStart, val.receiptEnd) === 2 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'gray', padding: '10px', margin: '5px' }}>접수 예정</h3>}
-              {check(val.receiptStart, val.receiptEnd) === 3 && <h3 style={{ position: 'absolute', zIndex: '1', top: '10px', background: 'white', opacity: '0.8', borderRadius: '20px', color: 'red', padding: '10px', margin: '5px' }}>접수 종료</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 1 && <h3 style={{ position: 'absolute', zIndex: '1', top: '12px', left: '12px', background: 'white', opacity: '0.8', borderRadius: '16px', fontSize: '24px', color: 'blue', padding: '13px 18px', margin: '5px' }}>접수중</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 2 && <h3 style={{ position: 'absolute', zIndex: '1', top: '12px', left: '12px', background: 'white', opacity: '0.8', borderRadius: '16px', fontSize: '24px', color: 'gray', padding: '13px 18px', margin: '5px' }}>접수 예정</h3>}
+              {check(val.receiptStart, val.receiptEnd) === 3 && <h3 style={{ position: 'absolute', zIndex: '1', top: '12px', left: '12px', background: 'white', opacity: '0.8', borderRadius: '16px', fontSize: '24px', color: 'red', padding: '13px 18px', margin: '5px' }}>접수 종료</h3>}
 
             </div>
-            <div className="ptf-post__content">
+            {/* <div className="ptf-post__content comp_con"> */}
+            <div className="comp_con">
               <header className="ptf-post__header">
                 <div className="ptf-post__meta">
-                  <span className="cat">{val.compLocal}</span>
-                  <span className="date">{val.receiptStart} ~ {val.receiptEnd}</span>
+                  <span className="comp_local">{val.compLocal}</span>
+                  <span className="comp_date">{val.receiptStart} ~ {val.receiptEnd}</span>
                 </div>
-                <h3 className="ptf-post__title">
+                <h3 className="con_title">
                   <Link>{val.compTitle}</Link>
                 </h3>
               </header>
