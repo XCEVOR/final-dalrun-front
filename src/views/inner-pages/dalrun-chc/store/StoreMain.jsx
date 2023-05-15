@@ -24,16 +24,19 @@ import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
 const StoreMain = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
-  let json_login = localStorage.getItem("login")
-  let memId = JSON.parse(json_login).memId
-  // alert(JSON.parse(memId).memId)
+  let storage_memId = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) storage_memId = "user01test";
+  else storage_memId = JSON.parse(json_login).memId;
+
+
 
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
   <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div className="dalrun_hc">
-        <StoreCartFloatingBtn memId={memId}/>
+        <StoreCartFloatingBtn storage_memId={storage_memId}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Store - Main</title>

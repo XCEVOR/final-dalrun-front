@@ -6,10 +6,11 @@ import axios from 'axios';
 import { useMemo } from 'react';
 
 const StoreCartFloatingBtn = (props) => {
-  let json_login = localStorage.getItem("login")
-  // alert(json_login)
-  let storage_memId = JSON.parse(json_login).memId
-  const [memId, setMemId] = useState(storage_memId)
+  let storage_memId = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) storage_memId = "user01test";
+  else storage_memId = JSON.parse(json_login).memId;
+
 
   const [cartQuantity, setCartQuantity] = useState(0);
 
