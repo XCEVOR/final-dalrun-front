@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
+
 import Social from "../../../../components/social/Social";
-import ContactForm from "../../../../components/ContactForm";
-import Address from "../../../../components/Address";
+
+
 
 import StorePaymentUser from "../../../../components/dalrun-hc/storepayment/StorePaymentUser";  // StorePaymentUser 에서
 import StorePaymentList from "../../../../components/dalrun-hc/storepayment/StorePaymentList";  // StorePaymentList 으로 데이터 공유.
@@ -24,7 +23,7 @@ const StorePayment = () => {
         </Helmet>
         {/* End Page SEO Content */}
 
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End Header */}
 
         <div className="ptf-main">
@@ -123,7 +122,7 @@ const StorePayment = () => {
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
             <div className="ptf-footer__top">
-              <Footer />
+              
             </div>
             <div className="ptf-footer__bottom">
               <CopyRight />
@@ -144,7 +143,7 @@ const StorePayment = () => {
         </Helmet>
         {/* End Page SEO Content */}
 
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End Header */}
 
         <div className="ptf-main">
@@ -245,7 +244,7 @@ const StorePayment = () => {
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
             <div className="ptf-footer__top">
-              <Footer />
+              
             </div>
             <div className="ptf-footer__bottom">
               <CopyRight />

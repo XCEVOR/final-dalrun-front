@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import CounterTwo from "../../../../components/counter/CounterTwo";
-import CopyRightTwo from "../../../../components/footer/copyright/CopyRightTwo";
-import FooterTwo from "../../../../components/footer/FooterTwo";
-import HeaderAgency from "../../../../components/header/HeaderAgency";
-// import HeroAgency from "../../../../components/hero/HeroAgency";
-import ListOne from "../../../../components/list/ListOne";
-import ListTwo from "../../../../components/list/ListTwo";
-import PortfolioTwo from "../../../../components/portfolio/PortfolioTwo";
-import Pricing from "../../../../components/pricing/Pricing";
-import Team from "../../../../components/team/Team";
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
 
-import BlogThree from "../../../../components/blog/BlogThree";
 
 import StoreMainCover from "../../../../components/dalrun-hc/store/StoreMainCover";
 import StoreTwoRectangles from "../../../../components/dalrun-hc/store/StoreTwoRectangles";
@@ -35,7 +25,7 @@ const StoreMain = () => {
         {/* End Page SEO Content */}
 
         <div className="ptf-site-wrapper__inner">
-          <HeaderAgency />
+          <HeadermainPage />
           {/* End Header Agency */}
 
           <div className="ptf-main">
@@ -230,12 +220,12 @@ const StoreMain = () => {
                   <div className="row">
                     <div className="col-xl-10 offset-xl-2">
                       <div className="ptf-footer__top">
-                        <FooterTwo />
+                       
                       </div>
                       {/* End .ptf-footer__top */}
 
                       <div className="ptf-footer__bottom">
-                        <CopyRightTwo />
+                       
                       </div>
                       {/* End .ptf-footer__bottom */}
                     </div>
@@ -270,7 +260,7 @@ const StoreMain = () => {
         {/* End Page SEO Content */}
 
         <div className="ptf-site-wrapper__inner">
-          <HeaderAgency />
+          <HeadermainPage />
           {/* End Header Agency */}
 
           <div className="ptf-main">
@@ -546,7 +536,7 @@ const StoreMain = () => {
                       </div>
                     </div>
                     {/* End .col */}
-                    <CounterTwo />
+                 
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
@@ -718,7 +708,7 @@ const StoreMain = () => {
                           style={{ "--ptf-xxl": "3.125rem" }}
                         ></div>
                         {/* <!--Services List--> */}
-                        <ListOne />
+                    
                       </div>
                     </div>
                     <div className="col-12 col-md-6">
@@ -742,7 +732,7 @@ const StoreMain = () => {
                           style={{ "--ptf-xxl": "3.125rem" }}
                         ></div>
                         {/* <!--Services List--> */}
-                        <ListTwo />
+                     
                       </div>
                     </div>
                   </div>
@@ -800,7 +790,7 @@ const StoreMain = () => {
                     data-aos-delay="0"
                   >
                     <div className="ptf-isotope-grid">
-                      <PortfolioTwo />
+                  
                     </div>
                     {/* End .ptf-isotope-grid */}
                   </div>
@@ -838,7 +828,7 @@ const StoreMain = () => {
                 </div>
                 <div className="container">
                   <div className="ptf-team-member-grid ptf-team-member-grid--4-columns">
-                    <Team />
+                
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
@@ -876,7 +866,7 @@ const StoreMain = () => {
                 </div>
                 <div className="container">
                   <div className="row" style={{ "--bs-gutter-x": "2rem" }}>
-                    <Pricing />
+                   
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
@@ -951,12 +941,12 @@ const StoreMain = () => {
                   <div className="row">
                     <div className="col-xl-10 offset-xl-2">
                       <div className="ptf-footer__top">
-                        <FooterTwo />
+                       
                       </div>
                       {/* End .ptf-footer__top */}
 
                       <div className="ptf-footer__bottom">
-                        <CopyRightTwo />
+                       
                       </div>
                       {/* End .ptf-footer__bottom */}
                     </div>

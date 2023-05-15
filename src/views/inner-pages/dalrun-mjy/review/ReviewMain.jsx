@@ -1,22 +1,18 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BlogSidebarPost from "../../../../components/blog/blog-sidebar/BlogSidebarPost";
+import ContentReview from "../../../../components/dalrun-jy/review/ContentReview";
+import HeaderReview from "../../../../components/dalrun-jy/review/HeaderReview";
+import ReviewSidebarPost from "../../../../components/dalrun-jy/review/ReviewSidebarPost";
 
-
-import Pagination from "../../../../components/blog/Pagination";
 import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
-
 import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
-import BlogFour from "../../../../components/dalrun-hc/review/Review1Row";
-import BlogFive from "../../../../components/dalrun-hc/review/Review2Row";
-import SearchBlog from "../../../../components/dalrun-hc/review/ReviewSearch";
-
-const ReviewMain = () => {
+const CompetitionMain = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
       <Helmet>
-        <title>REVIEW MAIN</title>
+        <title>러닝화 리뷰</title>
       </Helmet>
+      
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
         <HeadermainPage />
@@ -27,11 +23,12 @@ const ReviewMain = () => {
             {/*=============================================
             Start Blog  Section 
             ============================================== */}
+            
             <section>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+                style={{ "--ptf-xxl": "2rem", "--ptf-md": "5rem" }}
               ></div>
               <div className="container-xxl">
                 <div className="row">
@@ -42,14 +39,14 @@ const ReviewMain = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">REVIEW MAIN</h1>
+                      <h5 className="large-heading">신상품</h5>
                     </div>
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
                 <div
                   className="ptf-spacer"
-                  style={{ "--ptf-xxl": "6.875rem" }}
+                  style={{ "--ptf-xxl": "1.875rem" }}
                 ></div>
               </div>
               <div className="container-xxl">
@@ -60,13 +57,13 @@ const ReviewMain = () => {
                     "--bs-gutter-y": "3.75rem",
                   }}
                 >
-                  <BlogFour />
+                  <HeaderReview />
                 </div>
               </div>
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
+                style={{ "--ptf-xxl": "3.5rem", "--ptf-md": "3.75rem" }}
               ></div>
             </section>
             {/* End .blog */}
@@ -88,36 +85,14 @@ const ReviewMain = () => {
             Start Blog With Sidebar  Section 
             ============================================== */}
             <section>
-
               {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
-                style={{ "--ptf-xxl": "7.5rem", "--ptf-md": "3.75rem" }}
+                style={{ "--ptf-xxl": "3.5rem", "--ptf-md": "3.75rem" }}
               ></div>
               <div className="container-xxl">
                 <div className="row">
-
-
-                  {/* <!--Widget--> */}
-                  <div className="ptf-widget ptf-widget-search">
-                    {/* <!--Animated Block--> */}
-                    <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-                      <h4 className="ptf-widget-title">Search</h4>
-                      <SearchBlog />
-                    </div>
-                  </div>
-                  {/* <!--Widget--> */}
-
-
-
-                  <div
-                    className="ptf-spacer"
-                    style={{ "--ptf-xxl": "1.5rem", "--ptf-md": "3.75rem" }}
-                  ></div>
-
-
-
-                  <div className="col-xl-12">
+                  <div className="col-xl-8">
                     {/* <!--Animated Block--> */}
                     <div
                       className="ptf-animated-block"
@@ -125,7 +100,7 @@ const ReviewMain = () => {
                       data-aos-delay="0"
                     >
                       <div className="ptf-isotope-grid">
-                        <BlogFive />
+                        <ContentReview choice={""} search={""} page={0}/>
                       </div>
                       {/* End .ptf-isotope-grid */}
                     </div>
@@ -137,16 +112,14 @@ const ReviewMain = () => {
                         "--ptf-md": "4.6875rem",
                       }}
                     ></div>
-                    <Pagination />
+                  
                   </div>
                   {/* Blog grid  */}
-                  {/* 
                   <div className="col-xl-4">
                     <div className="ptf-sidebar ptf-sidebar--right">
-                      <BlogSidebarPost />
+                      <ReviewSidebarPost />
                     </div>
-                  </div> 
-                  */}
+                  </div>
                   {/* End sidebar */}
                 </div>
               </div>
@@ -165,7 +138,7 @@ const ReviewMain = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-         
+          
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>
@@ -176,4 +149,4 @@ const ReviewMain = () => {
   );
 };
 
-export default ReviewMain;
+export default CompetitionMain;

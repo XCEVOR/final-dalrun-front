@@ -84,7 +84,7 @@ const CrewMember = () => {
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
           <div className="ptf-footer__top">
-            {/* <Footer /> */}
+            {/*  */}
           </div>
           <div className="ptf-footer__bottom">
             {/* <CopyRight /> */}

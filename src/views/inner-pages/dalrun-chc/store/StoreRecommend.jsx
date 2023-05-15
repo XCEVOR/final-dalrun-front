@@ -1,23 +1,10 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import CounterTwo from "../../../../components/counter/CounterTwo";
-import CopyRightTwo from "../../../../components/footer/copyright/CopyRightTwo";
-import FooterTwo from "../../../../components/footer/FooterTwo";
-import HeaderAgency from "../../../../components/header/HeaderAgency";
-import HeroAgency from "../../../../components/hero/HeroAgency";
-import ListOne from "../../../../components/list/ListOne";
-import ListTwo from "../../../../components/list/ListTwo";
-import PortfolioTwo from "../../../../components/portfolio/PortfolioTwo";
-import Pricing from "../../../../components/pricing/Pricing";
-import Team from "../../../../components/team/Team";
-import TestimonialTwo from "../../../../components/testimonial/TestimonialTwo";
 
 import StoreRecommend1Row from "../../../../components/dalrun-hc/storerecommend/StoreRecommend1Row";
 import StoreRecommendPhoto from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPhoto";
 import StoreRecommendFloatingBtn from "../../../../components/dalrun-hc/storerecommend/StoreRecommendFloatingBtn";
-
-
 
 
 const StoreRecommend = () => {
@@ -36,7 +23,7 @@ const StoreRecommend = () => {
         {/* End Page SEO Content */}
         <StoreRecommendFloatingBtn />
         <div className="ptf-site-wrapper__inner">
-          <HeaderAgency />
+         
           {/* End Header Agency */}
 
           <div className="ptf-main">
@@ -213,12 +200,12 @@ const StoreRecommend = () => {
                   <div className="row">
                     <div className="col-xl-10 offset-xl-2">
                       <div className="ptf-footer__top">
-                        <FooterTwo />
+                     
                       </div>
                       {/* End .ptf-footer__top */}
 
                       <div className="ptf-footer__bottom">
-                        <CopyRightTwo />
+                    
                       </div>
                       {/* End .ptf-footer__bottom */}
                     </div>

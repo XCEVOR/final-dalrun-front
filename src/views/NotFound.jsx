@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../components/header/HeaderDefault";
-import CopyRight from "../components/footer/copyright/CopyRight";
-import Footer from "../components/footer/Footer";
+// import HeadermainPage from "../../components/header/HeadermainPage";
+
 
 const NotFound = () => {
   return (
@@ -13,7 +12,7 @@ const NotFound = () => {
       </Helmet>
       {/* End Page SEO Content */}
 
-      <HeaderDefault />
+      {/* <HeadermainPage /> */}
       {/* End Header */}
 
       <div className="ptf-main">
@@ -103,11 +102,9 @@ const NotFound = () => {
         ============================================== */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
-            <CopyRight />
+       
           </div>
         </div>
       </footer>

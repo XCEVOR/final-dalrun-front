@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBlog from "../../form/SearchBlog";
-import NewsletterThree from "../../newsletter/NewsletterThree";
+
 import Social from "../../social/Social";
 
 import PopularReviewPosts from "./PopularReviewPosts";
