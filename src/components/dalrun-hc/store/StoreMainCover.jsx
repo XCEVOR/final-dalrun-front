@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 
-const HeroAgency = () => {
+const StoreMainCover = ({ scrollFunc1comp, scrollFunc2comp }) => {
   const [isOpen, setOpen] = useState(false);
 
   const settings = {
@@ -36,11 +36,10 @@ const HeroAgency = () => {
               ></div>
 
               <p
-                className="fz-24 has-white-color text-center"
+                className="fz-24 has-gray-color text-center"
                 style={{ maxWidth: "34.375rem", margin: "0 auto" }}
               >
-                Like any great agency, we are only as good as the result we
-                deliver of our recent work.
+                러닝을 위한 완벽한 아이템으로 자유를 느껴보세요
               </p>
 
               {/* <!--Spacer--> */}
@@ -51,17 +50,16 @@ const HeroAgency = () => {
 
               <div className="d-flex justify-content-center">
                 {/* <!--Button--> */}
-                <a className="ptf-btn ptf-btn--primary" href="" target="_self">
+                <a className="ptf-btn ptf-btn--primary" onClick={scrollFunc1comp}>
                   추천 상품
                 </a>
                 {/* <!--Button--> */}
-                <Link
-                  className="ptf-btn ptf-btn--secondary"
-                  to="/service"
+                <a
+                  className="ptf-btn ptf-btn--secondary" onClick={scrollFunc2comp}
                   style={{ marginLeft: "2rem" }}
                 >
                   인기 상품
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -167,4 +165,4 @@ const HeroAgency = () => {
   );
 };
 
-export default HeroAgency;
+export default StoreMainCover;

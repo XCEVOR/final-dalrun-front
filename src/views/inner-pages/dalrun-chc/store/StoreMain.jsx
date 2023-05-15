@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CounterTwo from "../../../../components/counter/CounterTwo";
@@ -29,6 +29,16 @@ const StoreMain = () => {
   if (json_login === null) storage_memId = "user01test";
   else storage_memId = JSON.parse(json_login).memId;
 
+  const scrollRef1 = useRef(null);
+  const scrollRef2 = useRef(null);
+
+  const scrollFunc1 = () => {
+    scrollRef1.current.scrollIntoView({ behavior: "smooth" })
+  }
+  const scrollFunc2 = () => {
+    scrollRef2.current.scrollIntoView({ behavior: "smooth" })
+  }
+
 
 
   return checkbox_DisplayMode 
@@ -37,6 +47,20 @@ const StoreMain = () => {
   <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div className="dalrun_hc">
         <StoreCartFloatingBtn storage_memId={storage_memId}/>
+        <button
+          onClick={() =>
+            scrollRef1.current.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          스크롤 이동1
+        </button>
+        <button
+          onClick={() =>
+            scrollRef2.current.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          스크롤 이동2
+        </button>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Store - Main</title>
@@ -54,7 +78,7 @@ const StoreMain = () => {
             ============================================== */}
               <div className="ptf-showcase-3 swiper-container">
                 <div className="swiper-wrapper">
-                  <StoreMainCover />
+                  <StoreMainCover scrollFunc1comp={() => scrollFunc1()} scrollFunc2comp={() => scrollFunc2()} />
                 </div>
               </div>
 
@@ -70,6 +94,7 @@ const StoreMain = () => {
                 <div
                   className="ptf-spacer"
                   style={{ "--ptf-xxl": "8.75rem", "--ptf-md": "4.375rem" }}
+                  ref={scrollRef1}
                 ></div>
                 <div className="container">
                   <div className="row align-items-center">
@@ -125,6 +150,7 @@ const StoreMain = () => {
                 <div
                   className="ptf-spacer"
                   style={{ "--ptf-xxl": "8.75rem", "--ptf-md": "4.375rem" }}
+                  ref={scrollRef2}
                 ></div>
                 <div className="container">
                   {/* <!--Animated Block--> */}
