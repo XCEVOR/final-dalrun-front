@@ -302,11 +302,11 @@ function StoreCartList() {
           <div className="container-xxl">
             <div className="store_cart_checkout_div">
               <div className="store_cart_checkout_div2">
-                <h1>CHECK OUT</h1>
+                <h1>TOTAL AMOUNT</h1>
                 <h3>₩ {totalPaymentAmount}</h3>
                 {/* <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button> */}
                 
-                  <Link to="/store-payment"><button >{totalPaymentAmount}결제 페이지 이동</button></Link>
+                  <Link to="/store-payment"><div><button className="store_cart_checkout_button">결제 페이지 이동</button></div></Link>
                 
               </div>
             </div>
