@@ -286,6 +286,12 @@
     background-color: #f54;
   }
 
+
+}
+
+
+.dalrun_hc {
+  
   .store_cart_row {
     margin: auto;
     display: flex;
@@ -300,23 +306,65 @@
     height: 80px;
   }
 
-  p .store_cart_description_p {
-    margin: 0;
+  .store_cart_description_title {
+    margin: 10px;
     padding: 0;
     height: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
   }
 
-  div .store_cart_description_quantity {
-    margin: 0;
+  .store_cart_description_div {
+    display: flex;
+  }
+
+  .store_cart_description_options {
+    margin: 10px;
+    padding: 0;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
+  }
+
+  .store_cart_description_selected {
+    margin: 10px 30px 10px 0px;
+    padding: 0;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
+  }
+
+  .store_cart_description_quantity {
+    margin: 10px;
+    padding: 0;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
+  }
+
+  .store_cart_description_quantity_num {
+    margin: 10px 40px 10px 0px;
+    padding: 0;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
+  }
+
+  .store_cart_description_quantity_amount {
+    margin: 10px;
     padding: 0;
     width: 120px;
-    height: 20px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "NanumSquare", Arial, Helvetica, sans-serif;
   }
 
-}
-
-
-.dalrun_hc {
   .store_cart_del_btn {
     display: inline-block;
     outline: 0;

@@ -146,13 +146,22 @@ function StoreCartList() {
                 </div>
 
                 <div className="store_cart_description">
-                  <p className="store_cart_description_p">{prodInfo.productName}</p>
-                  <p className="store_cart_description_p"><span>{prodInfo.productSize}</span><span>{prodInfo.productColor}</span></p>
+                  <p className="store_cart_description_title">{prodInfo.productName}</p>
+                  <div className="store_cart_description_div">
+                  <span className="store_cart_description_options">사이즈: </span>
+                  <span className="store_cart_description_selected">{prodInfo.productSize}</span>
+                  <p className="store_cart_description_options">컬러: </p>
+                  <span className="store_cart_description_selected">{prodInfo.productColor}</span>
+                  
+                  </div>
+
                 </div>
 
-                <div className="store_cart_description_quantity">
-                  <p>QTY: {matchedProduct.cartProdQuantity}</p>
+                <div className="store_cart_description_div">
+                  <p className="store_cart_description_quantity">QTY: </p>
+                  <span className="store_cart_description_quantity_num">{matchedProduct.cartProdQuantity}</span>
                 </div>
+                <div className="store_cart_description_quantity_amount">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
                 
                 <div>
                   <ModalButton 
@@ -170,7 +179,7 @@ function StoreCartList() {
                   {/* <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span> */}
                 </div>
 
-                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+                
               </div>
 
 
