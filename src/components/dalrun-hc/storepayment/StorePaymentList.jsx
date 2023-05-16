@@ -296,7 +296,7 @@ function StoreCartList(props) {
                 <div>
                   <div className="store_payment_item_quantity">
                     <p className="store_payment_item_quantity_text">
-                      {matchedProduct.cartProdQuantity}
+                      Qty: {matchedProduct.cartProdQuantity}
                     </p>
                   </div>
                   
@@ -378,28 +378,27 @@ function StoreCartList(props) {
         </section>
 
         <section>
-          <div className="ptf-single-post__wrapper">
-            <div className="container-xxl">
-              <div className="row">
-                <div className="col-xl-8">
-                  <h3>TOTAL PAYMENT AMOUNT</h3>
-                  <button onClick={calcTotalPaymentAmount}>
+          <div className="payment_progress_container">
+            <div className="payment_progress_container2">
+
+                  <h5>총 결제 금액</h5>
+                  {/* <button onClick={calcTotalPaymentAmount}>
                     {totalPaymentAmount}결제금액확인test
-                  </button>
-                  <Link to="/store-payment">
+                  </button> */}
+                  {/* <Link to="/store-payment">
                     <button onClick={writeOrderData}>
                       {totalPaymentAmount}결제 실행 (주문 데이터)
                     </button>
-                  </Link>
-                  <button onClick={onClickPayment}>{totalPaymentAmount}결제 실행 (프론트)</button>
-                  <Link to={`/store-payment-confirm/${orderNumber}`} >
+                  </Link> */}
+                  
+                  {/* <Link to={`/store-payment-confirm/${orderNumber}`} >
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
-                  </Link>
-                  <h3 defaultValue={totalPaymentAmount}>{totalPaymentAmount}</h3>
-                  <button onClick={testSuccessPayment}>testSuccessPayment</button>
+                  </Link> */}
+                  <h3 defaultValue={totalPaymentAmount}>₩ {totalPaymentAmount}</h3>
+                  {/* <button onClick={testSuccessPayment}>testSuccessPayment</button> */}
+                  <button className="store_payment_button" onClick={onClickPayment}>결제</button>
 
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
