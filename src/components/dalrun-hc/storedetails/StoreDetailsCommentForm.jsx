@@ -201,7 +201,7 @@ function TestReduxRight2 (props) {
 
     const myOnClickFunc = () => {
       writeCommentMain();
-      myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
+    //   myDispatch( {type: "myCounterInSlice/PLUS", step: 2} );
       storeDetailsCommentSeqDispatch( {type: "storeDetailsCommentSeqInSlice/CommentSeq", seq: 2} );
       setCommentContxData(prev => !prev);
     }

@@ -275,13 +275,13 @@ function StoreDetailsSelection() {
 
 
 
-        <div
-          className="ptf-btn ptf-btn--primary ptf-btn--block"
+        <button
+          className="product_tocart_btn"
           onClick={addToCart}
         >
-          카트 담기
+          <p className="product_tocart_text">카트 담기</p>
             {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
-        </div>
+        </button>
 
       </div>
       </>
