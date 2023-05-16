@@ -31,7 +31,7 @@ const StoreCartFloatingBtn = (props) => {
 
   return (
     <Link to={`/store-cart/`} rel="noopener noreferrer">
-        <button className='cart_reddot'
+        <button className='cart_reddot cart_none'
         style={{
             position: 'fixed',
             bottom: '-15px',
