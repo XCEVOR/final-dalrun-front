@@ -4,10 +4,10 @@ import axios from 'axios';
 const StorePaymentUser = (props) => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
-  const [orderName, setOrderName] = useState('제프 베이조스');
-  const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
-  const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
-  const [orderRequirment, setOrderRequirment] = useState('빠른배송');
+  const [orderName, setOrderName] = useState('김멀티');
+  const [orderAddress, setOrderAddress] = useState('서울특별시 강남구 언주로 508 14층(역삼동, 서울상록빌딩)');
+  const [orderPhone, setOrderPhone] = useState('010-1234-5678');
+  const [orderRequirment, setOrderRequirment] = useState('빠른배송 부탁드려요~');
   const [productId, setProductId] = useState('TestProductId');
   const [memId, setMemId] = useState('TestMemId');
 
@@ -92,7 +92,7 @@ const StorePaymentUser = (props) => {
               <form action="#">
                 <div className="row">
                   <div className="col-12">
-                    <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
                       이름
                     </h5>
                     <div className="bd-contact-field mb-30">
@@ -106,7 +106,7 @@ const StorePaymentUser = (props) => {
                   </div>
 
                   <div className="col-12">
-                    <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
                       주소
                     </h5>
                     <div className="bd-contact-field mb-30">
@@ -120,7 +120,7 @@ const StorePaymentUser = (props) => {
                   </div>
 
                   <div className="col-12">
-                    <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
                       전화번호
                     </h5>
                     <div className="bd-contact-field mb-30">
@@ -134,7 +134,7 @@ const StorePaymentUser = (props) => {
                   </div>
 
                   <div className="col-12">
-                    <h5 className="fz-16 text-uppercase has-3-color fw-normal">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
                       배송시 남기고 싶은 말
                     </h5>
                     <div className="bd-contact-field mb-30">
