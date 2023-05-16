@@ -4,6 +4,7 @@ import '../css/CrewMemberBody.css';
 import axios from 'axios';
 import CrewMemberWait from "./CrewMemberWait";
 import { Table } from "react-bootstrap";
+import '../css/CrewBbsBlogDetils.css';
 const portfolioMenu = [
   "크루멤버 소개",
   "크루멤버 대기",
@@ -71,9 +72,9 @@ function CrewMemberBody() {
   return (
     
     <div>
-      <Table striped bordered hover>
-              <thead>
-                <tr>          
+      <Table striped bordered hover > 
+              <thead >
+                <tr style={{textAlign:'center'}}>          
                   <th>번호</th>
                   <th>프로필</th>
                   <th>이름</th>
@@ -84,18 +85,22 @@ function CrewMemberBody() {
                   <th>가입일</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="crewtbody">
                 {
                   crewList.map((crew, i) => {
                     return (
                       <tr key={i}>
 
                         <td>{i + 1}</td>
-                        <td>{crew.memberName}</td>
-                        <td>
-                          <img src={`http://localhost:3000/dalrun-yr/profiles/`+ crew.profile}>
-                          </img>
+                        <td style={{
+                          backgroundImage:`url(http://localhost:3000/dalrun-yr/profiles/`+crew.profile,
+                          backgroundSize:'cover',backgroundPosition:'center',height:'80px'
+
+                          }}>
+                          
+                          
                         </td>
+                        <td> {crew.memberName}</td>
                         <td>{crew.memId}</td>
                         <td>
                             {crew.memId === mycrewinfo.memId ? "리더" : "팀원"} 
