@@ -109,7 +109,7 @@ function CourseMap({ course, selectedCourse}) {
         <NaverMap {... mapOptions} >
           <LocationBtn/>
           <MySetCenter selectedCourse={selectedCourse} path={path} />
-          {Object.keys(polygonData).map((areaName) =>
+          {/* {Object.keys(polygonData).map((areaName) =>
             polygonData[areaName].map((polygon, index) => {
               const position = centralCoord[areaName];
               return (
@@ -124,7 +124,7 @@ function CourseMap({ course, selectedCourse}) {
                 />
               );
             })
-          )}
+          )} */}
         </NaverMap>
       </MapDiv>
     )
