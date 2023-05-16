@@ -239,31 +239,39 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
                   <h1 className="cart_modal_title">{productDetails[0].productName}</h1>
                 </div>
                 <div className="cart_modal_text_container">
-                {/* <div className="product_brand">
-                  <h1 className="product_brand">{productDetails[0].productBrand}</h1>
-                </div> */}
-                {/* <div className="product_price">
-                  <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
-                </div> */}
-                <div className="product_color">
-                  {itemColorList.map((icolor, index) => (
-                    <button className="cart_modal_button" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
-                  ))}
-                </div>
-                <div className="product_size">
-                  {itemSizeList.map((isize, index) => (
-                    <button className="cart_modal_button" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
-                  ))}
-                </div>
-                <div className="product_quantity">
-                  <button className="cart_modal_button" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
-                  <p>{selectedQuantity}</p>
-                  <button className="cart_modal_button" onClick={selectQuantityMinusBtn}>-</button>
-                </div>
-                {/* <div>{selectedProdId}</div> */}
+                  {/* <div className="product_brand">
+                    <h1 className="product_brand">{productDetails[0].productBrand}</h1>
+                  </div> */}
+                  {/* <div className="product_price">
+                    <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
+                  </div> */}
+                  <div>
+                  <div className="product_color">
+                    {itemColorList.map((icolor, index) => (
+                      <button className="cart_modal_button" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
+                    ))}
+                  </div>
+                  <div className="product_size">
+                    {itemSizeList.map((isize, index) => (
+                      <button className="cart_modal_button" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
+                    ))}
+                  </div>
+                  <div className="product_quantity">
+                    <button className="cart_modal_button" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
+                    <p>{selectedQuantity}</p>
+                    <button className="cart_modal_button" onClick={selectQuantityMinusBtn}>-</button>
+                  </div>
+                  {/* <div>{selectedProdId}</div> */}
+                  </div>
+                  
+                  <div className="image" style={{ width: 260 }}>
+                    <img
+                      src={`http://localhost:3000/dalrun-hc/store/products/${productDetails[0].productCode}/${productDetails[0].productCode}-01.png`}
+                      alt=""
+                    />
+                  </div>
 
-                
-              </div>
+                </div>
 
 
               <div
