@@ -18,7 +18,7 @@ const StoreRecommendPicture = () => {
     const getProductAllRecommPictureList = async (productCode) => {
         const resp = await axios.post("http://localhost:3000/getProductAllRecommPictureList", null, { params: {"productCode": productCode} });
         console.log(" getProductAllRecommPictureList : ", resp.data);
-        setRecommPictureList(resp.data);
+        setRecommPictureList(resp.data.sort());
     
         setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
     }
