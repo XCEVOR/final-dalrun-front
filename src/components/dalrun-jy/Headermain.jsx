@@ -60,7 +60,7 @@ const Headermain = () => {
                 
               </Link>
               <a  className="ptf-btn ptf-btn--success" style={{marginLeft:'auto',color:'white'}}  href="/mainPage">
-              <h2 style={{color:'white'}}>WELCOME TO DALRUN WORLD</h2>
+              <h3 style={{color:'white'}}>WELCOME TO DALRUN WORLD</h3>
               </a>
               {/* <!--Navigation--> */}
              
