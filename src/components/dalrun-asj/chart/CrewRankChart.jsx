@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
 
 function CrewRankChart({ dataList }) {  
-    if(dataList === undefined) return;
+    if(dataList === undefined || dataList.length === 0) return;
 
     const year = dataList[0].year;
     const month = dataList[0].month;
