@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Header from "../../../../components/dalrun-pyr/Header";
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
 import CrewMemberBody from "./CrewMemberBody";
 
 const CrewMember = () => {
@@ -11,7 +11,7 @@ const CrewMember = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <Header />
+         <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">

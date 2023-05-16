@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Pagination from "react-js-pagination";
 import { Table } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Store() {
   const history = useNavigate();
@@ -26,17 +26,17 @@ function Store() {
   function getstorelist() {
     axios
       .get("http://localhost:3000/my_orderlist", {
-        params: { memId: id }
+        params: { "memId": id }
       })
       .then(function(resp) {
         const data = resp.data;
-        if (data && data.list && data.cnt) {
-          setmystorelist(data.list);
+        // console.log(data);
+
+          // console.log(data);
+          // console.log(data.list);
+          setmystorelist(data);
           setTotalCnt(data.cnt);
-        } else {
-          setmystorelist([]);
-          setTotalCnt(0);
-        }
+
       })
       .catch(function(err) {
         alert(err);
@@ -93,17 +93,21 @@ function Store() {
                   </tr>
                 </thead>
                 <tbody>
-                  {mystorelist !== undefined && mystorelist.length !== 0 ? (
+                  {
+                    mystorelist && mystorelist.length !== 0 ? (
                     mystorelist.map((msl, i) => {
                       return (
                         <tr key={i}>
                           <th>{msl.orderNumber}</th>
-                          <th>{msl.productName}</th>
+                          {/* <th>{msl.productName}</th> */}
+                          <th>
+                            <Link to={'/store/${msl.productName}'}>{msl.productName}</Link>
+                          </th>                          
                           <th>{msl.productQuantity}</th>
                           <th>{msl.productPrice}</th>
                           <th>{msl.orderTotalprice}</th>
                           <th>{msl.orderDate}</th>
-                          <th>{msl.orderState}</th>
+                          <th>{msl.orderState  === 0 ? "배송준비" : "배송완료"}</th>
                         </tr>
                       );
                     })

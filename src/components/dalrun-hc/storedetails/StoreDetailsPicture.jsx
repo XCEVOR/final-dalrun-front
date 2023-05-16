@@ -20,7 +20,7 @@ function StoreDetailsPicture() {
   const productDetailsPictureList = async (productCode) => {
     const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": productCode} });
     console.log("productDetailsPictureList: ", resp.data);
-    setProductPictureList(resp.data);
+    setProductPictureList(resp.data.sort());
 
     setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
@@ -110,24 +110,26 @@ function StoreDetailsPicture() {
 
       <div className="ptf-spacer" style={{ "--ptf-xxl": "7.25rem" }}></div>
 
-      <div>
-        <h3 className="text_pdescr">PRODUCT DESCRIPTION</h3>
+      <div className="details_description_container">
+        <h3 className="details_description_title">PRODUCT DESCRIPTION</h3>
         
         {/* <p>{productDetails[0].productDescription}</p> */}
         <div>
           <div>
-            <p>{JSON.parse(productDetails[0].productDescription).descr}</p>
-            <h6>{productDetails[0].productName}</h6>
-          {productDetails[0].productCode}
-            <p>{JSON.parse(productDetails[0].productDescription).descr}</p>
+            <h6 className="details_description_subtitle">{productDetails[0].productName}</h6>
+            <p className="details_description_content">{JSON.parse(productDetails[0].productDescription).descr}</p>
+            <p className="details_description_productcode">Product Code: {productDetails[0].productCode}</p>
+            
           </div>
-          <div><h6>FEATURES</h6></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat1}</p></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat2}</p></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat3}</p></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat4}</p></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat5}</p></div>
-          <div><p>{JSON.parse(productDetails[0].productDescription).feat6}</p></div>
+          <div><h6 className="details_description_subtitle">FEATURES</h6></div>
+          <div className="details_description_feature_container">
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat1}</p>
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat2}</p>
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat3}</p>
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat4}</p>
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat5}</p>
+            <p className="details_description_feature">{JSON.parse(productDetails[0].productDescription).feat6}</p>
+          </div>
         </div>
       </div>
     </div>

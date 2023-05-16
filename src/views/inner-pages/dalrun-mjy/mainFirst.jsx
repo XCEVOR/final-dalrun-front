@@ -6,7 +6,7 @@ import Headermain from "../../../components/dalrun-jy/Headermain";
 import HeromainPage from "../../../components/dalrun-jy/HeromainPage";
 import Dotmap from "../../../components/dalrun-jy/dotmap";
 import Ad from "../../../components/dalrun-jy/ad";
-
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 
 
@@ -27,6 +27,10 @@ const MainFirst = () => {
     setLogin(info);
 
   }
+    // 도트맵 메세지를 닫았을 때
+ const openBuyHeader = (e) => {
+  document.getElementById('modalAd').style.display = 'block';
+}
 
   useEffect(() => {
 
@@ -46,16 +50,19 @@ const MainFirst = () => {
       <div className="ptf-site-wrapper__inner"  style={{backgroundImage:'url(assets/img/dalrun-jy/space11.gif)'}}>
         <div className="ptf-main">
           <div className="ptf-page ptf-page--home-default" style={{position:'relative'}}>
-         
+           <Ad left={20} image={"ad3.png"} color={"white"}/>
             <section>
               <Dotmap main={false}  mycrewinfo={mycrewinfo} Changemycrewinfo={Changemycrewinfo} login={login} Changelogininfo={Changelogininfo} />
+              <div style={{float:'right'}}>
+                <a onClick={openBuyHeader}>
+                <AiOutlineQuestionCircle style={{width:'30px',height:'30px',color:'white'}}/>
+                </a>
+              </div>
             </section>
-            <div
-              className="ptf-spacer"
-              style={{ "--ptf-xxl": "2rem" }}
-            ></div>
-
+            
             <section>
+           
+
 
               <CrewRoleFooter />
 

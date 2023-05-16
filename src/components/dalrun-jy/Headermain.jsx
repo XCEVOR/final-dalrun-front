@@ -40,7 +40,7 @@ const Headermain = () => {
           <div className="container-xxl" style={{maxWidth:'100%',backgroundImage:'url(assets/img/dalrun-jy/space11.gif)' }} >
             <div className="ptf-navbar-inner">
               {/* <!--Logo--> */}
-              
+              <div style={{width:'5%'}}/>
                 <Link className="ptf-navbar-logo" to="/mainpage">
                
                 <img
@@ -60,13 +60,15 @@ const Headermain = () => {
                 
               </Link>
               <a  className="ptf-btn ptf-btn--success" style={{marginLeft:'auto',color:'white'}}  href="/mainPage">
-              <h2 style={{color:'white'}}>WELCOME TO DALRUN WORLD</h2>
+              <h3 style={{color:'white'}}>WELCOME TO DALRUN WORLD</h3>
               </a>
               {/* <!--Navigation--> */}
              
                 {/* <!--Menu--> */}
                 <DropdownMenu />
-          
+              <div style={{width:'10%'}}/>
+
+             
 
              
              

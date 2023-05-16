@@ -9,6 +9,19 @@ function StoreDetailsSelection() {
     let prodParams = useParams();
     console.log(prodParams.productCode);
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
+
+    let storage_memId = "x";
+    let storage_memEmail = "x";
+    let json_login = localStorage.getItem("login");
+    if (json_login === null) {
+        storage_memId = "user01test";
+        storage_memEmail = "user@email.com";
+    }
+    else {
+        storage_memId = JSON.parse(json_login).memId;
+        storage_memEmail = JSON.parse(json_login).email;
+    }
+
   
     const [productDetails, setProductDetails] = useState();
     const [itemColorList, setItemColorList] = useState([]);
@@ -181,7 +194,7 @@ function StoreDetailsSelection() {
     const addToCart = async () => {
       if (isProdId === false) {alert("상품 옵션 선택"); return;}
       console.log(" @ console.log(userOrderData): ", userOrderData)
-      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": Date.now(), "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
+      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": Date.now(), "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": storage_memId, "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
       showToast("success");
       setIsProdId(false)
@@ -262,13 +275,13 @@ function StoreDetailsSelection() {
 
 
 
-        <div
-          className="ptf-btn ptf-btn--primary ptf-btn--block"
+        <button
+          className="product_tocart_btn"
           onClick={addToCart}
         >
-          카트 담기
+          <p className="product_tocart_text">카트 담기</p>
             {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
-        </div>
+        </button>
 
       </div>
       </>
