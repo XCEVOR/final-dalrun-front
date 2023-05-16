@@ -285,6 +285,10 @@ function StoreCartList(props) {
         })
         .catch((err) => console.log(err));
     }
+
+    // 카트 비우기
+    const empty_resp = await axios.post("http://localhost:3000/emptyCart", null, { params: {"memId": userId}});
+    console.log(" console.log(empty_resp.data) ", empty_resp.data)
   }
 
 
