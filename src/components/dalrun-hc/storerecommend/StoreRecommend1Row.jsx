@@ -12,8 +12,10 @@ const StoreRecommend1Row = () => {
   console.log("prodParams StoreRecommend1Row: ", prodParams);
   console.log("prodParams.productCode StoreRecommend1Row: ", prodParams.productCode);
 
+  const [productCode, setProductCode] = useState(prodParams.productCode);
+
   let testimg = "BROO-GH15";
-  const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${testimg}/${testimg}-01.png`;
+  const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${productCode}/${productCode}-01.png`;
 
 
   const settings = {
