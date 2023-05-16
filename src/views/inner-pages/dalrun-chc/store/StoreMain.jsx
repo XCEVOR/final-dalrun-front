@@ -37,7 +37,7 @@ const StoreMain = () => {
   <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
       <div className="dalrun_hc">
         <StoreCartFloatingBtn storage_memId={storage_memId}/>
-        <button
+        {/* <button
           onClick={() =>
             scrollRef1.current.scrollIntoView({ behavior: "smooth" })
           }
@@ -50,7 +50,7 @@ const StoreMain = () => {
           }
         >
           스크롤 이동2
-        </button>
+        </button> */}
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
           <title>Store - Main</title>

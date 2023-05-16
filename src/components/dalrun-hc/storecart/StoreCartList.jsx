@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import ModalButton from "./storemodal/ModalButton";
 import ModalContainer from "./storemodal/ModalContainer";
+import { useMemo } from "react";
 
 function StoreCartList() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
@@ -21,6 +22,7 @@ function StoreCartList() {
 
   const [likeBtn, setLikeBtn] = useState(false);
   // console.log("console.log(location.state); ", location.state);
+  const [delStatus, setDelStatus] = useState(false);
 
 
   const getCartList = async () => {
@@ -34,7 +36,12 @@ function StoreCartList() {
 
   useEffect(() => {
     getCartList();
-  }, [])
+  }, [totalPaymentAmount])
+
+  useMemo (() => {
+    getCartList();
+    setDelStatus(false)
+  }, [delStatus])
 
   if(loading === false){
     return <div>Loading...</div>
@@ -55,7 +62,9 @@ function StoreCartList() {
 
     const resp = await axios.post("http://localhost:3000/deleteCartItem", null, { params: {"productId": val}});
     console.log("  @ deleteItem = async (ev) => { ", resp.data);
-    window.location.reload();
+    alert("선택한 상품이 삭제 되었습니다.")
+    setDelStatus(true)
+    // window.location.reload();
   }
 
 
@@ -138,7 +147,7 @@ function StoreCartList() {
           return (
             <div key={matchedProduct.cartId}>
               <div className="item">
-                <div className="image" style={{ width: 160 }}>
+                <div className="store_cart_description_photo">
                   <img
                     src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
                     alt=""
@@ -146,19 +155,24 @@ function StoreCartList() {
                 </div>
 
                 <div className="store_cart_description">
-                  <p className="store_cart_description_p">{prodInfo.productName}</p>
-                  <p className="store_cart_description_p"><span>{prodInfo.productSize}</span><span>{prodInfo.productColor}</span></p>
+                  <p className="store_cart_description_title">{prodInfo.productName}</p>
+                  <div className="store_cart_description_div">
+                  <span className="store_cart_description_options">사이즈: </span>
+                  <span className="store_cart_description_selected">{prodInfo.productSize}</span>
+                  <p className="store_cart_description_options">컬러: </p>
+                  <span className="store_cart_description_selected">{prodInfo.productColor}</span>
+                  
+                  </div>
+
                 </div>
 
-                <div className="store_cart_description_quantity">
-                  <p>QTY: {matchedProduct.cartProdQuantity}</p>
+                <div className="store_cart_description_div">
+                  <p className="store_cart_description_quantity">QTY: </p>
+                  <span className="store_cart_description_quantity_num">{matchedProduct.cartProdQuantity}</span>
                 </div>
+                <div className="store_cart_description_quantity_amount">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
                 
                 <div>
-                  <button value={prodInfo.productId} onClick={deleteItem}>
-                    삭제: {prodInfo.productId}
-                  </button>
-                  <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span>
                   <ModalButton 
                     modal_cartid={matchedProduct.cartId} 
                     modal_productid={prodInfo.productId} 
@@ -168,9 +182,13 @@ function StoreCartList() {
                     modal_quantity={matchedProduct.cartProdQuantity}
                   >
                   </ModalButton>
+                  <button className="store_cart_del_btn" value={prodInfo.productId} onClick={deleteItem}>
+                    삭제
+                  </button>
+                  {/* <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span> */}
                 </div>
 
-                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+                
               </div>
 
 
@@ -289,18 +307,15 @@ function StoreCartList() {
       </section>
 
       <section>
-        <div className="ptf-single-post__wrapper">
-          <div className="container-xxl">
-            <div className="row">
-              <div className="col-xl-8">
-                <h1>CHECK OUT</h1>
+            <div className="store_cart_checkout_div">
+              <div className="store_cart_checkout_div2">
+                <h1>TOTAL AMOUNT</h1>
                 <h3>₩ {totalPaymentAmount}</h3>
-                <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button>
-                <Link to="/store-payment"><button>{totalPaymentAmount}결제 페이지 이동</button></Link>
+                {/* <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button> */}
+                
+                  <Link to="/store-payment"><div><button className="store_cart_checkout_button">결제 페이지 이동</button></div></Link>
               </div>
             </div>
-          </div>
-        </div>
       </section>
 
     </div>

@@ -40,7 +40,7 @@ function Login(){
     }
 
     const gotoHome = () =>{
-        history("/home");
+        history("/mainPage");
     }
 
     const gotoFindPassword = () => {

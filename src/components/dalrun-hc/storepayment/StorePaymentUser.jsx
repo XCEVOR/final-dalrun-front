@@ -4,10 +4,10 @@ import axios from 'axios';
 const StorePaymentUser = (props) => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
-  const [orderName, setOrderName] = useState('제프 베이조스');
-  const [orderAddress, setOrderAddress] = useState('Amazon Headquarters 410 Terry Ave. N Seattle, WA 98109');
-  const [orderPhone, setOrderPhone] = useState('1-206-266-1000');
-  const [orderRequirment, setOrderRequirment] = useState('빠른배송');
+  const [orderName, setOrderName] = useState('김멀티');
+  const [orderAddress, setOrderAddress] = useState('서울특별시 강남구 언주로 508 14층(역삼동, 서울상록빌딩)');
+  const [orderPhone, setOrderPhone] = useState('010-1234-5678');
+  const [orderRequirment, setOrderRequirment] = useState('빠른배송 부탁드려요~');
   const [productId, setProductId] = useState('TestProductId');
   const [memId, setMemId] = useState('TestMemId');
 
@@ -79,78 +79,80 @@ const StorePaymentUser = (props) => {
   ? (
     <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
 
-      {/* <!--Animated Block--> */}
-      <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
-        {/* <!--Spacer--> */}
-        <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+    {/* <!--Animated Block--> */}
+    <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">
+      {/* <!--Spacer--> */}
+      <div className="ptf-spacer" style={{ "--ptf-xxl": "1.25rem" }}></div>
+        <div className="store_payment_info_container">
+          <div className="post-comment-form">
+            
+              <h5 className="store_payment_info_title">주문자 정보 </h5>
+            
+            <div className="bd-contact-form-wrapper mb-30">
+              <form action="#">
+                <div className="row">
+                  <div className="col-12">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
+                      이름
+                    </h5>
+                    <div className="bd-contact-field mb-30">
+                      <input
+                        type="text"
+                        placeholder="orderName"
+                        value={orderName}
+                        onChange={makeOrderNamePackage}
+                      />
+                    </div>
+                  </div>
 
-        <div className="post-comment-form">
-          <h4>주문자 정보 </h4>
-          <span>Your email address will not be published.</span>
-          <div className="bd-contact-form-wrapper mb-30">
-            <form action="#">
-              <div className="row">
-                <div className="col-12">
-                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
-                    orderName
-                  </h5>
-                  <div className="bd-contact-field mb-30">
-                    <input
-                      type="text"
-                      placeholder="orderName"
-                      value={orderName}
-                      onChange={makeOrderNamePackage}
-                    />
+                  <div className="col-12">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
+                      주소
+                    </h5>
+                    <div className="bd-contact-field mb-30">
+                      <input
+                        type="text"
+                        placeholder="orderAddress"
+                        value={orderAddress}
+                        onChange={makeOrderAddressPackage}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="col-12">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
+                      전화번호
+                    </h5>
+                    <div className="bd-contact-field mb-30">
+                      <input
+                        type="text"
+                        placeholder="orderPhone"
+                        value={orderPhone}
+                        onChange={makeOrderPhonePackage}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="col-12">
+                    <h5 className="fz-16 text-uppercase has-3-color fw-normal store_payment_info_subtitle">
+                      배송시 남기고 싶은 말
+                    </h5>
+                    <div className="bd-contact-field mb-30">
+                      <textarea
+                        placeholder="orderRequirment"
+                        value={orderRequirment}
+                        onChange={makeOrderRequirmentPackage}
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <div className="bd-contact-field">
+
+                    </div>
                   </div>
                 </div>
-
-                <div className="col-12">
-                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
-                    orderAddress
-                  </h5>
-                  <div className="bd-contact-field mb-30">
-                    <input
-                      type="text"
-                      placeholder="orderAddress"
-                      value={orderAddress}
-                      onChange={makeOrderAddressPackage}
-                    />
-                  </div>
-                </div>
-
-                <div className="col-12">
-                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
-                    orderPhone
-                  </h5>
-                  <div className="bd-contact-field mb-30">
-                    <input
-                      type="text"
-                      placeholder="orderPhone"
-                      value={orderPhone}
-                      onChange={makeOrderPhonePackage}
-                    />
-                  </div>
-                </div>
-
-                <div className="col-12">
-                  <h5 className="fz-16 text-uppercase has-3-color fw-normal">
-                    orderRequirment
-                  </h5>
-                  <div className="bd-contact-field mb-30">
-                    <textarea
-                      placeholder="orderRequirment"
-                      value={orderRequirment}
-                      onChange={makeOrderRequirmentPackage}
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="bd-contact-field">
-
-                  </div>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
