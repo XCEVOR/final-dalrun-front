@@ -1,9 +1,13 @@
-import React from "react";
 import { Helmet } from "react-helmet";
 import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
 import CrewMemberBody from "./CrewMemberBody";
+import React, { useEffect, useState } from "react";
+import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const CrewMember = () => {
+
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
       <Helmet>
@@ -50,25 +54,7 @@ const CrewMember = () => {
               <div className="container-xxl">
                 <CrewMemberBody/>
               </div>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
-              ></div>
-              <div className="text-center">
-                {/* <!--Animated Block--> */}
-                <div
-                  className="ptf-animated-block"
-                  data-aos="fade"
-                  data-aos-delay="0"
-                >
-                  <a className="ptf-load-more" href="#">
-                    More
-                  </a>
-                </div>
-              </div>
 
-              {/* <!--Spacer--> */}
               <div
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
@@ -83,11 +69,9 @@ const CrewMember = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            {/*  */}
-          </div>
+         
           <div className="ptf-footer__bottom">
-            {/* <CopyRight /> */}
+            <CopyRight />
           </div>
         </div>
       </footer>

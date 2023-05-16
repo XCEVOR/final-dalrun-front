@@ -134,7 +134,7 @@ const AllRoutes = () => {
         <Route path="/crewBbsDelete/:crewSeq" exact element={<CrewBbsDelete />}/>
         <Route path="/findRegi" element={<FindRegi/>}/>
         <Route path="/signupSuccess" element={<SignupSuccess/>}/>
-        <Route path="/crewMember" element={<CrewMember/>}/>
+        <Route path="/crewMember/:crewSeq" element={<CrewMember/>}/>
         <Route paht="/crewMemberWait" element={<CrewMemberWait/>}/>
 
       </Routes>
