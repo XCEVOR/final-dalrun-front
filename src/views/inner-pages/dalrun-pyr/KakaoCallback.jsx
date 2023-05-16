@@ -9,7 +9,7 @@ function KakaoCallback({match}){
     //alert(code);
 
     const gotoHome = () =>{
-        history("/home");
+        history("/mainPage");
     }
 
     const gotoRegiMain = () => {

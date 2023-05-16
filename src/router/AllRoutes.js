@@ -5,18 +5,18 @@ import { Routes, Route } from "react-router-dom";
 import ScrollTopBehaviour from "../components/ScrollTopBehaviour";
 
 // 김종완
-import KjwWorkspace from "../views/inner-pages/dalrun-kjw/KjwWorkspace";
+
 import Course from '../views/inner-pages/dalrun-kjw/Course';
 import Qna from '../views/inner-pages/dalrun-kjw/Qna';
 import Diary from '../views/inner-pages/dalrun-kjw/Diary';
 
 // 안선정
-import AsjWorkspace from "../views/inner-pages/dalrun-asj/asjWorkspace";
+
 // admin
 import Admin from "../views/inner-pages/dalrun-asj/Admin";
 
 // 장호찬
-import ChcWorkspace from "../views/inner-pages/dalrun-chc/chcWorkspace";
+
 import StoreMain from "../views/inner-pages/dalrun-chc/store/StoreMain";
 import StoreRecommend from "../views/inner-pages/dalrun-chc/store/StoreRecommend";
 import StoreDetails from "../views/inner-pages/dalrun-chc/store/StoreDetails";
@@ -26,7 +26,7 @@ import StorePaymentConfirm from "../views/inner-pages/dalrun-chc/store/StorePaym
 import BasicEditor from "../views/inner-pages/dalrun-chc/editor/BasicEditor";
 
 // 문준영
-import MjyWorkspace from "../views/inner-pages/dalrun-mjy/mjyWorkspace";
+
 import MainPage from"../views/inner-pages/dalrun-mjy/mainPage";
 import MainDotMap from "../views/inner-pages/dalrun-mjy/mainDotmap";
 import MainFirst from "../views/inner-pages/dalrun-mjy/mainFirst";
@@ -38,7 +38,7 @@ import ReviewDetails from "../views/inner-pages/dalrun-mjy/review/ReviewDetails"
 
 
 // 오성혁
-import OshWorkspace from "../views/inner-pages/dalrun-osh/oshWorkspace";
+
 import MyPage from "../views/inner-pages/dalrun-osh/Mypage";
 
 // import MyInform from "../views/inner-pages/dalrun-osh/mypage/MyInform";
@@ -49,10 +49,9 @@ import MyPage from "../views/inner-pages/dalrun-osh/Mypage";
 // import MyRating from "../views/inner-pages/dalrun-osh/mypage/MyRating";
 
 // 박예린
-import PyrWorkspace from "../views/inner-pages/dalrun-pyr/pyrWorkspace";
 import Login from "../views/inner-pages/dalrun-pyr/Login";
 import Register from "../views/inner-pages/dalrun-pyr/Register";
-import Home from "../views/inner-pages/dalrun-pyr/Home";
+
 import RegisterComponent from "../views/inner-pages/dalrun-pyr/RegiMain";
 import Logout from "../views/inner-pages/dalrun-pyr/Logout";
 import CrewBbsMain from "../views/inner-pages/dalrun-pyr/crew/CrewBbsMain";
@@ -76,12 +75,12 @@ const AllRoutes = () => {
         <Route path="*" element={<NotFound />} />
 
         {/* 안선정 */}
-        <Route path='/asj-work' element={<AsjWorkspace/>} />
+  
         {/* Admin */}
         <Route path="/admin/*" element={<Admin />} />
         
         {/* 장호찬 */}
-        <Route path='/chc-work' element={<ChcWorkspace/>} />
+      
         <Route path='/store-main' element={<StoreMain />} />
         <Route path='/store-recommend/:productCode' exact element={<StoreRecommend />} />
         <Route path='/store-details/:productCode' exact element={<StoreDetails />} />
@@ -91,13 +90,13 @@ const AllRoutes = () => {
         <Route path='/basic-editor' element={<BasicEditor />} />
 
         {/* 김종완 */}
-        <Route path='/kjw-work' element={<KjwWorkspace/>} />
+    
         <Route path="/course" element={<Course />} />
         <Route path="/qna" element={<Qna />} />
         <Route path="/diary" element={<Diary />} />
 
         {/* 문준영 */}
-        <Route path='/mjy-work' element={<MjyWorkspace/>} />
+        
         <Route path='/mainPage' element={<MainPage/>} />
         <Route path='/dotmap' element={<MainDotMap/>} />
         <Route path='/main' element={<MainFirst/>} />
@@ -108,7 +107,7 @@ const AllRoutes = () => {
         <Route path='/review-detail/:srSeq' element={<ReviewDetails />} />
         
         {/* 오성혁 */}
-        <Route path='/osh-work' element={<OshWorkspace/>} />
+      
 
         <Route path='/mypage/*' element={<MyPage/>} />
 
@@ -120,10 +119,10 @@ const AllRoutes = () => {
         <Route path='/mypage/myrating' element={<MyRating/>} /> */}
 
         {/* 박예린 */}
-        <Route path='/pyr-work' element={<PyrWorkspace/>} />
+       
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path="/home" element={<Home/>}/>
+   
         <Route path="/regimain" element={<RegisterComponent/>}/>
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/crewBbsMain" element={<CrewBbsMain/>}/>
