@@ -10,6 +10,7 @@ import {
 } from "react-pro-sidebar";
 import Social from "../footer/Social";
 
+const login = JSON.parse(localStorage.getItem('login'));
 const menuContent = [
   {
     name: "메인 페이지",
@@ -116,15 +117,15 @@ const menuContent = [
 
       {
         name: "회원 관리",
-        routerPath: "/coming-soon",
+        routerPath: "/admin/members/member",
       },
       {
         name: "게시글 관리",
-        routerPath: "/admin/members",
+        routerPath: "/admin/bbs/question/productinquiry",
       },
       {
         name: "쇼핑몰 관리",
-        routerPath: "/admin/bbs/question/",
+        routerPath: "/admin/store/product",
       },
       {
         name: "차트",
@@ -148,7 +149,7 @@ const MobileMenu = () => {
               {menuContent.map((item, i) => (
                 <React.Fragment key={i}>
                   {item.dropDownItems !== undefined &&
-
+                  
                     <SubMenu title={item.name} key={item.name} style={{ padding: '10px' }}>
 
                       {
