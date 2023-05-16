@@ -30,6 +30,10 @@ const StoreRecommend1Row = () => {
     getProductData(prodParams.productCode);
   }, [prodParams.productCode])
 
+  if(loading === false){
+    return <div>Loading...</div>
+  }
+
   let testimg = "BROO-GH15";
   const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${productCode}/${productCode}-01.png`;
 
