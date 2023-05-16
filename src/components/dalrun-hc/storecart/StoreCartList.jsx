@@ -155,10 +155,6 @@ function StoreCartList() {
                 </div>
                 
                 <div>
-                  <button value={prodInfo.productId} onClick={deleteItem}>
-                    삭제: {prodInfo.productId}
-                  </button>
-                  <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span>
                   <ModalButton 
                     modal_cartid={matchedProduct.cartId} 
                     modal_productid={prodInfo.productId} 
@@ -168,6 +164,10 @@ function StoreCartList() {
                     modal_quantity={matchedProduct.cartProdQuantity}
                   >
                   </ModalButton>
+                  <button className="store_cart_del_btn" value={prodInfo.productId} onClick={deleteItem}>
+                    삭제
+                  </button>
+                  {/* <span value={prodInfo.productId} onClick={deleteItem} className="delete-btn"></span> */}
                 </div>
 
                 <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
