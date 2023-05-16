@@ -179,12 +179,17 @@
     width: 450px;
   }
 
+  .store_payment_success_to_main_div {
+    text-align: center;
+  }
+
   .store_payment_success_to_main {
     display: inline-block;
     outline: 0;
     cursor: pointer;
-    margin: 20px 0px;
+    margin: 0px 0px;
     padding: 15px 150px;
+    width: 500px;
     font-size: 22px;
     font-weight: 800;
     line-height: 20px;

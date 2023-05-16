@@ -88,7 +88,11 @@ function StorePaymentConfirm() {
 
         </section>
 
-        <section><div><Link to="/store-main"><button className="store_payment_success_to_main">스토어 메인</button></Link></div></section>
+        <section>
+          <div className="store_payment_success_to_main_div">
+            <Link to="/store-main"><button className="store_payment_success_to_main">스토어 메인</button></Link>
+           </div>
+        </section>
 
       </div>
     </>
