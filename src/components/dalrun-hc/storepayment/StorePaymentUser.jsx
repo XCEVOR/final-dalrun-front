@@ -4,9 +4,33 @@ import axios from 'axios';
 const StorePaymentUser = (props) => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
-  const [orderName, setOrderName] = useState('김멀티');
+  let storage_memId = "x";
+  let storage_memName = "x";
+  let storage_memEmail = "x";
+  let storage_memPhone = "x";
+  let storage_memGrade = "x";
+  let storage_memPoint = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) {
+      storage_memId = "user01test";
+      storage_memName = "김멀티";
+      storage_memEmail = "user@email.com";
+      storage_memPhone = "010-0000-0000";
+      storage_memGrade = "러너";
+      storage_memPoint = "99999";
+  }
+  else {
+      storage_memId = JSON.parse(json_login).memId;
+      storage_memName = JSON.parse(json_login).memberName;
+      storage_memEmail = JSON.parse(json_login).email;
+      storage_memPhone = JSON.parse(json_login).phone;
+      storage_memGrade = JSON.parse(json_login).grade;
+      storage_memPoint = JSON.parse(json_login).point;
+  }
+
+  const [orderName, setOrderName] = useState(storage_memName);
   const [orderAddress, setOrderAddress] = useState('서울특별시 강남구 언주로 508 14층(역삼동, 서울상록빌딩)');
-  const [orderPhone, setOrderPhone] = useState('010-1234-5678');
+  const [orderPhone, setOrderPhone] = useState(storage_memPhone);
   const [orderRequirment, setOrderRequirment] = useState('빠른배송 부탁드려요~');
   const [productId, setProductId] = useState('TestProductId');
   const [memId, setMemId] = useState('TestMemId');

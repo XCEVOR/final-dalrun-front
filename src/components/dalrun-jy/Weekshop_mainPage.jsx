@@ -103,7 +103,7 @@ const blogContent = [
 ];
 
 const breakpointColumnsObj = {
-  default: 3,
+  default: 4,
   1100: 3,
   768: 2,
   500: 1,

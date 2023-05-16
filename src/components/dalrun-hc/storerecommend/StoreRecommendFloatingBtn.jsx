@@ -11,7 +11,7 @@ const StoreRecommendFloatingBtn = (props) => {
     <div>
       <Link to={`/store-details/${props.productCode}`} rel="noopener noreferrer">
           <button className='recomm_floating_btn' onClick={handleClick}>
-            <div>{props.productCode} </div>
+            {/* <div>{props.productCode} </div> */}
             <div>Buy Now</div>
           </button>
       </Link>

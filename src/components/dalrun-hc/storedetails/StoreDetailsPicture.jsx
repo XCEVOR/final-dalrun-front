@@ -20,7 +20,7 @@ function StoreDetailsPicture() {
   const productDetailsPictureList = async (productCode) => {
     const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": productCode} });
     console.log("productDetailsPictureList: ", resp.data);
-    setProductPictureList(resp.data);
+    setProductPictureList(resp.data.sort());
 
     setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
   }
