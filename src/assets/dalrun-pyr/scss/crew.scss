@@ -1,0 +1,34 @@
+.crew_waiting {
+    table {
+        margin-top: 20px;
+
+        th, td {
+            text-align: center;
+        }
+
+        thead {
+            background-color: #292929;
+        }
+        
+        thead tr th {
+            color: white;
+        }
+
+        tbody {
+            border-bottom: 1px solid var(--bs-gray-500);
+        }
+
+        button {
+            padding: 5px 17px;
+            border-radius: 7px;
+        }
+        
+        button:first-child {
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: var(--ptf-accent-1);
+        }
+    }
+}
