@@ -204,10 +204,10 @@ const CrewBbsBlogDetails = () => {
               </header>
   
               {/* <!--Post Media--> */}
-              <div className="ptf-single-post__media">
+              <div className="">
                 <div className="container-xxl">
                   {/* 크루 대표 이미지 -> 글작성시 첨부한 이미지 */}
-                     <img src={"http://localhost:3000/getimg?imgid=" + imgid[0]} alt="blog post" loading="lazy" />
+                     <img className="pyr_detailimg" src={"http://localhost:3000/getimg?imgid=" + imgid[0]} alt="blog post" loading="lazy" />
                 </div>
               </div>
               <div className="detailSetup">
@@ -236,11 +236,12 @@ const CrewBbsBlogDetails = () => {
                         </div>
                           <i className="icons-list">
                           {isLiked ? (
-                            <HeartFilled style={{ color: 'red', fontSize: '100px'}} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
+                            <HeartFilled style={{ color: 'red', fontSize: '80px'}} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
                           ) : (
-                            <HeartOutlined style={{ fontSize: '100px'}} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
+                            <HeartOutlined style={{ fontSize: '80px'}} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
                           )}
-                            </i>좋아요  {likecount}
+                            </i> 
+                            {/* {likecount} */}
                       </div>
   
                         {/* <div>
@@ -290,7 +291,7 @@ const CrewBbsBlogDetails = () => {
                       {/* End .ptf-about-author */}
   
                       {/* <!--Related Posts--> */}
-                      <div className="ptf-related-posts">
+                      {/* <div className="ptf-related-posts">
                         <h2 className="ptf-related-posts__title">
                           Related Posts
                         </h2>
@@ -299,10 +300,10 @@ const CrewBbsBlogDetails = () => {
                             className="row"
                             style={{ "--bs-gutter-y": "2rem" }}
                           >
-                            <RelatedPost />
-                          </div>
+                            {/* <RelatedPost /> */}
+                          {/* </div>
                         </div>
-                      </div>
+                      </div>  */}
                       {/* End .ptf-related-posts */}
   
                       {/* <!--Comments--> */}

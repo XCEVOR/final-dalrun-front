@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 
 
@@ -23,6 +23,15 @@ const LoginFormMenu = () => {
   
   }, []);
 
+//   const gotoLogin = () =>{
+//     history("/login");
+// }
+
+  function logout(){
+    localStorage.removeItem("login");
+    alert("정상적으로 로그아웃 처리 되었습니다.");
+  }
+
   return (
     <nav className="ptf-nav">
       {/* <!--Menu--> */}
@@ -36,7 +45,7 @@ const LoginFormMenu = () => {
         </li>
         ||
         <li>
-          <Link to='/login'>
+          <Link to='/login' onClick={logout}>
             <span>로그아웃</span>
           </Link>
         </li>

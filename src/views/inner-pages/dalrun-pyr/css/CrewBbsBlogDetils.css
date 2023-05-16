@@ -9,4 +9,10 @@
     font-size: 1.875rem;
     line-height: 1.6;
     font-weight: 700;
+    text-align: center;
+}
+.pyr_detailimg{
+    width:80%;
+    display: block;
+    margin: 0 auto;
 }
