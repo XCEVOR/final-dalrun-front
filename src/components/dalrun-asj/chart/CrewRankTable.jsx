@@ -1,7 +1,7 @@
 import { Table } from "react-bootstrap";
 
 function CrewRankTable({ dataList }) {
-    if(dataList === undefined) return;
+    if(dataList === undefined || dataList.length === 0) return;
 
     console.log(dataList);
 

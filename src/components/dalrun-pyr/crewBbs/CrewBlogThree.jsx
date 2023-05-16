@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams} from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import CrewBbsPagination from "./CrewBbsPagination";
 import axios from 'axios';
-
+import "../../../assets/dalrun-jy/css/design.css";
 const CrewBlogThree = () => {
   //const [crewSeq, setCrewSeq] = useState(null);
   const crewBbsParams = useParams();
@@ -25,27 +25,6 @@ const CrewBlogThree = () => {
   useEffect(() => {
     setCrewSeq(crewBbsParams.crewSeq);
   }, [crewBbsParams.crewSeq]);
-
-  //이미지 표시
-//   function getimgstr() {
-//   console.log("getimgstr crewSeq",crewSeq);
-//       axios.get("http://localhost:3000/getimgstr", {
-//       params: {
-//         "crewSeq": crewSeq
-//       }
-//     })
-//     .then((res) => {
-//       const imgid = res.data.split('/');
-//       setImgId(imgid); //상태 변수 업데이트
-//       alert(imgid);
-//       console.log("crewSeq ", crewSeq);
-//       const firstImg = imgid[0];
-//       console.log("firstImg " ,firstImg);
-//       setImgId(firstImg);
-//     }).catch((err) => {
-//       alert(err);
-//     });
-// }
 
   //게시판 리스트(검색, 페이징)
   function getCrewBbsList(c,s,p) {
@@ -90,9 +69,9 @@ const CrewBlogThree = () => {
   const handlePagination= (page) => {
     console.log(page);
     setPage(page);
-    getCrewBbsList(choice, search, page-1);
-    getBbsListByReadCount(choice, search, page-1);
-    getBbsListByLikeCount(choice, search, page-1);
+    getCrewBbsList(choice, search, page);
+    getBbsListByReadCount(choice, search, page);
+    getBbsListByLikeCount(choice, search, page);
   }
 
   let navigate = useNavigate();
@@ -148,13 +127,13 @@ useEffect(function () {
           {/* <button type="button" onClick={handleButtonClick}>type</button> */}
           <div>
       <div className="col-auto">
-        <input type="checkbox" id="all" name="type_all" value="all" checked={type === 'all'} />
+        <input type="radio" id="all" name="type_all" value="all" checked={type === 'all'} />
         <label htmlFor="all">전체</label>
 
-        <input type="checkbox" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
+        <input type="radio" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
         <label htmlFor="recruiting">모집중</label>
 
-        <input type="checkbox" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
+        <input type="radio" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
         <label htmlFor="closed">모집 완료</label>
       </div>
 
@@ -189,20 +168,20 @@ useEffect(function () {
                 </td>
                 <td style={{ paddingLeft:"5px" }}>
                     <span>
-                        <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
+                        <button type="button" className="btn btn-dalrun" onClick={()=>searchBtn()}>검색</button>
                     </span>
                 </td>
             </tr>
             </tbody>
             <br></br>
           <div class="col-auto">
-          <button className="btn btn-primary" onClick={getCrewBbsList}>
+          <button className="btn btn-dalrun" onClick={getCrewBbsList}>
           최신순
         </button>
-        <button className="btn btn-primary" onClick={getBbsListByReadCount}>
+        <button className="btn btn-dalrun" onClick={getBbsListByReadCount}>
           조회수 순
         </button>
-        <button className="btn btn-primary" onClick={getBbsListByLikeCount}>
+        <button className="btn btn-dalrun" onClick={getBbsListByLikeCount}>
           좋아요 순
         </button>
           </div>

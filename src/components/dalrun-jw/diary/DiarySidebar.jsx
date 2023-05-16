@@ -39,7 +39,7 @@ const DiarySidebar = () => {
     <header className='diary-navbar-container'>
 
       <Link to="/" title="Home" className='logo-Link'>
-        <img src="logo.svg" className='logo'/>
+        <img   src={process.env.PUBLIC_URL + '/dalrun_logo.png'} className='logo'/>
       </Link>
       <nav className='head-nav'>
         <ul>

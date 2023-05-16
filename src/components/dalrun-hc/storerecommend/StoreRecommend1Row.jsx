@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 
+import recommstyles from './ImageComponent.module.css';
+
 const StoreRecommend1Row = () => {
   const [isOpen, setOpen] = useState(false);
+
+  let testimg = "BROO-GH15";
+  const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${testimg}/${testimg}-01.png`;
+
 
   const settings = {
     dots: true,
@@ -19,34 +25,13 @@ const StoreRecommend1Row = () => {
   };
   return (
     <>
-    <div className="ptf-showcase-image image-1">
-          <div className="ptf-showcase-slide">
-            <div className="container">
-              {/* <h1 className="fz-100 fz-90--lg lh-1 has-white-color text-center">
-                <span className="has-accent-1">Bigger</span>, Bolder <br />&
-                Better
-              </h1> */}
+    <div className="store_recomm_showcase_image store_recomm_cover_image_test" style={{ backgroundImage: `url(${imageUrl})` }} >
 
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "2.125rem" }}
-              ></div>
-
-              {/* <p
-                className="fz-24 has-white-color text-center"
-                style={{ maxWidth: "34.375rem", margin: "0 auto" }}
-              >
-                Like any great agency, we are only as good as the result we
-                deliver of our recent work.
-              </p> */}
-
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "3.625rem" }}
-              ></div>
-
+          <div className="recomm_showcase_container">
+            <div className="recomm_title_container">
+                <h1 className="fz-100 fz-90--lg lh-1 text-center recomm_title_margin">
+                  <span className="recomm_title">Bigger</span>
+                </h1>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
 
 function CrewRankChart({ dataList }) {  
-    if(dataList === undefined) return;
+    if(dataList === undefined || dataList.length === 0) return;
 
     const year = dataList[0].year;
     const month = dataList[0].month;
@@ -14,7 +14,7 @@ function CrewRankChart({ dataList }) {
             {
                 label: '점수',
                 data: dataList.map(data => data.monthlyScore),
-                backgroundColor: 'rgba(38, 174, 154, 0.7)',
+                backgroundColor: 'rgba(38, 174, 154, 0.5)',
             },
         ]
     }

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
 import { useNavigate } from 'react-router-dom';
-import Header from '../../../../components/dalrun-pyr/Header';
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
+
 import CrewBlogThree from '../../../../components/dalrun-pyr/crewBbs/CrewBlogThree';
-import CopyRight from '../../../../components/footer/copyright/CopyRight';
-import Footer from '../../../../components/footer/Footer';
+import CopyRight from '../../../../components/dalrun-jy/footer/CopyRight';
+
 import CrewBbsGridContent from '../../../../components/dalrun-pyr/crewBbs/CrewBbsGridSLider';
 
 import '../css/CrewBbsMain.css';
@@ -21,7 +22,7 @@ const CrewBbsMain = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <Header />
+        <HeadermainPage />
         {/* End  Header */}
 
         <div className="main">
@@ -267,9 +268,7 @@ const CrewBbsMain = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>

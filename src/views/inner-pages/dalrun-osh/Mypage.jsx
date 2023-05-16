@@ -2,9 +2,8 @@ import React, {useState, useRef} from "react";
 
 import { Helmet } from "react-helmet";
 
-import HeaderDefault from "../../../components/header/HeaderDefault";
-import Footer from "../../../components/footer/Footer";
-import CopyRight from "../../../components/footer/copyright/CopyRight";
+import HeadermainPage from "../../../components/dalrun-jy/HeadermainPage";
+import CopyRight from "../../../components/dalrun-jy/footer/CopyRight";
 import MypageMenu from "../../../components/dalrun-sh/mypageMenu";
 
 import "./sideMenu.css";
@@ -25,7 +24,7 @@ const Mypage = () => {
             <title>MyPage</title>
           </Helmet>
           <div className="ptf-site-wrapper__inner">
-             <HeaderDefault />  
+             <HeadermainPage />  
 
             <div className="main container-xxl" style={{display:"flex"}}>
               <MypageMenu />
@@ -43,7 +42,7 @@ const Mypage = () => {
           <footer className="ptf-footer ptf-footer--style-1">
             <div className="container-xxl">
                 <div className="ptf-footer__top">
-                    <Footer />
+                    
                 </div>
                 <div className="ptf-footer__bottom">
                     <CopyRight />

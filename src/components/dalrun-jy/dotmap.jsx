@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../assets/mjy-assets/css/earth.scss";
+import "../../assets/dalrun-jy/css/earth.scss";
 
 import axios from 'axios';
 import Dot from "./dot";

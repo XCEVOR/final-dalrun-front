@@ -1,7 +1,7 @@
 import React from "react";
 import Social from "./Social";
 
-const logo = "logo.png";
+const logo = "dalrun_logo.png";
 
 const CopyRight = () => {
   return (

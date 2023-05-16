@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 import { Provider, useSelector, useDispatch } from "react-redux";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 import myReduxStore from "../myredux/myReduxStore";
 import configReduxStore from "../redux/configReduxStore";
 import StoreDetailsCommentForm from "./StoreDetailsCommentForm";
@@ -287,13 +291,14 @@ function TestReduxLeft2 (props) {
                     {inq.inqDepth === 0 
                       ?
                       <li>
-                          <div className="comments-box">
+                          <div className="comments-box inquiry_box_style">
                               <div className="comments-avatar">
-                                  <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/>
+                                  {/* <img src="assets/img/blog/blog-sm-6.png" className="img-fluid" alt="img"/> */}
+                                  <FontAwesomeIcon icon={faUser} size="2x"/>
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>MAIN: {inq.inqTitle}</h5>
+                                      <h5>{inq.inqTitle}</h5>
                                       <span className="post-meta">{inq.inqWriter} //</span>
                                       <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
@@ -301,8 +306,9 @@ function TestReduxLeft2 (props) {
 
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
-                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
-                                      : <button value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
+                                      ? <div></div>
+                                    //   <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      : <button className="reply_regi_btn" value={inq.inqRef} onClick={onClickReply}>댓글 달기</button>
                                   }
                                   {commentContxDataState
                                   ? <div> {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /> </div>}
@@ -317,18 +323,20 @@ function TestReduxLeft2 (props) {
                       <li className="children">
                           <div className="comments-box">
                               <div className="comments-avatar">
-                                  <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/>
+                                  {/* <img src="assets/img/blog/blog-sm-7.png" className="img-fluid" alt="img"/> */}
+                                  <FontAwesomeIcon icon={faUser} size="2x"/>
                               </div>
                               <div className="comments-text">
                                   <div className="avatar-name">
-                                      <h5>SUB: {inq.inqTitle}</h5>
+                                      <h5>{inq.inqTitle}</h5>
                                       <span className="post-meta">{inq.inqWriter} //</span>
                                       <span className="post-meta"> {inq.inqDate}</span>
                                   </div>
                                   <p>{inq.inqContent}</p>
 
                                   {Number(inq.inqSeq) !== Number(inq.inqRef) 
-                                      ? <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
+                                      ? <div></div>
+                                    //   <div>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq} , inqRef: {inq.inqRef} , inqDepth: {inq.inqDepth}</div> 
                                       : <button value={inq.inqRef} onClick={onClickReply}>inqSeq: {inq.inqSeq}, inqSubseq: {inq.inqSubseq}, inqRef: {inq.inqRef}, inqDepth: {inq.inqDepth} 댓글 onoff</button>
                                   }
                                   {selectedReply !== Number(inq.inqSeq) ? <div></div> : <div><StoreDetailsCommentSubForm /></div>}
