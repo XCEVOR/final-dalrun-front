@@ -1,8 +1,28 @@
 ﻿import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
+import CourseUpload from './CourseUpload';
+import '../../../assets/dalrun-jw/scss/_modal.scss'
 
 const CourseSidebar = () => {
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  let memId = null;
+  if(loginData){
+    memId = loginData.memId;
+  }
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleModal = (e) => {
+    if(loginData){
+      setModalOpen(true);
+    } else { 
+      e.preventDefault();
+      alert('로그인이 필요합니다.');
+    }
+  };
+  const closeModal = () => setModalOpen(false);
 
   return (
     <header className='diary-navbar-container'>
@@ -13,6 +33,17 @@ const CourseSidebar = () => {
     <nav className='head-nav'>
       <ul>
         <li className='nav-item'>
+          <button onClick={handleModal}>
+            <FontAwesomeIcon icon={faCloudArrowUp} size="xl" style={{color:"#74EABC"}}/>
+            <span>업로드</span>
+          </button>
+          <CourseUpload open={modalOpen} close={closeModal}/>
+        </li>
+        <li className='nav-item'>
+          <Link to='/diary'>
+            <img src='/assets/img/dalrun-jw/diary.png' style={{marginBottom:'0.3rem', marginLeft:'0.5rem'}}/>
+            <span>다이어리</span>
+          </Link>
         </li>
       </ul>
       <div className='dropup-container'>
