@@ -50,12 +50,19 @@ const StoreMainCover = ({ scrollFunc1comp, scrollFunc2comp }) => {
 
               <div className="d-flex justify-content-center">
                 {/* <!--Button--> */}
-                <a className="ptf-btn ptf-btn--primary" onClick={scrollFunc1comp}>
+                <a className="store_theme_button store_main_cover_prim_btn" onClick={scrollFunc1comp}>
                   추천 상품
                 </a>
                 {/* <!--Button--> */}
                 <a
-                  className="ptf-btn ptf-btn--secondary" onClick={scrollFunc2comp}
+                  className="store_theme_button store_main_cover_secon_btn" onClick={scrollFunc2comp}
+                  style={{ marginLeft: "2rem" }}
+                >
+                  인기 상품
+                </a>
+                {/* <!--Button--> */}
+                <a
+                  className="store_theme_button store_main_cover_secon_btn" onClick={scrollFunc2comp}
                   style={{ marginLeft: "2rem" }}
                 >
                   인기 상품
