@@ -390,7 +390,7 @@ function MyCrew() {
 
                         </td> */}
                         <td>
-                          {crew.crewAuth === 1 ? "리더" : "팀원"}
+                            {crew.memId === mycrewinfo.memId ? "리더" : "팀원"} 
                         </td>
                         <td>{crew.grade}</td>
                         <td>{crew.point}</td>
