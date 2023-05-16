@@ -191,10 +191,11 @@ const StoreFourRectangles = () => {
             key={i}
           >
             {/* <!--Team Member--> */}
+            <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
             <div className="ptf-team-member store_item_hover_effect">
               <div className="ptf-team-member__avatar products_1">
                 {/* <div className="shadow-effect"></div> */}
-                <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
+                
                 {/* <a href="#"> */}
                   {" "}
                   <img
@@ -204,18 +205,21 @@ const StoreFourRectangles = () => {
                     loading="lazy"
                   />
                 {/* </a> */}
-                </Link>
+                
               </div>
               <div className="ptf-team-member__content">
-                <h6 className="ptf-team-member__name">
-                  <a href="#">{singleproduct.productName}</a>
-                </h6>
-                <h5>₩ {singleproduct.productPrice}</h5>
+                <div className="store_product_name_div">
+                  <h6 className="ptf-team-member__name">
+                    <p className="store_product_name">{singleproduct.productName}</p>
+                  </h6>
+                </div>
+                <h5 className="store_product_price">₩ {singleproduct.productPrice}</h5>
                 <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
                 <p className="ptf-team-member__function">view: {singleproduct.productView}</p>
                 <p className="ptf-team-member__function">like: {singleproduct.productLike}</p>
               </div>
             </div>
+            </Link>
           </div>
         ))}
 

@@ -38,6 +38,7 @@
 
   div .product_category {
     position: relative;
+    margin-bottom: 10px;
     width: 501px;
     height: 20px;
     /* left: 1306px;
@@ -62,14 +63,13 @@
     /* left: 1306px;
     top: 1498px; */
 
-    font-family: "Roboto";
+    // font-family: "Roboto";
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 32px;
     line-height: 29px;
     /* identical to box height, or 143% */
-
-    color: #000000;
+    color: #333333;
   }
 
   div .product_brand {
@@ -81,14 +81,13 @@
     /* left: 1306px;
     top: 1498px; */
 
-    font-family: "Roboto";
+    // font-family: "Roboto";
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
     line-height: 29px;
     /* identical to box height, or 143% */
-
-    color: #000000;
+    color: #333333;
   }
 
   div .product_price {
@@ -102,7 +101,7 @@
 
     font-family: "Roboto";
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 28px;
     line-height: 29px;
     /* identical to box height, or 143% */
@@ -137,6 +136,62 @@
   div .product_quantity {
     display: flex;
     width: 300px;
+  }
+
+  .product_tocart_btn {
+      position: relative;
+      display: inline-block;
+      outline: 0;
+      cursor: pointer;
+      margin: 10px 50px 10px 50px;
+      padding: 5px 16px;
+      text-align: center;
+      width: 300px;
+      height: 50px;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 20px;
+      vertical-align: middle;
+      border: 1px solid;
+      border-radius: 6px;
+      color: #333;
+      background-color: #74EABC;
+      border-color: #1b1f2326;
+      box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+      transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+      transition-property: color, background-color, border-color;
+    
+  
+    &:hover {
+        color: #ffffff;
+        background-color: #333;
+        border-color: #1b1f2326;
+        box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+        transition-duration: 0.1s;
+    }
+
+    .product_tocart_text {
+      // position: absolute;
+      margin-top: auto;
+      padding-top: 11px;
+    }
+
+
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
   }
 
   .product_cart {
@@ -658,27 +713,65 @@
 
 
 .dalrun_hc {
-  .productpic_container {
-    .product_pic {
-      width: 640px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 480px;
-      overflow: hidden;
-    }
-  }
+  // .productpic_container {
+  //   .product_pic {
+  //     width: 640px;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     height: 480px;
+  //     overflow: hidden;
+  //   }
+  // }
   
-  div .productPic_container .product_description {
+  // div .productPic_container .product_description {
     
-    display: flex;
-    width: 100%;
-    margin: 20px;
+  //   display: flex;
+  //   width: 100%;
+  //   margin: 20px;
+  // }
+
+
+    // details_description
+  .details_description_title {
+    margin-bottom: 10px;
+    font-weight: 900;
+    color: #333333;
   }
 
-  .text_pdescr {
-    margin: 20px;
+  .details_description_subtitle {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: 900;
+    color: #333333;
   }
+
+  .details_description_container {
+    margin: 60px
+  }
+
+  p.details_description_content, .details_description_productcode {
+    margin: auto;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .details_description_feature_container {
+    display: grid;
+    grid-template-columns: 200px 400px;
+    gap: 30px;
+    padding: 10px;
+    // height: 500px;
+  }
+
+  p.details_description_feature {
+    margin: auto;
+    width: 200px;
+    // height: 100px;
+    font-size: 20px;
+  }
+
+
 }
 
 .dalrun_hc {
