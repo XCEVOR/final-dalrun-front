@@ -100,6 +100,8 @@ import CrewBbsUpdate from "../views/inner-pages/dalrun-pyr/crew/CrewBbsUpdate";
 import CrewBbsDelete from "../views/inner-pages/dalrun-pyr/crew/CrewBbsDelete";
 import FindRegi from "../views/inner-pages/dalrun-pyr/FindRegi";
 import SignupSuccess from "../views/inner-pages/dalrun-pyr/SignupSuccess";
+import CrewMember from "../views/inner-pages/dalrun-pyr/crew/CrewMember";
+import CrewMemberWait from "../views/inner-pages/dalrun-pyr/crew/CrewMemberWait";
 
 const AllRoutes = () => {
   return (
@@ -207,6 +209,8 @@ const AllRoutes = () => {
         <Route path="/crewBbsDelete/:crewSeq" exact element={<CrewBbsDelete />}/>
         <Route path="/findRegi" element={<FindRegi/>}/>
         <Route path="/signupSuccess" element={<SignupSuccess/>}/>
+        <Route path="/crewMember" element={<CrewMember/>}/>
+        <Route paht="/crewMemberWait" element={<CrewMemberWait/>}/>
 
       </Routes>
     </>

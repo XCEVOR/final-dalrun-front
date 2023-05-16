@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Register from "./Register";
 import './css/RegiMain.css';
-import logo from './img/logo.png'; // 이미지 파일 경로
+import logo from './img/dalrun_logo.png'; // 이미지 파일 경로
 // import kakao_login from './img/kakao_login.png';
 
 function RegisterComponent() {

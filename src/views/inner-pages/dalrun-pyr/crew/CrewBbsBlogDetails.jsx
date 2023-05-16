@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import BlogCommentForm from "../../../../components/blog/BlogCommentForm";
 import RelatedPost from "../../../../components/blog/RelatedPost";
 import CopyRight from "../../../../components/footer/copyright/CopyRight";
 import Footer from "../../../../components/footer/Footer";
@@ -11,9 +10,14 @@ import '../css/CrewBbsBlogDetils.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios';
+import {HeartOutlined, HeartFilled} from '@ant-design/icons';	//icons 모듈을 갖고옴
 
 const CrewBbsBlogDetails = () => {
   let history = useNavigate();
+
+  function gotoCrewMember() {
+    history('/crewMember')
+  }
   
     let crewBbsParams = useParams();
     console.log("crewBbsParams : ", crewBbsParams);
@@ -23,11 +27,12 @@ const CrewBbsBlogDetails = () => {
     const [loading, setLoading] = useState(false);
     const [crewSeq, setCrewSeq] = useState(crewBbsParams.crewSeq);
     const [imgid, setImgId] = useState([]);
-    
-    //const [likecount, setLikecount] = useState(crewBbsParams.likeCount);
+    const [isJoined, setIsJoined] = useState(false);
+    //const [likecount, setLikecount] = useState();
     const [isLiked, setIsLiked] = useState(false);
     var likecount = 0;
   
+    //좋아요 여부 확인
     const handleGetLike = () => {
       const str = JSON.parse(localStorage.getItem('login'));
       const memId = str.memId;
@@ -82,6 +87,16 @@ const CrewBbsBlogDetails = () => {
           console.log(err);
         });
     }
+
+    //가입버튼
+    const handleJoin= () => {
+      setIsJoined(true);
+    }
+
+    //가입취소버튼
+    const handleCancelJoin=() => {
+      setIsJoined(false);
+    }
     
   
     if(loading === false){
@@ -95,27 +110,8 @@ const CrewBbsBlogDetails = () => {
     const deleteBbs = () => {
       history("/crewBbsDelete/" + crewBbsDetails.crewSeq);
     }
-  
-    // const handleLike = () => {
-    //   const str = JSON.parse(localStorage.getItem('login'));
-    //   const memId = str.memId;
-    //   axios.post("http://localhost:3000/like", {
-    //         memId: memId,
-    //         crewSeq: crewSeq
-    //     })
-    //     .then((response) => {
-    //       console.log(response);
-    //       setIsLiked(true);
-    //       //alert("성공");
-    //       alert(response.data);
-    //       setLikecount(likecount+1);
-    //       console.log("str", str.memId);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
 
+    //좋아요
     const handleLike = () => {
       const str = JSON.parse(localStorage.getItem('login'));
       const memId = str.memId;
@@ -128,34 +124,17 @@ const CrewBbsBlogDetails = () => {
           setIsLiked(true);
           //alert("성공");
           alert(response.data);
-          likecount += 1;
+          //console.log("likecount ", likecount);
+          //likecount += 1;
+          //console.log("likecount ", likecount);
           console.log("str", str.memId);
         })
         .catch((error) => {
           console.log(error);
         });
     };
-  
-    // const handleCancelLike = () => {
-    //  const str = JSON.parse(localStorage.getItem('login'));
-    //  const memId = str.memId;
-    //   axios.post("http://localhost:3000/cancellike", {
-    //         memId: memId,
-    //         crewSeq: crewSeq
-    //     })
-    //     .then((response) => {
-    //       console.log(response);
-    //       setIsLiked(false);
-    //       //alert("좋아요 취소 성공");
-    //       setLikecount(likecount-1);
-    //       alert(response.data);
-    //       console.log("str", str.memId);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
 
+    //좋아요 취소
     const handleCancelLike = () => {
       const str = JSON.parse(localStorage.getItem('login'));
       const memId = str.memId;
@@ -167,7 +146,9 @@ const CrewBbsBlogDetails = () => {
            console.log(response);
            setIsLiked(false);
            //alert("좋아요 취소 성공");
-           likecount -= 1;
+           //console.log("likecount ", likecount);
+           //likecount -= 1;
+           //console.log("likecount ", likecount);
            alert(response.data);
            console.log("str", str.memId);
          })
@@ -229,7 +210,7 @@ const CrewBbsBlogDetails = () => {
                      <img src={"http://localhost:3000/getimg?imgid=" + imgid[0]} alt="blog post" loading="lazy" />
                 </div>
               </div>
-              <div className="ptf-single-post__excerpt">
+              <div className="detailSetup">
                       {crewBbsDetails.crewSetUp}
                       </div>
               {/* <!--Post Wrapper--> */}
@@ -242,25 +223,29 @@ const CrewBbsBlogDetails = () => {
                         <a className="author" href="#">
                           <i className="lnil lnil-user"></i> <span>크루소개</span>
                         </a>
-                        <a className="view" href="#">
+                        <a className="view" onClick={gotoCrewMember}>
                           <i className="lnil lnil-eye"></i>크루멤버
                         </a>
-                        <button className="pyr_crewBnt">가입</button>
-                        <a className="report" href="#">
-                          <i className="lnil lnil-warning"></i>좋아요  {likecount}
-                          {/* <i className="lnil lnil-warning"></i>좋아요  {lc} */}
-                          {/* <LikeButton /> */}
-                        </a>
+                        <div>
+                        {!isJoined && (
+                          <button className="pyr_crewBnt" onClick={handleJoin}>가입</button>
+                        )}
+                        {isJoined && (
+                          <button className="pyr_crewBnt" onClick={handleCancelJoin}>가입 취소</button>
+                        )}
+                        </div>
+                          <i className="icons-list">
+                          {isLiked ? (
+                            <HeartFilled style={{ color: 'red', fontSize: '100px'}} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
+                          ) : (
+                            <HeartOutlined style={{ fontSize: '100px'}} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
+                          )}
+                            </i>좋아요  {likecount}
                       </div>
   
-                        <div>
-                          {isLiked ? (
-                            <button onClick={handleCancelLike}>좋아요 취소</button>
-                          ) : (
-                            <button onClick={handleLike}>좋아요</button>
-                          )}
-                          <button onClick={handleGetLike}>좋아요 여부 확인</button>
-                        </div>
+                        {/* <div>
+                          {/* <button onClick={handleGetLike}>좋아요 여부 확인</button>
+                        </div> */}
   
                       {/* <!--Post Excerpt--> */}
                       {/* <span className="has-accent-1">Pavel Murren</span> -> 강조*/}
@@ -277,10 +262,6 @@ const CrewBbsBlogDetails = () => {
                           className="ptf-spacer"
                           style={{ "--ptf-xxl": "5rem", "--ptf-md": "2.5rem" }}
                         ></div>
-                        {/* 이미지 리스트 뿌리기 */}
-                      {/* {imgid.map((img) => (
-                     <img src={"http://localhost:3000/getimg?imgid=" + img} alt="blog post" loading="lazy" />
-                  ))} */}
                      {imgid.map((imgid) => (
                         <img key={imgid} src={`http://localhost:3000/getimg?imgid=${imgid}`} alt="blog post" loading="lazy" />
                       ))}
@@ -333,14 +314,6 @@ const CrewBbsBlogDetails = () => {
                           </h2>
                           <CrewComment cBbsSeq={`${crewBbsDetails.crewSeq}`} />
                           {/* <BlogComment /> */}
-                        </div>
-  
-                        {/* <!--Comments form--> */}
-                        <div className="ptf-page-comments__form">
-                          <h2 className="ptf-page-comments__title">
-                            Leave a comment:
-                          </h2>
-                          <BlogCommentForm />
                         </div>
                       </section>
   
