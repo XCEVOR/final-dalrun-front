@@ -4,10 +4,9 @@ import BlogSidebarPost from "../../../../components/blog/blog-sidebar/BlogSideba
 import BlogFive from "../../../../components/dalrun-hc/competition/BlogFive";
 import BlogFour from "../../../../components/dalrun-hc/competition/BlogFour";
 import Pagination from "../../../../components/blog/Pagination";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
+import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
 
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
 const BlogSidebar = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--blog-sidebar">
@@ -16,7 +15,7 @@ const BlogSidebar = () => {
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
@@ -138,9 +137,7 @@ const BlogSidebar = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            <Footer />
-          </div>
+         
           <div className="ptf-footer__bottom">
             <CopyRight />
           </div>

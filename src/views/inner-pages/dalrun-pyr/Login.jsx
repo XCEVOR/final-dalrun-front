@@ -7,6 +7,7 @@ import axios from "axios";
 
 import './css/Login.css';
 import logo from './img/dalrun_logo.png';
+
 import kakao_login from './img/kakao_login.png';
 import FindRegi from "./FindRegi";
 
@@ -78,7 +79,7 @@ function Login(){
         <div id="content">       
             <div className="content_inner2">
                 <h3>
-                <img src={logo} alt="logo" className="logo3"/>
+                <img  src={process.env.PUBLIC_URL + '/dalrun_logo.png'} alt="logo" className="logo3"/>
                     <br/>
                     서비스 이용을 위해 로그인 해주세요
                 </h3>

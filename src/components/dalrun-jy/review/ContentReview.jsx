@@ -3,6 +3,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import NaverMapView from "./NaverMapview";
 import axios from 'axios';
 import CCPagination from "../search/pagination";
+import "../../../assets/dalrun-jy/css/design.css";
+
+
 
 
 const ContentReview = () => {
@@ -118,12 +121,12 @@ const ContentReview = () => {
               </select>
             </td>
             <td style={{ paddingLeft: "5px" }} className="align-middle">
-              <input type="text" className="form-control" placeholder="검색어"
+              <input type="text" className="form-dalrun" placeholder="검색어"
                 value={search} onChange={searchChange} />
             </td>
             <td style={{ paddingLeft: "5px" }}>
               <span>
-                <button type="button" className="btn btn-primary" onClick={() => searchBtn()}>검색</button>
+                <button type="button" className="btn btn-dalrun" onClick={() => searchBtn()}>검색</button>
               </span>
             </td>
           </tr>

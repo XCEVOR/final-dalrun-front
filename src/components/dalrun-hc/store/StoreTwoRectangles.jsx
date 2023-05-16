@@ -159,7 +159,7 @@ const StoreTwoRectangles = () => {
 
 
                 <div>
-                  <div className="image-container">
+                  <div className="image-container mouse_over_effect">
                     <Link to={`/store-recommend/${recomm.productCode}`} rel="noopener noreferrer">
                     <img className="background-image"
                       src={`http://localhost:3000/dalrun-hc/store/products/${recomm.productCode}/${recomm.productCode}-01.png`}

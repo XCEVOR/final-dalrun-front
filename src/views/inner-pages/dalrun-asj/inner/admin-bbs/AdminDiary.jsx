@@ -20,6 +20,21 @@ function AdminDiary() {
     {cate:"delete", name:"다이어리 삭제", selected:"이 다이어리를 삭제하겠습니까?", list:checkedList}
   ];
 
+  const TotalTime = ({totalTime}) => {
+    let h = 0;
+    let m = Math.round(totalTime/60);
+    let s = totalTime%60;
+
+    if(m >= 60) {
+      h =  Math.round(m/60);
+      m %= 60;
+    }
+
+    const result = `${String(h).padStart(2,0)}:${String(m).padStart(2,0)}:${String(s).padStart(2,0)}`;
+
+    return <td>{result}</td>;
+  } 
+
   return (
     <div className="bbs">
       <div className="bbs-content">
@@ -41,7 +56,7 @@ function AdminDiary() {
                   <th>작성자</th>
                   <th>제목</th>
                   <th>내용</th>
-                  <th>총거리</th>
+                  <th>총거리(km)</th>
                   <th>총시간</th>
                   <th>칼로리</th>
                   <th>등록일</th>
@@ -51,7 +66,7 @@ function AdminDiary() {
               <tbody>
                {
                   dataList.length !== 0 ?
-                  dataList.map((d, i) => {
+                  dataList.map((d, i) => {                   
                     return(
                       <tr key={i}>
                         <th>
@@ -65,11 +80,11 @@ function AdminDiary() {
                         <td>{d.memId}</td>
                         <td>{d.title}</td>
                         <td className="text_overflow">{d.content}</td>
-                        <td>{d.totalDist}</td>
-                        <td>{d.totalTime}</td>
+                        <td>{Math.round(d.totalDist/1000*100)/100}</td>
+                        <TotalTime totalTime={d.totalTime} />
                         <td>{d.kcal}</td>
                         <td>{d.wdate}</td>
-                        <td>{d.diarydel}</td>
+                        <td>{d.diaryDel !== 0 ? "삭제":""}</td>
                       </tr>
                     );
                   }) 

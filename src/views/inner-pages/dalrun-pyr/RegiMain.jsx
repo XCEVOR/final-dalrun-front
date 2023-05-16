@@ -17,7 +17,7 @@ function RegisterComponent() {
   return (
     <div id="content">
       <div className="content_inner">
-        <img src={logo} className="logo2" alt="회원가입" />
+        <img  src={process.env.PUBLIC_URL + '/dalrun_logo.png'} className="logo2" alt="회원가입" />
         <h5>일반 회원 가입</h5>
         <h6>
           <span className="reg_t1">오늘부터,</span>

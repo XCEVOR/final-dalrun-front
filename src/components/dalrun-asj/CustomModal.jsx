@@ -69,7 +69,7 @@ function CustomModal(props) {
       else if(sub === "productinquiry") return "이 문의내역을 삭제하겠습니까?";
       else if(cate === "competition") return "이 대회일정을 삭제하겠습니까?";
       else if(cate === "shoereview") return "이 리뷰를 삭제하겠습니까?";
-      else if(cate === "diary") return "이 다이어리를 삭제하겠습니까?";
+      // else if(cate === "diary") return "이 다이어리를 삭제하겠습니까?";
     } 
     else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />

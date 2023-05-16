@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import HeaderDefault from "../../../../components/header/HeaderDefault";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
+
 import Social from "../../../../components/social/Social";
-import ContactForm from "../../../../components/ContactForm";
-import Address from "../../../../components/Address";
+
+
 
 import StorePaymentSuccess from "../../../../components/dalrun-hc/storepaymentconfirm/StorePaymentSuccess";  
 
@@ -23,7 +22,7 @@ const StorePaymentConfirm = () => {
         </Helmet>
         {/* End Page SEO Content */}
 
-        <HeaderDefault />
+        <HeadermainPage />
         {/* End Header */}
 
         <div className="ptf-main">
@@ -95,7 +94,7 @@ const StorePaymentConfirm = () => {
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
             <div className="ptf-footer__top">
-              <Footer />
+              
             </div>
             <div className="ptf-footer__bottom">
               <CopyRight />
@@ -119,7 +118,7 @@ const StorePaymentConfirm = () => {
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
             <div className="ptf-footer__top">
-              <Footer />
+              
             </div>
             <div className="ptf-footer__bottom">
               <CopyRight />

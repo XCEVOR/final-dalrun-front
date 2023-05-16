@@ -145,19 +145,34 @@ const StoreFourRectangles = () => {
 
 
     <div className="search_box_container">
-      <div className="search-box">
-        <input
-          type="text"
-          placeholder="Search"
-          value={query}
-          onChange={handleSearch}
-          className="search-box-input"
-        />
-        <select value={category} onChange={handleCategoryChange} className="search-box-select">
-          <option value="productName">Name</option>
-          <option value="productBrand">Brand</option>
-        </select>
-      </div>
+    
+
+      <table>
+        <tbody>
+        
+        <tr >
+            <td style={{ paddingLeft: "3px"}}>
+              <select  className="custom-select" value={category} onChange={handleCategoryChange} >
+                  <option value="productName">Name</option>
+                  <option value="productBrand">Brand</option>
+              </select>
+            </td>
+            <td style={{ paddingLeft: "5px"}} className="align-middle">
+              <input type="text"  className="form-control" placeholder="검색어"
+                value={query} onChange={handleSearch} />
+            </td>
+           
+          </tr>
+
+          </tbody>
+     </table>
+
+
+  
+
+
+
+
     </div>
 
 
@@ -176,8 +191,8 @@ const StoreFourRectangles = () => {
             key={i}
           >
             {/* <!--Team Member--> */}
-            <div className="ptf-team-member store_four_rectangles_effect">
-              <div className="ptf-team-member__avatar">
+            <div className="ptf-team-member store_item_hover_effect">
+              <div className="ptf-team-member__avatar products_1">
                 {/* <div className="shadow-effect"></div> */}
                 <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
                 {/* <a href="#"> */}

@@ -14,7 +14,7 @@ function CrewRankChart({ dataList }) {
             {
                 label: '점수',
                 data: dataList.map(data => data.monthlyScore),
-                backgroundColor: 'rgba(38, 174, 154, 0.7)',
+                backgroundColor: 'rgba(38, 174, 154, 0.5)',
             },
         ]
     }

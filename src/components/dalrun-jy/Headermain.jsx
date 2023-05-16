@@ -44,17 +44,18 @@ const Headermain = () => {
                 <Link className="ptf-navbar-logo" to="/mainpage">
                
                 <img
-                  className="black"
-                  src="logo.png"
+                  className="white"
+                  src={process.env.PUBLIC_URL + '/dalrun_logo.png'}
                   alt=""
                   loading="lazy"
-                  
+                  style={{width:'120px'}}
                 />
                 <img
-                  className="white"
-                  src="logo.png"
-                  alt="brand"
+                  className="black"
+                  src={process.env.PUBLIC_URL + '/dalrun_logo.png'}
+                  alt=""
                   loading="lazy"
+                  style={{width:'120px'}}
                 />
                 
               </Link>

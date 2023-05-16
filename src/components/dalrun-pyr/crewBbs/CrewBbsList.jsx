@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-
+import "../../../assets/dalrun-jy/css/design.css";
 import Pagination from 'react-js-pagination';
 
 function CrewBbsList(){
@@ -60,12 +60,12 @@ function CrewBbsList(){
           <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"3px", marginBottom:"3px" }}>
               <tbody>
               <tr>
-                  <td style={{ paddingLeft:"3px" }}>
+                  <td style={{ paddingLeft:"3px"}}>
                       <select className="custom-select" value={choice} onChange={choiceChange}>
                           <option value=''>검색</option>
                           <option value="title">제목</option>
                           <option value="content">내용</option>
-                          <option value="memId">작성자</option>
+                          <option value="memId">작성자</option>  
                       </select>
                   </td>
                   <td style={{ paddingLeft:"5px" }} className="align-middle">
@@ -74,7 +74,7 @@ function CrewBbsList(){
                   </td>
                   <td style={{ paddingLeft:"5px" }}>
                       <span>
-                          <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
+                          <button type="button" className="btn btn-dalrun" onClick={()=>searchBtn()}>검색</button>
                       </span>
                   </td>
               </tr>
@@ -116,7 +116,7 @@ function CrewBbsList(){
               onChange={handlePageChange} />
   
           <div className="my-5 d-flex justify-content-center">
-              <Link className="btn btn-primary" to="/bbswrite">글쓰기</Link>    
+              <Link className="btn btn-dalrun" to="/bbswrite">글쓰기</Link>    
           </div>
   
         </div>

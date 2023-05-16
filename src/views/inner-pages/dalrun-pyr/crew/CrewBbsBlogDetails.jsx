@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import RelatedPost from "../../../../components/blog/RelatedPost";
-import CopyRight from "../../../../components/footer/copyright/CopyRight";
-import Footer from "../../../../components/footer/Footer";
+import CopyRight from "../../../../components/dalrun-jy/footer/CopyRight";
+
 import Header from "../../../../components/dalrun-pyr/Header";
 import CrewComment from "../../../../components/dalrun-pyr/crewBbs/CrewComment";
 import '../css/CrewBbsBlogDetils.css';
@@ -337,7 +337,7 @@ const CrewBbsBlogDetails = () => {
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
             <div className="ptf-footer__top">
-              <Footer />
+              
             </div>
             <div className="ptf-footer__bottom">
               <CopyRight />
