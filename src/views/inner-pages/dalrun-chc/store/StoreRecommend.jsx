@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
 import StoreRecommend1Row from "../../../../components/dalrun-hc/storerecommend/StoreRecommend1Row";
 import StoreRecommendPicture from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPicture";
 import StoreRecommendPhoto from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPhoto";
@@ -32,7 +32,7 @@ const StoreRecommend = () => {
         {/* End Page SEO Content */}
 
         <div className="ptf-site-wrapper__inner">
-         
+          <HeadermainPage />
           {/* End Header Agency */}
 
           <div className="ptf-main">
