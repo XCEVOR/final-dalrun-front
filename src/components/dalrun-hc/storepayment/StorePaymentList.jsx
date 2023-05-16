@@ -120,7 +120,7 @@ function StoreCartList(props) {
 
   
   useEffect (() => {
-    alert(orderNumber)
+    // alert(orderNumber)
     if (orderNumber === undefined) return;
     navigate(`/store-payment-confirm/${orderNumber}`);
   }, [orderNumber])
