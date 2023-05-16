@@ -6,6 +6,7 @@ import {useNavigate, Link} from "react-router-dom";
 import axios from "axios";
 
 import './css/Login.css';
+import logo from './img/dalrun_logo.png';
 
 import kakao_login from './img/kakao_login.png';
 import FindRegi from "./FindRegi";

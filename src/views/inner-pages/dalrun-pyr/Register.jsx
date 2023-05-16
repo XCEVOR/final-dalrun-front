@@ -117,19 +117,34 @@ function Register(){
         }
     };
 
+    // const phoneChange = (e) => {
+    //     const currentPhone = e.target.value;
+    //     setPhone(currentPhone);
+    //     const phoneRegExp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+    //     if (!phoneRegExp.test(currentPhone)) {
+    //         setPhoneMessage("전화번호 형식이 올바르지 않습니다.");
+    //         setIsPhone(false);
+    //     } else {
+    //         setPhoneMessage("사용 가능한 번호입니다:-)");
+    //         setIsPhone(true);
+    //     }
+    // };
+
     const phoneChange = (e) => {
         const currentPhone = e.target.value;
-        setPhone(currentPhone);
+        const formattedPhone = currentPhone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+        setPhone(formattedPhone);
         const phoneRegExp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-
+      
         if (!phoneRegExp.test(currentPhone)) {
-            setPhoneMessage("전화번호 형식이 올바르지 않습니다.");
-            setIsPhone(false);
+          setPhoneMessage("전화번호 형식이 올바르지 않습니다.");
+          setIsPhone(false);
         } else {
-            setPhoneMessage("사용 가능한 번호입니다:-)");
-            setIsPhone(true);
+          setPhoneMessage("사용 가능한 번호입니다:-)");
+          setIsPhone(true);
         }
-    };
+      };
 
     const gotoLogin = () =>{
         history("/signupSuccess");
@@ -235,7 +250,7 @@ function Register(){
                                 </div>
                                 <div>
                                     <label for="phone"></label>
-                                    <input type="tel" value={phone} placeholder="phone number (010-1234-5678)" onChange={phoneChange}/>
+                                    <input type="tel" value={phone} placeholder="phone number" onChange={phoneChange}/>
                                     <p className="message">{phoneMessage}</p>
                                 </div>
                                 <div>
