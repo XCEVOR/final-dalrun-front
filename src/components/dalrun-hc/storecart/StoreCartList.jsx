@@ -138,7 +138,7 @@ function StoreCartList() {
           return (
             <div key={matchedProduct.cartId}>
               <div className="item">
-                <div className="image" style={{ width: 160 }}>
+                <div className="store_cart_description_photo">
                   <img
                     src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
                     alt=""

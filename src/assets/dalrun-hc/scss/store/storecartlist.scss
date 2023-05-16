@@ -302,8 +302,15 @@
   div .store_cart_description {
     margin: 0;
     padding: auto;
-    width: 700px;
+    width: 600px;
     height: 80px;
+  }
+
+  .store_cart_description_photo {
+    margin-right: 20px;
+    padding-bottom: 30px;
+    width: 160px;
+    
   }
 
   .store_cart_description_title {
