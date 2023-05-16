@@ -8,13 +8,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 function Running() {
   const [id, setId] = useState("");
 
-  // const [runningRecords, setRunningRecords] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-  // const [search, setSearch] = useState('');
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const navigate = useNavigate();
   const history = useNavigate();
 
   useEffect(()=>{
@@ -80,15 +76,11 @@ function Running() {
     })
   }
 
-  // useEffect(() => {
-  //   if (searchParams.get("search") !== null) {// 검색 값이 있을 때만
-  //     navigate('/diary', { replace: true });
-  //   }
-  // }, []);
-
   useEffect(() => {
-    fetchDiaryItems(1); // 페이지 번호를 전달하여 첫 번째 페이지의 다이어리 리스트를 가져옵니다.
-  }, []);
+    fetchDiaryItems(); // 페이지 번호를 전달하여 첫 번째 페이지의 다이어리 리스트를 가져옵니다.
+    // 초기 데이터 조회
+    fetchDiaryDayItems();
+  }, [startDate, endDate]);
 
   // 시간 표현 형식 변경 메소드
   const formatTime =(sec) => {
@@ -101,17 +93,15 @@ function Running() {
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
-    fetchDiaryDayItems(); // 날짜 변경 시 fetchDiaryDayItems 함수 호출    
+    fetchDiaryDayItems(); // 날짜 변경 시 fetchDiaryDayItems 함수 호출   
+    fetchDiaryItems(0); 
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
-    fetchDiaryDayItems(); // 날짜 변경 시 fetchDiaryDayItems 함수 호출    
+    fetchDiaryDayItems(); // 날짜 변경 시 fetchDiaryDayItems 함수 호출 
+    fetchDiaryItems(0);   
   };
-
-  // const todayRecords = runningRecords.filter(record => {
-  //   return new Date(record.date).toDateString() === startDate.toDateString();
-  // });
 
   return (
     <div className="members container">
@@ -122,9 +112,6 @@ function Running() {
       <h4 className="title">기간별 런닝</h4> 
       <br />
     
-      {/* <div>
-        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-      </div> */}
       <DatePicker
         selected={startDate}
         onChange={handleStartDateChange} 
@@ -143,7 +130,6 @@ function Running() {
         placeholderText="끝 날짜 선택"
         dateFormat="yyyy년 MM월 dd일"
       />
-      {/* <button onClick={() => handleSearch(startDate, endDate)}>Search</button>       */}
       
       <table>
         <thead>
@@ -160,9 +146,9 @@ function Running() {
           diaryDayItems.map((total) => (
             <tr key={total?.date}>
               <td>{startDate.toLocaleDateString()} ~ {endDate.toLocaleDateString()}</td>
-              <td>{(total?.totalDist/1000).toFixed(2)} km</td>
-              <td>{formatTime(total?.totalTime)}</td>
-              <td>{total?.kcal} kcal</td>
+              <td>{total?.totalDist ? (total?.totalDist / 1000).toFixed(2) + " km" : "0 km"}</td>
+              <td>{total?.totalTime ? formatTime(total?.totalTime) : "0 분"}</td>
+              <td>{total?.kcal ? total?.kcal + " kcal" : "0 kcal"}</td>
             </tr>
           ))
           : <tr style={{textAlign:"center"}}><td colSpan="11">{id}데이터가 없습니다</td></tr>
