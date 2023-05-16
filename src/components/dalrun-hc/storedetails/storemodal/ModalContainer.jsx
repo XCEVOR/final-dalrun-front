@@ -75,8 +75,8 @@ const ModalContainer = ({ pictureLocation2, onClose }) => {
       <ModalWrapper>
         <ModalContent ref={modalRef}>
           <CloseButton onClick={onClose}>×</CloseButton>
-          <h2>Modal Title</h2>
-          <p>Modal Content</p>
+          {/* <h2>Modal Title</h2> */}
+          {/* <p>Modal Content</p> */}
           <img style={{width: 1000}} src={pictureLocation3} loading="lazy"/>
         </ModalContent>
       </ModalWrapper>

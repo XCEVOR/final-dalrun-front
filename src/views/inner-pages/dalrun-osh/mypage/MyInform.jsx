@@ -1,14 +1,11 @@
 import React, { useRef, useEffect, useState  } from "react";
-import { useSearchParams } from "react-router-dom";
 import axios from 'axios';
-import PassChange from "./inner/passchange/PassChange";
-import ModalBtn from "../../../../components/dalrun-sh/ModalBtn";
 import "../../../../assets/dalrun-sh/scss/inform.scss"
 import { useNavigate } from "react-router-dom";
 import useCheckControl from "../../../../components/dalrun-sh/useCheckControl";
+import Passmodal from "../../../../components/dalrun-sh/Passmodal";
 
 function Inform() {
-  const [searchParam, setSearchParam] = useSearchParams();
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});  
   const history = useNavigate();
@@ -67,15 +64,12 @@ const onSubmit = (e) => {
       .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
-              alert("수정완료");
+               alert("수정완료");
               // onHide();
-              setSearchParam(searchParam.set('target',''));
-              localStorage.removeItem('login');
-              alert("다시 로그인해주세요..");      
+              // setSearchParam(searchParam.set('target',''));
+              // localStorage.removeItem('login');
+              // alert("다시 로그인해주세요..");      
               
-            //   // 이미지 URL 업데이트
-            //   const imageUrl = resp.data.imageUrl;
-            //   setImgFile(imageUrl);
           } else {
               alert("수정실패");
           }
@@ -84,12 +78,6 @@ const onSubmit = (e) => {
           console.log(err);
       });
 }
-
-  const [myinform, setmyinform] = useState([]);
-
-  const passCg = [
-    {cate:"insert", name:"비밀번호 변경", selected:<PassChange />, list:checkedList} 
-  ];
 
     // 이미지 파일 선택 함수
     const handlePhotoChange = (event) => {
@@ -102,35 +90,12 @@ const onSubmit = (e) => {
             setImgFile(reader.result);
           };
       
-            // 파일 읽기 완료 시 미리보기 이미지 업데이트
-    //   reader.onload = () => {
-    //     const newUserDataList = [...dataList];
-    //     const updatedUserData = newUserDataList.find(userData => userData.id === userId);
-    //     updatedUserData.photoUrl = reader.result;
-    //     setDataList(newUserDataList);
-    //   };
+
           reader.readAsDataURL(file);
         }
 
     };
-    
-//     <div className="profile_img">
-//     <label className="signup-profileImg-label" htmlFor="profileImg">
-//       프로필 이미지
-//     </label>
 
-//     {/* 업로드 된 이미지 미리보기 */}
-//     <img
-//       src={imgFile ? imgFile : "/images/icon/user.png"}
-//       alt="프로필 이미지"
-//     />
-//     <input
-//       ref={imgRef} // imgRef를 input 요소에 연결
-//       type="file"
-//       accept="image/*"
-//       onChange={handlePhotoChange} // onChange 이벤트 핸들러 수정
-//     />
-//   </div>
   return(
     <div className="container">
         <h4 className="title">회원정보</h4>
@@ -165,9 +130,8 @@ const onSubmit = (e) => {
               <input type="text" value={id || ""} readOnly={true} />
           </div>
           <div>
-              <label htmlFor="pwd">비밀번호</label>
-              <ModalBtn {...passCg} />
-              {/* <input type="text" value={pwd || ""} onChange={(e) => setPwd(e.target.value)} /> */}
+              <label htmlFor="pwd">비밀번호</label>            
+              <Passmodal />
           </div>
           <div>
               <label htmlFor="name">이름</label>
@@ -198,8 +162,6 @@ const onSubmit = (e) => {
 
           <input type="submit" value="수정" />                  
         </form>
-
-    
       </div>
     </div>
     );

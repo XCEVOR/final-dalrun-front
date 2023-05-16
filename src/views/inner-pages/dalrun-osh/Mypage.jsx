@@ -29,7 +29,7 @@ const Mypage = () => {
             <div className="main container-xxl" style={{display:"flex"}}>
               <MypageMenu />
               <Routes>
-                <Route path="myinform" element={<MyInform />} />
+                <Route path="myinform/*" element={<MyInform />} />
                 <Route path="mycrew" element={<MyCrew />} />
                 <Route path="myrunning" element={<MyRunning />} />
                 <Route path="mystore/*" element={<MyStore />} />

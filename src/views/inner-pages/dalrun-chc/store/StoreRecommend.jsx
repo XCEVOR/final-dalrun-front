@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import StoreRecommend1Row from "../../../../components/dalrun-hc/storerecommend/StoreRecommend1Row";
+import StoreRecommendPicture from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPicture";
 import StoreRecommendPhoto from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPhoto";
 import StoreRecommendFloatingBtn from "../../../../components/dalrun-hc/storerecommend/StoreRecommendFloatingBtn";
 import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
@@ -41,7 +42,7 @@ const StoreRecommend = () => {
             ============================================== */}
               <div className="ptf-showcase-3 swiper-container">
                 <div className="swiper-wrapper">
-                  <StoreRecommend1Row />
+                  <StoreRecommend1Row productCode={prodParams.productCode} />
                 </div>
               </div>
 
@@ -169,6 +170,9 @@ const StoreRecommend = () => {
 
               <section>
                 <div>
+                  <StoreRecommendPicture productCode={prodParams.productCode} />
+                </div>
+                {/* <div>
                   <StoreRecommendPhoto 
                     imageSrc="https://m.media-amazon.com/images/S/aplus-media-library-service-media/b562caba-2fdd-4643-9738-f61ec855c287.__CR0,0,1464,600_PT0_SX1464_V1___.png"
                     title="testestes11"
@@ -195,7 +199,7 @@ const StoreRecommend = () => {
                     title="testestes2222"
                     description="asdfkahjsdflhsdf"
                   />
-                </div>
+                </div> */}
               </section>
               {/* End  Advertising Banner */}
 

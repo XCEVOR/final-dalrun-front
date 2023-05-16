@@ -390,7 +390,7 @@ function MyCrew() {
 
                         </td> */}
                         <td>
-                          {crew.crewAuth === 1 ? "리더" : "팀원"}
+                            {crew.memId === mycrewinfo.memId ? "리더" : "팀원"} 
                         </td>
                         <td>{crew.grade}</td>
                         <td>{crew.point}</td>
@@ -414,7 +414,7 @@ function MyCrew() {
           <h4 style={{ margin: '50px' }}>해당 정보는 크루 가입이 필요합니다.</h4>
 
           {/* 크루 가입페이지로 링크 변경해주세요 */}
-          <span ><a href="/login" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입하러 가기</a></span>
+          <span ><a href="/crewBbsMain" style={{ textDecoration: 'underline', color: '#0d6efd', fontSize: '15px', padding: '0.5rem' }}>크루 가입하러 가기</a></span>
         </div>
 
       }
