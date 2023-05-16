@@ -41,7 +41,7 @@ const StoreRecommend = () => {
             ============================================== */}
               <div className="ptf-showcase-3 swiper-container">
                 <div className="swiper-wrapper">
-                  <StoreRecommend1Row />
+                  <StoreRecommend1Row productCode={prodParams.productCode} />
                 </div>
               </div>
 
