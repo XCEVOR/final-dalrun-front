@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import ModalButton from "./storemodal/ModalButton";
 import ModalContainer from "./storemodal/ModalContainer";
+import { useMemo } from "react";
 
 function StoreCartList() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
@@ -21,6 +22,7 @@ function StoreCartList() {
 
   const [likeBtn, setLikeBtn] = useState(false);
   // console.log("console.log(location.state); ", location.state);
+  const [delStatus, setDelStatus] = useState(false);
 
 
   const getCartList = async () => {
@@ -34,7 +36,12 @@ function StoreCartList() {
 
   useEffect(() => {
     getCartList();
-  }, [])
+  }, [totalPaymentAmount])
+
+  useMemo (() => {
+    getCartList();
+    setDelStatus(false)
+  }, [delStatus])
 
   if(loading === false){
     return <div>Loading...</div>
@@ -55,7 +62,9 @@ function StoreCartList() {
 
     const resp = await axios.post("http://localhost:3000/deleteCartItem", null, { params: {"productId": val}});
     console.log("  @ deleteItem = async (ev) => { ", resp.data);
-    window.location.reload();
+    alert("선택한 상품이 삭제 되었습니다.")
+    setDelStatus(true)
+    // window.location.reload();
   }
 
 
