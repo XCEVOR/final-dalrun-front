@@ -1,56 +1,101 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import ReactTooltip from "react-tooltip";
-import { Link, useSearchParams } from "react-router-dom";
-import '../css/CrewMemberBody.css';
-import { useState } from "react";
+import { Helmet } from "react-helmet";
+import Header from "../../../../components/dalrun-pyr/Header";
+import CrewMemberBody from "./CrewMemberBody";
+import CrewMemberWaitContent from "./CrewMemberWaitContent";
 
-function CrewMemberWait() {
-  const [dataList, setDataList] = useState([]);
-
+const CrewMemberWait = () => {
   return (
-    
-    <div>
-      <button>크루멤버 소개</button>
-      <button>크루멤버 대기</button>
-      <table>
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>아이디</th>
-            <th>가입신청일</th>
-            <th>가입업데이트일</th>
-            <th>상태</th>
-          </tr>
-        </thead>
-        {/* <tbody>
-          {dataList.map((waitcrew, i) => (
-            <tr key={i}>
-              <td>{i + 1}</td>
-              <td>{waitcrew.memId}</td>
-              <td>{waitcrew.crewRegDate}</td>
-              <td>{waitcrew.crewMemUpdate}</td>
-              <td>{waitcrew.crewConfirm}</td>
-              <td>
-                {waitcrew.crewConfirm === '0' && (
-                  <>
-                    <button>승인</button>
-                    <button>거절</button>
-                  </>
-                )}
-                {waitcrew.crewConfirm === '1' && (
-                  <button>승인</button>
-                )}
-                {waitcrew.crewConfirm === '-1' && (
-                  <button>거절</button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody> */}
-      </table>
+    <div className="ptf-site-wrapper animsition ptf-is--works-listing">
+      <Helmet>
+        <title>달런 달런</title>
+      </Helmet>
+      {/* End Page SEO Content */}
+      <div className="ptf-site-wrapper__inner">
+        <Header />
+        {/* End  HeaderHomeDefault */}
+
+        <div className="main">
+          <div className="ptf-page ptf-page--portfolio-listing">
+            <section>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+
+              <div className="container-xxl">
+                <div className="row">
+                  <div className="col-xl-10">
+                    {/* <!--Animated Block--> */}
+                    <div
+                      className="ptf-animated-block"
+                      data-aos="fade"
+                      data-aos-delay="0"
+                    >
+                      <h1 className="large-heading">크루 멤버 대기</h1>
+                    </div>
+                  </div>
+                </div>
+                {/* <!--Spacer--> */}
+                <div
+                  className="ptf-spacer"
+                  style={{ "--ptf-xxl": "4.375rem" }}
+                ></div>
+              </div>
+              {/* End .container-xxl */}
+
+              {/*=============================================
+                Start Portfolio main 
+                ============================================== */}
+              <div className="container-xxl">
+                {/* <CrewMemberBody/> */}
+                <CrewMemberWaitContent />
+              </div>
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+              <div className="text-center">
+                {/* <!--Animated Block--> */}
+                <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  <a className="ptf-load-more" href="#">
+                    More
+                  </a>
+                </div>
+              </div>
+
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+            </section>
+          </div>
+          {/* End .ptf-page */}
+        </div>
+      </div>
+      {/* End .main */}
+
+      {/* <!--Footer--> */}
+      <footer className="ptf-footer ptf-footer--style-1">
+        <div className="container-xxl">
+          <div className="ptf-footer__top">
+            {/*  */}
+          </div>
+          <div className="ptf-footer__bottom">
+            {/* <CopyRight /> */}
+          </div>
+        </div>
+      </footer>
     </div>
+    // End .ptf-is--blog-grid
   );
-}
+};
 
 export default CrewMemberWait;

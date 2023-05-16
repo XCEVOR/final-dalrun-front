@@ -5,54 +5,35 @@ import { Link } from "react-router-dom";
 
 
 const LoginFormMenu = () => {
+  const logindata=JSON.parse(localStorage.getItem('login'));
 
-  const [login,setLogin]=useState([]);
-  const [loginTF,setLoginTF]=useState(false);
-  function loading(){
-    const logindata=JSON.parse(localStorage.getItem('login'));
-
-    if(logindata){
-      setLogin(logindata);
-      setLoginTF(true);
-    }
+  function logout() {
+    localStorage.removeItem('login');
+    localStorage.removeItem('memId');
   }
 
-  
-  const handleLogout = () => {
-    localStorage.removeItem("login")
-    localStorage.removeItem("memId");
-  
-  }
   useEffect(() => {
-    
-    loading();
-    
-  }, []);
+    console.log(logindata);
   
-  useEffect(() => {
-  
-  }, [loginTF]);
+  }, [logindata]);
 
   return (
     <nav className="ptf-nav">
       {/* <!--Menu--> */}
       <ul className="sf-menu">
 
-        { loginTF ?
         <li>
-          <a href='/mainPage' onClick={handleLogout}>
-            <span>로그아웃</span>
-          </a>
-        </li>
-        :
-        <li>
-          <a href='/login'>
+        { logindata === null ?
+          <Link to='/login'>
             <span>로그인</span>
-          </a>
+          </Link> :
+          <Link onClick={logout}>
+            <span>로그아웃</span>
+          </Link>
+          }
         </li>
-       
-        }
-
+        <li>
+        </li>
       </ul>
     </nav>
   );
