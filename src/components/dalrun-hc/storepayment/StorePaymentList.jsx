@@ -289,8 +289,8 @@ function StoreCartList(props) {
                 <div className="store_payment_item_description">
                   {/* <span>{prodInfo.productId}</span> */}
                   <p className="store_payment_item_description_title">{prodInfo.productName}</p>
-                  <span className="store_payment_item_description_sizecolor">{prodInfo.productSize}</span>
-                  <span className="store_payment_item_description_sizecolor">{prodInfo.productColor}</span>
+                  <span className="store_payment_item_description_sizecolor">size: {prodInfo.productSize}</span>
+                  <span className="store_payment_item_description_sizecolor">color: {prodInfo.productColor}</span>
                 </div>
 
                 <div>
@@ -381,7 +381,7 @@ function StoreCartList(props) {
           <div className="payment_progress_container">
             <div className="payment_progress_container2">
 
-                  <h5>총 결제 금액</h5>
+                  <h5 className="store_payment_total_title">총 결제 금액</h5>
                   {/* <button onClick={calcTotalPaymentAmount}>
                     {totalPaymentAmount}결제금액확인test
                   </button> */}
@@ -394,7 +394,7 @@ function StoreCartList(props) {
                   {/* <Link to={`/store-payment-confirm/${orderNumber}`} >
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link> */}
-                  <h3 defaultValue={totalPaymentAmount}>₩ {totalPaymentAmount}</h3>
+                  <h3 className="store_payment_total_amount" defaultValue={totalPaymentAmount}>₩ {totalPaymentAmount}</h3>
                   {/* <button onClick={testSuccessPayment}>testSuccessPayment</button> */}
                   <button className="store_payment_button" onClick={onClickPayment}>결제</button>
 

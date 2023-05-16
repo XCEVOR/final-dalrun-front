@@ -25,6 +25,7 @@
 
   .store_payment_item_description_image {
     margin-bottom: 20px;
+    margin-right: 10px;
     padding: 10px;
   }
 
@@ -35,6 +36,7 @@
 
   .store_payment_item_description_title {
     margin: auto;
+    font-weight: 700;
   }
 
   .store_payment_item_description_sizecolor {
@@ -72,6 +74,16 @@
     margin-top: 60px;
     text-align: right;
     width: 500px;
+  }
+
+  .store_payment_total_title {
+    color: #333333;
+    font-weight: 800;
+  }
+
+  .store_payment_total_amount {
+    color: #333333;
+    font-weight: 800;
   }
 
   .store_payment_button {
