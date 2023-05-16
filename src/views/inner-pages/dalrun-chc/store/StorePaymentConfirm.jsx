@@ -34,34 +34,8 @@ const StorePaymentConfirm = () => {
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
               ></div>
 
-              <div className="container-xxl">
-                <div className="row">
-                  <div className="col-xl-10">
-                    {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="0"
-                    >
-                      <h1 className="large-heading">TOTAL PAYMENT CONFIRM</h1>
-                      {/* <!--Spacer--> */}
-                      <div
-                        className="ptf-spacer"
-                        style={{ "--ptf-xxl": "3rem", "--ptf-md": "2.5rem" }}
-                      ></div>
 
-                    </div>
-                  </div>
-                </div>
-                {/* End .row */}
-              </div>
-              {/* Contact top portion */}
 
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "6.25rem", "--ptf-md": "3.125rem" }}
-              ></div>
             </section>
             {/* End section contact header */}
 
