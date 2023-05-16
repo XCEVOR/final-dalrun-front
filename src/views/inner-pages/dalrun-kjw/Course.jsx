@@ -1,9 +1,19 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import CourseList from '../../../components/dalrun-jw/course/CourseList';
 import CourseSidebar from '../../../components/dalrun-jw/course/CourseSidebar';
 import CourseMap from '../../../components/dalrun-jw/course/CourseMap';
 
 const Course = () => {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [courseItems, setCourseItems] = useState([]);
+
+  const handleCourseSelection = (courseItems) => {
+    if (selectedCourse && selectedCourse.courseSeq === courseItems.courseSeq) {
+      setSelectedCourse(null);
+    } else {
+      setSelectedCourse(courseItems);
+    }
+  }
   return(
     <div className='_diary-flex-container'>
       <div className='_diary-content'>
@@ -15,12 +25,16 @@ const Course = () => {
 
         {/* 기록 리스트 */}
         <div id="list" className='_diary-list'>
-          < CourseList />
+          < CourseList 
+            course={courseItems}
+            onCourseSelect={handleCourseSelection}
+            onCourseItemsChange={setCourseItems}
+          />
         </div>
 
         {/* 지도 부분 */}
         <div id="map" className='_diary-map'>
-          <CourseMap />
+          <CourseMap course={courseItems} selectedCourse={selectedCourse}/>
         </div>
       </div>
      
