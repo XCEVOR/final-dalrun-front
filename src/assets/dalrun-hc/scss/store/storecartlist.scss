@@ -478,7 +478,7 @@
   .cart_modal_text_container {
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 10px 80px;
   }
 
   .cart_modal_title {
@@ -513,6 +513,11 @@
       box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
       transition-duration: 0.1s;
     }
+  }
+
+  .cart_modal_quantity_num {
+    margin: 10px;
+    font-size: 18px;
   }
 
 }

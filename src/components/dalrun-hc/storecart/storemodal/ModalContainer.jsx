@@ -227,9 +227,9 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
               {/* <div className="product_id">
                 <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
               </div> */}
-              <div className="product_code">
+              {/* <div className="product_code">
                 <h1 className="product_code">product_code 서버: {productDetails[0].productCode}</h1>
-              </div>
+              </div> */}
               {/* <div className="product_category">
                 <h1 className="product_category">{productDetails[0].productCategory}</h1>
               </div> */}
@@ -258,13 +258,13 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
                   </div>
                   <div className="product_quantity">
                     <button className="cart_modal_button" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
-                    <p>{selectedQuantity}</p>
+                    <p className="cart_modal_quantity_num">{selectedQuantity}</p>
                     <button className="cart_modal_button" onClick={selectQuantityMinusBtn}>-</button>
                   </div>
                   {/* <div>{selectedProdId}</div> */}
                   </div>
                   
-                  <div className="image" style={{ width: 260 }}>
+                  <div className="image" style={{ width: 220 }}>
                     <img
                       src={`http://localhost:3000/dalrun-hc/store/products/${productDetails[0].productCode}/${productDetails[0].productCode}-01.png`}
                       alt=""
