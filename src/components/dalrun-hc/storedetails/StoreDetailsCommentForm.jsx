@@ -134,8 +134,20 @@ function TestReduxRight2 (props) {
     const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
     console.log(" console.log(props.productCode);", props.prodParams.productCode);
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    let storage_memId = "x";
+    let storage_memEmail = "x";
+    let json_login = localStorage.getItem("login");
+    if (json_login === null) {
+        storage_memId = "user01test";
+        storage_memEmail = "user@email.com";
+    }
+    else {
+        storage_memId = JSON.parse(json_login).memId;
+        storage_memEmail = JSON.parse(json_login).email;
+    }
+
+    const [name, setName] = useState(storage_memId);
+    const [email, setEmail] = useState(storage_memEmail);
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [productId, setProductId] = useState('TestProductId');
@@ -173,6 +185,8 @@ function TestReduxRight2 (props) {
         if (res.data === "SUCCESS") {
           alert("성공적으로 등록되었습니다");
           // history('/bbslist');    // bbslist로 이동
+          setSubject("");
+          setMessage("");
         } else {
           alert("등록되지 않았습니다");
         }
@@ -181,6 +195,9 @@ function TestReduxRight2 (props) {
         alert(err);
       });   
     }
+
+    useEffect (() => {
+    }, [setCommentContxData])
 
     const myOnClickFunc = () => {
       writeCommentMain();
@@ -197,7 +214,7 @@ function TestReduxRight2 (props) {
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
         <div>
             <div className="post-comment-form">
-            <h4>Leave a Reply </h4>
+            <h4 className="inquiry_regi_form_title">문의 사항을 남겨주세요</h4>
             <div className="bd-contact-form-wrapper mb-30">
                 <form action="#">
                     <div className="row">
@@ -218,12 +235,12 @@ function TestReduxRight2 (props) {
                         </div>
                         <div className="col-12">
                             <div className="bd-contact-field mb-30">
-                                <textarea placeholder="내용"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
+                                <textarea placeholder="내용을 입력하세요"  value={message}  onChange={(e)=>setMessage(e.target.value)}></textarea>
                             </div>
                         </div>
                         <div className="col-12">
                             <div className="bd-contact-field">
-                                <button type="submit" onClick={myOnClickFunc}>등록</button>
+                                <button className="inquiry_regi_btn" type="submit" onClick={myOnClickFunc}>등록</button>
                             </div>
                         </div>
                     </div>

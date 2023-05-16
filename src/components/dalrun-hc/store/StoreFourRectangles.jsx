@@ -192,7 +192,7 @@ const StoreFourRectangles = () => {
           >
             {/* <!--Team Member--> */}
             <div className="ptf-team-member store_item_hover_effect">
-              <div className="ptf-team-member__avatar">
+              <div className="ptf-team-member__avatar products_1">
                 {/* <div className="shadow-effect"></div> */}
                 <Link to={`/store-details/${singleproduct.productCode}`} rel="noopener noreferrer">
                 {/* <a href="#"> */}

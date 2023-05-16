@@ -93,6 +93,26 @@
 }
 
 .dalrun_hc {
+  .mouse_over_effect {
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+    
+    &:hover {
+      -webkit-transform: translateY(-15px);
+      -ms-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+}
+
+.dalrun_hc {
   .store_main_button {
       display: inline-block;
       outline: 0;
@@ -536,6 +556,14 @@
   .ptf-team-member {
     width: 100%;
   
+    .products_1 {
+      height: 210px;
+    }
+
+    .products_2 {
+      height: 300px;
+    }
+
     .ptf-team-member__avatar {
       position: relative;
   
@@ -544,7 +572,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 210px;
       overflow: hidden;
   
       .shadow-effect {
@@ -632,20 +659,20 @@
     background-color: transparent;
 
     -webkit-transition: -webkit-transform var(--ptf-transition-duration)
-    var(--ptf-transition-easing);
-  transition: -webkit-transform var(--ptf-transition-duration)
-    var(--ptf-transition-easing);
-  transition: transform var(--ptf-transition-duration)
-    var(--ptf-transition-easing);
-  transition: transform var(--ptf-transition-duration)
-    var(--ptf-transition-easing),
-  -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
-  
-  &:hover {
-    -webkit-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    transform: translateY(-5px);
-  }
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+    
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
 
   }
   
@@ -662,6 +689,27 @@
     text-align: center;
     width: 1.5em; 
     height: 1.5em; 
+  }
+
+  button.cart_none {
+    background-color: transparent;
+
+    -webkit-transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: -webkit-transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing);
+    transition: transform var(--ptf-transition-duration)
+      var(--ptf-transition-easing),
+    -webkit-transform var(--ptf-transition-duration) var(--ptf-transition-easing);
+    
+    &:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+
   }
 
   span.cart_none {

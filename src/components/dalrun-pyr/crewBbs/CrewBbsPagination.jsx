@@ -6,7 +6,7 @@ function CrewBbsPagination({page, totalCnt, handlePagination}) {
         <div>
             <Pagination 
                 activePage={page} //현재 페이지 번호
-                itemsCountPerPage={15} //페이지당 아이템 수
+                itemsCountPerPage={10} //페이지당 아이템 수
                 totalItemsCount={totalCnt} //전체 아이템 수
                 pageRangeDisplayed={5}
                 prevPageText={"‹"}
