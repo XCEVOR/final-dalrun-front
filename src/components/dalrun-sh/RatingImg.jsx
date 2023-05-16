@@ -1,8 +1,8 @@
 import React from "react";
-import baby from "./baby.png";
-import child from "./child.png";
-import runner from "./runner.png";
-import master from "./master.png";
+import babygirl from "./babygirl.png";
+import man from "./man.png";
+import student from "./student.png";
+import taoist from "./taoist.png";
 
 
 const RatingImg = () => {
@@ -11,19 +11,19 @@ const RatingImg = () => {
 
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ margin: '20px' }}>
-        <img src={baby} style={{ width: '300px', height: '250px' }} />
+        <img src={babygirl} style={{ width: '300px', height: '250px' }} />
         <div style={{ marginTop: '10px', textAlign: 'center' }}>걸음마</div>
       </div>
       <div style={{ margin: '20px' }}>
-        <img src={child} style={{ width: '300px', height: '250px' }} />
+        <img src={student} style={{ width: '300px', height: '250px' }} />
         <div style={{ marginTop: '10px', textAlign: 'center' }}>런니니</div>
       </div>
       <div style={{ margin: '20px' }}>
-        <img src={runner} style={{ width: '300px', height: '250px' }} />
+        <img src={man} style={{ width: '300px', height: '250px' }} />
         <div style={{ marginTop: '10px', textAlign: 'center' }}>러너</div>
       </div>
       <div style={{ margin: '20px' }}>
-        <img src={master} style={{ width: '300px', height: '250px' }} />
+        <img src={taoist} style={{ width: '300px', height: '250px' }} />
         <div style={{ marginTop: '10px', textAlign: 'center' }}>마라토너</div>
       </div>
   </div>

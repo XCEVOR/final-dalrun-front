@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { GiUpgrade } from "react-icons/gi";
 
-function MyCrew() {
+function MyCrew(props) {
 
   const history = useNavigate();
 
@@ -41,11 +41,13 @@ function MyCrew() {
   const [crewName, setcrewName] = useState("");
   const [crewSetUp, setcrewSetUp] = useState("");
   const [crewImg, setcrewImg] = useState("");
+  const [crewSeq, setcrewSeq] = useState("");
 
   const setInput = (mycrewinfo) => {
     setcrewName(mycrewinfo.crewName);
     setcrewSetUp(mycrewinfo.crewSetUp);
     setcrewImg(mycrewinfo.crewImg);
+    setcrewSeq(mycrewinfo.crewSeq);
   }
 
   useEffect(() => {
@@ -53,13 +55,7 @@ function MyCrew() {
 }, [mycrewinfo]);
 
   const UpdateCrewinform = () => {
-    // const inputElement = document.getElementById("imageInput");
-    // inputElement.click();
 
-    // if(crewList.crewAuth == 1 ){
-    //   alert("수정");
-    //   crewUpdate();
-    // }else{
       alert("수정?");
       crewUpdate();
 //  }
@@ -73,8 +69,6 @@ function MyCrew() {
       let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
       getMyCrewinfo(crewSeq);
       mycrewMemberList(crewSeq);
-      // getcrewPoint(crewSeq);
-
 
     }
   }
@@ -89,8 +83,6 @@ function MyCrew() {
       'crewName':mycrewinfo.crewName
     } })
       .then(function (resp) {
-        // localStorage.removeItem('login');
-        // alert("다시 로그인해주세요..");
       }).catch(function (err) {
 
       })
@@ -99,20 +91,19 @@ function MyCrew() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log("123");
     let formData = new FormData();
     formData.append("crewName", crewName);
     formData.append("crewSetUp", crewSetUp);
     formData.append("crewImg", crewImg);
-
+    formData.append("crewSeq", crewSeq);
 
     axios.post('http://localhost:3000/my_crewUpdate', formData)
         .then((resp) => {
             // console.log(resp.mycrewinfo);
             if(resp.mycrewinfo === "YES") {
-                alert("수정완료");
-            } else {
                 alert("수정실패");
+            } else {
+                alert("수정완료");
             }
         })
         .catch((err) => {
@@ -120,14 +111,15 @@ function MyCrew() {
         });
 }
 
-  // 나의 크루 정보 가져오기
-  function getMyCrewinfo(crewSeq) {
-    axios.get("http://localhost:3000/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
+  // // 나의 크루 정보 가져오기
+  function getMyCrewinfo(crewSeq) { 
+    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
       .then(function (resp) {
         setMycrewinfo(resp.data);
-
+        console.log(resp.data);
+        // props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
-
+        
       })
   };
 
@@ -164,19 +156,8 @@ function MyCrew() {
       })
   }
 
-  // function getcrewPoint(crewSeq) {
-  //   axios.get("http://localhost:3000/getcrewPoint", { params: { 'crewSeq': crewSeq } })
-  //     .then(function (resp) {
-  //       setCrewPoint(resp.data);
-
-  //     }).catch(function (err) {
-
-  //     })
-  // }
-
   function crewUpgrade() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
-    let score=0;
 
     if (pointPercent >= 100) {
       axios.get("http://localhost:3000/crewUpgrade", { params: { 'crewSeq': crewSeq,'score': sendScore} })
@@ -215,8 +196,6 @@ function MyCrew() {
 
   useEffect(() => {
 
-    //localStorage.removeItem('login');
-
     loading();
 
   },[]);
@@ -252,20 +231,24 @@ function MyCrew() {
 
   return (
     <div className="members container">
+            <br /><br /><br /><br /><br /><br />
       <h4 className="title">내 크루</h4>
       <br />
+      <div className="inform outline" />
+      <br /><br /><br />
       {login && mycrewinfo.length != 0 &&
         <div id="crewinform">
           <div className="container-xxl">
             <div className="row">
               <div className="col-6" >
                 <div className="row-4" >
-                  {/* 서버에서 이미지를 가져올 수 있게 폴더 명만 바꾸면 될 것 같습니다. */}
-                  
-                  {/* <img src={`http://localhost:3000/dalrun-jy/competition/${mycrewinfo.crewImg}`} style={{ margin: "20px" }} /> */}
-                  <img src={`http://localhost:3000/dalrun-jy/competition/marathon_1.jpg`} style={{ margin: "10px" }} />
 
-                  {/* 크루 조장일 때만 수정 가능하게 조건문 걸었습니다. 수정기능 완료 하시면 주석처리 풀어주시면 될 것 같습니다.*/}
+                  <img      
+                  src={'http://localhost:3000/dalrun-yr/crewImg/'+mycrewinfo.crewImg.split('/')[0]}
+                style={{borderRadius:'30%'}}
+                  >
+                  </img>
+
                 </div>
                 <div className="row-4" style={{ marginLeft: "20px" }}>
                   <div style={{ backgroundColor: 'red', width: '60%', height: '10px', display: 'inline-block' ,marginLeft:'5px'}}>
@@ -273,7 +256,7 @@ function MyCrew() {
                     </div>
                   
                   </div>
-                  <p style={{fontSize:'2px', display:'inline-block' }}> {pointPercent}/100%</p>
+                  <p style={{fontSize:'2px', display:'inline-block' }}>   {pointPercent}/100%  </p>
                  
                   <a
                     className="ptf-social-icon ptf-social-icon--style-3"
@@ -285,58 +268,62 @@ function MyCrew() {
                     <GiUpgrade />
                   </a>
                 </div>
-                {/* {login.memId == mycrewinfo.memId &&   */}
+                {login.memId == mycrewinfo.memId &&  
                 <button onClick={handleImageChange}>이미지 선택</button>
-                {/* } */}
+                } 
 
-
+                <br />
 
               </div>
               <div className="col-5">
                 <form name="crew_frm" onSubmit={onSubmit} encType="multipart/form-data">
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px" }}>크루명</p>
-                    {/* {login.memId === mycrewinfo.memId &&   */}
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>크루명</p>
+                     {login.memId === mycrewinfo.memId &&   
 
                     <input type="text" name="crewName" Value={mycrewinfo.crewName}
                     onChange={(e) => setcrewName(e.target.value)} />
-                    {/* ||
+                     ||
                  <p>{mycrewinfo.crewName}</p> 
-                } */}
+                } 
 
                   </div>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px" }}>레벨</p>
-                    <p>{mycrewinfo.crewLevel}</p>
-                  </div>
-                  
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px" }}>리더</p>
-                    <p>{mycrewinfo.memId}</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>레벨</p>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.crewLevel}</p>
                   </div>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px" }}>인원</p>
-                    <p>50/{mycrewinfo.crewMemberCnt}</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>크루 포인트</p>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.crewTotalScore}</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>크루 보유 Ground</p>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.groundCount}</p>                    
+                  </div>                  
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>리더</p>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.memId}</p>
                   </div>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px" }}>인삿말</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>인원</p>
+                    <p style={{ margin: "20px", minWidth: "80px" }}>50/{mycrewinfo.crewMemberCnt}</p>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>인삿말</p>
 
-                    {/* {login.memId === mycrewinfo.memId &&   */}
+                     {login.memId === mycrewinfo.memId &&   
                     <input type="text" name="crewSetUp" Value={mycrewinfo.crewSetUp} 
-                    onChange={(e) => setcrewName(e.target.value)} />
+                    onChange={(e) => setcrewSetUp(e.target.value)} />
 
-                    {/* ||
+                     ||
 
                  <p>{mycrewinfo.crewSetUp}</p> 
-                } */}
+                } 
 
                   </div>
                   <div style={{ float: 'right' }}>
-                    {/* {login.memId === mycrewinfo.memId &&   */}
+                    {login.memId === mycrewinfo.memId &&  
 
-                    <input type="submit" value="수정" />
-                    <button onClick={UpdateCrewinform}>수정</button>
-                    {/* } */}
+                    <input type="submit" value="수정" />                    
+                   } 
 
 
                   </div>
@@ -349,18 +336,11 @@ function MyCrew() {
 
 
           </div>
-
+          <br /><br />
           <div className="info_con">
-            <Table striped bordered hover>
+            <Table responsive hover>
               <thead>
-                <tr>
-                <th>
-                    <input 
-                      type="checkbox" 
-                      // onChange={(e) => handleAllCheck(e.target.checked)} 
-                      // checked={checkedList.length === crewList.length ? true : false}
-                      />
-                  </th>                 
+                <tr>              
                   <th>번호</th>
                   <th>이름</th>
                   <th>아이디</th>
@@ -373,28 +353,20 @@ function MyCrew() {
               <tbody>
                 {
                   crewList.map((crew, i) => {
+                    const regdate = new Date(crew.regdate);
+                    const formattedDate = regdate.toLocaleDateString('ko-KR');
+
                     return (
                       <tr key={i}>
-                        <th>
-                          <input 
-                            type="checkbox" 
-                            // onChange={(e) => handleSingleCheck(e.target.checked, crew.memId)} 
-                            // checked={checkedList.includes(crew.memId) ? true : false}
-                            />
-                        </th>
                         <td>{i + 1}</td>
                         <td>{crew.memberName}</td>
                         <td>{crew.memId}</td>
-                        {/* <td>
-                          {crew.memberName === mycrewinfo.memId && "리더" || "팀원"}
-
-                        </td> */}
                         <td>
                             {crew.memId === mycrewinfo.memId ? "리더" : "팀원"} 
                         </td>
                         <td>{crew.grade}</td>
                         <td>{crew.point}</td>
-                        <td>{crew.regdate}</td>
+                        <td>{formattedDate}</td>
                       </tr>
                     );
                   })
@@ -418,6 +390,7 @@ function MyCrew() {
         </div>
 
       }
+      <br /><br />
     </div>
   )
 }

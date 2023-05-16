@@ -91,7 +91,7 @@ function WriteQnA() {
           <div className="info">
           <br />
             <div className="info_con">
-              <Table striped bordered hover>
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>번호</th>

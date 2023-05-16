@@ -36,6 +36,7 @@ const onSubmit = (e) => {
 }
   return(
     <div className="members container">
+      <br /><br /><br /><br /><br /><br />
       <h4 className="title">내 등급</h4>
       <br />
       <div className="inform outline" />
@@ -76,32 +77,35 @@ const onSubmit = (e) => {
                 style={{ "--ptf-xxl": "8.75rem", "--ptf-md": "4.375rem" }}
               ></div>
             </section>
-      <div>
-        {id}님의 등급은 '{grade}' 입니다.
-      </div>            
-      <br />
-      <div>
-        {id}님의 누적 포인트는 '{totalPoint}' 입니다.
-      </div>            
-      <br />
-      <div>
-        {id}님의 현재 포인트는 '{point}' 입니다.
-      </div>            
-      <br />      
-      <div className="inform outline" />
-      <br />            
+      <div className="store">
+        <div>
+          {id}님의 등급은 '{grade}' 입니다.
+        </div>            
+        <br />
+        <div>
+          {id}님의 누적 포인트는 '{totalPoint}' 입니다.
+        </div>            
+        <br />
+        <div>
+          {id}님의 현재 포인트는 '{point}' 입니다.
+        </div>            
+        <br />      
+        <div className="inform outline" />
+        <br />            
 
 
-      <div>
-      걸음마: 이제 막 가입한 아기러너! 누적 포인트 : 1 ~ 500, 혜택 : 상품 구매시 할인율 3%
-      <br /><br />
-      런니니: 누적 포인트 : 500 ~ 1,500, 혜택 : 상품 구매시 할인율 5%
-      <br /><br />
-      러너: 누적 포인트 : 1,500 ~ 3,000, 혜택 : 상품 구매시 할인율 8% 
-      <br /><br />
-      마라토너: 누적 포인트 : 10,000~   , 혜택 : 상품 구매시 할인율 10%, 무료 배송
-      <br /><br />
+        <div>
+        걸음마: 이제 막 가입한 아기러너! 누적 포인트 : 1 ~ 500, 혜택 : 상품 구매시 할인율 3%
+        <br /><br />
+        런니니: 누적 포인트 : 500 ~ 1,500, 혜택 : 상품 구매시 할인율 5%
+        <br /><br />
+        러너: 누적 포인트 : 1,500 ~ 3,000, 혜택 : 상품 구매시 할인율 8% 
+        <br /><br />
+        마라토너: 누적 포인트 : 10,000~   , 혜택 : 상품 구매시 할인율 10%, 무료 배송
+        <br /><br />
 
+        </div>
+        <br /><br />
       </div>
     </div>
     )
