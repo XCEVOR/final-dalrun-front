@@ -50,8 +50,6 @@ const StorePaymentConfirm = () => {
                         style={{ "--ptf-xxl": "3rem", "--ptf-md": "2.5rem" }}
                       ></div>
 
-                      <Social />
-                      {/* <!--Social Icon--> */}
                     </div>
                   </div>
                 </div>
@@ -70,12 +68,9 @@ const StorePaymentConfirm = () => {
             <section>
               <div className="container-xxl">
                 <div className="row">
-                  <div className="col-lg-7">
 
                     <StorePaymentSuccess />
                     
-                  </div>
-                  {/* End .col */}
 
                 </div>
               </div>

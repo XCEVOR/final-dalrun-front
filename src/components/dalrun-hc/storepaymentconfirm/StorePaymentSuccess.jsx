@@ -43,121 +43,52 @@ function StorePaymentConfirm() {
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div>
+      <div className="store_payment_success_container">
         <section>
-          <h2>주문이 정상적으로 완료되었습니다.</h2>
+          <h2 className="store_payment_success_top_title">주문이 정상적으로 완료되었습니다.</h2>
+          <div className="store_payment_success_container">
 
+            <div>
+              <div className="ptf-animated-block" data-aos="fade">
+                {/* <!--FAQ--> */}
+                <div className="">
 
-          <div className="container-xxl">
-
-
-
-          <div>
-            <div className="ptf-animated-block" data-aos="fade">
-              {/* <!--FAQ--> */}
-              <div className="ptf-faq">
-
-
-
-
-                <div className="ptf-faq__content">
-                     <div className="ptf-faq__item">
-                      <div className="ptf-faq__question">
-                        <h6>주문번호</h6>
+                  <div className="">
+                      <div className="store_payment_success_subtitle">
+                        <div className="store_payment_success_subtitle_1">
+                          <h6>주문번호</h6>
+                        </div>
+                        <div className="store_payment_success_subtitle_2">
+                          <p>{orderInfo.orderNumber}</p>
+                        </div>
                       </div>
-                      <div className="ptf-faq__answer">
-                        <p>{orderInfo.orderNumber}</p>
+      
+                      <div className="store_payment_success_shipping">
+                        <div className="store_payment_success_shipping_1">
+                          <h6>배송정보</h6>
+                        </div>
+                        <div className="store_payment_success_shipping_2">
+                          <p>{orderInfo.orderName}</p>
+                          <p>{orderInfo.orderPhone}</p>
+                          <p>{orderInfo.orderAddress}</p>
+                        </div>
                       </div>
-                    </div>
-
-                  
-                    <div className="ptf-faq__item">
-                      <div className="ptf-faq__question">
-                        <h6>배송정보</h6>
-                      </div>
-                      <div className="ptf-faq__answer">
-                        <p>{orderInfo.orderNumber}</p>
-                        <p>{orderInfo.orderPhone}</p>
-                        <p>{orderInfo.orderAddress}</p>
-                      </div>
-                    </div>
-
-
-              
-                  {/* End .ptf-faq__item */}
-                </div>
-              </div>
-            </div>
-            <div
-              className="ptf-spacer"
-              style={{ "--ptf-xxl": "5.625rem" }}
-            ></div>
-          </div>
-   
-   
-
-        </div>
-
-
-
-          {/* <div className="shopping-cart"> */}
-          <div>
-            {/* <!-- Title --> */}
-            <div className="title">Shopping Bag</div>
-
-
-
-            {/* <!-- DB 데이터 --> */}
-          
-
-              <div >
-
-                <div >
-                <table>
-                  <tbody>
-                  <tr>
-                    <td>&nbsp;주문번호</td>
-                    <td>{orderInfo.orderNumber}</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;배송정보</td>
-                    <td>{orderInfo.orderPhone}&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>{orderInfo.orderAddress}&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;결제금액</td>
-                    <td>43545</td>
-                  </tr>
-                  </tbody>
-                </table>
-                  <div>
-                  <h5>주문번호</h5><div><h5> {orderInfo.orderNumber}</h5></div>
+  
+                    {/* End .ptf-faq__item */}
                   </div>
-                  <div></div>
-                  <p>{orderInfo.orderAddress}</p>
-                  <p>{orderInfo.orderDate}</p>
-                  <p>{orderInfo.orderName}</p>
-                  <p>{orderInfo.orderPhone}</p>
-                  <h6>결제금액: {orderInfo.orderTotalprice}</h6>
                 </div>
               </div>
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "5.625rem" }}
+              ></div>
+            </div>
 
-         
           </div>
+
         </section>
 
-        <section><div><Link to="/store-main"><button>스토어 메인</button></Link></div></section>
+        <section><div><Link to="/store-main"><button className="store_payment_success_to_main">스토어 메인</button></Link></div></section>
 
       </div>
     </>
