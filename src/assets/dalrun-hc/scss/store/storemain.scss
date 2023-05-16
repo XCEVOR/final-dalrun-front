@@ -470,19 +470,6 @@
 
 
 .dalrun_hc {
-    
-    // .store_four_rectangles_effect {
-    //   .ptf-team-member__avatar img {
-    //     filter: grayscale(100%);
-    //   }
-  
-    //   &:hover {
-    //     .ptf-team-member__avatar img {
-    //       filter: grayscale(0);
-    //     }
-    //   }
-    // }
-
   .store_item_hover_effect {
     -webkit-transition: -webkit-transform var(--ptf-transition-duration)
       var(--ptf-transition-easing);
@@ -499,6 +486,20 @@
       -ms-transform: translateY(-5px);
       transform: translateY(-5px);
     }
+  }
+
+  .store_product_name_div {
+    height: 70px;
+  }
+  .store_product_name {
+    margin-bottom: auto;
+    font-size: 22px;
+    color: #333333;
+  }
+  .store_product_price {
+    margin: auto;
+    font-size: 22px;
+    color: #555555;
   }
 
 }
