@@ -20,6 +20,7 @@ import PortfolioThree from "../../../../components/dalrun-hc/store/PortfolioThre
 import StoreFourRectangles from "../../../../components/dalrun-hc/store/StoreFourRectangles";
 import StoreThreeRectangles from "../../../../components/dalrun-hc/store/StoreThreeRectangles";
 
+
 const StoreMain = () => {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
