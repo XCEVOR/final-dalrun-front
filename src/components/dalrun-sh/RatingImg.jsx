@@ -2,7 +2,7 @@ import React from "react";
 import babygirl from "./babygirl.png";
 import man from "./man.png";
 import student from "./student.png";
-import taoist from "./taoist.png";
+import king from "./king.png";
 
 
 const RatingImg = () => {
@@ -23,7 +23,7 @@ const RatingImg = () => {
         <div style={{ marginTop: '10px', textAlign: 'center' }}>러너</div>
       </div>
       <div style={{ margin: '20px' }}>
-        <img src={taoist} style={{ width: '300px', height: '250px' }} />
+        <img src={king} style={{ width: '300px', height: '250px' }} />
         <div style={{ marginTop: '10px', textAlign: 'center' }}>마라토너</div>
       </div>
   </div>
