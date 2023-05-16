@@ -16,7 +16,7 @@ const CrewBbsBlogDetails = () => {
   let history = useNavigate();
 
   function gotoCrewMember() {
-    history('/crewMember')
+    history('/crewMember', { state:{'crewSeq':crewSeq} });
   }
   
     let crewBbsParams = useParams();
