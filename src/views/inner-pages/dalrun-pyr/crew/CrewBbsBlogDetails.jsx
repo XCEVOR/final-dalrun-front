@@ -15,8 +15,6 @@ import { HeartOutlined, HeartFilled } from '@ant-design/icons';	//icons 모듈�
 const CrewBbsBlogDetails = () => {
   let history = useNavigate();
 
-
-
   let crewBbsParams = useParams();
   console.log("crewBbsParams : ", crewBbsParams);
   console.log("crewBbsParams.crewSeq : ", crewBbsParams.crewSeq);

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {Link, useNavigate, useParams } from "react-router-dom";
 import '../css/CrewMemberBody.css';
 import axios from 'axios';
 import CrewMemberWait from "./CrewMemberWait";
 import { Table } from "react-bootstrap";
 import '../css/CrewBbsBlogDetils.css';
+
 const portfolioMenu = [
   "크루멤버 소개",
   "크루멤버 대기",
@@ -66,9 +67,19 @@ function CrewMemberBody() {
   
   const history = useNavigate();
   const [dataList, setDataList] = useState([]);
+  const location = useLocation();
+  const crewSeq = location.state.crewSeq;
+  const [leader, setLeader] = useState("");
 
- 
+  const login = JSON.parse(localStorage.getItem('login'));
 
+
+
+  useEffect(() => {
+    mycrewMemberList(crewSeq);
+    getLeader(crewSeq);
+  }, []);
+  
   return (
     
     <div>
@@ -114,6 +125,7 @@ function CrewMemberBody() {
                 }
               </tbody>
             </Table>
+
     </div>
   );
 }
