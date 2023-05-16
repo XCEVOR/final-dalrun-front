@@ -1,12 +1,10 @@
-import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import ReactTooltip from "react-tooltip";
-import { Link, useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {Link, useNavigate, useParams } from "react-router-dom";
 import '../css/CrewMemberBody.css';
-import { useState } from "react";
+import axios from 'axios';
 import CrewMemberWait from "./CrewMemberWait";
-import { useEffect } from "react";
-import axios from "axios";
+import { Table } from "react-bootstrap";
+import '../css/CrewBbsBlogDetils.css';
 
 const portfolioMenu = [
   "크루멤버 소개",
@@ -14,6 +12,59 @@ const portfolioMenu = [
 ];
 
 function CrewMemberBody() {
+
+    const params = useParams();
+    // 로그인 정보
+    const [login, setLogin] = useState([]);
+    // 크루 정보
+    const [mycrewinfo, setMycrewinfo] = useState([]);
+  
+    // 나의 멤버 크루 리스트
+    const [crewList, setCrewList] = useState([]);
+  
+    // 나의 크루 정보 가져오기
+    function getMyCrewinfo(crewSeq) {
+    axios.get("http://localhost:3000/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
+      .then(function (resp) {
+        setMycrewinfo(resp.data);
+  
+      }).catch(function (err) {
+  
+      })
+  };
+  
+  // 나의 크루 정보 가져오기
+  function mycrewMemberList(crewSeq) {
+    axios.get("http://localhost:3000/mycrewMemberList", { params: { 'crewSeq': crewSeq } })
+      .then(function (resp) {
+        setCrewList(resp.data);
+        
+      }).catch(function (err) {
+  
+      })
+  };
+  function loading() {
+    const logindata = JSON.parse(localStorage.getItem('login'));
+    if (logindata) {
+      console.log(logindata.memId, "님이 접속하였습니다..")
+      setLogin(logindata);
+      let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
+      getMyCrewinfo(crewSeq);
+      mycrewMemberList(crewSeq);
+      // getcrewPoint(crewSeq);
+    }
+  }
+  
+  useEffect(() => {
+  
+    //localStorage.removeItem('login');
+  
+    loading();
+  
+  },[]);
+  
+  
+  
   const history = useNavigate();
   const [dataList, setDataList] = useState([]);
   const location = useLocation();
@@ -22,21 +73,7 @@ function CrewMemberBody() {
 
   const login = JSON.parse(localStorage.getItem('login'));
 
-  function gotoMemberWait(){
-    history("crewMemberWait", { state:{'crewSeq':crewSeq} });
-  }
 
-  const mycrewMemberList = (seq) => {
-    axios.get("http://localhost:3000/mycrewMemberList", { params:{'crewSeq': seq} })
-    .then((resp) => setDataList(resp.data))
-    .catch((err) => alert(err));
-  }
-
-  const getLeader = (seq) => {
-    axios.get("http://localhost:3000/getLeader", { params:{'crewSeq': seq} })
-      .then((resp) => setLeader(resp.data))
-      .catch((err) => alert(err));
-  }
 
   useEffect(() => {
     mycrewMemberList(crewSeq);
@@ -45,33 +82,50 @@ function CrewMemberBody() {
   
   return (
     
-    <div className="crewmem_introduce">
-      <button>크루멤버 소개</button>
-      {login.memId === leader ? <button onClick={gotoMemberWait}>크루멤버 대기</button> : ''}
-      <table>
-        <thead>
-          <tr>
-            <th style={{width:'300px'}}>프로필사진</th>
-            <th>아이디</th>
-            <th>등급</th>
-            <th>권한</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            dataList.map((crewmem, i) => {
-              return(
-                <tr key={i}>
-                  <td><img src={`http://localhost:3000/dalrun-yr/profiles/${crewmem.profile}`} /></td>
-                  <td>{crewmem.memId}</td>
-                  <td>{crewmem.grade}</td>
-                  <td>{crewmem.memId === leader ? "리더":""}</td>
+    <div>
+      <Table striped bordered hover > 
+              <thead >
+                <tr style={{textAlign:'center'}}>          
+                  <th>번호</th>
+                  <th>프로필</th>
+                  <th>이름</th>
+                  <th>아이디</th>
+                  <th>직책</th>
+                  <th>등급</th>
+                  <th>포인트</th>
+                  <th>가입일</th>
                 </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+              </thead>
+              <tbody className="crewtbody">
+                {
+                  crewList.map((crew, i) => {
+                    return (
+                      <tr key={i}>
+
+                        <td>{i + 1}</td>
+                        <td style={{
+                          backgroundImage:`url(http://localhost:3000/dalrun-yr/profiles/`+crew.profile,
+                          backgroundSize:'cover',backgroundPosition:'center',height:'80px'
+
+                          }}>
+                          
+                          
+                        </td>
+                        <td> {crew.memberName}</td>
+                        <td>{crew.memId}</td>
+                        <td>
+                            {crew.memId === mycrewinfo.memId ? "리더" : "팀원"} 
+                        </td>
+                        <td>{crew.grade}</td>
+                        <td>{crew.point}</td>
+                        <td>{crew.regdate.split("T")[0]}</td>
+                      </tr>
+                    );
+                  })
+                }
+              </tbody>
+            </Table>
+
     </div>
   );
 }
