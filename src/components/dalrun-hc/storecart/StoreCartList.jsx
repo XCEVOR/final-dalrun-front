@@ -300,12 +300,14 @@ function StoreCartList() {
       <section>
         <div className="ptf-single-post__wrapper">
           <div className="container-xxl">
-            <div className="row">
-              <div className="col-xl-8">
+            <div className="store_cart_checkout_div">
+              <div className="store_cart_checkout_div2">
                 <h1>CHECK OUT</h1>
                 <h3>₩ {totalPaymentAmount}</h3>
-                <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button>
-                <Link to="/store-payment"><button>{totalPaymentAmount}결제 페이지 이동</button></Link>
+                {/* <button onClick={calcTotalPaymentAmount}>{totalPaymentAmount}결제금액확인test</button> */}
+                
+                  <Link to="/store-payment"><button >{totalPaymentAmount}결제 페이지 이동</button></Link>
+                
               </div>
             </div>
           </div>

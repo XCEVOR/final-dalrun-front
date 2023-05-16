@@ -427,4 +427,17 @@
       transition-duration: 0.1s;
     }
   }
+
+  .store_cart_checkout_div {
+    position: relative;
+  }
+
+  .store_cart_checkout_div2 {
+    position: absolute;
+    right: 200px;
+    margin-left: auto;
+    text-align: right;
+    width: 500px;
+  }
+
 }
