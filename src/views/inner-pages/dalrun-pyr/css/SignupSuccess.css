@@ -10,10 +10,7 @@
     
     }
     
-    ::-webkit-scrollbar {
-        display: none;
-      }
-    
+  
     .bg{
         background: rgb(240,240,240);
         min-height:100vh;

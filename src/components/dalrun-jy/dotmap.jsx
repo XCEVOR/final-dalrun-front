@@ -226,13 +226,13 @@ const Dotmap = (props) => {
             
             // 크루 땅일 시
             if(sale==1){
-             
-              document.getElementById('myprofile').style.display='block';
+    
               document.getElementById('myprofile').src = "http://localhost:3000/dalrun-yr/crewImg/"+ (myFile.split('/')[0]);
               document.getElementById('mycrewinfo_name').textContent=crewName
-            }else{
+            }else if(sale==2){
+              
               // 개인 땅일 시
-              document.getElementById('myprofile').style.display='none';
+              document.getElementById('myprofile').src="http://localhost:3000/dalrun-yr/profiles/"+ myFile;
               document.getElementById('mycrewinfo_name').textContent=memId
 
 

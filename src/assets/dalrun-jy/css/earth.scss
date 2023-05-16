@@ -363,10 +363,3 @@ rect:hover {
 .card:hover .card__image img {
     opacity: 0.8;
 }
-
-.card:hover .card__profile img {
-    -webkit-filter: grayscale(50%) contrast(80%) brightness(1.6);
-    filter: grayscale(50%) contrast(80%) brightness(1.6);
-    mix-blend-mode: normal;
-}
-
