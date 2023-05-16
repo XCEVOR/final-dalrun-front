@@ -1,5 +1,5 @@
 ﻿import React, { useState } from "react";
-import DiaryMap from '../../../components/dalrun-jw/DiaryMap';
+import DiaryMap from '../../../components/dalrun-jw/diary/DiaryMap';
 import DiarySidebar from '../../../components/dalrun-jw/diary/DiarySidebar';
 import DiaryList from '../../../components/dalrun-jw/diary/DiaryList';
 // import {DiaryGPXDataProvider} from '../../../components/dalrun-jw/diary/DiaryGPXData';

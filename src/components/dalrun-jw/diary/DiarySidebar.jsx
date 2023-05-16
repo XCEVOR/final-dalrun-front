@@ -64,10 +64,12 @@ const DiarySidebar = () => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to="/course">
-              <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
-              <span>코스</span>
-            </Link>
+            <div style={{justifyItems:'center'}}>
+              <Link to="/course">
+                <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
+                <span>코스</span>
+              </Link>
+            </div>
           </li>
         </ul>
         <div className='dropup-container'>

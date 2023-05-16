@@ -7,7 +7,7 @@ function DiaryMap({ diaries, selectedDiary }){
   console.log('네이버맵-리스트에서 선택된 다이어리: ', selectedDiary);
   const navermaps = useNavermaps();
 
-  const [center, setCenter] = useState({ lat: 37.3595704, lng: 127.105399 })
+  const [center, setCenter] = useState({ lat: 37.3595704, lng: 127.105399 });
   const [zoom, setZoom] = useState(7);
 
   const [gpxData, setGpxData] = useState({});
@@ -143,16 +143,16 @@ function MySetCenter({ selectedDiary, path }) {
       const selectedPath = path[selectedDiary.diarySeq];
       if (selectedPath && selectedPath.length > 0){
         const newCenter = selectedPath[0];
-        // nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
-        const naverLatLng = new navermaps.LatLng(newCenter.lat, newCenter.lng);
-        nMap.panTo(naverLatLng);
+        nMap.setCenter(new navermaps.LatLng(newCenter.lat, newCenter.lng));
+        // const naverLatLng = new navermaps.LatLng(newCenter.lat, newCenter.lng);
+        // nMap.panTo(naverLatLng);
         nMap.setZoom(13);
       }
     } else {
       const initCenter = { lat: 37.3595704, lng: 127.105399 };
-      // nMap.setCenter(new navermaps.LatLng(initCenter.lat, initCenter.lng));
-      const naverLatLng = new navermaps.LatLng(initCenter.lat, initCenter.lng);
-      nMap.panTo(naverLatLng);
+      nMap.setCenter(new navermaps.LatLng(initCenter.lat, initCenter.lng));
+      // const naverLatLng = new navermaps.LatLng(initCenter.lat, initCenter.lng);
+      // nMap.panTo(naverLatLng);
       nMap.setZoom(7);
     }
   }, [selectedDiary, path]);
