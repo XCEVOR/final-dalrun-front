@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, useNavigate, useParams } from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import '../css/CrewMemberBody.css';
 import axios from 'axios';
 import CrewMemberWait from "./CrewMemberWait";
@@ -71,13 +71,13 @@ function CrewMemberBody() {
   const crewSeq = location.state.crewSeq;
   const [leader, setLeader] = useState("");
 
-  const login = JSON.parse(localStorage.getItem('login'));
+  login = JSON.parse(localStorage.getItem('login'));
 
 
 
   useEffect(() => {
     mycrewMemberList(crewSeq);
-    getLeader(crewSeq);
+    // getLeader(crewSeq);
   }, []);
   
   return (
