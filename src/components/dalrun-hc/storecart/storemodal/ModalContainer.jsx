@@ -208,69 +208,81 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
         <BodyWrapper />
         <ModalContent ref={modalRef}>
           <CloseButton onClick={onClose}>×</CloseButton>
-          <h2>Modal Title</h2>
+          {/* <h2>Modal Title</h2>
           <p>Modal Content</p>
           <p>{modal_cartid}</p>
           <p>{modal_productid}</p>
           <p>{modal_productcode}</p>
           <p>{modal_productcolor}</p>
           <p>{modal_productsize}</p>
-          <p>{modal_quantity}</p>
-          <div>
+          <p>{modal_quantity}</p> */}
+            
+            <div className="cart_modal_container">
+              {/* <Toast
+                toastlist={addCartModal}
+                position="top-right"
+                setAddCartModal={setAddCartModal}
+              /> */}
+              
+              {/* <div className="product_id">
+                <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
+              </div> */}
+              {/* <div className="product_code">
+                <h1 className="product_code">product_code 서버: {productDetails[0].productCode}</h1>
+              </div> */}
+              {/* <div className="product_category">
+                <h1 className="product_category">{productDetails[0].productCategory}</h1>
+              </div> */}
 
-        {/* <Toast
-          toastlist={addCartModal}
-          position="top-right"
-          setAddCartModal={setAddCartModal}
-        /> */}
-        
-        <div className="product_id">
-          <h1 className="product_id">product_id 서버: {productDetails[0].productId}</h1>
-        </div>
-        <div className="product_code">
-          <h1 className="product_code">product_code 서버: {productDetails[0].productCode}</h1>
-        </div>
-        <div className="product_category">
-          <h1 className="product_category">{productDetails[0].productCategory}</h1>
-        </div>
-        <div className="product_name">
-          <h1 className="product_name">{productDetails[0].productName}</h1>
-        </div>
-        <div className="product_brand">
-          <h1 className="product_brand">{productDetails[0].productBrand}</h1>
-        </div>
-        <div className="product_price">
-          <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
-        </div>
-        <div className="product_color">
-          {itemColorList.map((icolor, index) => (
-            <button className="product_color" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
-          ))}
-        </div>
-        <div className="product_size">
-          {itemSizeList.map((isize, index) => (
-            <button className="product_size" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
-          ))}
-        </div>
-        <div className="product_quantity">
-          <button onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
-          <p>{selectedQuantity}</p>
-          <button onClick={selectQuantityMinusBtn}>-</button>
-        </div>
-        <div>{selectedProdId}</div>
+              
+                <div className="cart_modal_title">
+                  <h1 className="cart_modal_title">{productDetails[0].productName}</h1>
+                </div>
+                <div className="cart_modal_text_container">
+                  {/* <div className="product_brand">
+                    <h1 className="product_brand">{productDetails[0].productBrand}</h1>
+                  </div> */}
+                  {/* <div className="product_price">
+                    <h1 className="product_price">₩ {productDetails[0].productPrice}</h1>
+                  </div> */}
+                  <div>
+                  <div className="product_color">
+                    {itemColorList.map((icolor, index) => (
+                      <button className="cart_modal_button" key={index} value={icolor} onClick={selectColorBtn}>{icolor}</button>
+                    ))}
+                  </div>
+                  <div className="product_size">
+                    {itemSizeList.map((isize, index) => (
+                      <button className="cart_modal_button" key={index} value={isize} onClick={selectSizeBtn}>{isize}</button>
+                    ))}
+                  </div>
+                  <div className="product_quantity">
+                    <button className="cart_modal_button" onClick={(e) => setSelectedQuantity(prevQuantity => prevQuantity + 1)}>+</button>
+                    <p className="cart_modal_quantity_num">{selectedQuantity}</p>
+                    <button className="cart_modal_button" onClick={selectQuantityMinusBtn}>-</button>
+                  </div>
+                  {/* <div>{selectedProdId}</div> */}
+                  </div>
+                  
+                  <div className="image" style={{ width: 220 }}>
+                    <img
+                      src={`http://localhost:3000/dalrun-hc/store/products/${productDetails[0].productCode}/${productDetails[0].productCode}-01.png`}
+                      alt=""
+                    />
+                  </div>
+
+                </div>
 
 
+              <div
+                className="ptf-btn ptf-btn--primary ptf-btn--block"
+                onClick={updateCartItem}
+              >
+                주문 수정
+                  {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
+              </div>
 
-
-        <div
-          className="ptf-btn ptf-btn--primary ptf-btn--block"
-          onClick={updateCartItem}
-        >
-          주문 수정
-            {/* <p>{userOrderData.productId}//ID: {selectedProdId}//Qty: {userOrderData.orderProductQuantity}</p> */}
-        </div>
-
-      </div>
+            </div>
         </ModalContent>
       </ModalWrapper>
     </div>
