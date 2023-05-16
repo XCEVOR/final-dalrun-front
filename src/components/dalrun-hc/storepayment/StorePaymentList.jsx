@@ -267,7 +267,7 @@ function StoreCartList(props) {
           setTotalPaymentAmount(tempSum)
           return (
             <div key={prodInfo.productId}>
-              <div className="item">
+              <div className="store_payment_item_container">
 
                 {/*                 
                 <div className="buttons">
@@ -279,57 +279,31 @@ function StoreCartList(props) {
                 </div> 
                 */}
 
-                <div className="image" style={{ width: 160 }}>
+                <div className="store_payment_item_description_image" style={{ width: 260 }}>
                   <img
                     src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
                     alt=""
                   />
                 </div>
 
-                <div className="description">
-                  <span>{prodInfo.productId}</span>
-                  <span>{prodInfo.productName}</span>
-                  <span>{prodInfo.productSize}</span>
-                  <span>{prodInfo.productColor}</span>
+                <div className="store_payment_item_description">
+                  {/* <span>{prodInfo.productId}</span> */}
+                  <p className="store_payment_item_description_title">{prodInfo.productName}</p>
+                  <span className="store_payment_item_description_sizecolor">{prodInfo.productSize}</span>
+                  <span className="store_payment_item_description_sizecolor">{prodInfo.productColor}</span>
                 </div>
 
-                <div className="quantity">
-
-                  {/*                   
-                  <button className="plus-btn" type="button" name="button">
-                    <img
-                      src="assets/img/dalrun-hc/store/storecart/plus.svg"
-                      alt=""
-                    />
-                  </button> 
-                  */}
-
-                  <input
-                    type="text"
-                    name="name"
-                    defaultValue={matchedProduct.cartProdQuantity}
-                  />
-
-                  {/* 
-                  <button className="minus-btn" type="button" name="button">
-                    <img
-                      src="assets/img/dalrun-hc/store/storecart/minus.svg"
-                      alt=""
-                    />
-                  </button>
-                  */}
-
-                </div>
-                
-                {/*                 
                 <div>
-                  <button value={prodInfo.productId} onClick={deleteItem}>
-                    삭제: {prodInfo.productId}
-                  </button>
-                </div> 
-                */}
-
-                <div className="total-price">₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</div>
+                  <div className="store_payment_item_quantity">
+                    <p className="store_payment_item_quantity_text">
+                      {matchedProduct.cartProdQuantity}
+                    </p>
+                  </div>
+                  
+                  <div className="store_payment_item_price">
+                    <p>₩ {prodInfo.productPrice * matchedProduct.cartProdQuantity}</p>
+                  </div>
+                </div>
               </div>
 
               {/* 
@@ -369,15 +343,13 @@ function StoreCartList(props) {
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
       <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div>
+      <div className="store_payment_list_container">
         
         <section>
-          <h1>ORDER SUMMARY</h1>
+          <h5>결제 상품 리스트</h5>
 
           {/* <div className="shopping-cart"> */}
           <div>
-            {/* <!-- Title --> */}
-            <div className="title">Shopping Bag</div>
 
             <PaymentDataDisplay2 productIdList={cartList.productIdList} productInfoList={cartList.productInfoList} />
 
