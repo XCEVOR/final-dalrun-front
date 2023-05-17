@@ -23,10 +23,13 @@ const Mypage = () => {
           <Helmet>
             <title>MyPage</title>
           </Helmet>
-          <div className="ptf-site-wrapper__inner">
+          {/* <div className="ptf-site-wrapper__inner"> */}
+          <div>
              <HeadermainPage />  
 
-            <div className="main container-xxl" style={{display:"flex"}}>
+            {/* <div className="main container-xxl" style={{display:"flex"}}> */}
+            <div></div>
+            <div style={{display:"flex"}}> 
               <MypageMenu />
               <Routes>
                 <Route path="myinform/*" element={<MyInform />} />
@@ -41,9 +44,7 @@ const Mypage = () => {
     
           <footer className="ptf-footer ptf-footer--style-1">
             <div className="container-xxl">
-                <div className="ptf-footer__top">
-                    
-                </div>
+
                 <div className="ptf-footer__bottom">
                     <CopyRight />
                 </div>

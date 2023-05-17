@@ -31,7 +31,7 @@ function Inform() {
         setEmail(login.email);
         setPhone(login.phone);
         setBirth(login.birth);
-        setBirth(login.profile);
+        setprofile(login.profile);
         setFootSize(login.foot);
     }else {
         alert('login을 해주세요.');
@@ -88,6 +88,7 @@ const onSubmit = (e) => {
       
           reader.onload = () => {
             setImgFile(reader.result);
+            setprofile(file.name);
           };
       
 
@@ -97,7 +98,9 @@ const onSubmit = (e) => {
     };
 
   return(
-    <div className="container">
+    
+    <div className="members container">
+        <br /><br /><br /><br /><br /><br />
         <h4 className="title">회원정보</h4>
         <br />
         <div className="inform outline" />
@@ -108,7 +111,7 @@ const onSubmit = (e) => {
         <form name="frm" onSubmit={onSubmit} encType="multipart/form">
 
             <div className="profile_img">
-                <label className="signup-profileImg-label" htmlFor="profileImg">
+                <label htmlFor="profileImg">
                 프로필 이미지
                 </label>
 
@@ -116,7 +119,9 @@ const onSubmit = (e) => {
                 <img
                 src={imgFile ? imgFile : "/images/icon/user.png"}
                 alt="프로필 이미지"
+                style={{ width: "50%" }}
                 />
+                <br /><br />
                 <input
                 ref={imgRef} // imgRef를 input 요소에 연결
                 type="file"
