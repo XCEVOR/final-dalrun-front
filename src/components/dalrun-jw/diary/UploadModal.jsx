@@ -2,15 +2,17 @@
 import ModalPortal from "../Portal";
 import ModalFrame from "../ModalFrame";
 import axios from 'axios';
-import CustomEditor from '../CustomEditor';
+import DiaryEditor from './DiaryEditor';
 
 function UploadModal({ open, close}) {
 
   // 서버에 회원 정보 같이 보내기
   const loginData = JSON.parse(localStorage.getItem("login"));
   let memId = null;
+  let crewSeq = null;
   if(loginData != null){
     memId = loginData.memId;
+    crewSeq = loginData.crewSeq;
   }
 
   // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
@@ -48,19 +50,16 @@ function UploadModal({ open, close}) {
   formData.append('content', diary.content);
   formData.append('memId', memId);
   formData.append('gpxFile', diary.file);
+  formData.append('crewSeq', crewSeq);
   
   // 서버로 전달
   axios
   .post('http://localhost:3000/gpxUpload', formData)
   .then((resp) => { // success
       console.log(resp.data);
-      // gpxData 저장소
-      const gpxDataList = resp.data;
-      // addGPXData(gpxDataList);
-      console.log('업로드 완료');
       close(); // 모달 닫기
       window.location.reload();
-      alert('업로드 완료');
+      alert('업로드 완료. 10 포인트가 적립되었습니다.');
   })
   .catch((error) => { // fail
     alert('업로드 실패');
@@ -94,7 +93,7 @@ function UploadModal({ open, close}) {
                 </label>
                 <label>
                   내용
-                  <CustomEditor handleEditorChange={handleInputChange} />
+                  <DiaryEditor handleEditorChange={handleInputChange} />
                 </label>
                 <footer>
                   <button type='submit' className="close">

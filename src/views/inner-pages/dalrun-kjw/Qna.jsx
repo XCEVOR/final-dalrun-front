@@ -1,18 +1,12 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-import HeadermainPage from "../../../components/dalrun-jy/HeadermainPage";import CopyRight from "../../../components/dalrun-jy/footer/CopyRight";
-
 import QnABody from "../../../components/dalrun-jw/qna/QnABody";
 
 const WorksListing = () => {
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
-      <Helmet>
         <title>달런 달런</title>
-      </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
-        <HeadermainPage />
         {/* End  HeaderHomeDefault */}
 
         <div className="main">
@@ -49,7 +43,6 @@ const WorksListing = () => {
                 Start Portfolio main 
                 ============================================== */}
               <div className="container-xxl">
-                <QnABody />
               </div>
               {/* <!--Spacer--> */}
               <div
@@ -84,9 +77,9 @@ const WorksListing = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-         
+          <div className="ptf-footer__top">
+          </div>
           <div className="ptf-footer__bottom">
-            <CopyRight />
           </div>
         </div>
       </footer>
