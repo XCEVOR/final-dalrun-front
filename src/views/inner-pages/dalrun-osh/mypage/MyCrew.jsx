@@ -75,7 +75,7 @@ function MyCrew(props) {
 
   function crewUpdate() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
-    axios.post("http://localhost:3000/my_crewUpdate", 
+    axios.post("/my_crewUpdate", 
     { params: { 
       'crewSeq':crewSeq, 
       'crewImg':mycrewinfo.crewImg, 
@@ -97,7 +97,7 @@ function MyCrew(props) {
     formData.append("crewImg", crewImg);
     formData.append("crewSeq", crewSeq);
 
-    axios.post('http://localhost:3000/my_crewUpdate', formData)
+    axios.post('/my_crewUpdate', formData)
         .then((resp) => {
             // console.log(resp.mycrewinfo);
             if(resp.mycrewinfo === "YES") {
@@ -113,7 +113,7 @@ function MyCrew(props) {
 
   // // 나의 크루 정보 가져오기
   function getMyCrewinfo(crewSeq) { 
-    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
+    axios.get("/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
       .then(function (resp) {
         setMycrewinfo(resp.data);
         console.log(resp.data);
@@ -126,7 +126,7 @@ function MyCrew(props) {
 
   // 나의 크루 정보 가져오기
   function mycrewMemberList(crewSeq) {
-    axios.get("http://localhost:3000/mycrewMemberList", { params: { 'crewSeq': crewSeq } })
+    axios.get("/mycrewMemberList", { params: { 'crewSeq': crewSeq } })
       .then(function (resp) {
         setCrewList(resp.data);
         
@@ -137,7 +137,7 @@ function MyCrew(props) {
 
   function crewLeave() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
-    axios.get("http://localhost:3000/crewLeave", { params: { 'memId': login.memId ,'crewSeq':crewSeq} })
+    axios.get("/crewLeave", { params: { 'memId': login.memId ,'crewSeq':crewSeq} })
       .then(function (resp) {
         localStorage.removeItem('login');
         alert("다시 로그인해주세요..");
@@ -149,7 +149,7 @@ function MyCrew(props) {
 
   function crewmemberLeave() {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
-    axios.get("http://localhost:3000/crewmemberLeave", { params: { 'memId': login.memId} })
+    axios.get("/crewmemberLeave", { params: { 'memId': login.memId} })
       .then(function (resp) {
         localStorage.removeItem('login');
       }).catch(function (err) {
@@ -161,7 +161,7 @@ function MyCrew(props) {
     let crewSeq = JSON.parse(localStorage.getItem('login')).crewSeq;
 
     if (pointPercent >= 100) {
-      axios.get("http://localhost:3000/crewUpgrade", { params: { 'crewSeq': crewSeq,'score': sendScore} })
+      axios.get("/crewUpgrade", { params: { 'crewSeq': crewSeq,'score': sendScore} })
         .then(function (resp) {
           alert("크루가 업그레이드 됐습니다.")
          
@@ -245,7 +245,7 @@ function MyCrew(props) {
                 <div className="row-4" >
 
                   <img      
-                  src={'http://localhost:3000/dalrun-yr/crewImg/'+mycrewinfo.crewImg.split('/')[0]}
+                  src={'/dalrun-yr/crewImg/'+mycrewinfo.crewImg.split('/')[0]}
                 style={{borderRadius:'30%'}}
                   >
                   </img>

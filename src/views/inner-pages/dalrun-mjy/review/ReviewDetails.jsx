@@ -18,7 +18,7 @@ const ReviewDetails = () => {
   const [reviewBbs, setReviewBbs] = useState([]);
 
   function getReviewBbs(srSeq) {
-    axios.get("http://localhost:3000/getReviewBbs", { params: { 'srSeq': srSeq } })
+    axios.get("${process.env.REACT_APP_API_URL}/getReviewBbs", { params: { 'srSeq': srSeq } })
       .then(function (resp) {
         console.log(resp.data)
         setReviewBbs(resp.data);
@@ -82,7 +82,7 @@ const ReviewDetails = () => {
                       data-aos-delay="0"
                     >
                       <img
-                        src={`http://localhost:3000/dalrun-jy/shoereview/shoe_${reviewBbs.srSeq}.jpg`}
+                        src={`${process.env.REACT_APP_API_URL}/dalrun-jy/shoereview/shoe_${reviewBbs.srSeq}.jpg`}
 
                         loading="lazy"
                         style={{ position: 'relative' }}

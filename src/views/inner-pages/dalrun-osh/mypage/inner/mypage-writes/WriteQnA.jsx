@@ -34,7 +34,7 @@ function WriteQnA() {
   const [totalCnt, setTotalCnt] = useState(0);
 
   function getqnalist(){
-      axios.get("http://localhost:3000/myqnalist", { params:{ "choice":choice, "search":search, "pageNumber":page, "memId":id } })
+      axios.get("/myqnalist", { params:{ "choice":choice, "search":search, "pageNumber":page, "memId":id } })
       .then(function(resp){
 
           console.log(resp.data.list);

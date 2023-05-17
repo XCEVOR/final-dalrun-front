@@ -162,7 +162,7 @@ function ShoereviewUpdate({data, onHide}) {
                                         :
                                         <li key={index}>
                                             <img
-                                                src={`/dalrun-hc/review/${srSeq}/${pic}`}
+                                                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${srSeq}/${pic}`}
                                                 alt={pic}
                                                 loading="lazy"
                                             />

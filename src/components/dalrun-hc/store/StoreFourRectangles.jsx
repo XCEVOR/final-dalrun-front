@@ -45,7 +45,7 @@ const StoreFourRectangles = () => {
 
 
   const getProductList = () => {
-    axios.get("${process.env.REACT_APP_API_URL}/allProductListDeduplication", {})
+    axios.get("/allProductListDeduplication", {})
     .then (function (resp) {
       console.log("allProductListDeduplication resp: ", resp.data);
       setProductList(resp.data);

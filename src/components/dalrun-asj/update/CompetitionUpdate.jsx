@@ -52,7 +52,7 @@ function CompetitionUpdate({data, onHide}) {
         setSponsor(data.compSponsor);
         setReceipEnd(data.receiptEnd);
         setReceipStart(data.receiptStart);
-        setImgFile(`/dalrun-hc/competition/${data.compimage}`)
+        setImgFile(`${process.env.REACT_APP_API_URL}/dalrun-hc/competition/${data.compimage}`)
     }
 
     useEffect(() => {

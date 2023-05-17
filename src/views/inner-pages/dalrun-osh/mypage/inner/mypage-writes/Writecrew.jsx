@@ -24,7 +24,7 @@ function Writecrew() {
   const [totalCnt, setTotalCnt] = useState(0);
 
   function getcbslist(){
-      axios.get("http://localhost:3000/mycbslist", { params:{ "choice":choice, "search":search, "pageNumber":page, "memId":id } })
+      axios.get("/mycbslist", { params:{ "choice":choice, "search":search, "pageNumber":page, "memId":id } })
       .then(function(resp){
           // console.log(resp.data);
           // alert(JSON.stringify(resp.data[0]));

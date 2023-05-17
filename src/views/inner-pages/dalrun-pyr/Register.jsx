@@ -151,7 +151,7 @@ function Register(){
     }
 
     function idChkBtn(){
-        axios.post("http://localhost:3000/idcheck", null, { params:{ "memId":id } })
+        axios.post("/idcheck", null, { params:{ "memId":id } })
              .then(function(res){
                 if(res.data === 'YES'){
                     alert('사용가능한 아이디 입니다.');
@@ -169,7 +169,7 @@ function Register(){
         const fd = new FormData();
         fd.append("dto", `{"memId": "${id}", "password": "${pwd}", "memberName": "${name}", "email": "${email}", "phone": "${phone}", "birth": "${birth}", "foot": "${footSize}"}`);
         fd.append("profileImg", imgFile);
-                axios.post("http://localhost:3000/addmember", fd, { 
+                axios.post("/addmember", fd, { 
             headers: {
             'Content-Type': 'multipart/form-data'
         }

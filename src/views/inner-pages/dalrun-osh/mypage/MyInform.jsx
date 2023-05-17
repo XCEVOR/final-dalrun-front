@@ -60,7 +60,7 @@ const onSubmit = (e) => {
         formData.append("profileImage", file);
         }  
 
-  axios.post('http://localhost:3000/my_updatemember', formData)
+  axios.post('/my_updatemember', formData)
       .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
