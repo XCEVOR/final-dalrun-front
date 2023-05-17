@@ -44,25 +44,25 @@ const Weekrun_mainPage = () => {
   const [courseList,setCourseList]=useState([]);
 
 
-  // 종완님 구현 부탁드려요
-  function getPopularCourse(){
-    axios.get("http://localhost:3000/courseList", )
-      .then(function (resp) {
-        setCourseList(resp.data);
+  // // 종완님 구현 부탁드려요
+  // function getPopularCourse(){
+  //   axios.get("http://localhost:3000/courseList", )
+  //     .then(function (resp) {
+  //       setCourseList(resp.data);
 
-      }).catch(function (err) {
-        alert(err);
-      })
+  //     }).catch(function (err) {
+  //       alert(err);
+  //     })
 
-  }
+  // }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-   getPopularCourse();
+  //  getPopularCourse();
   
    
 
-  }, []);
+  // }, []);
 
   useEffect(() => {
 
