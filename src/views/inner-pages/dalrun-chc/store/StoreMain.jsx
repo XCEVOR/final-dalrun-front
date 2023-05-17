@@ -134,7 +134,7 @@ const StoreMain = () => {
               <div className="ptf-spacer" style={{ "--ptf-xxl": "5.75rem" }}></div>
                 <div className="container">
                   {/* <!--Divider--> */}
-                  <div className="ptf-divider"></div>
+                  <div className="hc_divider"></div>
                 </div>
                 <div className="ptf-spacer" style={{ "--ptf-xxl": "5.75rem" }}></div>
               </section>
