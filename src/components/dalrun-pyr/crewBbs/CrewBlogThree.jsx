@@ -205,20 +205,20 @@ const reqBbs = () => {
                 </td>
                 <td style={{ paddingLeft:"5px" }}>
                     <span>
-                        <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
+                        <button type="button" className="btn btn-dalrun" onClick={()=>searchBtn()}>검색</button>
                     </span>
                 </td>
             </tr>
             </tbody>
             <br></br>
           <div class="col-auto">
-          <button className="btn btn-primary" onClick={getCrewBbsList}>
+          <button className="btn btn-dalrun" onClick={getCrewBbsList}>
           최신순
         </button>
-        <button className="btn btn-primary" onClick={getBbsListByReadCount}>
+        <button className="btn btn-dalrun" onClick={getBbsListByReadCount} style={{ marginLeft: '10px' }}>
           조회수 순
         </button>
-        <button className="btn btn-primary" onClick={getBbsListByLikeCount}>
+        <button className="btn btn-dalrun" onClick={getBbsListByLikeCount} style={{ marginLeft: '10px' }}>
           좋아요 순
         </button>
           </div>

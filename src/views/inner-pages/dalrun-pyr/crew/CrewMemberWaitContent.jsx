@@ -48,8 +48,8 @@ function CrewMemberWaitContent() {
   return (
     
     <div className="crew_waiting">
-      <button onClick={gotoCrewMember}>크루멤버 소개</button>
-      <button>크루멤버 대기</button>
+      <button onClick={gotoCrewMember} className="btn btn-dalrun">크루멤버 소개</button>
+      <button className="btn btn-dalrun" style={{ marginLeft: '10px' }}>크루멤버 대기</button>
       <table>
         <thead>
           <tr>
