@@ -202,7 +202,7 @@ function StoreCartList(props) {
       console.log(" @ verifyIamport resp: ", resp.data);
       console.log(" @ verifyIamport resp: ", resp.data.response.amount);
       if (resp.data.response.amount === totalDiscountedAmount) {
-        alert("결제 성공 response")
+        alert("결제 되었습니다.")
       }
     })
     .then (function () {
