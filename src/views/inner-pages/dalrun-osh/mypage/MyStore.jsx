@@ -102,7 +102,7 @@ function Store() {
                           <th>{msl.orderNumber}</th>
                           {/* <th>{msl.productName}</th> */}
                           <th>
-                            <Link to={'http://localhost:9200/store-details/PUMA-AMSN'}>{msl.productName}</Link>
+                            <Link to={'http://localhost:9200/store-details/BROO-GH15'}>{msl.productName}</Link>
                           </th>                          
                           <th>{msl.productQuantity}</th>
                           <th>{msl.productPrice}</th>
