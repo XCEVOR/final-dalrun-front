@@ -11,7 +11,7 @@ function MypageSearch(props) {
     const { cate, sub } = useParams();
     const [params] = useState({});
 
-    let searchUrl = `http://localhost:3000/admin_${cate}list`;
+    let searchUrl = `${process.env.REACT_APP_API_URL}/admin_${cate}list`;
 
     const searching = () => {
         const choice = searchParams.get("choice");
@@ -37,7 +37,7 @@ function MypageSearch(props) {
             params.order = orderState;
             params.delivery = deliveryState;
         } else if(cate === "question") {
-            searchUrl = `http://localhost:3000/admin_${sub}list`;
+            searchUrl = `${process.env.REACT_APP_API_URL}/admin_${sub}list`;
         }
     }
     

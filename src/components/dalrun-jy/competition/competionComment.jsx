@@ -15,7 +15,7 @@ function CompetitionComment({ compSeq }) {
     const ChangeComment = (e) => setComment(e.target.value);
     function getCompCommentList(compSeq) {
 
-        axios.get("http://localhost:3000/getCompCommentList", { params: { 'compSeq': compSeq } })
+        axios.get("/getCompCommentList", { params: { 'compSeq': compSeq } })
             .then(function (resp) {
                 console.log(resp.data);
               
@@ -31,7 +31,7 @@ function CompetitionComment({ compSeq }) {
             return;
         } else {
             
-        axios.get("http://localhost:3000/sendComment",{params:{'CCmemId':login.memId,"CCcontent":comment,"compSeq":params.compSeq}})
+        axios.get("/sendComment",{params:{'CCmemId':login.memId,"CCcontent":comment,"compSeq":params.compSeq}})
             .then(function (resp) {
                 if(resp.data==='YES'){
                     console.log("답글 전송 완료");

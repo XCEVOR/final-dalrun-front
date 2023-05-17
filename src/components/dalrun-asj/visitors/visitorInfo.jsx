@@ -7,13 +7,13 @@ function VisitorInfo() {
     const  [cookies, setCookies] = useCookies(['쿠키 이름']);
 
     const saveCookieData = (u) => {
-        axios.post("http://localhost:3000/saveCookieData", null, { params: {"user":u} })
+        axios.post("/saveCookieData", null, { params: {"user":u} })
             .then((resp) => console.log(resp.data))
             .catch((err) => console.log(err));
     }
 
     const updateCookie = (u) => {
-        axios.post("http://localhost:3000/updateCookie", null, { params: {"user":u} })
+        axios.post("/updateCookie", null, { params: {"user":u} })
             .then((resp) => console.log(resp.data))
             .catch((err) => console.log(err));
     }

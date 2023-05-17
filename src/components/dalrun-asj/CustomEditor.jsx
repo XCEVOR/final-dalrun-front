@@ -24,7 +24,7 @@ const CustomEditor = ({ handleEditorChange, val, update, updatedFiles, id }) => 
     formData.append('fileList', updatedFiles);
     formData.append('memId', id);
 
-    axios.post('http://localhost:3000/deleteImg', formData)
+    axios.post('/deleteImg', formData)
       .then((resp) => console.log("delete images"))
       .catch((err) => console.log(err));
   }
@@ -65,7 +65,7 @@ const CustomEditor = ({ handleEditorChange, val, update, updatedFiles, id }) => 
               formData.append('postId', postId);
 
               try {
-                const response = await axios.post('http://localhost:3000/uploadDiaryImg', formData);
+                const response = await axios.post('/uploadDiaryImg', formData);
                 const range = quillRef.current.getEditor().getSelection();
                 quillRef.current.getEditor().insertEmbed(range.index, 'image', response.data.url);
               } catch (error) {

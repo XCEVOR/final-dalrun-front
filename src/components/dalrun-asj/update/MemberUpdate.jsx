@@ -27,6 +27,7 @@ function MemberUpdate({data, onHide}) {
         setPoint(data.point);
         setFootSize(data.foot);
         setGrade(data.grade);
+        setImgFile(data.profile);
     }
 
     useEffect(() => {
@@ -47,7 +48,7 @@ function MemberUpdate({data, onHide}) {
         formData.append("grade", grade);
         formData.append("foot", footSize);
 
-        axios.post('http://localhost:3000/admin_updatemember', formData)
+        axios.post('/admin_updatemember', formData)
             .then((resp) => {
                 // console.log(resp.data);
                 if(resp.data === "YES") {
@@ -69,18 +70,13 @@ function MemberUpdate({data, onHide}) {
                 <form name="frm" onSubmit={onSubmit} encType="multipart/form">
                     <fieldset>
                         <div className="profile_img">                        
-                        {/* <Avatar 
-                            src={image} 
-                            style={{margin:'20px'}} 
-                            size={200} 
-                            onClick={()=>{fileInput.current.click()}}/> */}
-                                <label className="signup-profileImg-label" htmlFor="profileImg">프로필 이미지</label>
+                            <label className="signup-profileImg-label" htmlFor="profileImg">프로필 이미지</label>
 
-                                {/* // 업로드 된 이미지 미리보기 */}
-                                <img
-                                src={imgFile ? imgFile :`/images/icon/user.png`}
-                                alt="프로필 이미지"
-                                />
+                            {/* // 업로드 된 이미지 미리보기 */}
+                            <img
+                            src={imgFile !== "" ? `${process.env.REACT_APP_API_URL}/dalrun-yr/profiles/${imgFile}` :`/images/icon/user.png`}
+                            alt="프로필 이미지"
+                            />
                         </div>
                         <div>
                             <label htmlFor="id">아이디</label>

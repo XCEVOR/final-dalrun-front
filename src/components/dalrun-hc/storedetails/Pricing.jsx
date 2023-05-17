@@ -34,7 +34,7 @@ const Pricing = () => {
   const [loading, setLoading] = useState(false);
 
   const productDetailsData = async (productCode) => {
-    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    const resp = await axios.post("/getProductData", null, { params: {"productCode": productCode} });
     console.log("getProductData: ", resp.data);
     setProductDetails(resp.data);
 

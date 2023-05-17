@@ -52,7 +52,7 @@ function CompetitionUpdate({data, onHide}) {
         setSponsor(data.compSponsor);
         setReceipEnd(data.receiptEnd);
         setReceipStart(data.receiptStart);
-        setImgFile(`http://localhost:3000/dalrun-hc/competition/${data.compimage}`)
+        setImgFile(`/dalrun-hc/competition/${data.compimage}`)
     }
 
     useEffect(() => {
@@ -80,7 +80,7 @@ function CompetitionUpdate({data, onHide}) {
         formdata.append("oriCompimage", data.oriCompimage);
         formdata.append("compimage", data.compimage);
 
-        axios.post('http://localhost:3000/admin_updatecomperition', formdata)
+        axios.post('/admin_updatecomperition', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("대회수정 성공");

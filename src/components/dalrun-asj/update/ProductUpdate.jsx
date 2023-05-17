@@ -44,7 +44,7 @@ function ProductUpdate({data, onHide}) {
     }
 
     const getProductImgList = (code) => {
-        axios.post("http://localhost:3000/getProductAllPictureList", null, { params : { "productCode" : code } })
+        axios.post("/getProductAllPictureList", null, { params : { "productCode" : code } })
             .then((resp) => {
                 setImgList(resp.data);
                 console.log(imgList);
@@ -93,7 +93,7 @@ function ProductUpdate({data, onHide}) {
         formData.append("productSale", saleState);
         formData.append("productRegiDate", regdate);
 
-        axios.post('http://localhost:3000/admin_updateproduct', formData)
+        axios.post('/admin_updateproduct', formData)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("수정완료");
@@ -120,7 +120,7 @@ function ProductUpdate({data, onHide}) {
                                 imgList.map((pic, index) => (
                                     <li key={index}>
                                         <img
-                                            src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                                            src={`/dalrun-hc/store/products/${code}/${pic}`}
                                             alt={pic}
                                             loading="lazy"
                                         />

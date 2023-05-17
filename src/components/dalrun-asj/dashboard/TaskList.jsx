@@ -9,7 +9,7 @@ function TaskList() {
     const [getData, setGetData] = useState(false);
   
     const getTaskList = () => {
-      axios.get('http://localhost:3000/getDashboardData')
+      axios.get('/getDashboardData')
               .then((resp) => {
                   console.log(resp.data)
                   setGetData(true);

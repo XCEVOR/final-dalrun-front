@@ -62,7 +62,7 @@ function DiaryUpdate({data, onHide}) {
         formdata.append("content", content);
         formdata.append("score", score);
 
-        axios.post('http://localhost:3000/admin_updatediary', formdata)
+        axios.post('/admin_updatediary', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("수정완료");

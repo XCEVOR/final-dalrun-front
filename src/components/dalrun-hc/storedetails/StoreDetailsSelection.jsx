@@ -45,7 +45,7 @@ function StoreDetailsSelection() {
     let deduplicateSizeList = [];
 
     const productDetailsData = async (productCode) => {
-      const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+      const resp = await axios.post("/getProductData", null, { params: {"productCode": productCode} });
       console.log("getProductData: ", resp.data);
       setProductDetails(resp.data);
 
@@ -73,17 +73,17 @@ function StoreDetailsSelection() {
 
 
     const updateProductView = async () => {
-      const resp = await axios.post("http://localhost:3000/updateProductView", null, { params: {"productCode": prodParams.productCode} });
+      const resp = await axios.post("/updateProductView", null, { params: {"productCode": prodParams.productCode} });
       console.log(" updateProductView: ", resp.data);
     }
 
     const updateProductLike = async () => {
-      const resp = await axios.post("http://localhost:3000/updateProductLike", null, { params: {"productCode": prodParams.productCode} });
+      const resp = await axios.post("/updateProductLike", null, { params: {"productCode": prodParams.productCode} });
       console.log(" updateProductLike: ", resp.data);
     }
 
     const updateProductRecomm = async (eve) => {
-      const resp = await axios.post("http://localhost:3000/updateProductRecomm", null, { params: {"productCode": prodParams.productCode, "productRecomm": eve} });
+      const resp = await axios.post("/updateProductRecomm", null, { params: {"productCode": prodParams.productCode, "productRecomm": eve} });
       console.log(" updateProductRecomm: ", resp.data);
     }
 
@@ -148,7 +148,7 @@ function StoreDetailsSelection() {
         alert('제목을 입력해 주십시오');
         return;
       }
-      const resp = await axios.post("http://localhost:3000/getSelectedProductInfo", null, { params: {"productCode": prodParams.productCode, "productColor": selectedColor, "productSize": selectedSize} });
+      const resp = await axios.post("/getSelectedProductInfo", null, { params: {"productCode": prodParams.productCode, "productColor": selectedColor, "productSize": selectedSize} });
       console.log(prodParams.productCode, selectedColor, selectedSize);
       console.log(" @ selectedItemInfo: ", resp.data);
       if (resp.data.length === 0) {alert('색상 & 사이즈를 선택하세요'); return;}
@@ -194,7 +194,7 @@ function StoreDetailsSelection() {
     const addToCart = async () => {
       if (isProdId === false) {alert("상품 옵션 선택"); return;}
       console.log(" @ console.log(userOrderData): ", userOrderData)
-      const resp = await axios.post("http://localhost:3000/addToCart", null, { params: {"cartId": Date.now(), "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": storage_memId, "orderSeq": 33} });
+      const resp = await axios.post("/addToCart", null, { params: {"cartId": Date.now(), "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": storage_memId, "orderSeq": 33} });
       console.log("  const addToCart = async () => { ", resp.data);
       showToast("success");
       setIsProdId(false)

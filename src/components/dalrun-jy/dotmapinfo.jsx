@@ -14,7 +14,7 @@ const DotMapInfo = (props) => {
   const [loginTF,setLoginTF]=useState(false);
 
   function getCrewRank() {
-    axios.get("http://localhost:3000/getCrewRank")
+    axios.get("/getCrewRank")
       .then(function (resp) {
         setrankList(resp.data);
   
@@ -24,7 +24,7 @@ const DotMapInfo = (props) => {
   };
   // 나의 크루 정보 가져오기
   function getMyCrewinfo(crewSeq) { 
-    axios.get("http://localhost:3000/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
+    axios.get("/getMyCrewinfo",{params:{'crewSeq':crewSeq }})
       .then(function (resp) {
         //setMycrewinfo(resp.data);
         props.Changemycrewinfo(resp.data);
@@ -35,7 +35,7 @@ const DotMapInfo = (props) => {
   // function sendDonation() {
   //   const score= document.getElementById("pointselect").value;
   //   if(parseInt(props.login.point)>= parseInt(score)){
-  //   axios.get("http://localhost:3000/sendDonation",{params:{'id':props.login.memId,'score':score,'crewSeq':props.login.crewSeq}})
+  //   axios.get("/sendDonation",{params:{'id':props.login.memId,'score':score,'crewSeq':props.login.crewSeq}})
   //     .then(function (resp) {
        
   //       if(resp.data===true){
@@ -185,7 +185,7 @@ const DotMapInfo = (props) => {
               {
                 props.mycrewinfo.length !==0 &&
               <img      
-              src={'http://localhost:3000/dalrun-yr/crewImg/'+props.mycrewinfo.crewImg.split('/')[0]}
+              src={`${process.env.REACT_APP_API_URL}/dalrun-yr/crewImg/${props.mycrewinfo.crewImg.split('/')[0]}`}
             style={{borderRadius:'30%'}}
               >
               </img>

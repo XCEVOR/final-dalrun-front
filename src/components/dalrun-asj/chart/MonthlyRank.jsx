@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 function MonthlyRank({setMemRank, setCrewRank}) {
     const getData = () => {
-        axios.post("http://localhost:3000/getScoreRank")
+        axios.post("/getScoreRank")
             .then((resp) => {
               setMemRank(resp.data.memRank);
               setCrewRank(resp.data.crewRank);

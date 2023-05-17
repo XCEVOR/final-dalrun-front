@@ -42,7 +42,7 @@ const StorePaymentUser = (props) => {
     // }
 
     axios
-      .post("http://localhost:3000/writeProductInquiry", null, {
+      .post("/writeProductInquiry", null, {
         params: {
           orderName: orderName,
           orderAddress: orderAddress,

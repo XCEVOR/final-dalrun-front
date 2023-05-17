@@ -19,7 +19,7 @@ const ContentComp = () => {
   const searchChange = (e) => setSearch(e.target.value);
 
   function getAllList(c, s, p) {
-    axios.get("http://localhost:3000/getAllList", { params: { 'choice': c, "search": s, "pageNumber": p } })
+    axios.get("/getAllList", { params: { 'choice': c, "search": s, "pageNumber": p } })
       .then(function (resp) {
         setCompList(resp.data.list);
         setTotalCnt(resp.data.cnt);  // 글의 총수
@@ -89,7 +89,7 @@ const ContentComp = () => {
               {/* <NaverMapView mapLat={`${val.lat}`} mapLng={`${val.lng}`}></NaverMapView> */}
               <Link className="ptf-work__link" to={`/competition-detail/${val.compSeq}`}></Link>
               <img
-                src={`http://localhost:3000/dalrun-hc/competition/${val.compimage}`}
+                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/competition/${val.compimage}`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative' }}

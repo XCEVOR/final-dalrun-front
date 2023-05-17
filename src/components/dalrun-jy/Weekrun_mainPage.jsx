@@ -46,7 +46,7 @@ const Weekrun_mainPage = () => {
 
   // 종완님 구현 부탁드려요
   function getPopularCourse(){
-    axios.get("http://localhost:3000/")
+    axios.get("/")
       .then(function (resp) {
         setCourseList(resp.data);
 

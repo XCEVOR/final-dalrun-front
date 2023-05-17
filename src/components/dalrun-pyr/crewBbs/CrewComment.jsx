@@ -14,7 +14,7 @@ function CrewComment({crewSeq}) {
     const ChangeComment = (e) => setComment(e.target.value);
 
     function getCrewBbsCommentList(crewSeq){
-        axios.get("http://localhost:3000/getCrewBbsCommentList", {params: {"crewSeq":crewSeq}})
+        axios.get("/getCrewBbsCommentList", {params: {"crewSeq":crewSeq}})
         .then(function(res){
             console.log(res.data);
 
@@ -29,7 +29,7 @@ function CrewComment({crewSeq}) {
             alert("댓글을 입력해주세요");
             return;
         }else {
-            axios.get("http://localhost:3000/writeCrewBbsComment", {params:{"cbMemId":login.memId, "cbContent":comment, "crewSeq":params.crewSeq}})
+            axios.get("/writeCrewBbsComment", {params:{"cbMemId":login.memId, "cbContent":comment, "crewSeq":params.crewSeq}})
             .then(function(res){
                 if(res.data ==="YES"){
                     alert("댓글 작성 성공");

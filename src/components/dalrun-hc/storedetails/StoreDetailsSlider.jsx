@@ -99,7 +99,7 @@ const StoreDetailsSlider = () => {
 
 
   const getProductList = async () => {
-    const resp = await axios.get("http://localhost:3000/allProductListDeduplication", {})
+    const resp = await axios.get("/allProductListDeduplication", {})
     setProductList(resp.data)
     console.log(" @ StoreDetailsSlider === ", prodParams.productCode);
 
@@ -142,7 +142,7 @@ const StoreDetailsSlider = () => {
                   
                     <img className="product_details_slider"
                       // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                      src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                      src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
                       alt={item.productName}
                       loading="lazy"
                     />
@@ -175,7 +175,7 @@ const StoreDetailsSlider = () => {
                   
                     <img className="product_details_slider"
                       // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                      src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                      src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
                       alt={item.productName}
                       loading="lazy"
                     />

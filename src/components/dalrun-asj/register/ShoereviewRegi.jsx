@@ -50,7 +50,7 @@ function ShoereviewRegi({onHide}) {
         formdata.append("srPrice", price);
         formdata.append("srLink", link);
 
-        axios.post('http://localhost:3000/shoereviewRegi', formdata)
+        axios.post('/shoereviewRegi', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("리뷰등록 성공");

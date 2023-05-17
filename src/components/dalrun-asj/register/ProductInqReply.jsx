@@ -21,7 +21,7 @@ function ProductInqReply({data, onHide}) {
 
         const str = edit==="update"? "수정":"삭제";
 
-        axios.post(`http://localhost:3000/admin_${edit}reply`, null, { params : EditReply })
+        axios.post(`/admin_${edit}reply`, null, { params : EditReply })
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert(`답변 ${str} 완료`);
@@ -45,7 +45,7 @@ function ProductInqReply({data, onHide}) {
         formdata.append("productId", data[0].productId);
         formdata.append("memId", id);
 
-        axios.post("http://localhost:3000/writeProductInquiryRefDepthSub", formdata)
+        axios.post("/writeProductInquiryRefDepthSub", formdata)
             .then((resp) => {
                 if(resp.data === "SUCCESS") {
                     alert('답변 등록 성공');

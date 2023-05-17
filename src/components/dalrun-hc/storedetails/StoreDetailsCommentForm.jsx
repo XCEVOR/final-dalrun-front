@@ -30,7 +30,7 @@ function StoreDetailsCommentForm() {
             return;
         }
 
-        axios.post("http://localhost:3000/writeProductInquiry", null, 
+        axios.post("/writeProductInquiry", null, 
                     { params:{ "inqWriter": name, "inqContent": message, "productId": productId, "memId": memId } })
              .then(res => {
                 console.log(res.data);
@@ -169,7 +169,7 @@ function TestReduxRight2 (props) {
     }
 
     axios
-      .post("http://localhost:3000/writeProductInquiryRefDepth", null, {
+      .post("/writeProductInquiryRefDepth", null, {
         params: {
           inqDepth: 0,
           inqWriter: name,

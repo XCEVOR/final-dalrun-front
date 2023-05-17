@@ -26,7 +26,7 @@ const CrewBlogThree = () => {
 
   //게시판 리스트(검색, 페이징)
   function getCrewBbsList(c,s,p) {
-    axios.get('http://localhost:3000/crewBbsMain', {params:{ "choice":c, "search":s, "pageNumber":p  } })
+    axios.get('/crewBbsMain', {params:{ "choice":c, "search":s, "pageNumber":p  } })
       .then(function(res){
         console.log("allGetCrewBbs resp : " ,res.data.list);
         setCrewBbsList(res.data.list);
@@ -40,7 +40,7 @@ const CrewBlogThree = () => {
 
   //게시글 조회수 정렬(검색, 페이징)
   function getBbsListByReadCount(c,s,p){
-    axios.get('http://localhost:3000/readcount', {params : {"choice":c, "search":s, "pageNumber":p} })
+    axios.get('/readcount', {params : {"choice":c, "search":s, "pageNumber":p} })
     .then(function(res){
       console.log("allgetListByReadcount res ", res.data.list);
       setCrewBbsList(res.data.list);
@@ -53,7 +53,7 @@ const CrewBlogThree = () => {
 
   //게시글 좋아요 수 정렬(검색, 페이징)
   function getBbsListByLikeCount(c,s,p){
-    axios.get('http://localhost:3000/likecount', {params:{ "choice":c, "search":s, "pageNumber":p  } })
+    axios.get('/likecount', {params:{ "choice":c, "search":s, "pageNumber":p  } })
     .then(function(res){
       console.log("allgetListByLikeCount res : ", res.data.list);
       setCrewBbsList(res.data.list);
@@ -165,7 +165,7 @@ const reqBbs = () => {
   else if(ing){type='모집중';}
   else{type='모집완료';}
 
-  axios.get("http://localhost:3000/crewBbsMain/"+type)
+  axios.get("/crewBbsMain/"+type)
   .then((res) => {
     setTotalData(res.data);
    // setShowData(totalData.slice(0,5));
@@ -230,7 +230,7 @@ const reqBbs = () => {
           <article className="ptf-post ptf-post--style-1">
             <div className="ptf-post__media">
               <Link className="ptf-work__link" to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}></Link>
-             <img src={"http://localhost:3000/getimg?imgid="+ singleBbs.crewImg }
+             <img src={`${process.env.REACT_APP_API_URL}/getimg?imgid=${singleBbs.crewImg}` }
                alt="blog"
                loading="lazy"
              />

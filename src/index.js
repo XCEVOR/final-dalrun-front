@@ -3,8 +3,11 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/scss/main.scss";
+import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+// axios.defaults.baseURL = "http://localhost:3000";
 
 root.render(
    <BrowserRouter>

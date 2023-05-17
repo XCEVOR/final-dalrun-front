@@ -93,7 +93,7 @@ const pwdConfirmChange = (e) => {
     formData.append("memId", id);
     formData.append("password", pwd);
 
-    axios.post('http://localhost:3000/my_updatememberpass', formData)
+    axios.post('/my_updatememberpass', formData)
         .then((resp) => {
             
             if(resp.data === "YES") {

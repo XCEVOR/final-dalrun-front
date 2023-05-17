@@ -65,7 +65,7 @@ const StoreThreeRectangles = () => {
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
-    axios.get("http://localhost:3000/allProductListDeduplication", {})
+    axios.get("${process.env.REACT_APP_API_URL}/allProductListDeduplication", {})
     .then (function (resp) {
       console.log("allProductListDeduplication resp: ", resp.data);
       setProductList(resp.data);
@@ -102,7 +102,7 @@ const StoreThreeRectangles = () => {
                   {" "}
                   <img
                     // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
+                    src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
                     alt={singleproduct.productName}
                     loading="lazy"
                   />
@@ -173,7 +173,7 @@ const StoreThreeRectangles = () => {
                   {" "}
                   <img
                     // src={`assets/img/dalrun-hc/store/storedetails/555966_338_ss_01.avif`}
-                    src={`http://localhost:3000/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
+                    src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${singleproduct.productCode}/${singleproduct.productCode}-01.png`}
                     alt={singleproduct.productName}
                     loading="lazy"
                   />

@@ -5,7 +5,7 @@ function GeometricDataSearchBtn({setLat, setLng, location}) {
         e.preventDefault();
 
         if(address !== undefined) {
-            axios.get("http://localhost:3000/getGeometricData", { params: {"address":address} })
+            axios.get("/getGeometricData", { params: {"address":address} })
                 .then((resp) => {
                     const addresses = resp.data.addresses;
                     if(addresses && addresses.length > 0) {

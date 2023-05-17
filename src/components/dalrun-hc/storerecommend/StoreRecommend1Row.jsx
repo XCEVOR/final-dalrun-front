@@ -19,7 +19,7 @@ const StoreRecommend1Row = () => {
   const [loading, setLoading] = useState(false);
 
   const getProductData = async (productCode) => {
-    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    const resp = await axios.post("/getProductData", null, { params: {"productCode": productCode} });
     console.log(" getProductData: ", resp.data);
     setProductInfo(resp.data);
 
@@ -35,7 +35,7 @@ const StoreRecommend1Row = () => {
   }
 
   let testimg = "BROO-GH15";
-  const imageUrl = `http://localhost:3000/dalrun-hc/store/recomproducts/${productCode}/${productCode}-01.png`;
+  const imageUrl = `${process.env.REACT_APP_API_URL}/dalrun-hc/store/recomproducts/${productCode}/${productCode}-01.png`;
 
 
   const settings = {

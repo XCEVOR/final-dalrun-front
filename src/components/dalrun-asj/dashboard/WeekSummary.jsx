@@ -7,7 +7,7 @@ function WeekSummary() {
     const [getData, setGetData] = useState(false);
 
     const getWeekSummaryData = () => {
-        axios.get('http://localhost:3000/getWeekSummaryData')
+        axios.get('/getWeekSummaryData')
                 .then((resp) => {
                     setGetData(true);
                     setWeekData(resp.data);

@@ -9,7 +9,7 @@ function DailyVisitorsCnt({ cntList }) {
     const [getData, setGetData] = useState(false);
 
     const getDailyVisitorsCnt = () => {
-        axios.get('http://localhost:3000/getDailyVisitorsCnt')
+        axios.get('/getDailyVisitorsCnt')
                 .then((resp) => {
                     setGetData(true);
                     setVisitorsCnt(resp.data);

@@ -19,7 +19,7 @@ function CrewBbsList(){
     const searchChange = (e) => setSearch(e.target.value);
 
     const fetchData = async (c, s, p) => {
-        await axios.get('http://localhost:3000/crewBbsMain', { params:{ "choice":c, "search":s, "pageNumber":p  } })
+        await axios.get('/crewBbsMain', { params:{ "choice":c, "search":s, "pageNumber":p  } })
             .then(function(res){
                 console.log(res.data.list);
                 setBbslist(res.data.list);
