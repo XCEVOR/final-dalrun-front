@@ -321,7 +321,7 @@ const CrewBbsBlogDetails = () => {
                       </a>
                       <Link className="comments A" to={`/crewmember/${crewSeq}`}>
                         <i className="lnil lnil-eye"></i>크루멤버
-                      </a>
+                      </Link>
                       </div>
 
                       {loginTF ?
