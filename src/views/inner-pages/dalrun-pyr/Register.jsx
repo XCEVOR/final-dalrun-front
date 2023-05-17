@@ -165,7 +165,9 @@ function Register(){
              })
     }
 
-    function account(){
+    function account(event){
+        event.preventDefault(); // 기본 제출 동작 막기
+
         const fd = new FormData();
         fd.append("dto", `{"memId": "${id}", "password": "${pwd}", "memberName": "${name}", "email": "${email}", "phone": "${phone}", "birth": "${birth}", "foot": "${footSize}"}`);
         fd.append("profileImg", imgFile);

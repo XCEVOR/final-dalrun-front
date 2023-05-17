@@ -54,7 +54,7 @@ const DiarySidebar = () => {
             </Link>
           </li>
           <li className='nav-item'>
-            <button onClick={handleModal}>
+            <button onClick={handleModal} >
               <FontAwesomeIcon icon={faCloudArrowUp} size="xl" style={{color:"#74EABC"}}/>
               <span>업로드</span>
             </button>
@@ -62,13 +62,13 @@ const DiarySidebar = () => {
           </li>
           <li className='nav-item'>
             <Link to="/">
-            <FontAwesomeIcon icon={faCircleQuestion} size="xl" style={{color:"#74EABC"}}/>
+              <FontAwesomeIcon icon={faCircleQuestion} size="xl" style={{color:"#74EABC"}}/>
               <span>업로드</span>
               <span style={{marginTop:'0', marginRight:'0.2rem'}}>방법</span>
             </Link>
           </li>
           <li className='nav-item'>
-            <div style={{justifyItems:'center'}}>
+            <div style={{justifyItems:'center', paddingTop:'1rem'}}>
               <Link to="/course">
                 <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
                 <span>코스</span>

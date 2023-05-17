@@ -32,12 +32,12 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
     setIsModalOpen(false);
   };
 
-  // 페이지가 마운트될 때 검색 URL을 초기화
-  useEffect(() => {
-    if (searchParams.get("search") !== null) {// 검색 값이 있을 때만
-      navigate('/course', { replace: true });
-    }
-  }, []);
+  // // 페이지가 마운트될 때 검색 URL을 초기화
+  // useEffect(() => {
+  //   if (searchParams.get("search") !== null) {// 검색 값이 있을 때만
+  //     navigate('/course', { replace: true });
+  //   }
+  // }, []);
 
   // 검색창에 검색 시
   useEffect(() => {
@@ -134,7 +134,12 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
               <tbody>
                 <tr>
                   <td rowSpan={6}>
-                    <img className='thumbnail' src={`${process.env.REACT_APP_API_URL}/dalrun-jw/courseThumb/${item.thumbnail}`} alt={item.courseTitle} />
+                    <img 
+                      className='thumbnail' 
+                      src={`${process.env.REACT_APP_API_URL}/dalrun-jw/courseThumb/${item.thumbnail}`} 
+                      alt={item.courseTitle} 
+                      style={{width:'200px', height:'180', objectFitt:'cover'}}
+                    />
                   </td>
                   <th colSpan={2}>{item.areaName}</th>
                 </tr>
@@ -151,7 +156,7 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
                 </tr>
                 <tr>
                   <td>
-                    <img src='assets/dalrun-jw/img/slope.png' style={{width:'16px'}} />
+                    <img src='assets/img/dalrun-jw/slope.png' style={{width:'16px'}} />
                   </td>
                   <td>
                     {item.aCourseMaxSlope} %
@@ -159,12 +164,12 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
                 </tr>
                 <tr>
                   <td>
-                    <img src='assets/dalrun-jw/img/kcal.png' style={{width:'16px'}}/>
+                    <img src='assets/img/dalrun-jw/kcal.png' style={{width:'16px'}}/>
                   </td>
                   <td>{item.kcal} </td>
                 </tr>
                 <tr>
-                  <td><img src='assets/dalrun-jw/img/level.png' style={{width:'16px'}}/></td>
+                  <td><img src='assets/img/dalrun-jw/level.png' style={{width:'16px'}}/></td>
                   <td>{item.level}</td>
                 </tr>
                 <tr>
