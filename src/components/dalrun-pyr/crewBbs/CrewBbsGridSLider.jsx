@@ -63,8 +63,9 @@ const CrewBbsGridContent = () => {
                   <span className="cat">달런달런</span>
                   <span className="date">{val.date}</span>
                 </div>
-                <h3 className="ptf-news-slide__title">
-                  <Link to="/blog-details">{val.title}</Link>
+                <h3 className="ptf-news-slide__title" 
+                style={{color: `var(--ptf-accent-1)`}}>
+                  {val.title}
                 </h3>
                 <div className="ptf-news-slide__excerpt">
                   <p>{val.descriptions}</p>
