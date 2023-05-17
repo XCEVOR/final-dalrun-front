@@ -57,7 +57,7 @@ const CrewMember = () => {
               ></div>
               <div className="text-center">
                 {/* <!--Animated Block--> */}
-                <div
+                {/* <div
                   className="ptf-animated-block"
                   data-aos="fade"
                   data-aos-delay="0"
@@ -65,7 +65,7 @@ const CrewMember = () => {
                   <a className="ptf-load-more" href="#">
                     More
                   </a>
-                </div>
+                </div> */}
               </div>
 
               {/* <!--Spacer--> */}

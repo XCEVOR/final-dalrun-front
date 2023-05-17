@@ -46,8 +46,8 @@ function CrewMemberBody() {
   return (
     
     <div className="crewmem_introduce">
-      <button>크루멤버 소개</button>
-      {login.memId === leader ? <button onClick={gotoMemberWait}>크루멤버 대기</button> : ''}
+      <button className="btn btn-dalrun">크루멤버 소개</button>
+      {login.memId === leader ? <button className="btn btn-dalrun" onClick={gotoMemberWait}>크루멤버 대기</button> : ''}
       <table>
         <thead>
           <tr>
