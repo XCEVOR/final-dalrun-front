@@ -51,10 +51,10 @@ const CrewBbsMain = () => {
                     {/* <!--Animated Block--> */}
                    
                     <div id="holder" onClick={gotoWrite}>
-                        <div class="button_write">
-                            <p class="btnText">크루 생성</p>
-                            <div class="btnTwo">
-                              <p class="btnText2">GO!</p>
+                        <div className="button_write">
+                            <p className="btnText">크루 생성</p>
+                            <div className="btnTwo">
+                              <p className="btnText2">GO!</p>
                             </div>
                         </div>
                         </div>

@@ -27,7 +27,7 @@ const CopyRight = () => {
 
             스폰서   &nbsp;&nbsp;&nbsp;
             <img
-              src="assets/img/dalrun-jy/mulcamlogo.jpg"
+              src="../assets/img/dalrun-jy/mulcamlogo.jpg"
               style={{ width: '200px'  }}
             >
             </img>
