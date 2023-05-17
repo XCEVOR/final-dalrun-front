@@ -96,13 +96,15 @@ function UploadModal({ open, close}) {
                   <DiaryEditor handleEditorChange={handleInputChange} />
                 </label>
                 <footer>
-                  <button type='submit' className="close">
+                  <div style={{textAlign:"right"}}>
+                  <button type='submit' style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>
                     업로드
                   </button>
                   &nbsp;&nbsp; 
-                  <button className="close" onClick={close}>
-                    close
+                  <button onClick={close} style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>
+                    닫기
                   </button>
+                  </div>
                 </footer>
               </form>
             </ModalFrame>
