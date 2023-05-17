@@ -23,7 +23,7 @@ function CustomModal(props) {
 
   const getTarget = () => {
     if(props.checked.length !== 0) {
-      axios.post(`/get${cate === "question" ? sub : cate}`, null, { params:{ "target":props.checked[0] } })
+      axios.post(`http://localhost:3000/get${cate === "question" ? sub : cate}`, null, { params:{ "target":props.checked[0] } })
       .then((resp) => {
             setData(resp.data);
             console.log("getTarget");
@@ -35,7 +35,7 @@ function CustomModal(props) {
   }
 
   const delTargets = () => {
-    axios.post(`/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
+    axios.post(`http://localhost:3000/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
         .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
