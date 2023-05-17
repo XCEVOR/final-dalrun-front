@@ -8,22 +8,22 @@ import Slider from "react-slick";
 // 임시 데이터
 const portfolioContent = [
   {
-    img: "load",
+    img: "course1",
     categorie: "서울",
-    title: "여의도 한강공원",
-    link: ''
+    title: "경복궁 돌담길",
+    link: 'course?search=경복궁+돌담길',
   },
   {
-    img: "load",
+    img: "course2",
     categorie: "강원도",
-    title: "감자 물방개공원",
-    link: ''
+    title: "강릉 경포 호수",
+    link: 'course?search=강릉+경포+호수',
   },
   {
-    img: "load",
-    categorie: "충청남도",
-    title: "천안천",
-    link: ''
+    img: "course3",
+    categorie: "제주특별자치제도",
+    title: "사려니숲길",
+    link: 'course?search=제주+사려니숲길',
   }
 ];
 
@@ -46,7 +46,7 @@ const Weekrun_mainPage = () => {
 
   // 종완님 구현 부탁드려요
   function getPopularCourse(){
-    axios.get("http://localhost:3000/")
+    axios.get("http://localhost:3000/courseList", )
       .then(function (resp) {
         setCourseList(resp.data);
 
@@ -58,7 +58,7 @@ const Weekrun_mainPage = () => {
 
   useEffect(() => {
 
-   //getPopularCourse();
+   getPopularCourse();
   
    
 
@@ -84,15 +84,17 @@ const Weekrun_mainPage = () => {
 
 
                 <img
-                  src={`assets/img/dalrun-jy/${item.img}.jpg`}
-                  alt=""
+                  src={`assets/img/dalrun-jw/${item.img}.jpg`}
+                  alt={item.title}
+                  style={{ width: '470px', height: '350px', objectFit: 'cover',
+                  objectPosition: 'center'}}
                   
                 />
               </div>
               <div className="ptf-work__meta" style={{marginLeft:'20px'}}>
                 <div className="ptf-work__category">{item.categorie}</div>
                 <h4 className="ptf-work__title" >
-                  <Link to="/">{item.title}</Link>
+                  <Link to={`/${item.link}`}>{item.title}</Link>
                 </h4>
               </div>
             </article>
