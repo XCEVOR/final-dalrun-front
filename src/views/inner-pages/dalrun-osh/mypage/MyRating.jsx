@@ -82,12 +82,12 @@ const onSubmit = (e) => {
           {id}님의 등급은 '{grade}' 입니다.
         </div>            
         <br />
-        <div>
+        {/* <div>
           {id}님의 누적 포인트는 '{totalPoint}' 입니다.
-        </div>            
+        </div>             */}
         <br />
         <div>
-          {id}님의 현재 포인트는 '{point}' 입니다.
+          {id}님의 포인트는 '{point}' 입니다.
         </div>            
         <br />      
         <div className="inform outline" />
