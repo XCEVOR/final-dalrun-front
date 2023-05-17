@@ -269,9 +269,9 @@ function MyCrew(props) {
                     <GiUpgrade />
                   </a>
                 </div>
-                {login.memId == mycrewinfo.memId &&  
+                {/* {login.memId == mycrewinfo.memId &&  
                 <button onClick={handleImageChange}>이미지 선택</button>
-                } 
+                }  */}
 
                 <br />
 
