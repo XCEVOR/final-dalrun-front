@@ -144,50 +144,51 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
               <p style={{ margin: "0" }}>오늘의 1등 기록에 도전하세요!!</p>
             </div>
           ) : (
-            <table>
-              <colgroup>
-                <col style={{width:'30px'}} />
-                <col style={{width:'70px'}} />
-                <col style={{width:'50px'}} />
-                <col style={{width:'50px'}} />
-                
-              </colgroup>
-            <tbody>
-              <tr>
-                <th>
-                  <h6 style={{marginLeft:'0.2rem'}}>1위</h6>
-                </th>
-                <td rowSpan={2}>
-                  <img
-                    src={`http://localhost:3000/dalrun-yr/profiles/${todayTopScore.profile}`}
-                    className='rounded-circle'
-                  />
-                  &nbsp;&nbsp;&nbsp;&nbsp;{todayTopScore.memId}
-                </td>
-                <td>
-                  이동거리
-                </td>
-                <td>
-                  {(todayTopScore.totalDist/1000).toFixed(2)} km
-                </td>
-              </tr>
-              <tr>
-                <td rowSpan={2}>
-                  <FontAwesomeIcon icon={faTrophy} bounce size="2x" style={{color: "#f5dc3d"}}/>
-                </td>
-                <td>이동시간</td>
-                <td>{formatTime(todayTopScore.totalTime)}</td>
-              </tr>
-              <tr>
-                <td>
-                  {new Date(todayTopScore.wdate).toLocaleDateString('ko-KR', {year: 'numeric', month: '2-digit', day: '2-digit'}).replaceAll('. ', '-').replaceAll('.', '')}
-                </td>
-                <td colSpan={2} style={{textAlign:'right'}}>
-                  <button className='btn_today' onClick={() => openModal(todayTopScore)}>상세 보기</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <div style={{height:'4rem', width:'100%'}}>
+              <table>
+                <colgroup>
+                  <col style={{width:'30px'}} />
+                  <col style={{width:'70px'}} />
+                  <col style={{width:'50px'}} />
+                  <col style={{width:'50px'}} />
+                </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <h6 style={{marginLeft:'0.2rem'}}>1위</h6>
+                  </th>
+                  <td rowSpan={2}>
+                    <img
+                      src={`http://localhost:3000/dalrun-yr/profiles/${todayTopScore.profile}`}
+                      className='rounded-circle'
+                    />
+                    &nbsp;&nbsp;&nbsp;&nbsp;{todayTopScore.memId}
+                  </td>
+                  <td>
+                    이동거리
+                  </td>
+                  <td>
+                    {(todayTopScore.totalDist/1000).toFixed(2)} km
+                  </td>
+                </tr>
+                <tr>
+                  <td rowSpan={2}>
+                    <FontAwesomeIcon icon={faTrophy} bounce size="2x" style={{color: "#f5dc3d"}}/>
+                  </td>
+                  <td>이동시간</td>
+                  <td>{formatTime(todayTopScore.totalTime)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    {new Date(todayTopScore.wdate).toLocaleDateString('ko-KR', {year: 'numeric', month: '2-digit', day: '2-digit'}).replaceAll('. ', '-').replaceAll('.', '')}
+                  </td>
+                  <td colSpan={2} style={{textAlign:'right'}}>
+                    <button className='btn_today' onClick={() => openModal(todayTopScore)}>상세 보기</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           )}
       </div>
       <div className="diary-list-items">
