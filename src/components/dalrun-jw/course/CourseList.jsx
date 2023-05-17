@@ -151,7 +151,7 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
                 </tr>
                 <tr>
                   <td>
-                    <img src='assets/img/dalrun-jw/slope.png' style={{width:'16px'}} />
+                    <img src='assets/dalrun-jw/img/slope.png' style={{width:'16px'}} />
                   </td>
                   <td>
                     {item.aCourseMaxSlope} %
@@ -159,12 +159,12 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
                 </tr>
                 <tr>
                   <td>
-                    <img src='assets/img/dalrun-jw/kcal.png' style={{width:'16px'}}/>
+                    <img src='assets/dalrun-jw/img/kcal.png' style={{width:'16px'}}/>
                   </td>
                   <td>{item.kcal} </td>
                 </tr>
                 <tr>
-                  <td><img src='assets/img/dalrun-jw/level.png' style={{width:'16px'}}/></td>
+                  <td><img src='assets/dalrun-jw/img/level.png' style={{width:'16px'}}/></td>
                   <td>{item.level}</td>
                 </tr>
                 <tr>

@@ -44,7 +44,7 @@ const CourseSidebar = () => {
         )}
           <li className='nav-item'>
             <Link to='/diary'>
-              <img src='/assets/img/dalrun-jw/diary.png' style={{marginBottom:'0.3rem', marginLeft:'0.5rem'}}/>
+              <img src='/assets/dalrun-jw/img/diary.png' style={{marginBottom:'0.3rem', marginLeft:'0.5rem'}}/>
               <span>다이어리</span>
             </Link>
           </li>
