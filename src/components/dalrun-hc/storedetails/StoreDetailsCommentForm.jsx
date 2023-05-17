@@ -211,7 +211,8 @@ function TestReduxRight2 (props) {
     return checkbox_DisplayMode 
     // USER_MODE
     ? (
-      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+      <>    
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
         <div>
             <div className="post-comment-form">
             <h4 className="inquiry_regi_form_title">문의 사항을 남겨주세요</h4>

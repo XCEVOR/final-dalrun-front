@@ -211,9 +211,9 @@ function StoreDetailsSelection() {
     // USER_MODE
     ? (
       <>
-      <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
       <div>
-
+      <div className="ptf-spacer" style={{ "--ptf-xxl": "3.75rem" }}></div>
         <Toast
           toastlist={addCartModal}
           position="top-right"
