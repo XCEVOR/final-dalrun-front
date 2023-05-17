@@ -3,28 +3,26 @@ import { Link, useNavigate, useParams} from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import CrewBbsPagination from "./CrewBbsPagination";
 import axios from 'axios';
-import "../../../assets/dalrun-jy/css/design.css";
+
 const CrewBlogThree = () => {
-  //const [crewSeq, setCrewSeq] = useState(null);
   const crewBbsParams = useParams();
   const [crewBbsList, setCrewBbsList] = useState([]);
   const [crewSeq, setCrewSeq] = useState(crewBbsList.crewSeq);
-  
+  const [type, setType] = useState('all');
+  //search & paging
   const [choice, setChoice] = useState("");
   const [search, setSearch] = useState("");
-  // paging
   const [page, setPage] = useState(1);
   const [totalCnt, setTotalCnt] = useState(0);
+  
+  const [ing, setIng] = useState(true);
+  const [done, setDone] = useState(true);
+  const [showList, setShowList] = useState([]);
 
-  const [imgid, setImgId] = useState([]);
-  const [type, setType] = useState('all');
+  const [totalData, setTotalData] = useState([]);
 
   const choiceChange = (e) => setChoice(e.target.value);
   const searchChange = (e) => setSearch(e.target.value);
-
-  useEffect(() => {
-    setCrewSeq(crewBbsParams.crewSeq);
-  }, [crewBbsParams.crewSeq]);
 
   //게시판 리스트(검색, 페이징)
   function getCrewBbsList(c,s,p) {
@@ -33,6 +31,7 @@ const CrewBlogThree = () => {
         console.log("allGetCrewBbs resp : " ,res.data.list);
         setCrewBbsList(res.data.list);
         setTotalCnt(res.data.cnt);
+        filterfunc();
             })
             .catch(function(err){
               alert(err);
@@ -69,14 +68,12 @@ const CrewBlogThree = () => {
   const handlePagination= (page) => {
     console.log(page);
     setPage(page);
-    getCrewBbsList(choice, search, page);
-    getBbsListByReadCount(choice, search, page);
-    getBbsListByLikeCount(choice, search, page);
+    getCrewBbsList(choice, search, page-1);
+    getBbsListByReadCount(choice, search, page-1);
+    getBbsListByLikeCount(choice, search, page-1);
   }
 
   let navigate = useNavigate();
-
-  //검색버튼
   function searchBtn(){
     // choice, search 검사
     if(choice.toString().trim() !== "" && search.toString().trim() !== ""){
@@ -85,73 +82,112 @@ const CrewBlogThree = () => {
     else{
         navigate('/crewBbsMain/');
     }
-    // 데이터를 다시 한번 갖고 온다
+    // 데이터를 다시 한번 갖고 옴
     getCrewBbsList(choice, search);
 }
 
 useEffect(function () {
   getCrewBbsList(crewBbsParams.choice, crewBbsParams.search, crewBbsParams.page);
-  //getimgstr();
-}, [crewBbsParams.crewSeq])
+  // not exists -> do reqBbs()
+    //new idea -> getCrewBbsList -> filter? // i will do this -> can filter by type when search, choice ...
+}, []);//search exists -> do getCrewBbsList
 
-//타입 -> 수정중
-// const getCrewTypeList = (type) => {
-//   axios.get(`/crewBbsMain/${type}`)
-//   .then(res => {
-//     alert(typeof res.data.crewBbsList);
-//     console.log(typeof res.data.crewBbsList);
-//     setCrewBbsList(res.data.crewBbsList);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
-// }
+useEffect(() => {
+  setCrewSeq(crewBbsParams.crewSeq);
+}, [crewBbsParams.crewSeq]);
 
-// useEffect(() => {
-//   getCrewTypeList(type);
-// }, [type]);
+useEffect(()=>{
+  filterfunc();
+  },[crewBbsList]);
 
-// const handleButtonClick = (type) => {
-//   getCrewTypeList(type);
-//   console.log("type",type);
-//   alert(type);
-// };
 
-// const handleTypeChange = (e) => {
-//   setType(e.target.value);
-// }
+const recruitingChange = (e) =>{
+  //alert("pageloadruncheck");
+  setIng(!ing);
+}
+
+const closedChange = (e) =>{
+  //alert("pageloadruncheck");
+  setDone(!done);
+}
+
+useEffect(()=> {
+  filterfunc();
+},[ing]);
+
+useEffect(()=>{
+  filterfunc();
+},[done]);
+
+const filterfunc = () =>{
+    if((!ing)&&(!done)){
+        //alert('no');
+        //select nothing
+        setShowList([]);
+        return;
+    }
+    if(ing&&done){
+        console.log(crewBbsList);
+        setShowList([]);
+        //alert("both");
+        //type=all
+        setShowList(crewBbsList);
+        console.log(showList);
+        return;
+    }
+    if(ing){
+        setShowList([]);
+        //type=recruiting
+        crewBbsList.map((SingleBbs, i) => {
+            if(SingleBbs.type==="모집중"){
+                setShowList(showList => [...showList, SingleBbs]);
+            }
+        });
+        return;
+    }
+    if(done){
+        setShowList([]);
+        //type=closed
+        crewBbsList.map((SingleBbs, i) => {
+            if(SingleBbs.type==="모집완료"){
+                setShowList(showList => [...showList, SingleBbs]);
+            }
+        })
+    }
+    
+}
+
+/*
+const reqBbs = () => {
+  var type = "";
+  if (!ing && !done){return;}
+  if (ing && done){type='all';}
+  else if(ing){type='모집중';}
+  else{type='모집완료';}
+
+  axios.get("http://localhost:3000/crewBbsMain/"+type)
+  .then((res) => {
+    setTotalData(res.data);
+   // setShowData(totalData.slice(0,5));
+  })
+  .catch((err) => {
+    alert(err);
+  });
+}*/
 
   return (
     <>
+          <div>
+      <div className="col-auto">
 
-          {/* <button type="button" onClick={handleButtonClick}>type</button> */}
-          {/* <div>
-          <div className="d-flex">
-            <input type="radio" id="all" name="type_all" value="all" checked={type === 'all'} />
-            <label htmlFor="all">전체</label>
+        <input type="checkbox" id="recruiting" name="type_ing" onChange={recruitingChange} checked={ing} style={{display:'none'}} />
+        <label htmlFor="recruiting">모집중 {ing && ('✓')}</label>
 
-            <input type="radio" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
-            <label htmlFor="recruiting">모집중</label>
-
-            <input type="radio" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
-            <label htmlFor="closed">모집 완료</label>
-          </div>
-          <br></br> */}
-
-  {/* <div class="col-auto">
-      <button className="btn btn-primary">
-      전체
-    </button>
-    <button className="btn btn-primary">
-      모집중
-    </button>
-    <button className="btn btn-primary">
-      모집완료
-    </button>
-      </div> */}
-  {/* </div> */}
-
-    {/* <button onClick={getimgstr}>getimgstr</button> */}
+        <input type="checkbox" id="closed" name="type_done" onChange={closedChange} checked={done} style={{display:'none'}} />
+        <label htmlFor="closed">모집 완료 {done && ('✓')}</label>
+      </div>
+  </div>
+  
     <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"20px", marginBottom:"5px" }}>
             <tbody>
             <tr>
@@ -169,39 +205,31 @@ useEffect(function () {
                 </td>
                 <td style={{ paddingLeft:"5px" }}>
                     <span>
-                        <button type="button" className="btn btn-dalrun" onClick={()=>searchBtn()}>검색</button>
+                        <button type="button" className="btn btn-primary" onClick={()=>searchBtn()}>검색</button>
                     </span>
                 </td>
             </tr>
             </tbody>
             <br></br>
           <div class="col-auto">
-          <button className="btn btn-dalrun" onClick={getCrewBbsList}>
+          <button className="btn btn-primary" onClick={getCrewBbsList}>
           최신순
         </button>
-        <button className="btn btn-dalrun" onClick={getBbsListByReadCount}>
+        <button className="btn btn-primary" onClick={getBbsListByReadCount}>
           조회수 순
         </button>
-        <button className="btn btn-dalrun" onClick={getBbsListByLikeCount}>
+        <button className="btn btn-primary" onClick={getBbsListByLikeCount}>
           좋아요 순
         </button>
           </div>
         </table>
-         {/* <button onClick={getimgstr}>getimgstr</button> */}
       
       {/* 서버 데이터 */}
-      {crewBbsList.map((singleBbs, i) => (
+      {showList.map((singleBbs, i) => (
         <div className="col-xl-4 col-lg-4" key={i}>
           <article className="ptf-post ptf-post--style-1">
             <div className="ptf-post__media">
               <Link className="ptf-work__link" to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}></Link>
-              {/*singleBbs.imgurl = "assets/img/dalrun-pyr/run1.jpg" */}
-               {/* <img
-                src={"http://localhost:3000/getimg?imgid=" + imgid[0]}
-                alt="blog"
-                loading="lazy"
-              />  */}
-              {/* file:///C:/Users/ParkYerin/git/final-dalrun-front/public/assets/img/dalrun-pyr/0b557f74-4d1d-4dda-b4c2-b6e5f978aa70.PNG */}
              <img src={"http://localhost:3000/getimg?imgid="+ singleBbs.crewImg }
                alt="blog"
                loading="lazy"

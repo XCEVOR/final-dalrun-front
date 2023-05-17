@@ -226,13 +226,13 @@ const CrewBbsMain = () => {
                       data-aos="fade"
                       data-aos-delay="0"
                     >
-                      <h1 className="large-heading">Newsletter</h1>
+                      {/* <h1 className="large-heading">Newsletter</h1> */}
                       {/* <!--Spacer--> */}
-                      <div
+                      {/* <div
                         className="ptf-spacer"
                         style={{ "--ptf-xxl": "1.25rem" }}
-                      ></div>
-                      <p>Get the latest news & insight.</p>
+                      ></div> */}
+                      {/* <p>Get the latest news & insight.</p> */}
                     </div>
                     {/* <!--Spacer--> */}
                     <div
