@@ -51,8 +51,6 @@ const StorePayment = () => {
                         style={{ "--ptf-xxl": "3rem", "--ptf-md": "2.5rem" }}
                       ></div>
 
-                      <Social />
-                      {/* <!--Social Icon--> */}
                     </div>
                   </div>
                 </div>
