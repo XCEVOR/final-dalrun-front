@@ -87,7 +87,7 @@ const WorksShowcase = () => {
     <StoreCartFloatingBtn productCode={prodParams.productCode}/>
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
-        <title>STORE DETAILS</title>
+        <title>달런달런 스토어</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">

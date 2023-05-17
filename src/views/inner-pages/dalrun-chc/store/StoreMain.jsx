@@ -54,7 +54,7 @@ const StoreMain = () => {
         </button> */}
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
-          <title>Store - Main</title>
+          <title>달런달런 스토어</title>
         </Helmet>
         {/* End Page SEO Content */}
 

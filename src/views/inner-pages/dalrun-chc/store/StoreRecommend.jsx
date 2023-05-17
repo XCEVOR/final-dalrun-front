@@ -46,7 +46,7 @@ const StoreRecommend = () => {
       <StoreCartFloatingBtn storage_memId={storage_memId}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
-          <title>Moonex - Home Agency</title>
+          <title>달런달런 스토어</title>
         </Helmet>
         {/* End Page SEO Content */}
 
