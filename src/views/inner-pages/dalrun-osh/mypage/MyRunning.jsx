@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Table } from "react-bootstrap";
 import DatePicker from 'react-datepicker';
@@ -181,7 +181,9 @@ function Running() {
                 const formattedDate = wdate.toLocaleDateString('ko-KR');
                 return(
                   <tr key={i}>
-                    <td>{formattedDate}</td>
+                    <td>
+                      <Link to={'http://localhost:9200/diary'}>{formattedDate}</Link>
+                    </td>  
                     <td>{(Items.totalDist/1000).toFixed(2)} km</td>
                     <td>{formatTime(Items.totalTime)}</td>                          
                     <td>{Items.meanPace.toFixed(1)} 분/km </td>
