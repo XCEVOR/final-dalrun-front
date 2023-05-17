@@ -55,7 +55,7 @@ function CompetitionRegi({onHide}) {
         formdata.append("receiptEnd", receipEnd);
         formdata.append("uploadImg", uploadImg);
 
-        axios.post('http://localhost:3000/competitionRegi', formdata)
+        axios.post('/competitionRegi', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("대회등록 성공");

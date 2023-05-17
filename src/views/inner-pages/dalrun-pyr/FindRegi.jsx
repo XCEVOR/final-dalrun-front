@@ -22,7 +22,7 @@ function FindRegi(){
    const findId = () =>{
       setMsg("");
       setShow(false);
-      axios.post("http://localhost:3000/findId", {
+      axios.post("/findId", {
          memberName:findIdName,
          email:findIdEmail
       })
@@ -42,7 +42,7 @@ function FindRegi(){
    const findPw = () => {
       setMsg("");
       setShow(false);
-      axios.post("http://localhost:3000/findpw", {
+      axios.post("/findpw", {
          memId:findPwId,
          memberName:findPwName,
          phone:findPwPhone

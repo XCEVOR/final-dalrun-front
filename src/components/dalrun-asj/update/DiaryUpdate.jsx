@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import CustomEditor from "../../dalrun-jw/CustomEditor";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import CustomEditor from "../CustomEditor";
 
 function DiaryUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
@@ -62,7 +62,7 @@ function DiaryUpdate({data, onHide}) {
         formdata.append("content", content);
         formdata.append("score", score);
 
-        axios.post('http://localhost:3000/admin_updatediary', formdata)
+        axios.post('/admin_updatediary', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("수정완료");

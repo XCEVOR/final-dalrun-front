@@ -1,27 +1,46 @@
-﻿import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import { nanoid } from '@reduxjs/toolkit';
 import 'react-quill/dist/quill.snow.css';
+import { useEffect } from 'react';
 
-const DiaryEditor = ({ handleEditorChange }) => {
+const CustomEditor = ({ handleEditorChange, val, update, updatedFiles, id }) => {
   const [value, setValue] = useState('');
   const quillRef = useRef();
   const loginData = JSON.parse(localStorage.getItem("login"));
   const postId = nanoid();
 
-  
+  console.log(val);
   let memId = null;
   if (loginData) {
     memId = loginData.memId;
   }
-  
+
+
+  const deleteImg = () => {
+    console.log(updatedFiles);
+    let formData = new FormData();
+    formData.append('fileList', updatedFiles);
+    formData.append('memId', id);
+
+    axios.post('/deleteImg', formData)
+      .then((resp) => console.log("delete images"))
+      .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    console.log(memId)
+    console.log("updatedFiles =", updatedFiles);
+    if(update === true) deleteImg();
+  }, [update]);
+
   const modules = useMemo(() => {
     return {
       toolbar: {
         container: [
           [{ 'header': ['1', '2', '3', '4', '5', '6', false] }],
-          ['bold', 'italic', 'underline', 'strike'],
+          ['bold', 'italic', 'underline', 'strike', 'clear'],
           [{ 'list': 'ordered'}, { 'list': 'bullet' }],
           [{ 'indent': '-1'}, { 'indent': '+1' }],
           [{ 'size': ['small', false, 'large', 'huge'] }],
@@ -36,12 +55,13 @@ const DiaryEditor = ({ handleEditorChange }) => {
             fileInput.setAttribute('type', 'file');
             fileInput.setAttribute('accept', 'image/*');
             fileInput.click();
-
+            
             fileInput.onchange = async () => {
               let file = fileInput.files[0];
+              
               let formData = new FormData();
               formData.append('imageFile', file);
-              formData.append('memId', memId);
+              id !== undefined ? formData.append('memId', memId) : formData.append('memId', id);
               formData.append('postId', postId);
 
               try {
@@ -60,7 +80,7 @@ const DiaryEditor = ({ handleEditorChange }) => {
 
   const formats = [
     'header',
-    'bold', 'italic', 'underline', 'strike',
+    'bold', 'italic', 'underline', 'strike', 'clear',
     'list', 'bullet', 'indent',
     'size', 'font',
     'color', 'background',
@@ -80,7 +100,7 @@ const DiaryEditor = ({ handleEditorChange }) => {
         theme="snow" 
         modules={modules}
         formats={formats}
-        value={value} 
+        value={val !== undefined ? val : value} 
         onChange={handleChange} 
         style={{ marginTop:'1rem', height: 430, width: 970 }}
       />
@@ -88,4 +108,4 @@ const DiaryEditor = ({ handleEditorChange }) => {
   );
 };
 
-export default DiaryEditor;
+export default CustomEditor;

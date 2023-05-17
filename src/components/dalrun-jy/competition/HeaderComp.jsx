@@ -10,7 +10,7 @@ const HeaderComp = () => {
   
   function getAllListThisMonth(){
 
-    axios.get("http://localhost:3000/getAllListThisMonth")
+    axios.get("/getAllListThisMonth")
     .then(function(resp){
       console.log(resp.data)
         setCompList(resp.data);
@@ -63,7 +63,7 @@ const HeaderComp = () => {
                 <div className="ptf-post__media">
                 <Link className="ptf-work__link" to={`/competition-detail/${val.compSeq}`}></Link>
               <img
-                src={`http://localhost:3000/dalrun-hc/competition/${val.compimage}`}
+                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/competition/${val.compimage}`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative',height:'200px',width:'200px'}}

@@ -18,7 +18,7 @@ function StoreDetailsPicture() {
   const [loading, setLoading] = useState(false);
 
   const productDetailsPictureList = async (productCode) => {
-    const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": productCode} });
+    const resp = await axios.post("/getProductAllPictureList", null, { params: {"productCode": productCode} });
     console.log("productDetailsPictureList: ", resp.data);
     setProductPictureList(resp.data.sort());
 
@@ -26,7 +26,7 @@ function StoreDetailsPicture() {
   }
 
   const productDetailsData = async (productCode) => {  // description 데이터 용.
-    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    const resp = await axios.post("/getProductData", null, { params: {"productCode": productCode} });
     console.log(" DESC productDetailsData: ", resp.data);
     setProductDetails(resp.data);
   }
@@ -84,7 +84,7 @@ function StoreDetailsPicture() {
             <div>
               <img 
               className="detailimg"
-              src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+              src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
               alt={pic}
               loading="lazy"
               /> 
@@ -93,7 +93,7 @@ function StoreDetailsPicture() {
             <div className="columnimg" >
               <img onClick={(e) => handleImageClick(e.target.src)}
                 className="detailimg zooming zoomin_pointer"
-                src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
                 alt={pic}
                 loading="lazy"
               />
@@ -154,7 +154,7 @@ function StoreDetailsPicture() {
           <div key={index}>
             <p>{index}</p>
             <img
-              src={`http://localhost:3000/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
+              src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/${prodParams.productCode}/${pic}`}
               alt={pic}
               loading="lazy"
             />

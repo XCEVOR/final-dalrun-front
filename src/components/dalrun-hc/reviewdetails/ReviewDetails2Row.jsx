@@ -6,25 +6,23 @@ import ReviewDetailAbstract from "./ReviewDetailAbstract";
 const ReviewDetails2Row = () => {
   const sampleData = [
     {
-      img: "http://localhost:3000/dalrun-hc/review/products/ADID-LIRA/ADID-LIRA.png",
+      img: `${process.env.REACT_APP_API_URL}/dalrun-hc/review/products/ADID-LIRA/ADID-LIRA.png`,
     },
     {
-      img: "http://localhost:3000/dalrun-hc/review/products/NBAL-FRFO/NBAL-FRFO.png",
+      img: `${process.env.REACT_APP_API_URL}/dalrun-hc/review/products/NBAL-FRFO/NBAL-FRFO.png`,
     },
     {
-      img: "http://localhost:3000/dalrun-hc/review/products/PUMA-AMSN/PUMA-AMSN.png",
+      img: `${process.env.REACT_APP_API_URL}/dalrun-hc/review/products/PUMA-AMSN/PUMA-AMSN.png`,
     },
     {
-      img: "http://localhost:3000/dalrun-hc/review/products/RBOK-DYAD/RBOK-DYAD.png",
+      img: `${process.env.REACT_APP_API_URL}/dalrun-hc/review/products/RBOK-DYAD/RBOK-DYAD.png`,
     },
   ];
     const pageDetailSeq = useSelector((state) => state.pageDetailSeq.shoereviewdetailSeq);
 
     const [singleReview, setSingleReview] = useState([]);
     const getSingleShoeReview = async () => {
-        const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
-        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
-        console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+        const resp = await axios.post(`/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}`)
         setSingleReview(resp.data)
     }
 
@@ -50,7 +48,7 @@ const ReviewDetails2Row = () => {
                       rel="nofollow"
                     >
                       <img
-                        src={`http://localhost:3000/dalrun-hc/review/${pageDetailSeq}/${pageDetailSeq}-1.png`}
+                        src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${pageDetailSeq}/${pageDetailSeq}-1.png`}
                         alt="work"
                         loading="lazy"
                       />
@@ -285,9 +283,9 @@ const ReviewDetails2Row = () => {
 
 //   const [singleReview, setSingleReview] = useState([]);
 //   const getSingleShoeReview = async () => {
-//       const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
-//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data)
-//       console.log("`http://localhost:3000/getSingleShoeReview`", resp.data.shoereviewdetailContent)
+//       const resp = await axios.post(`${process.env.REACT_APP_API_URL}/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}`)
+//       console.log("`${process.env.REACT_APP_API_URL}/getSingleShoeReview`", resp.dat`)
+//       console.log("`${process.env.REACT_APP_API_URL}/getSingleShoeReview`", resp.data.shoereviewdetailConten`)
 //       setSingleReview(resp.data)
 //   }
 

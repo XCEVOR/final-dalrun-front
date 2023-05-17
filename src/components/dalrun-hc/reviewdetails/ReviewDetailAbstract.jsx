@@ -8,8 +8,8 @@ const ReviewDetailAbstract = () => {
 
     const [singleReview, setSingleReview] = useState([]);
     const getSingleShoeReview = async () => {
-        const resp = await axios.post("http://localhost:3000/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
-        console.log("  const ReviewDetailAbstract = () => { `http://localhost:3000/getSingleShoeReview`", resp.data)
+        const resp = await axios.post("/getSingleShoeReview", null, { params: {"shoereviewdetailSeq": Number(pageDetailSeq)}})
+        console.log(`  const ReviewDetailAbstract = () => { ${process.env.REACT_APP_API_URL}/getSingleShoeReview`, resp.data)
         setSingleReview(resp.data)
     }
 

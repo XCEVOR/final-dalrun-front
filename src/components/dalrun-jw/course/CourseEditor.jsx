@@ -45,7 +45,7 @@ const CourseEditor = ({ handleEditorChange  }) => {
               formData.append('postId', postId);
 
               try {
-                const response = await axios.post('http://localhost:3000/uploadCourseImg', formData);
+                const response = await axios.post('/uploadCourseImg', formData);
                 const range = quillRef.current.getEditor().getSelection();
                 quillRef.current.getEditor().insertEmbed(range.index, 'image', response.data.url);
                 console.log(response.data.url);

@@ -25,7 +25,7 @@ const Dotmap = (props) => {
 
   // 도트맵 전체 정보 가져오기 
   function getearthPage() {
-    axios.get("http://localhost:3000/earthPage")
+    axios.get("/earthPage")
       .then(function (resp) {
         setDotList(resp.data);
 
@@ -37,7 +37,7 @@ const Dotmap = (props) => {
   // 나의 크루 정보 가져오기
   function getMyCrewinfo(crewSeq) {
 
-    axios.get("http://localhost:3000/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
+    axios.get("/getMyCrewinfo", { params: { 'crewSeq': crewSeq } })
       .then(function (resp) {
         setMycrewinfo(resp.data);
         props.Changemycrewinfo(resp.data);
@@ -85,7 +85,7 @@ const Dotmap = (props) => {
 
     if (document.frm.description.value && document.frm.uploadFile.files[0]) {
       if(mycrewinfo.length !=0){
-      axios.post("http://localhost:3000/crew_buydotMap", formData)
+      axios.post("/crew_buydotMap", formData)
         .then(res => {
           success(price);
 
@@ -95,7 +95,7 @@ const Dotmap = (props) => {
         });
       }else{
 
-        axios.post("http://localhost:3000/my_buydotMap", formData)
+        axios.post("/my_buydotMap", formData)
         .then(res => {
           success(price);
 
@@ -220,19 +220,19 @@ const Dotmap = (props) => {
 
           if (document.getElementById('ModalBuyHeader')) {
             
-            document.getElementById('dotPicture').src = "http://localhost:3000/dalrun-jy/uploadtemp/" + dotNewFile;
+            document.getElementById('dotPicture').src = "/dalrun-jy/uploadtemp/" + dotNewFile;
             document.getElementById('dotDescription').textContent = message;
             document.getElementById('createDate').textContent = regdate;
             
             // 크루 땅일 시
             if(sale==1){
     
-              document.getElementById('myprofile').src = "http://localhost:3000/dalrun-yr/crewImg/"+ (myFile.split('/')[0]);
+              document.getElementById('myprofile').src = "/dalrun-yr/crewImg/"+ (myFile.split('/')[0]);
               document.getElementById('mycrewinfo_name').textContent=crewName
             }else if(sale==2){
               
               // 개인 땅일 시
-              document.getElementById('myprofile').src="http://localhost:3000/dalrun-yr/profiles/"+ myFile;
+              document.getElementById('myprofile').src="/dalrun-yr/profiles/"+ myFile;
               document.getElementById('mycrewinfo_name').textContent=memId
 
 

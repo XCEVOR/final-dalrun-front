@@ -108,7 +108,7 @@ function ShoereviewUpdate({data, onHide}) {
         formdata.append("srPrice", price);
         formdata.append("srLink", link);
 
-        axios.post('http://localhost:3000/admin_updateshoereview', formdata)
+        axios.post('/admin_updateshoereview', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("리뷰수정 성공");
@@ -162,7 +162,7 @@ function ShoereviewUpdate({data, onHide}) {
                                         :
                                         <li key={index}>
                                             <img
-                                                src={`http://localhost:3000/dalrun-hc/review/${srSeq}/${pic}`}
+                                                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${srSeq}/${pic}`}
                                                 alt={pic}
                                                 loading="lazy"
                                             />

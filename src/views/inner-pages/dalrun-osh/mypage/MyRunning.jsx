@@ -32,7 +32,7 @@ function Running() {
   // 다이어리 리스트 조회(비동기)
   const fetchDiaryItems = async (pageNumber) => { 
     try {
-      const response = await axios.get('http://localhost:3000/my_diaryList', {
+      const response = await axios.get('/my_diaryList', {
         params: {
           pageNumber: pageNumber,
           "memId" : id
@@ -59,7 +59,7 @@ function Running() {
     const formattedStartDate = formatDate(startDate);
     const formattedEndDate = formatDate(endDate);
 
-    axios.get("http://localhost:3000/my_diaryday", { 
+    axios.get("/my_diaryday", { 
       params: { 
          "fromwdate" : formattedStartDate,
          "towdate" : formattedEndDate,

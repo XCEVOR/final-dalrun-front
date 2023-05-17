@@ -61,7 +61,7 @@ function PostCrewBbsWriteForm() {
        // alert(imgFile);
        // alert(imgFile.length);
 
-            axios.post("http://localhost:3000/crewBbsWrite", fd, {
+            axios.post("/crewBbsWrite", fd, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

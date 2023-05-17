@@ -58,7 +58,7 @@ const CourseUpload = ({ open, close }) => {
     }
 
     axios
-      .post('http://localhost:3000/adminCourseUpload', formData)
+      .post('/adminCourseUpload', formData)
       .then((resp) => {
         console.log(resp.data);
         window.location.reload();

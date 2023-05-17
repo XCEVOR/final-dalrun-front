@@ -54,7 +54,7 @@ function UploadModal({ open, close}) {
   
   // 서버로 전달
   axios
-  .post('http://localhost:3000/gpxUpload', formData)
+  .post('/gpxUpload', formData)
   .then((resp) => { // success
       console.log(resp.data);
       close(); // 모달 닫기

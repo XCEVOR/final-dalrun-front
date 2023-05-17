@@ -37,7 +37,7 @@ function StoreDetailsCommentList() {
 
 
     const getCommentList = (productCode) => {
-        axios.post("http://localhost:3000/getProductInquiry", null, 
+        axios.post("/getProductInquiry", null, 
                 { params:{ "productCode": productCode } })
             .then(res => {
                 console.log(res.data);
@@ -238,7 +238,7 @@ function TestReduxLeft2 (props) {
 
 
     const getCommentList = (productCode) => {
-        axios.post("http://localhost:3000/getProductInquiry", null, 
+        axios.post("/getProductInquiry", null, 
                 { params:{ "productCode": productCode } })
             .then(res => {
                 console.log(res.data);

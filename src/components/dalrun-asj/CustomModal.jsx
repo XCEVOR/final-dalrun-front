@@ -13,7 +13,7 @@ import CompetitionUpdate from './update/CompetitionUpdate';
 import CompetitionRegi from './register/CompetitionRegi';
 import ShoereviewRegi from './register/ShoereviewRegi';
 import ShoereviewUpdate from './update/ShoereviewUpdate';
-// import DiaryUpdate from './update/DiaryUpdate';
+import DiaryUpdate from './update/DiaryUpdate';
 
 function CustomModal(props) {
   const separator = ', ';
@@ -23,7 +23,7 @@ function CustomModal(props) {
 
   const getTarget = () => {
     if(props.checked.length !== 0) {
-      axios.post(`http://localhost:3000/get${cate === "question" ? sub : cate}`, null, { params:{ "target":props.checked[0] } })
+      axios.post(`/get${cate === "question" ? sub : cate}`, null, { params:{ "target":props.checked[0] } })
       .then((resp) => {
             setData(resp.data);
             console.log("getTarget");
@@ -35,7 +35,7 @@ function CustomModal(props) {
   }
 
   const delTargets = () => {
-    axios.post(`http://localhost:3000/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
+    axios.post(`/admin_del${cate === "question" ? sub : cate}`, null, { params:{ "checkedList": props.checked.join(',') }})
         .then((resp) => {
           console.log(resp.data);
           if(resp.data === "YES") {
@@ -60,7 +60,7 @@ function CustomModal(props) {
       else if(sub === "productinquiry") return <ProductInqReply data={data} onHide={props.onHide} />;
       else if(cate === "competition") return <CompetitionUpdate data={data} onHide={props.onHide} />;
       else if(cate === "shoereview") return <ShoereviewUpdate data={data} onHide={props.onHide} />;
-      // else if(cate === "diary") return <DiaryUpdate data={data} onHide={props.onHide} />;
+      else if(cate === "diary") return <DiaryUpdate data={data} onHide={props.onHide} />;
     } 
     else if(props.category === "delete") {
       if(cate === "member") return "이 회원을 탈퇴시키겠습니까?";
@@ -69,7 +69,7 @@ function CustomModal(props) {
       else if(sub === "productinquiry") return "이 문의내역을 삭제하겠습니까?";
       else if(cate === "competition") return "이 대회일정을 삭제하겠습니까?";
       else if(cate === "shoereview") return "이 리뷰를 삭제하겠습니까?";
-      // else if(cate === "diary") return "이 다이어리를 삭제하겠습니까?";
+      else if(cate === "diary") return "이 다이어리를 삭제하겠습니까?";
     } 
     else if(props.category === "insert") {
       if(cate === "product") return <ProductRegi onHide={props.onHide} />

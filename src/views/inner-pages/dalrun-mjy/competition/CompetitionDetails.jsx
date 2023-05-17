@@ -16,7 +16,7 @@ const CompetitionDetails = () => {
   const [compBbs, setCompBbs] = useState([]);
 
   function getCompBbs(compSeq) {
-    axios.get("http://localhost:3000/getCompBbs", { params: { 'compSeq': compSeq } })
+    axios.get("/getCompBbs", { params: { 'compSeq': compSeq } })
       .then(function (resp) {
         console.log(resp.data)
         setCompBbs(resp.data);
@@ -70,7 +70,7 @@ const CompetitionDetails = () => {
                     >
                       <img
                         className="comp_img"
-                        src={`http://localhost:3000/dalrun-hc/competition/${compBbs.compimage}`}
+                        src={`${process.env.REACT_APP_API_URL}/dalrun-hc/competition/${compBbs.compimage}`}
                         loading="lazy"
                         style={{ position: 'relative' }}
 

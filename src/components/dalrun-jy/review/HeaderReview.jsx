@@ -10,7 +10,7 @@ const HeaderReview = () => {
   
   function getAllShoeListThisMonth(){
 
-    axios.get("http://localhost:3000/getAllShoeListThisMonth")
+    axios.get("/getAllShoeListThisMonth")
     .then(function(resp){
       console.log(resp.data)
         setCompList(resp.data);
@@ -50,7 +50,7 @@ const HeaderReview = () => {
                 <div className="ptf-post__media">
                 <Link className="ptf-work__link" to={`/review-detail/${val.srSeq}`}></Link>
               <img
-                 src={`http://localhost:3000/dalrun-hc/review/${val.srSeq}/${val.srimage}`}
+                 src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${val.srSeq}/${val.srimage}`}
                 alt={val.categories}
                 loading="lazy"
                 style={{ position: 'relative',height:'200px',width:'200px'}}

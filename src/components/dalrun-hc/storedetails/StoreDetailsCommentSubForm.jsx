@@ -29,7 +29,7 @@ function StoreDetailsCommentSubForm() {
             return;
         }
 
-        axios.post("http://localhost:3000/writeProductInquiry", null, 
+        axios.post("/writeProductInquiry", null, 
                     { params:{ "inqWriter": name, "inqContent": message, "productId": productId, "memId": memId } })
              .then(res => {
                 console.log(res.data);
@@ -124,7 +124,7 @@ function TestReduxRight2 (props) {
       // console.log(" SUB FORM inqSubseq: inqRef, ", inqRef);
 
       axios
-        .post("http://localhost:3000/writeProductInquiryRefDepthSub", null, {
+        .post("/writeProductInquiryRefDepthSub", null, {
           params: {
             inqRef: inqRef,
             inqWriter: name,

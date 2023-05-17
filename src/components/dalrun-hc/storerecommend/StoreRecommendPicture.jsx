@@ -16,7 +16,7 @@ const StoreRecommendPicture = () => {
     const [loading, setLoading] = useState(false);
 
     const getProductAllRecommPictureList = async (productCode) => {
-        const resp = await axios.post("http://localhost:3000/getProductAllRecommPictureList", null, { params: {"productCode": productCode} });
+        const resp = await axios.post("/getProductAllRecommPictureList", null, { params: {"productCode": productCode} });
         console.log(" getProductAllRecommPictureList : ", resp.data);
         setRecommPictureList(resp.data.sort());
     
@@ -44,7 +44,7 @@ const StoreRecommendPicture = () => {
             <div>
               {/* <img 
               className="detailimg"
-              src={`http://localhost:3000/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
+              src={`/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
               alt={pic}
               loading="lazy"
               />  */}
@@ -52,13 +52,13 @@ const StoreRecommendPicture = () => {
             :
             <div className="columnimg" >
               <StoreRecommendPhoto 
-                    imageSrc={`http://localhost:3000/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
+                    imageSrc={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
                     // title="testestes11"
                     // description="asdfkahjsdflhsdf"
                   />
               {/* <img
                 className="detailimg zooming zoomin_pointer"
-                src={`http://localhost:3000/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
+                src={`/dalrun-hc/store/recomproducts/${prodParams.productCode}/${pic}`}
                 alt={pic}
                 loading="lazy"
               /> */}

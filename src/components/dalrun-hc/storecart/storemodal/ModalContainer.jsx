@@ -87,7 +87,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
   let deduplicateSizeList = [];
 
   const productDetailsData = async (productCode) => {
-    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    const resp = await axios.post(`${process.env.REACT_APP_API_URL}/getProductData`, null, { params: {"productCode": productCode} });
     console.log("getProductData: ", resp.data);
     setProductDetails(resp.data);
 
@@ -174,7 +174,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
       alert('제목을 입력해 주십시오');
       return;
     }
-    const resp = await axios.post("http://localhost:3000/getSelectedProductInfo", null, { params: {"productCode": modal_productcode, "productColor": modal_productcolor, "productSize": modal_productsize} });
+    const resp = await axios.post(`${process.env.REACT_APP_API_URL}/getSelectedProuctInfo`, null, { params: {"productCode": modal_productcode, "productColor": modal_productcolor, "productSize": modal_productsize} });
     
     console.log(" @ selectedItemInfo: ", resp.data);
     if (resp.data.length === 0) {alert('색상 & 사이즈를 선택하세요'); return;}
@@ -191,7 +191,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
   const updateCartItem = async () => {
     if (isProdId === false) {alert("상품 옵션 선택"); return;}
     console.log(" @ console.log(userOrderData): ", userOrderData)
-    const resp = await axios.post("http://localhost:3000/updateCartItem", null, { params: {"cartId": modal_cartid, "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
+    const resp = await axios.post(`${process.env.REACT_APP_API_URL}/updateCartItem`, null,{ params: {"cartId": modal_cartid, "cartProdName": productDetails[0].productName, "cartProdPrice": productDetails[0].productPrice , "cartProdQuantity": selectedQuantity, "productId": selectedProdId, "memId": "user01test", "orderSeq": 33} });
     console.log("  const addToCart = async () => { ", resp.data);
     // showToast("success");
     setIsProdId(false)
@@ -266,7 +266,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
                   
                   <div className="image" style={{ width: 220 }}>
                     <img
-                      src={`http://localhost:3000/dalrun-hc/store/products/${productDetails[0].productCode}/${productDetails[0].productCode}-01.png`}
+                      src={`${process.env.REACT_APP_API_URL}/dalrun-hc/stor/products/${productDetails[0].productCode}/${productDetails[0].productCode}-01.png`}
                       alt=""
                     />
                   </div>

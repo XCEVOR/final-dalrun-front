@@ -23,7 +23,7 @@ const ContentReview = () => {
   const searchChange = (e) => setSearch(e.target.value);
 
   function getAllShoeList(c, s, p) {
-    axios.get("http://localhost:3000/getAllShoeList", { params: { 'choice': c, "search": s, "pageNumber": p } })
+    axios.get("/getAllShoeList", { params: { 'choice': c, "search": s, "pageNumber": p } })
       .then(function (resp) {
         setCompList(resp.data.list);
         setTotalCnt(resp.data.cnt);  // 글의 총수
@@ -72,7 +72,7 @@ const ContentReview = () => {
               {/* <NaverMapView mapLat={`${val.lat}`} mapLng={`${val.lng}`}></NaverMapView> */}
               <Link className="ptf-work__link" to={`/review-detail/${val.srSeq}`}></Link>
               <img
-                src={`http://localhost:3000/dalrun-hc/review/${val.srSeq}/${val.srimage}`}
+                src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${val.srSeq}/${val.srimage}`}
                 alt={val.categories}
                 loading="lazy"
                 

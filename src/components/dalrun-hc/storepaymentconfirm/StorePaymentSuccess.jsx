@@ -15,7 +15,7 @@ function StorePaymentConfirm() {
   const [orderInfo, setOrderInfo] = useState([]);
 
   const getOrder = async (ordNum) => {
-    const resp = await axios.post("http://localhost:3000/getOrderInfo", null, { params: {"orderNumber": ordNum} });
+    const resp = await axios.post("/getOrderInfo", null, { params: {"orderNumber": ordNum} });
     console.log(" @ getHashmapUserCartInfoQuantityList : ", resp.data);
     setOrderInfo(resp.data);
     setLoading(true);

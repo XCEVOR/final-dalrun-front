@@ -12,7 +12,7 @@ const DetailContentReview = () => {
 
 
   function getAllShoedetailList(srSeq) {
-    axios.get("http://localhost:3000/getAllShoedetailList", { params: { 'srSeq': srSeq } })
+    axios.get("/getAllShoedetailList", { params: { 'srSeq': srSeq } })
       .then(function (resp) {
         setShoerdList(resp.data);  // 글의 총수
 
@@ -44,7 +44,7 @@ const DetailContentReview = () => {
             {(i % 2 === 0) ? <>
               <div className="ptf-post__media" >
                 <img
-                 src={`http://localhost:3000/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
+                 src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
                   alt=""
                   loading="lazy"
                 />
@@ -66,7 +66,7 @@ const DetailContentReview = () => {
 
                 <div className="ptf-post__media" >
                   <img
-                    src={`http://localhost:3000/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
+                    src={`${process.env.REACT_APP_API_URL}/dalrun-hc/review/${item.srSeq}/${item.srimage}`}
                     alt=""
                     loading="lazy"
                   />

@@ -25,7 +25,7 @@ function Store() {
 
   function getstorelist() {
     axios
-      .get("http://localhost:3000/my_orderlist", {
+      .get("/my_orderlist", {
         params: { "memId": id }
       })
       .then(function(resp) {

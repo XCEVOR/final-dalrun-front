@@ -70,7 +70,7 @@ function StoreCartList(props) {
 
 
   const getCartList = async () => {  // 분기점 형성을 위해 놔둠.
-    const resp = await axios.post("http://localhost:3000/getUserCartInfoList", null, { params: {"memId": userId} });
+    const resp = await axios.post("/getUserCartInfoList", null, { params: {"memId": userId} });
     console.log("getProductData: ", resp.data);
     setCartList(resp.data);
     let itemPriceArr = resp.data.map(( item ) => ( parseInt(item.productPrice) ))
@@ -93,7 +93,7 @@ function StoreCartList(props) {
 
 
   const getCartList2 = async () => {
-    const resp = await axios.post("http://localhost:3000/getHashmapUserCartInfoQuantityList", null, { params: {"memId": userId} });
+    const resp = await axios.post("/getHashmapUserCartInfoQuantityList", null, { params: {"memId": userId} });
     console.log(" @ getHashmapUserCartInfoQuantityList : ", resp.data);
     setCartList(resp.data);
     // setItemQuantiry(resp.data.cartProdQuantity);
@@ -197,7 +197,7 @@ function StoreCartList(props) {
   const callback = (response) => {
     const {success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status} = response;
 
-    axios.get(`http://localhost:3000/verifyIamport/${imp_uid}`, {})
+    axios.get(`/verifyIamport/${imp_uid}`, {})
     .then (function (resp) {
       console.log(" @ verifyIamport resp: ", resp.data);
       console.log(" @ verifyIamport resp: ", resp.data.response.amount);
@@ -239,14 +239,14 @@ function StoreCartList(props) {
     let val = ev.target.value;
     console.log(val);
 
-    const resp = await axios.post("http://localhost:3000/deleteCartItem", null, { params: {"productId": val}});
+    const resp = await axios.post("/deleteCartItem", null, { params: {"productId": val}});
     console.log("  @ deleteItem = async (ev) => { ", resp.data);
     window.location.reload();
   }
 
   const writeOrderData = async () => {
     const resp = await axios.post(
-      "http://localhost:3000/writeOrderData",
+      "/writeOrderData",
       null,
       {
         params: {
@@ -278,7 +278,7 @@ function StoreCartList(props) {
       
       console.log(orderItems);
   
-      axios.post("http://localhost:3000/writeOrderDetail", newOrderItems)
+      axios.post("/writeOrderDetail", newOrderItems)
         .then((resp) => {
           console.log(resp.data);
           setOrderItems([]);
@@ -287,7 +287,7 @@ function StoreCartList(props) {
     }
 
     // 카트 비우기
-    const empty_resp = await axios.post("http://localhost:3000/emptyCart", null, { params: {"memId": userId}});
+    const empty_resp = await axios.post("/emptyCart", null, { params: {"memId": userId}});
     console.log(" console.log(empty_resp.data) ", empty_resp.data)
   }
 
@@ -320,7 +320,7 @@ function StoreCartList(props) {
 
                 <div className="store_payment_item_description_image" style={{ width: 260 }}>
                   <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
+                    src={`/dalrun-hc/store/products/${prodInfo.productCode}/${prodInfo.productCode}-01.png`}
                     alt=""
                   />
                 </div>
@@ -368,7 +368,7 @@ function StoreCartList(props) {
 
   // 주문번호 작성 후 페이지 이동.
   const testSuccessPayment = () => {
-    axios.get(`http://localhost:3000/korean`, {})
+    axios.get(`/korean`, {})
     .then (function () {
       writeOrderData();
     })
@@ -399,7 +399,7 @@ function StoreCartList(props) {
               <div className="item" key={index}>
                 <div className="image" style={{ width: 160 }}>
                   <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                    src={`/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
                     alt=""
                   />
                 </div>
@@ -615,7 +615,7 @@ function StoreCartList(props) {
               <div className="item" key={index}>
                 <div className="image" style={{ width: 160 }}>
                   <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
+                    src={`/dalrun-hc/store/products/${item.productCode}/${item.productCode}-01.png`}
                     alt=""
                   />
                 </div>

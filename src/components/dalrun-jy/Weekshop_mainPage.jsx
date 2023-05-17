@@ -122,7 +122,7 @@ const Weekshop_mainPage = () => {
 
   // 호찬님 구현 부탁드려요
   const getPopularProduct = async () => {
-    const resp = await axios.post("http://localhost:3000/getProductAllPictureList", null, { params: {"productCode": "RECOMMEND"} });
+    const resp = await axios.post("/getProductAllPictureList", null, { params: {"productCode": "RECOMMEND"} });
     console.log("productDetailsPictureList: ", resp.data);
     setProductList(resp.data.sort());
 
@@ -152,11 +152,11 @@ const Weekshop_mainPage = () => {
               <Link to={`/store-recommend/${recomm.substring(3, 12)}`} rel="noopener noreferrer">
                 <div className="ptf-post__media">
                   <img
-                    src={`http://localhost:3000/dalrun-hc/store/products/RECOMMEND/${recomm}`}
+                    src={`${process.env.REACT_APP_API_URL}/dalrun-hc/store/products/RECOMMEND/${recomm}`}
 
                     // src={`assets/img/blog/masonry/${item.img}.png`}
 
-                    //src={`http://localhost:3000/dalrun-hc/store/products/${code}/${pic}`}
+                    //src={`/dalrun-hc/store/products/${code}/${pic}`}
 
                     loading="lazy"
                   />

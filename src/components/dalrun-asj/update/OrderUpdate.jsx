@@ -55,7 +55,7 @@ function OrderUpdate({data, onHide}) {
         formData.append("orderState", orderState);
         formData.append("deliveryState", deliveryState);
 
-        axios.post('http://localhost:3000/admin_updateorder', formData)
+        axios.post('/admin_updateorder', formData)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("수정완료");

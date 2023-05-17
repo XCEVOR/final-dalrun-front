@@ -16,7 +16,7 @@ function KakaoCallback({match}){
         history("/regiMain");
     }
 
-    axios.get("http://localhost:3000/oauth/kakao/callback", {params :{"code": code}})
+    axios.get("/oauth/kakao/callback", {params :{"code": code}})
     .then( (res) => {
         if (!res.data){
             //로그인 실패

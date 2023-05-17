@@ -39,7 +39,7 @@ function ProductRegi({onHide}) {
         formdata.append("productStock", stock);
         formdata.append("productSale", saleState);
 
-        axios.post('http://localhost:3000/productRegi', formdata)
+        axios.post('/productRegi', formdata)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("상품등록 성공");

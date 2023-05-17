@@ -11,7 +11,7 @@ const PopularReviewPosts = () => {
   
   function getPopularList(){
 
-    axios.get("http://localhost:3000/getPopularShoeList")
+    axios.get("/getPopularShoeList")
     .then(function(resp){
       console.log(resp.data)
       setPopularList(resp.data);

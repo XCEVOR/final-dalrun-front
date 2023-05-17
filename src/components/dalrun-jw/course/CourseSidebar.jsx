@@ -91,7 +91,7 @@ function MyDropdown() {
     if (profileImg) {
       return (
         <img
-          src={`http://localhost:3000/dalrun-yr/profiles/${profileImg}`}
+          src={`${process.env.REACT_APP_API_URL}/dalrun-yr/profiles/${profileImg}`}
           alt='mdo'
           width='30'
           height='30'

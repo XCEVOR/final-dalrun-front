@@ -47,7 +47,7 @@ function CrewUpdate({data, onHide}) {
         formData.append("maxMem", maxMem);
         formData.append("crewCreateDate", regdate);
 
-        axios.post('http://localhost:3000/admin_updatecrew', formData)
+        axios.post('/admin_updatecrew', formData)
             .then((resp) => {
                 if(resp.data === "YES") {
                     alert("수정완료");

@@ -15,7 +15,7 @@ function ReviewComment({ srSeq }) {
     const ChangeComment = (e) => setComment(e.target.value);
     function getReviewCommentList(srSeq) {
 
-        axios.get("http://localhost:3000/getReviewCommentList", { params: { 'srSeq': srSeq } })
+        axios.get("/getReviewCommentList", { params: { 'srSeq': srSeq } })
             .then(function (resp) {
                 console.log(resp.data);
               
@@ -32,7 +32,7 @@ function ReviewComment({ srSeq }) {
             return;
         } else {
             
-        axios.get("http://localhost:3000/ReviewsendComment",{params:{'scmemId':login.memId,"sccontent":comment,"srSeq":params.srSeq}})
+        axios.get("/ReviewsendComment",{params:{'scmemId':login.memId,"sccontent":comment,"srSeq":params.srSeq}})
             .then(function (resp) {
                 if(resp.data==='YES'){
                     console.log("답글 전송 완료");
