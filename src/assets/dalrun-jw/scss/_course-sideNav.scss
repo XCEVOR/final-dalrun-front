@@ -1,0 +1,75 @@
+﻿$icon-color: #212529; // 아이콘 색상
+$btn-color: #343a40; // 링크 색상
+$btn-hover-color: #94f1dd; // 링크 호버 색상
+$bg-color: #343a40; // 배경 색상
+
+.course-navbar-container{
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    width: 80px;
+    height: 100%;
+    background-color: $bg-color;
+    margin: 0;
+    padding: 0;
+
+    .logo {
+        width: 150px;
+        padding: 0.5rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 1rem;
+    }
+
+    .logo-Link {
+        display: inline;
+        margin-top: 1rem;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .nav-item{
+        //display: block;
+        flex: none;
+        height: 6.5rem;
+        text-align: center;
+        margin-top: 0.8rem;
+        background-color: $bg-color;
+
+        &:hover{
+            opacity: 0.7;
+            background-color: #94f1dd;
+        }
+    }
+    
+    span {
+        display: block;
+        margin-top: 0.7rem;
+        text-align: center;
+        font-weight: bold;
+        font-size: small;
+        color: white;
+        white-space: pre-wrap;
+    };
+
+    button{
+        margin-top : -1rem;
+        margin-left: -0.2rem;
+        width: 80px;
+        height: 97px;
+        border: none;
+        background-color: $bg-color;
+        &:hover {
+        opacity: 0.7;
+        background-color: #94f1dd;
+        }
+    }
+
+    .dropup-container {
+        position: absolute;
+        width: 80px;
+        bottom: 0;
+        padding-top: 1rem;
+        border-top: 1px solid #ffffff;
+    }
+
+}

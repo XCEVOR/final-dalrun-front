@@ -85,9 +85,7 @@ const CrewMemberWait = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-            {/*  */}
-          </div>
+          
           <div className="ptf-footer__bottom">
             {/* <CopyRight /> */}
           </div>

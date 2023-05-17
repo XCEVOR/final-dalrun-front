@@ -166,9 +166,10 @@ function LocationBtn() {
   );
 }
 
-function MySetCenter({ selectedCourse, path }) {
+function MySetCenter({ selectedCourse, setSelectedCourse, path }) {
   const nMap = useMap();
   const navermaps = useNavermaps();
+  
 
   useEffect(() => {
     if (selectedCourse) {
@@ -203,7 +204,7 @@ function MySetCenter({ selectedCourse, path }) {
               <Polyline
                 key={`polyline-${courseSeq}`}
                 path={path}
-                strokeColor={selectedCourse && selectedCourse.courseSeq === courseSeq ? '#74EABC' : '#000000'}
+                strokeColor={'#74EABC'}
                 strokeWeight={8}
               />
             </React.Fragment>

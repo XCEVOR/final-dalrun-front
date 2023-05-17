@@ -196,9 +196,7 @@ const StoreRecommend = () => {
                 <div className="container">
                   <div className="row">
                     <div className="col-xl-10 offset-xl-2">
-                      <div className="ptf-footer__top">
                      
-                      </div>
                       {/* End .ptf-footer__top */}
 
                       <div className="ptf-footer__bottom">
