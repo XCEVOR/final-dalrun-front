@@ -176,10 +176,14 @@ useEffect(function () {
             </tbody>
             <br></br>
           <div class="col-auto">
-          <button className="btn btn-dalrun" onClick={getCrewBbsList}>
+          <button 
+          style={{marginRight:'10px'}}
+          className="btn btn-dalrun" onClick={getCrewBbsList}>
           최신순
         </button>
-        <button className="btn btn-dalrun" onClick={getBbsListByReadCount}>
+        <button 
+        style={{marginRight:'10px'}}
+        className="btn btn-dalrun" onClick={getBbsListByReadCount}>
           조회수 순
         </button>
         <button className="btn btn-dalrun" onClick={getBbsListByLikeCount}>
@@ -212,9 +216,9 @@ useEffect(function () {
                 <div className="ptf-post__meta">
                   <span className="cat">{singleBbs.type}</span>
                   <span className="date">{singleBbs.crewCreateDate}</span>
+                  <span><p style={{display:'inline-block', color:'var(--ptf-accent-1)'}}>{singleBbs.crewName}</p></span>
                 </div>
                 <h3 className="ptf-post__title">
-                  <span>&lt;{singleBbs.crewName}&gt;</span><br></br>
                   <Link to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}>{singleBbs.title}</Link>
                 </h3>
               </header>

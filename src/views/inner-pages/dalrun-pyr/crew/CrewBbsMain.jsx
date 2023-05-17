@@ -49,23 +49,7 @@ const CrewBbsMain = () => {
                   {/* End .col */}
                   <div className="col-xl-3 offset-xl-1 col-lg-4">
                     {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="100"
-                    >
-                      {/* <div className="ptf-widget ptf-widget-search">
-                        <CrewSearchBlog />
-                      </div> */}
-                      <br></br>
-                      {/* <Link to="/crewBbsWrite">크루 생성</Link> */}
-                      {/* <button className="crewwrite" type="button" onClick={gotoWrite}>
-                        <div className="btnTwo">
-                          <span className="btnText">크루 생성</span>
-                          <span className="btnText2">GO!</span>
-                        </div>
-                      </button> */}
-                    </div>
+                   
                     <div id="holder" onClick={gotoWrite}>
                         <div class="button_write">
                             <p class="btnText">크루 생성</p>
@@ -77,10 +61,7 @@ const CrewBbsMain = () => {
                   </div>
                 </div>
                 {/* <!--Spacer--> */}
-                <div
-                  className="ptf-spacer"
-                  style={{ "--ptf-xxl": "4.375rem" }}
-                ></div>
+                
               </div>
               {/* End .container-xxl */}
             </section>
@@ -211,54 +192,7 @@ const CrewBbsMain = () => {
             {/*=============================================
             Start Newsletter section
             ============================================== */}
-            <section>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "9.375rem", "--ptf-md": "4.6875rem" }}
-              ></div>
-              <div className="container-xxl">
-                <div className="row align-items-center">
-                  <div className="col-lg-4">
-                    {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="0"
-                    >
-                      <h1 className="large-heading">Newsletter</h1>
-                      {/* <!--Spacer--> */}
-                      <div
-                        className="ptf-spacer"
-                        style={{ "--ptf-xxl": "1.25rem" }}
-                      ></div>
-                      <p>Get the latest news & insight.</p>
-                    </div>
-                    {/* <!--Spacer--> */}
-                    <div
-                      className="ptf-spacer"
-                      style={{ "--ptf-lg": "3.75rem", "--ptf-md": "1.875rem" }}
-                    ></div>
-                  </div>
-                  <div className="col-lg-6 offset-lg-2">
-                    {/* <!--Animated Block--> */}
-                    <div
-                      className="ptf-animated-block"
-                      data-aos="fade"
-                      data-aos-delay="100"
-                    >
-                      {/* <!--Spacer--> */}
-                      {/* <NewsletterTwo /> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!--Spacer--> */}
-              <div
-                className="ptf-spacer"
-                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
-              ></div>
-            </section>
+           
           </div>
           {/* End .ptf-page */}
         </div>
