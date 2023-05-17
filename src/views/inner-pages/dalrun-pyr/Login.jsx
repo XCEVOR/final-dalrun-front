@@ -51,7 +51,7 @@ function Login(){
         axios.post("http://localhost:3000/login", null, {params:{'memId':id, 'password':pwd}})
             .then(function(res){
                 if(res.data !== null && res.data !== ""){
-                    alert('환영합니다');
+                    alert('환영합니다😊');
                     localStorage.setItem("login", JSON.stringify(res.data));
                     localStorage.setItem("memId", id);
                     gotoHome();

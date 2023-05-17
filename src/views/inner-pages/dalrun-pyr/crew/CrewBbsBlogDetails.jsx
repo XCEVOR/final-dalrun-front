@@ -64,7 +64,7 @@ const CrewBbsBlogDetails = () => {
     axios.post("http://localhost:3000/joinCrew", null, { params: { 'memId': memId, 'crewSeq': crewSeq } })
       .then(function (resp) {
         if (resp.data === 'success') {
-          alert("성공적으로 신청이 됐습니다.");
+          alert("성공적으로 신청이 됐습니다. 리더의 승인을 기다려주세요.");
           setIsJoined(true);
         } else {
           alert("가입 실패")
@@ -310,19 +310,24 @@ const CrewBbsBlogDetails = () => {
                     {/* <!--Post Info--> */}
 
                     <div className="ptf-single-post__info">
-                      <div className="detailSetup" style={{ maxWidth: '50%' }}> {crewBbsDetails.crewSetUp}</div>
+                      <div className="detailSetup" style={{ maxWidth: '50%' }}> </div>
+                      <div>
+                        
+                      {/* 여백을 위한 추가적인 <div> */}
+                      <div style={{ marginTop: '1rem' }}></div>
+
                       <a className="author A" href="#">
                         <i className="lnil lnil-user"></i> <span>크루소개</span>
                       </a>
                       <Link className="comments A" to={`/crewmember/${crewSeq}`}>
                         <i className="lnil lnil-eye"></i>크루멤버
-                     </Link>
-
+                      </a>
+                      </div>
 
                       {loginTF ?
                         <>
                           <div className="A">
-                            {loginTF ?
+                            {login.crewSeq!==0 ?
                               //이미 크루가 존재
 
                               <p> </p>
@@ -347,7 +352,7 @@ const CrewBbsBlogDetails = () => {
                             ) : (
                               <HeartOutlined style={{ fontSize: '25px' }} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
                             )}
-                            좋아요  {likecount}
+                            {/* 좋아요  {likecount} */}
                           </i>
                         </>
                         :
@@ -368,7 +373,8 @@ const CrewBbsBlogDetails = () => {
                     {/* <span className="has-accent-1">Pavel Murren</span> -> 강조*/}
                     {/* title */}
                     <div className="ptf-single-post__excerpt">
-                      {crewBbsDetails.title}
+                      {crewBbsDetails.title}<br></br>
+                      - {crewBbsDetails.crewSetUp}-
                     </div>
 
                     {/* <!--Post Content--> */}

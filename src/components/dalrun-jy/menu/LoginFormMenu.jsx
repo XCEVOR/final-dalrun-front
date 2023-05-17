@@ -8,6 +8,7 @@ const LoginFormMenu = () => {
   const logindata=JSON.parse(localStorage.getItem('login'));
 
   function logout() {
+    alert("로그아웃이 정상적으로 처리되었습니다.");
     localStorage.removeItem('login');
     localStorage.removeItem('memId');
   }
