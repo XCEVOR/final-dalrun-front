@@ -125,17 +125,18 @@ useEffect(function () {
     <>
 
           {/* <button type="button" onClick={handleButtonClick}>type</button> */}
-          <div>
-      <div className="col-auto">
-        <input type="radio" id="all" name="type_all" value="all" checked={type === 'all'} />
-        <label htmlFor="all">전체</label>
+          {/* <div>
+          <div className="d-flex">
+            <input type="radio" id="all" name="type_all" value="all" checked={type === 'all'} />
+            <label htmlFor="all">전체</label>
 
-        <input type="radio" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
-        <label htmlFor="recruiting">모집중</label>
+            <input type="radio" id="recruiting" name="type_ing" value="모집중" checked={type === '모집중'}  />
+            <label htmlFor="recruiting">모집중</label>
 
-        <input type="radio" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
-        <label htmlFor="closed">모집 완료</label>
-      </div>
+            <input type="radio" id="closed" name="type_done" value="모집완료" checked={type === '모집완료'} />
+            <label htmlFor="closed">모집 완료</label>
+          </div>
+          <br></br> */}
 
   {/* <div class="col-auto">
       <button className="btn btn-primary">
@@ -148,7 +149,7 @@ useEffect(function () {
       모집완료
     </button>
       </div> */}
-  </div>
+  {/* </div> */}
 
     {/* <button onClick={getimgstr}>getimgstr</button> */}
     <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"20px", marginBottom:"5px" }}>
@@ -221,7 +222,7 @@ useEffect(function () {
           </article>
         </div>
       ))}
-      <CrewBbsPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination} />
+      {/* <CrewBbsPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination} /> */}
     </>
   );
 };
