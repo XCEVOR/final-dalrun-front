@@ -148,8 +148,10 @@ function StoreCartList() {
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
-      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div><ModalButton ></ModalButton>
+      <>    
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
+      <div>
+        {/* <ModalButton ></ModalButton> */}
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
           console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)

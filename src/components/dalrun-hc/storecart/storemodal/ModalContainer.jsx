@@ -131,7 +131,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
         product.productColor === selectedColor && product.productSize === selectedSize
     );
     console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
-    if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+    if (filteredProducts.length === 0) {alert("이미 품절되었습니다. 다른 옵션을 선택해 주세요."); return;}
     console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
     setSelectedProdId(filteredProducts[0].productId)
     setIsProdId(true)
@@ -145,7 +145,7 @@ const ModalContainer = ({ modal_cartid, modal_productid, modal_productcode, moda
         product.productColor === selectedColor && product.productSize === selectedSize
     );
     console.log(" @const filteredProducts = productDetails[0].filter(", filteredProducts);
-    if (filteredProducts.length === 0) {alert("존재하지 않는 상품 옵션"); return;}
+    if (filteredProducts.length === 0) {alert("이미 품절되었습니다. 다른 옵션을 선택해 주세요."); return;}
     console.log("(filteredProducts.productId)", (filteredProducts[0].productId))
     setSelectedProdId(filteredProducts[0].productId)
   }

@@ -42,8 +42,10 @@ function StorePaymentConfirm() {
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
-      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+      <>    
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
       <div className="store_payment_success_container">
+      <div className="ptf-spacer" style={{ "--ptf-xxl": "5.75rem" }}></div>
         <section>
           <h2 className="store_payment_success_top_title">주문이 정상적으로 완료되었습니다.</h2>
           <div className="store_payment_success_container">

@@ -101,7 +101,8 @@ const StorePaymentUser = (props) => {
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
   ? (
-    <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    <>    
+    {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
 
     {/* <!--Animated Block--> */}
     <div className="ptf-animated-block" data-aos="fade" data-aos-delay="0">

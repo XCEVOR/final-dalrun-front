@@ -163,8 +163,8 @@ const Weekshop_mainPage = () => {
                   <div className="ptf-post__media__content">
                     <header className="ptf-post__header">
                       <div className="ptf-post__meta">
-                        <span className="cat">{recomm.cat}</span>
-                        <span className="date">{recomm.date}</span>
+                        {/* <span className="cat">{recomm.cat}</span> */}
+                        {/* <span className="date">{recomm.date}</span> */}
 
                         {/* <span className="cat">{item.productCategory}</span>
                         <span className="date">{item.productRegiDate}</span> */}

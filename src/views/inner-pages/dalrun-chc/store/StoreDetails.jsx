@@ -82,12 +82,12 @@ const WorksShowcase = () => {
   ? (
     <>
     <CommentAppContext.Provider value={{ commentContxData, setCommentContxData }}>
-    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
     <div className="dalrun_hc">
     <StoreCartFloatingBtn productCode={prodParams.productCode}/>
     <div className="ptf-site-wrapper animsition ptf-is--work-showcase-1">
       <Helmet>
-        <title>STORE DETAILS</title>
+        <title>달런달런 스토어</title>
       </Helmet>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
@@ -153,7 +153,7 @@ const WorksShowcase = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Simple Image--> */}
-                  <div className="ptf-simple-image">
+                  {/* <div className="ptf-simple-image">
                     <a
                       href="assets/img/portfolio/single-work/content-image-1.png"
                       rel="nofollow"
@@ -165,7 +165,7 @@ const WorksShowcase = () => {
                       />
                     </a>
                     
-                  </div>
+                  </div> */}
                       <StoreDetailsCommentList />
                 </div>
                 
@@ -188,7 +188,7 @@ const WorksShowcase = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Simple Image--> */}
-                  <div className="ptf-simple-image">
+                  {/* <div className="ptf-simple-image">
                     <a
                       href="assets/img/portfolio/single-work/content-image-1.png"
                       rel="nofollow"
@@ -200,7 +200,7 @@ const WorksShowcase = () => {
                       />
                     </a>
                     
-                  </div>
+                  </div> */}
                       <StoreDetailsCommentForm />
                 </div>
                 
@@ -356,7 +356,7 @@ const WorksShowcase = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Simple Image--> */}
-                  <div className="ptf-simple-image">
+                  {/* <div className="ptf-simple-image">
                     <a
                       href="assets/img/portfolio/single-work/content-image-1.png"
                       rel="nofollow"
@@ -368,7 +368,7 @@ const WorksShowcase = () => {
                       />
                     </a>
                     
-                  </div>
+                  </div> */}
                       <StoreDetailsCommentList />
                 </div>
                 
@@ -391,7 +391,7 @@ const WorksShowcase = () => {
                   data-aos-delay="0"
                 >
                   {/* <!--Simple Image--> */}
-                  <div className="ptf-simple-image">
+                  {/* <div className="ptf-simple-image">
                     <a
                       href="assets/img/portfolio/single-work/content-image-1.png"
                       rel="nofollow"
@@ -403,7 +403,7 @@ const WorksShowcase = () => {
                       />
                     </a>
                     
-                  </div>
+                  </div> */}
                       <StoreDetailsCommentForm />
                 </div>
                 

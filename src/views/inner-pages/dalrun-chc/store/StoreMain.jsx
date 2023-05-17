@@ -34,7 +34,8 @@ const StoreMain = () => {
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
-  <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+  <>    
+  {/* <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
       <div className="dalrun_hc">
         <StoreCartFloatingBtn storage_memId={storage_memId}/>
         {/* <button
@@ -53,7 +54,7 @@ const StoreMain = () => {
         </button> */}
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
-          <title>Store - Main</title>
+          <title>달런달런 스토어</title>
         </Helmet>
         {/* End Page SEO Content */}
 
@@ -76,8 +77,8 @@ const StoreMain = () => {
 
 
 
-              {/*=============================================
-            추천 상품
+            {/*=============================================
+            달런 추천 상품
             ============================================== */}
               <section>
                 {/* <!--Spacer--> */}
@@ -96,7 +97,7 @@ const StoreMain = () => {
                         data-aos-delay="0"
                       >
                         <h2 className="h1 large-heading has-accent-1">
-                          추천 상품
+                          달런 추천 상품
                         </h2>
                       </div>
                     </div>
@@ -129,11 +130,20 @@ const StoreMain = () => {
 
 
 
+              <section>
+              <div className="ptf-spacer" style={{ "--ptf-xxl": "5.75rem" }}></div>
+                <div className="container">
+                  {/* <!--Divider--> */}
+                  <div className="ptf-divider"></div>
+                </div>
+                <div className="ptf-spacer" style={{ "--ptf-xxl": "5.75rem" }}></div>
+              </section>
+
             
 
 
             {/*=============================================
-            일반 상품
+            달런 인기 상품
             ============================================== */}
               <section className="store_four_rectangles">
                 {/* <!--Spacer--> */}
@@ -149,7 +159,7 @@ const StoreMain = () => {
                     data-aos="fade"
                     data-aos-delay="0"
                   >
-                    <h2 className="h1 large-heading has-accent-1">일반 상품</h2>
+                    <h2 className="h1 large-heading has-accent-1">달런 인기 상품</h2>
                   </div>
                   
                   {/* <!--Spacer--> */}
