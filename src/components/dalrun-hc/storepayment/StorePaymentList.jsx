@@ -2,20 +2,48 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 // import { useLocation } from "react-router-dom";
 
 function StoreCartList(props) {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
   const navigate = useNavigate();
 
+  let storage_memId = "x";
+  let storage_memName = "x";
+  let storage_memEmail = "x";
+  let storage_memPhone = "x";
+  let storage_memGrade = "x";
+  let storage_memPoint = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) {
+      storage_memId = "user01test";
+      storage_memName = "김멀티";
+      storage_memEmail = "user@email.com";
+      storage_memPhone = "010-0000-0000";
+      storage_memGrade = "러너";
+      storage_memPoint = "99999";
+  }
+  else {
+      storage_memId = JSON.parse(json_login).memId;
+      storage_memName = JSON.parse(json_login).memberName;
+      storage_memEmail = JSON.parse(json_login).email;
+      storage_memPhone = JSON.parse(json_login).phone;
+      storage_memGrade = JSON.parse(json_login).grade;
+      storage_memPoint = JSON.parse(json_login).point;
+  }
+
   // const location = useLocation();
-  const [userId, setUserId] = useState("user01test");
+  const [userId, setUserId] = useState(storage_memId);
   const [cartList, setCartList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [itemQuantity, setItemQuantiry] = useState();
 
   const [totalPaymentAmount, setTotalPaymentAmount] = useState(0);
+  const [totalDiscountedAmount, setTotalDiscountedAmount] = useState(0);
+  const [fullFullPaymentAmount, setFullFullPaymentAount] = useState(0)
+  const [memPoint, setMemPoint] = useState(0);
 
   const [data, setData] = useState([]);  // 삭제 예정.
   const [sum, setSum] = useState(0);  // 삭제 예정.
@@ -125,6 +153,13 @@ function StoreCartList(props) {
     navigate(`/store-payment-confirm/${orderNumber}`);
   }, [orderNumber])
 
+  useMemo (() => {
+    if (storage_memGrade === "걸음마") setTotalDiscountedAmount(totalPaymentAmount * 0.97 + 3000)
+    else if (storage_memGrade === "런니니") setTotalDiscountedAmount(totalPaymentAmount * 0.95 + 3000)
+    else if (storage_memGrade === "러너") setTotalDiscountedAmount(totalPaymentAmount * 0.92 + 3000)
+    else if (storage_memGrade === "마라토너") setTotalDiscountedAmount(totalPaymentAmount * 0.85)
+  }, [totalPaymentAmount, storage_memGrade])
+
 
   if(loading === false){
     return <div>Loading...</div>
@@ -136,7 +171,7 @@ function StoreCartList(props) {
 
 
   const onClickPayment = () => {
-    console.log("  const onClickPayment = () => {", totalPaymentAmount)
+    console.log("  const onClickPayment = () => {", totalDiscountedAmount)
     console.log("  const onClickPayment = () => {", pulledOrderName)
     console.log("  const onClickPayment = () => {", pulledOrderPhone)
     console.log("  const onClickPayment = () => {", pulledOrderAddress)
@@ -148,7 +183,7 @@ function StoreCartList(props) {
       pay_method: 'card', // 결제수단 (필수항목)
       merchant_uid: `mid_${new Date().getTime()}`, // merchant_uid (필수항목)
       name: '결제 테스트', // 주문명 (필수항목)
-      amount: `${totalPaymentAmount}`, // 금액 (필수항목)
+      amount: `${totalDiscountedAmount}`, // 금액 (필수항목)
       custom_data: { name: '부가정보', desc: '세부 부가정보' },
       buyer_name: `${pulledOrderName}`, // 구매자 이름
       buyer_tel: `${pulledOrderPhone}`, // 구매자 전화번호 (필수항목)
@@ -166,7 +201,7 @@ function StoreCartList(props) {
     .then (function (resp) {
       console.log(" @ verifyIamport resp: ", resp.data);
       console.log(" @ verifyIamport resp: ", resp.data.response.amount);
-      if (resp.data.response.amount === totalPaymentAmount) {
+      if (resp.data.response.amount === totalDiscountedAmount) {
         alert("결제 성공 response")
       }
     })
@@ -250,6 +285,10 @@ function StoreCartList(props) {
         })
         .catch((err) => console.log(err));
     }
+
+    // 카트 비우기
+    const empty_resp = await axios.post("http://localhost:3000/emptyCart", null, { params: {"memId": userId}});
+    console.log(" console.log(empty_resp.data) ", empty_resp.data)
   }
 
 
@@ -380,6 +419,9 @@ function StoreCartList(props) {
         <section>
           <div className="payment_progress_container">
             <div className="payment_progress_container2">
+                  <p className="payment_amount_info">총 상품 가격&emsp;&emsp; ₩ {totalPaymentAmount}</p>
+                  <p className="payment_amount_info">택배비&emsp;&emsp; ₩ 3000</p>
+
 
                   <h5 className="store_payment_total_title">총 결제 금액</h5>
                   {/* <button onClick={calcTotalPaymentAmount}>
@@ -394,7 +436,19 @@ function StoreCartList(props) {
                   {/* <Link to={`/store-payment-confirm/${orderNumber}`} >
                     <button>{totalPaymentAmount}결제 실행 (링크)</button>
                   </Link> */}
-                  <h3 className="store_payment_total_amount" defaultValue={totalPaymentAmount}>₩ {totalPaymentAmount}</h3>
+
+                  {storage_memGrade === "마라토너" 
+                    ? <div>
+                        <h3 className="store_payment_total_amount_linethrough" >₩ {totalPaymentAmount + 3000}</h3>
+                        <h3 className="store_payment_total_amount" >₩ {totalDiscountedAmount}</h3>
+                          <p className="store_payment_total_free">"마라토너 등급 무료배송"</p>
+                      </div>
+                    : <div>
+                        <h3 className="store_payment_total_amount_linethrough" >₩ {totalPaymentAmount + 3000}</h3>
+                        <h3 className="store_payment_total_amount" >₩ {totalDiscountedAmount}</h3>
+                      </div>
+                  }
+                  
                   {/* <button onClick={testSuccessPayment}>testSuccessPayment</button> */}
                   <button className="store_payment_button" onClick={onClickPayment}>결제</button>
 
