@@ -187,7 +187,7 @@ const reqBbs = () => {
         <label htmlFor="closed">모집 완료 {done && ('✓')}</label>
       </div>
   </div>
-  
+  <br></br>
     <table style={{ marginLeft:"auto", marginRight:"auto", marginTop:"20px", marginBottom:"5px" }}>
             <tbody>
             <tr>
