@@ -36,7 +36,8 @@ const HeadermainPage = () => {
             `${navbar
               ? "ptf-navbar ptf-navbar--main ptf-navbar--sticky ptf-navbar--fixed"
               : "ptf-navbar ptf-navbar--main ptf-navbar--sticky"} ${path === "/dotmap"
-              ? "transparent_header": ""} ${path === '/mainPage' || path === '/mainpage' ? "main_header" : ""}`
+              ? "transparent_header": ""} ${path === '/mainPage' || path === '/mainpage' ? "main_header" : ""}
+              ${path === '/store-main' ? "main_header" : ""}`
           }
         >
           <div className="container-xxl">

@@ -13,10 +13,11 @@ function Write(){
 
   return(
     <div className="members container">
+      <br /><br /><br /><br /><br /><br />
       <h4 className="title">내 문의 내역</h4>
       <br />
       <div className="inform outline" />
-      <br />      
+      <br /> <br />
         <MypageBtn {...category} />
         <Routes>
             <Route path=":cate" element={<MywriteContent {...category} />} />

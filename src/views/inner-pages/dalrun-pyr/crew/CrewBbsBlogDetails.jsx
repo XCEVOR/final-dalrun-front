@@ -15,10 +15,6 @@ import { HeartOutlined, HeartFilled } from '@ant-design/icons';	//icons 모듈�
 const CrewBbsBlogDetails = () => {
   let history = useNavigate();
 
-  function gotoCrewMember() {
-    history('/crewMember', { state:{'crewSeq':crewSeq} });
-  }
-
   let crewBbsParams = useParams();
   console.log("crewBbsParams : ", crewBbsParams);
   console.log("crewBbsParams.crewSeq : ", crewBbsParams.crewSeq);
@@ -323,9 +319,9 @@ const CrewBbsBlogDetails = () => {
                       <a className="author A" href="#">
                         <i className="lnil lnil-user"></i> <span>크루소개</span>
                       </a>
-                      <a className="view A" onClick={gotoCrewMember}>
+                      <Link className="comments A" to={`/crewmember/${crewSeq}`}>
                         <i className="lnil lnil-eye"></i>크루멤버
-                      </a>
+                      </Link>
                       </div>
 
                       {loginTF ?

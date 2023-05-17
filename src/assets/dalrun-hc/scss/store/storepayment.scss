@@ -65,7 +65,7 @@
 
   .payment_progress_container {
     position: relative;
-    height: 100px;
+    height: 400px;
   }
 
   .payment_progress_container2 {
@@ -76,7 +76,14 @@
     width: 500px;
   }
 
+  p.payment_amount_info {
+    margin: auto;
+    padding-bottom: 10px;
+  }
+
   .store_payment_total_title {
+    margin-top: 20px;
+    margin-bottom: 10px;
     color: #333333;
     font-weight: 800;
   }
@@ -84,6 +91,24 @@
   .store_payment_total_amount {
     color: #333333;
     font-weight: 800;
+  }
+
+   .store_payment_total_amount_linethrough {
+    color: #999999;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+  .store_payment_total_amount_discounted {
+    color: #333333;
+    font-weight: 800;
+  }
+
+  p.store_payment_total_free {
+    margin: auto;
+    font-size: 20px;
+    color: #999999;
   }
 
   .store_payment_button {

@@ -146,7 +146,8 @@ const StoreTwoRectangles = () => {
   return checkbox_DisplayMode 
   // USER_MODE
   ? (
-    <>          <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    <>          
+    {/* <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
       <div>
         
         <Slider {...settings} className="arrow-none">

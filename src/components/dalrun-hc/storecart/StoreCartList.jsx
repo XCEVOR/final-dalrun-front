@@ -11,8 +11,20 @@ import { useMemo } from "react";
 function StoreCartList() {
   const [checkbox_DisplayMode, setCheckbox_DisplayMode] = useState(true);  // TEST MODE
 
+  let storage_memId = "x";
+  let storage_memEmail = "x";
+  let json_login = localStorage.getItem("login");
+  if (json_login === null) {
+      storage_memId = "user01test";
+      storage_memEmail = "user@email.com";
+  }
+  else {
+      storage_memId = JSON.parse(json_login).memId;
+      storage_memEmail = JSON.parse(json_login).email;
+  }
+
   // const location = useLocation();
-  const [userId, setUserId] = useState("user01test");
+  const [userId, setUserId] = useState(storage_memId);
   const [cartList, setCartList] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -136,8 +148,10 @@ function StoreCartList() {
     return checkbox_DisplayMode 
     // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ 
     ? (
-      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
-      <div><ModalButton ></ModalButton>
+      <>    
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
+      <div>
+        {/* <ModalButton ></ModalButton> */}
         {productInfoList.map((prodInfo) => {
           const matchedProduct = productIdList.find((prodId) => prodId.productId === prodInfo.productId);
           console.log(" @ ", prodInfo.productPrice * matchedProduct.cartProdQuantity)

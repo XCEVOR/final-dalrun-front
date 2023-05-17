@@ -105,11 +105,12 @@ function Running() {
 
   return (
     <div className="members container">
+      <br /><br /><br /><br /><br /><br />
       <h4 className="title">🏃‍♀️내 러닝기록</h4>
       <br />
       <div className="inform outline" />
-      <br />
-      <h4 className="title">기간별 런닝</h4> 
+      <br /><br />
+      <h5 className="title">기간별 런닝</h5> 
       <br />
     
       <DatePicker
@@ -121,6 +122,7 @@ function Running() {
         placeholderText="시작 날짜 선택"
         dateFormat="yyyy년 MM월 dd일"
       />
+      <br />
       <DatePicker
         selected={endDate}
         onChange={handleEndDateChange}
@@ -130,7 +132,7 @@ function Running() {
         placeholderText="끝 날짜 선택"
         dateFormat="yyyy년 MM월 dd일"
       />
-      
+      <br /><br />
       <table>
         <thead>
           <tr>
@@ -155,13 +157,13 @@ function Running() {
         }          
         </tbody>
       </table>
-      <br />
+      <br /><br /><br />
       <div className="inform outline" />
-      <br />
+      <br /><br />
       <h5 className="title">매일기록</h5><br />
 
       <div>
-        <Table striped bordered hover>
+        <Table responsive hover>
           <thead>
             <tr>
               <th>날짜</th>
@@ -175,9 +177,11 @@ function Running() {
             {
               diaryItems.length !== 0 ?
               diaryItems.map((Items, i) => {
+                const wdate = new Date(Items.wdate);
+                const formattedDate = wdate.toLocaleDateString('ko-KR');
                 return(
                   <tr key={i}>
-                    <td>{Items.wdate}</td>
+                    <td>{formattedDate}</td>
                     <td>{(Items.totalDist/1000).toFixed(2)} km</td>
                     <td>{formatTime(Items.totalTime)}</td>                          
                     <td>{Items.meanPace.toFixed(1)} 분/km </td>
@@ -190,7 +194,7 @@ function Running() {
           </tbody>
         </Table>    
       </div>  
-
+      <br /><br /><br /><br />
     </div>
   );
 }

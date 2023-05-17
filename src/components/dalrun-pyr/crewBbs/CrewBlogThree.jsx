@@ -240,9 +240,9 @@ const reqBbs = () => {
                 <div className="ptf-post__meta">
                   <span className="cat">{singleBbs.type}</span>
                   <span className="date">{singleBbs.crewCreateDate}</span>
+                  <span><p style={{display:'inline-block', color:'var(--ptf-accent-1)'}}>{singleBbs.crewName}</p></span>
                 </div>
                 <h3 className="ptf-post__title">
-                  <span>&lt;{singleBbs.crewName}&gt;</span><br></br>
                   <Link to={`/crewBbsBlogDetails/${singleBbs.crewSeq}`}>{singleBbs.title}</Link>
                 </h3>
               </header>

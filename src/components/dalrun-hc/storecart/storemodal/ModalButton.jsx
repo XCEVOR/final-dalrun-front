@@ -10,7 +10,7 @@ const ModalButton = ({ modal_cartid, modal_productid, modal_productcode, modal_p
 
   return (
     <div>
-      <button className="store_cart_edit_btn" onClick={handleClick}>편집</button>
+      <button className="store_cart_edit_btn" onClick={handleClick}>변경</button>
       {showModal && <ModalContainer 
                       modal_cartid={modal_cartid}
                       modal_productid={modal_productid} 

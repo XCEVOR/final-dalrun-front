@@ -61,6 +61,7 @@ function Store() {
 
   return (
     <div className="members container">
+      <br /><br /><br /><br /><br /><br />
       <h4 className="title">내 스토어 목록</h4>
       <br />
       <div className="inform outline" />
@@ -80,7 +81,7 @@ function Store() {
             </div> */}
             <br />
             <div className="info_con">
-              <Table striped bordered hover>
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>주문번호</th>
@@ -101,7 +102,7 @@ function Store() {
                           <th>{msl.orderNumber}</th>
                           {/* <th>{msl.productName}</th> */}
                           <th>
-                            <Link to={'/store/${msl.productName}'}>{msl.productName}</Link>
+                            <Link to={'http://localhost:9200/store-details/PUMA-AMSN'}>{msl.productName}</Link>
                           </th>                          
                           <th>{msl.productQuantity}</th>
                           <th>{msl.productPrice}</th>

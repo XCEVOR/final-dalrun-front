@@ -37,6 +37,7 @@ function WriteQnA() {
       axios.get("http://localhost:3000/myqnalist", { params:{ "choice":choice, "search":search, "pageNumber":page, "memId":id } })
       .then(function(resp){
 
+          console.log(resp.data.list);
           setmyqnalist(resp.data.list);
           setTotalCnt(resp.data.cnt);
       })
@@ -91,7 +92,7 @@ function WriteQnA() {
           <div className="info">
           <br />
             <div className="info_con">
-              <Table striped bordered hover>
+              <Table responsive hover>
                 <thead>
                   <tr>
                     <th>번호</th>
@@ -106,6 +107,8 @@ function WriteQnA() {
                   {
                     myqnalist.length !== 0 ?
                     myqnalist.map((qna, i) => {
+                      const wdate = new Date(qna.wdate);
+                      const formattedDate = wdate.toLocaleDateString('ko-KR');
                       return(
                         <tr key={i}>
                           <td>{qna.qnaSeq}</td>
@@ -113,9 +116,9 @@ function WriteQnA() {
                           <td>
                             <Link to={'/qna/${qna.qnaTitle}'}>{qna.qnaTitle}</Link>
                           </td>
-                          <td>{qna.wdate}</td>
-                          <td>{qna.answer}</td>
-                          <td>{qna.readCount}</td>
+                          <td>{formattedDate}</td>
+                          <td>{qna.answer === "1" ? "답변 등록" : "답변 미등록"}</td>
+                          <td>{qna.readcount}</td>
                         </tr>
                       );
                     }) 
