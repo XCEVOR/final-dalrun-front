@@ -1,0 +1,45 @@
+﻿// _modal.scss
+
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 900px; /* 너비 조정 */
+  width: 90vw; /* 너비 조정 */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  margin: 20px;
+  overflow: auto; /* 스크롤바 표시 */
+  height: 150%; /* 높이 조정 */
+  display: flex; /* 가운데 정렬을 위해 추가 */
+  align-items: center; /* 가운데 정렬을 위해 추가 */
+  justify-content: center; /* 가운데 정렬을 위해 추가 */
+}
+
+.modal-body {
+  margin-bottom: 20px;
+  max-height: 600px; /* 컨텐츠의 최대 높이 조정 */
+}
+
+.modal-content pre {
+  white-space: pre-wrap;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 24px; /* 제목 폰트 크기 조정 */
+  font-weight: bold;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}

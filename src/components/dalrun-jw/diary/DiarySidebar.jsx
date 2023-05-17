@@ -16,10 +16,14 @@ const DiarySidebar = () => {
     memId = loginData.memId;
   }
 
+  const [searchActive, setSearchActive] = useState(false);
+
   const loginAlert = ( (event) => {
     if(!loginData){
       event.preventDefault();
       alert('로그인이 필요합니다.');
+    } else {
+      setSearchActive(!searchActive);
     }
   });
 
@@ -39,12 +43,12 @@ const DiarySidebar = () => {
     <header className='diary-navbar-container'>
 
       <Link to="/" title="Home" className='logo-Link'>
-        <img   src={process.env.PUBLIC_URL + '/dalrun_logo.png'} className='logo'/>
+        <img src="dalrun_logo.png" className='logo'/>
       </Link>
       <nav className='head-nav'>
         <ul>
           <li className='nav-item'>
-            <Link to={`?search=${memId}`} title='내 기록' onClick={loginAlert}>
+            <Link to={searchActive ? `?search=${memId}` : '/diary'} title='내 기록' onClick={loginAlert}>
               <FontAwesomeIcon icon={faCircleUser} size='xl' style={{color:"#74EABC"}} />
               <span>내 기록</span>
             </Link>
@@ -64,10 +68,12 @@ const DiarySidebar = () => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to="/course">
-              <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
-              <span>코스</span>
-            </Link>
+            <div style={{justifyItems:'center'}}>
+              <Link to="/course">
+                <FontAwesomeIcon icon={faRoute} size="xl" style={{color:"#74EABC"}} />
+                <span>코스</span>
+              </Link>
+            </div>
           </li>
         </ul>
         <div className='dropup-container'>
@@ -84,25 +90,56 @@ export default DiarySidebar;
 function MyDropdown() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const loginData = JSON.parse(localStorage.getItem("login"));
-  const profileImg = loginData.profile;
+  let profileImg = null;
+  let isLogin = false;
+  
+  if(loginData){
+    profileImg = loginData.profile;
+    isLogin = true;
+  }
   // console.log(profileImg);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleLogout = ( () => {
-    sessionStorage.removeItem("login");
+    localStorage.removeItem("login");
+    alert('로그아웃 되었습니다.');
   });
+
+  const renderProfileImg = () => {
+    if (profileImg) {
+      return (
+        <img
+          src={`http://localhost:3000/dalrun-yr/profiles/${profileImg}`}
+          alt='mdo'
+          width='30'
+          height='30'
+          className='rounded-circle'
+        />
+      );
+    } else {
+      return (
+        <FontAwesomeIcon icon={faCircleUser} size="xl" />
+      );
+    }
+  };
 
   return (
 
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
       <Dropdown.Toggle id="dropdown" style={{ width: '100%', backgroundColor: 'transparent', border: 'none', marginLeft: 'auto' }}>
-        <img src={`http://localhost:3000/final-dalrun/src/main/webapp/dalrun-yr/profiles/${profileImg}`} alt='mdo' width='24' height='24' className='rounded-circle' />
+        {renderProfileImg()}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">마이페이지</Dropdown.Item>
-        <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
+        {isLogin ? (
+          <>
+            <Dropdown.Item href="#/action-1">마이페이지</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
+          </>
+        ) : (
+          <Dropdown.Item href="/login">로그인</Dropdown.Item>
+        )}
       </Dropdown.Menu>
     </Dropdown>
 

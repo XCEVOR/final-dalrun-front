@@ -1,12 +1,10 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminPagination from '../../dalrun-asj/AdminPagination';
-import { useNavigate, useSearchParams} from 'react-router-dom';
+import { Link, useNavigate, useSearchParams} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faCrown } from '@fortawesome/free-solid-svg-icons';
-import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faCrown, faLocationPin} from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import ModalPortal from '../Portal';
 import DetailModal from './DetailModal';
 import ModalFrame from '../ModalFrame';
@@ -67,7 +65,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
           pageNumber: pageNumber,
         },
       });
-      console.log('가져오는 데이터:',response.data.list);
+      // console.log('가져오는 데이터:',response.data.list);
       setDiaryItems(response.data.list);
       onDiaryItemsChange(response.data.list);
       setTotalCnt(response.data.cnt);
@@ -119,7 +117,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
   const fetchTopScore = async () => {
     try {
       const response = await axios.get('http://localhost:3000/getTodayTopScore');
-      console.log('TodayTopScore 데이터: ', response.data);
+      console.log('TodayTopScore 데이터: ', response.data[0]);
       setTodayTopScore(response.data[0]);
     }catch (error) {
       console.error('기록 1등 다이어리를 조회할 수 없습니다.', error);
@@ -129,7 +127,9 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
   return (
     <div className="diary-list-container">
       <div className="diary-list-header">
-        <h5 style={{position:'relative', top:'-1rem'}}>다이어리 페이지</h5>
+          <Link to="/diary" style={{ textDecoration: 'none' }}>
+            <h5 style={{ position: 'relative', top: '-1rem' }}>다이어리 페이지</h5>
+          </Link>
         <div className="diary-list-search">
           <input type="text" placeholder="제목,아이디,작성일 검색" value={search} onChange={handleSearchChange}/>
           <button className='diary-list-searchBtn' onClick={() => fetchDiaryItems(page - 1)}>
@@ -138,14 +138,56 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
         </div>
       </div>
       <div className="diary-list-item first-place">
-          {todayTopScore && (
-            <div>
-              <div style={{marginTop:'1.3rem', marginLeft:'0.5rem'}}>
-              <FontAwesomeIcon icon={faCrown} title='1등' bounce size="2xl" style={{color: "#f5dc3d",}}/>
-              <p>{todayTopScore.memId}</p>
-              <p></p>
-              </div>
+          {!todayTopScore ? (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+              <FontAwesomeIcon icon={faCrown} title='1등' beat size="2x" style={{ color: "#f5dc3d", marginBottom: "10px" }} />
+              <p style={{ margin: "0" }}>오늘의 1등 기록에 도전하세요!!</p>
             </div>
+          ) : (
+            <table>
+              <colgroup>
+                <col style={{width:'30px'}} />
+                <col style={{width:'70px'}} />
+                <col style={{width:'50px'}} />
+                <col style={{width:'50px'}} />
+                
+              </colgroup>
+            <tbody>
+              <tr>
+                <th>
+                  <h6 style={{marginLeft:'0.2rem'}}>1위</h6>
+                </th>
+                <td rowSpan={2}>
+                  <img
+                    src={`http://localhost:3000/dalrun-yr/profiles/${todayTopScore.profile}`}
+                    className='rounded-circle'
+                  />
+                  &nbsp;&nbsp;&nbsp;&nbsp;{todayTopScore.memId}
+                </td>
+                <td>
+                  이동거리
+                </td>
+                <td>
+                  {(todayTopScore.totalDist/1000).toFixed(2)} km
+                </td>
+              </tr>
+              <tr>
+                <td rowSpan={2}>
+                  <FontAwesomeIcon icon={faTrophy} bounce size="2x" style={{color: "#f5dc3d"}}/>
+                </td>
+                <td>이동시간</td>
+                <td>{formatTime(todayTopScore.totalTime)}</td>
+              </tr>
+              <tr>
+                <td>
+                  {new Date(todayTopScore.wdate).toLocaleDateString('ko-KR', {year: 'numeric', month: '2-digit', day: '2-digit'}).replaceAll('. ', '-').replaceAll('.', '')}
+                </td>
+                <td colSpan={2} style={{textAlign:'right'}}>
+                  <button className='btn_today' onClick={() => openModal(todayTopScore)}>상세 보기</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           )}
       </div>
       <div className="diary-list-items">
@@ -166,7 +208,21 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
                     <FontAwesomeIcon icon={faLocationPin} size="xl" style={{color: "#51e3d4",}} />
                   </td>
                   <td>
-                    &nbsp;&nbsp;<FontAwesomeIcon icon={faCircleUser} size="xl" /> {item.memId}
+                    {item.profile != null ? (
+                      <div>
+                      <img src={`http://localhost:3000/dalrun-yr/profiles/${item.profile}`}
+                        className='rounded-circle'
+                      /> 
+                      &nbsp;&nbsp;&nbsp;
+                      {item.memId}
+                      </div>
+                    )
+                    : (
+                      <div>
+                      &nbsp;&nbsp;<FontAwesomeIcon icon={faCircleUser} size="xl" /> 
+                      {item.memId}
+                      </div>
+                    )}
                   </td>
                   <td colSpan={3} style={{overflowX:'hidden'}}>{item.title}</td>
                 </tr>
