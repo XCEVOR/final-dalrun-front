@@ -136,7 +136,7 @@ const AllRoutes = () => {
         <Route path="/signupSuccess" element={<SignupSuccess/>}/>
 
         <Route path="/crewMember/:crewSeq" element={<CrewMember/>}/>
-        <Route paht="/crewMemberWait" element={<CrewMemberWait/>}/>
+        <Route path="/crewMemberWait" element={<CrewMemberWait/>}/>
         
       </Routes>
     </>
