@@ -442,7 +442,7 @@ function StoreCartList(props) {
                     ? <div>
                         <h3 className="store_payment_total_amount_linethrough" >₩ {totalPaymentAmount + 3000}</h3>
                         <h3 className="store_payment_total_amount" >₩ {totalDiscountedAmount}</h3>
-                          <p className="store_payment_total_free">"마라토너 등급 무료배송"</p>
+                          <p className="store_payment_total_free">"달런의 마라토너는 무료배송 혜택!"</p>
                       </div>
                     : <div>
                         <h3 className="store_payment_total_amount_linethrough" >₩ {totalPaymentAmount + 3000}</h3>
