@@ -339,10 +339,10 @@ const CrewBbsBlogDetails = () => {
                               // 크루가 없을 때 
                               <>
                                 {!isJoined && (
-                                  <button className="pyr_crewBnt" onClick={handleJoin}>가입</button>
+                                  <button className="btn btn-dalrun" onClick={handleJoin} style={{ marginLeft: '20px' }}>가입</button>
                                 )}
                                 {isJoined && (
-                                  <button className="pyr_crewBnt" onClick={handleCancelJoin}>가입 취소</button>
+                                  <button className="btn btn-dalrun" onClick={handleCancelJoin} style={{ marginLeft: '20px' }}>가입 취소</button>
                                 )}
                               </>
 
@@ -352,9 +352,9 @@ const CrewBbsBlogDetails = () => {
                           </div>
                           <i className="icons-list A" style={{ marginLeft: '10px' }}>
                             {isLiked ? (
-                              <HeartFilled style={{ color: 'red', fontSize: '25px' }} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
+                              <HeartFilled style={{ color: 'red', fontSize: '25px', marginLeft: '500px'}} onClick={handleCancelLike}></HeartFilled> //좋아요 취소 - 비어있는 하트
                             ) : (
-                              <HeartOutlined style={{ fontSize: '25px' }} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
+                              <HeartOutlined style={{ fontSize: '25px', marginLeft: '500px' }} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
                             )}
                             {/* 좋아요  {likecount} */}
                           </i>
