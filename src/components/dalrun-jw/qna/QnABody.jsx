@@ -1,7 +1,8 @@
-﻿import React from "react";
+﻿import React, { useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ReactTooltip from "react-tooltip";
 import { Link } from "react-router-dom";
+import AdminPagination from '../../dalrun-asj/AdminPagination';
 
 const portfolioMenu = [
   "일반",
@@ -12,8 +13,8 @@ const portfolioContent = [
   {
     tabContent: [
       {
-        cat: "park1234",
-        title: "질문 1",
+        cat: "kim1",
+        title: "러닝 ",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         dataId: "work-1",
@@ -234,7 +235,14 @@ const portfolioContent = [
   },
 ];
 
-const PortfolioListing = () => {
+const QnABody = () => {
+  const [page, setPage] = useState(1);
+  const [totalCnt, setTotalCnt] = useState();
+
+  const handlePagination = (selectedPage) =>{
+    setPage(selectedPage);
+  }
+  
   return (
     <>
       <Tabs>
@@ -277,19 +285,6 @@ const PortfolioListing = () => {
                         className="ptf-work__link"
                         to="/works-showcase"
                       ></Link>
-                      <ReactTooltip
-                        id={val.dataId}
-                        place="right"
-                        type="dark"
-                        effect="float"
-                      >
-                        <div className="poup-link">
-                          <img
-                            src={`assets/img/portfolio/grid/${val.imgPopup}.png`}
-                            alt="popup"
-                          />
-                        </div>
-                      </ReactTooltip>
                       <div className="ptf-work__category">{val.cat}</div>
                       <h4 className="ptf-work__title">{val.title}</h4>
                       <div className="ptf-work__date">{val.date}</div>
@@ -301,7 +296,9 @@ const PortfolioListing = () => {
               </div>
               {/* End .ptf-isotope-grid */}
             </div>
-
+            <div className='diary-list-pagination'>
+                  <AdminPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination}/>
+                </div>
             {/* End portfolio */}
           </TabPanel>
         ))}
@@ -310,4 +307,4 @@ const PortfolioListing = () => {
   );
 };
 
-export default PortfolioListing;
+export default QnABody;
