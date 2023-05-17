@@ -33,11 +33,7 @@ const MypageMenu = () => {
     <>
       <div className="ptf-admin-sidebar">
         <div>
-          <div className="logo">
-              <Link to="/" title="Home" className='logo-Link'>
-                <img src={process.env.PUBLIC_URL + '/dalrun_logo.png'} className='logo'/>
-              </Link>
-            </div>          
+                  
             <ul className="admin-sidebar-menu_wrapper">
               {menuContent.map((item, i) => (
                 <li key={i}>

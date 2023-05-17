@@ -119,7 +119,7 @@ const onSubmit = (e) => {
                 <img
                 src={imgFile ? imgFile : "/images/icon/user.png"}
                 alt="프로필 이미지"
-                style={{ width: "50%" }}
+                style={{ width: "30%" }}
                 />
                 <br /><br />
                 <input

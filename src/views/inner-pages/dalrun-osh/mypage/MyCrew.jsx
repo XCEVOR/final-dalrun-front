@@ -117,6 +117,7 @@ function MyCrew(props) {
       .then(function (resp) {
         setMycrewinfo(resp.data);
         console.log(resp.data);
+        setCrewPoint(resp.data.crewTotalScore)
         // props.Changemycrewinfo(resp.data);
       }).catch(function (err) {
         
@@ -222,7 +223,7 @@ function MyCrew(props) {
       setSendscore(100000);
 
     }else if(mycrewinfo.crewLevel === 5){
-      setPointPercent(parseInt(crewPoint / 100000 * 100));
+      setPointPercent(parseInt(crewPoint / 500000 * 100));
       setSendscore(100000);
 
     }
@@ -293,9 +294,9 @@ function MyCrew(props) {
                     <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.crewLevel}</p>
                   </div>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>크루 포인트</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>포인트</p>
                     <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.crewTotalScore}</p>
-                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>크루 보유 Ground</p>
+                    <p style={{ margin: "20px", minWidth: "80px", fontWeight: "bold" }}>보유 Ground</p>
                     <p style={{ margin: "20px", minWidth: "80px" }}>{mycrewinfo.groundCount}</p>                    
                   </div>                  
                   <div style={{ display: "flex", alignItems: "center" }}>
