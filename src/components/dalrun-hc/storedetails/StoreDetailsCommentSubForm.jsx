@@ -160,7 +160,8 @@ function TestReduxRight2 (props) {
     return checkbox_DisplayMode 
     // USER_MODE
     ? (
-      <>    <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+      <>    
+      {/* <input type='checkbox' onClick={() =>(setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
         <div>
 
             <div className="post-comment-form">

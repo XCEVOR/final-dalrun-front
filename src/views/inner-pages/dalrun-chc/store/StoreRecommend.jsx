@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import HeadermainPage from "../../../../components/dalrun-jy/HeadermainPage";
@@ -7,6 +7,7 @@ import StoreRecommendPicture from "../../../../components/dalrun-hc/storerecomme
 import StoreRecommendPhoto from "../../../../components/dalrun-hc/storerecommend/StoreRecommendPhoto";
 import StoreRecommendFloatingBtn from "../../../../components/dalrun-hc/storerecommend/StoreRecommendFloatingBtn";
 import StoreCartFloatingBtn from "./StoreCartFloatingBtn";
+import axios from "axios";
 
 
 const StoreRecommend = () => {
@@ -18,7 +19,25 @@ const StoreRecommend = () => {
   let json_login = localStorage.getItem("login");
   if (json_login === null) storage_memId = "user01test";
   else storage_memId = JSON.parse(json_login).memId;
+  
+  const [productInfo, setProductInfo] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  const getProductData = async (productCode) => {
+    const resp = await axios.post("http://localhost:3000/getProductData", null, { params: {"productCode": productCode} });
+    console.log(" getProductData: ", resp.data);
+    setProductInfo(resp.data);
+
+    setLoading(true);  // 이 코드 전에는 div에 productDetails.productName 등등 적용안됨.
+  }
+
+  useEffect(() => {
+    getProductData(prodParams.productCode);
+  }, [prodParams.productCode])
+
+  if(loading === false){
+    return <div>Loading...</div>
+  }
 
 
   return (
@@ -27,7 +46,7 @@ const StoreRecommend = () => {
       <StoreCartFloatingBtn storage_memId={storage_memId}/>
       <div className="ptf-site-wrapper animsition ptf-is--home-agency">
         <Helmet>
-          <title>Moonex - Home Agency</title>
+          <title>달런달런 스토어</title>
         </Helmet>
         {/* End Page SEO Content */}
 
@@ -81,11 +100,14 @@ const StoreRecommend = () => {
                         data-aos="fade"
                         data-aos-delay="0"
                       >
-                        <h2 className="h1 large-heading has-accent-1">
-                          Creative Design & Advertising
-                        </h2>
+                        <h5 className="h3 large-heading has-accent-1">
+                          {JSON.parse(productInfo[0].productDescription).descr}
+                        </h5>
                       </div>
                     </div>
+
+                    <div className="ptf-spacer" style={{ "--ptf-xxl": "10.75rem" }}></div>
+
                     <div className="col-xl-5 d-none d-xl-block">
                       {/* <!--Animated Block--> */}
                       <div
@@ -93,7 +115,7 @@ const StoreRecommend = () => {
                         data-aos="fade"
                         data-aos-delay="100"
                       >
-                        <div className="has-black-color fz-90 lh-1 text-end">
+                        {/* <div className="has-black-color fz-90 lh-1 text-end">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
@@ -102,7 +124,7 @@ const StoreRecommend = () => {
                           >
                             <path d="M16 .997V10h-1V2.703L4.683 13l-.707-.708L14.291 1.997H6.975v-1H16z" />
                           </svg>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -118,51 +140,7 @@ const StoreRecommend = () => {
               <section className="dalrun-hc recommend">
                 <div className="container">
                   <div className="row">
-                    <div className="col-lg-5 offset-lg-7">
-                      {/* <!--Spacer--> */}
-                      <div
-                        className="ptf-spacer"
-                        style={{ "--ptf-xxl": "8.125rem", "--ptf-lg": "0" }}
-                      ></div>
-                      {/* <!--Animated Block--> */}
-                      <div
-                        className="ptf-animated-block"
-                        data-aos="fade"
-                        data-aos-delay="0"
-                      >
-                        <h6 className="fz-16 has-accent-1 text-uppercase">
-                          About Us
-                        </h6>
-                        {/* <!--Spacer--> */}
-                        <div
-                          className="ptf-spacer"
-                          style={{ "--ptf-xxl": "1.875rem" }}
-                        ></div>
-                        <h3 style={{ maxWidth: "30rem" }}>
-                          We bring trusted solutions for your business
-                        </h3>
-                        {/* <!--Spacer--> */}
-                        <div
-                          className="ptf-spacer"
-                          style={{ "--ptf-xxl": "5rem", "--ptf-md": "2.5rem" }}
-                        ></div>
-                        <p className="fz-18" style={{ maxWidth: "30rem" }}>
-                          We help our client suceed by creating identities,
-                          digital experiences, and printmaterials that communicate
-                          clearly, achieve marketing goals, and look fantastic.
-                        </p>
-                        <p className="fz-18" style={{ maxWidth: "30rem" }}>
-                          There are many variations of passages of Lorem Ipsum
-                          available, but the majority have suffered alteration in
-                          some form, by injected humour
-                        </p>
-                      </div>
-                      {/* <!--Spacer--> */}
-                      <div
-                        className="ptf-spacer"
-                        style={{ "--ptf-xxl": "8.125rem", "--ptf-lg": "0" }}
-                      ></div>
-                    </div>
+
                   </div>
                 </div>
               </section>
@@ -203,11 +181,18 @@ const StoreRecommend = () => {
               </section>
               {/* End  Advertising Banner */}
 
+              <section>
+                <div className="container">
+                  {/* <!--Divider--> */}
+                  <div className="ptf-divider"></div>
+                </div>
+                <div className="ptf-spacer" style={{ "--ptf-xxl": "20.75rem" }}></div>
+              </section>
             
               {/*=============================================
             Start Footer section
             ============================================== */}
-              <footer className="ptf-footer ptf-footer--style-3">
+              <footer className="ptf-footer ptf-footer--style-1">
                 <div className="container">
                   <div className="row">
                     <div className="col-xl-10 offset-xl-2">
