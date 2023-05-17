@@ -173,7 +173,7 @@ const CrewBbsMain = () => {
 
                 <div className="text-center">
                   {/* <!--Animated Block--> */}
-                  <div
+                  {/* <div
                     className="ptf-animated-block"
                     data-aos="fade"
                     data-aos-delay="0"
@@ -181,7 +181,7 @@ const CrewBbsMain = () => {
                     <a className="ptf-load-more" href="#">
                       More
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 {/* End More Blog btn */}
 

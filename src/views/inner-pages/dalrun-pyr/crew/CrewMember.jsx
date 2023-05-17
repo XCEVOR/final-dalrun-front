@@ -55,6 +55,24 @@ const CrewMember = () => {
                 <CrewMemberBody/>
               </div>
 
+              {/* <!--Spacer--> */}
+              <div
+                className="ptf-spacer"
+                style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}
+              ></div>
+              <div className="text-center">
+                {/* <!--Animated Block--> */}
+                {/* <div
+                  className="ptf-animated-block"
+                  data-aos="fade"
+                  data-aos-delay="0"
+                >
+                  <a className="ptf-load-more" href="#">
+                    More
+                  </a>
+                </div> */}
+              </div>
+
               <div
                 className="ptf-spacer"
                 style={{ "--ptf-xxl": "10rem", "--ptf-md": "5rem" }}

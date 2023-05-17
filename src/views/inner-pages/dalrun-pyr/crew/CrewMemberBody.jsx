@@ -81,19 +81,28 @@ function CrewMemberBody() {
   }, []);
   
   return (
-    
-    <div>
-      <Table striped bordered hover > 
-              <thead >
-                <tr style={{textAlign:'center'}}>          
-                  <th>번호</th>
-                  <th>프로필</th>
-                  <th>이름</th>
-                  <th>아이디</th>
-                  <th>직책</th>
-                  <th>등급</th>
-                  <th>포인트</th>
-                  <th>가입일</th>
+
+    <div className="crewmem_introduce">
+      <button className="btn btn-dalrun">크루멤버 소개</button>
+      {login.memId === leader ? <button className="btn btn-dalrun" onClick={gotoMemberWait}>크루멤버 대기</button> : ''}
+      <table>
+        <thead>
+          <tr>
+            <th style={{width:'300px'}}>프로필사진</th>
+            <th>아이디</th>
+            <th>등급</th>
+            <th>권한</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            dataList.map((crewmem, i) => {
+              return(
+                <tr key={i}>
+                  <td><img src={`http://localhost:3000/dalrun-yr/profiles/${crewmem.profile}`} /></td>
+                  <td>{crewmem.memId}</td>
+                  <td>{crewmem.grade}</td>
+                  <td>{crewmem.memId === leader ? "리더":""}</td>
                 </tr>
               </thead>
               <tbody className="crewtbody">
