@@ -9,6 +9,14 @@ function Inform() {
   const [dataList, setDataList] = useState([]);
   const { handleAllCheck, handleSingleCheck, checkedList } = useCheckControl({dataList});  
   const history = useNavigate();
+  const loginData = JSON.parse(localStorage.getItem("login"));
+  let profileImg = null;
+  let isLogin = false;
+
+  if(loginData){
+    profileImg = loginData.profile;
+    isLogin = true;
+  }
 
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
@@ -18,7 +26,7 @@ function Inform() {
   const [birth, setBirth] = useState("");
   const [profile, setprofile] = useState("");
   const [footSize, setFootSize] = useState("");
-  const [imgFile, setImgFile] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
+  const [imgFile, setImgFile] = useState(`http://localhost:3000/dalrun-yr/profiles/${profileImg}`)
   const imgRef = useRef(null); // 파일 선택 창에서 선택된 파일을 가리키는 역할
 
   useEffect(()=>{
@@ -31,7 +39,7 @@ function Inform() {
         setEmail(login.email);
         setPhone(login.phone);
         setBirth(login.birth);
-        setprofile(login.profile);
+        setBirth(login.profile);
         setFootSize(login.foot);
     }else {
         alert('login을 해주세요.');
@@ -88,7 +96,6 @@ const onSubmit = (e) => {
       
           reader.onload = () => {
             setImgFile(reader.result);
-            setprofile(file.name);
           };
       
 
@@ -100,7 +107,7 @@ const onSubmit = (e) => {
   return(
     
     <div className="members container">
-        <br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br />
         <h4 className="title">회원정보</h4>
         <br />
         <div className="inform outline" />
@@ -117,9 +124,10 @@ const onSubmit = (e) => {
 
                 {/* 업로드 된 이미지 미리보기 */}
                 <img
-                src={imgFile ? imgFile : "/images/icon/user.png"}
+                src={imgFile ? imgFile : `http://localhost:3000/dalrun-yr/profiles/${profileImg}`}
+                // src={imgFile ? `http://localhost:3000/dalrun-yr/profiles/${profileImg}` : `http://localhost:3000/dalrun-yr/profiles/${profileImg}`}
                 alt="프로필 이미지"
-                style={{ width: "30%" }}
+                style={{ width: "50%" }}
                 />
                 <br /><br />
                 <input
