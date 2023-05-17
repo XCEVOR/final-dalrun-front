@@ -47,7 +47,7 @@ const StoreCartFloatingBtn = (props) => {
         </div>
         
         <div style={{position: "relative", left: "30px", top: "-60px"}}>
-          <h6><span class={cartQuantity === 0 ? "cart_none" : "cart_reddot"}>{cartQuantity}</span></h6>
+          <h6><span className={cartQuantity === 0 ? "cart_none" : "cart_reddot"}>{cartQuantity}</span></h6>
         </div>
         
         </button>

@@ -73,7 +73,7 @@ function StoreCart() {
       <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>DEVELOPER_MODE
       <div className="dalrun_hc">
         <Helmet>
-          <title>Moonex - Contact</title>
+          <title>달런달런</title>
         </Helmet>
         {/* End Page SEO Content */}
 
@@ -177,9 +177,7 @@ function StoreCart() {
           ============================================== */}
         <footer className="ptf-footer ptf-footer--style-1">
           <div className="container-xxl">
-            <div className="ptf-footer__top">
-              
-            </div>
+            
             <div className="ptf-footer__bottom">
               <CopyRight />
             </div>
