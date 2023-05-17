@@ -326,7 +326,7 @@ const CrewBbsBlogDetails = () => {
                       {loginTF ?
                         <>
                           <div className="A">
-                            {loginTF ?
+                            {login.crewSeq!==0 ?
                               //이미 크루가 존재
 
                               <p> </p>
@@ -351,7 +351,7 @@ const CrewBbsBlogDetails = () => {
                             ) : (
                               <HeartOutlined style={{ fontSize: '25px' }} onClick={handleLike}></HeartOutlined> //좋아요 - 꽉차있는 하트
                             )}
-                            좋아요  {likecount}
+                            {/* 좋아요  {likecount} */}
                           </i>
                         </>
                         :
