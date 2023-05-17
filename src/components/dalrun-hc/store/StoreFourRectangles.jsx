@@ -129,7 +129,8 @@ const StoreFourRectangles = () => {
   return checkbox_DisplayMode 
   // USER_MODE @@@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE @@@@ @@@@@ @@@@@ @@@@@ @@@@@ USER_MODE 
   ? (
-    <>    <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE
+    <>    
+    {/* <input type='checkbox' onClick={() => (setCheckbox_DisplayMode(!checkbox_DisplayMode))}/>USER_MODE */}
     <div>
       <button className={selectedCategory !== "DEFAULT" ? "store_category_button" : "store_category_button_selected"} value="DEFAULT" onClick={selectCategoryBtn}>DEFAULT</button>
       <button className={selectedCategory !== "SHOES" ? "store_category_button" : "store_category_button_selected"} value="SHOES" onClick={selectCategoryBtn}>SHOES</button>
@@ -158,7 +159,7 @@ const StoreFourRectangles = () => {
               </select>
             </td>
             <td style={{ paddingLeft: "5px"}} className="align-middle">
-              <input type="text"  className="form-control" placeholder="검색어"
+              <input type="text"  className="store_main_search" placeholder="검색어"
                 value={query} onChange={handleSearch} />
             </td>
            
@@ -215,8 +216,8 @@ const StoreFourRectangles = () => {
                 </div>
                 <h5 className="store_product_price">₩ {singleproduct.productPrice}</h5>
                 <p className="ptf-team-member__function">{singleproduct.productCategory}</p>
-                <p className="ptf-team-member__function">view: {singleproduct.productView}</p>
-                <p className="ptf-team-member__function">like: {singleproduct.productLike}</p>
+                {/* <p className="ptf-team-member__function">view: {singleproduct.productView}</p> */}
+                {/* <p className="ptf-team-member__function">like: {singleproduct.productLike}</p> */}
               </div>
             </div>
             </Link>
