@@ -84,15 +84,17 @@
     text-align: center;
   }
 
-  .btn_today {
-    
-  }
+
   
 
   .sido-button-container {
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
+    
+    .scroll::-webkit-scrollbar {
+      display: none;
+    }
   }
   
   .sido-button {

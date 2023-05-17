@@ -22,7 +22,7 @@ const SignupSuccess = () => {
     <div className="bg">
       <div className="Signup-wrap">
         <div className="Signup-backicon" onClick={handleBack}>
-          <i class="bi bi-chevron-left" style={{ fontSize: 30 }}></i>
+          <i className="bi bi-chevron-left" style={{ fontSize: 30 }}></i>
         </div>
         <div className="Signup-header">회원가입 완료</div>
         <div className="Signup-guidebar">

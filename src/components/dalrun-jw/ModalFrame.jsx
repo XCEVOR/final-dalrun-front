@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import '../../assets/dalrun-jw/scss/_modal.scss'
 
 const ModalFrame = (props) => {
 
