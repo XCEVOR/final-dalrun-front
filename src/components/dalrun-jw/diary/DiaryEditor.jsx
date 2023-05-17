@@ -45,7 +45,7 @@ const DiaryEditor = ({ handleEditorChange }) => {
               formData.append('postId', postId);
 
               try {
-                const response = await axios.post('http://localhost:3000/uploadDiaryImg', formData);
+                const response = await axios.post('/uploadDiaryImg', formData);
                 const range = quillRef.current.getEditor().getSelection();
                 quillRef.current.getEditor().insertEmbed(range.index, 'image', response.data.url);
               } catch (error) {

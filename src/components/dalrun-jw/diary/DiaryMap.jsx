@@ -21,7 +21,7 @@ function DiaryMap({ diaries, selectedDiary, setSelectedDiary }){
       console.log(diarySeqList);
 
       // diarySeq에 따른 gpxData 호출
-      axios.get('http://localhost:3000/gpxDataList', {
+      axios.get('/gpxDataList', {
         params: {
           diarySeqList: diarySeqList.join(',') // [1, 2, 3] -> 1, 2, 3
         }

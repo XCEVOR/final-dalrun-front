@@ -59,7 +59,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
   const fetchDiaryItems = async (pageNumber) => {
     try {
       const search = searchParams.get("search") || '';
-      const response = await axios.get('http://localhost:3000/diaryList', {
+      const response = await axios.get('/diaryList', {
         params: {
           Search: search,
           pageNumber: pageNumber,
@@ -116,7 +116,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
 
   const fetchTopScore = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/getTodayTopScore');
+      const response = await axios.get('/getTodayTopScore');
       console.log('TodayTopScore 데이터: ', response.data[0]);
       setTodayTopScore(response.data[0]);
     }catch (error) {
@@ -159,7 +159,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
                   </th>
                   <td rowSpan={2}>
                     <img
-                      src={`http://localhost:3000/dalrun-yr/profiles/${todayTopScore.profile}`}
+                      src={`${process.env.REACT_APP_API_URL}/dalrun-yr/profiles/${todayTopScore.profile}`}
                       className='rounded-circle'
                     />
                     &nbsp;&nbsp;&nbsp;&nbsp;{todayTopScore.memId}
@@ -211,7 +211,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
                   <td>
                     {item.profile != null ? (
                       <div>
-                      <img src={`http://localhost:3000/dalrun-yr/profiles/${item.profile}`}
+                      <img src={`${process.env.REACT_APP_API_URL}/dalrun-yr/profiles/${item.profile}`}
                         className='rounded-circle'
                       /> 
                       &nbsp;&nbsp;&nbsp;

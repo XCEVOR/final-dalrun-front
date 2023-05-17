@@ -21,7 +21,7 @@ function CourseMap({ courseItems, selectedCourse}) {
     if(courseItems && courseItems.length > 0){
 
       // 코스 번호에 따른 gpxData 호출
-      axios.get('http://localhost:3000/courseGpxList', null, [])
+      axios.get('/courseGpxList', null, [])
         .then(response => {
 
           const gpxDataObj = {};

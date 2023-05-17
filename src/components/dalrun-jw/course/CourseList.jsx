@@ -49,7 +49,7 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
   const fetchCourseItems = async () => {
     try {
       const search = searchParams.get("search") || '';
-      const response = await axios.get('http://localhost:3000/courseList', {
+      const response = await axios.get('/courseList', {
         params: {
           search: search,
         },
@@ -134,7 +134,7 @@ const CourseList = ({ course, onCourseSelect, onCourseItemsChange }) => {
               <tbody>
                 <tr>
                   <td rowSpan={6}>
-                    <img className='thumbnail' src={`http://localhost:3000/dalrun-jw/courseThumb/${item.thumbnail}`} alt={item.courseTitle} />
+                    <img className='thumbnail' src={`${process.env.REACT_APP_API_URL}/dalrun-jw/courseThumb/${item.thumbnail}`} alt={item.courseTitle} />
                   </td>
                   <th colSpan={2}>{item.areaName}</th>
                 </tr>

@@ -110,7 +110,7 @@ function MyDropdown() {
     if (profileImg) {
       return (
         <img
-          src={`http://localhost:3000/dalrun-yr/profiles/${profileImg}`}
+          src={`/dalrun-yr/profiles/${profileImg}`}
           alt='mdo'
           width='30'
           height='30'
