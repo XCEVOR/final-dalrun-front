@@ -62,7 +62,7 @@ const StoreRecommendPicture = () => {
                 alt={pic}
                 loading="lazy"
               /> */}
-              <div className="ptf-spacer" style={{ "--ptf-xxl": "3.75rem" }}></div>
+              <div className="ptf-spacer" style={{ "--ptf-xxl": "30.75rem" }}></div>
             </div>
           }
   
