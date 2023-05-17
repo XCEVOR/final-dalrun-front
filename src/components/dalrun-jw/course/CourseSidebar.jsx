@@ -2,7 +2,7 @@
 import { Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudArrowUp, faCircleUser  } from '@fortawesome/free-solid-svg-icons';
+import { faCloudArrowUp, faCircleUser, faCircleQuestion  } from '@fortawesome/free-solid-svg-icons';
 import CourseUpload from './CourseUpload';
 import '../../../assets/dalrun-jw/scss/_modal.scss'
 
@@ -25,12 +25,10 @@ const CourseSidebar = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <header className='diary-navbar-container'>
-      <div id='logoBox' style={{height:'5rem'}}>
+    <header className='course-navbar-container'>
       <Link to="/" title="Home" className='logo-Link'>
         <img src="dalrun_logo.png" className='logo'/>
       </Link>
-      </div>
     <nav className='head-nav'>
       <ul>
         {memId === "admin" && (
@@ -42,15 +40,19 @@ const CourseSidebar = () => {
             <CourseUpload open={modalOpen} close={closeModal}/>
           </li>
         )}
-          <li className='nav-item'>
-            <Link to='/diary'>
-              <img src='/assets/dalrun-jw/img/diary.png' style={{marginBottom:'0.3rem', marginLeft:'0.5rem'}}/>
-              <span>다이어리</span>
-            </Link>
-          </li>
+
           <li className='nav-item'>
             <button>
+              <FontAwesomeIcon icon={faCircleQuestion} size="xl" style={{color:"#74EABC"}}/>
+              <span>업로드</span>
+              <span style={{marginTop:'0', marginRight:'0.2rem'}}>방법</span>
             </button>
+          </li>
+          <li className='nav-item' style={{ marginTop:'1rem'}}>
+            <Link to='/diary'>
+              <img src='/assets/img/dalrun-jw/diary.png' style={{marginBottom:'0.3rem', marginLeft:'0.5rem'}}/>
+              <span>다이어리</span>
+            </Link>
           </li>
       </ul>
       <div className='dropup-container'>
