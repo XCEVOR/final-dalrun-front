@@ -8,12 +8,13 @@ function CrewRankChart({ dataList }) {
     const year = dataList[0].year;
     const month = dataList[0].month;
 
+    const limit = dataList.slice(0 ,7);
     const data = {
-        labels: dataList.map(data => data.crewName),
+        labels: limit.map(data => data.crewName),
         datasets: [
             {
                 label: '점수',
-                data: dataList.map(data => data.monthlyScore),
+                data: limit.map(data => data.monthlyScore),
                 backgroundColor: 'rgba(38, 174, 154, 0.5)',
             },
         ]

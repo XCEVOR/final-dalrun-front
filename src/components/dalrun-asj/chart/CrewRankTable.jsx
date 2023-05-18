@@ -20,11 +20,12 @@ function CrewRankTable({ dataList }) {
                         dataList.length !== 0 ?
                         dataList.map((monthly, i) => {
                             return(
+                                i < 7 ?
                                 <tr key={i}>
-                                    <th>{monthly.ranking}</th>
+                                    <th>{i+1}</th>
                                     <td>{monthly.monthlyScore}</td>
                                     <td>{monthly.crewName}</td>
-                                </tr>
+                                </tr> : ''
                             );    
                         }) 
                         : ''
