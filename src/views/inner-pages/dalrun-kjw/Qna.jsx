@@ -1,14 +1,40 @@
-import React from "react";
+import React, {useState} from "react";
 import QnABody from "../../../components/dalrun-jw/qna/QnABody";
+import { Helmet } from "react-helmet";
 
-const WorksListing = () => {
+import HeadermainPage from "../../../components/dalrun-jy/HeadermainPage";
+import AdminPagination from '../../../components/dalrun-asj/AdminPagination';
+import CopyRight from '../../../components/dalrun-jy/footer/CopyRight';
+import QnAWrite from '../../../components/dalrun-jw/qna/QnAWrite';
+
+const QnA = () => {
+  const [showWriting, setShowWriting] =useState(false);
+  const [qnaItems, setQnaItems] = useState({});
+
+  const handleQnAButtonClick = () => {
+    setShowWriting(true);
+  };
+
+  const handleWritingSubmit = (data) => {
+    // 글쓰기 컴포넌트에서 전달된 데이터를 처리하는 로직 작성
+
+
+    setShowWriting(false);
+  };
+
+
+
   return (
     <div className="ptf-site-wrapper animsition ptf-is--works-listing">
         <title>달런 달런</title>
       {/* End Page SEO Content */}
       <div className="ptf-site-wrapper__inner">
         {/* End  HeaderHomeDefault */}
+      <Helmet>
+        <title>메인 페이지</title>
+      </Helmet>
 
+      <HeadermainPage />
         <div className="main">
           <div className="ptf-page ptf-page--portfolio-listing">
             <section>
@@ -51,14 +77,22 @@ const WorksListing = () => {
               ></div>
               <div className="text-center">
                 {/* <!--Animated Block--> */}
+                {showWriting ? (
+                  <QnAWrite onSubmit={handleWritingSubmit} />
+                ) : (
+                  <div>
+                    <QnABody />
+                    <button onClick={handleQnAButtonClick}>문의하기</button>
+                  </div>
+                )}
                 <div
                   className="ptf-animated-block"
                   data-aos="fade"
                   data-aos-delay="0"
                 >
-                  <a className="ptf-load-more" href="#">
+                  {/* <a className="ptf-load-more" href="#">
                     More
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
@@ -77,10 +111,11 @@ const WorksListing = () => {
       {/* <!--Footer--> */}
       <footer className="ptf-footer ptf-footer--style-1">
         <div className="container-xxl">
-          <div className="ptf-footer__top">
-          </div>
+          <div className="ptf-footer__top"></div>
           <div className="ptf-footer__bottom">
+            <CopyRight />
           </div>
+                  
         </div>
       </footer>
     </div>
@@ -88,4 +123,4 @@ const WorksListing = () => {
   );
 };
 
-export default WorksListing;
+export default QnA;
