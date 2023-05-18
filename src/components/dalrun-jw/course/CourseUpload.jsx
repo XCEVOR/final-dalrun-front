@@ -109,10 +109,10 @@ const CourseUpload = ({ open, close }) => {
               </FormGroup>
             </div>
             <footer>
-              <Button type="submit" className="close">
+              <Button type="submit" className="close" style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer'}}>
                 업로드
               </Button>
-              <Button className="close" onClick={close}>
+              <Button className="close" onClick={close} style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>
                 Close
               </Button>
             </footer>
