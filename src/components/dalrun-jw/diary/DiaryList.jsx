@@ -144,7 +144,7 @@ const DiaryList = ({ diaries, onDiarySelect, onDiaryItemsChange }) => {
               <p style={{ margin: "0" }}>오늘의 1등 기록에 도전하세요!!</p>
             </div>
           ) : (
-            <div style={{height:'4rem', width:'100%'}}>
+            <div style={{height:'3rem', width:'100%'}}>
               <table>
                 <colgroup>
                   <col style={{width:'30px'}} />

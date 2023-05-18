@@ -64,11 +64,11 @@ function DetailModal({ diary, onClose}){
               <td colSpan="4" style={{textAlign:"left"}}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
                   <pre style={{ backgroundColor: "white" }} dangerouslySetInnerHTML={{ __html: diary.content }} />
-                  <button onClick={onClose}>닫기</button>
+                  <button onClick={onClose} style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>닫기</button>
                   {memId === diary.memId && (
                     <div>
-                      <button onClick={handleEdit}>수정</button>
-                      <button onClick={handleDelete}>삭제</button>
+                      <button onClick={handleEdit} style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>수정</button>
+                      <button onClick={handleDelete} style={{ width: '100px', height: '40px', backgroundColor: '#74EABC', color: '#fff', border: 'none', borderRadius: '5px', fontSize: '14px', cursor: 'pointer' }}>삭제</button>
                     </div>
                   )}
                 </div>

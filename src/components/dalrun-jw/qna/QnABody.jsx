@@ -1,7 +1,8 @@
-﻿import React from "react";
+﻿import React, { useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ReactTooltip from "react-tooltip";
 import { Link } from "react-router-dom";
+import AdminPagination from '../../dalrun-asj/AdminPagination';
 
 const portfolioMenu = [
   "일반",
@@ -12,50 +13,50 @@ const portfolioContent = [
   {
     tabContent: [
       {
-        cat: "park1234",
-        title: "질문 1",
-        date: "2023.04.25",
+        cat: "kim1",
+        title: "다이어리 업로드 어떻게 해요? ",
+        date: "2023.05.18",
         routerLink: "/portfolio-details",
         dataId: "work-1",
       },
       {
-        cat: "park1234",
-        title: "질문 2",
-        date: "2023.04.25",
+        cat: "kim36",
+        title: "대구 지역 대회 정보 좀 주세요",
+        date: "2023.05.15",
         routerLink: "/portfolio-details",
         dataId: "work-2",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
-        date: "2023.04.25",
+        cat: "kim5",
+        title: "혹시 등업 조건이 어떻게 되나요?",
+        date: "2023.05.12",
         routerLink: "/portfolio-details",
         dataId: "work-3",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
-        date: "2023.04.25",
+        cat: "kim3",
+        title: "부상 관련 질문입니다.",
+        date: "2023.05.09",
         routerLink: "/portfolio-details",
         dataId: "work-4",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
-        date: "2023.04.25",
+        cat: "kim6",
+        title: "신발을 대량 구매하려는데요,,,,",
+        date: "2023.05.06",
         routerLink: "/portfolio-details",
         dataId: "work-5",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
+        cat: "kim7",
+        title: "춘천 쪽 코스도 추천해주세요!!!",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         dataId: "work-6",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
+        cat: "kim3",
+        title: "",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         imgPopup: "work-7",
@@ -66,7 +67,7 @@ const portfolioContent = [
   {
     tabContent: [
       {
-        cat: "park1234",
+        cat: "kim 5",
         title: "질문 3",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
@@ -74,7 +75,7 @@ const portfolioContent = [
         dataId: "work-3",
       },
       {
-        cat: "park1234",
+        cat: "kim9",
         title: "질문 3",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
@@ -82,8 +83,8 @@ const portfolioContent = [
         dataId: "work-4",
       },
       {
-        cat: "park1234",
-        title: "질문 3",
+        cat: "kim5",
+        title: "배",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         imgPopup: "work-5",
@@ -103,7 +104,7 @@ const portfolioContent = [
       },
       {
         cat: "park1234",
-        title: "질문 3",
+        title: "뉴발란스 프레쉬폼 언제 재입고 예정인가요?",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         imgPopup: "work-6",
@@ -111,7 +112,7 @@ const portfolioContent = [
       },
       {
         cat: "park1234",
-        title: "질문 3",
+        title: "배송 관련 문의드립니다.",
         date: "2023.04.25",
         routerLink: "/portfolio-details",
         imgPopup: "work-7",
@@ -234,7 +235,14 @@ const portfolioContent = [
   },
 ];
 
-const PortfolioListing = () => {
+const QnABody = () => {
+  const [page, setPage] = useState(1);
+  const [totalCnt, setTotalCnt] = useState(25);
+
+  const handlePagination = (selectedPage) =>{
+    setPage(selectedPage);
+  }
+  
   return (
     <>
       <Tabs>
@@ -277,21 +285,8 @@ const PortfolioListing = () => {
                         className="ptf-work__link"
                         to="/works-showcase"
                       ></Link>
-                      <ReactTooltip
-                        id={val.dataId}
-                        place="right"
-                        type="dark"
-                        effect="float"
-                      >
-                        <div className="poup-link">
-                          <img
-                            src={`assets/img/portfolio/grid/${val.imgPopup}.png`}
-                            alt="popup"
-                          />
-                        </div>
-                      </ReactTooltip>
                       <div className="ptf-work__category">{val.cat}</div>
-                      <h4 className="ptf-work__title">{val.title}</h4>
+                      <h5 className="ptf-work__title">{val.title}</h5>
                       <div className="ptf-work__date">{val.date}</div>
                     </article>
                   ))}
@@ -301,7 +296,9 @@ const PortfolioListing = () => {
               </div>
               {/* End .ptf-isotope-grid */}
             </div>
-
+            <div className='diary-list-pagination'>
+                  <AdminPagination page={page} totalCnt={totalCnt} handlePagination={handlePagination}/>
+                </div>
             {/* End portfolio */}
           </TabPanel>
         ))}
@@ -310,4 +307,4 @@ const PortfolioListing = () => {
   );
 };
 
-export default PortfolioListing;
+export default QnABody;
