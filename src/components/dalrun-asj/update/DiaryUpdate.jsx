@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import CustomEditor from "../../dalrun-jw/CustomEditor";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import CustomEditor from "../CustomEditor";
 
 function DiaryUpdate({data, onHide}) {
     const [searchParam, setSearchParam] = useSearchParams();
