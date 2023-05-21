@@ -11,7 +11,7 @@ function AdminSearch(props) {
     const { cate, sub } = useParams();
     const [params] = useState({});
 
-    let searchUrl = `http://localhost:3000/admin_${cate}list`;
+    let searchUrl = `http://localhost:3000/admin_${cate !== 'question' ? cate : sub}list`;
 
     const searching = () => {
         const choice = searchParams.get("choice");
