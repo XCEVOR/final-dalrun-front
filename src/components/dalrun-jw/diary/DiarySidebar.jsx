@@ -134,7 +134,7 @@ function MyDropdown() {
       <Dropdown.Menu>
         {isLogin ? (
           <>
-            <Dropdown.Item href="#/action-1">마이페이지</Dropdown.Item>
+            <Dropdown.Item href="/mypage">마이페이지</Dropdown.Item>
             <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
           </>
         ) : (
